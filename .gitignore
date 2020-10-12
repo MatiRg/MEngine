@@ -1,0 +1,8 @@
+.vscode/
+Build*/
+*.depend
+*.layout
+.directory
+*.pdb
+*.dia~
+*.log
