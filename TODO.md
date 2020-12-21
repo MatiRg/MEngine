@@ -1,6 +1,32 @@
-Add 3D.
+    std::vector<std::string> t1{"uv", "norm", "diff"};
+    std::vector<std::string> t2{"norm", "diff"};
+    std::vector<std::string> t3{"uv", "diff", "norm"};
+	
+    std::sort( t1.begin(), t1.end() );
+    std::sort( t3.begin(), t3.end() );
+        
+    std::cout << std::boolalpha;
+ 
+    std::cout << "T[1]: " << (t1 == t2) << '\n';
+    std::cout << "T[2]: " << (t1 == t3) << '\n';
 
-Use CConfig in Engine Init() phase instead of Init(const SEngineParams&)
+Add 3D.
+add reload method to IResource
+Proper Physics Update
+1.Replace OpenAL with OpenAL Soft or SFML!! or IrrKlang
+Support some components multiple, some unique add static method bool CanMultiple() - defined by macro COMPONENT; CreateComponent will return if only one or unique per entity
+Rework or Remove 2D Support -> See Sprite2D shader
+
+Add MSAA Options
+
+Mixed ECS with standard system -> some things ECS other like in built systems(RigidBody, AudioSource/Listener, Collision Shape in standard way)
+OR
+Remove ECS Completly
+RigidBody -> One
+CollisionShape -> One or maybe Many
+Audio Listener -> One 
+Audio Source -> One or Many
+Particle System -> One or Many
 
 Updatables Loaded from optional XML file "Startup.xml" : 
 <Updatable Name="aa" [Container="aaa"] /> -- No Container Global
@@ -9,8 +35,6 @@ Updatables Loaded from optional XML file "Startup.xml" :
 
 1.Particle Effects
 1.Add IComponent -> void OnAdd, void OnRemove to Entity ???
-1.Replace OpenAL with FMOD or OpenAL Soft
-1.Remove or Replace Mono Script System
 
 Pre Thesis
 
@@ -19,7 +43,6 @@ Pre Thesis
 1.Make Transform editable by mouse -> CGizmos
 1.OverlayDisplay Error + Logger + Console ?
 1.Create CInputManager -> IAxis -> CAxis, CMouseAxis, IAction -> CKeyboardAction, CMouseAction
-1.Encapsulate tinyxml2
 1.Enable/Disable Components
 
 - Never Ending Tasks -
@@ -40,12 +63,9 @@ Pre Thesis
 1.Batches are amalgmated in CRenderer2D.Render() into MultiSet(CDrawBatch, IDrawCommand) -> Set State Here ,Make campatibile with 3D, Refactor IGraphics
 
 1.Project maybe to do -> // Path + Name // bool SaveAs(const std::string&)
-1.Use wxWidgets as GUI for Editor + ImGUI
-1.Replace OpenAL with OpenAl Soft or FMOD??
 
-1.Tiled Map Support - Partial Done - Rework
+1.Tiled Map Support
 1.Use Full Entity Component System
 3.Make Textures PoW2
-3.Add Visual Studio Support(Libs)
 5.Make engine thread safe
 7.Rework Event System -> LowLevel & HighLevel

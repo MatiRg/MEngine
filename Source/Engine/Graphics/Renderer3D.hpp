@@ -1,0 +1,38 @@
+#pragma once
+#include "../Engine/EngineModule.hpp"
+#include "Renderable3D.hpp"
+#include <vector>
+
+class IGraphics;
+
+class CRenderer3D: public IEngineModule
+{
+public:
+    CRenderer3D(IGraphics*);
+    ~CRenderer3D();
+
+    ENGINE_MODULE(CRenderer3D)
+
+    // Non Ownership
+    void AddRenderable(IRenderable3D*);
+
+    void SetViewMatrix(const Matrix4& aMtx) { ViewMatrix = aMtx; }
+    const Matrix4& GetViewMatrix() const { return ViewMatrix; }
+
+    void SetProjectionMatrix(const Matrix4& aMtx) { ProjectionMatrix = aMtx; }
+    const Matrix4& GetProjectionMatrix() const { return ProjectionMatrix; }
+
+    void SetCameraPosition(const Vector3& aVec) { CameraPosition = aVec; }
+    const Vector3& GetCameraPosition() const { return CameraPosition; }
+
+    bool Init(const SEngineParams&) override;
+    void Exit() override;
+
+    void Render();
+private:
+    IGraphics* Graphics = nullptr;
+    Matrix4 ViewMatrix;
+    Matrix4 ProjectionMatrix;
+    Vector3 CameraPosition;
+    std::vector<IRenderable3D*> Renderables;
+};

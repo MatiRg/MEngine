@@ -15,9 +15,11 @@ class CEngineUpdater;
 class CUserUpdater;
 class CResources;
 class CAudioHandler;
+class CRenderer3D;
 class CDrawer2D;
 class CRenderer2D;
-class CPhysics2D;
+class IPhysics3D;
+class IPhysics2D;
 class CImGUI;
 class CScene;
 class CScriptModule;
@@ -48,13 +50,15 @@ public:
     IWindow* GetWindow() const { return Window; }
     IGraphics* GetGraphics() const { return Graphics; }
     IAudio* GetAudio() const { return Audio; }
+    IPhysics3D* GetPhysics3D() const { return Physics3D; }
+    IPhysics2D* GetPhysics2D() const { return Physics2D; }
     CEngineUpdater* GetEngineUpdater() const { return EngineUpdater.get(); }
     CUserUpdater* GetUserUpdater() const { return UserUpdater.get(); }
     CResources* GetResources() const { return Resources.get(); }
     CAudioHandler* GetAudioHandler() const { return AudioHandler.get(); }
+    CRenderer3D* GetRenderer3D() const { return Renderer3D.get(); }
     CDrawer2D* GetDrawer2D() const { return Drawer2D.get(); }
     CRenderer2D* GetRenderer2D() const { return Renderer2D.get(); }
-    CPhysics2D* GetPhysics2D() const { return Physics2D.get(); }
     CImGUI* GetImGUI() const { return ImGUI.get(); }
     CScene* GetScene() const { return Scene.get(); }
     CScriptModule* GetScriptModule() const { return ScriptModule.get(); }
@@ -81,13 +85,15 @@ private:
     IWindow* Window = nullptr;
     IGraphics* Graphics = nullptr;
     IAudio* Audio = nullptr;
+    IPhysics3D* Physics3D = nullptr;
+    IPhysics2D* Physics2D = nullptr;
     std::unique_ptr<CEngineUpdater> EngineUpdater;
     std::unique_ptr<CUserUpdater> UserUpdater;
     std::unique_ptr<CResources> Resources;
     std::unique_ptr<CAudioHandler> AudioHandler;
+    std::unique_ptr<CRenderer3D> Renderer3D;
     std::unique_ptr<CDrawer2D> Drawer2D;
     std::unique_ptr<CRenderer2D> Renderer2D;
-    std::unique_ptr<CPhysics2D> Physics2D;
     std::unique_ptr<CImGUI> ImGUI;
     std::unique_ptr<CScene> Scene;
     std::unique_ptr<CScriptModule> ScriptModule;

@@ -7,6 +7,27 @@
 
 namespace Utils
 {
+    std::string Trim(const std::string& x)
+    {
+        std::string s(x);
+
+        s.erase(s.begin(), std::find_if(s.begin(), s.end(), [](unsigned char ch)
+        {
+            return !std::isspace(ch);
+        }));
+
+        s.erase(std::find_if(s.rbegin(), s.rend(), [](unsigned char ch)
+        {
+            return !std::isspace(ch);
+        }).base(), s.end());
+
+        return s;
+    }
+
+    bool StartWith(const std::string& Value, const std::string& What)
+    {
+        return Value.find(What, 0u) == 0u;
+    }
 
     std::string Format(const char* Fmt, ...)
     {
@@ -20,7 +41,7 @@ namespace Utils
 
         va_list List2;
         va_copy( List2, List1 );
-        std::vector<char> Buff2( std::vsnprintf( nullptr, 0, Fmt, List1 )+1, '\0' );
+        std::vector<char> Buff2( static_cast<std::size_t>(std::vsnprintf( nullptr, 0, Fmt, List1 ))+1u, '\0' );
         va_end( List1 );
 
         int Len = std::vsnprintf( Buff2.data(), Buff2.size(), Fmt, List2 );
@@ -99,6 +120,23 @@ namespace Utils
                 i = '/';
             }
         }
+        return Tmp;
+    }
+
+    std::string AddTrailingDirSeparator(const std::string& Path)
+    {
+        if (Path.empty())
+        {
+            return "/";
+        }
+
+        std::string Tmp = Path;
+        char c = Tmp.back();
+        if (c != '/' && c != '\\')
+        {
+            Tmp.push_back('/');
+        }
+
         return Tmp;
     }
 

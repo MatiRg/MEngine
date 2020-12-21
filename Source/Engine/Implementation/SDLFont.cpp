@@ -8,8 +8,8 @@
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_ttf.h>
 
-CSDLFont::CSDLFont(const std::string& Name, CResources* Resources, IGraphics* aGraphics):
-    IFont( Name, Resources ),
+CSDLFont::CSDLFont(const std::string& Name, IGraphics* aGraphics):
+    IFont( Name ),
     Graphics( aGraphics )
 {
 }
@@ -18,7 +18,7 @@ CSDLFont::~CSDLFont()
 {
 }
 
-bool CSDLFont::Load()
+bool CSDLFont::Load(CResources*, const ResourceCreateMap&)
 {
     CBinaryFile File( GetPath(), EFileMode::Read );
     if( !File.IsOpen() )
@@ -128,8 +128,8 @@ CFontCache* CSDLFont::CreateFontCache(const int Size)
                 if( y >= AtlasSize - Cache->GetLineHeight() )
                 {
                     y = 0;
-                    std::unique_ptr<ITexture2D> Texture = Graphics->CreateTexture2D(Resources);
-                    if( !Texture->CreateFromSurface( LastGlyphAtlas.get() ) )
+                    std::unique_ptr<ITexture2D> Texture = Graphics->CreateTexture2D(LastGlyphAtlas.get());
+                    if( !Texture )
                     {
                         LOG( ESeverity::Error ) << "Unable to create glyph atlas\n";
                         return nullptr;
@@ -153,8 +153,8 @@ CFontCache* CSDLFont::CreateFontCache(const int Size)
             x += SurfaceTmp->GetWidth();
         }
     }
-    std::unique_ptr<ITexture2D> Texture = Graphics->CreateTexture2D(Resources);
-    if( !Texture->CreateFromSurface( LastGlyphAtlas.get() ) )
+    std::unique_ptr<ITexture2D> Texture = Graphics->CreateTexture2D(LastGlyphAtlas.get());
+    if( !Texture)
     {
         LOG( ESeverity::Error ) << "Unable to create glyph atlas\n";
         return nullptr;

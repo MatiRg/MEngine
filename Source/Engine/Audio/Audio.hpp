@@ -5,7 +5,6 @@
 
 class ISoundData;
 class ISound;
-class CResources;
 
 class IAudio: public IEngineModule
 {
@@ -15,8 +14,8 @@ public:
 
     ENGINE_MODULE(IAudio)
 
-    // Name, Path
-    virtual std::unique_ptr<ISoundData> CreateSoundData(const std::string&, CResources*) = 0;
+    // Name - Resources Usage
+    virtual std::unique_ptr<ISoundData> CreateSoundData(const std::string&) = 0;
 
     virtual ISound* CreateSound() = 0;
     virtual ISound* CreateSound(ISoundData*) = 0;

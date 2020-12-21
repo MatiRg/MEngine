@@ -19,42 +19,48 @@ namespace
     }
 }
 
-COGLVertexBufferColorTexCoords::COGLVertexBufferColorTexCoords(const bool Dynamic): 
-    IVertexBufferColorTexCoords(Dynamic)
+COGLVertexBuffer::COGLVertexBuffer()
 {
     LOG( ESeverity::Debug ) << "OGL Vertex Buffer - Created\n";
 }
 
-COGLVertexBufferColorTexCoords::~COGLVertexBufferColorTexCoords()
+COGLVertexBuffer::~COGLVertexBuffer()
 {
-    glDeleteBuffers( 1, &Coords );
-    glDeleteBuffers( 1, &Color );
-    glDeleteBuffers( 1, &Position );
+    if( HasEBO )
+    {
+        glDeleteBuffers(1, &EBO);
+    }
+    for (const auto& i : VBOs)
+    {
+        glDeleteBuffers(1, &i.Index);
+    }
     glDeleteVertexArrays( 1, &VAO );
     LOG( ESeverity::Debug ) << "OGL Vertex Buffer - Destroyed\n";
 }
 
-bool COGLVertexBufferColorTexCoords::Create()
+bool COGLVertexBuffer::Create(const std::vector<SVertexElement>& aDescriptors, const bool aDynamic)
 {
+    if( aDescriptors.empty() )
+    {
+        return false;
+    }
+
+    Dynamic = aDynamic;
+
     glGenVertexArrays( 1, &VAO );
-    glGenBuffers( 1, &Position );
-    glGenBuffers( 1, &Color );
-    glGenBuffers( 1, &Coords );
-
     glBindVertexArray( VAO );
+    for (const auto& i : aDescriptors)
+    {
+        GLuint Index = 0u;
+        glGenBuffers(1, &Index);
 
-    glBindBuffer( GL_ARRAY_BUFFER, Position );
-    glVertexAttribPointer( 0, 3, GL_FLOAT, GL_FALSE, sizeof(Vector3), nullptr );
-    glEnableVertexAttribArray( 0 );
+        VBOs.push_back( {Index, i} );
 
-    glBindBuffer( GL_ARRAY_BUFFER, Color );
-    glVertexAttribPointer( 1, 4, GL_FLOAT, GL_FALSE, sizeof(::Color), nullptr );
-    glEnableVertexAttribArray( 1 );
+        glBindBuffer(GL_ARRAY_BUFFER, Index);
 
-    glBindBuffer( GL_ARRAY_BUFFER, Coords );
-    glVertexAttribPointer( 2, 2, GL_FLOAT, GL_FALSE, sizeof(Vector2), nullptr );
-    glEnableVertexAttribArray( 2 );
-
+        glVertexAttribPointer(static_cast<GLuint>(i.Element), i.ElementSize, GL_FLOAT, GL_FALSE, i.Size, nullptr);
+        glEnableVertexAttribArray(static_cast<GLuint>(i.Element));
+    }
     glBindVertexArray( 0 );
 
     if( OGL::CheckErrorOpenGL() ) 
@@ -66,7 +72,31 @@ bool COGLVertexBufferColorTexCoords::Create()
     return true;
 }
 
-void COGLVertexBufferColorTexCoords::Bind()
+bool COGLVertexBuffer::HasElement(const EVertexElement Element) const
+{
+    for (const auto& i : VBOs)
+    {
+        if (i.Descriptor.Element == Element)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+
+const COGLVertexBuffer::SVBO* COGLVertexBuffer::GetVBO(const EVertexElement Element)
+{
+    for (const auto& i : VBOs)
+    {
+        if (i.Descriptor.Element == Element)
+        {
+            return &i;
+        }
+    }
+    return nullptr;
+}
+
+void COGLVertexBuffer::Bind()
 {
     if( IsValid() ) 
     {
@@ -74,45 +104,151 @@ void COGLVertexBufferColorTexCoords::Bind()
     }
 }
 
-void COGLVertexBufferColorTexCoords::Draw(const EPrimitiveMode Mode, const std::size_t Size)
+void COGLVertexBuffer::Draw(const EPrimitiveMode Mode)
 {
-    if( IsValid() ) 
+    Draw(Mode, HasEBO ? IndicesCount : VertexCount);
+}
+
+void COGLVertexBuffer::Draw(const EPrimitiveMode Mode, const std::size_t Size)
+{
+    if( IsValid() )
     {
-        glDrawArrays( ToGLPrimitiveMode(Mode), 0, static_cast<GLsizei>(Size) );
+        if( HasEBO )
+        {
+            glDrawElements(ToGLPrimitiveMode(Mode), static_cast<GLsizei>(Size), GL_UNSIGNED_INT, nullptr);
+        }
+        else
+        {
+            glDrawArrays(ToGLPrimitiveMode(Mode), 0, static_cast<GLsizei>(Size));
+        }
         OGL::CheckErrorOpenGL();
     }
 }
 
-void COGLVertexBufferColorTexCoords::UnBind()
+void COGLVertexBuffer::UnBind()
 {
 }
 
-void COGLVertexBufferColorTexCoords::FeedPositions(const std::vector<Vector3>& Data)
+void COGLVertexBuffer::SetData(const EVertexElement Type, const std::vector<Vector3>& Data)
 {
-    if( IsValid() )
+    if (IsValid())
     {
-        glBindBuffer( GL_ARRAY_BUFFER, Position );
-        glBufferData( GL_ARRAY_BUFFER, Data.size()*sizeof(Vector3), Data.data(), IsDynamic() ? GL_DYNAMIC_DRAW : GL_STATIC_DRAW );
+        const SVBO* VBO = GetVBO(Type);
+        if( !VBO )
+        {
+            LOG(ESeverity::Error) << "Vertex Buffer Do Not Support this Vertex Type\n";
+            return;
+        }
+        if( Data.empty() )
+        {
+            LOG(ESeverity::Error) << "Invalid Vertex Buffer Data Size\n";
+            return;
+        }
+
+        VertexCount = Data.size();
+
+        glBindBuffer(GL_ARRAY_BUFFER, VBO->Index);
+        glBufferData(GL_ARRAY_BUFFER, Data.size()*VBO->Descriptor.Size, Data.data(), IsDynamic() ? GL_DYNAMIC_DRAW : GL_STATIC_DRAW);
+
         OGL::CheckErrorOpenGL();
+    }
+    else
+    {
+        LOG(ESeverity::Error) << "Using Invalid Vertex Buffer\n";
     }
 }
 
-void COGLVertexBufferColorTexCoords::FeedColors(const std::vector<::Color>& Data)
+void COGLVertexBuffer::SetData(const EVertexElement Type, const std::vector<Vector2>& Data)
 {
-    if( IsValid() )
+    if (IsValid())
     {
-        glBindBuffer( GL_ARRAY_BUFFER, Color );
-        glBufferData( GL_ARRAY_BUFFER, Data.size()*sizeof(::Color), Data.data(), IsDynamic() ? GL_DYNAMIC_DRAW : GL_STATIC_DRAW );
+        const SVBO* VBO = GetVBO(Type);
+        if (!VBO)
+        {
+            LOG(ESeverity::Error) << "Vertex Buffer Do Not Support this Vertex Type\n";
+            return;
+        }
+        if( Data.empty() )
+        {
+            LOG(ESeverity::Error) << "Invalid Vertex Buffer Data Size\n";
+            return;
+        }
+
+        VertexCount = Data.size();
+
+        glBindBuffer(GL_ARRAY_BUFFER, VBO->Index);
+        glBufferData(GL_ARRAY_BUFFER, Data.size() * VBO->Descriptor.Size, Data.data(), IsDynamic() ? GL_DYNAMIC_DRAW : GL_STATIC_DRAW);
+
         OGL::CheckErrorOpenGL();
+    }
+    else
+    {
+        LOG(ESeverity::Error) << "Using Invalid Vertex Buffer\n";
     }
 }
 
-void COGLVertexBufferColorTexCoords::FeedTextureCoords(const std::vector<Vector2>& Data)
+void COGLVertexBuffer::SetData(const EVertexElement Type, const std::vector<Color>& Data)
+{
+    if (IsValid())
+    {
+        const SVBO* VBO = GetVBO(Type);
+        if (!VBO)
+        {
+            LOG(ESeverity::Error) << "Vertex Buffer Do Not Support this Vertex Type\n";
+            return;
+        }
+        if( Data.empty() )
+        {
+            LOG(ESeverity::Error) << "Invalid Vertex Buffer Data Size\n";
+            return;
+        }
+
+        VertexCount = Data.size();
+
+        glBindBuffer(GL_ARRAY_BUFFER, VBO->Index);
+        glBufferData(GL_ARRAY_BUFFER, Data.size() * VBO->Descriptor.Size, Data.data(), IsDynamic() ? GL_DYNAMIC_DRAW : GL_STATIC_DRAW);
+
+        OGL::CheckErrorOpenGL();
+    }
+    else
+    {
+        LOG(ESeverity::Error) << "Using Invalid Vertex Buffer\n";
+    }
+}
+
+void COGLVertexBuffer::SetIndices(const std::vector<unsigned int>& Data)
 {
     if( IsValid() )
     {
-        glBindBuffer( GL_ARRAY_BUFFER, Coords );
-        glBufferData( GL_ARRAY_BUFFER, Data.size()*sizeof(Vector2), Data.data(), IsDynamic() ? GL_DYNAMIC_DRAW : GL_STATIC_DRAW );
+        if( Data.empty() )
+        {
+            LOG(ESeverity::Error) << "Invalid Vertex Buffer Data Size\n";
+            return;
+        }
+
+        IndicesCount = Data.size();
+
+        if( !HasEBO )
+        {
+            glBindVertexArray(VAO);
+
+            glGenBuffers(1, &EBO);
+
+            glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+            glBufferData(GL_ELEMENT_ARRAY_BUFFER, IndicesCount * sizeof(unsigned int), nullptr, IsDynamic() ? GL_DYNAMIC_DRAW : GL_STATIC_DRAW);
+
+            glBindVertexArray(0);
+
+            HasEBO = true;
+        }
+        
+        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, IndicesCount*sizeof(unsigned int), Data.data(), IsDynamic() ? GL_DYNAMIC_DRAW : GL_STATIC_DRAW);
+
         OGL::CheckErrorOpenGL();
+    }
+    else
+    {
+        LOG(ESeverity::Error) << "Using Invalid Vertex Buffer\n";
     }
 }

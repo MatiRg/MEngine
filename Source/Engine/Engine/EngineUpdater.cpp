@@ -11,11 +11,11 @@ CEngineUpdater::~CEngineUpdater()
     LOG( ESeverity::Debug ) << "Engine Updater - Destroyed\n";
 }
 
-bool CEngineUpdater::Init(const SEngineParams& Parameters)
+bool CEngineUpdater::Init(const SEngineParams& Params)
 {
     for(const auto &i: Modules)
     {
-        if( !i->Init( Parameters ) )
+        if( !i->Init(Params) )
         {
             return false;
         }

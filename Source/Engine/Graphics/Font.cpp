@@ -126,12 +126,12 @@ CFontCache* IFont::GetFontCache(const int Size)
 
 //
 
-CFontFactory::CFontFactory(IGraphics* aGraphics):
+CFontManager::CFontManager(IGraphics* aGraphics):
     Graphics(aGraphics)
 {
 }
 
-std::unique_ptr<IResource> CFontFactory::CreateResource(const std::string& Name, CResources* Resources)
+std::unique_ptr<IResource> CFontManager::MakeResource(const std::string& Name, const ResourceCreateMap&)
 {
-    return Graphics->CreateFont( Name, Resources );
+    return Graphics->CreateFont( Name );
 }

@@ -1,36 +1,38 @@
 #pragma once
-#include "../Scene/Component.hpp"
+#include "../Core/NonCopyable.hpp"
 #include "../Math/Vector2.hpp"
-#include <box2d/box2d.h>
+#include "Contact2D.hpp"
+#include <functional>
 
-class CPhysicsWorld2D final: public IComponent
+class ICollisionShape2D;
+class IRigidBody2D;
+class CRenderer2D;
+
+using CollisionCallback2D = std::function<void(const SContact2D&, const SContact2D&)>;
+
+class IPhysicsWorld2D: public NonCopyableMovable
 {
-    class CContactListener: public b2ContactListener
-    {
-    public:
-        void BeginContact(b2Contact*);
-        void EndContact(b2Contact*);
-    };
 public:
-    CPhysicsWorld2D(CEngine* aEngine);
-    ~CPhysicsWorld2D();
+    IPhysicsWorld2D();
+    virtual ~IPhysicsWorld2D();
 
-    COMPONENT(CPhysicsWorld2D)
+    // Size, Offset
+    virtual ICollisionShape2D* CreateBoxCollider(const Vector2&, const Vector2&) = 0;
+    virtual void DestroyCollider(ICollisionShape2D*) = 0;
 
-    bool OnLoad(CXMLElement*) override;
-    bool OnSave(CXMLElement*) override;
+    virtual IRigidBody2D* CreateRigidBody(ICollisionShape2D*) = 0;
+    virtual void DestroyRigidBody(IRigidBody2D*) = 0;
 
-    void OnRender() override;
+    virtual void OnUpdate(const float) = 0;
 
-    void SetGravity(const Vector2&);
-    const Vector2& GetGravity() const { return Gravity; }
+    virtual void SetGravity(const Vector2&) = 0;
+    virtual const Vector2& GetGravity() const = 0;
 
-    void SetDebugDraw(const bool Value) { DebugDraw = Value; }
+    virtual void DebugDraw(CRenderer2D*) = 0;
 
-    b2World& GetWorld() { return WorldBox2D; }
-private:
-    Vector2 Gravity;
-    CContactListener Listener;
-    b2World WorldBox2D;
-    bool DebugDraw = false;
+    void SetEnterCollisionCallback(const CollisionCallback2D& aCall) { CollisionCallbackEnter = aCall; }
+    void SetLeaveCollisionCallback(const CollisionCallback2D& aCall) { CollisionCallbackLeave = aCall; }
+protected:
+    CollisionCallback2D CollisionCallbackEnter;
+    CollisionCallback2D CollisionCallbackLeave;
 };

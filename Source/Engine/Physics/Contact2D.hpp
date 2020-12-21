@@ -1,16 +1,16 @@
 #pragma once
 
-class CRigidBody2D;
-class CBoxCollider2D;
+class IRigidBody2D;
+class ICollisionShape2D;
 
 struct SContact2D
 {
-    SContact2D(CRigidBody2D* aRigidBody, CBoxCollider2D* aCollider):
+    SContact2D(IRigidBody2D* aRigidBody, ICollisionShape2D* aCollider):
         RigidBody(aRigidBody),
         Collider(aCollider)
     {
     }
 
-    CRigidBody2D* RigidBody = nullptr;
-    CBoxCollider2D* Collider = nullptr;
+    IRigidBody2D* RigidBody = nullptr;
+    ICollisionShape2D* Collider = nullptr;
 };

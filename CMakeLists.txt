@@ -26,8 +26,6 @@ if("${CMAKE_SYSTEM_NAME}" MATCHES "Windows")
 	set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
 endif()
 
-add_subdirectory(ThirdParty/Common/box2d)
-
 add_custom_target(copy-runtime-files ALL
     COMMAND cmake -E copy_directory ${CMAKE_SOURCE_DIR}/Data ${CMAKE_BINARY_DIR}/Data
     DEPENDS ${MY_TARGET})
@@ -52,6 +50,7 @@ set(SOURCES_BASE
 	Source/Engine/Core/Log.hpp
 	Source/Engine/Core/NonCopyable.hpp
 	Source/Engine/Core/Platform.hpp
+	Source/Engine/Core/Types.hpp
 	Source/Engine/Core/Utils.cpp
 	Source/Engine/Core/Utils.hpp
 	Source/Engine/Core/XML.cpp
@@ -76,17 +75,29 @@ set(SOURCES_BASE
 	Source/Engine/Graphics/Drawer2D.hpp
 	Source/Engine/Graphics/Font.cpp
 	Source/Engine/Graphics/Font.hpp
+	Source/Engine/Graphics/FrameBuffer.hpp
 	Source/Engine/Graphics/Graphics.hpp
+	Source/Engine/Graphics/Light.cpp
+	Source/Engine/Graphics/Light.hpp
+	Source/Engine/Graphics/Material.cpp
+	Source/Engine/Graphics/Material.hpp
+	Source/Engine/Graphics/Model.cpp
+	Source/Engine/Graphics/Model.hpp
 	Source/Engine/Graphics/Renderable2D.cpp
 	Source/Engine/Graphics/Renderable2D.hpp
+	Source/Engine/Graphics/Renderable3D.cpp
+	Source/Engine/Graphics/Renderable3D.hpp
 	Source/Engine/Graphics/Renderer2D.cpp
 	Source/Engine/Graphics/Renderer2D.hpp
+	Source/Engine/Graphics/Renderer3D.cpp
+	Source/Engine/Graphics/Renderer3D.hpp
 	Source/Engine/Graphics/Shader.cpp
 	Source/Engine/Graphics/Shader.hpp
 	Source/Engine/Graphics/Surface.hpp
 	Source/Engine/Graphics/Texture2D.cpp
 	Source/Engine/Graphics/Texture2D.hpp
 	Source/Engine/Graphics/Vertex2D.hpp
+	Source/Engine/Graphics/VertexBuffer.cpp
 	Source/Engine/Graphics/VertexBuffer.hpp
 	Source/Engine/Graphics/Window.hpp
 	Source/Engine/Implementation/NullAudio/NullAudio.cpp
@@ -95,6 +106,8 @@ set(SOURCES_BASE
 	Source/Engine/Implementation/NullAudio/NullSound.hpp
 	Source/Engine/Implementation/NullAudio/NullSoundData.cpp
 	Source/Engine/Implementation/NullAudio/NullSoundData.hpp
+	Source/Engine/Implementation/OGL/OGLFrameBuffer.cpp
+	Source/Engine/Implementation/OGL/OGLFrameBuffer.hpp
 	Source/Engine/Implementation/OGL/OGLGraphics.cpp
 	Source/Engine/Implementation/OGL/OGLGraphics.hpp
 	Source/Engine/Implementation/OGL/OGLShader.cpp
@@ -105,6 +118,23 @@ set(SOURCES_BASE
 	Source/Engine/Implementation/OGL/OGLUtils.hpp
 	Source/Engine/Implementation/OGL/OGLVertexBuffer.cpp
 	Source/Engine/Implementation/OGL/OGLVertexBuffer.hpp
+	Source/Engine/Implementation/Box2DUtils.hpp
+	Source/Engine/Implementation/Box2DPhysics2D.cpp
+	Source/Engine/Implementation/Box2DPhysics2D.hpp
+	Source/Engine/Implementation/Box2DCollisionShape2D.cpp
+	Source/Engine/Implementation/Box2DCollisionShape2D.hpp
+	Source/Engine/Implementation/Box2DPhysicsWorld2D.cpp
+	Source/Engine/Implementation/Box2DPhysicsWorld2D.hpp
+	Source/Engine/Implementation/Box2DRigidBody2D.cpp
+	Source/Engine/Implementation/Box2DRigidBody2D.hpp	
+	Source/Engine/Implementation/BulletPhysics3D.cpp
+	Source/Engine/Implementation/BulletPhysics3D.hpp
+	Source/Engine/Implementation/BulletCollisionShape3D.cpp
+	Source/Engine/Implementation/BulletCollisionShape3D.hpp
+	Source/Engine/Implementation/BulletPhysicsWorld3D.cpp
+	Source/Engine/Implementation/BulletPhysicsWorld3D.hpp
+	Source/Engine/Implementation/BulletRigidBody3D.cpp
+	Source/Engine/Implementation/BulletRigidBody3D.hpp
 	Source/Engine/Implementation/OALAudio.cpp
 	Source/Engine/Implementation/OALAudio.hpp
 	Source/Engine/Implementation/OALSound.cpp
@@ -127,19 +157,22 @@ set(SOURCES_BASE
 	Source/Engine/Implementation/SDLSystem.hpp
 	Source/Engine/Implementation/SDLWindow.cpp
 	Source/Engine/Implementation/SDLWindow.hpp
-	Source/Engine/Math/AABB.hpp
+	Source/Engine/Math/AABB2.hpp
+	Source/Engine/Math/AABB3.hpp
+	Source/Engine/Math/Color.cpp
 	Source/Engine/Math/Color.hpp
 	Source/Engine/Math/Functions.cpp
 	Source/Engine/Math/Functions.hpp
 	Source/Engine/Math/Matrix3.hpp
 	Source/Engine/Math/Matrix4.hpp
+	Source/Engine/Math/Quaternion.hpp
 	Source/Engine/Math/Rect2.hpp
+	Source/Engine/Math/Rect3.hpp
 	Source/Engine/Math/Vector2.hpp
 	Source/Engine/Math/Vector3.hpp
 	Source/Engine/Math/Vector4.hpp
-	Source/Engine/Physics/Box2DUtils.hpp
-	Source/Engine/Physics/BoxCollider2D.cpp
-	Source/Engine/Physics/BoxCollider2D.hpp
+	Source/Engine/Physics/CollisionShape2D.cpp
+	Source/Engine/Physics/CollisionShape2D.hpp
 	Source/Engine/Physics/Contact2D.hpp
 	Source/Engine/Physics/Physics2D.cpp
 	Source/Engine/Physics/Physics2D.hpp
@@ -147,33 +180,52 @@ set(SOURCES_BASE
 	Source/Engine/Physics/PhysicsWorld2D.hpp
 	Source/Engine/Physics/RigidBody2D.cpp
 	Source/Engine/Physics/RigidBody2D.hpp
+	Source/Engine/Physics/Physics3D.cpp
+	Source/Engine/Physics/Physics3D.hpp
+	Source/Engine/Physics/CollisionShape3D.cpp
+	Source/Engine/Physics/CollisionShape3D.hpp
+	Source/Engine/Physics/PhysicsWorld3D.cpp
+	Source/Engine/Physics/PhysicsWorld3D.hpp
+	Source/Engine/Physics/RigidBody3D.cpp
+	Source/Engine/Physics/RigidBody3D.hpp
 	Source/Engine/Resources/Resource.cpp
 	Source/Engine/Resources/Resource.hpp
-	Source/Engine/Resources/ResourceFactory.hpp
+	Source/Engine/Resources/ResourceManager.cpp
+	Source/Engine/Resources/ResourceManager.hpp
 	Source/Engine/Resources/Resources.cpp
 	Source/Engine/Resources/Resources.hpp
-	Source/Engine/Scene/Components/AudioListener2D.hpp
-	Source/Engine/Scene/Components/AudioListener2D.cpp
-	Source/Engine/Scene/Components/AudioSource2D.hpp
-	Source/Engine/Scene/Components/AudioSource2D.cpp
+	Source/Engine/Scene/Components/AudioListener.hpp
+	Source/Engine/Scene/Components/AudioListener.cpp
+	Source/Engine/Scene/Components/AudioSource.hpp
+	Source/Engine/Scene/Components/AudioSource.cpp
+	Source/Engine/Scene/Components/Camera.hpp
+	Source/Engine/Scene/Components/Camera.cpp
 	Source/Engine/Scene/Components/Camera2D.hpp
 	Source/Engine/Scene/Components/Camera2D.cpp
+	Source/Engine/Scene/Components/MeshRenderer.hpp
+	Source/Engine/Scene/Components/MeshRenderer.cpp
 	Source/Engine/Scene/Components/RectRenderer2D.hpp
 	Source/Engine/Scene/Components/RectRenderer2D.cpp
 	Source/Engine/Scene/Components/StaticSprite2D.hpp
 	Source/Engine/Scene/Components/StaticSprite2D.cpp
+	Source/Engine/Scene/Components/BoxCollider2D.hpp
+	Source/Engine/Scene/Components/BoxCollider2D.cpp
+	Source/Engine/Scene/Components/PhysicsWorld2D.hpp
+	Source/Engine/Scene/Components/PhysicsWorld2D.cpp
+	Source/Engine/Scene/Components/RigidBody2D.hpp
+	Source/Engine/Scene/Components/RigidBody2D.cpp
 	Source/Engine/Scene/Component.cpp
 	Source/Engine/Scene/Component.hpp
-	Source/Engine/Scene/Entity2D.cpp
-	Source/Engine/Scene/Entity2D.hpp
+	Source/Engine/Scene/Entity.cpp
+	Source/Engine/Scene/Entity.hpp
 	Source/Engine/Scene/Event.hpp
 	Source/Engine/Scene/EventManager.hpp
 	Source/Engine/Scene/Scene.cpp
 	Source/Engine/Scene/Scene.hpp
-	Source/Engine/Scene/Transform2D.cpp
-	Source/Engine/Scene/Transform2D.hpp
-	Source/Engine/Scene/World2D.cpp
-	Source/Engine/Scene/World2D.hpp
+	Source/Engine/Scene/Transform.cpp
+	Source/Engine/Scene/Transform.hpp
+	Source/Engine/Scene/World.cpp
+	Source/Engine/Scene/World.hpp
 	Source/Engine/Script/ScriptModule.cpp
 	Source/Engine/Script/ScriptModule.hpp
 	Source/Engine/Input/Event.hpp
@@ -214,17 +266,27 @@ set(SOURCES_BASE
 	ThirdParty/Common/imgui/imstb_truetype.h
 )
 
-set(SOURCES_HELLO
-	Source/HelloWorld/EntryPoint.cpp
-	Source/HelloWorld/Globals.hpp
-	Source/HelloWorld/MainApp.cpp
-	Source/HelloWorld/MainApp.hpp
-	Source/HelloWorld/MainMenu.cpp
-	Source/HelloWorld/MainMenu.hpp
-	Source/HelloWorld/PhysicsPlay.cpp
-	Source/HelloWorld/PhysicsPlay.hpp
-	Source/HelloWorld/PlayGround.cpp
-	Source/HelloWorld/PlayGround.hpp
+set(SOURCES_HELLO2D
+	Source/HelloWorld2D/EntryPoint.cpp
+	Source/HelloWorld2D/Globals.hpp
+	Source/HelloWorld2D/MainApp.cpp
+	Source/HelloWorld2D/MainApp.hpp
+	Source/HelloWorld2D/MainMenu.cpp
+	Source/HelloWorld2D/MainMenu.hpp
+	Source/HelloWorld2D/PhysicsPlay.cpp
+	Source/HelloWorld2D/PhysicsPlay.hpp
+	Source/HelloWorld2D/PlayGround.cpp
+	Source/HelloWorld2D/PlayGround.hpp
+)
+
+# Here You can list add new source/header files
+set(SOURCES_LABI
+	Source/Labirynth/EntryPoint.cpp
+	Source/Labirynth/Globals.hpp
+	Source/Labirynth/MainApp.cpp
+	Source/Labirynth/MainApp.hpp
+	Source/Labirynth/Level2.cpp
+	Source/Labirynth/Level2.hpp
 )
 
 set_source_files_properties(ThirdParty/Common/tinyfiledialogs.c PROPERTIES LANGUAGE CXX)
@@ -240,18 +302,21 @@ if("${CMAKE_SYSTEM_NAME}" MATCHES "Windows")
 endif()
 
 add_library(MyEngine STATIC ${SOURCES_BASE})
-add_executable(HelloWorld ${SOURCES_HELLO})
+add_executable(HelloWorld2D ${SOURCES_HELLO2D})
+add_executable(Labirynth ${SOURCES_LABI})
 
 if(DEV_BUILD)
 	set(PPDEFS -DDEV_BUILD)
 	target_compile_definitions(MyEngine PUBLIC ${PPDEFS})
-	target_compile_definitions(HelloWorld PUBLIC ${PPDEFS})
+	target_compile_definitions(HelloWorld2D PUBLIC ${PPDEFS})
+	target_compile_definitions(Labirynth PUBLIC ${PPDEFS})
 endif()
 
 # Header only libraries
-set(INC_COMMON ThirdParty/Common ThirdParty/Common/box2d/include) 
+set(INC_COMMON ThirdParty/Common) 
 target_include_directories(MyEngine PUBLIC ${INC_COMMON})
-target_include_directories(HelloWorld PUBLIC ${INC_COMMON})
+target_include_directories(HelloWorld2D PUBLIC ${INC_COMMON})
+target_include_directories(Labirynth PUBLIC ${INC_COMMON})
 
 if("${CMAKE_SYSTEM_NAME}" MATCHES "Windows")
     message(STATUS "Windows system")
@@ -264,14 +329,15 @@ if("${CMAKE_SYSTEM_NAME}" MATCHES "Windows")
 	set(INC_BASE ${WIN_PATH_LIBS}/include)
 
 	target_include_directories(MyEngine PUBLIC ${INC_BASE})
-	target_include_directories(HelloWorld PUBLIC ${INC_BASE})
+	target_include_directories(HelloWorld2D PUBLIC ${INC_BASE})
+	target_include_directories(Labirynth PUBLIC ${INC_BASE})
 
 	link_directories(${WIN_PATH_LIBS}/lib)
 	
 	if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
-		set(LIBS SDL2main SDL2 SDL2_image SDL2_ttf OpenAL32)
+		set(LIBS SDL2main SDL2 SDL2_image SDL2_ttf OpenAL32 box2d assimp-vc142-mt BulletCollision BulletDynamics BulletInverseDynamics BulletSoftBody LinearMath)
 	elseif(CMAKE_CXX_COMPILER_ID MATCHES "Clang|GNU")
-		set(LIBS SDL2main SDL2.dll SDL2_image.dll SDL2_ttf.dll openal.dll)
+		set(LIBS SDL2main SDL2.dll SDL2_image.dll SDL2_ttf.dll openal.dll) # TO DO
 	endif()
 	
 	file(GLOB WIN_DLL_LIB "${WIN_PATH_LIBS}/bin/*.dll")
@@ -299,27 +365,30 @@ endif()
 
 set(LIBS 
 	MyEngine 
-	box2d
 	${LIBS}
 )
 
-target_link_libraries(HelloWorld ${LIBS})
+target_link_libraries(HelloWorld2D ${LIBS})
+target_link_libraries(Labirynth ${LIBS})
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "Clang|AppleClang|GNU")
 	set(CMP_GNU -Wall -Wextra -Wunreachable-code -Wpedantic)
 
     target_compile_options(MyEngine PRIVATE ${CMP_GNU})
-    target_compile_options(HelloWorld PRIVATE ${CMP_GNU})
+	target_compile_options(HelloWorld2D PRIVATE ${CMP_GNU})
+    target_compile_options(Labirynth PRIVATE ${CMP_GNU})
 endif()
 if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 	set(CMP_CLN -Wweak-vtables -Wexit-time-destructors -Wglobal-constructors -Wmissing-noreturn)
 
     target_compile_options(MyEngine PRIVATE ${CMP_CLN})
-    target_compile_options(HelloWorld PRIVATE ${CMP_CLN})
+	target_compile_options(HelloWorld2D PRIVATE ${CMP_CLN})
+    target_compile_options(Labirynth PRIVATE ${CMP_CLN})
 endif()
 if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
 	set(CMP_MSV /W4 /w44265 /w44062 /wd4201 /wd4458 /wd4996 /wd4244 /wd4061 /wd4456 /wd4457 /wd4701 /wd4267 /wd4245 /wd4100)
 
     target_compile_options(MyEngine PRIVATE ${CMP_MSV})
-    target_compile_options(HelloWorld PRIVATE ${CMP_MSV})
+	target_compile_options(HelloWorld2D PRIVATE ${CMP_MSV})
+    target_compile_options(Labirynth PRIVATE ${CMP_MSV})
 endif()

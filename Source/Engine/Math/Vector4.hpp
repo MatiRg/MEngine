@@ -42,13 +42,13 @@ public:
         w = -w;
     }
 
-    /**< Length(magnitude) of Vector */
+    // Length(magnitude) of Vector
     T Length() const
     {
         return Math::Sqrt( LengthSquared() );
     }
 
-    /**< Length(magnitude) of Vector Squared */
+    // Length(magnitude) of Vector Squared
     T LengthSquared() const
     {
         return x*x + y*y + z*z + w*w;
@@ -223,12 +223,18 @@ public:
     {
         return TVector4<T>( x / Other.x, y / Other.y, z / Other.z, w / Other.w );
     }
+
+    static TVector4<T> ZERO;
+    static TVector4<T> ONE;
 public:
     T x = T(0);
     T y = T(0);
     T z = T(0);
     T w = T(0);
 };
+
+template<class T> TVector4<T> TVector4<T>::ZERO = { T(0), T(0), T(0), T(0) };
+template<class T> TVector4<T> TVector4<T>::ONE = { T(1), T(1), T(1), T(1) };
 
 using Vector4 = TVector4<float>;
 using IntVector4 = TVector4<int>;

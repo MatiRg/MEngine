@@ -1,5 +1,5 @@
 #pragma once
-#include "Entity2D.hpp"
+#include "Entity.hpp"
 #include "Component.hpp"
 #include "Event.hpp"
 #include "EventManager.hpp"
@@ -24,23 +24,15 @@ public:
         EntityFactory.push_back( std::make_unique<TEntityFactory<T>>(Engine) );
     }
     //
-    CEntity2D* CreateEntity(const std::string&);
+    CEntity* CreateEntity(const std::string&);
     //
     template<class T>
     T* CreateEntity()
     {
-        static_assert(std::is_base_of<CEntity2D, T>::value, "Must be base of CEntity2D");
+        static_assert(std::is_base_of<CEntity, T>::value, "Must be base of CEntity");
         return dynamic_cast<T*>(CreateEntity(T::GetTypeStatic()));
     }
     //
-    CEntity2D* CreateEntityGlobal(const std::string&);
-    //
-    template<class T>
-    T* CreateEntityGlobal()
-    {
-        static_assert(std::is_base_of<CEntity2D, T>::value, "Must be base of CEntity2D");
-        return dynamic_cast<T*>(CreateEntityGlobal(T::GetTypeStatic()));
-    }
 
     template<class T>
     void RegisterComponentFactory()

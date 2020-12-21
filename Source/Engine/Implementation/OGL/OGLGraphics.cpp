@@ -1,4 +1,5 @@
 #include "OGLGraphics.hpp"
+#include "OGLFrameBuffer.hpp"
 #include "OGLTexture2D.hpp"
 #include "OGLVertexBuffer.hpp"
 #include "OGLShader.hpp"
@@ -6,7 +7,6 @@
 #include "../SDLWindow.hpp"
 #include "../SDLSurface.hpp"
 #include "../SDLFont.hpp"
-#include "../../Resources/Resources.hpp"
 #include "../../Core/Utils.hpp"
 #include "../../Core/Log.hpp"
 #include "../../Input/Event.hpp"
@@ -17,7 +17,7 @@
 
 namespace
 {
-    GLenum ToOGLDepthMode(EDepthMode Mode)
+    GLenum ToOGLDepthMode(const EDepthMode Mode)
     {
         switch(Mode)
         {
@@ -38,6 +38,20 @@ namespace
             case EDepthMode::Less:
             default:
                 return GL_LESS;
+        }
+    }
+
+    GLenum ToOGLCullMode(const ECullMode Arg)
+    {
+        switch (Arg)
+        {
+        case ECullMode::FrontBack:
+            return GL_FRONT_AND_BACK;
+        case ECullMode::Front:
+            return GL_FRONT;
+        case ECullMode::Back:
+        default:
+            return GL_BACK;
         }
     }
 }
@@ -122,8 +136,13 @@ bool COGLGraphics::Init(const SEngineParams& Parameters)
     SetDepthActive( true );
     SetDepthFunction( EDepthMode::Less );
     SetViewport( Rect2( 0.0f, 0.0f, 1.0f, 1.0f ) );
-    glEnable( GL_BLEND );
+    SetBlendActive( true );
+    SetCullMode(ECullMode::Back);
+    SetCullActive(false);
+    SetFrontFace(EFrontFace::CCW);
     glActiveTexture( GL_TEXTURE0 );
+
+    glEnable(GL_MULTISAMPLE);
 
     OGL::CheckErrorOpenGL();
 
@@ -132,7 +151,7 @@ bool COGLGraphics::Init(const SEngineParams& Parameters)
     LOG( ESeverity::Info ) << "Vendor: " << reinterpret_cast<const char*>(glGetString(GL_VENDOR)) <<
                               " , Type: " << reinterpret_cast<const char*>(glGetString(GL_RENDERER)) <<
                               " , Max Texture Size: " << MaxTextureSize << "\n";
-    LOG( ESeverity::Info ) << Utils::Format( "Set Video Mode: %dx%d", Window->GetWindowSize().x, Window->GetWindowSize().y ) << "\n";
+    LOG( ESeverity::Info ) << Utils::Format( "Set Video Mode: %dx%d", Window->GetSize().x, Window->GetSize().y ) << "\n";
     return true;
 }
 
@@ -158,7 +177,7 @@ bool COGLGraphics::SaveWindowSurface(const std::string& Path) const
     }
 
     std::shared_ptr<CSDLSurface> Surface = std::make_shared<CSDLSurface>();
-    if( !Surface->Create( Window->GetWindowSize().x, Window->GetWindowSize().y ) )
+    if( !Surface->Create( Window->GetSize().x, Window->GetSize().y ) )
     {
         LOG( ESeverity::Error ) << "Unable to create surface\n";
         return false;
@@ -170,16 +189,16 @@ bool COGLGraphics::SaveWindowSurface(const std::string& Path) const
         SDL_LockSurface( Surface->GetSDLSurface() );
     }
 
-    std::vector<GLubyte> Data( Window->GetWindowSize().x*Window->GetWindowSize().y*4 );
-    glReadPixels( 0, 0, Window->GetWindowSize().x, Window->GetWindowSize().y, GL_RGBA, GL_UNSIGNED_BYTE, Data.data() );
+    std::vector<GLubyte> Data( Window->GetSize().x*Window->GetSize().y*4 );
+    glReadPixels( 0, 0, Window->GetSize().x, Window->GetSize().y, GL_RGBA, GL_UNSIGNED_BYTE, Data.data() );
 
     Uint32* SrcPixels = reinterpret_cast<Uint32*>(Data.data());
     Uint32* DstPixels = reinterpret_cast<Uint32*>(Surface->GetSDLSurface()->pixels);
-    for(int i = 0; i < Window->GetWindowSize().x; ++i)
+    for(int i = 0; i < Window->GetSize().x; ++i)
     {
-        for(int j = 0; j < Window->GetWindowSize().y; ++j)
+        for(int j = 0; j < Window->GetSize().y; ++j)
         {
-            DstPixels[j*Window->GetWindowSize().x+i] = SrcPixels[i+(Window->GetWindowSize().y-1-j)*Window->GetWindowSize().x];
+            DstPixels[j*Window->GetSize().x+i] = SrcPixels[i+(Window->GetSize().y-1-j)*Window->GetSize().x];
         }
     }
 
@@ -202,34 +221,64 @@ bool COGLGraphics::SaveWindowSurface(const std::string& Path) const
     return true;
 }
 
-std::unique_ptr<ITexture2D> COGLGraphics::CreateTexture2D(CResources* Resources)
+std::unique_ptr<ITexture2D> COGLGraphics::CreateRenderSurface(const ERenderTargetType aTarget, const int aW, const int aH)
 {
-    return std::make_unique<COGLTexture2D>( "", Resources, this );
+    auto Ptr = std::make_unique<COGLTexture2D>("", this);
+    if (!Ptr->CreateAsRenderSurface(aTarget, aW, aH))
+    {
+        return {};
+    }
+    return Ptr;
 }
 
-std::unique_ptr<ITexture2D> COGLGraphics::CreateTexture2D(const std::string& Name, CResources* Resources)
+std::unique_ptr<ITexture2D> COGLGraphics::CreateTexture2D(ISurface* Surface)
 {
-    return std::make_unique<COGLTexture2D>( Name, Resources, this );
+    if (!Surface)
+    {
+        return {};
+    }
+    auto Ptr = std::make_unique<COGLTexture2D>( "", this );
+    if (!Ptr->CreateFromSurface(Surface))
+    {
+        return {};
+    }
+    return Ptr;
 }
 
-std::unique_ptr<IFont> COGLGraphics::CreateFont(const std::string& Name, CResources* Resources)
+std::unique_ptr<ITexture2D> COGLGraphics::CreateTexture2D(const std::string& Name)
 {
-    return std::make_unique<CSDLFont>( Name, Resources, this );
+    return std::make_unique<COGLTexture2D>( Name, this );
 }
 
-std::unique_ptr<IVertexBufferColorTexCoords> COGLGraphics::CreateVertexBufferColorCoords(const bool Dynamic)
+std::unique_ptr<IFont> COGLGraphics::CreateFont(const std::string& Name)
 {
-    auto VertexBuffer = std::make_unique<COGLVertexBufferColorTexCoords>(Dynamic);
-    if( !VertexBuffer->Create() )
+    return std::make_unique<CSDLFont>( Name, this );
+}
+
+std::unique_ptr<IVertexBuffer> COGLGraphics::CreateVertexBuffer(const std::vector<SVertexElement>& Descriptors, const bool Dynamic)
+{
+    auto VertexBuffer = std::make_unique<COGLVertexBuffer>();
+    if( !VertexBuffer->Create(Descriptors, Dynamic) )
     {
         return {};
     }
     return VertexBuffer;
 }
 
-std::unique_ptr<IShader> COGLGraphics::CreateShader(const std::string& Name, CResources* Resources)
+std::unique_ptr<IFrameBuffer> COGLGraphics::CreateFrameBuffer()
 {
-    return std::make_unique<COGLShader>( Name, Resources );
+    auto FrameBuffer = std::make_unique<COGLFrameBuffer>(this, Window);
+    if (!FrameBuffer->Create())
+    {
+        return {};
+    }
+    return FrameBuffer;
+}
+
+
+std::unique_ptr<IShader> COGLGraphics::CreateShader(const std::string& Name)
+{
+    return std::make_unique<COGLShader>( Name );
 }
 
 void COGLGraphics::Clear()
@@ -320,10 +369,11 @@ bool COGLGraphics::SetDepthFunction(const EDepthMode Mode)
 bool COGLGraphics::SetViewport(const Rect2& Rect)
 {
     Viewport = Rect;
-    Vector2 WinSize = Vector2( Window->GetWindowSize().x, Window->GetWindowSize().y );
+    Vector2 WinSize = Vector2( Window->GetSize().x, Window->GetSize().y );
 
     glViewport( Viewport.GetX()*WinSize.x, (1.0f-Viewport.GetY()-Viewport.GetHeight())*WinSize.y, 
         Viewport.GetWidth()*WinSize.x, Viewport.GetHeight()*WinSize.y );
+    OGL::CheckErrorOpenGL();
 
     return true;
 }
@@ -331,4 +381,53 @@ bool COGLGraphics::SetViewport(const Rect2& Rect)
 IImGUIRenderer* COGLGraphics::GetImGUIRenderer() const
 {
     return ImGUIRenderer.get();
+}
+
+void COGLGraphics::SetBlendActive(const bool Arg)
+{
+    BlendActive = Arg;
+    if (BlendActive)
+    {
+        glEnable(GL_BLEND);
+    }
+    else
+    {
+        glDisable(GL_BLEND);
+    }
+    OGL::CheckErrorOpenGL();
+}
+
+void COGLGraphics::SetCullActive(const bool Arg)
+{
+    CullModeActive = Arg;
+    if (CullModeActive)
+    {
+        glEnable(GL_CULL_FACE);
+    }
+    else
+    {
+        glDisable(GL_CULL_FACE);
+    }
+    OGL::CheckErrorOpenGL();
+}
+
+void COGLGraphics::SetCullMode(const ECullMode aMode)
+{
+    CullMode = aMode;
+    glCullFace( ToOGLCullMode(CullMode) );
+    OGL::CheckErrorOpenGL();
+}
+
+void COGLGraphics::SetFrontFace(const EFrontFace aMode)
+{
+    FrontFace = aMode;
+    if (FrontFace == EFrontFace::CW)
+    {
+        glFrontFace(GL_CW);
+    }
+    else
+    {
+        glFrontFace(GL_CCW);
+    }
+    OGL::CheckErrorOpenGL();
 }

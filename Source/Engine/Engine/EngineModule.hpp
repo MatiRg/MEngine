@@ -6,6 +6,8 @@
 #define ENGINE_MODULE(X) std::string GetType() const override final { return #X; } \
                          static std::string GetTypeStatic() { return #X; }
 
+class CConfig;
+
 class IEngineModule: public IUpdatable
 {
 public:

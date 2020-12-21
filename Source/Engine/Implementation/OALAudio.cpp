@@ -54,8 +54,8 @@ bool COALAudio::Init(const SEngineParams&)
         return false;
     }
 
-    Vector3 Forward = Vector3::FORWARD();
-    Vector3 Up = Vector3::UP();
+    Vector3 Forward = Vector3::FORWARD;
+    Vector3 Up = Vector3::UP;
     ALfloat ListenerOrientation[] = { Forward.x, Forward.y, -Forward.z, Up.x, Up.y, Up.z }; // 1 Forward, 2 Up as Vector3::UP()
     alListener3f( AL_POSITION, 0.0f, 0.0f, 0.0f );
     alListener3f( AL_VELOCITY, 0.0f, 0.0f, 0.0f );
@@ -79,9 +79,9 @@ void COALAudio::Exit()
     LOG( ESeverity::Info ) << "Audio - Exit\n";
 }
 
-std::unique_ptr<ISoundData> COALAudio::CreateSoundData(const std::string& Name, CResources* Resources)
+std::unique_ptr<ISoundData> COALAudio::CreateSoundData(const std::string& Name)
 {
-    return std::make_unique<COALSoundData>( Name, Resources );
+    return std::make_unique<COALSoundData>( Name );
 }
 
 ISound* COALAudio::CreateSound(ISoundData* Data)

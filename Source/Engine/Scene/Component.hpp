@@ -4,7 +4,7 @@
 #include <string>
 
 class CEngine;
-class CEntity2D;
+class CEntity;
 class CRenderer2D;
 class CXMLElement;
 
@@ -20,8 +20,10 @@ public:
 
     virtual std::string GetType() const = 0;
 
-    void SetOwner(CEntity2D* aOwner) { Owner = aOwner; }
-    CEntity2D* GetOwner() const { return Owner; }
+    CEngine* GetEngine() const { return Engine; }
+
+    void SetOwner(CEntity* aOwner) { Owner = aOwner; }
+    CEntity* GetOwner() const { return Owner; }
 
     virtual bool OnLoad(CXMLElement*) { return true; }
     virtual bool OnSave(CXMLElement*) { return true; }
@@ -41,8 +43,10 @@ public:
     virtual void OnDestroy() {}
 protected:
     CEngine* Engine = nullptr;
-    CEntity2D* Owner = nullptr;
+    CEntity* Owner = nullptr;
 };
+
+using ComponentArray = std::vector<IComponent*>;
 
 class IComponentFactory: public NonCopyableMovable
 {

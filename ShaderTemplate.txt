@@ -1,0 +1,10 @@
+#include "Locations.inc"
+#include "Uniforms.inc"
+
+#ifdef VS
+
+#endif
+
+#ifdef FS
+
+#endif

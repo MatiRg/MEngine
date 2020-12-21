@@ -6,6 +6,9 @@
 #include "OALAudio.hpp"
 #include "OGL/OGLGraphics.hpp"
 #include "NullAudio/NullAudio.hpp"
+#include "BulletPhysics3D.hpp"
+#include "Box2DPhysics2D.hpp"
+#include "../Engine/Config.hpp"
 #include "../Core/Log.hpp"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
@@ -17,6 +20,14 @@ CSDLContext::CSDLContext()
 
 CSDLContext::~CSDLContext()
 {
+    Physics2D.reset();
+    Physics3D.reset();
+    Audio.reset();
+    Graphics.reset();
+    Input.reset();
+    Window.reset();
+    EventQueue.reset();
+    System.reset();
     TTF_Quit();
     IMG_Quit();
     SDL_Quit();
@@ -54,6 +65,8 @@ bool CSDLContext::Init(const SEngineParams& Params)
     {
         Audio = std::make_unique<CNullAudio>();
     }
+    Physics3D = std::make_unique<CBulletPhysics3D>();
+    Physics2D = std::make_unique<CBox2DPhysics2D>();
 
     LOG( ESeverity::Debug ) << "SDL Context - Init\n";
 
@@ -88,4 +101,14 @@ IGraphics* CSDLContext::GetGraphics() const
 IAudio* CSDLContext::GetAudio() const
 {
     return Audio.get();
+}
+
+IPhysics3D* CSDLContext::GetPhysics3D() const
+{
+    return Physics3D.get();
+}
+
+IPhysics2D* CSDLContext::GetPhysics2D() const
+{
+    return Physics2D.get();
 }

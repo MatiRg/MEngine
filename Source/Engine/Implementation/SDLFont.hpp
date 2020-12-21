@@ -6,15 +6,13 @@ class IGraphics;
 class CSDLFont: public IFont
 {
 public:
-    CSDLFont(const std::string&, CResources*, IGraphics*);
+    CSDLFont(const std::string&, IGraphics*);
     ~CSDLFont();
 
-    bool Load() override;
-    bool IsValid() const override { return Valid; }
+    bool Load(CResources*, const ResourceCreateMap&) override;
 
     CFontCache* CreateFontCache(const int) override;
 private:
     IGraphics* Graphics = nullptr;
     std::vector<char> Data;
-    bool Valid = false;
 };

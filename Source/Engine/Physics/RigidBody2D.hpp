@@ -1,67 +1,68 @@
 #pragma once
-#include "../Scene/Component.hpp"
+#include "../Core/NonCopyable.hpp"
 #include "../Math/Vector2.hpp"
-#include <box2d/box2d.h>
 
-class CPhysicsWorld2D;
+class IPhysicsWorld2D;
+class ICollisionShape2D;
 
-enum class ERigidBody2DType
+enum class ERigidBodyType2D
 {
     Static,
     Dynamic,
     Kinematic
 };
 
-class CRigidBody2D final: public IComponent
+class IRigidBody2D: public NonCopyableMovable
 {
 public:
-    CRigidBody2D(CEngine* aEngine);
-    ~CRigidBody2D();
+    IRigidBody2D(IPhysicsWorld2D*, ICollisionShape2D*);
+    virtual ~IRigidBody2D();
 
-    COMPONENT(CRigidBody2D)
+    IPhysicsWorld2D* GetWorld() const { return World; }
+    ICollisionShape2D* GetCollider() const { return Collider; }
 
-    void OnCreate() override;
+    virtual void SetEnabled(const bool) = 0;
+    virtual bool IsEnabled() const = 0;
 
-    bool OnLoad(CXMLElement*) override;
-    bool OnSave(CXMLElement*) override;
+    virtual void SetPosition(const Vector2&) = 0;
+    virtual Vector2 GetPosition() const = 0;
 
-    void OnEnabled() override;
-    void OnDisabled() override;
+    virtual void SetAngle(const float) = 0;
+    virtual float GetAngle() const = 0;
 
-    void OnBeginFrame() override;
+    virtual void SetBodyType(const ERigidBodyType2D) = 0;
+    virtual ERigidBodyType2D GetBodyType() const = 0;
 
-    void SetBodyType(const ERigidBody2DType);
-    ERigidBody2DType GetBodyType() const { return BodyType; }
+    virtual void SetFixedRotation(const bool) = 0;
+    virtual bool HasFixedRotation() const = 0;
 
-    void SetFixedRotation(const bool);
-    bool HasFixedRotation() const { return FixedRotation; }
+    virtual void AddForce(const Vector2&) = 0;
+    virtual void AddTorque(const float) = 0;
+    virtual void AddLinearImpulse(const Vector2&) = 0;
+    virtual void AddAngularImpulse(const float) = 0;
 
-    void AddForce(const Vector2&);
-    void AddTorque(const float);
-    void AddLinearImpulse(const Vector2&);
-    void AddAngularImpulse(const float);
+    virtual void SetMass(const float) = 0;
+    virtual float GetMass() const = 0;
 
-    float GetMass() const;
-
-    void SetLinearVelocity(const Vector2&);
-    Vector2 GetLinearVelocity() const;
+    virtual void SetLinearVelocity(const Vector2&) = 0;
+    virtual Vector2 GetLinearVelocity() const = 0;
 
     // Degrees
-    void SetAngularVelocity(const float);
-    float GetAngularVelocity() const;
+    virtual void SetAngularVelocity(const float) = 0;
+    virtual float GetAngularVelocity() const = 0;
 
-    void SetLinearDamping(const float);
-    float GetLinearDamping() const { return LinearDamping; }
+    virtual void SetLinearDamping(const float) = 0;
+    virtual float GetLinearDamping() const = 0;
 
-    void SetAngularDamping(const float);
-    float GetAngularDamping() const { return AngularDamping; }
+    virtual void SetAngularDamping(const float) = 0;
+    virtual float GetAngularDamping() const = 0;
 
-    b2Body* GetBody() const { return Body; }
-private:
-    CPhysicsWorld2D* PhysicsWorld2D = nullptr;
-    b2Body* Body = nullptr;
-    ERigidBody2DType BodyType = ERigidBody2DType::Dynamic;
-    bool FixedRotation = true;
-	float LinearDamping = 0.0f;
-	float AngularDamping = 0.0f;
+    void SetUserData(void* aData) { UserData = aData; }
+    void* GetUserData() const { return UserData; }
+    template<class T>
+    T* GetUserDataAs() const { return static_cast<T*>(UserData); }
+protected:
+    IPhysicsWorld2D* World = nullptr;
+    ICollisionShape2D* Collider = nullptr;
+    void* UserData = nullptr;
 };

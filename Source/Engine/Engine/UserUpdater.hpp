@@ -29,26 +29,6 @@ public:
     void OnExit() override;
     void Exit() override;
 
-    // Create Global Updatable, Ownership not taken
-    template<class T, class...Args>
-    T* CreateGlobalUpdatable(Args&&...args)
-    {
-        static_assert(std::is_base_of<IUpdatable, T>::value, "Must be base of IUpdatable");
-        auto Ptr = new T( std::forward<Args>(args)... );
-        AddUpdatable( Ptr );
-        return Ptr;
-    }
-
-    // Create Container Updatable, Ownership not taken
-    template<class T, class...Args>
-    T* CreateUpdatable(const std::string& Container, Args&&...args)
-    {
-        static_assert(std::is_base_of<IUpdatable, T>::value, "Must be base of IUpdatable");
-        auto Ptr = new T( std::forward<Args>(args)... );
-        AddUpdatable( Container, Ptr );
-        return Ptr;
-    }
-
     // Ownership not taken
     void AddUpdatable(IUpdatable*);
     // Same Updatables can be push to many Containers, Ownership not taken

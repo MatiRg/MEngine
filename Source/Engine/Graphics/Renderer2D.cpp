@@ -4,8 +4,6 @@
 #include "Font.hpp"
 #include "Texture2D.hpp"
 #include "../Core/Log.hpp"
-#include "../Scene/Entity2D.hpp"
-#include "../Scene/Components/Camera2D.hpp"
 
 CRenderer2D::CRenderer2D(CDrawer2D* aDrawer):
     IEngineModule( "Renderer2D" ),
@@ -32,74 +30,62 @@ void CRenderer2D::Exit()
 
 void CRenderer2D::Render()
 {
-    if( HasCamera() )
+    Matrix4 Tmp = Drawer2D->GetViewProjection();
+    Drawer2D->SetViewProjection(ViewProjection);
+    EBlendMode Mode = Drawer2D->GetBlendMode();
+    
+    for(const auto& Renderable: Renderables)
     {
-        CCamera2D* Component = Camera->GetComponent<CCamera2D>();
-        Matrix4 Mat(
-            1.0f, 0.0f, 0.0f, Component->GetTranslation().x,
-            0.0f, 1.0f, 0.0f, Component->GetTranslation().y,
-            0.0f, 0.0f, 1.0f, 0.0f,
-            0.0f, 0.0f, 0.0f, 1.0f
-        );
-        ViewProjection = Math::Ortho(Camera->GetComponent<CCamera2D>()->GetSize().x, 0.0f, Camera->GetComponent<CCamera2D>()->GetSize().y, 0.0f)*Mat;
-
-        Matrix4 Tmp = Drawer2D->GetViewProjection();
-        Drawer2D->SetViewProjection(ViewProjection);
-        EBlendMode Mode = Drawer2D->GetBlendMode();
-
-        for(const auto& Renderable: Renderables)
-        {
-            Renderable->Render(Drawer2D);
-        }
-        Renderables.clear();
-
-        Drawer2D->SetViewProjection(Tmp);
-        Drawer2D->SetBlendMode(Mode);
+        Renderable->Render(Drawer2D);
     }
+    Renderables.clear();
+    
+    Drawer2D->SetViewProjection(Tmp);
+    Drawer2D->SetBlendMode(Mode);
 }
 
-void CRenderer2D::SetCamera(CEntity2D* aCamera)
+void CRenderer2D::SetViewProjection(const Matrix4& aViewProjecion)
 {
-    Camera = aCamera;
+    ViewProjection = aViewProjecion;
 }
 
-bool CRenderer2D::HasCamera() const
+IRenderable2D* CRenderer2D::DrawPolygon(const std::vector<SVertex2D>& Vertices, const EPrimitiveMode Type,
+    const Matrix4& aMatrix, const float aLayer)
 {
-    return Camera && Camera->HasComponent<CCamera2D>();
-}
-
-IRenderable2D* CRenderer2D::DrawPolygon(const std::vector<SVertexPC>& Vertices, const EPrimitiveMode Type, const CTransform2D& Transform)
-{
-    Renderables.push_back( std::make_unique<CPolygonRenderable2D>(Vertices, Type, Transform) );
+    Renderables.push_back( std::make_unique<CPolygonRenderable2D>(Vertices, Type, aMatrix, aLayer) );
     return Renderables.back().get();
 }
 
-IRenderable2D* CRenderer2D::DrawPoint(const Vector2& Position, const Color& DrawColor, const CTransform2D& Transform)
+IRenderable2D* CRenderer2D::DrawPoint(const Vector2& Position, const Color& DrawColor, const Matrix4& aMatrix, const float aLayer)
 {
-    Renderables.push_back( std::make_unique<CPointRenderable2D>(Position, DrawColor, Transform) );
+    Renderables.push_back( std::make_unique<CPointRenderable2D>(Position, DrawColor, aMatrix, aLayer) );
     return Renderables.back().get();
 }
 
-IRenderable2D* CRenderer2D::DrawLine(const Vector2& Start, const Vector2& End, const Color& DrawColor, const CTransform2D& Transform)
+IRenderable2D* CRenderer2D::DrawLine(const Vector2& Start, const Vector2& End, const Color& DrawColor, 
+    const Matrix4& aMatrix, const float aLayer)
 {
-    Renderables.push_back( std::make_unique<CLineRenderable2D>(Start, End, DrawColor, Transform) );
+    Renderables.push_back( std::make_unique<CLineRenderable2D>(Start, End, DrawColor, aMatrix, aLayer) );
     return Renderables.back().get();
 }
 
-IRenderable2D* CRenderer2D::DrawRect(const Rect2& Rect, const bool Fill, const Color& DrawColor, const CTransform2D& Transform)
+IRenderable2D* CRenderer2D::DrawRect(const Rect2& Rect, const bool Fill, const Color& DrawColor, 
+    const Matrix4& aMatrix, const float aLayer)
 {
-    Renderables.push_back( std::make_unique<CRectRenderable2D>(Rect, Fill, DrawColor, Transform) );
+    Renderables.push_back( std::make_unique<CRectRenderable2D>(Rect, Fill, DrawColor, aMatrix, aLayer) );
     return Renderables.back().get();
 }
 
-IRenderable2D* CRenderer2D::DrawText(IFont* Font, const std::string& Text, const Vector2& Start, const Color& DrawColor, const int Size, const CTransform2D& Transform)
+IRenderable2D* CRenderer2D::DrawText(IFont* Font, const std::string& Text, const Vector2& Start, const Color& DrawColor, const int Size, 
+    const Matrix4& aMatrix, const float aLayer)
 {
-    Renderables.push_back( std::make_unique<CTextRenderable2D>( Font, Text, Start, DrawColor, Size, Transform ) );
+    Renderables.push_back( std::make_unique<CTextRenderable2D>( Font, Text, Start, DrawColor, Size, aMatrix, aLayer) );
     return Renderables.back().get();
 }
 
-IRenderable2D* CRenderer2D::DrawTexture(ITexture2D* Texture, const Rect2& Src, const Rect2& Dst, const ETextureFlip Flip, const CTransform2D& Transform)
+IRenderable2D* CRenderer2D::DrawTexture(ITexture2D* Texture, const Rect2& Src, const Rect2& Dst, const ETextureFlip Flip, 
+    const Matrix4& aMatrix, const float aLayer)
 {
-    Renderables.push_back( std::make_unique<CTextureRenderable2D>( Texture, Src, Dst, Flip, Transform ) );
+    Renderables.push_back( std::make_unique<CTextureRenderable2D>( Texture, Src, Dst, Flip, aMatrix, aLayer) );
     return Renderables.back().get();
 }

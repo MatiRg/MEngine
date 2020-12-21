@@ -6,7 +6,7 @@
 #include <unordered_map>
 #include <algorithm>
 
-class CEntity2D;
+class CEntity;
 
 class CEventManager final
 {
@@ -45,7 +45,7 @@ class CEventManager final
 
     template<class E>
     using Function = std::function<void(const E&)>;
-    using FunctionData = std::tuple<CEntity2D*, Function<IGameEvent>>;
+    using FunctionData = std::tuple<CEntity*, Function<IGameEvent>>;
     using FunctionContainer = std::list<FunctionData>;
 
     template<class E>
@@ -68,7 +68,7 @@ public:
     ~CEventManager() = default;
 
     template<class E, class F>
-    void Subscribe(CEntity2D* Entity, const F& aFunction)
+    void Subscribe(CEntity* Entity, const F& aFunction)
     {
         auto& Container = EventReceivers[TGameEvent<E>::GetFamily()];
         for(auto it = Container.begin(); it != Container.end(); ++it)
@@ -95,7 +95,7 @@ public:
         }
     }
 
-    void UnSubscribe(CEntity2D* Entity)
+    void UnSubscribe(CEntity* Entity)
     {
         for(auto& i: EventReceivers)
         {

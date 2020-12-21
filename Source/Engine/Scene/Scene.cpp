@@ -1,12 +1,15 @@
 #include "Scene.hpp"
-#include "Components/AudioListener2D.hpp"
-#include "Components/AudioSource2D.hpp"
+#include "Entity.hpp"
+#include "Components/AudioListener.hpp"
+#include "Components/AudioSource.hpp"
 #include "Components/Camera2D.hpp"
 #include "Components/RectRenderer2D.hpp"
 #include "Components/StaticSprite2D.hpp"
-#include "../Physics/PhysicsWorld2D.hpp"
-#include "../Physics/RigidBody2D.hpp"
-#include "../Physics/BoxCollider2D.hpp"
+#include "Components/RigidBody2D.hpp"
+#include "Components/PhysicsWorld2D.hpp"
+#include "Components/BoxCollider2D.hpp"
+#include "Components/Camera.hpp"
+#include "Components/MeshRenderer.hpp"
 #include "../Engine/Engine.hpp"
 
 CScene::CScene(CEngine* aEngine):
@@ -21,22 +24,24 @@ CScene::~CScene()
 
 bool CScene::Init(const SEngineParams&)
 {
-    RegisterComponentFactory<CAudioListener2D>();
-    RegisterComponentFactory<CAudioSource2D>();
-    RegisterComponentFactory<CBoxCollider2D>();
-    RegisterComponentFactory<CRigidBody2D>();
-    RegisterComponentFactory<CPhysicsWorld2D>();
+    RegisterComponentFactory<CAudioListener>();
+    RegisterComponentFactory<CAudioSource>();
     RegisterComponentFactory<CCamera2D>();
     RegisterComponentFactory<CRectRenderer2D>();
     RegisterComponentFactory<CStaticSprite2D>();
+    RegisterComponentFactory<CBoxCollider2D>();
+    RegisterComponentFactory<CRigidBody2D>();
+    RegisterComponentFactory<CPhysicsWorld2D>();
+    RegisterComponentFactory<CCamera>();
+    RegisterComponentFactory<CMeshRenderer>();
     //
-    RegisterEntityFactory<CEntity2D>();
+    RegisterEntityFactory<CEntity>();
 
     LOG( ESeverity::Info ) << "Scene Module - Init\n";
     return true;
 }
 
-CEntity2D* CScene::CreateEntity(const std::string& Type)
+CEntity* CScene::CreateEntity(const std::string& Type)
 {
     IEntityFactory* Factory = nullptr;
     for(const auto& i: EntityFactory)
@@ -49,24 +54,10 @@ CEntity2D* CScene::CreateEntity(const std::string& Type)
     }
     if( !Factory )
     {
-        LOG(ESeverity::Warning) << "No Factory for Entity2D - " << Type << "\n";
+        LOG(ESeverity::Warning) << "No Factory for Entity - " << Type << "\n";
         return nullptr;
     }
     return Factory->CreateEntity();
-}
-
-CEntity2D* CScene::CreateEntityGlobal(const std::string& Type)
-{
-    auto Entity = CreateEntity(Type);
-    if( Entity )
-    {
-        Entity->SetID(GLOBAL_ENTITY);
-        Entity->SetWorld(nullptr);
-        Entity->SetParent(nullptr);
-        //
-        Entity->OnCreate();
-    }
-    return Entity;
 }
 
 IComponent* CScene::CreateComponent(const std::string& Type)

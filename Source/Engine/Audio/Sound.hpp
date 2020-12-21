@@ -1,6 +1,7 @@
 #pragma once
 #include "../Core/NonCopyable.hpp"
 #include "../Math/Vector3.hpp"
+#include "../System/MemoryManager.hpp"
 
 class ISoundData;
 
@@ -15,8 +16,15 @@ enum class ESoundState
 class ISound: public NonCopyableMovable
 {
 public:
-    ISound() {}
-    virtual ~ISound() {}
+    ISound() 
+    {
+        ADD_MEMORY_RECORD(this);
+    }
+
+    virtual ~ISound() 
+    {
+        ERASE_MEMORY_RECORD(this);
+    }
 
     virtual bool IsValid() const = 0;
 

@@ -29,8 +29,8 @@ bool CSDLWindow::Init(const SEngineParams& Parameters)
 
     Uint32 Flags = SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL;
 
-    SDL_GL_SetAttribute( SDL_GL_CONTEXT_MAJOR_VERSION, 3 );
-    SDL_GL_SetAttribute( SDL_GL_CONTEXT_MINOR_VERSION, 3 );
+    SDL_GL_SetAttribute( SDL_GL_CONTEXT_MAJOR_VERSION, 4 );
+    SDL_GL_SetAttribute( SDL_GL_CONTEXT_MINOR_VERSION, 6 );
     SDL_GL_SetAttribute( SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE );
     SDL_GL_SetAttribute( SDL_GL_RED_SIZE, 8 );
     SDL_GL_SetAttribute( SDL_GL_GREEN_SIZE, 8 );
@@ -39,6 +39,9 @@ bool CSDLWindow::Init(const SEngineParams& Parameters)
     SDL_GL_SetAttribute( SDL_GL_DOUBLEBUFFER, 1 );
     SDL_GL_SetAttribute( SDL_GL_DEPTH_SIZE, 24 );
     SDL_GL_SetAttribute( SDL_GL_STENCIL_SIZE, 8 );
+
+    SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
+    SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 4);
 
     Window = SDL_CreateWindow( Caption.c_str(), WinPosX, WinPosY, Width, Height, Flags );
     if( !Window )
@@ -58,11 +61,16 @@ bool CSDLWindow::SetCaption(const std::string& C)
     return true;
 }
 
-bool CSDLWindow::SetWindowSize(const IntVector2& Size)
+bool CSDLWindow::SetSize(const IntVector2& Size)
 {
     WindowSize = Size;
     SDL_SetWindowSize( Window, WindowSize.x, WindowSize.y );
     return true;
+}
+
+float CSDLWindow::GetAspectRatio() const
+{
+    return static_cast<float>(WindowSize.x) / static_cast<float>(WindowSize.y);
 }
 
 bool CSDLWindow::SetIcon(const std::string& Name, CResources* Resources)
@@ -73,10 +81,8 @@ bool CSDLWindow::SetIcon(const std::string& Name, CResources* Resources)
         return false;
     }
 
-    bool FoundPath;
     std::string FullPath;
-    std::tie(FoundPath, FullPath) = Resources->FindPath(Name);
-    if( !FoundPath )
+    if( !Resources->FindPath(Name, FullPath) )
     {
         return false;
     }

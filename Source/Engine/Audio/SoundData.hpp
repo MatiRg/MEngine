@@ -1,14 +1,13 @@
 #pragma once
-#include "../Resources/Resource.hpp"
-#include "../Resources/ResourceFactory.hpp"
+#include "../Resources/ResourceManager.hpp"
 
 class IAudio;
 
 class ISoundData: public IResource
 {
 public:
-    ISoundData(const std::string& Name, CResources* Resources):
-        IResource( Name, Resources )
+    ISoundData(const std::string& Name):
+        IResource( Name )
     {
     }
 
@@ -24,12 +23,14 @@ public:
 
 //
 
-class CSoundDataFactory: public TResourceFactory<ISoundData>
+class CSoundDataManager: public TResourceManager<ISoundData>
 {
 public:
-    CSoundDataFactory(IAudio*);
+    CSoundDataManager(IAudio*);
 
-    std::unique_ptr<IResource> CreateResource(const std::string&, CResources*) override;
+    RESOURCE_MANAGER(CMaterialManager)
+protected:
+    std::unique_ptr<IResource> MakeResource(const std::string&, const ResourceCreateMap&) override;
 private:
     IAudio* Audio = nullptr;
 };

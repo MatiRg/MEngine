@@ -1,12 +1,12 @@
 #include "SoundData.hpp"
 #include "Audio.hpp"
 
-CSoundDataFactory::CSoundDataFactory(IAudio* aAudio):
+CSoundDataManager::CSoundDataManager(IAudio* aAudio):
     Audio(aAudio)
 {
 }
 
-std::unique_ptr<IResource> CSoundDataFactory::CreateResource(const std::string& Name, CResources* Resources)
+std::unique_ptr<IResource> CSoundDataManager::MakeResource(const std::string& Name, const ResourceCreateMap&)
 {
-    return Audio->CreateSoundData( Name, Resources );
+    return Audio->CreateSoundData( Name );
 }

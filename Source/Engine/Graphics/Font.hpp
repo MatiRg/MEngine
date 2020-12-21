@@ -1,6 +1,5 @@
 #pragma once
-#include "../Resources/Resource.hpp"
-#include "../Resources/ResourceFactory.hpp"
+#include "../Resources/ResourceManager.hpp"
 #include "../Math/Rect2.hpp"
 #include "../Math/Color.hpp"
 #include "../Math/Matrix3.hpp"
@@ -45,8 +44,8 @@ private:
 class IFont: public IResource
 {
 public:
-    IFont(const std::string& Name, CResources* Resources):
-        IResource( Name, Resources )
+    IFont(const std::string& Name):
+        IResource( Name )
     {
     }
 
@@ -73,12 +72,14 @@ protected:
 
 //
 
-class CFontFactory: public TResourceFactory<IFont>
+class CFontManager: public TResourceManager<IFont>
 {
 public:
-    CFontFactory(IGraphics*);
+    CFontManager(IGraphics*);
 
-    std::unique_ptr<IResource> CreateResource(const std::string&, CResources*) override;
+    RESOURCE_MANAGER(CFontManager)
+protected:
+    std::unique_ptr<IResource> MakeResource(const std::string&, const ResourceCreateMap&) override;
 private:
     IGraphics* Graphics = nullptr;
 };

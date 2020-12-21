@@ -1,6 +1,7 @@
 #pragma once
 #include "../Core/Log.hpp"
 #include "../Core/NonCopyable.hpp"
+#include "../System//MemoryManager.hpp"
 #include <string>
 
 class CEvent;
@@ -15,11 +16,13 @@ public:
         Name( aName )
     {
         LOG( ESeverity::Debug ) << GetName() << " - Created\n";
+        ADD_MEMORY_RECORD(this);
     }
 
     virtual ~IUpdatable()
     {
         LOG( ESeverity::Debug ) << GetName() << " - Destroyed\n";
+        ERASE_MEMORY_RECORD(this);
     }
 
     virtual std::string GetType() const = 0;

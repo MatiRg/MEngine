@@ -17,9 +17,11 @@ class CEngineUpdater;
 class CUserUpdater;
 class CResources;
 class CAudioHandler;
+class CRenderer3D;
 class CDrawer2D;
 class CRenderer2D;
-class CPhysics2D;
+class IPhysics3D;
+class IPhysics2D;
 class CImGUI;
 class CScene;
 class CScriptModule;
@@ -41,26 +43,28 @@ public:
     IWindow* GetWindow() const;
     IGraphics* GetGraphics() const;
     IAudio* GetAudio() const;
+    IPhysics3D* GetPhysics3D() const;
+    IPhysics2D* GetPhysics2D() const;
     CEngineUpdater* GetEngineUpdater() const;
     CUserUpdater* GetUserUpdater() const;
     CResources* GetResources() const;
     CAudioHandler* GetAudioHandler() const;
+    CRenderer3D* GetRenderer3D() const;
     CDrawer2D* GetDrawer2D() const;
     CRenderer2D* GetRenderer2D() const;
-    CPhysics2D* GetPhysics2D() const;
     CImGUI* GetImGUI() const;
     CScene* GetScene() const;
     CScriptModule* GetScriptModule() const;
-
-    CConfig* GetConfig() const { return Config.get(); }
 protected:
     virtual bool PreInit() { return true; } // Before Engine & Context Creation, Before Config Loading
-    virtual bool Init(const SEngineParams&) { return true; } // After Context & Engine Creation, Before Engine Init
+    virtual bool Init() { return true; } // After Context & Engine Creation, Before Engine Init
     virtual void OnInit() {} // Before Engine OnInit - Game oriented OnInit
     virtual void OnExit() {} // After Main Loop, Before Engine OnExit
     virtual void Exit() {} // Before Engine Exit
     virtual void PostExit() {} // Before Engine & Context Destruction, After Engine Exit
 protected:
+    SEngineParams Params;
+    bool UseConfigFile = true;
     std::string ConfigFile = "Engine.xml";
     std::vector<std::string> CommandLine;
 private:

@@ -41,6 +41,18 @@ public:
         z = -z;
     }
 
+    // Distance
+    T Distance(const TVector3<T>& Other) const
+    {
+        return (*this - Other).Length();
+    }
+
+    // Distance
+    T DistanceSquared(const TVector3<T>& Other) const
+    {
+        return (*this - Other).LengthSquared();
+    }
+
     // Length(magnitude) of Vector
     T Length() const
     {
@@ -90,6 +102,21 @@ public:
         x += Other.x * Scale;
         y += Other.y * Scale;
         z += Other.z * Scale;
+    }
+
+    TVector2<T> XZ() const
+    {
+        return { x, z };
+    }
+
+    TVector2<T> XY() const
+    {
+        return { x, y };
+    }
+
+    TVector2<T> YZ() const
+    {
+        return { y, z };
     }
 
     TVector3<T>& operator=(const TVector3<T>& Other)
@@ -222,19 +249,28 @@ public:
         return TVector3<T>( x / Other.x, y / Other.y, z / Other.z );
     }
 
-    static TVector3<T> UP() { return TVector3<T>( T(0), T(1), T(0) ); }
-    static TVector3<T> DOWN() { return TVector3<T>( T(0), T(-1), T(0) ); }
-    static TVector3<T> RIGHT() { return TVector3<T>( T(1), T(0), T(0) ); }
-    static TVector3<T> LEFT() { return TVector3<T>( T(-1), T(0), T(0) ); }
-    static TVector3<T> FORWARD() { return TVector3<T>( T(0), T(0), T(1) ); }
-    static TVector3<T> BACK() { return TVector3<T>( T(0), T(0), T(-1) ); }
-    static TVector3<T> ZERO() { return TVector3<T>( T(0), T(0), T(0) ); }
-    static TVector3<T> ONE() { return TVector3<T>( T(1), T(1), T(1) ); }
+    static TVector3<T> UP;
+    static TVector3<T> DOWN;
+    static TVector3<T> RIGHT;
+    static TVector3<T> LEFT;
+    static TVector3<T> FORWARD;
+    static TVector3<T> BACK;
+    static TVector3<T> ZERO;
+    static TVector3<T> ONE;
 public:
     T x = T(0);
     T y = T(0);
     T z = T(0);
 };
+
+template<class T> TVector3<T> TVector3<T>::UP = { T(0), T(1), T(0) };
+template<class T> TVector3<T> TVector3<T>::DOWN = { T(0), T(-1), T(0) };
+template<class T> TVector3<T> TVector3<T>::RIGHT = { T(1), T(0), T(0) };
+template<class T> TVector3<T> TVector3<T>::LEFT = { T(-1), T(0), T(0) };
+template<class T> TVector3<T> TVector3<T>::FORWARD = { T(0), T(0), T(1) };
+template<class T> TVector3<T> TVector3<T>::BACK = { T(0), T(0), T(-1) };
+template<class T> TVector3<T> TVector3<T>::ZERO = { T(0), T(0), T(0) };
+template<class T> TVector3<T> TVector3<T>::ONE = { T(1), T(1), T(1) };
 
 using Vector3 = TVector3<float>;
 using IntVector3 = TVector3<int>;
@@ -251,6 +287,30 @@ namespace Math
     }
 
     template<class T>
+    T Distance(const TVector3<T>& a, const TVector3<T>& b)
+    {
+        return a.Distance(b);
+    }
+
+    template<class T>
+    T DistanceSquared(const TVector3<T>& a, const TVector3<T>& b)
+    {
+        return a.DistanceSquared(b);
+    }
+
+    template<class T>
+    T Length(const TVector3<T>& a)
+    {
+        return a.Length();
+    }
+
+    template<class T>
+    T LengthSquared(const TVector3<T>& a)
+    {
+        return a.LengthSquared();
+    }
+
+    template<class T>
     T DotProduct(const TVector3<T>& a, const TVector3<T>& b)
     {
         return a.DotProduct(b);
@@ -260,6 +320,40 @@ namespace Math
     TVector3<T> CrossProduct(const TVector3<T>& a, const TVector3<T>& b)
     {
         return a.CrossProduct(b);
+    }
+
+    template<class T>
+    T ScalarTripleProduct(const TVector3<T>& a, const TVector3<T>& b, const TVector3<T>& c)
+    {
+        return DotProduct( a, CrossProduct(b, c) );
+    }
+
+    template<class T>
+    TVector3<T> TripleProduct(const TVector3<T>& a, const TVector3<T>& b, const TVector3<T>& c)
+    {
+        return CrossProduct(a, CrossProduct(b, c));
+    }
+
+    template<class T>
+    TVector3<T> Reflect(const TVector3<T>& Dir, const TVector3<T>& Norm)
+    {
+        T f = T(-2) * Dot(Norm, Dir);
+        return { f * Norm.x + Dir.x, f * Norm.y + Dir.y, f * Norm.z + Dir.z };
+    }
+
+    template<class T>
+    TVector3<T> Project(const TVector3<T>& vector, const TVector3<T>& Norm)
+    {
+        T SqrMag = DotProduct(Norm, Norm);
+        if (SqrMag < EPSILON<T>)
+        {
+            return TVector3<T>::ZERO;
+        }
+        else
+        {
+            T d = DotProduct(vector, Norm);
+            return { Norm.x * d / SqrMag, Norm.y * d / SqrMag, Norm.z * d / SqrMag };
+        }
     }
 
     template<class T>

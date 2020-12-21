@@ -1,5 +1,5 @@
 #include "StaticSprite2D.hpp"
-#include "../Entity2D.hpp"
+#include "../Entity.hpp"
 #include "../../Graphics/Renderer2D.hpp"
 #include "../../Engine/Engine.hpp"
 #include "../../Resources/Resources.hpp"
@@ -10,10 +10,16 @@ void CStaticSprite2D::OnRender()
     CRenderer2D* Renderer = Engine->GetRenderer2D();
     if( HasTexture() )
     {
-        auto Transform = GetOwner()->GetTransform().GetWorldTransform();
+        auto Transform = GetOwner()->GetTransform();
+        Vector2 Pos = Transform.GetWorldPosition2D();
+        Vector2 Pivot = Transform.HasParent() && GetOwner()->GetParent()->GetID() != WORLD_ENTITY
+            ? Transform.GetParent()->GetWorldPosition2D() : Pos;
+        Pos -= Size / 2.0f;
+        Matrix4 Tmp = Math::Transform2D(Pivot, Transform.GetWorldRotation2D(), Transform.GetWorldScale2D() );
+        //
         Texture->SetColorMod( ColorMod );
         Renderer->DrawTexture( Texture, Rect2(0.0f, 0.0f, Texture->GetWidth(), Texture->GetHeight()), 
-            Rect2( Transform.GetPosition()-Size/2.0f, Size ), Flip, Transform );
+            Rect2(Pos, Size), Flip, Tmp, Transform.GetLayer());
     }
 }
 
@@ -38,8 +44,8 @@ bool CStaticSprite2D::OnLoad(CXMLElement* Root)
         return false;
     }
 
-	Size = XML::LoadVector2( Root, "Size", Vector2::ONE() );
-	ColorMod = XML::LoadColor( Root, "ColorMod", Color::WHITE() );
+	Size = XML::LoadVector2( Root, "Size", Vector2::ONE );
+	ColorMod = XML::LoadColor( Root, "ColorMod", Color::WHITE );
 	Box = XML::LoadRect2( Root, "Box", Rect2(0.0f, 0.0f, 1.0f, 1.0f) );
     return true;
 }
@@ -75,8 +81,8 @@ const Rect2& CStaticSprite2D::GetBox() const
 {
     auto Transform = GetOwner()->GetTransform();
 
-    Vector2 WorldSize = Size*Transform.GetWorldScale();
-    Box = Rect2( Transform.GetWorldPosition()-WorldSize/2.0f, WorldSize );
+    Vector2 WorldSize = Size*Transform.GetWorldScale2D();
+    Box = Rect2( Transform.GetWorldPosition2D()-WorldSize/2.0f, WorldSize );
 
     return Box;
 }

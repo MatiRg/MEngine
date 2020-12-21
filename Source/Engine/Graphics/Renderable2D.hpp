@@ -1,8 +1,8 @@
 #pragma once
 #include "../Math/Rect2.hpp"
 #include "../Math/Vector2.hpp"
+#include "../Math/Matrix4.hpp"
 #include "../Math/Color.hpp"
-#include "../Scene/Transform2D.hpp"
 #include "Graphics.hpp"
 #include "Texture2D.hpp"
 #include "Font.hpp"
@@ -16,8 +16,9 @@ class CDrawer2D;
 class IRenderable2D
 {
 public:
-    IRenderable2D(const CTransform2D& aTransform):
-        Transform(aTransform)
+    IRenderable2D(const Matrix4& aMatrix, const float aLayer):
+        Matrix(aMatrix),
+        Layer(aLayer)
     {
         SetBlendMode( EBlendMode::Alpha );
     }
@@ -26,18 +27,21 @@ public:
     void SetBlendMode(const EBlendMode Mode) { BlendMode = Mode; }
     EBlendMode GetBlendMode() const { return BlendMode; }
 
+    float GetLayer() const { return Layer; }
+
     virtual void Render(CDrawer2D*) = 0;
 protected:
     EBlendMode BlendMode = EBlendMode::None;
     //
-    CTransform2D Transform;
+    Matrix4 Matrix;
+    float Layer;
 };
 
 class CPolygonRenderable2D: public IRenderable2D
 {
 public:
-    CPolygonRenderable2D(const std::vector<SVertexPC>& aVertices, const EPrimitiveMode aType, const CTransform2D& aTransform):
-        IRenderable2D(aTransform),
+    CPolygonRenderable2D(const std::vector<SVertex2D>& aVertices, const EPrimitiveMode aType, const Matrix4& aMatrix, const float aLayer):
+        IRenderable2D(aMatrix, aLayer),
         Vertices(aVertices),
         Type(aType)
     {
@@ -45,7 +49,7 @@ public:
 
     void Render(CDrawer2D*) override;
 protected:
-    std::vector<SVertexPC> Vertices; 
+    std::vector<SVertex2D> Vertices;
     EPrimitiveMode Type;
 };
 
@@ -53,8 +57,8 @@ class CTextRenderable2D: public IRenderable2D
 {
 public:
     CTextRenderable2D(IFont* aFont, const std::string& aText, const Vector2& aPosition,
-const Color& aColor, const int aSize, const CTransform2D& aTransform):
-        IRenderable2D(aTransform),
+const Color& aColor, const int aSize, const Matrix4& aMatrix, const float aLayer):
+        IRenderable2D(aMatrix, aLayer),
         Font(aFont),
         Text(aText),
         Position(aPosition),
@@ -76,8 +80,8 @@ class CTextureRenderable2D: public IRenderable2D
 {
 public:
     CTextureRenderable2D(ITexture2D* aTexture, const Rect2& aSource, const Rect2& aDestination, const ETextureFlip aFlip, 
-const CTransform2D& aTransform):
-        IRenderable2D(aTransform),
+const Matrix4& aMatrix, const float aLayer):
+        IRenderable2D(aMatrix, aLayer),
         Texture(aTexture),
         Source(aSource),
         Destination(aDestination),
@@ -96,8 +100,8 @@ protected:
 class CPointRenderable2D: public IRenderable2D
 {
 public:
-    CPointRenderable2D(const Vector2& aPosition, const Color& aDrawColor, const CTransform2D& aTransform):
-        IRenderable2D(aTransform),
+    CPointRenderable2D(const Vector2& aPosition, const Color& aDrawColor, const Matrix4& aMatrix, const float aLayer):
+        IRenderable2D(aMatrix, aLayer),
         Position(aPosition),
         DrawColor( aDrawColor )
     {
@@ -113,8 +117,9 @@ protected:
 class CLineRenderable2D: public IRenderable2D
 {
 public:
-    CLineRenderable2D(const Vector2& aStart, const Vector2& aEnd, const Color& aDrawColor, const CTransform2D& aTransform):
-        IRenderable2D(aTransform),
+    CLineRenderable2D(const Vector2& aStart, const Vector2& aEnd, const Color& aDrawColor, 
+const Matrix4& aMatrix, const float aLayer):
+        IRenderable2D(aMatrix, aLayer),
         Start(aStart),
         End(aEnd),
         DrawColor( aDrawColor )
@@ -131,8 +136,9 @@ protected:
 class CRectRenderable2D: public IRenderable2D
 {
 public:
-    CRectRenderable2D(const Rect2& aRectangle, const bool aFill, const Color& aDrawColor, const CTransform2D& aTransform):
-        IRenderable2D(aTransform),
+    CRectRenderable2D(const Rect2& aRectangle, const bool aFill, const Color& aDrawColor, 
+const Matrix4& aMatrix, const float aLayer):
+        IRenderable2D(aMatrix, aLayer),
         Rectangle(aRectangle),
         Fill(aFill),
         DrawColor( aDrawColor )

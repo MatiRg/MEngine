@@ -25,9 +25,9 @@ void CNullAudio::Exit()
     LOG( ESeverity::Info ) << "Audio - Exit\n";
 }
 
-std::unique_ptr<ISoundData> CNullAudio::CreateSoundData(const std::string& Name, CResources* Resources)
+std::unique_ptr<ISoundData> CNullAudio::CreateSoundData(const std::string& Name)
 {
-    return std::make_unique<CNullSoundData>( Name, Resources );
+    return std::make_unique<CNullSoundData>( Name );
 }
 
 ISound* CNullAudio::CreateSound(ISoundData*)

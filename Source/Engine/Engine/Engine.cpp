@@ -11,11 +11,13 @@
 #include "../Core/Utils.hpp"
 #include "../Graphics/Renderer2D.hpp"
 #include "../Graphics/Drawer2D.hpp"
+#include "../Graphics/Renderer3D.hpp"
 #include "../Scene/Scene.hpp"
 #include "../UI/ImGUI.hpp"
 #include "../Script/ScriptModule.hpp"
 #include "../Math/Functions.hpp"
 #include "../Physics/Physics2D.hpp"
+#include "../Physics/Physics3D.hpp"
 #include "Context.hpp"
 #include "EngineUpdater.hpp"
 #include "UserUpdater.hpp"
@@ -33,9 +35,9 @@ CEngine::~CEngine()
     ScriptModule.reset();
     Scene.reset();
     ImGUI.reset();
-    Physics2D.reset();
     Renderer2D.reset();
     Drawer2D.reset();
+    Renderer3D.reset();
     AudioHandler.reset();
     Resources.reset();
     UserUpdater.reset();
@@ -51,14 +53,16 @@ bool CEngine::Create()
     Window = Context->GetWindow();
     Graphics = Context->GetGraphics();
     Audio = Context->GetAudio();
+    Physics3D = Context->GetPhysics3D();
+    Physics2D = Context->GetPhysics2D();
 
     EngineUpdater = std::make_unique<CEngineUpdater>();
     UserUpdater = std::make_unique<CUserUpdater>();
     Resources = std::make_unique<CResources>( this );
     AudioHandler = std::make_unique<CAudioHandler>( Audio, Resources.get() );
+    Renderer3D = std::make_unique<CRenderer3D>(Graphics);
     Drawer2D = std::make_unique<CDrawer2D>( Graphics, Resources.get(), Window );
     Renderer2D = std::make_unique<CRenderer2D>( Drawer2D.get() );
-    Physics2D = std::make_unique<CPhysics2D>( Renderer2D.get() );
     ImGUI = std::make_unique<CImGUI>( Input, Graphics );
     Scene = std::make_unique<CScene>( this );
     ScriptModule = std::make_unique<CScriptModule>( this );
@@ -72,9 +76,11 @@ bool CEngine::Create()
     EngineUpdater->AddEngineModule( Audio );
     EngineUpdater->AddEngineModule( Resources.get() );
     EngineUpdater->AddEngineModule( AudioHandler.get() );
+    EngineUpdater->AddEngineModule(Renderer3D.get());
     EngineUpdater->AddEngineModule( Drawer2D.get() );
     EngineUpdater->AddEngineModule( Renderer2D.get() );
-    EngineUpdater->AddEngineModule( Physics2D.get() );
+    EngineUpdater->AddEngineModule(Physics3D);
+    EngineUpdater->AddEngineModule( Physics2D );
     EngineUpdater->AddEngineModule( ImGUI.get() );
     EngineUpdater->AddEngineModule( Scene.get() );
     EngineUpdater->AddEngineModule( ScriptModule.get() );
@@ -86,14 +92,12 @@ bool CEngine::Create()
         LOG(ESeverity::Fatal) << "No 'Core' Directory\n";
         return false;
     }
-    Resources->AddPath("Core", true); // Search path for default data eg. fonts
-
-    if( !System->DirectoryExist("Core/Shaders") )
+    if (!System->DirectoryExist("Core/Shaders"))
     {
         LOG(ESeverity::Fatal) << "No 'Core/Shaders' Directory\n";
         return false;
     }
-    Resources->AddPath("Core/Shaders", true); // Search path for default data eg. shaders
+    Resources->AddStaticPath("Core", true); // Search path for default data eg. fonts, shaders ...
 
     LOG( ESeverity::Debug ) << "Engine Created\n";
     return true;
@@ -109,7 +113,7 @@ bool CEngine::Init(const SEngineParams& Params)
 
     SetupTicks( Params.Ticks );
 
-    Input->SetMousePosition( Vector2( Window->GetWindowSize().x, Window->GetWindowSize().y) / 2.0f );
+    Input->SetMousePosition( Vector2( Window->GetSize().x, Window->GetSize().y) / 2.0f );
 
     LOG( ESeverity::Debug ) << "Engine Init\n";
     return true;
@@ -189,7 +193,6 @@ void CEngine::Run()
             uint32_t Start = System->GetTime();
             while( Accumulator >= DeltaTime ) // Fixed Delta Time for Simulation & Rendering at Different Framerates
             {
-                Physics2D->PhysicsUpdate( DeltaTime );
                 EngineUpdater->OnUpdate( DeltaTime );
                 Accumulator -= DeltaTime;
             }
@@ -211,6 +214,7 @@ void CEngine::Run()
             Graphics->Clear();
 
             EngineUpdater->OnRender();
+            Renderer3D->Render();
             Renderer2D->Render();
             ImGUI->Draw();
 

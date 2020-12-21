@@ -2,9 +2,9 @@
 #include "../Math/Vector2.hpp"
 #include "../Math/Color.hpp"
 
-struct SVertexPC
+struct SVertex2D
 {
-    SVertexPC(const Vector2& aPosition, const Color& aDrawColor):
+    SVertex2D(const Vector2& aPosition, const Color& aDrawColor):
         Position(aPosition),
         DrawColor(aDrawColor)
     {

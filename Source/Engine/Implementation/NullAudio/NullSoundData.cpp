@@ -1,8 +1,8 @@
 #include "NullSoundData.hpp"
 #include "../../Core/Utils.hpp"
 
-CNullSoundData::CNullSoundData(const std::string& Name, CResources* Resources):
-    ISoundData(Name, Resources)
+CNullSoundData::CNullSoundData(const std::string& Name):
+    ISoundData(Name)
 {
 }
 
@@ -10,7 +10,8 @@ CNullSoundData::~CNullSoundData()
 {
 }
 
-bool CNullSoundData::Load()
+bool CNullSoundData::Load(CResources*, const ResourceCreateMap&)
 {
+    Valid = true;
     return true;
 }

@@ -4,11 +4,10 @@
 class CNullSoundData: public ISoundData
 {
 public:
-    CNullSoundData(const std::string&, CResources*);
+    CNullSoundData(const std::string&);
     ~CNullSoundData();
 
-    bool Load() override;
-    bool IsValid() const override { return true; }
+    bool Load(CResources*, const ResourceCreateMap&) override;
 
     int GetSamples() const override { return 0; }
 };

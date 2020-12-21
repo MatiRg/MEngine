@@ -5,17 +5,15 @@
 class COALSoundData: public ISoundData
 {
 public:
-    COALSoundData(const std::string&, CResources*);
+    COALSoundData(const std::string&);
     ~COALSoundData();
 
-    bool Load() override;
-    bool IsValid() const override { return Valid; }
+    bool Load(CResources*, const ResourceCreateMap&) override;
 
     int GetSamples() const override;
 
     ALuint GetBufferID() const { return Buffer; }
 private:
-    bool Valid = false;
     ALuint Buffer = 0;
 };
 

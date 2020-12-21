@@ -13,9 +13,11 @@ public:
 
     bool SetCaption(const std::string&) override;
     const std::string& GetCaption() const override { return Caption; }
-    bool SetWindowSize(const int x, const int y) override { return SetWindowSize( IntVector2(x, y) ); }
-    bool SetWindowSize(const IntVector2&) override;
-    const IntVector2& GetWindowSize() const override { return WindowSize; }
+    bool SetSize(const int x, const int y) override { return SetSize( IntVector2(x, y) ); }
+    bool SetSize(const IntVector2&) override;
+    const IntVector2& GetSize() const override { return WindowSize; }
+
+    float GetAspectRatio() const override;
 
     /**< Nazwa Icony, wskaznik do zasobow */
     bool SetIcon(const std::string&, CResources*) override;

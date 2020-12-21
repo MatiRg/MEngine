@@ -11,7 +11,7 @@ public:
     bool Init(const SEngineParams&) override;
     void Exit() override;
 
-    std::unique_ptr<ISoundData> CreateSoundData(const std::string&, CResources*) override;
+    std::unique_ptr<ISoundData> CreateSoundData(const std::string&) override;
     
     ISound* CreateSound() override { return CreateSound(nullptr); }
     ISound* CreateSound(ISoundData*) override;

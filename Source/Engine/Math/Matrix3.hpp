@@ -149,7 +149,7 @@ public:
     T* Data() { return Values; }
     const T* Data() const { return Values; }
 
-    static TMatrix3<T> IDENTITY() { return TMatrix3<T>(); }
+    static TMatrix3<T> IDENTITY;
 private:
     void InverseHelper(const TMatrix3<T>& D)
     {
@@ -178,8 +178,15 @@ private:
         Values[8] = (t4-t8)*t17;
     }
 private:
+    /*
+    * 0 1 2
+    * 3 4 5
+    * 6 7 8
+    */
     T Values[9];
 };
+
+template<class T> TMatrix3<T> TMatrix3<T>::IDENTITY = {};
 
 using Matrix3 = TMatrix3<float>;
 using IntMatrix3 = TMatrix3<int>;
@@ -195,43 +202,6 @@ namespace Math
             R[i] = Lerp( a[i], b[i], v );
         }
         return R;
-    }
-
-    template<class T>
-    TMatrix3<T> Translation2D(const TVector2<T>& Translation)
-    {
-        TMatrix3<T> R;
-        R[2] = Translation.x;
-        R[5] = Translation.y;
-        return R;
-    }
-
-    template<class T>
-    TMatrix3<T> Scale2D(const TVector2<T>& Scale)
-    {
-        TMatrix3<T> R;
-        R[0] = Scale.x;
-        R[4] = Scale.y;
-        return R;
-    }
-
-    template<class T>
-    TMatrix3<T> Rotation2D(const T Angle)
-    {
-        T SinF = Math::Sin( Math::DegToRad(Angle) );
-        T CosF = Math::Cos( Math::DegToRad(Angle) );
-        TMatrix3<T> R;
-        R[0] = CosF;
-        R[1] = -SinF;
-        R[3] = SinF;
-        R[4] = CosF;
-        return R;
-    }
-
-    template<class T>
-    TMatrix3<T> Transform2D(const TVector2<T>& Origin, const T Angle, const TVector2<T>& Scale)
-    {
-        return Math::Translation2D(Origin)*Math::Rotation2D(Angle)*Math::Scale2D(Scale)*Math::Translation2D(-Origin);
     }
 }
 

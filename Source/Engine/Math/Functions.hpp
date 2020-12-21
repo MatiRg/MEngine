@@ -1,11 +1,32 @@
 #pragma once
 #include <cmath>
 #include <tuple>
+#include <limits>
 
 namespace Math
 {
     template<class T>
     static constexpr T PI = T(3.1415926535897932385);  // variable template
+
+    template<class T>
+    static constexpr T EPSILON = std::numeric_limits<T>::epsilon();
+
+    template<class T>
+    T Sign(T value)
+    {
+        if( value > T(0) )
+        {
+            return T(1);
+        }
+        else if( value < T(0) )
+        {
+            return T(-1);
+        }
+        else
+        {
+            return T(0);
+        }
+    }
 
     template<class T>
     T Max(const T l, const T r)
@@ -45,12 +66,34 @@ namespace Math
         return Val;
     }
 
+    template<class T>
+    T Clamp01(T Val)
+    {
+        return Clamp(Val, T(0), T(1));
+    }
+
+    // Wrap Val To <Min, Max)
+    template<class T>
+    T Wrap(T Val, T Min, T Max)
+    {
+        if (Val >= Min && Val < Max) return Val;
+
+        Max = Max - Min;
+        T Offset = Min;
+        Min = T(0);
+        Val = Val - Offset;
+
+        for (; Val < T(0); Val += Max);
+        for (; Val >= Max; Val -= Max);
+        return Val + Offset;
+    }
+
     // Wrap Angle to <0, 359>
     template<class T>
     T WrapAngle(T Angle)
     {
-        for(; Angle < T(0); Angle += T(360));
-        for(; Angle >= T(360); Angle -= T(360));
+        for (; Angle < T(0); Angle += T(360));
+        for (; Angle >= T(360); Angle -= T(360));
         return Angle;
     }
 
@@ -70,6 +113,12 @@ namespace Math
     T Sqrt(const T r)
     {
         return std::sqrt(r);
+    }
+
+    template<class T>
+    T InvSqrt(const T r)
+    {
+        return T(1) / Sqrt(r);
     }
 
     template<class T>

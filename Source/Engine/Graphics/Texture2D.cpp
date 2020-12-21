@@ -1,12 +1,20 @@
 #include "Texture2D.hpp"
 #include "Graphics.hpp"
 
-CTexture2DFactory::CTexture2DFactory(IGraphics* aGraphics):
+void ITexture2D::SetWrap(const ETextureWrap Wrap)
+{
+    SetWrapS(Wrap);
+    SetWrapT(Wrap);
+}
+
+//
+
+CTextureManager::CTextureManager(IGraphics* aGraphics):
     Graphics(aGraphics)
 {
 }
 
-std::unique_ptr<IResource> CTexture2DFactory::CreateResource(const std::string& Name, CResources* Resources)
+std::unique_ptr<IResource> CTextureManager::MakeResource(const std::string& Name, const ResourceCreateMap&)
 {
-    return Graphics->CreateTexture2D( Name, Resources );
+    return Graphics->CreateTexture2D( Name );
 }

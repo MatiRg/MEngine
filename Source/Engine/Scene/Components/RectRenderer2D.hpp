@@ -27,7 +27,7 @@ public:
     const Rect2& GetBox() const;
 private:
     Vector2 Size = Vector2(32.0f);
-    Color DrawColor = Color::WHITE();
+    Color DrawColor = Color::WHITE;
     bool Filled = true;
     mutable Rect2 Box;
 };

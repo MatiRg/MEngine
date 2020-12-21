@@ -29,21 +29,26 @@ int CApp::Run(const std::vector<std::string>& Cmd)
             return 1;
         }
 
-		SEngineParams Params;
-
-        Config = std::make_unique<CConfig>(ConfigFile);
-        LOG(ESeverity::Debug) << "Loading Engine Configuration from: " << ConfigFile << "\n";
-        if( !Config->Load() )
+        if (UseConfigFile)
         {
-            LOG(ESeverity::Fatal) << "Config::Load()\n";
-            return 1;
+            Config = std::make_unique<CConfig>(ConfigFile);
+            LOG(ESeverity::Debug) << "Loading Engine Configuration from: " << ConfigFile << "\n";
+            if (!Config->Load())
+            {
+                LOG(ESeverity::Fatal) << "Config::Load()\n";
+                return 1;
+            }
+            Params.Width = Config->GetInt("Engine", "Width", 800);
+            Params.Height = Config->GetInt("Engine", "Height", 600);
+            Params.Caption = Config->GetString("Engine", "Caption", "Engine");
+            Params.VSync = Config->GetBool("Engine", "VSync", true);
+            Params.UseAudio = Config->GetBool("Engine", "UseAudio", true);
+            Params.Ticks = static_cast<uint32_t>(Config->GetInt("Engine", "Ticks", 60));
         }
-		Params.Width = Config->GetInt("Engine", "Width", 800);
-		Params.Height = Config->GetInt("Engine", "Height", 600);
-		Params.Caption = Config->GetString("Engine", "Caption", "Engine");
-		Params.VSync = Config->GetBool("Engine", "VSync", true);
-		Params.UseAudio = Config->GetBool("Engine", "UseAudio", true);
-		Params.Ticks = static_cast<uint32_t>(Config->GetInt("Engine", "Ticks", 60));
+        else
+        {
+            LOG(ESeverity::Debug) << "Using Default Engine Configuration\n";
+        }
 
         LOG(ESeverity::Info) << "Creating Context\n";
         Context = std::make_unique<CSDLContext>();
@@ -62,7 +67,7 @@ int CApp::Run(const std::vector<std::string>& Cmd)
         }
 
         LOG(ESeverity::Info) << "Entering CApp::Init()\n";
-        if( !Init( Params ) )
+        if( !Init() )
         {
             LOG(ESeverity::Fatal) << "CApp::Init()\n";
             return 1;
@@ -112,9 +117,12 @@ int CApp::Run(const std::vector<std::string>& Cmd)
         LOG(ESeverity::Info) << "Destroying Context\n";
         Context.reset();
 
-        LOG(ESeverity::Info) << "Saving Config\n";
-        Config->Save();
-        Config.reset();
+        if (UseConfigFile)
+        {
+            LOG(ESeverity::Info) << "Saving Config\n";
+            Config->Save();
+            Config.reset();
+        }
 
         return 0;
     }
@@ -188,6 +196,11 @@ CAudioHandler* CApp::GetAudioHandler() const
     return (!Engine.get()) ? nullptr : Engine->GetAudioHandler();
 }
 
+CRenderer3D* CApp::GetRenderer3D() const
+{
+    return (!Engine.get()) ? nullptr : Engine->GetRenderer3D();
+}
+
 CDrawer2D* CApp::GetDrawer2D() const
 {
     return (!Engine.get()) ? nullptr : Engine->GetDrawer2D();
@@ -198,7 +211,12 @@ CRenderer2D* CApp::GetRenderer2D() const
     return (!Engine.get()) ? nullptr : Engine->GetRenderer2D();
 }
 
-CPhysics2D* CApp::GetPhysics2D() const
+IPhysics3D* CApp::GetPhysics3D() const
+{
+    return (!Engine.get()) ? nullptr : Engine->GetPhysics3D();
+}
+
+IPhysics2D* CApp::GetPhysics2D() const
 {
     return (!Engine.get()) ? nullptr : Engine->GetPhysics2D();
 }

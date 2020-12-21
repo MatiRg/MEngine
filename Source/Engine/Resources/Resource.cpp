@@ -2,11 +2,9 @@
 #include "Resources.hpp"
 #include "../System/System.hpp"
 
-bool IResource::Find()
+bool IResource::Find(CResources* Resources)
 {
-    bool FoundPath;
-    std::tie(FoundPath, Path) = Resources->FindPath(Name);
-    if( !FoundPath )
+    if( !Resources->FindPath(Name, Path) )
     {
         LOG( ESeverity::Error ) << "Unable to Find Path to Resource: " << Name << "\n";
         return false;
@@ -14,7 +12,7 @@ bool IResource::Find()
     return true;
 }
 
-bool IResource::Exist()
+bool IResource::Exist(CResources* Resources)
 {
     if( Resources->GetSystem()->FileExist( Path ) )
     {

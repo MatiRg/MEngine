@@ -117,6 +117,14 @@ Arg[0], Arg[1], Arg[2], Arg[3], Arg[4], Arg[5], Arg[6], Arg[7], Arg[8], Arg[9], 
     SetValue(Buffor.data());
 }
 
+void CXMLObject::SetQuaternion(const Quaternion& Arg)
+{
+    std::array<char, 256> Buffor;
+    Buffor.fill('\0');
+    std::snprintf(Buffor.data(), 255, "%.3f %.3f %.3f %.3f", Arg.x, Arg.y, Arg.z, Arg.w);
+    SetValue(Buffor.data());
+}
+
 int CXMLObject::GetInt(const int Default)
 {
     int Arg;
@@ -253,6 +261,17 @@ Matrix4 CXMLObject::GetMatrix4(const Matrix4& Default)
     Matrix4 Arg;
     if( std::sscanf(GetValue().c_str(), "%f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f",
 &Arg[0], &Arg[1], &Arg[2], &Arg[3], &Arg[4], &Arg[5], &Arg[6], &Arg[7], &Arg[8], &Arg[9], &Arg[10], &Arg[11], &Arg[12], &Arg[13], &Arg[14], &Arg[15] ) != 16 )
+    {
+        LOG(ESeverity::Warning) << "Invalid Value in XML File - " << Document->GetFileName() << " - Param/Attribute Name - " << Name << "\n";
+        return Default;
+    }
+    return Arg;
+}
+
+Quaternion CXMLObject::GetQuaternion(const Quaternion& Default)
+{
+    Quaternion Arg;
+    if (std::sscanf(GetValue().c_str(), "%f %f %f %f", &Arg.x, &Arg.y, &Arg.z, &Arg.w) != 4)
     {
         LOG(ESeverity::Warning) << "Invalid Value in XML File - " << Document->GetFileName() << " - Param/Attribute Name - " << Name << "\n";
         return Default;
@@ -420,6 +439,12 @@ void CXMLElement::SetMatrix4Attribute(const std::string& Name, const Matrix4& Ar
     Attribute->SetMatrix4(Arg);
 }
 
+void CXMLElement::SetQuaternionAttribute(const std::string& Name, const Quaternion& Arg)
+{
+    CXMLAttribute* Attribute = NewAttribute(Name);
+    Attribute->SetQuaternion(Arg);
+}
+
 std::string CXMLElement::GetStringAttribute(const std::string& Name, const std::string& Default)
 {
     CXMLAttribute* Attribute = GetAttribute(Name);
@@ -548,6 +573,16 @@ Matrix4 CXMLElement::GetMatrix4Attribute(const std::string& Name, const Matrix4&
         return Default;
     }
     return Attribute->GetMatrix4(Default);
+}
+
+Quaternion CXMLElement::GetQuaternionAttribute(const std::string& Name, const Quaternion& Default)
+{
+    CXMLAttribute* Attribute = GetAttribute(Name);
+    if (!Attribute)
+    {
+        return Default;
+    }
+    return Attribute->GetQuaternion(Default);
 }
 
 void CXMLElement::SetParent(CXMLElement* NewParent)
@@ -708,7 +743,7 @@ bool CXMLDocument::Save()
         tinyxml2::XMLError r = Doc.SaveFile( File.c_str() );
         if( r != tinyxml2::XML_SUCCESS )
         {
-            LOG(ESeverity::Error) << "Unable to Save XML File - " << File << "\n";
+            LOG(ESeverity::Error) << "Unable to Save XML File - " << File << " - " << Doc.ErrorStr() << "\n";
             return false;
         }
         return true;
@@ -915,4 +950,28 @@ namespace XML
 		}
 		return Container->GetColor(DefaultValue);
 	}
+
+    void SaveQuaternion(CXMLElement* Root, const std::string& Name, const Quaternion& Value)
+    {
+        if (!Root)
+        {
+            return;
+        }
+        CXMLElement* Container = Root->NewElement(Name);
+        Container->SetQuaternion(Value);
+    }
+
+    Quaternion LoadQuaternion(CXMLElement* Root, const std::string& Name, const Quaternion& DefaultValue)
+    {
+        if (!Root)
+        {
+            return DefaultValue;
+        }
+        CXMLElement* Container = Root->GetElement(Name);
+        if (!Container)
+        {
+            return DefaultValue;
+        }
+        return Container->GetQuaternion(DefaultValue);
+    }
 }

@@ -4,6 +4,7 @@
 #include "../Input/Input.hpp"
 #include "../Graphics/Graphics.hpp"
 #include "../Core/Log.hpp"
+#include "../Engine//Config.hpp"
 #include <array>
 #include <imgui/imgui.h>
 #include <imgui/imgui_stdlib.h>
@@ -39,14 +40,14 @@ CImGUI::~CImGUI()
     }
 }
 
-bool CImGUI::Init(const SEngineParams& P)
+bool CImGUI::Init(const SEngineParams& Params)
 {
     ImGui::CreateContext();
     ImGuiIO& io = ImGui::GetIO();
     ImGui::StyleColorsClassic();
 
-    io.DisplaySize.x = static_cast<float>(P.Width);
-    io.DisplaySize.y = static_cast<float>(P.Height);
+    io.DisplaySize.x = static_cast<float>(Params.Width);
+    io.DisplaySize.y = static_cast<float>(Params.Height);
     io.IniFilename = nullptr;
     io.BackendPlatformName = "MyEngine";
 

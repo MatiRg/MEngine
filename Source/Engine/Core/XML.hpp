@@ -8,6 +8,7 @@
 #include "../Math/Matrix3.hpp"
 #include "../Math/Matrix4.hpp"
 #include "../Math/Vector4.hpp"
+#include "../Math/Quaternion.hpp"
 #include <vector>
 #include <string>
 #include <type_traits>
@@ -45,7 +46,8 @@ public:
     void SetColor(const Color&);
     void SetMatrix3(const Matrix3&);
     void SetMatrix4(const Matrix4&);
-    
+    void SetQuaternion(const Quaternion&);
+
     //
     std::string GetString();
     // Default Value
@@ -72,6 +74,8 @@ public:
     Matrix3 GetMatrix3(const Matrix3&);
     // Default Value
     Matrix4 GetMatrix4(const Matrix4&);
+    // Default Value
+    Quaternion GetQuaternion(const Quaternion&);
 protected:
     CXMLDocument* Document = nullptr;
 private:
@@ -130,6 +134,8 @@ public:
     void SetMatrix3Attribute(const std::string&, const Matrix3&);
     // Name, Value
     void SetMatrix4Attribute(const std::string&, const Matrix4&);
+    // Name, Value
+    void SetQuaternionAttribute(const std::string&, const Quaternion&);
 
     // Name, Default
     std::string GetStringAttribute(const std::string&, const std::string&);
@@ -157,6 +163,8 @@ public:
     Matrix3 GetMatrix3Attribute(const std::string&, const Matrix3&);
     // Name, Default
     Matrix4 GetMatrix4Attribute(const std::string&, const Matrix4&);
+    // Name, Default
+    Quaternion GetQuaternionAttribute(const std::string&, const Quaternion&);
 
     CXMLElement* GetParent() { return Parent; }
 
@@ -232,6 +240,11 @@ namespace XML
 	void SaveColor(CXMLElement*, const std::string&, const Color&);
 	// Root, Name, Default Value
 	Color LoadColor(CXMLElement*, const std::string&, const Color&);
+
+    // Root, Name, Value
+    void SaveQuaternion(CXMLElement*, const std::string&, const Quaternion&);
+    // Root, Name, Default Value
+    Quaternion LoadQuaternion(CXMLElement*, const std::string&, const Quaternion&);
 
 	// Root, Name, Value
     template<class Enum,

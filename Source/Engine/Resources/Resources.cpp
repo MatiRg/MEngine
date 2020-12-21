@@ -1,11 +1,11 @@
 #include "Resources.hpp"
-#include "Resource.hpp"
-#include "ResourceFactory.hpp"
 #include "../Engine/Engine.hpp"
 #include "../Graphics/Graphics.hpp"
+#include "../Graphics/Model.hpp"
 #include "../Graphics/Texture2D.hpp"
 #include "../Graphics/Font.hpp"
 #include "../Graphics/Shader.hpp"
+#include "../Graphics/Material.hpp"
 #include "../Audio/Audio.hpp"
 #include "../Audio/SoundData.hpp"
 #include "../Audio/Sound.hpp"
@@ -31,10 +31,12 @@ ISystem* CResources::GetSystem() const
 
 bool CResources::Init(const SEngineParams&)
 {
-    RegisterFactory<CTexture2DFactory>( Engine->GetGraphics() );
-    RegisterFactory<CFontFactory>( Engine->GetGraphics() );
-    RegisterFactory<CShaderFactory>( Engine->GetGraphics() );
-    RegisterFactory<CSoundDataFactory>( Engine->GetAudio() );
+    RegisterManager<CTextureManager>( Engine->GetGraphics() );
+    RegisterManager<CFontManager>( Engine->GetGraphics() );
+    RegisterManager<CShaderManager>( Engine->GetGraphics() );
+    RegisterManager<CSoundDataManager>( Engine->GetAudio() );
+    RegisterManager<CModelManager>(Engine->GetGraphics());
+    RegisterManager<CMaterialManager>();
 
     LOG( ESeverity::Info ) << "Resources - Init\n";
     return true;
@@ -42,99 +44,110 @@ bool CResources::Init(const SEngineParams&)
 
 void CResources::Exit()
 {
+    Managers.clear();
 	SearchPath.clear();
-	Factories.clear();
-	Resources.clear();
 }
 
-IResource* CResources::CreateResource(const std::string& Type, const std::string& Name)
+IResource* CResources::CreateResource(const std::string& Type, const std::string& Name, const ResourceCreateMap& Vars)
 {
+    if( Type.empty() )
+    {
+        LOG(ESeverity::Error) << "Invalid Type\n";
+        return nullptr;
+    }
+
     if( Name.empty() )
     {
         LOG( ESeverity::Error ) << "Invalid Name\n";
         return nullptr;
     }
 
-    if( Resources.count( Name ) )
+    IResourceManager* Manager = GetManagerFor(Type);
+    if( !Manager )
     {
-        return Resources.at(Name).get();
+        LOG(ESeverity::Error) << "Unable to Find Resource Manager: " << Type << "\n";
+        return nullptr;
     }
 
-    IResourceFactory* Factory = GetFactory( Type );
-    if( !Factory )
-    {
-        LOG( ESeverity::Error ) << "Unable to Find Resource Factory: " << Type << "\n";
-        return nullptr;  
-    }
-
-    auto Ptr = Factory->CreateResource( Name, this );
-    if( !Ptr )
-    {
-        LOG( ESeverity::Error ) << "Unable to Create Resource: " << Name << "\n";
-        return nullptr; 
-    }
-
-    if( !Ptr->Find() )
-    {
-        return nullptr; 
-    }
-
-    if( !Ptr->Load() )
-    {
-        LOG( ESeverity::Error ) << "Unable to Load Resource: " << Name << "\n";
-        return nullptr; 
-    }
-    auto Raw = Ptr.get();
-    Resources[Name] = std::move(Ptr);
-    return Raw;
+    return Manager->CreateResource(Name, Vars);
 }
 
-
-IResourceFactory* CResources::GetFactory(const std::string& Name) const
+IResourceManager* CResources::GetManagerFor(const std::string& Type) const
 {
-    auto It = std::find_if( Factories.begin(), Factories.end(), [&](const std::unique_ptr<IResourceFactory>& C)
+    auto It = std::find_if(Managers.begin(), Managers.end(), [&](const std::unique_ptr<IResourceManager>& C)
     {
-        return C->GetName() == Name;
+            return C->IsSupported(Type);
     });
-    if( It != Factories.end() )
+    if (It != Managers.end())
     {
         return (*It).get();
     }
     return {};
 }
 
-void CResources::AddPath(const std::string& Path, const bool Persist)
+IResourceManager* CResources::GetManager(const std::string& Type) const
 {
-    if( Path.empty() )
+    auto It = std::find_if(Managers.begin(), Managers.end(), [&](const std::unique_ptr<IResourceManager>& C)
+        {
+            return C->GetType() == Type;
+        });
+    if (It != Managers.end())
+    {
+        return (*It).get();
+    }
+    return {};
+}
+
+void CResources::AddPath(const std::string& Path, const bool SubDirs)
+{
+    AddPathInternal(Path, SubDirs, false);
+}
+
+void CResources::AddStaticPath(const std::string& Path, const bool SubDirs)
+{
+    AddPathInternal(Path, SubDirs, true);
+}
+
+void CResources::AddPathInternal(const std::string& Path, const bool SubDirs, const bool Persist)
+{
+    if (Path.empty())
     {
         return;
     }
-    std::string Tmp = Path;
-    char c = Tmp.back();
-    if( c != '/' && c != '\\' )
+    std::string Tmp = Utils::AddTrailingDirSeparator(Path);
+    SearchPath.push_back({ Tmp, Persist });
+    if (SubDirs)
     {
-        Tmp.push_back( '/' );
+        std::vector<CFileRecord> SubDirectories = Engine->GetSystem()->ListDirectory(Tmp, true);
+        for (const auto& i : SubDirectories)
+        {
+            if (i.Directory)
+            {
+                SearchPath.push_back({ Utils::AddTrailingDirSeparator(i.Path), Persist });
+            }
+        }
     }
-    SearchPath.push_back( { Tmp, Persist } );
 }
 
-std::tuple<bool, std::string> CResources::FindPath(const std::string& Name) const
+bool CResources::FindPath(const std::string& Name, std::string& Path) const
 {
     if( GetSystem()->FileExist( Name ) )
     {
-        return {true, Name};
+        Path = Name;
+        return true;
     }
-    std::string Path;
+    std::string Tmp;
     for(const auto& i: SearchPath)
     {
-        Path = i.Path+Name;
-        if( GetSystem()->FileExist( Path ) )
+        Tmp = i.Path+Name;
+        if( GetSystem()->FileExist(Tmp) )
         {
-            return {true, Path};
+            Path = Tmp;
+            return true;
         }
     }
     LOG( ESeverity::Error ) << "Unable to find path for file specified: " << Name << "\n";
-    return {false, ""};
+    return false;
 }
 
 void CResources::ClearPath()

@@ -1,7 +1,7 @@
 # Code Style Guide 
 In short use same style as in rest of the files.More in details below.
 ## Style
-Use follwing rules:
+Use following rules:
 * Code uses C++17 standart, do not use compiler specific extensions
 * Braces in new line
 * One indentation level is 4 spaces
@@ -55,3 +55,4 @@ private:
 * Name macros with upper case letters and words separated with _ e.g. `#define LOG_IF(Severity, Condition)`
 * In cpp file first include should be `.hpp` file associated with source file e.g. `App.cpp` first include should be `App.hpp`
 * Source files should have `.cpp` extension and header files should have `.hpp` extension
+* Use `#pragma once` for include guard

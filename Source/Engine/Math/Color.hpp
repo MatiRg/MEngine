@@ -66,16 +66,16 @@ public:
     uint8_t GetA_UInt() const { return static_cast<uint8_t>(a*255.0f); }
     void SetA(const float x) { a = Math::Clamp( x, 0.0f, 1.0f ); }
 
-    static Color WHITE() { return Color( 1.0f, 1.0f ); }
-    static Color BLACK() { return Color( 0.0f, 1.0f ); }
-    static Color RED() { return Color( 1.0f, 0.0f, 0.0f ); }
-    static Color GREEN() { return Color( 0.0f, 1.0f, 0.0f ); }
-    static Color BLUE() { return Color( 0.0f, 0.0f, 1.0f ); }
-    static Color GREY() { return Color( 0.5f, 0.5f, 0.5f ); }
-    static Color YELLOW() { return Color( 1.0f, 1.0f, 0.0f ); }
-    static Color CYAN() { return Color( 0.0f, 1.0f, 1.0f ); }
-    static Color PINK() { return Color( 1.0f, 0.0f, 1.0f ); }
-    static Color MAROON() { return Color( 0.5f, 0.0f, 0.0f ); }
+    static Color WHITE;
+    static Color BLACK;
+    static Color RED;
+    static Color GREEN;
+    static Color BLUE;
+    static Color GREY;
+    static Color YELLOW;
+    static Color CYAN;
+    static Color PINK;
+    static Color MAROON;
 private:
     float r, g, b, a;
 };

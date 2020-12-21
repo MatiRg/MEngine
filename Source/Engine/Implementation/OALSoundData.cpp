@@ -6,8 +6,8 @@
 #include <stb_vorbis.c>
 #include <vector>
 
-COALSoundData::COALSoundData(const std::string& Name, CResources* aResources):
-    ISoundData(Name, aResources)
+COALSoundData::COALSoundData(const std::string& Name):
+    ISoundData(Name)
 {
 }
 
@@ -141,7 +141,7 @@ namespace
     }
 }
 
-bool COALSoundData::Load()
+bool COALSoundData::Load(CResources*, const ResourceCreateMap&)
 {
     alGenBuffers( 1, &Buffer );
     if( OAL::CheckOALError() )

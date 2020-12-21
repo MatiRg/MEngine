@@ -6,7 +6,7 @@
 #include <string>
 #include <type_traits>
 
-struct SEngineParams;
+class CConfig;
 
 class CEngineUpdater final: public NonCopyableMovable
 {
