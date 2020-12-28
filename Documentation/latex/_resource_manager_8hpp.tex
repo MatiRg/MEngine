@@ -1,0 +1,35 @@
+\hypertarget{_resource_manager_8hpp}{}\doxysection{Source/\+Engine/\+Resources/\+Resource\+Manager.hpp File Reference}
+\label{_resource_manager_8hpp}\index{Source/Engine/Resources/ResourceManager.hpp@{Source/Engine/Resources/ResourceManager.hpp}}
+{\ttfamily \#include \char`\"{}../\+Core/\+Non\+Copyable.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../\+Core/\+Log.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../\+System/\+Memory\+Manager.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Resource.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+{\ttfamily \#include $<$memory$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_i_resource_manager}{I\+Resource\+Manager}}
+\item 
+class \mbox{\hyperlink{class_t_resource_manager}{T\+Resource\+Manager$<$ Args $>$}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_resource_manager_8hpp_a9035282b1a43866334b2e046f8896a01}{R\+E\+S\+O\+U\+R\+C\+E\+\_\+\+M\+A\+N\+A\+G\+ER}}(X)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_resource_manager_8hpp_a9035282b1a43866334b2e046f8896a01}\label{_resource_manager_8hpp_a9035282b1a43866334b2e046f8896a01}} 
+\index{ResourceManager.hpp@{ResourceManager.hpp}!RESOURCE\_MANAGER@{RESOURCE\_MANAGER}}
+\index{RESOURCE\_MANAGER@{RESOURCE\_MANAGER}!ResourceManager.hpp@{ResourceManager.hpp}}
+\doxysubsubsection{\texorpdfstring{RESOURCE\_MANAGER}{RESOURCE\_MANAGER}}
+{\footnotesize\ttfamily \#define R\+E\+S\+O\+U\+R\+C\+E\+\_\+\+M\+A\+N\+A\+G\+ER(\begin{DoxyParamCaption}\item[{}]{X }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                    std::string GetType() const override final \{ \textcolor{keywordflow}{return} \#X; \} \(\backslash\)}
+\DoxyCodeLine{                    static std::string GetTypeStatic() \{ \textcolor{keywordflow}{return} \#X; \}}
+
+\end{DoxyCode}

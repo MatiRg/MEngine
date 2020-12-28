@@ -5,7 +5,7 @@
 
 enum class ELightType
 {
-    Point,
+    //Point,
     Direction,
     None
 };

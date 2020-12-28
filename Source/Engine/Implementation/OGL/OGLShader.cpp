@@ -149,21 +149,28 @@ bool COGLShader::LoadProgram(CResources* Resources, GLuint Index, const StringVe
 #define DESTROY_PROGRAMS    glDeleteShader( VertexID ); \
     glDeleteShader(FragmentID)
 
-bool COGLShader::Load(CResources* Resources, const ResourceCreateMap&)
+bool COGLShader::Load(CResources* Resources, const ResourceCreateMap& VarMap)
 {
     GLuint VertexID = glCreateShader( GL_VERTEX_SHADER );
     GLuint FragmentID = glCreateShader( GL_FRAGMENT_SHADER );
 
-    if (!LoadProgram(Resources, VertexID, {"VS"}))
+    StringVec BasicDefines = !VarMap.count(RESOURCES_VAR_DEFINES) ? StringVec() : std::any_cast<StringVec>(VarMap.at(RESOURCES_VAR_DEFINES));
+
+    BasicDefines.push_back("VS");
+    if (!LoadProgram(Resources, VertexID, BasicDefines))
     {
         DESTROY_PROGRAMS;
         return false;
     }
-    if (!LoadProgram(Resources, FragmentID, {"FS"}))
+    BasicDefines.pop_back();
+
+    BasicDefines.push_back("FS");
+    if (!LoadProgram(Resources, FragmentID, BasicDefines))
     {
         DESTROY_PROGRAMS;
         return false;
     }
+    BasicDefines.pop_back();
 
     GLint Result = 0;
     GLint InfoLength = 0;

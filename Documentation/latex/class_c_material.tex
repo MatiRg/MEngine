@@ -1,0 +1,176 @@
+\hypertarget{class_c_material}{}\doxysection{C\+Material Class Reference}
+\label{class_c_material}\index{CMaterial@{CMaterial}}
+
+
+{\ttfamily \#include $<$Material.\+hpp$>$}
+
+Inheritance diagram for C\+Material\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_c_material}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_material_aec5f4576141a2dd3a1ffce6491c34912}{C\+Material}} ()
+\item 
+\mbox{\hyperlink{class_c_material_a8ded0c8116a60abfc5451ada36791132}{C\+Material}} (const std\+::string \&)
+\item 
+\mbox{\hyperlink{class_c_material_ad4e986a9a628c785b4f0a0684064a2ca}{$\sim$\+C\+Material}} ()
+\item 
+bool \mbox{\hyperlink{class_c_material_a3be84dfa0a4d766d09a18194a8e679f2}{Load}} (\mbox{\hyperlink{class_c_resources}{C\+Resources}} $\ast$, const \mbox{\hyperlink{_resource_8hpp_aeb9246ef736382503cd1784ef4ca742a}{Resource\+Create\+Map}} \&) override
+\item 
+void \mbox{\hyperlink{class_c_material_ade34622cc934bb6afc6db72b9b0a4934}{Bind}} ()
+\item 
+void \mbox{\hyperlink{class_c_material_a85f3f6a7fb922013e32f4b623692b248}{Un\+Bind}} ()
+\item 
+bool \mbox{\hyperlink{class_c_material_ad7d9483ad516c6a6dc734687287de47c}{Has\+Variable}} (const std\+::string \&)
+\item 
+\mbox{\hyperlink{class_c_material_variable}{C\+Material\+Variable}} $\ast$ \mbox{\hyperlink{class_c_material_af61c9ff911379b563702e22a40b5b170}{Get\+Variable}} (const std\+::string \&)
+\item 
+void \mbox{\hyperlink{class_c_material_ab8101a5257c69de9b6c645b1cf9674af}{Set\+Int}} (const std\+::string \&, const int)
+\item 
+void \mbox{\hyperlink{class_c_material_aa54b8dc3e6d0a03a961f599bf99d837d}{Set\+Float}} (const std\+::string \&, const float)
+\item 
+void \mbox{\hyperlink{class_c_material_a54ff2903f9473b071a7c80658aa9d642}{Set\+Vector2}} (const std\+::string \&, const \mbox{\hyperlink{_vector2_8hpp_ab50a46295e259c17345421d0fc1cb3bb}{Vector2}} \&)
+\item 
+void \mbox{\hyperlink{class_c_material_abea0a38702ce3b3d9b642e6023dc54b1}{Set\+Vector3}} (const std\+::string \&, const \mbox{\hyperlink{_vector3_8hpp_abb63d82e5aaa1616fff243d45937ad17}{Vector3}} \&)
+\item 
+void \mbox{\hyperlink{class_c_material_a5e95305684b9828568cf97c10a4fef30}{Set\+Vector4}} (const std\+::string \&, const \mbox{\hyperlink{_vector4_8hpp_a1542ba9453e2215413cafeeb0cf849d7}{Vector4}} \&)
+\item 
+void \mbox{\hyperlink{class_c_material_a7293c97465d53eceb2d121cb22d62993}{Set\+Color}} (const std\+::string \&, const \mbox{\hyperlink{class_color}{Color}} \&)
+\item 
+void \mbox{\hyperlink{class_c_material_a62e8fe15456000b0a32521a7a873a10c}{Set\+Texture}} (const std\+::string \&, \mbox{\hyperlink{class_i_texture2_d}{I\+Texture2D}} $\ast$)
+\item 
+void \mbox{\hyperlink{class_c_material_a6362109c87d41e50d3e3c20111fac096}{Set\+Shader}} (\mbox{\hyperlink{class_i_shader}{I\+Shader}} $\ast$a\+Shader)
+\item 
+bool \mbox{\hyperlink{class_c_material_a2d07671f248cef596fbfa758f2b86e59}{Has\+Shader}} () const
+\item 
+\mbox{\hyperlink{class_i_shader}{I\+Shader}} $\ast$ \mbox{\hyperlink{class_c_material_a060e38924341e9c47476407e5d74ce69}{Get\+Shader}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_c_material_aec5f4576141a2dd3a1ffce6491c34912}\label{class_c_material_aec5f4576141a2dd3a1ffce6491c34912}} 
+\index{CMaterial@{CMaterial}!CMaterial@{CMaterial}}
+\index{CMaterial@{CMaterial}!CMaterial@{CMaterial}}
+\doxysubsubsection{\texorpdfstring{CMaterial()}{CMaterial()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily C\+Material\+::\+C\+Material (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_material_a8ded0c8116a60abfc5451ada36791132}\label{class_c_material_a8ded0c8116a60abfc5451ada36791132}} 
+\index{CMaterial@{CMaterial}!CMaterial@{CMaterial}}
+\index{CMaterial@{CMaterial}!CMaterial@{CMaterial}}
+\doxysubsubsection{\texorpdfstring{CMaterial()}{CMaterial()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily C\+Material\+::\+C\+Material (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_material_ad4e986a9a628c785b4f0a0684064a2ca}\label{class_c_material_ad4e986a9a628c785b4f0a0684064a2ca}} 
+\index{CMaterial@{CMaterial}!````~CMaterial@{$\sim$CMaterial}}
+\index{````~CMaterial@{$\sim$CMaterial}!CMaterial@{CMaterial}}
+\doxysubsubsection{\texorpdfstring{$\sim$CMaterial()}{~CMaterial()}}
+{\footnotesize\ttfamily C\+Material\+::$\sim$\+C\+Material (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_c_material_ade34622cc934bb6afc6db72b9b0a4934}\label{class_c_material_ade34622cc934bb6afc6db72b9b0a4934}} 
+\index{CMaterial@{CMaterial}!Bind@{Bind}}
+\index{Bind@{Bind}!CMaterial@{CMaterial}}
+\doxysubsubsection{\texorpdfstring{Bind()}{Bind()}}
+{\footnotesize\ttfamily void C\+Material\+::\+Bind (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_material_a060e38924341e9c47476407e5d74ce69}\label{class_c_material_a060e38924341e9c47476407e5d74ce69}} 
+\index{CMaterial@{CMaterial}!GetShader@{GetShader}}
+\index{GetShader@{GetShader}!CMaterial@{CMaterial}}
+\doxysubsubsection{\texorpdfstring{GetShader()}{GetShader()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_i_shader}{I\+Shader}}$\ast$ C\+Material\+::\+Get\+Shader (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_material_af61c9ff911379b563702e22a40b5b170}\label{class_c_material_af61c9ff911379b563702e22a40b5b170}} 
+\index{CMaterial@{CMaterial}!GetVariable@{GetVariable}}
+\index{GetVariable@{GetVariable}!CMaterial@{CMaterial}}
+\doxysubsubsection{\texorpdfstring{GetVariable()}{GetVariable()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_material_variable}{C\+Material\+Variable}} $\ast$ C\+Material\+::\+Get\+Variable (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_material_a2d07671f248cef596fbfa758f2b86e59}\label{class_c_material_a2d07671f248cef596fbfa758f2b86e59}} 
+\index{CMaterial@{CMaterial}!HasShader@{HasShader}}
+\index{HasShader@{HasShader}!CMaterial@{CMaterial}}
+\doxysubsubsection{\texorpdfstring{HasShader()}{HasShader()}}
+{\footnotesize\ttfamily bool C\+Material\+::\+Has\+Shader (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_material_ad7d9483ad516c6a6dc734687287de47c}\label{class_c_material_ad7d9483ad516c6a6dc734687287de47c}} 
+\index{CMaterial@{CMaterial}!HasVariable@{HasVariable}}
+\index{HasVariable@{HasVariable}!CMaterial@{CMaterial}}
+\doxysubsubsection{\texorpdfstring{HasVariable()}{HasVariable()}}
+{\footnotesize\ttfamily bool C\+Material\+::\+Has\+Variable (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_material_a3be84dfa0a4d766d09a18194a8e679f2}\label{class_c_material_a3be84dfa0a4d766d09a18194a8e679f2}} 
+\index{CMaterial@{CMaterial}!Load@{Load}}
+\index{Load@{Load}!CMaterial@{CMaterial}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool C\+Material\+::\+Load (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_resources}{C\+Resources}} $\ast$}]{Resources,  }\item[{const \mbox{\hyperlink{_resource_8hpp_aeb9246ef736382503cd1784ef4ca742a}{Resource\+Create\+Map}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_resource_af0f08da3d59d49733fed31a1b6a15f10}{I\+Resource}}.
+
+\mbox{\Hypertarget{class_c_material_a7293c97465d53eceb2d121cb22d62993}\label{class_c_material_a7293c97465d53eceb2d121cb22d62993}} 
+\index{CMaterial@{CMaterial}!SetColor@{SetColor}}
+\index{SetColor@{SetColor}!CMaterial@{CMaterial}}
+\doxysubsubsection{\texorpdfstring{SetColor()}{SetColor()}}
+{\footnotesize\ttfamily void C\+Material\+::\+Set\+Color (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Name,  }\item[{const \mbox{\hyperlink{class_color}{Color}} \&}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_material_aa54b8dc3e6d0a03a961f599bf99d837d}\label{class_c_material_aa54b8dc3e6d0a03a961f599bf99d837d}} 
+\index{CMaterial@{CMaterial}!SetFloat@{SetFloat}}
+\index{SetFloat@{SetFloat}!CMaterial@{CMaterial}}
+\doxysubsubsection{\texorpdfstring{SetFloat()}{SetFloat()}}
+{\footnotesize\ttfamily void C\+Material\+::\+Set\+Float (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Name,  }\item[{const float}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_material_ab8101a5257c69de9b6c645b1cf9674af}\label{class_c_material_ab8101a5257c69de9b6c645b1cf9674af}} 
+\index{CMaterial@{CMaterial}!SetInt@{SetInt}}
+\index{SetInt@{SetInt}!CMaterial@{CMaterial}}
+\doxysubsubsection{\texorpdfstring{SetInt()}{SetInt()}}
+{\footnotesize\ttfamily void C\+Material\+::\+Set\+Int (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Name,  }\item[{const int}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_material_a6362109c87d41e50d3e3c20111fac096}\label{class_c_material_a6362109c87d41e50d3e3c20111fac096}} 
+\index{CMaterial@{CMaterial}!SetShader@{SetShader}}
+\index{SetShader@{SetShader}!CMaterial@{CMaterial}}
+\doxysubsubsection{\texorpdfstring{SetShader()}{SetShader()}}
+{\footnotesize\ttfamily void C\+Material\+::\+Set\+Shader (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_i_shader}{I\+Shader}} $\ast$}]{a\+Shader }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_material_a62e8fe15456000b0a32521a7a873a10c}\label{class_c_material_a62e8fe15456000b0a32521a7a873a10c}} 
+\index{CMaterial@{CMaterial}!SetTexture@{SetTexture}}
+\index{SetTexture@{SetTexture}!CMaterial@{CMaterial}}
+\doxysubsubsection{\texorpdfstring{SetTexture()}{SetTexture()}}
+{\footnotesize\ttfamily void C\+Material\+::\+Set\+Texture (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Name,  }\item[{\mbox{\hyperlink{class_i_texture2_d}{I\+Texture2D}} $\ast$}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_material_a54ff2903f9473b071a7c80658aa9d642}\label{class_c_material_a54ff2903f9473b071a7c80658aa9d642}} 
+\index{CMaterial@{CMaterial}!SetVector2@{SetVector2}}
+\index{SetVector2@{SetVector2}!CMaterial@{CMaterial}}
+\doxysubsubsection{\texorpdfstring{SetVector2()}{SetVector2()}}
+{\footnotesize\ttfamily void C\+Material\+::\+Set\+Vector2 (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Name,  }\item[{const \mbox{\hyperlink{_vector2_8hpp_ab50a46295e259c17345421d0fc1cb3bb}{Vector2}} \&}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_material_abea0a38702ce3b3d9b642e6023dc54b1}\label{class_c_material_abea0a38702ce3b3d9b642e6023dc54b1}} 
+\index{CMaterial@{CMaterial}!SetVector3@{SetVector3}}
+\index{SetVector3@{SetVector3}!CMaterial@{CMaterial}}
+\doxysubsubsection{\texorpdfstring{SetVector3()}{SetVector3()}}
+{\footnotesize\ttfamily void C\+Material\+::\+Set\+Vector3 (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Name,  }\item[{const \mbox{\hyperlink{_vector3_8hpp_abb63d82e5aaa1616fff243d45937ad17}{Vector3}} \&}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_material_a5e95305684b9828568cf97c10a4fef30}\label{class_c_material_a5e95305684b9828568cf97c10a4fef30}} 
+\index{CMaterial@{CMaterial}!SetVector4@{SetVector4}}
+\index{SetVector4@{SetVector4}!CMaterial@{CMaterial}}
+\doxysubsubsection{\texorpdfstring{SetVector4()}{SetVector4()}}
+{\footnotesize\ttfamily void C\+Material\+::\+Set\+Vector4 (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Name,  }\item[{const \mbox{\hyperlink{_vector4_8hpp_a1542ba9453e2215413cafeeb0cf849d7}{Vector4}} \&}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_material_a85f3f6a7fb922013e32f4b623692b248}\label{class_c_material_a85f3f6a7fb922013e32f4b623692b248}} 
+\index{CMaterial@{CMaterial}!UnBind@{UnBind}}
+\index{UnBind@{UnBind}!CMaterial@{CMaterial}}
+\doxysubsubsection{\texorpdfstring{UnBind()}{UnBind()}}
+{\footnotesize\ttfamily void C\+Material\+::\+Un\+Bind (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Engine/\+Graphics/\mbox{\hyperlink{_material_8hpp}{Material.\+hpp}}\item 
+Source/\+Engine/\+Graphics/\mbox{\hyperlink{_material_8cpp}{Material.\+cpp}}\end{DoxyCompactItemize}

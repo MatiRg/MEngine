@@ -1,0 +1,151 @@
+\hypertarget{class_i_context}{}\doxysection{I\+Context Class Reference}
+\label{class_i_context}\index{IContext@{IContext}}
+
+
+{\ttfamily \#include $<$Context.\+hpp$>$}
+
+Inheritance diagram for I\+Context\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_i_context}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_i_context_ae67feeaac71d0365047291453deaa234}{I\+Context}} ()
+\item 
+virtual \mbox{\hyperlink{class_i_context_a1451d7921a5f88bbaeba410feebbd277}{$\sim$\+I\+Context}} ()
+\item 
+virtual bool \mbox{\hyperlink{class_i_context_abdc590540454c9a9645dc36bc4156ca1}{Init}} (const \mbox{\hyperlink{struct_s_engine_params}{S\+Engine\+Params}} \&)=0
+\item 
+virtual \mbox{\hyperlink{class_i_system}{I\+System}} $\ast$ \mbox{\hyperlink{class_i_context_ac97857ff3bff08bfeaf45a728c938105}{Get\+System}} () const =0
+\item 
+virtual \mbox{\hyperlink{class_i_event_queue}{I\+Event\+Queue}} $\ast$ \mbox{\hyperlink{class_i_context_aed12c80fc5c4dad5d96fa9be76b481bf}{Get\+Event\+Queue}} () const =0
+\item 
+virtual \mbox{\hyperlink{class_i_input}{I\+Input}} $\ast$ \mbox{\hyperlink{class_i_context_ab72403eba8a4cfae9aac5f3cecc4db9a}{Get\+Input}} () const =0
+\item 
+virtual \mbox{\hyperlink{class_i_window}{I\+Window}} $\ast$ \mbox{\hyperlink{class_i_context_a953a9cc63ef3817a3262947f8d92a8d4}{Get\+Window}} () const =0
+\item 
+virtual \mbox{\hyperlink{class_i_graphics}{I\+Graphics}} $\ast$ \mbox{\hyperlink{class_i_context_a67eb411a3aa479ffdd99e9ada90432a5}{Get\+Graphics}} () const =0
+\item 
+virtual \mbox{\hyperlink{class_i_audio}{I\+Audio}} $\ast$ \mbox{\hyperlink{class_i_context_a5eae8ef8ac871ba168e4e674a9e0972f}{Get\+Audio}} () const =0
+\item 
+virtual \mbox{\hyperlink{class_i_physics3_d}{I\+Physics3D}} $\ast$ \mbox{\hyperlink{class_i_context_a52bb821f95a32d12793c456c93f8f039}{Get\+Physics3D}} () const =0
+\item 
+virtual \mbox{\hyperlink{class_i_physics2_d}{I\+Physics2D}} $\ast$ \mbox{\hyperlink{class_i_context_adf59ea4d2d6ebee795596c05bedb0ebd}{Get\+Physics2D}} () const =0
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_i_context_ae67feeaac71d0365047291453deaa234}\label{class_i_context_ae67feeaac71d0365047291453deaa234}} 
+\index{IContext@{IContext}!IContext@{IContext}}
+\index{IContext@{IContext}!IContext@{IContext}}
+\doxysubsubsection{\texorpdfstring{IContext()}{IContext()}}
+{\footnotesize\ttfamily I\+Context\+::\+I\+Context (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_i_context_a1451d7921a5f88bbaeba410feebbd277}\label{class_i_context_a1451d7921a5f88bbaeba410feebbd277}} 
+\index{IContext@{IContext}!````~IContext@{$\sim$IContext}}
+\index{````~IContext@{$\sim$IContext}!IContext@{IContext}}
+\doxysubsubsection{\texorpdfstring{$\sim$IContext()}{~IContext()}}
+{\footnotesize\ttfamily virtual I\+Context\+::$\sim$\+I\+Context (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_i_context_a5eae8ef8ac871ba168e4e674a9e0972f}\label{class_i_context_a5eae8ef8ac871ba168e4e674a9e0972f}} 
+\index{IContext@{IContext}!GetAudio@{GetAudio}}
+\index{GetAudio@{GetAudio}!IContext@{IContext}}
+\doxysubsubsection{\texorpdfstring{GetAudio()}{GetAudio()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_i_audio}{I\+Audio}}$\ast$ I\+Context\+::\+Get\+Audio (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_c_s_d_l_context_a11219a47692a301ee7e3c77c6ecf7493}{C\+S\+D\+L\+Context}}.
+
+\mbox{\Hypertarget{class_i_context_aed12c80fc5c4dad5d96fa9be76b481bf}\label{class_i_context_aed12c80fc5c4dad5d96fa9be76b481bf}} 
+\index{IContext@{IContext}!GetEventQueue@{GetEventQueue}}
+\index{GetEventQueue@{GetEventQueue}!IContext@{IContext}}
+\doxysubsubsection{\texorpdfstring{GetEventQueue()}{GetEventQueue()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_i_event_queue}{I\+Event\+Queue}}$\ast$ I\+Context\+::\+Get\+Event\+Queue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_c_s_d_l_context_a7611bbc3e2fd98360cc8a86513d71bfa}{C\+S\+D\+L\+Context}}.
+
+\mbox{\Hypertarget{class_i_context_a67eb411a3aa479ffdd99e9ada90432a5}\label{class_i_context_a67eb411a3aa479ffdd99e9ada90432a5}} 
+\index{IContext@{IContext}!GetGraphics@{GetGraphics}}
+\index{GetGraphics@{GetGraphics}!IContext@{IContext}}
+\doxysubsubsection{\texorpdfstring{GetGraphics()}{GetGraphics()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_i_graphics}{I\+Graphics}}$\ast$ I\+Context\+::\+Get\+Graphics (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_c_s_d_l_context_a40fce6710d562622148611dd09a18ec2}{C\+S\+D\+L\+Context}}.
+
+\mbox{\Hypertarget{class_i_context_ab72403eba8a4cfae9aac5f3cecc4db9a}\label{class_i_context_ab72403eba8a4cfae9aac5f3cecc4db9a}} 
+\index{IContext@{IContext}!GetInput@{GetInput}}
+\index{GetInput@{GetInput}!IContext@{IContext}}
+\doxysubsubsection{\texorpdfstring{GetInput()}{GetInput()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_i_input}{I\+Input}}$\ast$ I\+Context\+::\+Get\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_c_s_d_l_context_a918e22e2c0737a494707dee8ac526849}{C\+S\+D\+L\+Context}}.
+
+\mbox{\Hypertarget{class_i_context_adf59ea4d2d6ebee795596c05bedb0ebd}\label{class_i_context_adf59ea4d2d6ebee795596c05bedb0ebd}} 
+\index{IContext@{IContext}!GetPhysics2D@{GetPhysics2D}}
+\index{GetPhysics2D@{GetPhysics2D}!IContext@{IContext}}
+\doxysubsubsection{\texorpdfstring{GetPhysics2D()}{GetPhysics2D()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_i_physics2_d}{I\+Physics2D}}$\ast$ I\+Context\+::\+Get\+Physics2D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_c_s_d_l_context_abf9103114d9b27839b0c0d15ae73af3a}{C\+S\+D\+L\+Context}}.
+
+\mbox{\Hypertarget{class_i_context_a52bb821f95a32d12793c456c93f8f039}\label{class_i_context_a52bb821f95a32d12793c456c93f8f039}} 
+\index{IContext@{IContext}!GetPhysics3D@{GetPhysics3D}}
+\index{GetPhysics3D@{GetPhysics3D}!IContext@{IContext}}
+\doxysubsubsection{\texorpdfstring{GetPhysics3D()}{GetPhysics3D()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_i_physics3_d}{I\+Physics3D}}$\ast$ I\+Context\+::\+Get\+Physics3D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_c_s_d_l_context_a194ab931c9db94cfca59e802f7403753}{C\+S\+D\+L\+Context}}.
+
+\mbox{\Hypertarget{class_i_context_ac97857ff3bff08bfeaf45a728c938105}\label{class_i_context_ac97857ff3bff08bfeaf45a728c938105}} 
+\index{IContext@{IContext}!GetSystem@{GetSystem}}
+\index{GetSystem@{GetSystem}!IContext@{IContext}}
+\doxysubsubsection{\texorpdfstring{GetSystem()}{GetSystem()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_i_system}{I\+System}}$\ast$ I\+Context\+::\+Get\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_c_s_d_l_context_aac8524d6bca1afbdfdb9677e69c6e3b9}{C\+S\+D\+L\+Context}}.
+
+\mbox{\Hypertarget{class_i_context_a953a9cc63ef3817a3262947f8d92a8d4}\label{class_i_context_a953a9cc63ef3817a3262947f8d92a8d4}} 
+\index{IContext@{IContext}!GetWindow@{GetWindow}}
+\index{GetWindow@{GetWindow}!IContext@{IContext}}
+\doxysubsubsection{\texorpdfstring{GetWindow()}{GetWindow()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_i_window}{I\+Window}}$\ast$ I\+Context\+::\+Get\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_c_s_d_l_context_ada87cced2ab9d2b7947f687fe20dd04f}{C\+S\+D\+L\+Context}}.
+
+\mbox{\Hypertarget{class_i_context_abdc590540454c9a9645dc36bc4156ca1}\label{class_i_context_abdc590540454c9a9645dc36bc4156ca1}} 
+\index{IContext@{IContext}!Init@{Init}}
+\index{Init@{Init}!IContext@{IContext}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily virtual bool I\+Context\+::\+Init (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_s_engine_params}{S\+Engine\+Params}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_c_s_d_l_context_a815c71620e4e3dc468e6b3ccd7dce3c6}{C\+S\+D\+L\+Context}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Engine/\+Engine/\mbox{\hyperlink{_context_8hpp}{Context.\+hpp}}\end{DoxyCompactItemize}

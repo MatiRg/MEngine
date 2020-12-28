@@ -1,0 +1,208 @@
+\hypertarget{class_c_audio_source}{}\doxysection{C\+Audio\+Source Class Reference}
+\label{class_c_audio_source}\index{CAudioSource@{CAudioSource}}
+
+
+{\ttfamily \#include $<$Audio\+Source.\+hpp$>$}
+
+Inheritance diagram for C\+Audio\+Source\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_c_audio_source}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_audio_source_ab088b0da96548e5f523108b1db0df3a0}{C\+Audio\+Source}} (\mbox{\hyperlink{class_c_engine}{C\+Engine}} $\ast$)
+\item 
+bool \mbox{\hyperlink{class_c_audio_source_a7f1fabe8b8590669728f7452746608c7}{On\+Load}} (\mbox{\hyperlink{class_c_x_m_l_element}{C\+X\+M\+L\+Element}} $\ast$) override
+\item 
+bool \mbox{\hyperlink{class_c_audio_source_a3499d2c0f0411ff77c2158ed4e4eb813}{On\+Save}} (\mbox{\hyperlink{class_c_x_m_l_element}{C\+X\+M\+L\+Element}} $\ast$) override
+\item 
+void \mbox{\hyperlink{class_c_audio_source_aea50708c13f477828d2e236acde13f23}{On\+Enabled}} () override
+\item 
+void \mbox{\hyperlink{class_c_audio_source_a0534f7b2b5ead74b9bd1f8c785961961}{On\+Disabled}} () override
+\item 
+void \mbox{\hyperlink{class_c_audio_source_a70aeb65ae0cbf6395db7a0768338d4bd}{On\+Create}} () override
+\item 
+void \mbox{\hyperlink{class_c_audio_source_a906794fb0e68948b47d5509b24035c7d}{On\+Destroy}} () override
+\item 
+void \mbox{\hyperlink{class_c_audio_source_a12a59c725b147df01b0672b063ad3a95}{On\+Begin\+Frame}} () override
+\item 
+void \mbox{\hyperlink{class_c_audio_source_ac6a00dc8c6ed03c73360d0a14b06ed00}{Set\+Muted}} (const bool)
+\item 
+bool \mbox{\hyperlink{class_c_audio_source_a462d9173bba2c1a0b90e7d107d32d57e}{Is\+Muted}} () const
+\item 
+void \mbox{\hyperlink{class_c_audio_source_a5d8015545bf5b3316fbc83f07ccb6deb}{Set\+Volume}} (const float)
+\item 
+float \mbox{\hyperlink{class_c_audio_source_a22ef1ea75a0831c6ffb7bb31a5e72c60}{Get\+Volume}} () const
+\item 
+void \mbox{\hyperlink{class_c_audio_source_adce5eb9187c5920173f39abb96392806}{Set\+Looped}} (const bool)
+\item 
+bool \mbox{\hyperlink{class_c_audio_source_ab016c639aae9206fc3fd5b4ed5d6f0ed}{Is\+Looped}} () const
+\item 
+void \mbox{\hyperlink{class_c_audio_source_ae86e0d3e01f9d6a89733746a652435cd}{Play}} ()
+\item 
+void \mbox{\hyperlink{class_c_audio_source_a93c7a4ab42f995cb9149dbad035771b7}{Pause}} (const bool)
+\item 
+void \mbox{\hyperlink{class_c_audio_source_afb03f1c777eff83d8a9b79431006fa72}{Stop}} ()
+\item 
+void \mbox{\hyperlink{class_c_audio_source_aa7fb0fdccfb7d7fc8af02fb062f04ffd}{Set\+Data}} (\mbox{\hyperlink{class_i_sound_data}{I\+Sound\+Data}} $\ast$)
+\item 
+\mbox{\hyperlink{class_i_sound_data}{I\+Sound\+Data}} $\ast$ \mbox{\hyperlink{class_c_audio_source_a5ab4675fabfc36d4b2a8d3f76f3e9ed7}{Get\+Data}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_c_audio_source_ab088b0da96548e5f523108b1db0df3a0}\label{class_c_audio_source_ab088b0da96548e5f523108b1db0df3a0}} 
+\index{CAudioSource@{CAudioSource}!CAudioSource@{CAudioSource}}
+\index{CAudioSource@{CAudioSource}!CAudioSource@{CAudioSource}}
+\doxysubsubsection{\texorpdfstring{CAudioSource()}{CAudioSource()}}
+{\footnotesize\ttfamily C\+Audio\+Source\+::\+C\+Audio\+Source (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_engine}{C\+Engine}} $\ast$}]{a\+Engine }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_c_audio_source_a5ab4675fabfc36d4b2a8d3f76f3e9ed7}\label{class_c_audio_source_a5ab4675fabfc36d4b2a8d3f76f3e9ed7}} 
+\index{CAudioSource@{CAudioSource}!GetData@{GetData}}
+\index{GetData@{GetData}!CAudioSource@{CAudioSource}}
+\doxysubsubsection{\texorpdfstring{GetData()}{GetData()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_i_sound_data}{I\+Sound\+Data}}$\ast$ C\+Audio\+Source\+::\+Get\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_audio_source_a22ef1ea75a0831c6ffb7bb31a5e72c60}\label{class_c_audio_source_a22ef1ea75a0831c6ffb7bb31a5e72c60}} 
+\index{CAudioSource@{CAudioSource}!GetVolume@{GetVolume}}
+\index{GetVolume@{GetVolume}!CAudioSource@{CAudioSource}}
+\doxysubsubsection{\texorpdfstring{GetVolume()}{GetVolume()}}
+{\footnotesize\ttfamily float C\+Audio\+Source\+::\+Get\+Volume (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_audio_source_ab016c639aae9206fc3fd5b4ed5d6f0ed}\label{class_c_audio_source_ab016c639aae9206fc3fd5b4ed5d6f0ed}} 
+\index{CAudioSource@{CAudioSource}!IsLooped@{IsLooped}}
+\index{IsLooped@{IsLooped}!CAudioSource@{CAudioSource}}
+\doxysubsubsection{\texorpdfstring{IsLooped()}{IsLooped()}}
+{\footnotesize\ttfamily bool C\+Audio\+Source\+::\+Is\+Looped (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_audio_source_a462d9173bba2c1a0b90e7d107d32d57e}\label{class_c_audio_source_a462d9173bba2c1a0b90e7d107d32d57e}} 
+\index{CAudioSource@{CAudioSource}!IsMuted@{IsMuted}}
+\index{IsMuted@{IsMuted}!CAudioSource@{CAudioSource}}
+\doxysubsubsection{\texorpdfstring{IsMuted()}{IsMuted()}}
+{\footnotesize\ttfamily bool C\+Audio\+Source\+::\+Is\+Muted (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_audio_source_a12a59c725b147df01b0672b063ad3a95}\label{class_c_audio_source_a12a59c725b147df01b0672b063ad3a95}} 
+\index{CAudioSource@{CAudioSource}!OnBeginFrame@{OnBeginFrame}}
+\index{OnBeginFrame@{OnBeginFrame}!CAudioSource@{CAudioSource}}
+\doxysubsubsection{\texorpdfstring{OnBeginFrame()}{OnBeginFrame()}}
+{\footnotesize\ttfamily void C\+Audio\+Source\+::\+On\+Begin\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_i_component_ad5498e7303d2d3c74e111b3c7016add1}{I\+Component}}.
+
+\mbox{\Hypertarget{class_c_audio_source_a70aeb65ae0cbf6395db7a0768338d4bd}\label{class_c_audio_source_a70aeb65ae0cbf6395db7a0768338d4bd}} 
+\index{CAudioSource@{CAudioSource}!OnCreate@{OnCreate}}
+\index{OnCreate@{OnCreate}!CAudioSource@{CAudioSource}}
+\doxysubsubsection{\texorpdfstring{OnCreate()}{OnCreate()}}
+{\footnotesize\ttfamily void C\+Audio\+Source\+::\+On\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_i_component_a82932593f6cc082d0e488983b3831bd8}{I\+Component}}.
+
+\mbox{\Hypertarget{class_c_audio_source_a906794fb0e68948b47d5509b24035c7d}\label{class_c_audio_source_a906794fb0e68948b47d5509b24035c7d}} 
+\index{CAudioSource@{CAudioSource}!OnDestroy@{OnDestroy}}
+\index{OnDestroy@{OnDestroy}!CAudioSource@{CAudioSource}}
+\doxysubsubsection{\texorpdfstring{OnDestroy()}{OnDestroy()}}
+{\footnotesize\ttfamily void C\+Audio\+Source\+::\+On\+Destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_i_component_ac685c951d4853b0c6ea838ab536d55f0}{I\+Component}}.
+
+\mbox{\Hypertarget{class_c_audio_source_a0534f7b2b5ead74b9bd1f8c785961961}\label{class_c_audio_source_a0534f7b2b5ead74b9bd1f8c785961961}} 
+\index{CAudioSource@{CAudioSource}!OnDisabled@{OnDisabled}}
+\index{OnDisabled@{OnDisabled}!CAudioSource@{CAudioSource}}
+\doxysubsubsection{\texorpdfstring{OnDisabled()}{OnDisabled()}}
+{\footnotesize\ttfamily void C\+Audio\+Source\+::\+On\+Disabled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_i_component_a8e7664d6e726794239ba04cc2d3e8a58}{I\+Component}}.
+
+\mbox{\Hypertarget{class_c_audio_source_aea50708c13f477828d2e236acde13f23}\label{class_c_audio_source_aea50708c13f477828d2e236acde13f23}} 
+\index{CAudioSource@{CAudioSource}!OnEnabled@{OnEnabled}}
+\index{OnEnabled@{OnEnabled}!CAudioSource@{CAudioSource}}
+\doxysubsubsection{\texorpdfstring{OnEnabled()}{OnEnabled()}}
+{\footnotesize\ttfamily void C\+Audio\+Source\+::\+On\+Enabled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_i_component_aa9abf1067bcfb212379cdb81470ef27f}{I\+Component}}.
+
+\mbox{\Hypertarget{class_c_audio_source_a7f1fabe8b8590669728f7452746608c7}\label{class_c_audio_source_a7f1fabe8b8590669728f7452746608c7}} 
+\index{CAudioSource@{CAudioSource}!OnLoad@{OnLoad}}
+\index{OnLoad@{OnLoad}!CAudioSource@{CAudioSource}}
+\doxysubsubsection{\texorpdfstring{OnLoad()}{OnLoad()}}
+{\footnotesize\ttfamily bool C\+Audio\+Source\+::\+On\+Load (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_x_m_l_element}{C\+X\+M\+L\+Element}} $\ast$}]{Root }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_i_component_afc223ed01e1849fdd92c708cc2bdd2de}{I\+Component}}.
+
+\mbox{\Hypertarget{class_c_audio_source_a3499d2c0f0411ff77c2158ed4e4eb813}\label{class_c_audio_source_a3499d2c0f0411ff77c2158ed4e4eb813}} 
+\index{CAudioSource@{CAudioSource}!OnSave@{OnSave}}
+\index{OnSave@{OnSave}!CAudioSource@{CAudioSource}}
+\doxysubsubsection{\texorpdfstring{OnSave()}{OnSave()}}
+{\footnotesize\ttfamily bool C\+Audio\+Source\+::\+On\+Save (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_x_m_l_element}{C\+X\+M\+L\+Element}} $\ast$}]{Root }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_i_component_af6b499a0f026ba1c60942ac02088f642}{I\+Component}}.
+
+\mbox{\Hypertarget{class_c_audio_source_a93c7a4ab42f995cb9149dbad035771b7}\label{class_c_audio_source_a93c7a4ab42f995cb9149dbad035771b7}} 
+\index{CAudioSource@{CAudioSource}!Pause@{Pause}}
+\index{Pause@{Pause}!CAudioSource@{CAudioSource}}
+\doxysubsubsection{\texorpdfstring{Pause()}{Pause()}}
+{\footnotesize\ttfamily void C\+Audio\+Source\+::\+Pause (\begin{DoxyParamCaption}\item[{const bool}]{State }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_audio_source_ae86e0d3e01f9d6a89733746a652435cd}\label{class_c_audio_source_ae86e0d3e01f9d6a89733746a652435cd}} 
+\index{CAudioSource@{CAudioSource}!Play@{Play}}
+\index{Play@{Play}!CAudioSource@{CAudioSource}}
+\doxysubsubsection{\texorpdfstring{Play()}{Play()}}
+{\footnotesize\ttfamily void C\+Audio\+Source\+::\+Play (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_audio_source_aa7fb0fdccfb7d7fc8af02fb062f04ffd}\label{class_c_audio_source_aa7fb0fdccfb7d7fc8af02fb062f04ffd}} 
+\index{CAudioSource@{CAudioSource}!SetData@{SetData}}
+\index{SetData@{SetData}!CAudioSource@{CAudioSource}}
+\doxysubsubsection{\texorpdfstring{SetData()}{SetData()}}
+{\footnotesize\ttfamily void C\+Audio\+Source\+::\+Set\+Data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_i_sound_data}{I\+Sound\+Data}} $\ast$}]{a\+Data }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_audio_source_adce5eb9187c5920173f39abb96392806}\label{class_c_audio_source_adce5eb9187c5920173f39abb96392806}} 
+\index{CAudioSource@{CAudioSource}!SetLooped@{SetLooped}}
+\index{SetLooped@{SetLooped}!CAudioSource@{CAudioSource}}
+\doxysubsubsection{\texorpdfstring{SetLooped()}{SetLooped()}}
+{\footnotesize\ttfamily void C\+Audio\+Source\+::\+Set\+Looped (\begin{DoxyParamCaption}\item[{const bool}]{Value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_audio_source_ac6a00dc8c6ed03c73360d0a14b06ed00}\label{class_c_audio_source_ac6a00dc8c6ed03c73360d0a14b06ed00}} 
+\index{CAudioSource@{CAudioSource}!SetMuted@{SetMuted}}
+\index{SetMuted@{SetMuted}!CAudioSource@{CAudioSource}}
+\doxysubsubsection{\texorpdfstring{SetMuted()}{SetMuted()}}
+{\footnotesize\ttfamily void C\+Audio\+Source\+::\+Set\+Muted (\begin{DoxyParamCaption}\item[{const bool}]{Value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_audio_source_a5d8015545bf5b3316fbc83f07ccb6deb}\label{class_c_audio_source_a5d8015545bf5b3316fbc83f07ccb6deb}} 
+\index{CAudioSource@{CAudioSource}!SetVolume@{SetVolume}}
+\index{SetVolume@{SetVolume}!CAudioSource@{CAudioSource}}
+\doxysubsubsection{\texorpdfstring{SetVolume()}{SetVolume()}}
+{\footnotesize\ttfamily void C\+Audio\+Source\+::\+Set\+Volume (\begin{DoxyParamCaption}\item[{const float}]{a\+Volume }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_audio_source_afb03f1c777eff83d8a9b79431006fa72}\label{class_c_audio_source_afb03f1c777eff83d8a9b79431006fa72}} 
+\index{CAudioSource@{CAudioSource}!Stop@{Stop}}
+\index{Stop@{Stop}!CAudioSource@{CAudioSource}}
+\doxysubsubsection{\texorpdfstring{Stop()}{Stop()}}
+{\footnotesize\ttfamily void C\+Audio\+Source\+::\+Stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Engine/\+Scene/\+Components/\mbox{\hyperlink{_audio_source_8hpp}{Audio\+Source.\+hpp}}\item 
+Source/\+Engine/\+Scene/\+Components/\mbox{\hyperlink{_audio_source_8cpp}{Audio\+Source.\+cpp}}\end{DoxyCompactItemize}

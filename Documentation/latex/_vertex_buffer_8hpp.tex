@@ -1,0 +1,101 @@
+\hypertarget{_vertex_buffer_8hpp}{}\doxysection{Source/\+Engine/\+Graphics/\+Vertex\+Buffer.hpp File Reference}
+\label{_vertex_buffer_8hpp}\index{Source/Engine/Graphics/VertexBuffer.hpp@{Source/Engine/Graphics/VertexBuffer.hpp}}
+{\ttfamily \#include \char`\"{}../\+Math/\+Color.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../\+Math/\+Vector3.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../\+Math/\+Vector2.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../\+Core/\+Non\+Copyable.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../\+System/\+Memory\+Manager.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_s_vertex_element}{S\+Vertex\+Element}}
+\item 
+class \mbox{\hyperlink{class_i_vertex_buffer}{I\+Vertex\+Buffer}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{_vertex_buffer_8hpp_a6ace168bd5907e3f42ef7750bef4c246}{E\+Primitive\+Mode}} \{ \mbox{\hyperlink{_vertex_buffer_8hpp_a6ace168bd5907e3f42ef7750bef4c246a7ca66fdfaad3eb33fc65d7490178f856}{E\+Primitive\+Mode\+::\+Triangles}} = 0, 
+\mbox{\hyperlink{_vertex_buffer_8hpp_a6ace168bd5907e3f42ef7750bef4c246aa0b0293a2db49f5f93c15a62e095c819}{E\+Primitive\+Mode\+::\+Lines}}, 
+\mbox{\hyperlink{_vertex_buffer_8hpp_a6ace168bd5907e3f42ef7750bef4c246a75dd5f1160a3f02b6fae89c54361a1b3}{E\+Primitive\+Mode\+::\+Points}}
+ \}
+\item 
+enum \mbox{\hyperlink{_vertex_buffer_8hpp_a4f3b3f417353112cf44f7ddb1091a74b}{E\+Vertex\+Element}} \{ \mbox{\hyperlink{_vertex_buffer_8hpp_a4f3b3f417353112cf44f7ddb1091a74ba52f5e0bc3859bc5f5e25130b6c7e8881}{E\+Vertex\+Element\+::\+Position}} = 0, 
+\mbox{\hyperlink{_vertex_buffer_8hpp_a4f3b3f417353112cf44f7ddb1091a74bacb5feb1b7314637725a2e73bdc9f7295}{E\+Vertex\+Element\+::\+Color}} = 1, 
+\mbox{\hyperlink{_vertex_buffer_8hpp_a4f3b3f417353112cf44f7ddb1091a74ba4ac00b6292b9c8d63d0a11df581bd399}{E\+Vertex\+Element\+::\+Tex\+Coord0}} = 2, 
+\mbox{\hyperlink{_vertex_buffer_8hpp_a4f3b3f417353112cf44f7ddb1091a74ba960b44c579bc2f6818d2daaf9e4c16f0}{E\+Vertex\+Element\+::\+Normal}} = 3
+ \}
+\item 
+enum \mbox{\hyperlink{_vertex_buffer_8hpp_a916dac9f873e697ff4e48bb80b264c72}{E\+Vertex\+Type}} \{ \mbox{\hyperlink{_vertex_buffer_8hpp_a916dac9f873e697ff4e48bb80b264c72a02b4dab58bbc49e0851fb3fd8df520cc}{E\+Vertex\+Type\+::\+Vector3}} = 0, 
+\mbox{\hyperlink{_vertex_buffer_8hpp_a916dac9f873e697ff4e48bb80b264c72a1bebc5ae2822f8e361fb0ce57b5e09e2}{E\+Vertex\+Type\+::\+Vector2}}, 
+\mbox{\hyperlink{_vertex_buffer_8hpp_a916dac9f873e697ff4e48bb80b264c72acb5feb1b7314637725a2e73bdc9f7295}{E\+Vertex\+Type\+::\+Color}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{_vertex_buffer_8hpp_a6ace168bd5907e3f42ef7750bef4c246}\label{_vertex_buffer_8hpp_a6ace168bd5907e3f42ef7750bef4c246}} 
+\index{VertexBuffer.hpp@{VertexBuffer.hpp}!EPrimitiveMode@{EPrimitiveMode}}
+\index{EPrimitiveMode@{EPrimitiveMode}!VertexBuffer.hpp@{VertexBuffer.hpp}}
+\doxysubsubsection{\texorpdfstring{EPrimitiveMode}{EPrimitiveMode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_vertex_buffer_8hpp_a6ace168bd5907e3f42ef7750bef4c246}{E\+Primitive\+Mode}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Triangles@{Triangles}!VertexBuffer.hpp@{VertexBuffer.hpp}}\index{VertexBuffer.hpp@{VertexBuffer.hpp}!Triangles@{Triangles}}}\mbox{\Hypertarget{_vertex_buffer_8hpp_a6ace168bd5907e3f42ef7750bef4c246a7ca66fdfaad3eb33fc65d7490178f856}\label{_vertex_buffer_8hpp_a6ace168bd5907e3f42ef7750bef4c246a7ca66fdfaad3eb33fc65d7490178f856}} 
+Triangles&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Lines@{Lines}!VertexBuffer.hpp@{VertexBuffer.hpp}}\index{VertexBuffer.hpp@{VertexBuffer.hpp}!Lines@{Lines}}}\mbox{\Hypertarget{_vertex_buffer_8hpp_a6ace168bd5907e3f42ef7750bef4c246aa0b0293a2db49f5f93c15a62e095c819}\label{_vertex_buffer_8hpp_a6ace168bd5907e3f42ef7750bef4c246aa0b0293a2db49f5f93c15a62e095c819}} 
+Lines&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Points@{Points}!VertexBuffer.hpp@{VertexBuffer.hpp}}\index{VertexBuffer.hpp@{VertexBuffer.hpp}!Points@{Points}}}\mbox{\Hypertarget{_vertex_buffer_8hpp_a6ace168bd5907e3f42ef7750bef4c246a75dd5f1160a3f02b6fae89c54361a1b3}\label{_vertex_buffer_8hpp_a6ace168bd5907e3f42ef7750bef4c246a75dd5f1160a3f02b6fae89c54361a1b3}} 
+Points&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{_vertex_buffer_8hpp_a4f3b3f417353112cf44f7ddb1091a74b}\label{_vertex_buffer_8hpp_a4f3b3f417353112cf44f7ddb1091a74b}} 
+\index{VertexBuffer.hpp@{VertexBuffer.hpp}!EVertexElement@{EVertexElement}}
+\index{EVertexElement@{EVertexElement}!VertexBuffer.hpp@{VertexBuffer.hpp}}
+\doxysubsubsection{\texorpdfstring{EVertexElement}{EVertexElement}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_vertex_buffer_8hpp_a4f3b3f417353112cf44f7ddb1091a74b}{E\+Vertex\+Element}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Position@{Position}!VertexBuffer.hpp@{VertexBuffer.hpp}}\index{VertexBuffer.hpp@{VertexBuffer.hpp}!Position@{Position}}}\mbox{\Hypertarget{_vertex_buffer_8hpp_a4f3b3f417353112cf44f7ddb1091a74ba52f5e0bc3859bc5f5e25130b6c7e8881}\label{_vertex_buffer_8hpp_a4f3b3f417353112cf44f7ddb1091a74ba52f5e0bc3859bc5f5e25130b6c7e8881}} 
+Position&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Color@{Color}!VertexBuffer.hpp@{VertexBuffer.hpp}}\index{VertexBuffer.hpp@{VertexBuffer.hpp}!Color@{Color}}}\mbox{\Hypertarget{_vertex_buffer_8hpp_a4f3b3f417353112cf44f7ddb1091a74bacb5feb1b7314637725a2e73bdc9f7295}\label{_vertex_buffer_8hpp_a4f3b3f417353112cf44f7ddb1091a74bacb5feb1b7314637725a2e73bdc9f7295}} 
+Color&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TexCoord0@{TexCoord0}!VertexBuffer.hpp@{VertexBuffer.hpp}}\index{VertexBuffer.hpp@{VertexBuffer.hpp}!TexCoord0@{TexCoord0}}}\mbox{\Hypertarget{_vertex_buffer_8hpp_a4f3b3f417353112cf44f7ddb1091a74ba4ac00b6292b9c8d63d0a11df581bd399}\label{_vertex_buffer_8hpp_a4f3b3f417353112cf44f7ddb1091a74ba4ac00b6292b9c8d63d0a11df581bd399}} 
+Tex\+Coord0&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Normal@{Normal}!VertexBuffer.hpp@{VertexBuffer.hpp}}\index{VertexBuffer.hpp@{VertexBuffer.hpp}!Normal@{Normal}}}\mbox{\Hypertarget{_vertex_buffer_8hpp_a4f3b3f417353112cf44f7ddb1091a74ba960b44c579bc2f6818d2daaf9e4c16f0}\label{_vertex_buffer_8hpp_a4f3b3f417353112cf44f7ddb1091a74ba960b44c579bc2f6818d2daaf9e4c16f0}} 
+Normal&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{_vertex_buffer_8hpp_a916dac9f873e697ff4e48bb80b264c72}\label{_vertex_buffer_8hpp_a916dac9f873e697ff4e48bb80b264c72}} 
+\index{VertexBuffer.hpp@{VertexBuffer.hpp}!EVertexType@{EVertexType}}
+\index{EVertexType@{EVertexType}!VertexBuffer.hpp@{VertexBuffer.hpp}}
+\doxysubsubsection{\texorpdfstring{EVertexType}{EVertexType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_vertex_buffer_8hpp_a916dac9f873e697ff4e48bb80b264c72}{E\+Vertex\+Type}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Vector3@{Vector3}!VertexBuffer.hpp@{VertexBuffer.hpp}}\index{VertexBuffer.hpp@{VertexBuffer.hpp}!Vector3@{Vector3}}}\mbox{\Hypertarget{_vertex_buffer_8hpp_a916dac9f873e697ff4e48bb80b264c72a02b4dab58bbc49e0851fb3fd8df520cc}\label{_vertex_buffer_8hpp_a916dac9f873e697ff4e48bb80b264c72a02b4dab58bbc49e0851fb3fd8df520cc}} 
+Vector3&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Vector2@{Vector2}!VertexBuffer.hpp@{VertexBuffer.hpp}}\index{VertexBuffer.hpp@{VertexBuffer.hpp}!Vector2@{Vector2}}}\mbox{\Hypertarget{_vertex_buffer_8hpp_a916dac9f873e697ff4e48bb80b264c72a1bebc5ae2822f8e361fb0ce57b5e09e2}\label{_vertex_buffer_8hpp_a916dac9f873e697ff4e48bb80b264c72a1bebc5ae2822f8e361fb0ce57b5e09e2}} 
+Vector2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Color@{Color}!VertexBuffer.hpp@{VertexBuffer.hpp}}\index{VertexBuffer.hpp@{VertexBuffer.hpp}!Color@{Color}}}\mbox{\Hypertarget{_vertex_buffer_8hpp_a916dac9f873e697ff4e48bb80b264c72acb5feb1b7314637725a2e73bdc9f7295}\label{_vertex_buffer_8hpp_a916dac9f873e697ff4e48bb80b264c72acb5feb1b7314637725a2e73bdc9f7295}} 
+Color&\\
+\hline
+
+\end{DoxyEnumFields}

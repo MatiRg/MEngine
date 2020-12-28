@@ -1,0 +1,102 @@
+\hypertarget{class_i_font}{}\doxysection{I\+Font Class Reference}
+\label{class_i_font}\index{IFont@{IFont}}
+
+
+{\ttfamily \#include $<$Font.\+hpp$>$}
+
+Inheritance diagram for I\+Font\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_i_font}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_i_font_a73801302f97fbc833a2f0301f1eeb926}{I\+Font}} (const std\+::string \&Name)
+\item 
+virtual \mbox{\hyperlink{class_i_font_a44793e5aeefb9da51149042926049ffd}{$\sim$\+I\+Font}} ()
+\item 
+float \mbox{\hyperlink{class_i_font_aca08a7e749a302f92aa0e90b9d1f23ff}{Get\+Text\+Length}} (const std\+::string \&, const int)
+\item 
+float \mbox{\hyperlink{class_i_font_a4ebdf7434b1ae4b9fe7d6d6e2975452b}{Get\+Text\+Height}} (const std\+::string \&, const int)
+\item 
+float \mbox{\hyperlink{class_i_font_acff3761412dd394821814ffd97f66435}{Get\+Line\+Height}} (const int)
+\item 
+\mbox{\hyperlink{class_c_font_cache}{C\+Font\+Cache}} $\ast$ \mbox{\hyperlink{class_i_font_a6e12a2de4b70a6d3438a1c0be9943982}{Get\+Font\+Cache}} (const int)
+\item 
+virtual \mbox{\hyperlink{class_c_font_cache}{C\+Font\+Cache}} $\ast$ \mbox{\hyperlink{class_i_font_aab6481974629171f7f4aa886e983cc8a}{Create\+Font\+Cache}} (const int)=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::map$<$ int, std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_c_font_cache}{C\+Font\+Cache}} $>$ $>$ \mbox{\hyperlink{class_i_font_a906297c00ea05b0a6ba805de2a5a9df8}{Font\+Cache}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_i_font_a73801302f97fbc833a2f0301f1eeb926}\label{class_i_font_a73801302f97fbc833a2f0301f1eeb926}} 
+\index{IFont@{IFont}!IFont@{IFont}}
+\index{IFont@{IFont}!IFont@{IFont}}
+\doxysubsubsection{\texorpdfstring{IFont()}{IFont()}}
+{\footnotesize\ttfamily I\+Font\+::\+I\+Font (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_i_font_a44793e5aeefb9da51149042926049ffd}\label{class_i_font_a44793e5aeefb9da51149042926049ffd}} 
+\index{IFont@{IFont}!````~IFont@{$\sim$IFont}}
+\index{````~IFont@{$\sim$IFont}!IFont@{IFont}}
+\doxysubsubsection{\texorpdfstring{$\sim$IFont()}{~IFont()}}
+{\footnotesize\ttfamily virtual I\+Font\+::$\sim$\+I\+Font (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_i_font_aab6481974629171f7f4aa886e983cc8a}\label{class_i_font_aab6481974629171f7f4aa886e983cc8a}} 
+\index{IFont@{IFont}!CreateFontCache@{CreateFontCache}}
+\index{CreateFontCache@{CreateFontCache}!IFont@{IFont}}
+\doxysubsubsection{\texorpdfstring{CreateFontCache()}{CreateFontCache()}}
+{\footnotesize\ttfamily virtual \mbox{\hyperlink{class_c_font_cache}{C\+Font\+Cache}}$\ast$ I\+Font\+::\+Create\+Font\+Cache (\begin{DoxyParamCaption}\item[{const int}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_c_s_d_l_font_a42c84963a3dbc9d6e826de40f86a38eb}{C\+S\+D\+L\+Font}}.
+
+\mbox{\Hypertarget{class_i_font_a6e12a2de4b70a6d3438a1c0be9943982}\label{class_i_font_a6e12a2de4b70a6d3438a1c0be9943982}} 
+\index{IFont@{IFont}!GetFontCache@{GetFontCache}}
+\index{GetFontCache@{GetFontCache}!IFont@{IFont}}
+\doxysubsubsection{\texorpdfstring{GetFontCache()}{GetFontCache()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_font_cache}{C\+Font\+Cache}} $\ast$ I\+Font\+::\+Get\+Font\+Cache (\begin{DoxyParamCaption}\item[{const int}]{Size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_i_font_acff3761412dd394821814ffd97f66435}\label{class_i_font_acff3761412dd394821814ffd97f66435}} 
+\index{IFont@{IFont}!GetLineHeight@{GetLineHeight}}
+\index{GetLineHeight@{GetLineHeight}!IFont@{IFont}}
+\doxysubsubsection{\texorpdfstring{GetLineHeight()}{GetLineHeight()}}
+{\footnotesize\ttfamily float I\+Font\+::\+Get\+Line\+Height (\begin{DoxyParamCaption}\item[{const int}]{Size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_i_font_a4ebdf7434b1ae4b9fe7d6d6e2975452b}\label{class_i_font_a4ebdf7434b1ae4b9fe7d6d6e2975452b}} 
+\index{IFont@{IFont}!GetTextHeight@{GetTextHeight}}
+\index{GetTextHeight@{GetTextHeight}!IFont@{IFont}}
+\doxysubsubsection{\texorpdfstring{GetTextHeight()}{GetTextHeight()}}
+{\footnotesize\ttfamily float I\+Font\+::\+Get\+Text\+Height (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Text,  }\item[{const int}]{Size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_i_font_aca08a7e749a302f92aa0e90b9d1f23ff}\label{class_i_font_aca08a7e749a302f92aa0e90b9d1f23ff}} 
+\index{IFont@{IFont}!GetTextLength@{GetTextLength}}
+\index{GetTextLength@{GetTextLength}!IFont@{IFont}}
+\doxysubsubsection{\texorpdfstring{GetTextLength()}{GetTextLength()}}
+{\footnotesize\ttfamily float I\+Font\+::\+Get\+Text\+Length (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Text,  }\item[{const int}]{Size }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_i_font_a906297c00ea05b0a6ba805de2a5a9df8}\label{class_i_font_a906297c00ea05b0a6ba805de2a5a9df8}} 
+\index{IFont@{IFont}!FontCache@{FontCache}}
+\index{FontCache@{FontCache}!IFont@{IFont}}
+\doxysubsubsection{\texorpdfstring{FontCache}{FontCache}}
+{\footnotesize\ttfamily std\+::map$<$int, std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{class_c_font_cache}{C\+Font\+Cache}}$>$ $>$ I\+Font\+::\+Font\+Cache\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Engine/\+Graphics/\mbox{\hyperlink{_font_8hpp}{Font.\+hpp}}\item 
+Source/\+Engine/\+Graphics/\mbox{\hyperlink{_font_8cpp}{Font.\+cpp}}\end{DoxyCompactItemize}

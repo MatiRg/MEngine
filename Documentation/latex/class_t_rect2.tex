@@ -1,0 +1,236 @@
+\hypertarget{class_t_rect2}{}\doxysection{T\+Rect2$<$ T $>$ Class Template Reference}
+\label{class_t_rect2}\index{TRect2$<$ T $>$@{TRect2$<$ T $>$}}
+
+
+{\ttfamily \#include $<$Rect2.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_t_rect2_aee546440f3ad79203754f45dcecef2b7}{T\+Rect2}} ()
+\item 
+\mbox{\hyperlink{class_t_rect2_a3a19db4ba96d3fe3eb90329f4a69bedf}{T\+Rect2}} (const T X, const T Y, const T W, const T H)
+\item 
+\mbox{\hyperlink{class_t_rect2_ab316a4ea1ee80aa00fb60c56d436fa88}{T\+Rect2}} (const \mbox{\hyperlink{class_t_vector2}{T\+Vector2}}$<$ T $>$ \&P, const \mbox{\hyperlink{class_t_vector2}{T\+Vector2}}$<$ T $>$ \&S)
+\item 
+\mbox{\hyperlink{class_t_rect2_a32cfdb515891aa16c0a4b21a7b6ad6be}{T\+Rect2}} (const \mbox{\hyperlink{class_t_rect2}{T\+Rect2}}$<$ T $>$ \&Other)
+\item 
+\mbox{\hyperlink{class_t_rect2_af6050a687b5a0d15b56f95f8f66299f2}{$\sim$\+T\+Rect2}} ()
+\item 
+\mbox{\hyperlink{class_t_rect2}{T\+Rect2}}$<$ T $>$ \& \mbox{\hyperlink{class_t_rect2_a6e27dc15de5e40cebb3535666984c518}{operator=}} (const \mbox{\hyperlink{class_t_rect2}{T\+Rect2}}$<$ T $>$ \&Other)
+\item 
+void \mbox{\hyperlink{class_t_rect2_a013aa7eda0ca5ddba7a8be9e3ba0e6ff}{Set\+Position}} (const \mbox{\hyperlink{class_t_vector2}{T\+Vector2}}$<$ T $>$ \&Position)
+\item 
+const \mbox{\hyperlink{class_t_vector2}{T\+Vector2}}$<$ T $>$ \& \mbox{\hyperlink{class_t_rect2_af1b3f36af22ebb40a83e19b0375830a4}{Get\+Position}} () const
+\item 
+void \mbox{\hyperlink{class_t_rect2_a4dead8030dc87999d3ae353532446585}{Set\+Size}} (const \mbox{\hyperlink{class_t_vector2}{T\+Vector2}}$<$ T $>$ \&S)
+\item 
+const \mbox{\hyperlink{class_t_vector2}{T\+Vector2}}$<$ T $>$ \& \mbox{\hyperlink{class_t_rect2_a937b22089a2c4fefd38419f71efef196}{Get\+Size}} () const
+\item 
+void \mbox{\hyperlink{class_t_rect2_ad57d3538afef58f24707700e7cf55a2a}{SetX}} (const T v)
+\item 
+T \mbox{\hyperlink{class_t_rect2_a1a0b8af124c01da3a3b6c3f3c6823e85}{GetX}} () const
+\item 
+void \mbox{\hyperlink{class_t_rect2_af90a83b074b61b488295fb0d50668985}{Set\+Width}} (const T v)
+\item 
+T \mbox{\hyperlink{class_t_rect2_abc324c4793586a4b463fdbbcfcad6a9a}{Get\+Width}} () const
+\item 
+T \mbox{\hyperlink{class_t_rect2_acb0b47ed658a1fc70fb624df21f661cd}{Get\+MaxX}} () const
+\item 
+void \mbox{\hyperlink{class_t_rect2_a713288bcbdbcb1bab630722d0f3e3b9e}{SetY}} (const T v)
+\item 
+T \mbox{\hyperlink{class_t_rect2_a18d60e213ec77cb4f922c9758778bc27}{GetY}} () const
+\item 
+void \mbox{\hyperlink{class_t_rect2_a98dca0da2d5d3851ca9e98817fcad2fe}{Set\+Height}} (const T v)
+\item 
+T \mbox{\hyperlink{class_t_rect2_a1d2650058ba080720a3c341c5fd67665}{Get\+Height}} () const
+\item 
+T \mbox{\hyperlink{class_t_rect2_aa80e0cc76c3c9c1affdebb9d7596d9fb}{Get\+MaxY}} () const
+\item 
+void \mbox{\hyperlink{class_t_rect2_ac1b86f6406e96e4bf2c1ac6c52714363}{Move}} (const \mbox{\hyperlink{class_t_vector2}{T\+Vector2}}$<$ T $>$ \&By)
+\item 
+void \mbox{\hyperlink{class_t_rect2_a0ced7d7ec714203717d7d2490b870c5d}{Translate}} (const \mbox{\hyperlink{class_t_vector2}{T\+Vector2}}$<$ T $>$ \&By)
+\item 
+bool \mbox{\hyperlink{class_t_rect2_a30d4d9a2a63544c9b8766e965890bd4c}{Intersect}} (const \mbox{\hyperlink{class_t_vector2}{T\+Vector2}}$<$ T $>$ \&p) const
+\item 
+bool \mbox{\hyperlink{class_t_rect2_a746d7459620430059afc70be59cfb70c}{Intersect}} (const \mbox{\hyperlink{class_t_rect2}{T\+Rect2}}$<$ T $>$ \&r2) const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_t_rect2_aee546440f3ad79203754f45dcecef2b7}\label{class_t_rect2_aee546440f3ad79203754f45dcecef2b7}} 
+\index{TRect2$<$ T $>$@{TRect2$<$ T $>$}!TRect2@{TRect2}}
+\index{TRect2@{TRect2}!TRect2$<$ T $>$@{TRect2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{TRect2()}{TRect2()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_t_rect2}{T\+Rect2}}$<$ T $>$\+::\mbox{\hyperlink{class_t_rect2}{T\+Rect2}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_rect2_a3a19db4ba96d3fe3eb90329f4a69bedf}\label{class_t_rect2_a3a19db4ba96d3fe3eb90329f4a69bedf}} 
+\index{TRect2$<$ T $>$@{TRect2$<$ T $>$}!TRect2@{TRect2}}
+\index{TRect2@{TRect2}!TRect2$<$ T $>$@{TRect2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{TRect2()}{TRect2()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_t_rect2}{T\+Rect2}}$<$ T $>$\+::\mbox{\hyperlink{class_t_rect2}{T\+Rect2}} (\begin{DoxyParamCaption}\item[{const T}]{X,  }\item[{const T}]{Y,  }\item[{const T}]{W,  }\item[{const T}]{H }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_rect2_ab316a4ea1ee80aa00fb60c56d436fa88}\label{class_t_rect2_ab316a4ea1ee80aa00fb60c56d436fa88}} 
+\index{TRect2$<$ T $>$@{TRect2$<$ T $>$}!TRect2@{TRect2}}
+\index{TRect2@{TRect2}!TRect2$<$ T $>$@{TRect2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{TRect2()}{TRect2()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_t_rect2}{T\+Rect2}}$<$ T $>$\+::\mbox{\hyperlink{class_t_rect2}{T\+Rect2}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_t_vector2}{T\+Vector2}}$<$ T $>$ \&}]{P,  }\item[{const \mbox{\hyperlink{class_t_vector2}{T\+Vector2}}$<$ T $>$ \&}]{S }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_rect2_a32cfdb515891aa16c0a4b21a7b6ad6be}\label{class_t_rect2_a32cfdb515891aa16c0a4b21a7b6ad6be}} 
+\index{TRect2$<$ T $>$@{TRect2$<$ T $>$}!TRect2@{TRect2}}
+\index{TRect2@{TRect2}!TRect2$<$ T $>$@{TRect2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{TRect2()}{TRect2()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_t_rect2}{T\+Rect2}}$<$ T $>$\+::\mbox{\hyperlink{class_t_rect2}{T\+Rect2}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_t_rect2}{T\+Rect2}}$<$ T $>$ \&}]{Other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_rect2_af6050a687b5a0d15b56f95f8f66299f2}\label{class_t_rect2_af6050a687b5a0d15b56f95f8f66299f2}} 
+\index{TRect2$<$ T $>$@{TRect2$<$ T $>$}!````~TRect2@{$\sim$TRect2}}
+\index{````~TRect2@{$\sim$TRect2}!TRect2$<$ T $>$@{TRect2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$TRect2()}{~TRect2()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_t_rect2}{T\+Rect2}}$<$ T $>$\+::$\sim$\mbox{\hyperlink{class_t_rect2}{T\+Rect2}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_t_rect2_a1d2650058ba080720a3c341c5fd67665}\label{class_t_rect2_a1d2650058ba080720a3c341c5fd67665}} 
+\index{TRect2$<$ T $>$@{TRect2$<$ T $>$}!GetHeight@{GetHeight}}
+\index{GetHeight@{GetHeight}!TRect2$<$ T $>$@{TRect2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetHeight()}{GetHeight()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_t_rect2}{T\+Rect2}}$<$ T $>$\+::Get\+Height (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_rect2_acb0b47ed658a1fc70fb624df21f661cd}\label{class_t_rect2_acb0b47ed658a1fc70fb624df21f661cd}} 
+\index{TRect2$<$ T $>$@{TRect2$<$ T $>$}!GetMaxX@{GetMaxX}}
+\index{GetMaxX@{GetMaxX}!TRect2$<$ T $>$@{TRect2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetMaxX()}{GetMaxX()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_t_rect2}{T\+Rect2}}$<$ T $>$\+::Get\+MaxX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_rect2_aa80e0cc76c3c9c1affdebb9d7596d9fb}\label{class_t_rect2_aa80e0cc76c3c9c1affdebb9d7596d9fb}} 
+\index{TRect2$<$ T $>$@{TRect2$<$ T $>$}!GetMaxY@{GetMaxY}}
+\index{GetMaxY@{GetMaxY}!TRect2$<$ T $>$@{TRect2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetMaxY()}{GetMaxY()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_t_rect2}{T\+Rect2}}$<$ T $>$\+::Get\+MaxY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_rect2_af1b3f36af22ebb40a83e19b0375830a4}\label{class_t_rect2_af1b3f36af22ebb40a83e19b0375830a4}} 
+\index{TRect2$<$ T $>$@{TRect2$<$ T $>$}!GetPosition@{GetPosition}}
+\index{GetPosition@{GetPosition}!TRect2$<$ T $>$@{TRect2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetPosition()}{GetPosition()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+const \mbox{\hyperlink{class_t_vector2}{T\+Vector2}}$<$T$>$\& \mbox{\hyperlink{class_t_rect2}{T\+Rect2}}$<$ T $>$\+::Get\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_rect2_a937b22089a2c4fefd38419f71efef196}\label{class_t_rect2_a937b22089a2c4fefd38419f71efef196}} 
+\index{TRect2$<$ T $>$@{TRect2$<$ T $>$}!GetSize@{GetSize}}
+\index{GetSize@{GetSize}!TRect2$<$ T $>$@{TRect2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetSize()}{GetSize()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+const \mbox{\hyperlink{class_t_vector2}{T\+Vector2}}$<$T$>$\& \mbox{\hyperlink{class_t_rect2}{T\+Rect2}}$<$ T $>$\+::Get\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_rect2_abc324c4793586a4b463fdbbcfcad6a9a}\label{class_t_rect2_abc324c4793586a4b463fdbbcfcad6a9a}} 
+\index{TRect2$<$ T $>$@{TRect2$<$ T $>$}!GetWidth@{GetWidth}}
+\index{GetWidth@{GetWidth}!TRect2$<$ T $>$@{TRect2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetWidth()}{GetWidth()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_t_rect2}{T\+Rect2}}$<$ T $>$\+::Get\+Width (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_rect2_a1a0b8af124c01da3a3b6c3f3c6823e85}\label{class_t_rect2_a1a0b8af124c01da3a3b6c3f3c6823e85}} 
+\index{TRect2$<$ T $>$@{TRect2$<$ T $>$}!GetX@{GetX}}
+\index{GetX@{GetX}!TRect2$<$ T $>$@{TRect2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetX()}{GetX()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_t_rect2}{T\+Rect2}}$<$ T $>$\+::GetX (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_rect2_a18d60e213ec77cb4f922c9758778bc27}\label{class_t_rect2_a18d60e213ec77cb4f922c9758778bc27}} 
+\index{TRect2$<$ T $>$@{TRect2$<$ T $>$}!GetY@{GetY}}
+\index{GetY@{GetY}!TRect2$<$ T $>$@{TRect2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{GetY()}{GetY()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_t_rect2}{T\+Rect2}}$<$ T $>$\+::GetY (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_rect2_a746d7459620430059afc70be59cfb70c}\label{class_t_rect2_a746d7459620430059afc70be59cfb70c}} 
+\index{TRect2$<$ T $>$@{TRect2$<$ T $>$}!Intersect@{Intersect}}
+\index{Intersect@{Intersect}!TRect2$<$ T $>$@{TRect2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Intersect()}{Intersect()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{class_t_rect2}{T\+Rect2}}$<$ T $>$\+::Intersect (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_t_rect2}{T\+Rect2}}$<$ T $>$ \&}]{r2 }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_rect2_a30d4d9a2a63544c9b8766e965890bd4c}\label{class_t_rect2_a30d4d9a2a63544c9b8766e965890bd4c}} 
+\index{TRect2$<$ T $>$@{TRect2$<$ T $>$}!Intersect@{Intersect}}
+\index{Intersect@{Intersect}!TRect2$<$ T $>$@{TRect2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Intersect()}{Intersect()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{class_t_rect2}{T\+Rect2}}$<$ T $>$\+::Intersect (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_t_vector2}{T\+Vector2}}$<$ T $>$ \&}]{p }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_rect2_ac1b86f6406e96e4bf2c1ac6c52714363}\label{class_t_rect2_ac1b86f6406e96e4bf2c1ac6c52714363}} 
+\index{TRect2$<$ T $>$@{TRect2$<$ T $>$}!Move@{Move}}
+\index{Move@{Move}!TRect2$<$ T $>$@{TRect2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Move()}{Move()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_t_rect2}{T\+Rect2}}$<$ T $>$\+::Move (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_t_vector2}{T\+Vector2}}$<$ T $>$ \&}]{By }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_rect2_a6e27dc15de5e40cebb3535666984c518}\label{class_t_rect2_a6e27dc15de5e40cebb3535666984c518}} 
+\index{TRect2$<$ T $>$@{TRect2$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!TRect2$<$ T $>$@{TRect2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_t_rect2}{T\+Rect2}}$<$T$>$\& \mbox{\hyperlink{class_t_rect2}{T\+Rect2}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_t_rect2}{T\+Rect2}}$<$ T $>$ \&}]{Other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_rect2_a98dca0da2d5d3851ca9e98817fcad2fe}\label{class_t_rect2_a98dca0da2d5d3851ca9e98817fcad2fe}} 
+\index{TRect2$<$ T $>$@{TRect2$<$ T $>$}!SetHeight@{SetHeight}}
+\index{SetHeight@{SetHeight}!TRect2$<$ T $>$@{TRect2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{SetHeight()}{SetHeight()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_t_rect2}{T\+Rect2}}$<$ T $>$\+::Set\+Height (\begin{DoxyParamCaption}\item[{const T}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_rect2_a013aa7eda0ca5ddba7a8be9e3ba0e6ff}\label{class_t_rect2_a013aa7eda0ca5ddba7a8be9e3ba0e6ff}} 
+\index{TRect2$<$ T $>$@{TRect2$<$ T $>$}!SetPosition@{SetPosition}}
+\index{SetPosition@{SetPosition}!TRect2$<$ T $>$@{TRect2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{SetPosition()}{SetPosition()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_t_rect2}{T\+Rect2}}$<$ T $>$\+::Set\+Position (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_t_vector2}{T\+Vector2}}$<$ T $>$ \&}]{Position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_rect2_a4dead8030dc87999d3ae353532446585}\label{class_t_rect2_a4dead8030dc87999d3ae353532446585}} 
+\index{TRect2$<$ T $>$@{TRect2$<$ T $>$}!SetSize@{SetSize}}
+\index{SetSize@{SetSize}!TRect2$<$ T $>$@{TRect2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{SetSize()}{SetSize()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_t_rect2}{T\+Rect2}}$<$ T $>$\+::Set\+Size (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_t_vector2}{T\+Vector2}}$<$ T $>$ \&}]{S }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_rect2_af90a83b074b61b488295fb0d50668985}\label{class_t_rect2_af90a83b074b61b488295fb0d50668985}} 
+\index{TRect2$<$ T $>$@{TRect2$<$ T $>$}!SetWidth@{SetWidth}}
+\index{SetWidth@{SetWidth}!TRect2$<$ T $>$@{TRect2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{SetWidth()}{SetWidth()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_t_rect2}{T\+Rect2}}$<$ T $>$\+::Set\+Width (\begin{DoxyParamCaption}\item[{const T}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_rect2_ad57d3538afef58f24707700e7cf55a2a}\label{class_t_rect2_ad57d3538afef58f24707700e7cf55a2a}} 
+\index{TRect2$<$ T $>$@{TRect2$<$ T $>$}!SetX@{SetX}}
+\index{SetX@{SetX}!TRect2$<$ T $>$@{TRect2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{SetX()}{SetX()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_t_rect2}{T\+Rect2}}$<$ T $>$\+::SetX (\begin{DoxyParamCaption}\item[{const T}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_rect2_a713288bcbdbcb1bab630722d0f3e3b9e}\label{class_t_rect2_a713288bcbdbcb1bab630722d0f3e3b9e}} 
+\index{TRect2$<$ T $>$@{TRect2$<$ T $>$}!SetY@{SetY}}
+\index{SetY@{SetY}!TRect2$<$ T $>$@{TRect2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{SetY()}{SetY()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_t_rect2}{T\+Rect2}}$<$ T $>$\+::SetY (\begin{DoxyParamCaption}\item[{const T}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_rect2_a0ced7d7ec714203717d7d2490b870c5d}\label{class_t_rect2_a0ced7d7ec714203717d7d2490b870c5d}} 
+\index{TRect2$<$ T $>$@{TRect2$<$ T $>$}!Translate@{Translate}}
+\index{Translate@{Translate}!TRect2$<$ T $>$@{TRect2$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Translate()}{Translate()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_t_rect2}{T\+Rect2}}$<$ T $>$\+::Translate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_t_vector2}{T\+Vector2}}$<$ T $>$ \&}]{By }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Engine/\+Math/\mbox{\hyperlink{_rect2_8hpp}{Rect2.\+hpp}}\end{DoxyCompactItemize}

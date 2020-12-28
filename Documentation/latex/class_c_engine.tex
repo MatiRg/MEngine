@@ -1,0 +1,269 @@
+\hypertarget{class_c_engine}{}\doxysection{C\+Engine Class Reference}
+\label{class_c_engine}\index{CEngine@{CEngine}}
+
+
+{\ttfamily \#include $<$Engine.\+hpp$>$}
+
+Inheritance diagram for C\+Engine\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_c_engine}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_engine_a7c1f7b966a8238167ef55e2d4c86ab44}{C\+Engine}} (\mbox{\hyperlink{class_i_context}{I\+Context}} $\ast$)
+\item 
+\mbox{\hyperlink{class_c_engine_ac34e00d8beb5aa7cfadc539f83ccab13}{$\sim$\+C\+Engine}} ()
+\item 
+bool \mbox{\hyperlink{class_c_engine_afd7a8fd9cfe2bd8b2cc164411526c88d}{Create}} ()
+\item 
+bool \mbox{\hyperlink{class_c_engine_ae21af0e4b8a832a9639f618834749546}{Init}} (const \mbox{\hyperlink{struct_s_engine_params}{S\+Engine\+Params}} \&)
+\item 
+void \mbox{\hyperlink{class_c_engine_a82a7c86de911585b6534c81d26a8235a}{On\+Init}} ()
+\item 
+void \mbox{\hyperlink{class_c_engine_abf595ba20b7df78f2e43bdc6cfb362e0}{On\+Exit}} ()
+\item 
+void \mbox{\hyperlink{class_c_engine_aa9b57dee89e8c220597238c10ec527be}{Exit}} ()
+\item 
+void \mbox{\hyperlink{class_c_engine_abfc862ec6d489bbecb716e3dc4b6d73b}{Setup\+Ticks}} (const uint32\+\_\+t)
+\item 
+void \mbox{\hyperlink{class_c_engine_a825dde0b743966773168f0316efb227e}{Run}} ()
+\item 
+void \mbox{\hyperlink{class_c_engine_afd2c85d536257606ebd85b51a0c29a58}{Quit}} ()
+\item 
+\mbox{\hyperlink{class_i_system}{I\+System}} $\ast$ \mbox{\hyperlink{class_c_engine_ace111805911789e08a1ea6f31f501eac}{Get\+System}} () const
+\item 
+\mbox{\hyperlink{class_i_event_queue}{I\+Event\+Queue}} $\ast$ \mbox{\hyperlink{class_c_engine_a722e0a4055ff3cf461cfcd4989bb2d52}{Get\+Event\+Queue}} () const
+\item 
+\mbox{\hyperlink{class_i_input}{I\+Input}} $\ast$ \mbox{\hyperlink{class_c_engine_a27f7954510a6a003e42c2b55cb95303d}{Get\+Input}} () const
+\item 
+\mbox{\hyperlink{class_i_window}{I\+Window}} $\ast$ \mbox{\hyperlink{class_c_engine_ab4c278cbc6137512ca6df42f07da94c3}{Get\+Window}} () const
+\item 
+\mbox{\hyperlink{class_i_graphics}{I\+Graphics}} $\ast$ \mbox{\hyperlink{class_c_engine_aeec29b174c520095b588993ab8bd0a44}{Get\+Graphics}} () const
+\item 
+\mbox{\hyperlink{class_i_audio}{I\+Audio}} $\ast$ \mbox{\hyperlink{class_c_engine_a10132a97dd9b9636a840781f10e368db}{Get\+Audio}} () const
+\item 
+\mbox{\hyperlink{class_i_physics3_d}{I\+Physics3D}} $\ast$ \mbox{\hyperlink{class_c_engine_a46358ee06040fb488fcaa0be10efead7}{Get\+Physics3D}} () const
+\item 
+\mbox{\hyperlink{class_i_physics2_d}{I\+Physics2D}} $\ast$ \mbox{\hyperlink{class_c_engine_a10ff4e4f8730e3e1b50e7044ceb65db7}{Get\+Physics2D}} () const
+\item 
+\mbox{\hyperlink{class_c_engine_updater}{C\+Engine\+Updater}} $\ast$ \mbox{\hyperlink{class_c_engine_ad3603747747730965d5b7fafd0a6f266}{Get\+Engine\+Updater}} () const
+\item 
+\mbox{\hyperlink{class_c_user_updater}{C\+User\+Updater}} $\ast$ \mbox{\hyperlink{class_c_engine_aa59e14dffe5e1c39b10da16594a5095f}{Get\+User\+Updater}} () const
+\item 
+\mbox{\hyperlink{class_c_resources}{C\+Resources}} $\ast$ \mbox{\hyperlink{class_c_engine_afaf265e3c1ff7f089951c4360ffdf9f7}{Get\+Resources}} () const
+\item 
+\mbox{\hyperlink{class_c_audio_handler}{C\+Audio\+Handler}} $\ast$ \mbox{\hyperlink{class_c_engine_a7e1cbd11e0fa362f09196478c45dbf81}{Get\+Audio\+Handler}} () const
+\item 
+\mbox{\hyperlink{class_c_renderer3_d}{C\+Renderer3D}} $\ast$ \mbox{\hyperlink{class_c_engine_adc7dd13301e43f5f484de2464d866e93}{Get\+Renderer3D}} () const
+\item 
+\mbox{\hyperlink{class_c_drawer2_d}{C\+Drawer2D}} $\ast$ \mbox{\hyperlink{class_c_engine_a29ad7941bce79ffda2ec8bc636c163db}{Get\+Drawer2D}} () const
+\item 
+\mbox{\hyperlink{class_c_renderer2_d}{C\+Renderer2D}} $\ast$ \mbox{\hyperlink{class_c_engine_aea3a7c2fbe24fe98ea7130e73d885a77}{Get\+Renderer2D}} () const
+\item 
+\mbox{\hyperlink{class_c_im_g_u_i}{C\+Im\+G\+UI}} $\ast$ \mbox{\hyperlink{class_c_engine_a9c86e39a5e6ccaeb0986af56e11ed7ce}{Get\+Im\+G\+UI}} () const
+\item 
+\mbox{\hyperlink{class_c_scene}{C\+Scene}} $\ast$ \mbox{\hyperlink{class_c_engine_aaa172d79ce27f5345c3017abab0c44ec}{Get\+Scene}} () const
+\item 
+\mbox{\hyperlink{class_c_script_module}{C\+Script\+Module}} $\ast$ \mbox{\hyperlink{class_c_engine_ae5599b40cd2d8d72a82d951e90d64ddc}{Get\+Script\+Module}} () const
+\item 
+\mbox{\hyperlink{class_i_engine_module}{I\+Engine\+Module}} $\ast$ \mbox{\hyperlink{class_c_engine_a827dd776eed6d1f6f0bbafb22bb1da9e}{Get\+Module}} (const std\+::string \&) const
+\item 
+{\footnotesize template$<$class T $>$ }\\T $\ast$ \mbox{\hyperlink{class_c_engine_ad7ea2afe4afb2c198da1a595c54c3f45}{Get\+Module}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_c_engine_a7c1f7b966a8238167ef55e2d4c86ab44}\label{class_c_engine_a7c1f7b966a8238167ef55e2d4c86ab44}} 
+\index{CEngine@{CEngine}!CEngine@{CEngine}}
+\index{CEngine@{CEngine}!CEngine@{CEngine}}
+\doxysubsubsection{\texorpdfstring{CEngine()}{CEngine()}}
+{\footnotesize\ttfamily C\+Engine\+::\+C\+Engine (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_i_context}{I\+Context}} $\ast$}]{a\+Context }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_engine_ac34e00d8beb5aa7cfadc539f83ccab13}\label{class_c_engine_ac34e00d8beb5aa7cfadc539f83ccab13}} 
+\index{CEngine@{CEngine}!````~CEngine@{$\sim$CEngine}}
+\index{````~CEngine@{$\sim$CEngine}!CEngine@{CEngine}}
+\doxysubsubsection{\texorpdfstring{$\sim$CEngine()}{~CEngine()}}
+{\footnotesize\ttfamily C\+Engine\+::$\sim$\+C\+Engine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_c_engine_afd7a8fd9cfe2bd8b2cc164411526c88d}\label{class_c_engine_afd7a8fd9cfe2bd8b2cc164411526c88d}} 
+\index{CEngine@{CEngine}!Create@{Create}}
+\index{Create@{Create}!CEngine@{CEngine}}
+\doxysubsubsection{\texorpdfstring{Create()}{Create()}}
+{\footnotesize\ttfamily bool C\+Engine\+::\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_engine_aa9b57dee89e8c220597238c10ec527be}\label{class_c_engine_aa9b57dee89e8c220597238c10ec527be}} 
+\index{CEngine@{CEngine}!Exit@{Exit}}
+\index{Exit@{Exit}!CEngine@{CEngine}}
+\doxysubsubsection{\texorpdfstring{Exit()}{Exit()}}
+{\footnotesize\ttfamily void C\+Engine\+::\+Exit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_engine_a10132a97dd9b9636a840781f10e368db}\label{class_c_engine_a10132a97dd9b9636a840781f10e368db}} 
+\index{CEngine@{CEngine}!GetAudio@{GetAudio}}
+\index{GetAudio@{GetAudio}!CEngine@{CEngine}}
+\doxysubsubsection{\texorpdfstring{GetAudio()}{GetAudio()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_i_audio}{I\+Audio}}$\ast$ C\+Engine\+::\+Get\+Audio (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_engine_a7e1cbd11e0fa362f09196478c45dbf81}\label{class_c_engine_a7e1cbd11e0fa362f09196478c45dbf81}} 
+\index{CEngine@{CEngine}!GetAudioHandler@{GetAudioHandler}}
+\index{GetAudioHandler@{GetAudioHandler}!CEngine@{CEngine}}
+\doxysubsubsection{\texorpdfstring{GetAudioHandler()}{GetAudioHandler()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_audio_handler}{C\+Audio\+Handler}}$\ast$ C\+Engine\+::\+Get\+Audio\+Handler (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_engine_a29ad7941bce79ffda2ec8bc636c163db}\label{class_c_engine_a29ad7941bce79ffda2ec8bc636c163db}} 
+\index{CEngine@{CEngine}!GetDrawer2D@{GetDrawer2D}}
+\index{GetDrawer2D@{GetDrawer2D}!CEngine@{CEngine}}
+\doxysubsubsection{\texorpdfstring{GetDrawer2D()}{GetDrawer2D()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_drawer2_d}{C\+Drawer2D}}$\ast$ C\+Engine\+::\+Get\+Drawer2D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_engine_ad3603747747730965d5b7fafd0a6f266}\label{class_c_engine_ad3603747747730965d5b7fafd0a6f266}} 
+\index{CEngine@{CEngine}!GetEngineUpdater@{GetEngineUpdater}}
+\index{GetEngineUpdater@{GetEngineUpdater}!CEngine@{CEngine}}
+\doxysubsubsection{\texorpdfstring{GetEngineUpdater()}{GetEngineUpdater()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_engine_updater}{C\+Engine\+Updater}}$\ast$ C\+Engine\+::\+Get\+Engine\+Updater (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_engine_a722e0a4055ff3cf461cfcd4989bb2d52}\label{class_c_engine_a722e0a4055ff3cf461cfcd4989bb2d52}} 
+\index{CEngine@{CEngine}!GetEventQueue@{GetEventQueue}}
+\index{GetEventQueue@{GetEventQueue}!CEngine@{CEngine}}
+\doxysubsubsection{\texorpdfstring{GetEventQueue()}{GetEventQueue()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_i_event_queue}{I\+Event\+Queue}}$\ast$ C\+Engine\+::\+Get\+Event\+Queue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_engine_aeec29b174c520095b588993ab8bd0a44}\label{class_c_engine_aeec29b174c520095b588993ab8bd0a44}} 
+\index{CEngine@{CEngine}!GetGraphics@{GetGraphics}}
+\index{GetGraphics@{GetGraphics}!CEngine@{CEngine}}
+\doxysubsubsection{\texorpdfstring{GetGraphics()}{GetGraphics()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_i_graphics}{I\+Graphics}}$\ast$ C\+Engine\+::\+Get\+Graphics (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_engine_a9c86e39a5e6ccaeb0986af56e11ed7ce}\label{class_c_engine_a9c86e39a5e6ccaeb0986af56e11ed7ce}} 
+\index{CEngine@{CEngine}!GetImGUI@{GetImGUI}}
+\index{GetImGUI@{GetImGUI}!CEngine@{CEngine}}
+\doxysubsubsection{\texorpdfstring{GetImGUI()}{GetImGUI()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_im_g_u_i}{C\+Im\+G\+UI}}$\ast$ C\+Engine\+::\+Get\+Im\+G\+UI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_engine_a27f7954510a6a003e42c2b55cb95303d}\label{class_c_engine_a27f7954510a6a003e42c2b55cb95303d}} 
+\index{CEngine@{CEngine}!GetInput@{GetInput}}
+\index{GetInput@{GetInput}!CEngine@{CEngine}}
+\doxysubsubsection{\texorpdfstring{GetInput()}{GetInput()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_i_input}{I\+Input}}$\ast$ C\+Engine\+::\+Get\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_engine_ad7ea2afe4afb2c198da1a595c54c3f45}\label{class_c_engine_ad7ea2afe4afb2c198da1a595c54c3f45}} 
+\index{CEngine@{CEngine}!GetModule@{GetModule}}
+\index{GetModule@{GetModule}!CEngine@{CEngine}}
+\doxysubsubsection{\texorpdfstring{GetModule()}{GetModule()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T$\ast$ C\+Engine\+::\+Get\+Module (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_engine_a827dd776eed6d1f6f0bbafb22bb1da9e}\label{class_c_engine_a827dd776eed6d1f6f0bbafb22bb1da9e}} 
+\index{CEngine@{CEngine}!GetModule@{GetModule}}
+\index{GetModule@{GetModule}!CEngine@{CEngine}}
+\doxysubsubsection{\texorpdfstring{GetModule()}{GetModule()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_i_engine_module}{I\+Engine\+Module}} $\ast$ C\+Engine\+::\+Get\+Module (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Type }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_c_engine_a10ff4e4f8730e3e1b50e7044ceb65db7}\label{class_c_engine_a10ff4e4f8730e3e1b50e7044ceb65db7}} 
+\index{CEngine@{CEngine}!GetPhysics2D@{GetPhysics2D}}
+\index{GetPhysics2D@{GetPhysics2D}!CEngine@{CEngine}}
+\doxysubsubsection{\texorpdfstring{GetPhysics2D()}{GetPhysics2D()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_i_physics2_d}{I\+Physics2D}}$\ast$ C\+Engine\+::\+Get\+Physics2D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_engine_a46358ee06040fb488fcaa0be10efead7}\label{class_c_engine_a46358ee06040fb488fcaa0be10efead7}} 
+\index{CEngine@{CEngine}!GetPhysics3D@{GetPhysics3D}}
+\index{GetPhysics3D@{GetPhysics3D}!CEngine@{CEngine}}
+\doxysubsubsection{\texorpdfstring{GetPhysics3D()}{GetPhysics3D()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_i_physics3_d}{I\+Physics3D}}$\ast$ C\+Engine\+::\+Get\+Physics3D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_engine_aea3a7c2fbe24fe98ea7130e73d885a77}\label{class_c_engine_aea3a7c2fbe24fe98ea7130e73d885a77}} 
+\index{CEngine@{CEngine}!GetRenderer2D@{GetRenderer2D}}
+\index{GetRenderer2D@{GetRenderer2D}!CEngine@{CEngine}}
+\doxysubsubsection{\texorpdfstring{GetRenderer2D()}{GetRenderer2D()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_renderer2_d}{C\+Renderer2D}}$\ast$ C\+Engine\+::\+Get\+Renderer2D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_engine_adc7dd13301e43f5f484de2464d866e93}\label{class_c_engine_adc7dd13301e43f5f484de2464d866e93}} 
+\index{CEngine@{CEngine}!GetRenderer3D@{GetRenderer3D}}
+\index{GetRenderer3D@{GetRenderer3D}!CEngine@{CEngine}}
+\doxysubsubsection{\texorpdfstring{GetRenderer3D()}{GetRenderer3D()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_renderer3_d}{C\+Renderer3D}}$\ast$ C\+Engine\+::\+Get\+Renderer3D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_engine_afaf265e3c1ff7f089951c4360ffdf9f7}\label{class_c_engine_afaf265e3c1ff7f089951c4360ffdf9f7}} 
+\index{CEngine@{CEngine}!GetResources@{GetResources}}
+\index{GetResources@{GetResources}!CEngine@{CEngine}}
+\doxysubsubsection{\texorpdfstring{GetResources()}{GetResources()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_resources}{C\+Resources}}$\ast$ C\+Engine\+::\+Get\+Resources (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_engine_aaa172d79ce27f5345c3017abab0c44ec}\label{class_c_engine_aaa172d79ce27f5345c3017abab0c44ec}} 
+\index{CEngine@{CEngine}!GetScene@{GetScene}}
+\index{GetScene@{GetScene}!CEngine@{CEngine}}
+\doxysubsubsection{\texorpdfstring{GetScene()}{GetScene()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_scene}{C\+Scene}}$\ast$ C\+Engine\+::\+Get\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_engine_ae5599b40cd2d8d72a82d951e90d64ddc}\label{class_c_engine_ae5599b40cd2d8d72a82d951e90d64ddc}} 
+\index{CEngine@{CEngine}!GetScriptModule@{GetScriptModule}}
+\index{GetScriptModule@{GetScriptModule}!CEngine@{CEngine}}
+\doxysubsubsection{\texorpdfstring{GetScriptModule()}{GetScriptModule()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_script_module}{C\+Script\+Module}}$\ast$ C\+Engine\+::\+Get\+Script\+Module (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_engine_ace111805911789e08a1ea6f31f501eac}\label{class_c_engine_ace111805911789e08a1ea6f31f501eac}} 
+\index{CEngine@{CEngine}!GetSystem@{GetSystem}}
+\index{GetSystem@{GetSystem}!CEngine@{CEngine}}
+\doxysubsubsection{\texorpdfstring{GetSystem()}{GetSystem()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_i_system}{I\+System}}$\ast$ C\+Engine\+::\+Get\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_engine_aa59e14dffe5e1c39b10da16594a5095f}\label{class_c_engine_aa59e14dffe5e1c39b10da16594a5095f}} 
+\index{CEngine@{CEngine}!GetUserUpdater@{GetUserUpdater}}
+\index{GetUserUpdater@{GetUserUpdater}!CEngine@{CEngine}}
+\doxysubsubsection{\texorpdfstring{GetUserUpdater()}{GetUserUpdater()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_user_updater}{C\+User\+Updater}}$\ast$ C\+Engine\+::\+Get\+User\+Updater (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_engine_ab4c278cbc6137512ca6df42f07da94c3}\label{class_c_engine_ab4c278cbc6137512ca6df42f07da94c3}} 
+\index{CEngine@{CEngine}!GetWindow@{GetWindow}}
+\index{GetWindow@{GetWindow}!CEngine@{CEngine}}
+\doxysubsubsection{\texorpdfstring{GetWindow()}{GetWindow()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_i_window}{I\+Window}}$\ast$ C\+Engine\+::\+Get\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_engine_ae21af0e4b8a832a9639f618834749546}\label{class_c_engine_ae21af0e4b8a832a9639f618834749546}} 
+\index{CEngine@{CEngine}!Init@{Init}}
+\index{Init@{Init}!CEngine@{CEngine}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily bool C\+Engine\+::\+Init (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_s_engine_params}{S\+Engine\+Params}} \&}]{Params }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_engine_abf595ba20b7df78f2e43bdc6cfb362e0}\label{class_c_engine_abf595ba20b7df78f2e43bdc6cfb362e0}} 
+\index{CEngine@{CEngine}!OnExit@{OnExit}}
+\index{OnExit@{OnExit}!CEngine@{CEngine}}
+\doxysubsubsection{\texorpdfstring{OnExit()}{OnExit()}}
+{\footnotesize\ttfamily void C\+Engine\+::\+On\+Exit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_engine_a82a7c86de911585b6534c81d26a8235a}\label{class_c_engine_a82a7c86de911585b6534c81d26a8235a}} 
+\index{CEngine@{CEngine}!OnInit@{OnInit}}
+\index{OnInit@{OnInit}!CEngine@{CEngine}}
+\doxysubsubsection{\texorpdfstring{OnInit()}{OnInit()}}
+{\footnotesize\ttfamily void C\+Engine\+::\+On\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_engine_afd2c85d536257606ebd85b51a0c29a58}\label{class_c_engine_afd2c85d536257606ebd85b51a0c29a58}} 
+\index{CEngine@{CEngine}!Quit@{Quit}}
+\index{Quit@{Quit}!CEngine@{CEngine}}
+\doxysubsubsection{\texorpdfstring{Quit()}{Quit()}}
+{\footnotesize\ttfamily void C\+Engine\+::\+Quit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_engine_a825dde0b743966773168f0316efb227e}\label{class_c_engine_a825dde0b743966773168f0316efb227e}} 
+\index{CEngine@{CEngine}!Run@{Run}}
+\index{Run@{Run}!CEngine@{CEngine}}
+\doxysubsubsection{\texorpdfstring{Run()}{Run()}}
+{\footnotesize\ttfamily void C\+Engine\+::\+Run (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_engine_abfc862ec6d489bbecb716e3dc4b6d73b}\label{class_c_engine_abfc862ec6d489bbecb716e3dc4b6d73b}} 
+\index{CEngine@{CEngine}!SetupTicks@{SetupTicks}}
+\index{SetupTicks@{SetupTicks}!CEngine@{CEngine}}
+\doxysubsubsection{\texorpdfstring{SetupTicks()}{SetupTicks()}}
+{\footnotesize\ttfamily void C\+Engine\+::\+Setup\+Ticks (\begin{DoxyParamCaption}\item[{const uint32\+\_\+t}]{a\+Ticks }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Engine/\+Engine/\mbox{\hyperlink{_engine_8hpp}{Engine.\+hpp}}\item 
+Source/\+Engine/\+Engine/\mbox{\hyperlink{_engine_8cpp}{Engine.\+cpp}}\end{DoxyCompactItemize}

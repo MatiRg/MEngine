@@ -1,6 +1,7 @@
 #pragma once
 #include "EngineParams.hpp"
 #include "Config.hpp"
+#include "../Core/Types.hpp"
 #include "../Core/NonCopyable.hpp"
 #include <memory>
 #include <vector>
@@ -33,7 +34,7 @@ public:
     CApp();
     virtual ~CApp();
 
-    int Run(const std::vector<std::string>&);
+    int Run(const StringVec&);
     void Quit();
 
     CEngine* GetEngine() const;
@@ -66,7 +67,7 @@ protected:
     SEngineParams Params;
     bool UseConfigFile = true;
     std::string ConfigFile = "Engine.xml";
-    std::vector<std::string> CommandLine;
+    StringVec CommandLine;
 private:
     std::unique_ptr<IContext> Context;
     std::unique_ptr<CEngine> Engine;

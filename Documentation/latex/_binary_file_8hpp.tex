@@ -1,0 +1,60 @@
+\hypertarget{_binary_file_8hpp}{}\doxysection{Source/\+Engine/\+Core/\+Binary\+File.hpp File Reference}
+\label{_binary_file_8hpp}\index{Source/Engine/Core/BinaryFile.hpp@{Source/Engine/Core/BinaryFile.hpp}}
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$cstdio$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_c_binary_file}{C\+Binary\+File}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{_binary_file_8hpp_a0a17e8066d5e9cdd30770bd004822ba0}{E\+File\+Mode}} \{ \mbox{\hyperlink{_binary_file_8hpp_a0a17e8066d5e9cdd30770bd004822ba0a7a1a5f3e79fdc91edf2f5ead9d66abb4}{E\+File\+Mode\+::\+Read}}, 
+\mbox{\hyperlink{_binary_file_8hpp_a0a17e8066d5e9cdd30770bd004822ba0a1129c0e4d43f2d121652a7302712cff6}{E\+File\+Mode\+::\+Write}}
+ \}
+\item 
+enum \mbox{\hyperlink{_binary_file_8hpp_af27bb2f660a018881c6c8e5c57482107}{E\+File\+Seek}} \{ \mbox{\hyperlink{_binary_file_8hpp_af27bb2f660a018881c6c8e5c57482107a1a06729125544cab7cee73195fc044f0}{E\+File\+Seek\+::\+Begin}}, 
+\mbox{\hyperlink{_binary_file_8hpp_af27bb2f660a018881c6c8e5c57482107a222a267cc5778206b253be35ee3ddab5}{E\+File\+Seek\+::\+Current}}, 
+\mbox{\hyperlink{_binary_file_8hpp_af27bb2f660a018881c6c8e5c57482107a87557f11575c0ad78e4e28abedc13b6e}{E\+File\+Seek\+::\+End}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{_binary_file_8hpp_a0a17e8066d5e9cdd30770bd004822ba0}\label{_binary_file_8hpp_a0a17e8066d5e9cdd30770bd004822ba0}} 
+\index{BinaryFile.hpp@{BinaryFile.hpp}!EFileMode@{EFileMode}}
+\index{EFileMode@{EFileMode}!BinaryFile.hpp@{BinaryFile.hpp}}
+\doxysubsubsection{\texorpdfstring{EFileMode}{EFileMode}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_binary_file_8hpp_a0a17e8066d5e9cdd30770bd004822ba0}{E\+File\+Mode}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Read@{Read}!BinaryFile.hpp@{BinaryFile.hpp}}\index{BinaryFile.hpp@{BinaryFile.hpp}!Read@{Read}}}\mbox{\Hypertarget{_binary_file_8hpp_a0a17e8066d5e9cdd30770bd004822ba0a7a1a5f3e79fdc91edf2f5ead9d66abb4}\label{_binary_file_8hpp_a0a17e8066d5e9cdd30770bd004822ba0a7a1a5f3e79fdc91edf2f5ead9d66abb4}} 
+Read&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Write@{Write}!BinaryFile.hpp@{BinaryFile.hpp}}\index{BinaryFile.hpp@{BinaryFile.hpp}!Write@{Write}}}\mbox{\Hypertarget{_binary_file_8hpp_a0a17e8066d5e9cdd30770bd004822ba0a1129c0e4d43f2d121652a7302712cff6}\label{_binary_file_8hpp_a0a17e8066d5e9cdd30770bd004822ba0a1129c0e4d43f2d121652a7302712cff6}} 
+Write&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{_binary_file_8hpp_af27bb2f660a018881c6c8e5c57482107}\label{_binary_file_8hpp_af27bb2f660a018881c6c8e5c57482107}} 
+\index{BinaryFile.hpp@{BinaryFile.hpp}!EFileSeek@{EFileSeek}}
+\index{EFileSeek@{EFileSeek}!BinaryFile.hpp@{BinaryFile.hpp}}
+\doxysubsubsection{\texorpdfstring{EFileSeek}{EFileSeek}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_binary_file_8hpp_af27bb2f660a018881c6c8e5c57482107}{E\+File\+Seek}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Begin@{Begin}!BinaryFile.hpp@{BinaryFile.hpp}}\index{BinaryFile.hpp@{BinaryFile.hpp}!Begin@{Begin}}}\mbox{\Hypertarget{_binary_file_8hpp_af27bb2f660a018881c6c8e5c57482107a1a06729125544cab7cee73195fc044f0}\label{_binary_file_8hpp_af27bb2f660a018881c6c8e5c57482107a1a06729125544cab7cee73195fc044f0}} 
+Begin&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Current@{Current}!BinaryFile.hpp@{BinaryFile.hpp}}\index{BinaryFile.hpp@{BinaryFile.hpp}!Current@{Current}}}\mbox{\Hypertarget{_binary_file_8hpp_af27bb2f660a018881c6c8e5c57482107a222a267cc5778206b253be35ee3ddab5}\label{_binary_file_8hpp_af27bb2f660a018881c6c8e5c57482107a222a267cc5778206b253be35ee3ddab5}} 
+Current&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{End@{End}!BinaryFile.hpp@{BinaryFile.hpp}}\index{BinaryFile.hpp@{BinaryFile.hpp}!End@{End}}}\mbox{\Hypertarget{_binary_file_8hpp_af27bb2f660a018881c6c8e5c57482107a87557f11575c0ad78e4e28abedc13b6e}\label{_binary_file_8hpp_af27bb2f660a018881c6c8e5c57482107a87557f11575c0ad78e4e28abedc13b6e}} 
+End&\\
+\hline
+
+\end{DoxyEnumFields}

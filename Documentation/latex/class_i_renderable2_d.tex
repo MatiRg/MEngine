@@ -1,0 +1,108 @@
+\hypertarget{class_i_renderable2_d}{}\doxysection{I\+Renderable2D Class Reference}
+\label{class_i_renderable2_d}\index{IRenderable2D@{IRenderable2D}}
+
+
+{\ttfamily \#include $<$Renderable2\+D.\+hpp$>$}
+
+Inheritance diagram for I\+Renderable2D\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.196581cm]{class_i_renderable2_d}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_i_renderable2_d_ab2f0956eae3d3698d7644d89450fd677}{I\+Renderable2D}} (const \mbox{\hyperlink{_matrix4_8hpp_a73faa516f0c2cdd223333723e4d6edd8}{Matrix4}} \&a\+Matrix, const float a\+Layer)
+\item 
+virtual \mbox{\hyperlink{class_i_renderable2_d_a5474fc20f664b28a859e2783fbf7abc3}{$\sim$\+I\+Renderable2D}} ()=default
+\item 
+void \mbox{\hyperlink{class_i_renderable2_d_a207681ee777af14fb9f6f3668ad2a799}{Set\+Blend\+Mode}} (const \mbox{\hyperlink{_graphics_8hpp_ae712bb955e55f00dc24eb98c3686dd5a}{E\+Blend\+Mode}} Mode)
+\item 
+\mbox{\hyperlink{_graphics_8hpp_ae712bb955e55f00dc24eb98c3686dd5a}{E\+Blend\+Mode}} \mbox{\hyperlink{class_i_renderable2_d_af0279d7dc94ccb1b47274865d198cf9f}{Get\+Blend\+Mode}} () const
+\item 
+float \mbox{\hyperlink{class_i_renderable2_d_a45b69c94b90d37ca4a088b5669687f7e}{Get\+Layer}} () const
+\item 
+virtual void \mbox{\hyperlink{class_i_renderable2_d_a4b2ecfe21092e5699cde7d1d85bf0f17}{Render}} (\mbox{\hyperlink{class_c_drawer2_d}{C\+Drawer2D}} $\ast$)=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_graphics_8hpp_ae712bb955e55f00dc24eb98c3686dd5a}{E\+Blend\+Mode}} \mbox{\hyperlink{class_i_renderable2_d_a6794be368bcf24e6f559617b16d8a3b4}{Blend\+Mode}} = E\+Blend\+Mode\+::\+None
+\item 
+\mbox{\hyperlink{_matrix4_8hpp_a73faa516f0c2cdd223333723e4d6edd8}{Matrix4}} \mbox{\hyperlink{class_i_renderable2_d_ae4dcb667a4762bf9345319fa6adc9b8c}{Matrix}}
+\item 
+float \mbox{\hyperlink{class_i_renderable2_d_a78050f5318ea6f2dab51674e9c031d78}{Layer}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_i_renderable2_d_ab2f0956eae3d3698d7644d89450fd677}\label{class_i_renderable2_d_ab2f0956eae3d3698d7644d89450fd677}} 
+\index{IRenderable2D@{IRenderable2D}!IRenderable2D@{IRenderable2D}}
+\index{IRenderable2D@{IRenderable2D}!IRenderable2D@{IRenderable2D}}
+\doxysubsubsection{\texorpdfstring{IRenderable2D()}{IRenderable2D()}}
+{\footnotesize\ttfamily I\+Renderable2\+D\+::\+I\+Renderable2D (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_matrix4_8hpp_a73faa516f0c2cdd223333723e4d6edd8}{Matrix4}} \&}]{a\+Matrix,  }\item[{const float}]{a\+Layer }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_i_renderable2_d_a5474fc20f664b28a859e2783fbf7abc3}\label{class_i_renderable2_d_a5474fc20f664b28a859e2783fbf7abc3}} 
+\index{IRenderable2D@{IRenderable2D}!````~IRenderable2D@{$\sim$IRenderable2D}}
+\index{````~IRenderable2D@{$\sim$IRenderable2D}!IRenderable2D@{IRenderable2D}}
+\doxysubsubsection{\texorpdfstring{$\sim$IRenderable2D()}{~IRenderable2D()}}
+{\footnotesize\ttfamily virtual I\+Renderable2\+D\+::$\sim$\+I\+Renderable2D (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}, {\ttfamily [default]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_i_renderable2_d_af0279d7dc94ccb1b47274865d198cf9f}\label{class_i_renderable2_d_af0279d7dc94ccb1b47274865d198cf9f}} 
+\index{IRenderable2D@{IRenderable2D}!GetBlendMode@{GetBlendMode}}
+\index{GetBlendMode@{GetBlendMode}!IRenderable2D@{IRenderable2D}}
+\doxysubsubsection{\texorpdfstring{GetBlendMode()}{GetBlendMode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_graphics_8hpp_ae712bb955e55f00dc24eb98c3686dd5a}{E\+Blend\+Mode}} I\+Renderable2\+D\+::\+Get\+Blend\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_i_renderable2_d_a45b69c94b90d37ca4a088b5669687f7e}\label{class_i_renderable2_d_a45b69c94b90d37ca4a088b5669687f7e}} 
+\index{IRenderable2D@{IRenderable2D}!GetLayer@{GetLayer}}
+\index{GetLayer@{GetLayer}!IRenderable2D@{IRenderable2D}}
+\doxysubsubsection{\texorpdfstring{GetLayer()}{GetLayer()}}
+{\footnotesize\ttfamily float I\+Renderable2\+D\+::\+Get\+Layer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_i_renderable2_d_a4b2ecfe21092e5699cde7d1d85bf0f17}\label{class_i_renderable2_d_a4b2ecfe21092e5699cde7d1d85bf0f17}} 
+\index{IRenderable2D@{IRenderable2D}!Render@{Render}}
+\index{Render@{Render}!IRenderable2D@{IRenderable2D}}
+\doxysubsubsection{\texorpdfstring{Render()}{Render()}}
+{\footnotesize\ttfamily virtual void I\+Renderable2\+D\+::\+Render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_drawer2_d}{C\+Drawer2D}} $\ast$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_c_rect_renderable2_d_afa34f9b994a8dfc9a7dad000e46f6c28}{C\+Rect\+Renderable2D}}, \mbox{\hyperlink{class_c_line_renderable2_d_a5d4353d1f6e486a6972ec379c9624ce0}{C\+Line\+Renderable2D}}, \mbox{\hyperlink{class_c_point_renderable2_d_a97d70d863944c47637e7b70b741b0656}{C\+Point\+Renderable2D}}, \mbox{\hyperlink{class_c_texture_renderable2_d_a33736f3f53a58093d1d85865ea342efd}{C\+Texture\+Renderable2D}}, \mbox{\hyperlink{class_c_text_renderable2_d_a0d2d1f53cac38d08cc99408021005916}{C\+Text\+Renderable2D}}, and \mbox{\hyperlink{class_c_polygon_renderable2_d_a7e11e8b25f1c13c2f96666559788749e}{C\+Polygon\+Renderable2D}}.
+
+\mbox{\Hypertarget{class_i_renderable2_d_a207681ee777af14fb9f6f3668ad2a799}\label{class_i_renderable2_d_a207681ee777af14fb9f6f3668ad2a799}} 
+\index{IRenderable2D@{IRenderable2D}!SetBlendMode@{SetBlendMode}}
+\index{SetBlendMode@{SetBlendMode}!IRenderable2D@{IRenderable2D}}
+\doxysubsubsection{\texorpdfstring{SetBlendMode()}{SetBlendMode()}}
+{\footnotesize\ttfamily void I\+Renderable2\+D\+::\+Set\+Blend\+Mode (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_graphics_8hpp_ae712bb955e55f00dc24eb98c3686dd5a}{E\+Blend\+Mode}}}]{Mode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_i_renderable2_d_a6794be368bcf24e6f559617b16d8a3b4}\label{class_i_renderable2_d_a6794be368bcf24e6f559617b16d8a3b4}} 
+\index{IRenderable2D@{IRenderable2D}!BlendMode@{BlendMode}}
+\index{BlendMode@{BlendMode}!IRenderable2D@{IRenderable2D}}
+\doxysubsubsection{\texorpdfstring{BlendMode}{BlendMode}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_graphics_8hpp_ae712bb955e55f00dc24eb98c3686dd5a}{E\+Blend\+Mode}} I\+Renderable2\+D\+::\+Blend\+Mode = E\+Blend\+Mode\+::\+None\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_i_renderable2_d_a78050f5318ea6f2dab51674e9c031d78}\label{class_i_renderable2_d_a78050f5318ea6f2dab51674e9c031d78}} 
+\index{IRenderable2D@{IRenderable2D}!Layer@{Layer}}
+\index{Layer@{Layer}!IRenderable2D@{IRenderable2D}}
+\doxysubsubsection{\texorpdfstring{Layer}{Layer}}
+{\footnotesize\ttfamily float I\+Renderable2\+D\+::\+Layer\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_i_renderable2_d_ae4dcb667a4762bf9345319fa6adc9b8c}\label{class_i_renderable2_d_ae4dcb667a4762bf9345319fa6adc9b8c}} 
+\index{IRenderable2D@{IRenderable2D}!Matrix@{Matrix}}
+\index{Matrix@{Matrix}!IRenderable2D@{IRenderable2D}}
+\doxysubsubsection{\texorpdfstring{Matrix}{Matrix}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_matrix4_8hpp_a73faa516f0c2cdd223333723e4d6edd8}{Matrix4}} I\+Renderable2\+D\+::\+Matrix\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Engine/\+Graphics/\mbox{\hyperlink{_renderable2_d_8hpp}{Renderable2\+D.\+hpp}}\end{DoxyCompactItemize}

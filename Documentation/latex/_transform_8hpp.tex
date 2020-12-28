@@ -1,0 +1,43 @@
+\hypertarget{_transform_8hpp}{}\doxysection{Source/\+Engine/\+Scene/\+Transform.hpp File Reference}
+\label{_transform_8hpp}\index{Source/Engine/Scene/Transform.hpp@{Source/Engine/Scene/Transform.hpp}}
+{\ttfamily \#include \char`\"{}../\+Math/\+Matrix4.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../\+Math/\+Vector3.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../\+Math/\+Quaternion.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../\+Math/\+Functions.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$functional$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_c_transform}{C\+Transform}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{_transform_8hpp_a28fd36716eff66b2fbf6833b20aa73e6}{Position\+Changed}} = std\+::function$<$ void(const \mbox{\hyperlink{_vector3_8hpp_abb63d82e5aaa1616fff243d45937ad17}{Vector3}} \&)$>$
+\item 
+using \mbox{\hyperlink{_transform_8hpp_a9517806b42c21709233e5cd0860f3cc9}{Scale\+Changed}} = std\+::function$<$ void(const \mbox{\hyperlink{_vector3_8hpp_abb63d82e5aaa1616fff243d45937ad17}{Vector3}} \&)$>$
+\item 
+using \mbox{\hyperlink{_transform_8hpp_a58cffcbf8b7e5a1187221eeff954887e}{Rotation\+Changed}} = std\+::function$<$ void(const \mbox{\hyperlink{_quaternion_8hpp_aa62c832059ac8e255e7b02326e673c05}{Quaternion}} \&)$>$
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{_transform_8hpp_a28fd36716eff66b2fbf6833b20aa73e6}\label{_transform_8hpp_a28fd36716eff66b2fbf6833b20aa73e6}} 
+\index{Transform.hpp@{Transform.hpp}!PositionChanged@{PositionChanged}}
+\index{PositionChanged@{PositionChanged}!Transform.hpp@{Transform.hpp}}
+\doxysubsubsection{\texorpdfstring{PositionChanged}{PositionChanged}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{_transform_8hpp_a28fd36716eff66b2fbf6833b20aa73e6}{Position\+Changed}} =  std\+::function$<$void(const \mbox{\hyperlink{_vector3_8hpp_abb63d82e5aaa1616fff243d45937ad17}{Vector3}}\&)$>$}
+
+\mbox{\Hypertarget{_transform_8hpp_a58cffcbf8b7e5a1187221eeff954887e}\label{_transform_8hpp_a58cffcbf8b7e5a1187221eeff954887e}} 
+\index{Transform.hpp@{Transform.hpp}!RotationChanged@{RotationChanged}}
+\index{RotationChanged@{RotationChanged}!Transform.hpp@{Transform.hpp}}
+\doxysubsubsection{\texorpdfstring{RotationChanged}{RotationChanged}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{_transform_8hpp_a58cffcbf8b7e5a1187221eeff954887e}{Rotation\+Changed}} =  std\+::function$<$void(const \mbox{\hyperlink{_quaternion_8hpp_aa62c832059ac8e255e7b02326e673c05}{Quaternion}}\&)$>$}
+
+\mbox{\Hypertarget{_transform_8hpp_a9517806b42c21709233e5cd0860f3cc9}\label{_transform_8hpp_a9517806b42c21709233e5cd0860f3cc9}} 
+\index{Transform.hpp@{Transform.hpp}!ScaleChanged@{ScaleChanged}}
+\index{ScaleChanged@{ScaleChanged}!Transform.hpp@{Transform.hpp}}
+\doxysubsubsection{\texorpdfstring{ScaleChanged}{ScaleChanged}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{_transform_8hpp_a9517806b42c21709233e5cd0860f3cc9}{Scale\+Changed}} =  std\+::function$<$void(const \mbox{\hyperlink{_vector3_8hpp_abb63d82e5aaa1616fff243d45937ad17}{Vector3}}\&)$>$}
+

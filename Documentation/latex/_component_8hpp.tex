@@ -1,0 +1,48 @@
+\hypertarget{_component_8hpp}{}\doxysection{Source/\+Engine/\+Scene/\+Component.hpp File Reference}
+\label{_component_8hpp}\index{Source/Engine/Scene/Component.hpp@{Source/Engine/Scene/Component.hpp}}
+{\ttfamily \#include \char`\"{}../\+Core/\+Log.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../\+Core/\+Non\+Copyable.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$string$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_i_component}{I\+Component}}
+\item 
+class \mbox{\hyperlink{class_i_component_factory}{I\+Component\+Factory}}
+\item 
+class \mbox{\hyperlink{class_t_component_factory}{T\+Component\+Factory$<$ T $>$}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_component_8hpp_ab6923902019c428681113609e4493f84}{C\+O\+M\+P\+O\+N\+E\+NT}}(x)
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{_component_8hpp_ae92c0fa24ada5993d0627520b342f153}{Component\+Array}} = std\+::vector$<$ \mbox{\hyperlink{class_i_component}{I\+Component}} $\ast$ $>$
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_component_8hpp_ab6923902019c428681113609e4493f84}\label{_component_8hpp_ab6923902019c428681113609e4493f84}} 
+\index{Component.hpp@{Component.hpp}!COMPONENT@{COMPONENT}}
+\index{COMPONENT@{COMPONENT}!Component.hpp@{Component.hpp}}
+\doxysubsubsection{\texorpdfstring{COMPONENT}{COMPONENT}}
+{\footnotesize\ttfamily \#define C\+O\+M\+P\+O\+N\+E\+NT(\begin{DoxyParamCaption}\item[{}]{x }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                     \textcolor{keyword}{virtual} std::string GetType()\textcolor{keyword}{ const override }\{ \textcolor{keywordflow}{return} \#x; \} \(\backslash\)}
+\DoxyCodeLine{                     static std::string GetTypeStatic() \{ \textcolor{keywordflow}{return} \#x; \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{_component_8hpp_ae92c0fa24ada5993d0627520b342f153}\label{_component_8hpp_ae92c0fa24ada5993d0627520b342f153}} 
+\index{Component.hpp@{Component.hpp}!ComponentArray@{ComponentArray}}
+\index{ComponentArray@{ComponentArray}!Component.hpp@{Component.hpp}}
+\doxysubsubsection{\texorpdfstring{ComponentArray}{ComponentArray}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{_component_8hpp_ae92c0fa24ada5993d0627520b342f153}{Component\+Array}} =  std\+::vector$<$\mbox{\hyperlink{class_i_component}{I\+Component}}$\ast$$>$}
+

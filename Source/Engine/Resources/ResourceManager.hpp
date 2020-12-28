@@ -30,7 +30,7 @@ protected:
     virtual std::unique_ptr<IResource> MakeResource(const std::string&, const ResourceCreateMap&) = 0;
     //
     virtual IResource* GetResource(const std::string&, const ResourceCreateMap&);
-    virtual IResource* AddResource(std::unique_ptr<IResource>&&);
+    virtual IResource* AddResource(std::unique_ptr<IResource>&&, const ResourceCreateMap&);
 protected:
     CResources* Resources = nullptr;
     ResourceVec ResourcesArray;

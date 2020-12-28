@@ -58,7 +58,8 @@ void CLevel2::OnEnter()
     CModel* ModelCube = Resources->CreateResource<CModel>("cube.dae");
    
     MeshRenderer->SetMesh(ModelCube->GetMeshes()[0]);
-    MeshRenderer->SetMaterial( Resources->CreateResource<CMaterial>("Default.mat") );
+    //MeshRenderer->SetMaterial( Resources->CreateResource<CMaterial>("Default.mat") );
+    MeshRenderer->SetMaterial(Resources->CreateResource<CMaterial>("backpack.mat"));
 
     PrintModel(ModelCube->GetRoot(), 0);
 

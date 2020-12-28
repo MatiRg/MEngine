@@ -1,0 +1,32 @@
+\hypertarget{_o_g_l_shader_8cpp}{}\doxysection{Source/\+Engine/\+Implementation/\+O\+G\+L/\+O\+G\+L\+Shader.cpp File Reference}
+\label{_o_g_l_shader_8cpp}\index{Source/Engine/Implementation/OGL/OGLShader.cpp@{Source/Engine/Implementation/OGL/OGLShader.cpp}}
+{\ttfamily \#include \char`\"{}O\+G\+L\+Shader.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}O\+G\+L\+Texture2\+D.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../../\+Resources/\+Resources.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../../\+System/\+System.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../../\+Core/\+Log.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../../\+Core/\+Utils.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$array$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_o_g_l_shader_8cpp_ab71b54249d2baea42d2f086d18e76f84}{D\+E\+S\+T\+R\+O\+Y\+\_\+\+P\+R\+O\+G\+R\+A\+MS}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_o_g_l_shader_8cpp_ab71b54249d2baea42d2f086d18e76f84}\label{_o_g_l_shader_8cpp_ab71b54249d2baea42d2f086d18e76f84}} 
+\index{OGLShader.cpp@{OGLShader.cpp}!DESTROY\_PROGRAMS@{DESTROY\_PROGRAMS}}
+\index{DESTROY\_PROGRAMS@{DESTROY\_PROGRAMS}!OGLShader.cpp@{OGLShader.cpp}}
+\doxysubsubsection{\texorpdfstring{DESTROY\_PROGRAMS}{DESTROY\_PROGRAMS}}
+{\footnotesize\ttfamily \#define D\+E\+S\+T\+R\+O\+Y\+\_\+\+P\+R\+O\+G\+R\+A\+MS}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{    glDeleteShader( VertexID ); \(\backslash\)}
+\DoxyCodeLine{    glDeleteShader(FragmentID)}
+
+\end{DoxyCode}

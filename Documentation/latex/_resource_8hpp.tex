@@ -1,0 +1,62 @@
+\hypertarget{_resource_8hpp}{}\doxysection{Source/\+Engine/\+Resources/\+Resource.hpp File Reference}
+\label{_resource_8hpp}\index{Source/Engine/Resources/Resource.hpp@{Source/Engine/Resources/Resource.hpp}}
+{\ttfamily \#include \char`\"{}../\+Core/\+Non\+Copyable.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../\+Core/\+Log.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../\+Core/\+Types.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}../\+System/\+Memory\+Manager.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$any$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_i_resource}{I\+Resource}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_resource_8hpp_a1298261425a29b634116a19ee67d6450}{R\+E\+S\+O\+U\+R\+CE}}(X)
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{_resource_8hpp_ad54c6f6c1e661a66fc82a50e60f66446}{Resource\+Create\+Var}} = std\+::any
+\item 
+using \mbox{\hyperlink{_resource_8hpp_aeb9246ef736382503cd1784ef4ca742a}{Resource\+Create\+Map}} = \mbox{\hyperlink{_types_8hpp_a6b8f0bdcd6730614b58b3e69737cef68}{String\+Map}}$<$ \mbox{\hyperlink{_resource_8hpp_ad54c6f6c1e661a66fc82a50e60f66446}{Resource\+Create\+Var}} $>$
+\item 
+using \mbox{\hyperlink{_resource_8hpp_a73a1edda4db6df60f84a146e49e45a03}{Resource\+Vec}} = std\+::vector$<$ std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_i_resource}{I\+Resource}} $>$ $>$
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_resource_8hpp_a1298261425a29b634116a19ee67d6450}\label{_resource_8hpp_a1298261425a29b634116a19ee67d6450}} 
+\index{Resource.hpp@{Resource.hpp}!RESOURCE@{RESOURCE}}
+\index{RESOURCE@{RESOURCE}!Resource.hpp@{Resource.hpp}}
+\doxysubsubsection{\texorpdfstring{RESOURCE}{RESOURCE}}
+{\footnotesize\ttfamily \#define R\+E\+S\+O\+U\+R\+CE(\begin{DoxyParamCaption}\item[{}]{X }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{                    std::string GetType() const override final \{ \textcolor{keywordflow}{return} \#X; \} \(\backslash\)}
+\DoxyCodeLine{                    static std::string GetTypeStatic() \{ \textcolor{keywordflow}{return} \#X; \}}
+
+\end{DoxyCode}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{_resource_8hpp_aeb9246ef736382503cd1784ef4ca742a}\label{_resource_8hpp_aeb9246ef736382503cd1784ef4ca742a}} 
+\index{Resource.hpp@{Resource.hpp}!ResourceCreateMap@{ResourceCreateMap}}
+\index{ResourceCreateMap@{ResourceCreateMap}!Resource.hpp@{Resource.hpp}}
+\doxysubsubsection{\texorpdfstring{ResourceCreateMap}{ResourceCreateMap}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{_resource_8hpp_aeb9246ef736382503cd1784ef4ca742a}{Resource\+Create\+Map}} =  \mbox{\hyperlink{_types_8hpp_a6b8f0bdcd6730614b58b3e69737cef68}{String\+Map}}$<$\mbox{\hyperlink{_resource_8hpp_ad54c6f6c1e661a66fc82a50e60f66446}{Resource\+Create\+Var}}$>$}
+
+\mbox{\Hypertarget{_resource_8hpp_ad54c6f6c1e661a66fc82a50e60f66446}\label{_resource_8hpp_ad54c6f6c1e661a66fc82a50e60f66446}} 
+\index{Resource.hpp@{Resource.hpp}!ResourceCreateVar@{ResourceCreateVar}}
+\index{ResourceCreateVar@{ResourceCreateVar}!Resource.hpp@{Resource.hpp}}
+\doxysubsubsection{\texorpdfstring{ResourceCreateVar}{ResourceCreateVar}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{_resource_8hpp_ad54c6f6c1e661a66fc82a50e60f66446}{Resource\+Create\+Var}} =  std\+::any}
+
+\mbox{\Hypertarget{_resource_8hpp_a73a1edda4db6df60f84a146e49e45a03}\label{_resource_8hpp_a73a1edda4db6df60f84a146e49e45a03}} 
+\index{Resource.hpp@{Resource.hpp}!ResourceVec@{ResourceVec}}
+\index{ResourceVec@{ResourceVec}!Resource.hpp@{Resource.hpp}}
+\doxysubsubsection{\texorpdfstring{ResourceVec}{ResourceVec}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{_resource_8hpp_a73a1edda4db6df60f84a146e49e45a03}{Resource\+Vec}} =  std\+::vector$<$std\+::unique\+\_\+ptr$<$\mbox{\hyperlink{class_i_resource}{I\+Resource}}$>$ $>$}
+

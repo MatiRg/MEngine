@@ -1,7 +1,11 @@
 #include "Locations.inc"
 #include "Uniforms.inc"
+#include "Lighting.inc"
 
-uniform vec4 DiffuseColor;
+uniform vec4 DiffuseColor = {0.5, 0.5, 0.5, 1.0};
+uniform sampler2D DiffuseTexture;
+
+// IS_LIT
 
 #ifdef VS
 
@@ -11,9 +15,9 @@ out vec2 TexCoords;
 
 void main()
 {
-	gl_Position = Projection*View*Model*vec4(Position, 1.0);
-	FragPos = vec3(Model*vec4(Position, 1.0f));
-	Normal = mat3(transpose(inverse(Model)))*Normal1;
+	gl_Position = ObjectToClipPos(Position);
+	FragPos = ObjectToModelPos(Position); 
+	Normal = ObjectToWorldNormal(Normal1);
 	TexCoords = TexCoords1;
 }
 
@@ -29,7 +33,11 @@ out vec4 Color;
 
 void main()
 {
-    Color = vec4(DiffuseColor.rgb, 1.0);
+	#ifdef USE_DIFFUSE
+    Color = vec4(texture(DiffuseTexture, TexCoords).rgb, 1.0);
+	#else
+	Color = vec4(DiffuseColor.rgb, 1.0);
+	#endif
 }
 
 #endif

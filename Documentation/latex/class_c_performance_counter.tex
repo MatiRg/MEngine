@@ -1,0 +1,96 @@
+\hypertarget{class_c_performance_counter}{}\doxysection{C\+Performance\+Counter Class Reference}
+\label{class_c_performance_counter}\index{CPerformanceCounter@{CPerformanceCounter}}
+
+
+{\ttfamily \#include $<$Performance\+Counter.\+hpp$>$}
+
+Inheritance diagram for C\+Performance\+Counter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_c_performance_counter}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_performance_counter_adcc1e76d3dd04a904f926f0d4250087f}{C\+Performance\+Counter}} (\mbox{\hyperlink{class_c_im_g_u_i}{C\+Im\+G\+UI}} $\ast$)
+\item 
+\mbox{\hyperlink{class_c_performance_counter_aae0f016ed0e86a95c9ebd89b9ee9d389}{$\sim$\+C\+Performance\+Counter}} ()
+\item 
+void \mbox{\hyperlink{class_c_performance_counter_a7d00a22d7b7f37620ef8fdda0bf44e78}{On\+Update}} (const float) override
+\item 
+void \mbox{\hyperlink{class_c_performance_counter_a2e479713a385e958b42b25a323cbe223}{On\+Render}} () override
+\item 
+void \mbox{\hyperlink{class_c_performance_counter_a488f6e4b76d8348a4254c7e20d60a983}{On\+G\+UI}} () override
+\item 
+void \mbox{\hyperlink{class_c_performance_counter_aae8b7017d5fa3e694ab916038b077f44}{Toggle}} ()
+\item 
+void \mbox{\hyperlink{class_c_performance_counter_afbd999de120fcad8ea372d64ee340efb}{Set\+Time}} (const \mbox{\hyperlink{_performance_counter_8hpp_af0c862ac1b61b74be5950bef3f7563bc}{E\+Perf\+Counter}} Counter, const uint32\+\_\+t Time)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_c_performance_counter_adcc1e76d3dd04a904f926f0d4250087f}\label{class_c_performance_counter_adcc1e76d3dd04a904f926f0d4250087f}} 
+\index{CPerformanceCounter@{CPerformanceCounter}!CPerformanceCounter@{CPerformanceCounter}}
+\index{CPerformanceCounter@{CPerformanceCounter}!CPerformanceCounter@{CPerformanceCounter}}
+\doxysubsubsection{\texorpdfstring{CPerformanceCounter()}{CPerformanceCounter()}}
+{\footnotesize\ttfamily C\+Performance\+Counter\+::\+C\+Performance\+Counter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_im_g_u_i}{C\+Im\+G\+UI}} $\ast$}]{Im\+G\+UI }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_performance_counter_aae0f016ed0e86a95c9ebd89b9ee9d389}\label{class_c_performance_counter_aae0f016ed0e86a95c9ebd89b9ee9d389}} 
+\index{CPerformanceCounter@{CPerformanceCounter}!````~CPerformanceCounter@{$\sim$CPerformanceCounter}}
+\index{````~CPerformanceCounter@{$\sim$CPerformanceCounter}!CPerformanceCounter@{CPerformanceCounter}}
+\doxysubsubsection{\texorpdfstring{$\sim$CPerformanceCounter()}{~CPerformanceCounter()}}
+{\footnotesize\ttfamily C\+Performance\+Counter\+::$\sim$\+C\+Performance\+Counter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_c_performance_counter_a488f6e4b76d8348a4254c7e20d60a983}\label{class_c_performance_counter_a488f6e4b76d8348a4254c7e20d60a983}} 
+\index{CPerformanceCounter@{CPerformanceCounter}!OnGUI@{OnGUI}}
+\index{OnGUI@{OnGUI}!CPerformanceCounter@{CPerformanceCounter}}
+\doxysubsubsection{\texorpdfstring{OnGUI()}{OnGUI()}}
+{\footnotesize\ttfamily void C\+Performance\+Counter\+::\+On\+G\+UI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_i_updatable_a15d6e90e502b7b0ab3cf009c0791f896}{I\+Updatable}}.
+
+\mbox{\Hypertarget{class_c_performance_counter_a2e479713a385e958b42b25a323cbe223}\label{class_c_performance_counter_a2e479713a385e958b42b25a323cbe223}} 
+\index{CPerformanceCounter@{CPerformanceCounter}!OnRender@{OnRender}}
+\index{OnRender@{OnRender}!CPerformanceCounter@{CPerformanceCounter}}
+\doxysubsubsection{\texorpdfstring{OnRender()}{OnRender()}}
+{\footnotesize\ttfamily void C\+Performance\+Counter\+::\+On\+Render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_i_updatable_ac54378b73b803d15ed132396e52f38ea}{I\+Updatable}}.
+
+\mbox{\Hypertarget{class_c_performance_counter_a7d00a22d7b7f37620ef8fdda0bf44e78}\label{class_c_performance_counter_a7d00a22d7b7f37620ef8fdda0bf44e78}} 
+\index{CPerformanceCounter@{CPerformanceCounter}!OnUpdate@{OnUpdate}}
+\index{OnUpdate@{OnUpdate}!CPerformanceCounter@{CPerformanceCounter}}
+\doxysubsubsection{\texorpdfstring{OnUpdate()}{OnUpdate()}}
+{\footnotesize\ttfamily void C\+Performance\+Counter\+::\+On\+Update (\begin{DoxyParamCaption}\item[{const float}]{DT }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_i_updatable_a20422230fbfce2ce812213e9ba6c2a06}{I\+Updatable}}.
+
+\mbox{\Hypertarget{class_c_performance_counter_afbd999de120fcad8ea372d64ee340efb}\label{class_c_performance_counter_afbd999de120fcad8ea372d64ee340efb}} 
+\index{CPerformanceCounter@{CPerformanceCounter}!SetTime@{SetTime}}
+\index{SetTime@{SetTime}!CPerformanceCounter@{CPerformanceCounter}}
+\doxysubsubsection{\texorpdfstring{SetTime()}{SetTime()}}
+{\footnotesize\ttfamily void C\+Performance\+Counter\+::\+Set\+Time (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_performance_counter_8hpp_af0c862ac1b61b74be5950bef3f7563bc}{E\+Perf\+Counter}}}]{Counter,  }\item[{const uint32\+\_\+t}]{Time }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_performance_counter_aae8b7017d5fa3e694ab916038b077f44}\label{class_c_performance_counter_aae8b7017d5fa3e694ab916038b077f44}} 
+\index{CPerformanceCounter@{CPerformanceCounter}!Toggle@{Toggle}}
+\index{Toggle@{Toggle}!CPerformanceCounter@{CPerformanceCounter}}
+\doxysubsubsection{\texorpdfstring{Toggle()}{Toggle()}}
+{\footnotesize\ttfamily void C\+Performance\+Counter\+::\+Toggle (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Engine/\+Engine/\mbox{\hyperlink{_performance_counter_8hpp}{Performance\+Counter.\+hpp}}\item 
+Source/\+Engine/\+Engine/\mbox{\hyperlink{_performance_counter_8cpp}{Performance\+Counter.\+cpp}}\end{DoxyCompactItemize}

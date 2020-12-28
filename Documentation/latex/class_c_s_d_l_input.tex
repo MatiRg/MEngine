@@ -1,0 +1,248 @@
+\hypertarget{class_c_s_d_l_input}{}\doxysection{C\+S\+D\+L\+Input Class Reference}
+\label{class_c_s_d_l_input}\index{CSDLInput@{CSDLInput}}
+
+
+{\ttfamily \#include $<$S\+D\+L\+Input.\+hpp$>$}
+
+Inheritance diagram for C\+S\+D\+L\+Input\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.000000cm]{class_c_s_d_l_input}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_s_d_l_input_a1f5a9b6a3dc68f33e5de140030183f15}{C\+S\+D\+L\+Input}} (\mbox{\hyperlink{class_c_s_d_l_window}{C\+S\+D\+L\+Window}} $\ast$)
+\item 
+\mbox{\hyperlink{class_c_s_d_l_input_ab4d226a73b806b1f36d493919d704c85}{$\sim$\+C\+S\+D\+L\+Input}} ()
+\item 
+bool \mbox{\hyperlink{class_c_s_d_l_input_ae59f1df152f9cf79e500718fd742de9a}{Init}} (const \mbox{\hyperlink{struct_s_engine_params}{S\+Engine\+Params}} \&) override
+\item 
+void \mbox{\hyperlink{class_c_s_d_l_input_afeb34104076fcfbac4a6fa33c5d0a5c3}{On\+Event}} (const \mbox{\hyperlink{class_c_event}{C\+Event}} \&) override
+\item 
+void \mbox{\hyperlink{class_c_s_d_l_input_a1555e6e62844562217647e6021d6e7e7}{Clear\+Input}} () override
+\item 
+bool \mbox{\hyperlink{class_c_s_d_l_input_ae0697a9248a34257906f22aa8b824ca2}{Is\+Key\+Down}} (const \mbox{\hyperlink{_event_types_8hpp_acf6120e5498fcaa4a807f587242c3385}{E\+Key}} Key) const override
+\item 
+bool \mbox{\hyperlink{class_c_s_d_l_input_a7223cd48e9903e630637629a2ab92b12}{Is\+Key\+Pressed}} (const \mbox{\hyperlink{_event_types_8hpp_acf6120e5498fcaa4a807f587242c3385}{E\+Key}} Key) const override
+\item 
+bool \mbox{\hyperlink{class_c_s_d_l_input_aad86702ffb94f48bff243e2723798cf7}{Is\+Mouse\+Key\+Down}} (const \mbox{\hyperlink{_event_types_8hpp_a68cdb12948007098c9db56c850c98a61}{E\+Mouse\+Key}} Key) const override
+\item 
+bool \mbox{\hyperlink{class_c_s_d_l_input_a12ed959aeca4e2066f5f53ba362e74b4}{Is\+Mouse\+Key\+Pressed}} (const \mbox{\hyperlink{_event_types_8hpp_a68cdb12948007098c9db56c850c98a61}{E\+Mouse\+Key}} Key) const override
+\item 
+void \mbox{\hyperlink{class_c_s_d_l_input_ac73b2ad2f9bc80c9755d07c792721c9a}{Set\+Mouse\+Position}} (const \mbox{\hyperlink{_vector2_8hpp_ab50a46295e259c17345421d0fc1cb3bb}{Vector2}} \&) override
+\item 
+const \mbox{\hyperlink{_vector2_8hpp_ab50a46295e259c17345421d0fc1cb3bb}{Vector2}} \& \mbox{\hyperlink{class_c_s_d_l_input_a94a2093ba337d2b9be0eefb1296ba0ac}{Get\+Mouse\+Position}} () const override
+\item 
+const \mbox{\hyperlink{_vector2_8hpp_ab50a46295e259c17345421d0fc1cb3bb}{Vector2}} \& \mbox{\hyperlink{class_c_s_d_l_input_a5ecf6a12691267b450c0d1cbe5416d30}{Get\+Relative\+Mouse\+Motion}} () const override
+\item 
+const \mbox{\hyperlink{_vector2_8hpp_ab50a46295e259c17345421d0fc1cb3bb}{Vector2}} \& \mbox{\hyperlink{class_c_s_d_l_input_ae81ec71aacf29dae81e9d7e7aebb84a3}{Get\+Mouse\+Wheel}} () const override
+\item 
+bool \mbox{\hyperlink{class_c_s_d_l_input_a8779a4cc43a3f80ec30e0f46499677a6}{Set\+Mouse\+Mode}} (const \mbox{\hyperlink{_input_8hpp_a20a99bd071d8ef1f565ef983ae84393b}{E\+Mouse\+Mode}}) override
+\item 
+\mbox{\hyperlink{_input_8hpp_a20a99bd071d8ef1f565ef983ae84393b}{E\+Mouse\+Mode}} \mbox{\hyperlink{class_c_s_d_l_input_a67981160d98c42413d3f775963c48bd6}{Get\+Mouse\+Mode}} () const override
+\item 
+void \mbox{\hyperlink{class_c_s_d_l_input_aa8bcdff312613c52ce25a507d2c11dc9}{Show\+Cursor}} (const bool) override
+\item 
+bool \mbox{\hyperlink{class_c_s_d_l_input_a4b689388664867f1918ba74cbd5f4205}{Is\+Cursor\+Visible}} () const override
+\item 
+const std\+::string \& \mbox{\hyperlink{class_c_s_d_l_input_a8eedf4c8999f045aa27d901d27c655f0}{Get\+Clip\+Board\+Text}} () const override
+\item 
+void \mbox{\hyperlink{class_c_s_d_l_input_ae6a1bab13a5a72e971aa473894049115}{Set\+Clip\+Board\+Text}} (const std\+::string \&) override
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_c_s_d_l_input_a1f5a9b6a3dc68f33e5de140030183f15}\label{class_c_s_d_l_input_a1f5a9b6a3dc68f33e5de140030183f15}} 
+\index{CSDLInput@{CSDLInput}!CSDLInput@{CSDLInput}}
+\index{CSDLInput@{CSDLInput}!CSDLInput@{CSDLInput}}
+\doxysubsubsection{\texorpdfstring{CSDLInput()}{CSDLInput()}}
+{\footnotesize\ttfamily C\+S\+D\+L\+Input\+::\+C\+S\+D\+L\+Input (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_s_d_l_window}{C\+S\+D\+L\+Window}} $\ast$}]{a\+Window }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_s_d_l_input_ab4d226a73b806b1f36d493919d704c85}\label{class_c_s_d_l_input_ab4d226a73b806b1f36d493919d704c85}} 
+\index{CSDLInput@{CSDLInput}!````~CSDLInput@{$\sim$CSDLInput}}
+\index{````~CSDLInput@{$\sim$CSDLInput}!CSDLInput@{CSDLInput}}
+\doxysubsubsection{\texorpdfstring{$\sim$CSDLInput()}{~CSDLInput()}}
+{\footnotesize\ttfamily C\+S\+D\+L\+Input\+::$\sim$\+C\+S\+D\+L\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_c_s_d_l_input_a1555e6e62844562217647e6021d6e7e7}\label{class_c_s_d_l_input_a1555e6e62844562217647e6021d6e7e7}} 
+\index{CSDLInput@{CSDLInput}!ClearInput@{ClearInput}}
+\index{ClearInput@{ClearInput}!CSDLInput@{CSDLInput}}
+\doxysubsubsection{\texorpdfstring{ClearInput()}{ClearInput()}}
+{\footnotesize\ttfamily void C\+S\+D\+L\+Input\+::\+Clear\+Input (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_input_a6243f4560f239102d79b84f453e47a16}{I\+Input}}.
+
+\mbox{\Hypertarget{class_c_s_d_l_input_a8eedf4c8999f045aa27d901d27c655f0}\label{class_c_s_d_l_input_a8eedf4c8999f045aa27d901d27c655f0}} 
+\index{CSDLInput@{CSDLInput}!GetClipBoardText@{GetClipBoardText}}
+\index{GetClipBoardText@{GetClipBoardText}!CSDLInput@{CSDLInput}}
+\doxysubsubsection{\texorpdfstring{GetClipBoardText()}{GetClipBoardText()}}
+{\footnotesize\ttfamily const std\+::string \& C\+S\+D\+L\+Input\+::\+Get\+Clip\+Board\+Text (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_input_a2dfdba5d01b55e3097fcbfd66f1a3bfb}{I\+Input}}.
+
+\mbox{\Hypertarget{class_c_s_d_l_input_a67981160d98c42413d3f775963c48bd6}\label{class_c_s_d_l_input_a67981160d98c42413d3f775963c48bd6}} 
+\index{CSDLInput@{CSDLInput}!GetMouseMode@{GetMouseMode}}
+\index{GetMouseMode@{GetMouseMode}!CSDLInput@{CSDLInput}}
+\doxysubsubsection{\texorpdfstring{GetMouseMode()}{GetMouseMode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_input_8hpp_a20a99bd071d8ef1f565ef983ae84393b}{E\+Mouse\+Mode}} C\+S\+D\+L\+Input\+::\+Get\+Mouse\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_input_add25583fa0e1045111064b483e2742c3}{I\+Input}}.
+
+\mbox{\Hypertarget{class_c_s_d_l_input_a94a2093ba337d2b9be0eefb1296ba0ac}\label{class_c_s_d_l_input_a94a2093ba337d2b9be0eefb1296ba0ac}} 
+\index{CSDLInput@{CSDLInput}!GetMousePosition@{GetMousePosition}}
+\index{GetMousePosition@{GetMousePosition}!CSDLInput@{CSDLInput}}
+\doxysubsubsection{\texorpdfstring{GetMousePosition()}{GetMousePosition()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{_vector2_8hpp_ab50a46295e259c17345421d0fc1cb3bb}{Vector2}}\& C\+S\+D\+L\+Input\+::\+Get\+Mouse\+Position (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_input_a19e555c8f726a1073bdc9fdbc01d24ce}{I\+Input}}.
+
+\mbox{\Hypertarget{class_c_s_d_l_input_ae81ec71aacf29dae81e9d7e7aebb84a3}\label{class_c_s_d_l_input_ae81ec71aacf29dae81e9d7e7aebb84a3}} 
+\index{CSDLInput@{CSDLInput}!GetMouseWheel@{GetMouseWheel}}
+\index{GetMouseWheel@{GetMouseWheel}!CSDLInput@{CSDLInput}}
+\doxysubsubsection{\texorpdfstring{GetMouseWheel()}{GetMouseWheel()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{_vector2_8hpp_ab50a46295e259c17345421d0fc1cb3bb}{Vector2}}\& C\+S\+D\+L\+Input\+::\+Get\+Mouse\+Wheel (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_input_a390a31b395a073a2714a4bc930c18bbb}{I\+Input}}.
+
+\mbox{\Hypertarget{class_c_s_d_l_input_a5ecf6a12691267b450c0d1cbe5416d30}\label{class_c_s_d_l_input_a5ecf6a12691267b450c0d1cbe5416d30}} 
+\index{CSDLInput@{CSDLInput}!GetRelativeMouseMotion@{GetRelativeMouseMotion}}
+\index{GetRelativeMouseMotion@{GetRelativeMouseMotion}!CSDLInput@{CSDLInput}}
+\doxysubsubsection{\texorpdfstring{GetRelativeMouseMotion()}{GetRelativeMouseMotion()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{_vector2_8hpp_ab50a46295e259c17345421d0fc1cb3bb}{Vector2}}\& C\+S\+D\+L\+Input\+::\+Get\+Relative\+Mouse\+Motion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_input_a8bab6274226eaa7781370a7109299a15}{I\+Input}}.
+
+\mbox{\Hypertarget{class_c_s_d_l_input_ae59f1df152f9cf79e500718fd742de9a}\label{class_c_s_d_l_input_ae59f1df152f9cf79e500718fd742de9a}} 
+\index{CSDLInput@{CSDLInput}!Init@{Init}}
+\index{Init@{Init}!CSDLInput@{CSDLInput}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily bool C\+S\+D\+L\+Input\+::\+Init (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_s_engine_params}{S\+Engine\+Params}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_i_engine_module_aa55c3398a7ad1a295b8bac85e7654302}{I\+Engine\+Module}}.
+
+\mbox{\Hypertarget{class_c_s_d_l_input_a4b689388664867f1918ba74cbd5f4205}\label{class_c_s_d_l_input_a4b689388664867f1918ba74cbd5f4205}} 
+\index{CSDLInput@{CSDLInput}!IsCursorVisible@{IsCursorVisible}}
+\index{IsCursorVisible@{IsCursorVisible}!CSDLInput@{CSDLInput}}
+\doxysubsubsection{\texorpdfstring{IsCursorVisible()}{IsCursorVisible()}}
+{\footnotesize\ttfamily bool C\+S\+D\+L\+Input\+::\+Is\+Cursor\+Visible (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_input_a8660cdc00fc2e7a3c72bbb1ba81dc144}{I\+Input}}.
+
+\mbox{\Hypertarget{class_c_s_d_l_input_ae0697a9248a34257906f22aa8b824ca2}\label{class_c_s_d_l_input_ae0697a9248a34257906f22aa8b824ca2}} 
+\index{CSDLInput@{CSDLInput}!IsKeyDown@{IsKeyDown}}
+\index{IsKeyDown@{IsKeyDown}!CSDLInput@{CSDLInput}}
+\doxysubsubsection{\texorpdfstring{IsKeyDown()}{IsKeyDown()}}
+{\footnotesize\ttfamily bool C\+S\+D\+L\+Input\+::\+Is\+Key\+Down (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_event_types_8hpp_acf6120e5498fcaa4a807f587242c3385}{E\+Key}}}]{Key }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_input_aa2510c2edccbe15fbc2e62efd24ef10d}{I\+Input}}.
+
+\mbox{\Hypertarget{class_c_s_d_l_input_a7223cd48e9903e630637629a2ab92b12}\label{class_c_s_d_l_input_a7223cd48e9903e630637629a2ab92b12}} 
+\index{CSDLInput@{CSDLInput}!IsKeyPressed@{IsKeyPressed}}
+\index{IsKeyPressed@{IsKeyPressed}!CSDLInput@{CSDLInput}}
+\doxysubsubsection{\texorpdfstring{IsKeyPressed()}{IsKeyPressed()}}
+{\footnotesize\ttfamily bool C\+S\+D\+L\+Input\+::\+Is\+Key\+Pressed (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_event_types_8hpp_acf6120e5498fcaa4a807f587242c3385}{E\+Key}}}]{Key }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_input_a6a99f7504700cd73dc792216bd3c1b19}{I\+Input}}.
+
+\mbox{\Hypertarget{class_c_s_d_l_input_aad86702ffb94f48bff243e2723798cf7}\label{class_c_s_d_l_input_aad86702ffb94f48bff243e2723798cf7}} 
+\index{CSDLInput@{CSDLInput}!IsMouseKeyDown@{IsMouseKeyDown}}
+\index{IsMouseKeyDown@{IsMouseKeyDown}!CSDLInput@{CSDLInput}}
+\doxysubsubsection{\texorpdfstring{IsMouseKeyDown()}{IsMouseKeyDown()}}
+{\footnotesize\ttfamily bool C\+S\+D\+L\+Input\+::\+Is\+Mouse\+Key\+Down (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_event_types_8hpp_a68cdb12948007098c9db56c850c98a61}{E\+Mouse\+Key}}}]{Key }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_input_a65ad01115ff6cf7a488dd75c837e777b}{I\+Input}}.
+
+\mbox{\Hypertarget{class_c_s_d_l_input_a12ed959aeca4e2066f5f53ba362e74b4}\label{class_c_s_d_l_input_a12ed959aeca4e2066f5f53ba362e74b4}} 
+\index{CSDLInput@{CSDLInput}!IsMouseKeyPressed@{IsMouseKeyPressed}}
+\index{IsMouseKeyPressed@{IsMouseKeyPressed}!CSDLInput@{CSDLInput}}
+\doxysubsubsection{\texorpdfstring{IsMouseKeyPressed()}{IsMouseKeyPressed()}}
+{\footnotesize\ttfamily bool C\+S\+D\+L\+Input\+::\+Is\+Mouse\+Key\+Pressed (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_event_types_8hpp_a68cdb12948007098c9db56c850c98a61}{E\+Mouse\+Key}}}]{Key }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_input_ace9e7f462a243d7483a117b6a999babc}{I\+Input}}.
+
+\mbox{\Hypertarget{class_c_s_d_l_input_afeb34104076fcfbac4a6fa33c5d0a5c3}\label{class_c_s_d_l_input_afeb34104076fcfbac4a6fa33c5d0a5c3}} 
+\index{CSDLInput@{CSDLInput}!OnEvent@{OnEvent}}
+\index{OnEvent@{OnEvent}!CSDLInput@{CSDLInput}}
+\doxysubsubsection{\texorpdfstring{OnEvent()}{OnEvent()}}
+{\footnotesize\ttfamily void C\+S\+D\+L\+Input\+::\+On\+Event (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_c_event}{C\+Event}} \&}]{Event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_i_updatable_a69ed05737704c5232db69883b7aa73b1}{I\+Updatable}}.
+
+\mbox{\Hypertarget{class_c_s_d_l_input_ae6a1bab13a5a72e971aa473894049115}\label{class_c_s_d_l_input_ae6a1bab13a5a72e971aa473894049115}} 
+\index{CSDLInput@{CSDLInput}!SetClipBoardText@{SetClipBoardText}}
+\index{SetClipBoardText@{SetClipBoardText}!CSDLInput@{CSDLInput}}
+\doxysubsubsection{\texorpdfstring{SetClipBoardText()}{SetClipBoardText()}}
+{\footnotesize\ttfamily void C\+S\+D\+L\+Input\+::\+Set\+Clip\+Board\+Text (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{T }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_input_a5a7ec088b90dc862e445b0516bb2f4e5}{I\+Input}}.
+
+\mbox{\Hypertarget{class_c_s_d_l_input_a8779a4cc43a3f80ec30e0f46499677a6}\label{class_c_s_d_l_input_a8779a4cc43a3f80ec30e0f46499677a6}} 
+\index{CSDLInput@{CSDLInput}!SetMouseMode@{SetMouseMode}}
+\index{SetMouseMode@{SetMouseMode}!CSDLInput@{CSDLInput}}
+\doxysubsubsection{\texorpdfstring{SetMouseMode()}{SetMouseMode()}}
+{\footnotesize\ttfamily bool C\+S\+D\+L\+Input\+::\+Set\+Mouse\+Mode (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_input_8hpp_a20a99bd071d8ef1f565ef983ae84393b}{E\+Mouse\+Mode}}}]{Mode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_input_a474e7fe8d984a3a01063f32f949f2348}{I\+Input}}.
+
+\mbox{\Hypertarget{class_c_s_d_l_input_ac73b2ad2f9bc80c9755d07c792721c9a}\label{class_c_s_d_l_input_ac73b2ad2f9bc80c9755d07c792721c9a}} 
+\index{CSDLInput@{CSDLInput}!SetMousePosition@{SetMousePosition}}
+\index{SetMousePosition@{SetMousePosition}!CSDLInput@{CSDLInput}}
+\doxysubsubsection{\texorpdfstring{SetMousePosition()}{SetMousePosition()}}
+{\footnotesize\ttfamily void C\+S\+D\+L\+Input\+::\+Set\+Mouse\+Position (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_vector2_8hpp_ab50a46295e259c17345421d0fc1cb3bb}{Vector2}} \&}]{Position }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_input_a699583ba9a10eeeec28f8c87b2ff27ab}{I\+Input}}.
+
+\mbox{\Hypertarget{class_c_s_d_l_input_aa8bcdff312613c52ce25a507d2c11dc9}\label{class_c_s_d_l_input_aa8bcdff312613c52ce25a507d2c11dc9}} 
+\index{CSDLInput@{CSDLInput}!ShowCursor@{ShowCursor}}
+\index{ShowCursor@{ShowCursor}!CSDLInput@{CSDLInput}}
+\doxysubsubsection{\texorpdfstring{ShowCursor()}{ShowCursor()}}
+{\footnotesize\ttfamily void C\+S\+D\+L\+Input\+::\+Show\+Cursor (\begin{DoxyParamCaption}\item[{const bool}]{x }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_input_ab4e945cd562e9851e332023c2e7e78a7}{I\+Input}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Engine/\+Implementation/\mbox{\hyperlink{_s_d_l_input_8hpp}{S\+D\+L\+Input.\+hpp}}\item 
+Source/\+Engine/\+Implementation/\mbox{\hyperlink{_s_d_l_input_8cpp}{S\+D\+L\+Input.\+cpp}}\end{DoxyCompactItemize}

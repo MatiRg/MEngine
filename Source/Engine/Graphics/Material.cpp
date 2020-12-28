@@ -196,7 +196,7 @@ bool CMaterial::Load(CResources* Resources, const ResourceCreateMap&)
     XMLElementArray DefinesElements = ShaderElement->GetElements("Define");
     for (const auto& i : DefinesElements)
     {
-        std::string Tmp = i->GetString();
+        std::string Tmp = i->GetStringAttribute("Value", "");
         if (Tmp.empty())
         {
             continue;
@@ -242,26 +242,26 @@ bool CMaterial::Load(CResources* Resources, const ResourceCreateMap&)
         switch (VarType)
         {
         case EMaterialVariableType::Int:
-            SetInt( TmpName, i->GetInt(0) );
+            SetInt( TmpName, i->GetIntAttribute("Value", 0) );
             break;
         case EMaterialVariableType::Float:
-            SetFloat(TmpName, i->GetFloat(0.0f));
+            SetFloat(TmpName, i->GetFloatAttribute("Value", 0.0f));
             break;
         case EMaterialVariableType::Vector2:
-            SetVector2(TmpName, i->GetVector2(Vector2::ZERO));
+            SetVector2(TmpName, i->GetVector2Attribute("Value", Vector2::ZERO));
             break;
         case EMaterialVariableType::Vector3:
-            SetVector3(TmpName, i->GetVector3(Vector3::ZERO));
+            SetVector3(TmpName, i->GetVector3Attribute("Value", Vector3::ZERO));
             break;
         case EMaterialVariableType::Vector4:
-            SetVector4(TmpName, i->GetVector4(Vector4::ZERO));
+            SetVector4(TmpName, i->GetVector4Attribute("Value", Vector4::ZERO));
             break;
         case EMaterialVariableType::Color:
-            SetColor(TmpName, i->GetColor(Color::GREY) );
+            SetColor(TmpName, i->GetColorAttribute("Value", Color::GREY) );
             break;
         case EMaterialVariableType::Texture:
             {
-                ITexture2D* Texture = Resources->CreateResource<ITexture2D>( i->GetString() );
+                ITexture2D* Texture = Resources->CreateResource<ITexture2D>( i->GetStringAttribute("Value", "") );
                 if( !Texture )
                 {
                     return false;

@@ -1,0 +1,412 @@
+\hypertarget{class_c_im_g_u_i}{}\doxysection{C\+Im\+G\+UI Class Reference}
+\label{class_c_im_g_u_i}\index{CImGUI@{CImGUI}}
+
+
+{\ttfamily \#include $<$Im\+G\+U\+I.\+hpp$>$}
+
+Inheritance diagram for C\+Im\+G\+UI\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_c_im_g_u_i}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_im_g_u_i_ae9b56bcabc79cab3e53f8c14e6b43cc7}{C\+Im\+G\+UI}} (\mbox{\hyperlink{class_i_input}{I\+Input}} $\ast$, \mbox{\hyperlink{class_i_graphics}{I\+Graphics}} $\ast$)
+\item 
+\mbox{\hyperlink{class_c_im_g_u_i_af7055967b047084db03d80055a42738a}{$\sim$\+C\+Im\+G\+UI}} ()
+\item 
+bool \mbox{\hyperlink{class_c_im_g_u_i_a0698de16b69415fb1c5a6b6242db8dab}{Init}} (const \mbox{\hyperlink{struct_s_engine_params}{S\+Engine\+Params}} \&) override
+\item 
+void \mbox{\hyperlink{class_c_im_g_u_i_a3e1779f4cd1e894955845dd365415710}{On\+Init}} () override
+\item 
+void \mbox{\hyperlink{class_c_im_g_u_i_a5873693e4aba53d7b8ae8b9d60f964fa}{On\+Event}} (const \mbox{\hyperlink{class_c_event}{C\+Event}} \&) override
+\item 
+void \mbox{\hyperlink{class_c_im_g_u_i_afdba3cd6abd7ffff546d08fbe34eaa7c}{On\+Update}} (const float) override
+\item 
+void \mbox{\hyperlink{class_c_im_g_u_i_af68d171a9fc6d4d1a589dff58c68640e}{On\+Late\+Update}} (const float) override
+\item 
+void \mbox{\hyperlink{class_c_im_g_u_i_a075dd616762ebd52f6b4afda269421ac}{On\+G\+UI}} () override
+\item 
+void \mbox{\hyperlink{class_c_im_g_u_i_a4b0a821a0fa838e9020ad2d63541850d}{Draw}} ()
+\item 
+void \mbox{\hyperlink{class_c_im_g_u_i_a5192a260ae9febc17171fd314c45c083}{Begin}} (const std\+::string \&)
+\item 
+void \mbox{\hyperlink{class_c_im_g_u_i_ae62b2264e841aa112ad99b1e2a9d785a}{Begin}} (const std\+::string \&, const \mbox{\hyperlink{_im_g_u_i_flags_8hpp_a0961052567ec12df2c8b4480c72d96b8}{E\+Im\+G\+U\+I\+Window\+Flags}})
+\item 
+void \mbox{\hyperlink{class_c_im_g_u_i_a111d511e9889c4cdf66a7ef0e1356414}{Begin}} (const std\+::string \&, const \mbox{\hyperlink{_vector2_8hpp_af66c7902bd16ef025755eef5b0f1bf9c}{Int\+Vector2}} \&, const \mbox{\hyperlink{_vector2_8hpp_af66c7902bd16ef025755eef5b0f1bf9c}{Int\+Vector2}} \&)
+\item 
+void \mbox{\hyperlink{class_c_im_g_u_i_afbd2a122ac9393b8610a3c64aaff9cea}{Begin}} (const std\+::string \&, const \mbox{\hyperlink{_vector2_8hpp_af66c7902bd16ef025755eef5b0f1bf9c}{Int\+Vector2}} \&, const \mbox{\hyperlink{_vector2_8hpp_af66c7902bd16ef025755eef5b0f1bf9c}{Int\+Vector2}} \&, const \mbox{\hyperlink{_im_g_u_i_flags_8hpp_a0961052567ec12df2c8b4480c72d96b8}{E\+Im\+G\+U\+I\+Window\+Flags}})
+\item 
+void \mbox{\hyperlink{class_c_im_g_u_i_a2284203d54c3242b33cfe9ac917d4bf8}{End}} ()
+\item 
+void \mbox{\hyperlink{class_c_im_g_u_i_aeaaa5031a79eecb60807c1c3d37e4736}{Combo}} (const std\+::string \&, int \&, const std\+::vector$<$ std\+::string $>$ \&)
+\item 
+void \mbox{\hyperlink{class_c_im_g_u_i_a4b93ae6a8797d7ac3d68e71df81f47c3}{Check\+Box}} (const std\+::string \&, bool \&)
+\item 
+void \mbox{\hyperlink{class_c_im_g_u_i_a57c16c784cafedf5e50aa6154e37970a}{Text}} (const std\+::string \&)
+\item 
+void \mbox{\hyperlink{class_c_im_g_u_i_acaba0edff35ecae72e00616012263e0b}{Text\+Color}} (const std\+::string \&, const \mbox{\hyperlink{class_color}{Color}} \&)
+\item 
+void \mbox{\hyperlink{class_c_im_g_u_i_a2c590408e3f2fdeb468dcebaab3c8896}{Input\+Text}} (const std\+::string \&, std\+::string \&)
+\item 
+void \mbox{\hyperlink{class_c_im_g_u_i_a8f73396127aea634814ca85c2d684bda}{Input\+Float}} (const std\+::string \&, float \&)
+\item 
+void \mbox{\hyperlink{class_c_im_g_u_i_a1424d2bc28d2bc47980f468390dde4d1}{Input\+Vector2}} (const std\+::string \&, \mbox{\hyperlink{_vector2_8hpp_ab50a46295e259c17345421d0fc1cb3bb}{Vector2}} \&)
+\item 
+void \mbox{\hyperlink{class_c_im_g_u_i_a1edb98545b0149ed0476f0c6ef48b449}{Input\+Vector3}} (const std\+::string \&, \mbox{\hyperlink{_vector3_8hpp_abb63d82e5aaa1616fff243d45937ad17}{Vector3}} \&)
+\item 
+void \mbox{\hyperlink{class_c_im_g_u_i_a2c60663c9e2188cf91505e6a06680040}{Input\+Vector4}} (const std\+::string \&, \mbox{\hyperlink{_vector4_8hpp_a1542ba9453e2215413cafeeb0cf849d7}{Vector4}} \&)
+\item 
+void \mbox{\hyperlink{class_c_im_g_u_i_a62cb2211bf747da7d1dfcc712151af2f}{Input\+Rect2}} (const std\+::string \&, \mbox{\hyperlink{_rect2_8hpp_aecd0edc6c303236c6a6f888091e44bc7}{Rect2}} \&)
+\item 
+void \mbox{\hyperlink{class_c_im_g_u_i_a92b1ae6dd7951b276bd21a0ce2b3e2c5}{Input\+Rect2}} (const std\+::string \&, \mbox{\hyperlink{_rect2_8hpp_ab1d54f01341153bbf86ffe7f0583aaba}{Int\+Rect2}} \&)
+\item 
+bool \mbox{\hyperlink{class_c_im_g_u_i_a772598b940eac16295b8bf73a17fd9f7}{Button}} (const std\+::string \&)
+\item 
+void \mbox{\hyperlink{class_c_im_g_u_i_a4093f921c7442bc8ca7f0b16e73b3772}{Same\+Line}} ()
+\item 
+bool \mbox{\hyperlink{class_c_im_g_u_i_ae3feb74c3680738de2932c643473674f}{Header}} (const std\+::string \&)
+\item 
+bool \mbox{\hyperlink{class_c_im_g_u_i_a48c0f7cd39b164dfdd7ca4ae932a4da8}{Begin\+Item\+Context\+Menu}} (const std\+::string \&)
+\item 
+bool \mbox{\hyperlink{class_c_im_g_u_i_a088c73a3ceceef0e8057410a98008512}{Begin\+Window\+Context\+Menu}} (const std\+::string \&)
+\item 
+void \mbox{\hyperlink{class_c_im_g_u_i_a675d30cdc9c190aecf12d33a15c68177}{Open\+Context\+Menu}} (const std\+::string \&)
+\item 
+void \mbox{\hyperlink{class_c_im_g_u_i_ac2031d068b1bf8b79a4e0816c936eb30}{End\+Context\+Menu}} ()
+\item 
+void \mbox{\hyperlink{class_c_im_g_u_i_ae6a691e2a12cb8585a79a96f6c95988e}{Open\+Popup}} (const std\+::string \&)
+\item 
+void \mbox{\hyperlink{class_c_im_g_u_i_a82f06e9b64c641420f29a3c324155f4c}{Close\+Popup}} ()
+\item 
+bool \mbox{\hyperlink{class_c_im_g_u_i_a8e50e80aaca599c7c0400a2d49114b53}{Begin\+Popup}} (const std\+::string \&)
+\item 
+void \mbox{\hyperlink{class_c_im_g_u_i_acfaa7338c4afb06bfc7d4ab1d67a99a8}{End\+Popup}} ()
+\item 
+bool \mbox{\hyperlink{class_c_im_g_u_i_ab73c03bb1bb40f779c22229d2ed386da}{Begin\+Menu}} (const std\+::string \&)
+\item 
+bool \mbox{\hyperlink{class_c_im_g_u_i_a6f96a9aac80b274d37f8e3ddd0741294}{Begin\+Menu}} (const std\+::string \&, const bool)
+\item 
+bool \mbox{\hyperlink{class_c_im_g_u_i_ac791016628a49689ae68f40ae100bfe3}{Menu\+Item}} (const std\+::string \&)
+\item 
+bool \mbox{\hyperlink{class_c_im_g_u_i_afc4107a879c6f24dba389bce2dbeefb0}{Menu\+Item}} (const std\+::string \&, const bool)
+\item 
+void \mbox{\hyperlink{class_c_im_g_u_i_a91eda4a2b4715d61dd40665664c920ce}{Separator}} ()
+\item 
+void \mbox{\hyperlink{class_c_im_g_u_i_a4387e494ef8e0c52738c38a5cc76fc34}{End\+Menu}} ()
+\item 
+bool \mbox{\hyperlink{class_c_im_g_u_i_aee40e985d76baa9d06e29ac6ee0d26b3}{Begin\+Main\+Menu\+Bar}} ()
+\item 
+void \mbox{\hyperlink{class_c_im_g_u_i_a7fabab61ca14637b774bfc06f48a6b5d}{End\+Main\+Menu\+Bar}} ()
+\item 
+void \mbox{\hyperlink{class_c_im_g_u_i_ad3538a48afbcea9bff5c6c97812fc1e6}{Show\+Demo\+Window}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_c_im_g_u_i_ae9b56bcabc79cab3e53f8c14e6b43cc7}\label{class_c_im_g_u_i_ae9b56bcabc79cab3e53f8c14e6b43cc7}} 
+\index{CImGUI@{CImGUI}!CImGUI@{CImGUI}}
+\index{CImGUI@{CImGUI}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{CImGUI()}{CImGUI()}}
+{\footnotesize\ttfamily C\+Im\+G\+U\+I\+::\+C\+Im\+G\+UI (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_i_input}{I\+Input}} $\ast$}]{a\+Input,  }\item[{\mbox{\hyperlink{class_i_graphics}{I\+Graphics}} $\ast$}]{a\+Graphics }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_im_g_u_i_af7055967b047084db03d80055a42738a}\label{class_c_im_g_u_i_af7055967b047084db03d80055a42738a}} 
+\index{CImGUI@{CImGUI}!````~CImGUI@{$\sim$CImGUI}}
+\index{````~CImGUI@{$\sim$CImGUI}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{$\sim$CImGUI()}{~CImGUI()}}
+{\footnotesize\ttfamily C\+Im\+G\+U\+I\+::$\sim$\+C\+Im\+G\+UI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_c_im_g_u_i_a5192a260ae9febc17171fd314c45c083}\label{class_c_im_g_u_i_a5192a260ae9febc17171fd314c45c083}} 
+\index{CImGUI@{CImGUI}!Begin@{Begin}}
+\index{Begin@{Begin}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{Begin()}{Begin()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily void C\+Im\+G\+U\+I\+::\+Begin (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Caption }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_im_g_u_i_ae62b2264e841aa112ad99b1e2a9d785a}\label{class_c_im_g_u_i_ae62b2264e841aa112ad99b1e2a9d785a}} 
+\index{CImGUI@{CImGUI}!Begin@{Begin}}
+\index{Begin@{Begin}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{Begin()}{Begin()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily void C\+Im\+G\+U\+I\+::\+Begin (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Caption,  }\item[{const \mbox{\hyperlink{_im_g_u_i_flags_8hpp_a0961052567ec12df2c8b4480c72d96b8}{E\+Im\+G\+U\+I\+Window\+Flags}}}]{Flg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_im_g_u_i_a111d511e9889c4cdf66a7ef0e1356414}\label{class_c_im_g_u_i_a111d511e9889c4cdf66a7ef0e1356414}} 
+\index{CImGUI@{CImGUI}!Begin@{Begin}}
+\index{Begin@{Begin}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{Begin()}{Begin()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily void C\+Im\+G\+U\+I\+::\+Begin (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Caption,  }\item[{const \mbox{\hyperlink{_vector2_8hpp_af66c7902bd16ef025755eef5b0f1bf9c}{Int\+Vector2}} \&}]{Pos,  }\item[{const \mbox{\hyperlink{_vector2_8hpp_af66c7902bd16ef025755eef5b0f1bf9c}{Int\+Vector2}} \&}]{Size }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_im_g_u_i_afbd2a122ac9393b8610a3c64aaff9cea}\label{class_c_im_g_u_i_afbd2a122ac9393b8610a3c64aaff9cea}} 
+\index{CImGUI@{CImGUI}!Begin@{Begin}}
+\index{Begin@{Begin}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{Begin()}{Begin()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily void C\+Im\+G\+U\+I\+::\+Begin (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Caption,  }\item[{const \mbox{\hyperlink{_vector2_8hpp_af66c7902bd16ef025755eef5b0f1bf9c}{Int\+Vector2}} \&}]{Pos,  }\item[{const \mbox{\hyperlink{_vector2_8hpp_af66c7902bd16ef025755eef5b0f1bf9c}{Int\+Vector2}} \&}]{Size,  }\item[{const \mbox{\hyperlink{_im_g_u_i_flags_8hpp_a0961052567ec12df2c8b4480c72d96b8}{E\+Im\+G\+U\+I\+Window\+Flags}}}]{Flg }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_im_g_u_i_a48c0f7cd39b164dfdd7ca4ae932a4da8}\label{class_c_im_g_u_i_a48c0f7cd39b164dfdd7ca4ae932a4da8}} 
+\index{CImGUI@{CImGUI}!BeginItemContextMenu@{BeginItemContextMenu}}
+\index{BeginItemContextMenu@{BeginItemContextMenu}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{BeginItemContextMenu()}{BeginItemContextMenu()}}
+{\footnotesize\ttfamily bool C\+Im\+G\+U\+I\+::\+Begin\+Item\+Context\+Menu (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{ID }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_im_g_u_i_aee40e985d76baa9d06e29ac6ee0d26b3}\label{class_c_im_g_u_i_aee40e985d76baa9d06e29ac6ee0d26b3}} 
+\index{CImGUI@{CImGUI}!BeginMainMenuBar@{BeginMainMenuBar}}
+\index{BeginMainMenuBar@{BeginMainMenuBar}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{BeginMainMenuBar()}{BeginMainMenuBar()}}
+{\footnotesize\ttfamily bool C\+Im\+G\+U\+I\+::\+Begin\+Main\+Menu\+Bar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_im_g_u_i_ab73c03bb1bb40f779c22229d2ed386da}\label{class_c_im_g_u_i_ab73c03bb1bb40f779c22229d2ed386da}} 
+\index{CImGUI@{CImGUI}!BeginMenu@{BeginMenu}}
+\index{BeginMenu@{BeginMenu}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{BeginMenu()}{BeginMenu()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool C\+Im\+G\+U\+I\+::\+Begin\+Menu (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Caption }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_im_g_u_i_a6f96a9aac80b274d37f8e3ddd0741294}\label{class_c_im_g_u_i_a6f96a9aac80b274d37f8e3ddd0741294}} 
+\index{CImGUI@{CImGUI}!BeginMenu@{BeginMenu}}
+\index{BeginMenu@{BeginMenu}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{BeginMenu()}{BeginMenu()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool C\+Im\+G\+U\+I\+::\+Begin\+Menu (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Caption,  }\item[{const bool}]{Enabled }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_im_g_u_i_a8e50e80aaca599c7c0400a2d49114b53}\label{class_c_im_g_u_i_a8e50e80aaca599c7c0400a2d49114b53}} 
+\index{CImGUI@{CImGUI}!BeginPopup@{BeginPopup}}
+\index{BeginPopup@{BeginPopup}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{BeginPopup()}{BeginPopup()}}
+{\footnotesize\ttfamily bool C\+Im\+G\+U\+I\+::\+Begin\+Popup (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_im_g_u_i_a088c73a3ceceef0e8057410a98008512}\label{class_c_im_g_u_i_a088c73a3ceceef0e8057410a98008512}} 
+\index{CImGUI@{CImGUI}!BeginWindowContextMenu@{BeginWindowContextMenu}}
+\index{BeginWindowContextMenu@{BeginWindowContextMenu}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{BeginWindowContextMenu()}{BeginWindowContextMenu()}}
+{\footnotesize\ttfamily bool C\+Im\+G\+U\+I\+::\+Begin\+Window\+Context\+Menu (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{ID }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_im_g_u_i_a772598b940eac16295b8bf73a17fd9f7}\label{class_c_im_g_u_i_a772598b940eac16295b8bf73a17fd9f7}} 
+\index{CImGUI@{CImGUI}!Button@{Button}}
+\index{Button@{Button}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{Button()}{Button()}}
+{\footnotesize\ttfamily bool C\+Im\+G\+U\+I\+::\+Button (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Caption }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_im_g_u_i_a4b93ae6a8797d7ac3d68e71df81f47c3}\label{class_c_im_g_u_i_a4b93ae6a8797d7ac3d68e71df81f47c3}} 
+\index{CImGUI@{CImGUI}!CheckBox@{CheckBox}}
+\index{CheckBox@{CheckBox}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{CheckBox()}{CheckBox()}}
+{\footnotesize\ttfamily void C\+Im\+G\+U\+I\+::\+Check\+Box (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Caption,  }\item[{bool \&}]{Value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_im_g_u_i_a82f06e9b64c641420f29a3c324155f4c}\label{class_c_im_g_u_i_a82f06e9b64c641420f29a3c324155f4c}} 
+\index{CImGUI@{CImGUI}!ClosePopup@{ClosePopup}}
+\index{ClosePopup@{ClosePopup}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{ClosePopup()}{ClosePopup()}}
+{\footnotesize\ttfamily void C\+Im\+G\+U\+I\+::\+Close\+Popup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_im_g_u_i_aeaaa5031a79eecb60807c1c3d37e4736}\label{class_c_im_g_u_i_aeaaa5031a79eecb60807c1c3d37e4736}} 
+\index{CImGUI@{CImGUI}!Combo@{Combo}}
+\index{Combo@{Combo}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{Combo()}{Combo()}}
+{\footnotesize\ttfamily void C\+Im\+G\+U\+I\+::\+Combo (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Caption,  }\item[{int \&}]{Selection,  }\item[{const std\+::vector$<$ std\+::string $>$ \&}]{Options }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_im_g_u_i_a4b0a821a0fa838e9020ad2d63541850d}\label{class_c_im_g_u_i_a4b0a821a0fa838e9020ad2d63541850d}} 
+\index{CImGUI@{CImGUI}!Draw@{Draw}}
+\index{Draw@{Draw}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{Draw()}{Draw()}}
+{\footnotesize\ttfamily void C\+Im\+G\+U\+I\+::\+Draw (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_im_g_u_i_a2284203d54c3242b33cfe9ac917d4bf8}\label{class_c_im_g_u_i_a2284203d54c3242b33cfe9ac917d4bf8}} 
+\index{CImGUI@{CImGUI}!End@{End}}
+\index{End@{End}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{End()}{End()}}
+{\footnotesize\ttfamily void C\+Im\+G\+U\+I\+::\+End (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_im_g_u_i_ac2031d068b1bf8b79a4e0816c936eb30}\label{class_c_im_g_u_i_ac2031d068b1bf8b79a4e0816c936eb30}} 
+\index{CImGUI@{CImGUI}!EndContextMenu@{EndContextMenu}}
+\index{EndContextMenu@{EndContextMenu}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{EndContextMenu()}{EndContextMenu()}}
+{\footnotesize\ttfamily void C\+Im\+G\+U\+I\+::\+End\+Context\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_im_g_u_i_a7fabab61ca14637b774bfc06f48a6b5d}\label{class_c_im_g_u_i_a7fabab61ca14637b774bfc06f48a6b5d}} 
+\index{CImGUI@{CImGUI}!EndMainMenuBar@{EndMainMenuBar}}
+\index{EndMainMenuBar@{EndMainMenuBar}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{EndMainMenuBar()}{EndMainMenuBar()}}
+{\footnotesize\ttfamily void C\+Im\+G\+U\+I\+::\+End\+Main\+Menu\+Bar (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_im_g_u_i_a4387e494ef8e0c52738c38a5cc76fc34}\label{class_c_im_g_u_i_a4387e494ef8e0c52738c38a5cc76fc34}} 
+\index{CImGUI@{CImGUI}!EndMenu@{EndMenu}}
+\index{EndMenu@{EndMenu}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{EndMenu()}{EndMenu()}}
+{\footnotesize\ttfamily void C\+Im\+G\+U\+I\+::\+End\+Menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_im_g_u_i_acfaa7338c4afb06bfc7d4ab1d67a99a8}\label{class_c_im_g_u_i_acfaa7338c4afb06bfc7d4ab1d67a99a8}} 
+\index{CImGUI@{CImGUI}!EndPopup@{EndPopup}}
+\index{EndPopup@{EndPopup}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{EndPopup()}{EndPopup()}}
+{\footnotesize\ttfamily void C\+Im\+G\+U\+I\+::\+End\+Popup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_im_g_u_i_ae3feb74c3680738de2932c643473674f}\label{class_c_im_g_u_i_ae3feb74c3680738de2932c643473674f}} 
+\index{CImGUI@{CImGUI}!Header@{Header}}
+\index{Header@{Header}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{Header()}{Header()}}
+{\footnotesize\ttfamily bool C\+Im\+G\+U\+I\+::\+Header (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_im_g_u_i_a0698de16b69415fb1c5a6b6242db8dab}\label{class_c_im_g_u_i_a0698de16b69415fb1c5a6b6242db8dab}} 
+\index{CImGUI@{CImGUI}!Init@{Init}}
+\index{Init@{Init}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily bool C\+Im\+G\+U\+I\+::\+Init (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_s_engine_params}{S\+Engine\+Params}} \&}]{Params }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_i_engine_module_aa55c3398a7ad1a295b8bac85e7654302}{I\+Engine\+Module}}.
+
+\mbox{\Hypertarget{class_c_im_g_u_i_a8f73396127aea634814ca85c2d684bda}\label{class_c_im_g_u_i_a8f73396127aea634814ca85c2d684bda}} 
+\index{CImGUI@{CImGUI}!InputFloat@{InputFloat}}
+\index{InputFloat@{InputFloat}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{InputFloat()}{InputFloat()}}
+{\footnotesize\ttfamily void C\+Im\+G\+U\+I\+::\+Input\+Float (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Caption,  }\item[{float \&}]{Value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_im_g_u_i_a92b1ae6dd7951b276bd21a0ce2b3e2c5}\label{class_c_im_g_u_i_a92b1ae6dd7951b276bd21a0ce2b3e2c5}} 
+\index{CImGUI@{CImGUI}!InputRect2@{InputRect2}}
+\index{InputRect2@{InputRect2}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{InputRect2()}{InputRect2()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void C\+Im\+G\+U\+I\+::\+Input\+Rect2 (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Caption,  }\item[{\mbox{\hyperlink{_rect2_8hpp_ab1d54f01341153bbf86ffe7f0583aaba}{Int\+Rect2}} \&}]{Value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_im_g_u_i_a62cb2211bf747da7d1dfcc712151af2f}\label{class_c_im_g_u_i_a62cb2211bf747da7d1dfcc712151af2f}} 
+\index{CImGUI@{CImGUI}!InputRect2@{InputRect2}}
+\index{InputRect2@{InputRect2}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{InputRect2()}{InputRect2()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void C\+Im\+G\+U\+I\+::\+Input\+Rect2 (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Caption,  }\item[{\mbox{\hyperlink{_rect2_8hpp_aecd0edc6c303236c6a6f888091e44bc7}{Rect2}} \&}]{Value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_im_g_u_i_a2c590408e3f2fdeb468dcebaab3c8896}\label{class_c_im_g_u_i_a2c590408e3f2fdeb468dcebaab3c8896}} 
+\index{CImGUI@{CImGUI}!InputText@{InputText}}
+\index{InputText@{InputText}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{InputText()}{InputText()}}
+{\footnotesize\ttfamily void C\+Im\+G\+U\+I\+::\+Input\+Text (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Caption,  }\item[{std\+::string \&}]{Value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_im_g_u_i_a1424d2bc28d2bc47980f468390dde4d1}\label{class_c_im_g_u_i_a1424d2bc28d2bc47980f468390dde4d1}} 
+\index{CImGUI@{CImGUI}!InputVector2@{InputVector2}}
+\index{InputVector2@{InputVector2}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{InputVector2()}{InputVector2()}}
+{\footnotesize\ttfamily void C\+Im\+G\+U\+I\+::\+Input\+Vector2 (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Caption,  }\item[{\mbox{\hyperlink{_vector2_8hpp_ab50a46295e259c17345421d0fc1cb3bb}{Vector2}} \&}]{Value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_im_g_u_i_a1edb98545b0149ed0476f0c6ef48b449}\label{class_c_im_g_u_i_a1edb98545b0149ed0476f0c6ef48b449}} 
+\index{CImGUI@{CImGUI}!InputVector3@{InputVector3}}
+\index{InputVector3@{InputVector3}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{InputVector3()}{InputVector3()}}
+{\footnotesize\ttfamily void C\+Im\+G\+U\+I\+::\+Input\+Vector3 (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Caption,  }\item[{\mbox{\hyperlink{_vector3_8hpp_abb63d82e5aaa1616fff243d45937ad17}{Vector3}} \&}]{Value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_im_g_u_i_a2c60663c9e2188cf91505e6a06680040}\label{class_c_im_g_u_i_a2c60663c9e2188cf91505e6a06680040}} 
+\index{CImGUI@{CImGUI}!InputVector4@{InputVector4}}
+\index{InputVector4@{InputVector4}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{InputVector4()}{InputVector4()}}
+{\footnotesize\ttfamily void C\+Im\+G\+U\+I\+::\+Input\+Vector4 (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Caption,  }\item[{\mbox{\hyperlink{_vector4_8hpp_a1542ba9453e2215413cafeeb0cf849d7}{Vector4}} \&}]{Value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_im_g_u_i_ac791016628a49689ae68f40ae100bfe3}\label{class_c_im_g_u_i_ac791016628a49689ae68f40ae100bfe3}} 
+\index{CImGUI@{CImGUI}!MenuItem@{MenuItem}}
+\index{MenuItem@{MenuItem}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{MenuItem()}{MenuItem()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool C\+Im\+G\+U\+I\+::\+Menu\+Item (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Caption }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_im_g_u_i_afc4107a879c6f24dba389bce2dbeefb0}\label{class_c_im_g_u_i_afc4107a879c6f24dba389bce2dbeefb0}} 
+\index{CImGUI@{CImGUI}!MenuItem@{MenuItem}}
+\index{MenuItem@{MenuItem}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{MenuItem()}{MenuItem()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool C\+Im\+G\+U\+I\+::\+Menu\+Item (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Caption,  }\item[{const bool}]{Enabled }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_im_g_u_i_a5873693e4aba53d7b8ae8b9d60f964fa}\label{class_c_im_g_u_i_a5873693e4aba53d7b8ae8b9d60f964fa}} 
+\index{CImGUI@{CImGUI}!OnEvent@{OnEvent}}
+\index{OnEvent@{OnEvent}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{OnEvent()}{OnEvent()}}
+{\footnotesize\ttfamily void C\+Im\+G\+U\+I\+::\+On\+Event (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_c_event}{C\+Event}} \&}]{Event }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_i_updatable_a69ed05737704c5232db69883b7aa73b1}{I\+Updatable}}.
+
+\mbox{\Hypertarget{class_c_im_g_u_i_a075dd616762ebd52f6b4afda269421ac}\label{class_c_im_g_u_i_a075dd616762ebd52f6b4afda269421ac}} 
+\index{CImGUI@{CImGUI}!OnGUI@{OnGUI}}
+\index{OnGUI@{OnGUI}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{OnGUI()}{OnGUI()}}
+{\footnotesize\ttfamily void C\+Im\+G\+U\+I\+::\+On\+G\+UI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_i_updatable_a15d6e90e502b7b0ab3cf009c0791f896}{I\+Updatable}}.
+
+\mbox{\Hypertarget{class_c_im_g_u_i_a3e1779f4cd1e894955845dd365415710}\label{class_c_im_g_u_i_a3e1779f4cd1e894955845dd365415710}} 
+\index{CImGUI@{CImGUI}!OnInit@{OnInit}}
+\index{OnInit@{OnInit}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{OnInit()}{OnInit()}}
+{\footnotesize\ttfamily void C\+Im\+G\+U\+I\+::\+On\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_i_updatable_a6a2c425ef3e4672497fdbd3f6e783d45}{I\+Updatable}}.
+
+\mbox{\Hypertarget{class_c_im_g_u_i_af68d171a9fc6d4d1a589dff58c68640e}\label{class_c_im_g_u_i_af68d171a9fc6d4d1a589dff58c68640e}} 
+\index{CImGUI@{CImGUI}!OnLateUpdate@{OnLateUpdate}}
+\index{OnLateUpdate@{OnLateUpdate}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{OnLateUpdate()}{OnLateUpdate()}}
+{\footnotesize\ttfamily void C\+Im\+G\+U\+I\+::\+On\+Late\+Update (\begin{DoxyParamCaption}\item[{const float}]{DT }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_i_updatable_ae66c5b0be63cc05b1afe6749177befa7}{I\+Updatable}}.
+
+\mbox{\Hypertarget{class_c_im_g_u_i_afdba3cd6abd7ffff546d08fbe34eaa7c}\label{class_c_im_g_u_i_afdba3cd6abd7ffff546d08fbe34eaa7c}} 
+\index{CImGUI@{CImGUI}!OnUpdate@{OnUpdate}}
+\index{OnUpdate@{OnUpdate}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{OnUpdate()}{OnUpdate()}}
+{\footnotesize\ttfamily void C\+Im\+G\+U\+I\+::\+On\+Update (\begin{DoxyParamCaption}\item[{const float}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_i_updatable_a20422230fbfce2ce812213e9ba6c2a06}{I\+Updatable}}.
+
+\mbox{\Hypertarget{class_c_im_g_u_i_a675d30cdc9c190aecf12d33a15c68177}\label{class_c_im_g_u_i_a675d30cdc9c190aecf12d33a15c68177}} 
+\index{CImGUI@{CImGUI}!OpenContextMenu@{OpenContextMenu}}
+\index{OpenContextMenu@{OpenContextMenu}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{OpenContextMenu()}{OpenContextMenu()}}
+{\footnotesize\ttfamily void C\+Im\+G\+U\+I\+::\+Open\+Context\+Menu (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{ID }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_im_g_u_i_ae6a691e2a12cb8585a79a96f6c95988e}\label{class_c_im_g_u_i_ae6a691e2a12cb8585a79a96f6c95988e}} 
+\index{CImGUI@{CImGUI}!OpenPopup@{OpenPopup}}
+\index{OpenPopup@{OpenPopup}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{OpenPopup()}{OpenPopup()}}
+{\footnotesize\ttfamily void C\+Im\+G\+U\+I\+::\+Open\+Popup (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_im_g_u_i_a4093f921c7442bc8ca7f0b16e73b3772}\label{class_c_im_g_u_i_a4093f921c7442bc8ca7f0b16e73b3772}} 
+\index{CImGUI@{CImGUI}!SameLine@{SameLine}}
+\index{SameLine@{SameLine}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{SameLine()}{SameLine()}}
+{\footnotesize\ttfamily void C\+Im\+G\+U\+I\+::\+Same\+Line (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_im_g_u_i_a91eda4a2b4715d61dd40665664c920ce}\label{class_c_im_g_u_i_a91eda4a2b4715d61dd40665664c920ce}} 
+\index{CImGUI@{CImGUI}!Separator@{Separator}}
+\index{Separator@{Separator}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{Separator()}{Separator()}}
+{\footnotesize\ttfamily void C\+Im\+G\+U\+I\+::\+Separator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_im_g_u_i_ad3538a48afbcea9bff5c6c97812fc1e6}\label{class_c_im_g_u_i_ad3538a48afbcea9bff5c6c97812fc1e6}} 
+\index{CImGUI@{CImGUI}!ShowDemoWindow@{ShowDemoWindow}}
+\index{ShowDemoWindow@{ShowDemoWindow}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{ShowDemoWindow()}{ShowDemoWindow()}}
+{\footnotesize\ttfamily void C\+Im\+G\+U\+I\+::\+Show\+Demo\+Window (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_im_g_u_i_a57c16c784cafedf5e50aa6154e37970a}\label{class_c_im_g_u_i_a57c16c784cafedf5e50aa6154e37970a}} 
+\index{CImGUI@{CImGUI}!Text@{Text}}
+\index{Text@{Text}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{Text()}{Text()}}
+{\footnotesize\ttfamily void C\+Im\+G\+U\+I\+::\+Text (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Caption }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_im_g_u_i_acaba0edff35ecae72e00616012263e0b}\label{class_c_im_g_u_i_acaba0edff35ecae72e00616012263e0b}} 
+\index{CImGUI@{CImGUI}!TextColor@{TextColor}}
+\index{TextColor@{TextColor}!CImGUI@{CImGUI}}
+\doxysubsubsection{\texorpdfstring{TextColor()}{TextColor()}}
+{\footnotesize\ttfamily void C\+Im\+G\+U\+I\+::\+Text\+Color (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Caption,  }\item[{const \mbox{\hyperlink{class_color}{Color}} \&}]{Col }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Engine/\+U\+I/\mbox{\hyperlink{_im_g_u_i_8hpp}{Im\+G\+U\+I.\+hpp}}\item 
+Source/\+Engine/\+U\+I/\mbox{\hyperlink{_im_g_u_i_8cpp}{Im\+G\+U\+I.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,199 @@
+\hypertarget{class_i_system}{}\doxysection{I\+System Class Reference}
+\label{class_i_system}\index{ISystem@{ISystem}}
+
+
+{\ttfamily \#include $<$System.\+hpp$>$}
+
+Inheritance diagram for I\+System\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.000000cm]{class_i_system}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_i_system_a5221f2e86d64e39bc8e38b3f238a639b}{I\+System}} ()
+\item 
+virtual \mbox{\hyperlink{class_i_system_a0ba048ff63adcea2cf3139c43491e253}{$\sim$\+I\+System}} ()
+\item 
+virtual bool \mbox{\hyperlink{class_i_system_a26b214a33730012aa96e46faab4bb49f}{File\+Exist}} (const std\+::string \&) const =0
+\item 
+virtual bool \mbox{\hyperlink{class_i_system_a4d9c5680f5c78f2dfc0544d5d49dcced}{Directory\+Exist}} (const std\+::string \&) const =0
+\item 
+virtual bool \mbox{\hyperlink{class_i_system_a62a89bdd5099efef880df89d20943e26}{Create\+Directory}} (const std\+::string \&)=0
+\item 
+virtual bool \mbox{\hyperlink{class_i_system_a11844ab638927357fc35f635425b84ad}{Copy\+File}} (const std\+::string \&, const std\+::string \&)=0
+\item 
+virtual bool \mbox{\hyperlink{class_i_system_a63bba5e492fc98827fd80f0ebe7d75f3}{Remove}} (const std\+::string \&)=0
+\item 
+virtual std\+::vector$<$ \mbox{\hyperlink{class_c_file_record}{C\+File\+Record}} $>$ \mbox{\hyperlink{class_i_system_a20e8d1999a4e97386e94279215da05d5}{List\+Directory}} (const std\+::string \&, const bool)=0
+\item 
+virtual uint32\+\_\+t \mbox{\hyperlink{class_i_system_a32a7bf7c4b8f60db981ff6bc6cb1a285}{Get\+Time}} () const =0
+\item 
+virtual void \mbox{\hyperlink{class_i_system_a7ef4abe776b55df86c54280029a550c7}{Message\+Box}} (const std\+::string \&, const std\+::string \&, const \mbox{\hyperlink{_system_8hpp_afef10f03bd32963f0c6748a51b446020}{E\+Message\+Box\+Icon}})=0
+\item 
+virtual std\+::string \mbox{\hyperlink{class_i_system_a75f7b02659ad6495a86ccf97cda9855d}{Open\+File\+Dialog}} (const std\+::string \&, const std\+::string \&)=0
+\item 
+virtual std\+::string \mbox{\hyperlink{class_i_system_ac8930e2aa45baec6ac16aeb1fd222eda}{Save\+File\+Dialog}} (const std\+::string \&, const std\+::string \&)=0
+\item 
+virtual std\+::string \mbox{\hyperlink{class_i_system_ad1dc63d17b46fdb63a04d55bd3c822ce}{Select\+Folder\+Dialog}} (const std\+::string \&, const std\+::string \&)=0
+\item 
+virtual std\+::string \mbox{\hyperlink{class_i_system_a1dbcd6e4ce3fae3e79ab240c552c8d44}{Select\+File\+Dialog}} (const std\+::string \&, const std\+::string \&)=0
+\item 
+virtual std\+::vector$<$ std\+::string $>$ \mbox{\hyperlink{class_i_system_a773b8a2e6244ab4da83bbccaf04d1a77}{Select\+Files\+Dialog}} (const std\+::string \&, const std\+::string \&)=0
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_i_system_a5221f2e86d64e39bc8e38b3f238a639b}\label{class_i_system_a5221f2e86d64e39bc8e38b3f238a639b}} 
+\index{ISystem@{ISystem}!ISystem@{ISystem}}
+\index{ISystem@{ISystem}!ISystem@{ISystem}}
+\doxysubsubsection{\texorpdfstring{ISystem()}{ISystem()}}
+{\footnotesize\ttfamily I\+System\+::\+I\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_i_system_a0ba048ff63adcea2cf3139c43491e253}\label{class_i_system_a0ba048ff63adcea2cf3139c43491e253}} 
+\index{ISystem@{ISystem}!````~ISystem@{$\sim$ISystem}}
+\index{````~ISystem@{$\sim$ISystem}!ISystem@{ISystem}}
+\doxysubsubsection{\texorpdfstring{$\sim$ISystem()}{~ISystem()}}
+{\footnotesize\ttfamily virtual I\+System\+::$\sim$\+I\+System (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_i_system_a11844ab638927357fc35f635425b84ad}\label{class_i_system_a11844ab638927357fc35f635425b84ad}} 
+\index{ISystem@{ISystem}!CopyFile@{CopyFile}}
+\index{CopyFile@{CopyFile}!ISystem@{ISystem}}
+\doxysubsubsection{\texorpdfstring{CopyFile()}{CopyFile()}}
+{\footnotesize\ttfamily virtual bool I\+System\+::\+Copy\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{,  }\item[{const std\+::string \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_c_s_d_l_system_a0716f5f0e500f3611491ccbb982a1637}{C\+S\+D\+L\+System}}.
+
+\mbox{\Hypertarget{class_i_system_a62a89bdd5099efef880df89d20943e26}\label{class_i_system_a62a89bdd5099efef880df89d20943e26}} 
+\index{ISystem@{ISystem}!CreateDirectory@{CreateDirectory}}
+\index{CreateDirectory@{CreateDirectory}!ISystem@{ISystem}}
+\doxysubsubsection{\texorpdfstring{CreateDirectory()}{CreateDirectory()}}
+{\footnotesize\ttfamily virtual bool I\+System\+::\+Create\+Directory (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_c_s_d_l_system_afa65ffb78fdbba28a4b09e8270c7db69}{C\+S\+D\+L\+System}}.
+
+\mbox{\Hypertarget{class_i_system_a4d9c5680f5c78f2dfc0544d5d49dcced}\label{class_i_system_a4d9c5680f5c78f2dfc0544d5d49dcced}} 
+\index{ISystem@{ISystem}!DirectoryExist@{DirectoryExist}}
+\index{DirectoryExist@{DirectoryExist}!ISystem@{ISystem}}
+\doxysubsubsection{\texorpdfstring{DirectoryExist()}{DirectoryExist()}}
+{\footnotesize\ttfamily virtual bool I\+System\+::\+Directory\+Exist (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_c_s_d_l_system_ad7e74e1c1f7bcf72ff7d5006603c477b}{C\+S\+D\+L\+System}}.
+
+\mbox{\Hypertarget{class_i_system_a26b214a33730012aa96e46faab4bb49f}\label{class_i_system_a26b214a33730012aa96e46faab4bb49f}} 
+\index{ISystem@{ISystem}!FileExist@{FileExist}}
+\index{FileExist@{FileExist}!ISystem@{ISystem}}
+\doxysubsubsection{\texorpdfstring{FileExist()}{FileExist()}}
+{\footnotesize\ttfamily virtual bool I\+System\+::\+File\+Exist (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_c_s_d_l_system_a2a1790ead04b00b07bcc1d3ceb3ba58a}{C\+S\+D\+L\+System}}.
+
+\mbox{\Hypertarget{class_i_system_a32a7bf7c4b8f60db981ff6bc6cb1a285}\label{class_i_system_a32a7bf7c4b8f60db981ff6bc6cb1a285}} 
+\index{ISystem@{ISystem}!GetTime@{GetTime}}
+\index{GetTime@{GetTime}!ISystem@{ISystem}}
+\doxysubsubsection{\texorpdfstring{GetTime()}{GetTime()}}
+{\footnotesize\ttfamily virtual uint32\+\_\+t I\+System\+::\+Get\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_c_s_d_l_system_adff154e5ed36b8a461f34216dea653dd}{C\+S\+D\+L\+System}}.
+
+\mbox{\Hypertarget{class_i_system_a20e8d1999a4e97386e94279215da05d5}\label{class_i_system_a20e8d1999a4e97386e94279215da05d5}} 
+\index{ISystem@{ISystem}!ListDirectory@{ListDirectory}}
+\index{ListDirectory@{ListDirectory}!ISystem@{ISystem}}
+\doxysubsubsection{\texorpdfstring{ListDirectory()}{ListDirectory()}}
+{\footnotesize\ttfamily virtual std\+::vector$<$\mbox{\hyperlink{class_c_file_record}{C\+File\+Record}}$>$ I\+System\+::\+List\+Directory (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{,  }\item[{const bool}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_c_s_d_l_system_a69512729dda086e5d8b2c0cab378c27f}{C\+S\+D\+L\+System}}.
+
+\mbox{\Hypertarget{class_i_system_a7ef4abe776b55df86c54280029a550c7}\label{class_i_system_a7ef4abe776b55df86c54280029a550c7}} 
+\index{ISystem@{ISystem}!MessageBox@{MessageBox}}
+\index{MessageBox@{MessageBox}!ISystem@{ISystem}}
+\doxysubsubsection{\texorpdfstring{MessageBox()}{MessageBox()}}
+{\footnotesize\ttfamily virtual void I\+System\+::\+Message\+Box (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{,  }\item[{const std\+::string \&}]{,  }\item[{const}]{E\+Message\+Box\+Icon }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_c_s_d_l_system_af32ac5354c3ceed4d0ca6c597689a1cc}{C\+S\+D\+L\+System}}.
+
+\mbox{\Hypertarget{class_i_system_a75f7b02659ad6495a86ccf97cda9855d}\label{class_i_system_a75f7b02659ad6495a86ccf97cda9855d}} 
+\index{ISystem@{ISystem}!OpenFileDialog@{OpenFileDialog}}
+\index{OpenFileDialog@{OpenFileDialog}!ISystem@{ISystem}}
+\doxysubsubsection{\texorpdfstring{OpenFileDialog()}{OpenFileDialog()}}
+{\footnotesize\ttfamily virtual std\+::string I\+System\+::\+Open\+File\+Dialog (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{,  }\item[{const std\+::string \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_c_s_d_l_system_a6f3b0cb5a44c44a365fcde88db7e50c1}{C\+S\+D\+L\+System}}.
+
+\mbox{\Hypertarget{class_i_system_a63bba5e492fc98827fd80f0ebe7d75f3}\label{class_i_system_a63bba5e492fc98827fd80f0ebe7d75f3}} 
+\index{ISystem@{ISystem}!Remove@{Remove}}
+\index{Remove@{Remove}!ISystem@{ISystem}}
+\doxysubsubsection{\texorpdfstring{Remove()}{Remove()}}
+{\footnotesize\ttfamily virtual bool I\+System\+::\+Remove (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_c_s_d_l_system_a5f0e976f762451d463f3becdee98ec2b}{C\+S\+D\+L\+System}}.
+
+\mbox{\Hypertarget{class_i_system_ac8930e2aa45baec6ac16aeb1fd222eda}\label{class_i_system_ac8930e2aa45baec6ac16aeb1fd222eda}} 
+\index{ISystem@{ISystem}!SaveFileDialog@{SaveFileDialog}}
+\index{SaveFileDialog@{SaveFileDialog}!ISystem@{ISystem}}
+\doxysubsubsection{\texorpdfstring{SaveFileDialog()}{SaveFileDialog()}}
+{\footnotesize\ttfamily virtual std\+::string I\+System\+::\+Save\+File\+Dialog (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{,  }\item[{const std\+::string \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_c_s_d_l_system_aa3704e57bf1d066e605fef515abe54a6}{C\+S\+D\+L\+System}}.
+
+\mbox{\Hypertarget{class_i_system_a1dbcd6e4ce3fae3e79ab240c552c8d44}\label{class_i_system_a1dbcd6e4ce3fae3e79ab240c552c8d44}} 
+\index{ISystem@{ISystem}!SelectFileDialog@{SelectFileDialog}}
+\index{SelectFileDialog@{SelectFileDialog}!ISystem@{ISystem}}
+\doxysubsubsection{\texorpdfstring{SelectFileDialog()}{SelectFileDialog()}}
+{\footnotesize\ttfamily virtual std\+::string I\+System\+::\+Select\+File\+Dialog (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{,  }\item[{const std\+::string \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_c_s_d_l_system_a3e90cddeb0d888e759a6e79803cc6e5b}{C\+S\+D\+L\+System}}.
+
+\mbox{\Hypertarget{class_i_system_a773b8a2e6244ab4da83bbccaf04d1a77}\label{class_i_system_a773b8a2e6244ab4da83bbccaf04d1a77}} 
+\index{ISystem@{ISystem}!SelectFilesDialog@{SelectFilesDialog}}
+\index{SelectFilesDialog@{SelectFilesDialog}!ISystem@{ISystem}}
+\doxysubsubsection{\texorpdfstring{SelectFilesDialog()}{SelectFilesDialog()}}
+{\footnotesize\ttfamily virtual std\+::vector$<$std\+::string$>$ I\+System\+::\+Select\+Files\+Dialog (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{,  }\item[{const std\+::string \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_c_s_d_l_system_a5af4e11ad7447078b3c4217470d03515}{C\+S\+D\+L\+System}}.
+
+\mbox{\Hypertarget{class_i_system_ad1dc63d17b46fdb63a04d55bd3c822ce}\label{class_i_system_ad1dc63d17b46fdb63a04d55bd3c822ce}} 
+\index{ISystem@{ISystem}!SelectFolderDialog@{SelectFolderDialog}}
+\index{SelectFolderDialog@{SelectFolderDialog}!ISystem@{ISystem}}
+\doxysubsubsection{\texorpdfstring{SelectFolderDialog()}{SelectFolderDialog()}}
+{\footnotesize\ttfamily virtual std\+::string I\+System\+::\+Select\+Folder\+Dialog (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{,  }\item[{const std\+::string \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_c_s_d_l_system_a057b1883566effd398176e5ce4cc7141}{C\+S\+D\+L\+System}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Engine/\+System/\mbox{\hyperlink{_system_8hpp}{System.\+hpp}}\end{DoxyCompactItemize}
