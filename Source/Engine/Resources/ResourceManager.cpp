@@ -21,7 +21,7 @@ IResource* IResourceManager::GetResource(const std::string& Name, const Resource
     return nullptr;
 }
 
-IResource* IResourceManager::AddResource(std::unique_ptr<IResource>&& Ptr)
+IResource* IResourceManager::AddResource(std::unique_ptr<IResource>&& Ptr, const ResourceCreateMap&)
 {
     IResource* Tmp = Ptr.get();
     ResourcesArray.push_back( std::move(Ptr) );
@@ -54,7 +54,7 @@ IResource* IResourceManager::CreateResource(const std::string& Name, const Resou
         return nullptr;
     }
 
-    return AddResource( std::move(Ptr) );
+    return AddResource( std::move(Ptr), Vars );
 }
 
 void IResourceManager::SetResources(CResources* aResources)

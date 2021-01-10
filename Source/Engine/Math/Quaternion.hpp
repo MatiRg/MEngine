@@ -27,6 +27,36 @@ public:
         FromAxisAngle(v, angle);
     }
 
+    /// Rotation from a to b
+    /// Based Urho3D code
+    TQuaternion(const TVector3<T>& a, const TVector3<T>& b)
+    {
+        TVector3<T> na = a.Normalized();
+        TVector3<T> nb = b.Normalized();
+        float d = na.DotProduct(nb);
+
+        if (d > T(-1) + Math::EPSILON<T>)
+        {
+            TVector3<T> c = na.CrossProduct(nb);
+            float s = Math::Sqrt( (T(1) + d) * T(2) );
+            float InvS = T(1) / s;
+
+            x = c.x * InvS;
+            y = c.y * InvS;
+            z = c.z * InvS;
+            w = T(0.5) * s;
+        }
+        else
+        {
+            TVector3<T> Axis = TVector3<T>::RIGHT.CrossProduct(na);
+            if (Axis.Length() < Math::EPSILON<T>)
+            {
+                Axis = TVector3<T>::UP.CrossProduct(na);
+            }
+            FromAxisAngle(Axis, T(180));
+        }
+    }
+
     /// Construct from components
     TQuaternion(const T ax, const T ay, const T az, const T aw):
         x(ax),

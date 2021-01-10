@@ -1,15 +1,3 @@
-    std::vector<std::string> t1{"uv", "norm", "diff"};
-    std::vector<std::string> t2{"norm", "diff"};
-    std::vector<std::string> t3{"uv", "diff", "norm"};
-	
-    std::sort( t1.begin(), t1.end() );
-    std::sort( t3.begin(), t3.end() );
-        
-    std::cout << std::boolalpha;
- 
-    std::cout << "T[1]: " << (t1 == t2) << '\n';
-    std::cout << "T[2]: " << (t1 == t3) << '\n';
-
 Add 3D.
 add reload method to IResource
 Proper Physics Update

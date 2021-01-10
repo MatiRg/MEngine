@@ -84,10 +84,32 @@ class CShaderManager : public TResourceManager<IShader>
 {
 public:
     CShaderManager(IGraphics*);
+    ~CShaderManager();
 
     RESOURCE_MANAGER(CShaderManager)
 protected:
     std::unique_ptr<IResource> MakeResource(const std::string&, const ResourceCreateMap&) override;
+    IResource* GetResource(const std::string&, const ResourceCreateMap&) override;
+    IResource* AddResource(std::unique_ptr<IResource>&&, const ResourceCreateMap&) override;
+private:
+    struct SShaderVariant
+    {
+        SShaderVariant(const StringVec& aDefines, std::unique_ptr<IResource>&& Ptr):
+            Defines(aDefines),
+            Shader(std::move(Ptr))
+        {
+            ADD_MEMORY_RECORD(this);
+        }
+
+        ~SShaderVariant()
+        {
+            ERASE_MEMORY_RECORD(this);
+        }
+
+        StringVec Defines;
+        std::unique_ptr<IResource> Shader;
+    };
 private:
     IGraphics* Graphics = nullptr;
+    std::vector<SShaderVariant*> Shaders;
 };

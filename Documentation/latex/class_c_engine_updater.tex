@@ -1,0 +1,173 @@
+\hypertarget{class_c_engine_updater}{}\doxysection{C\+Engine\+Updater Class Reference}
+\label{class_c_engine_updater}\index{CEngineUpdater@{CEngineUpdater}}
+
+
+{\ttfamily \#include $<$Engine\+Updater.\+hpp$>$}
+
+Inheritance diagram for C\+Engine\+Updater\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_c_engine_updater}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_engine_updater_ac49a7021695e1ccada487cfec1145b97}{C\+Engine\+Updater}} ()
+\item 
+\mbox{\hyperlink{class_c_engine_updater_ac5fef661f3bb6a55fb96fb9c43d44c02}{$\sim$\+C\+Engine\+Updater}} ()
+\item 
+bool \mbox{\hyperlink{class_c_engine_updater_a9e58342c9f544dbbc79160e118a3d560}{Init}} (const \mbox{\hyperlink{struct_s_engine_params}{S\+Engine\+Params}} \&)
+\item 
+void \mbox{\hyperlink{class_c_engine_updater_a569bc28a68a3c450971713c5472686f2}{On\+Init}} ()
+\item 
+void \mbox{\hyperlink{class_c_engine_updater_a3738730fddf388ac8a905cdcccbd8a28}{On\+Enter}} ()
+\item 
+void \mbox{\hyperlink{class_c_engine_updater_ac8cc9c608946da9f64523a7d968da5ff}{On\+Begin\+Frame}} ()
+\item 
+void \mbox{\hyperlink{class_c_engine_updater_aa6d68c22cca7eb2092a955fb42c6fba1}{On\+Event}} (const \mbox{\hyperlink{class_c_event}{C\+Event}} \&)
+\item 
+void \mbox{\hyperlink{class_c_engine_updater_aa92aec252385decf429040be55c890e7}{On\+Update}} (const float)
+\item 
+void \mbox{\hyperlink{class_c_engine_updater_a577bd3c7c848d93fc2c83fede92cb598}{On\+Late\+Update}} (const float)
+\item 
+void \mbox{\hyperlink{class_c_engine_updater_ad6b85bd0ea91b8906532faeca68d8a60}{On\+G\+UI}} ()
+\item 
+void \mbox{\hyperlink{class_c_engine_updater_a92b8b6b12e4b0292f3563912d0a9e0bc}{On\+Render}} ()
+\item 
+void \mbox{\hyperlink{class_c_engine_updater_a913d86252cb35796f395886838c69e69}{On\+End\+Frame}} ()
+\item 
+void \mbox{\hyperlink{class_c_engine_updater_a88ed179beccf3b1ff18408e9014a07e9}{On\+Leave}} ()
+\item 
+void \mbox{\hyperlink{class_c_engine_updater_a7be4e661391ae3fbefe226415cacca69}{On\+Exit}} ()
+\item 
+void \mbox{\hyperlink{class_c_engine_updater_a06860700a8c8c102efe85eef97b870e8}{Exit}} ()
+\item 
+bool \mbox{\hyperlink{class_c_engine_updater_a1b2c3228cbd3a7d32376878df226b01c}{Add\+Engine\+Module}} (\mbox{\hyperlink{class_i_engine_module}{I\+Engine\+Module}} $\ast$)
+\item 
+\mbox{\hyperlink{class_i_engine_module}{I\+Engine\+Module}} $\ast$ \mbox{\hyperlink{class_c_engine_updater_a6e318ff70046ff7232a8464016a65f7b}{Get\+Engine\+Module}} (const std\+::string \&) const
+\item 
+{\footnotesize template$<$class T $>$ }\\T $\ast$ \mbox{\hyperlink{class_c_engine_updater_a78795278b2721ab04b07c40fcb0ba876}{Get\+Engine\+Module}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_c_engine_updater_ac49a7021695e1ccada487cfec1145b97}\label{class_c_engine_updater_ac49a7021695e1ccada487cfec1145b97}} 
+\index{CEngineUpdater@{CEngineUpdater}!CEngineUpdater@{CEngineUpdater}}
+\index{CEngineUpdater@{CEngineUpdater}!CEngineUpdater@{CEngineUpdater}}
+\doxysubsubsection{\texorpdfstring{CEngineUpdater()}{CEngineUpdater()}}
+{\footnotesize\ttfamily C\+Engine\+Updater\+::\+C\+Engine\+Updater (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_engine_updater_ac5fef661f3bb6a55fb96fb9c43d44c02}\label{class_c_engine_updater_ac5fef661f3bb6a55fb96fb9c43d44c02}} 
+\index{CEngineUpdater@{CEngineUpdater}!````~CEngineUpdater@{$\sim$CEngineUpdater}}
+\index{````~CEngineUpdater@{$\sim$CEngineUpdater}!CEngineUpdater@{CEngineUpdater}}
+\doxysubsubsection{\texorpdfstring{$\sim$CEngineUpdater()}{~CEngineUpdater()}}
+{\footnotesize\ttfamily C\+Engine\+Updater\+::$\sim$\+C\+Engine\+Updater (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_c_engine_updater_a1b2c3228cbd3a7d32376878df226b01c}\label{class_c_engine_updater_a1b2c3228cbd3a7d32376878df226b01c}} 
+\index{CEngineUpdater@{CEngineUpdater}!AddEngineModule@{AddEngineModule}}
+\index{AddEngineModule@{AddEngineModule}!CEngineUpdater@{CEngineUpdater}}
+\doxysubsubsection{\texorpdfstring{AddEngineModule()}{AddEngineModule()}}
+{\footnotesize\ttfamily bool C\+Engine\+Updater\+::\+Add\+Engine\+Module (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_i_engine_module}{I\+Engine\+Module}} $\ast$}]{Ptr }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_engine_updater_a06860700a8c8c102efe85eef97b870e8}\label{class_c_engine_updater_a06860700a8c8c102efe85eef97b870e8}} 
+\index{CEngineUpdater@{CEngineUpdater}!Exit@{Exit}}
+\index{Exit@{Exit}!CEngineUpdater@{CEngineUpdater}}
+\doxysubsubsection{\texorpdfstring{Exit()}{Exit()}}
+{\footnotesize\ttfamily void C\+Engine\+Updater\+::\+Exit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_engine_updater_a78795278b2721ab04b07c40fcb0ba876}\label{class_c_engine_updater_a78795278b2721ab04b07c40fcb0ba876}} 
+\index{CEngineUpdater@{CEngineUpdater}!GetEngineModule@{GetEngineModule}}
+\index{GetEngineModule@{GetEngineModule}!CEngineUpdater@{CEngineUpdater}}
+\doxysubsubsection{\texorpdfstring{GetEngineModule()}{GetEngineModule()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T$\ast$ C\+Engine\+Updater\+::\+Get\+Engine\+Module (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_engine_updater_a6e318ff70046ff7232a8464016a65f7b}\label{class_c_engine_updater_a6e318ff70046ff7232a8464016a65f7b}} 
+\index{CEngineUpdater@{CEngineUpdater}!GetEngineModule@{GetEngineModule}}
+\index{GetEngineModule@{GetEngineModule}!CEngineUpdater@{CEngineUpdater}}
+\doxysubsubsection{\texorpdfstring{GetEngineModule()}{GetEngineModule()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_i_engine_module}{I\+Engine\+Module}} $\ast$ C\+Engine\+Updater\+::\+Get\+Engine\+Module (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Type }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_c_engine_updater_a9e58342c9f544dbbc79160e118a3d560}\label{class_c_engine_updater_a9e58342c9f544dbbc79160e118a3d560}} 
+\index{CEngineUpdater@{CEngineUpdater}!Init@{Init}}
+\index{Init@{Init}!CEngineUpdater@{CEngineUpdater}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily bool C\+Engine\+Updater\+::\+Init (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_s_engine_params}{S\+Engine\+Params}} \&}]{Params }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_engine_updater_ac8cc9c608946da9f64523a7d968da5ff}\label{class_c_engine_updater_ac8cc9c608946da9f64523a7d968da5ff}} 
+\index{CEngineUpdater@{CEngineUpdater}!OnBeginFrame@{OnBeginFrame}}
+\index{OnBeginFrame@{OnBeginFrame}!CEngineUpdater@{CEngineUpdater}}
+\doxysubsubsection{\texorpdfstring{OnBeginFrame()}{OnBeginFrame()}}
+{\footnotesize\ttfamily void C\+Engine\+Updater\+::\+On\+Begin\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_engine_updater_a913d86252cb35796f395886838c69e69}\label{class_c_engine_updater_a913d86252cb35796f395886838c69e69}} 
+\index{CEngineUpdater@{CEngineUpdater}!OnEndFrame@{OnEndFrame}}
+\index{OnEndFrame@{OnEndFrame}!CEngineUpdater@{CEngineUpdater}}
+\doxysubsubsection{\texorpdfstring{OnEndFrame()}{OnEndFrame()}}
+{\footnotesize\ttfamily void C\+Engine\+Updater\+::\+On\+End\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_engine_updater_a3738730fddf388ac8a905cdcccbd8a28}\label{class_c_engine_updater_a3738730fddf388ac8a905cdcccbd8a28}} 
+\index{CEngineUpdater@{CEngineUpdater}!OnEnter@{OnEnter}}
+\index{OnEnter@{OnEnter}!CEngineUpdater@{CEngineUpdater}}
+\doxysubsubsection{\texorpdfstring{OnEnter()}{OnEnter()}}
+{\footnotesize\ttfamily void C\+Engine\+Updater\+::\+On\+Enter (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_engine_updater_aa6d68c22cca7eb2092a955fb42c6fba1}\label{class_c_engine_updater_aa6d68c22cca7eb2092a955fb42c6fba1}} 
+\index{CEngineUpdater@{CEngineUpdater}!OnEvent@{OnEvent}}
+\index{OnEvent@{OnEvent}!CEngineUpdater@{CEngineUpdater}}
+\doxysubsubsection{\texorpdfstring{OnEvent()}{OnEvent()}}
+{\footnotesize\ttfamily void C\+Engine\+Updater\+::\+On\+Event (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_c_event}{C\+Event}} \&}]{Event }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_engine_updater_a7be4e661391ae3fbefe226415cacca69}\label{class_c_engine_updater_a7be4e661391ae3fbefe226415cacca69}} 
+\index{CEngineUpdater@{CEngineUpdater}!OnExit@{OnExit}}
+\index{OnExit@{OnExit}!CEngineUpdater@{CEngineUpdater}}
+\doxysubsubsection{\texorpdfstring{OnExit()}{OnExit()}}
+{\footnotesize\ttfamily void C\+Engine\+Updater\+::\+On\+Exit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_engine_updater_ad6b85bd0ea91b8906532faeca68d8a60}\label{class_c_engine_updater_ad6b85bd0ea91b8906532faeca68d8a60}} 
+\index{CEngineUpdater@{CEngineUpdater}!OnGUI@{OnGUI}}
+\index{OnGUI@{OnGUI}!CEngineUpdater@{CEngineUpdater}}
+\doxysubsubsection{\texorpdfstring{OnGUI()}{OnGUI()}}
+{\footnotesize\ttfamily void C\+Engine\+Updater\+::\+On\+G\+UI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_engine_updater_a569bc28a68a3c450971713c5472686f2}\label{class_c_engine_updater_a569bc28a68a3c450971713c5472686f2}} 
+\index{CEngineUpdater@{CEngineUpdater}!OnInit@{OnInit}}
+\index{OnInit@{OnInit}!CEngineUpdater@{CEngineUpdater}}
+\doxysubsubsection{\texorpdfstring{OnInit()}{OnInit()}}
+{\footnotesize\ttfamily void C\+Engine\+Updater\+::\+On\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_engine_updater_a577bd3c7c848d93fc2c83fede92cb598}\label{class_c_engine_updater_a577bd3c7c848d93fc2c83fede92cb598}} 
+\index{CEngineUpdater@{CEngineUpdater}!OnLateUpdate@{OnLateUpdate}}
+\index{OnLateUpdate@{OnLateUpdate}!CEngineUpdater@{CEngineUpdater}}
+\doxysubsubsection{\texorpdfstring{OnLateUpdate()}{OnLateUpdate()}}
+{\footnotesize\ttfamily void C\+Engine\+Updater\+::\+On\+Late\+Update (\begin{DoxyParamCaption}\item[{const float}]{Time\+Step }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_engine_updater_a88ed179beccf3b1ff18408e9014a07e9}\label{class_c_engine_updater_a88ed179beccf3b1ff18408e9014a07e9}} 
+\index{CEngineUpdater@{CEngineUpdater}!OnLeave@{OnLeave}}
+\index{OnLeave@{OnLeave}!CEngineUpdater@{CEngineUpdater}}
+\doxysubsubsection{\texorpdfstring{OnLeave()}{OnLeave()}}
+{\footnotesize\ttfamily void C\+Engine\+Updater\+::\+On\+Leave (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_engine_updater_a92b8b6b12e4b0292f3563912d0a9e0bc}\label{class_c_engine_updater_a92b8b6b12e4b0292f3563912d0a9e0bc}} 
+\index{CEngineUpdater@{CEngineUpdater}!OnRender@{OnRender}}
+\index{OnRender@{OnRender}!CEngineUpdater@{CEngineUpdater}}
+\doxysubsubsection{\texorpdfstring{OnRender()}{OnRender()}}
+{\footnotesize\ttfamily void C\+Engine\+Updater\+::\+On\+Render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_engine_updater_aa92aec252385decf429040be55c890e7}\label{class_c_engine_updater_aa92aec252385decf429040be55c890e7}} 
+\index{CEngineUpdater@{CEngineUpdater}!OnUpdate@{OnUpdate}}
+\index{OnUpdate@{OnUpdate}!CEngineUpdater@{CEngineUpdater}}
+\doxysubsubsection{\texorpdfstring{OnUpdate()}{OnUpdate()}}
+{\footnotesize\ttfamily void C\+Engine\+Updater\+::\+On\+Update (\begin{DoxyParamCaption}\item[{const float}]{Time\+Step }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Engine/\+Engine/\mbox{\hyperlink{_engine_updater_8hpp}{Engine\+Updater.\+hpp}}\item 
+Source/\+Engine/\+Engine/\mbox{\hyperlink{_engine_updater_8cpp}{Engine\+Updater.\+cpp}}\end{DoxyCompactItemize}

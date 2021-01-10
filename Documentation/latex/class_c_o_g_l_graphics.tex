@@ -1,0 +1,464 @@
+\hypertarget{class_c_o_g_l_graphics}{}\doxysection{C\+O\+G\+L\+Graphics Class Reference}
+\label{class_c_o_g_l_graphics}\index{COGLGraphics@{COGLGraphics}}
+
+
+{\ttfamily \#include $<$O\+G\+L\+Graphics.\+hpp$>$}
+
+Inheritance diagram for C\+O\+G\+L\+Graphics\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=5.000000cm]{class_c_o_g_l_graphics}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_o_g_l_graphics_a244cc04425cd58db23fec83fee0a55dc}{C\+O\+G\+L\+Graphics}} (\mbox{\hyperlink{class_c_s_d_l_window}{C\+S\+D\+L\+Window}} $\ast$)
+\item 
+\mbox{\hyperlink{class_c_o_g_l_graphics_a6c14749160028e2c99cd651bb34b2fda}{$\sim$\+C\+O\+G\+L\+Graphics}} ()
+\item 
+bool \mbox{\hyperlink{class_c_o_g_l_graphics_a4feb558c2fc192b6416e97cba5266e57}{Init}} (const \mbox{\hyperlink{struct_s_engine_params}{S\+Engine\+Params}} \&) override
+\item 
+void \mbox{\hyperlink{class_c_o_g_l_graphics_ace9cb023e5315b2838a91c9466e350d9}{On\+Event}} (const \mbox{\hyperlink{class_c_event}{C\+Event}} \&) override
+\item 
+bool \mbox{\hyperlink{class_c_o_g_l_graphics_a1c15ffc76082886884d4d809f7ff97ae}{Save\+Window\+Surface}} (const std\+::string \&) const override
+\item 
+const \mbox{\hyperlink{_vector2_8hpp_af66c7902bd16ef025755eef5b0f1bf9c}{Int\+Vector2}} \& \mbox{\hyperlink{class_c_o_g_l_graphics_ad263da4887a3ec46247b15c68994f763}{Get\+Max\+Texture\+Size}} () const override
+\item 
+bool \mbox{\hyperlink{class_c_o_g_l_graphics_af50b2f483a02cc8f2ee9592779743bca}{Is\+Software}} () const override
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_i_texture2_d}{I\+Texture2D}} $>$ \mbox{\hyperlink{class_c_o_g_l_graphics_a997306c32a417fd257c7465eeebb1f65}{Create\+Render\+Surface}} (const \mbox{\hyperlink{_texture2_d_8hpp_ae8743559ce2fe1fa96e69cfbfc40c2bc}{E\+Render\+Target\+Type}}, const int, const int) override
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_i_texture2_d}{I\+Texture2D}} $>$ \mbox{\hyperlink{class_c_o_g_l_graphics_ad1871f85c3f487cb9b64bd70d73db7ad}{Create\+Texture2D}} (\mbox{\hyperlink{class_i_surface}{I\+Surface}} $\ast$) override
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_i_texture2_d}{I\+Texture2D}} $>$ \mbox{\hyperlink{class_c_o_g_l_graphics_aadef5bd2c501d783b3c60bfcf5825a80}{Create\+Texture2D}} (const std\+::string \&) override
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_i_font}{I\+Font}} $>$ \mbox{\hyperlink{class_c_o_g_l_graphics_af1a08313de7a37a3edd81550f4f43649}{Create\+Font}} (const std\+::string \&) override
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_i_shader}{I\+Shader}} $>$ \mbox{\hyperlink{class_c_o_g_l_graphics_aeb934ed24d5fc639abcd6ef5ad09176f}{Create\+Shader}} (const std\+::string \&) override
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_i_vertex_buffer}{I\+Vertex\+Buffer}} $>$ \mbox{\hyperlink{class_c_o_g_l_graphics_acd005f5bf9d0817bb664367529c10fb5}{Create\+Vertex\+Buffer}} (const std\+::vector$<$ \mbox{\hyperlink{struct_s_vertex_element}{S\+Vertex\+Element}} $>$ \&, const bool) override
+\item 
+std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_i_frame_buffer}{I\+Frame\+Buffer}} $>$ \mbox{\hyperlink{class_c_o_g_l_graphics_a1a423ed8bc250cc15385475dfa28639d}{Create\+Frame\+Buffer}} () override
+\item 
+void \mbox{\hyperlink{class_c_o_g_l_graphics_a41b061dda087eec0fd80bbb065eee721}{Set\+Clear\+Color}} (const \mbox{\hyperlink{class_color}{Color}} \&Clear\+Cr) override
+\item 
+const \mbox{\hyperlink{class_color}{Color}} \& \mbox{\hyperlink{class_c_o_g_l_graphics_a6ca8ee6e5b55571b27113b85daf43b60}{Get\+Clear\+Color}} () const override
+\item 
+void \mbox{\hyperlink{class_c_o_g_l_graphics_ad6ad36d4d1479d3e7ec78594a7d2e4b3}{Clear}} () override
+\item 
+void \mbox{\hyperlink{class_c_o_g_l_graphics_a54dbac1b68546c5cd0e42df5487a979d}{Swap\+Buffers}} () override
+\item 
+void \mbox{\hyperlink{class_c_o_g_l_graphics_a0ab65c149e85dc4467987f908591b873}{Set\+Blend\+Active}} (const bool) override
+\item 
+bool \mbox{\hyperlink{class_c_o_g_l_graphics_aa679dea20226d23fdb50fa98d981104c}{Is\+Blend\+Active}} () const override
+\item 
+bool \mbox{\hyperlink{class_c_o_g_l_graphics_ae19fa1d7da8d42058a68a3cf010c05f6}{Set\+Blend\+Mode}} (const \mbox{\hyperlink{_graphics_8hpp_ae712bb955e55f00dc24eb98c3686dd5a}{E\+Blend\+Mode}}) override
+\item 
+\mbox{\hyperlink{_graphics_8hpp_ae712bb955e55f00dc24eb98c3686dd5a}{E\+Blend\+Mode}} \mbox{\hyperlink{class_c_o_g_l_graphics_a3f976c4d1f1d2b1fdc3ca16681e9b346}{Get\+Blend\+Mode}} () const override
+\item 
+bool \mbox{\hyperlink{class_c_o_g_l_graphics_ab81826ad74c3ede5a2bda7a66f9920f1}{Set\+Polygon\+Mode}} (const \mbox{\hyperlink{_graphics_8hpp_a5d452bf4b32c2fc2570e29af84fcccce}{E\+Polygon\+Mode}}) override
+\item 
+\mbox{\hyperlink{_graphics_8hpp_a5d452bf4b32c2fc2570e29af84fcccce}{E\+Polygon\+Mode}} \mbox{\hyperlink{class_c_o_g_l_graphics_adf21f09f3865a93068143bb9e78f65e5}{Get\+Polygon\+Mode}} () const override
+\item 
+bool \mbox{\hyperlink{class_c_o_g_l_graphics_a25e5f81731bcaaf6384838dee9abb76a}{Set\+Depth\+Active}} (const bool) override
+\item 
+bool \mbox{\hyperlink{class_c_o_g_l_graphics_a3b72c6b3dd3a754a515fb96a5f618b41}{Is\+Depth\+Active}} () const override
+\item 
+bool \mbox{\hyperlink{class_c_o_g_l_graphics_a764ef8fafc40c9abd9436701ee75f693}{Set\+Depth\+Function}} (const \mbox{\hyperlink{_graphics_8hpp_afee5874e8c6730fff0994aad3c60d71a}{E\+Depth\+Mode}}) override
+\item 
+\mbox{\hyperlink{_graphics_8hpp_afee5874e8c6730fff0994aad3c60d71a}{E\+Depth\+Mode}} \mbox{\hyperlink{class_c_o_g_l_graphics_a121749e64eb0599b607c4677da3e0c41}{Get\+Depth\+Function}} () const override
+\item 
+void \mbox{\hyperlink{class_c_o_g_l_graphics_acefb304af399f528e30db6b742ae89e8}{Set\+Cull\+Active}} (const bool) override
+\item 
+bool \mbox{\hyperlink{class_c_o_g_l_graphics_af6c98aa83322112c85a66e1deb6c27a1}{Is\+Cull\+Activa}} () const override
+\item 
+void \mbox{\hyperlink{class_c_o_g_l_graphics_a880fb7ed80b2ddda3416c406c4e89c75}{Set\+Cull\+Mode}} (const \mbox{\hyperlink{_graphics_8hpp_acb1e92521e1d5e281d7d65e74fee4fca}{E\+Cull\+Mode}}) override
+\item 
+\mbox{\hyperlink{_graphics_8hpp_acb1e92521e1d5e281d7d65e74fee4fca}{E\+Cull\+Mode}} \mbox{\hyperlink{class_c_o_g_l_graphics_a6b45bbf4227ce83c20f4d3a6bc294d27}{Get\+Cull\+Mode}} () const override
+\item 
+void \mbox{\hyperlink{class_c_o_g_l_graphics_ad3ca2dbe43881b11f93d70637e6dcbf8}{Set\+Front\+Face}} (const \mbox{\hyperlink{_graphics_8hpp_a2b48b9d1f90d21ec00e650da00e94286}{E\+Front\+Face}}) override
+\item 
+\mbox{\hyperlink{_graphics_8hpp_a2b48b9d1f90d21ec00e650da00e94286}{E\+Front\+Face}} \mbox{\hyperlink{class_c_o_g_l_graphics_ad6b5d674cfdc84177c8ce8f70f4a093f}{Get\+Front\+Face}} () const override
+\item 
+bool \mbox{\hyperlink{class_c_o_g_l_graphics_adc942e45d1f8b73e2a634b3d36e3a491}{Set\+Viewport}} (const \mbox{\hyperlink{_rect2_8hpp_aecd0edc6c303236c6a6f888091e44bc7}{Rect2}} \&) override
+\item 
+const \mbox{\hyperlink{_rect2_8hpp_aecd0edc6c303236c6a6f888091e44bc7}{Rect2}} \& \mbox{\hyperlink{class_c_o_g_l_graphics_a2e2138ff1b9fe9b04f8e2a9a62231bce}{Get\+Viewport}} () const override
+\item 
+\mbox{\hyperlink{class_i_im_g_u_i_renderer}{I\+Im\+G\+U\+I\+Renderer}} $\ast$ \mbox{\hyperlink{class_c_o_g_l_graphics_a606c48923885a5ce84fafad6326c2182}{Get\+Im\+G\+U\+I\+Renderer}} () const override
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_c_o_g_l_graphics_a244cc04425cd58db23fec83fee0a55dc}\label{class_c_o_g_l_graphics_a244cc04425cd58db23fec83fee0a55dc}} 
+\index{COGLGraphics@{COGLGraphics}!COGLGraphics@{COGLGraphics}}
+\index{COGLGraphics@{COGLGraphics}!COGLGraphics@{COGLGraphics}}
+\doxysubsubsection{\texorpdfstring{COGLGraphics()}{COGLGraphics()}}
+{\footnotesize\ttfamily C\+O\+G\+L\+Graphics\+::\+C\+O\+G\+L\+Graphics (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_s_d_l_window}{C\+S\+D\+L\+Window}} $\ast$}]{a\+Window }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_o_g_l_graphics_a6c14749160028e2c99cd651bb34b2fda}\label{class_c_o_g_l_graphics_a6c14749160028e2c99cd651bb34b2fda}} 
+\index{COGLGraphics@{COGLGraphics}!````~COGLGraphics@{$\sim$COGLGraphics}}
+\index{````~COGLGraphics@{$\sim$COGLGraphics}!COGLGraphics@{COGLGraphics}}
+\doxysubsubsection{\texorpdfstring{$\sim$COGLGraphics()}{~COGLGraphics()}}
+{\footnotesize\ttfamily C\+O\+G\+L\+Graphics\+::$\sim$\+C\+O\+G\+L\+Graphics (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_c_o_g_l_graphics_ad6ad36d4d1479d3e7ec78594a7d2e4b3}\label{class_c_o_g_l_graphics_ad6ad36d4d1479d3e7ec78594a7d2e4b3}} 
+\index{COGLGraphics@{COGLGraphics}!Clear@{Clear}}
+\index{Clear@{Clear}!COGLGraphics@{COGLGraphics}}
+\doxysubsubsection{\texorpdfstring{Clear()}{Clear()}}
+{\footnotesize\ttfamily void C\+O\+G\+L\+Graphics\+::\+Clear (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_graphics_adf375494ff9ffb304cb184175be7efab}{I\+Graphics}}.
+
+\mbox{\Hypertarget{class_c_o_g_l_graphics_af1a08313de7a37a3edd81550f4f43649}\label{class_c_o_g_l_graphics_af1a08313de7a37a3edd81550f4f43649}} 
+\index{COGLGraphics@{COGLGraphics}!CreateFont@{CreateFont}}
+\index{CreateFont@{CreateFont}!COGLGraphics@{COGLGraphics}}
+\doxysubsubsection{\texorpdfstring{CreateFont()}{CreateFont()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_i_font}{I\+Font}} $>$ C\+O\+G\+L\+Graphics\+::\+Create\+Font (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_graphics_ad92a45389a85cd9153a0bef8b3314d63}{I\+Graphics}}.
+
+\mbox{\Hypertarget{class_c_o_g_l_graphics_a1a423ed8bc250cc15385475dfa28639d}\label{class_c_o_g_l_graphics_a1a423ed8bc250cc15385475dfa28639d}} 
+\index{COGLGraphics@{COGLGraphics}!CreateFrameBuffer@{CreateFrameBuffer}}
+\index{CreateFrameBuffer@{CreateFrameBuffer}!COGLGraphics@{COGLGraphics}}
+\doxysubsubsection{\texorpdfstring{CreateFrameBuffer()}{CreateFrameBuffer()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_i_frame_buffer}{I\+Frame\+Buffer}} $>$ C\+O\+G\+L\+Graphics\+::\+Create\+Frame\+Buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_graphics_a3b043aa73b7e638718f080079b039fd8}{I\+Graphics}}.
+
+\mbox{\Hypertarget{class_c_o_g_l_graphics_a997306c32a417fd257c7465eeebb1f65}\label{class_c_o_g_l_graphics_a997306c32a417fd257c7465eeebb1f65}} 
+\index{COGLGraphics@{COGLGraphics}!CreateRenderSurface@{CreateRenderSurface}}
+\index{CreateRenderSurface@{CreateRenderSurface}!COGLGraphics@{COGLGraphics}}
+\doxysubsubsection{\texorpdfstring{CreateRenderSurface()}{CreateRenderSurface()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_i_texture2_d}{I\+Texture2D}} $>$ C\+O\+G\+L\+Graphics\+::\+Create\+Render\+Surface (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_texture2_d_8hpp_ae8743559ce2fe1fa96e69cfbfc40c2bc}{E\+Render\+Target\+Type}}}]{a\+Target,  }\item[{const int}]{aW,  }\item[{const int}]{aH }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_graphics_a542f935733289037f97197770cd80a06}{I\+Graphics}}.
+
+\mbox{\Hypertarget{class_c_o_g_l_graphics_aeb934ed24d5fc639abcd6ef5ad09176f}\label{class_c_o_g_l_graphics_aeb934ed24d5fc639abcd6ef5ad09176f}} 
+\index{COGLGraphics@{COGLGraphics}!CreateShader@{CreateShader}}
+\index{CreateShader@{CreateShader}!COGLGraphics@{COGLGraphics}}
+\doxysubsubsection{\texorpdfstring{CreateShader()}{CreateShader()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_i_shader}{I\+Shader}} $>$ C\+O\+G\+L\+Graphics\+::\+Create\+Shader (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_graphics_a768f46556dfbe8897ecb23c6198686db}{I\+Graphics}}.
+
+\mbox{\Hypertarget{class_c_o_g_l_graphics_aadef5bd2c501d783b3c60bfcf5825a80}\label{class_c_o_g_l_graphics_aadef5bd2c501d783b3c60bfcf5825a80}} 
+\index{COGLGraphics@{COGLGraphics}!CreateTexture2D@{CreateTexture2D}}
+\index{CreateTexture2D@{CreateTexture2D}!COGLGraphics@{COGLGraphics}}
+\doxysubsubsection{\texorpdfstring{CreateTexture2D()}{CreateTexture2D()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_i_texture2_d}{I\+Texture2D}} $>$ C\+O\+G\+L\+Graphics\+::\+Create\+Texture2D (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_graphics_ae4eae1823e685b91d87175ed495fc4ec}{I\+Graphics}}.
+
+\mbox{\Hypertarget{class_c_o_g_l_graphics_ad1871f85c3f487cb9b64bd70d73db7ad}\label{class_c_o_g_l_graphics_ad1871f85c3f487cb9b64bd70d73db7ad}} 
+\index{COGLGraphics@{COGLGraphics}!CreateTexture2D@{CreateTexture2D}}
+\index{CreateTexture2D@{CreateTexture2D}!COGLGraphics@{COGLGraphics}}
+\doxysubsubsection{\texorpdfstring{CreateTexture2D()}{CreateTexture2D()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_i_texture2_d}{I\+Texture2D}} $>$ C\+O\+G\+L\+Graphics\+::\+Create\+Texture2D (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_i_surface}{I\+Surface}} $\ast$}]{Surface }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_graphics_a94c6419e53225b4e564db3bb7ee84920}{I\+Graphics}}.
+
+\mbox{\Hypertarget{class_c_o_g_l_graphics_acd005f5bf9d0817bb664367529c10fb5}\label{class_c_o_g_l_graphics_acd005f5bf9d0817bb664367529c10fb5}} 
+\index{COGLGraphics@{COGLGraphics}!CreateVertexBuffer@{CreateVertexBuffer}}
+\index{CreateVertexBuffer@{CreateVertexBuffer}!COGLGraphics@{COGLGraphics}}
+\doxysubsubsection{\texorpdfstring{CreateVertexBuffer()}{CreateVertexBuffer()}}
+{\footnotesize\ttfamily std\+::unique\+\_\+ptr$<$ \mbox{\hyperlink{class_i_vertex_buffer}{I\+Vertex\+Buffer}} $>$ C\+O\+G\+L\+Graphics\+::\+Create\+Vertex\+Buffer (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{struct_s_vertex_element}{S\+Vertex\+Element}} $>$ \&}]{Descriptors,  }\item[{const bool}]{Dynamic }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_graphics_a148d0ab3ffc7d2819cce9ed10523b2f8}{I\+Graphics}}.
+
+\mbox{\Hypertarget{class_c_o_g_l_graphics_a3f976c4d1f1d2b1fdc3ca16681e9b346}\label{class_c_o_g_l_graphics_a3f976c4d1f1d2b1fdc3ca16681e9b346}} 
+\index{COGLGraphics@{COGLGraphics}!GetBlendMode@{GetBlendMode}}
+\index{GetBlendMode@{GetBlendMode}!COGLGraphics@{COGLGraphics}}
+\doxysubsubsection{\texorpdfstring{GetBlendMode()}{GetBlendMode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_graphics_8hpp_ae712bb955e55f00dc24eb98c3686dd5a}{E\+Blend\+Mode}} C\+O\+G\+L\+Graphics\+::\+Get\+Blend\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_graphics_af7b6d4742f20856a991ed758db06c2d9}{I\+Graphics}}.
+
+\mbox{\Hypertarget{class_c_o_g_l_graphics_a6ca8ee6e5b55571b27113b85daf43b60}\label{class_c_o_g_l_graphics_a6ca8ee6e5b55571b27113b85daf43b60}} 
+\index{COGLGraphics@{COGLGraphics}!GetClearColor@{GetClearColor}}
+\index{GetClearColor@{GetClearColor}!COGLGraphics@{COGLGraphics}}
+\doxysubsubsection{\texorpdfstring{GetClearColor()}{GetClearColor()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_color}{Color}}\& C\+O\+G\+L\+Graphics\+::\+Get\+Clear\+Color (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_graphics_afb5279a0798acb60ab636b7f66d660d9}{I\+Graphics}}.
+
+\mbox{\Hypertarget{class_c_o_g_l_graphics_a6b45bbf4227ce83c20f4d3a6bc294d27}\label{class_c_o_g_l_graphics_a6b45bbf4227ce83c20f4d3a6bc294d27}} 
+\index{COGLGraphics@{COGLGraphics}!GetCullMode@{GetCullMode}}
+\index{GetCullMode@{GetCullMode}!COGLGraphics@{COGLGraphics}}
+\doxysubsubsection{\texorpdfstring{GetCullMode()}{GetCullMode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_graphics_8hpp_acb1e92521e1d5e281d7d65e74fee4fca}{E\+Cull\+Mode}} C\+O\+G\+L\+Graphics\+::\+Get\+Cull\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_graphics_a2e0035c80869ec82feb1fe6af03b4c1b}{I\+Graphics}}.
+
+\mbox{\Hypertarget{class_c_o_g_l_graphics_a121749e64eb0599b607c4677da3e0c41}\label{class_c_o_g_l_graphics_a121749e64eb0599b607c4677da3e0c41}} 
+\index{COGLGraphics@{COGLGraphics}!GetDepthFunction@{GetDepthFunction}}
+\index{GetDepthFunction@{GetDepthFunction}!COGLGraphics@{COGLGraphics}}
+\doxysubsubsection{\texorpdfstring{GetDepthFunction()}{GetDepthFunction()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_graphics_8hpp_afee5874e8c6730fff0994aad3c60d71a}{E\+Depth\+Mode}} C\+O\+G\+L\+Graphics\+::\+Get\+Depth\+Function (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_graphics_a38c682176fbbded11f4fe480c3042ec0}{I\+Graphics}}.
+
+\mbox{\Hypertarget{class_c_o_g_l_graphics_ad6b5d674cfdc84177c8ce8f70f4a093f}\label{class_c_o_g_l_graphics_ad6b5d674cfdc84177c8ce8f70f4a093f}} 
+\index{COGLGraphics@{COGLGraphics}!GetFrontFace@{GetFrontFace}}
+\index{GetFrontFace@{GetFrontFace}!COGLGraphics@{COGLGraphics}}
+\doxysubsubsection{\texorpdfstring{GetFrontFace()}{GetFrontFace()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_graphics_8hpp_a2b48b9d1f90d21ec00e650da00e94286}{E\+Front\+Face}} C\+O\+G\+L\+Graphics\+::\+Get\+Front\+Face (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_graphics_a3c227906e78e950ab07754ac2c328e02}{I\+Graphics}}.
+
+\mbox{\Hypertarget{class_c_o_g_l_graphics_a606c48923885a5ce84fafad6326c2182}\label{class_c_o_g_l_graphics_a606c48923885a5ce84fafad6326c2182}} 
+\index{COGLGraphics@{COGLGraphics}!GetImGUIRenderer@{GetImGUIRenderer}}
+\index{GetImGUIRenderer@{GetImGUIRenderer}!COGLGraphics@{COGLGraphics}}
+\doxysubsubsection{\texorpdfstring{GetImGUIRenderer()}{GetImGUIRenderer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_i_im_g_u_i_renderer}{I\+Im\+G\+U\+I\+Renderer}} $\ast$ C\+O\+G\+L\+Graphics\+::\+Get\+Im\+G\+U\+I\+Renderer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_graphics_a4c1a10e02c744367f52b6cd5ddab697e}{I\+Graphics}}.
+
+\mbox{\Hypertarget{class_c_o_g_l_graphics_ad263da4887a3ec46247b15c68994f763}\label{class_c_o_g_l_graphics_ad263da4887a3ec46247b15c68994f763}} 
+\index{COGLGraphics@{COGLGraphics}!GetMaxTextureSize@{GetMaxTextureSize}}
+\index{GetMaxTextureSize@{GetMaxTextureSize}!COGLGraphics@{COGLGraphics}}
+\doxysubsubsection{\texorpdfstring{GetMaxTextureSize()}{GetMaxTextureSize()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{_vector2_8hpp_af66c7902bd16ef025755eef5b0f1bf9c}{Int\+Vector2}}\& C\+O\+G\+L\+Graphics\+::\+Get\+Max\+Texture\+Size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_graphics_ab9ebefe1bc90a210c061bdfa1b7cf486}{I\+Graphics}}.
+
+\mbox{\Hypertarget{class_c_o_g_l_graphics_adf21f09f3865a93068143bb9e78f65e5}\label{class_c_o_g_l_graphics_adf21f09f3865a93068143bb9e78f65e5}} 
+\index{COGLGraphics@{COGLGraphics}!GetPolygonMode@{GetPolygonMode}}
+\index{GetPolygonMode@{GetPolygonMode}!COGLGraphics@{COGLGraphics}}
+\doxysubsubsection{\texorpdfstring{GetPolygonMode()}{GetPolygonMode()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_graphics_8hpp_a5d452bf4b32c2fc2570e29af84fcccce}{E\+Polygon\+Mode}} C\+O\+G\+L\+Graphics\+::\+Get\+Polygon\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_graphics_ae33be7bb9437dc87b7b5bc60853b4623}{I\+Graphics}}.
+
+\mbox{\Hypertarget{class_c_o_g_l_graphics_a2e2138ff1b9fe9b04f8e2a9a62231bce}\label{class_c_o_g_l_graphics_a2e2138ff1b9fe9b04f8e2a9a62231bce}} 
+\index{COGLGraphics@{COGLGraphics}!GetViewport@{GetViewport}}
+\index{GetViewport@{GetViewport}!COGLGraphics@{COGLGraphics}}
+\doxysubsubsection{\texorpdfstring{GetViewport()}{GetViewport()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{_rect2_8hpp_aecd0edc6c303236c6a6f888091e44bc7}{Rect2}}\& C\+O\+G\+L\+Graphics\+::\+Get\+Viewport (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_graphics_acdaa487a92cc11599511440babdc54ef}{I\+Graphics}}.
+
+\mbox{\Hypertarget{class_c_o_g_l_graphics_a4feb558c2fc192b6416e97cba5266e57}\label{class_c_o_g_l_graphics_a4feb558c2fc192b6416e97cba5266e57}} 
+\index{COGLGraphics@{COGLGraphics}!Init@{Init}}
+\index{Init@{Init}!COGLGraphics@{COGLGraphics}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily bool C\+O\+G\+L\+Graphics\+::\+Init (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_s_engine_params}{S\+Engine\+Params}} \&}]{Parameters }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_i_engine_module_aa55c3398a7ad1a295b8bac85e7654302}{I\+Engine\+Module}}.
+
+\mbox{\Hypertarget{class_c_o_g_l_graphics_aa679dea20226d23fdb50fa98d981104c}\label{class_c_o_g_l_graphics_aa679dea20226d23fdb50fa98d981104c}} 
+\index{COGLGraphics@{COGLGraphics}!IsBlendActive@{IsBlendActive}}
+\index{IsBlendActive@{IsBlendActive}!COGLGraphics@{COGLGraphics}}
+\doxysubsubsection{\texorpdfstring{IsBlendActive()}{IsBlendActive()}}
+{\footnotesize\ttfamily bool C\+O\+G\+L\+Graphics\+::\+Is\+Blend\+Active (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_graphics_ac637200f40d711f949e52391827af5b9}{I\+Graphics}}.
+
+\mbox{\Hypertarget{class_c_o_g_l_graphics_af6c98aa83322112c85a66e1deb6c27a1}\label{class_c_o_g_l_graphics_af6c98aa83322112c85a66e1deb6c27a1}} 
+\index{COGLGraphics@{COGLGraphics}!IsCullActiva@{IsCullActiva}}
+\index{IsCullActiva@{IsCullActiva}!COGLGraphics@{COGLGraphics}}
+\doxysubsubsection{\texorpdfstring{IsCullActiva()}{IsCullActiva()}}
+{\footnotesize\ttfamily bool C\+O\+G\+L\+Graphics\+::\+Is\+Cull\+Activa (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_graphics_a7a5fa90f4fafadfce1240d09479e46a9}{I\+Graphics}}.
+
+\mbox{\Hypertarget{class_c_o_g_l_graphics_a3b72c6b3dd3a754a515fb96a5f618b41}\label{class_c_o_g_l_graphics_a3b72c6b3dd3a754a515fb96a5f618b41}} 
+\index{COGLGraphics@{COGLGraphics}!IsDepthActive@{IsDepthActive}}
+\index{IsDepthActive@{IsDepthActive}!COGLGraphics@{COGLGraphics}}
+\doxysubsubsection{\texorpdfstring{IsDepthActive()}{IsDepthActive()}}
+{\footnotesize\ttfamily bool C\+O\+G\+L\+Graphics\+::\+Is\+Depth\+Active (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_graphics_a9c5f7c816719db2ffc5d00d655986275}{I\+Graphics}}.
+
+\mbox{\Hypertarget{class_c_o_g_l_graphics_af50b2f483a02cc8f2ee9592779743bca}\label{class_c_o_g_l_graphics_af50b2f483a02cc8f2ee9592779743bca}} 
+\index{COGLGraphics@{COGLGraphics}!IsSoftware@{IsSoftware}}
+\index{IsSoftware@{IsSoftware}!COGLGraphics@{COGLGraphics}}
+\doxysubsubsection{\texorpdfstring{IsSoftware()}{IsSoftware()}}
+{\footnotesize\ttfamily bool C\+O\+G\+L\+Graphics\+::\+Is\+Software (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_graphics_a758cc1fda58d2469f5edb08faa77ed9d}{I\+Graphics}}.
+
+\mbox{\Hypertarget{class_c_o_g_l_graphics_ace9cb023e5315b2838a91c9466e350d9}\label{class_c_o_g_l_graphics_ace9cb023e5315b2838a91c9466e350d9}} 
+\index{COGLGraphics@{COGLGraphics}!OnEvent@{OnEvent}}
+\index{OnEvent@{OnEvent}!COGLGraphics@{COGLGraphics}}
+\doxysubsubsection{\texorpdfstring{OnEvent()}{OnEvent()}}
+{\footnotesize\ttfamily void C\+O\+G\+L\+Graphics\+::\+On\+Event (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_c_event}{C\+Event}} \&}]{E }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_i_updatable_a69ed05737704c5232db69883b7aa73b1}{I\+Updatable}}.
+
+\mbox{\Hypertarget{class_c_o_g_l_graphics_a1c15ffc76082886884d4d809f7ff97ae}\label{class_c_o_g_l_graphics_a1c15ffc76082886884d4d809f7ff97ae}} 
+\index{COGLGraphics@{COGLGraphics}!SaveWindowSurface@{SaveWindowSurface}}
+\index{SaveWindowSurface@{SaveWindowSurface}!COGLGraphics@{COGLGraphics}}
+\doxysubsubsection{\texorpdfstring{SaveWindowSurface()}{SaveWindowSurface()}}
+{\footnotesize\ttfamily bool C\+O\+G\+L\+Graphics\+::\+Save\+Window\+Surface (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Path }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_graphics_aee140516b0339182db83ead77d6b4882}{I\+Graphics}}.
+
+\mbox{\Hypertarget{class_c_o_g_l_graphics_a0ab65c149e85dc4467987f908591b873}\label{class_c_o_g_l_graphics_a0ab65c149e85dc4467987f908591b873}} 
+\index{COGLGraphics@{COGLGraphics}!SetBlendActive@{SetBlendActive}}
+\index{SetBlendActive@{SetBlendActive}!COGLGraphics@{COGLGraphics}}
+\doxysubsubsection{\texorpdfstring{SetBlendActive()}{SetBlendActive()}}
+{\footnotesize\ttfamily void C\+O\+G\+L\+Graphics\+::\+Set\+Blend\+Active (\begin{DoxyParamCaption}\item[{const bool}]{Arg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_graphics_abb396a453dc4aad36285decadddce751}{I\+Graphics}}.
+
+\mbox{\Hypertarget{class_c_o_g_l_graphics_ae19fa1d7da8d42058a68a3cf010c05f6}\label{class_c_o_g_l_graphics_ae19fa1d7da8d42058a68a3cf010c05f6}} 
+\index{COGLGraphics@{COGLGraphics}!SetBlendMode@{SetBlendMode}}
+\index{SetBlendMode@{SetBlendMode}!COGLGraphics@{COGLGraphics}}
+\doxysubsubsection{\texorpdfstring{SetBlendMode()}{SetBlendMode()}}
+{\footnotesize\ttfamily bool C\+O\+G\+L\+Graphics\+::\+Set\+Blend\+Mode (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_graphics_8hpp_ae712bb955e55f00dc24eb98c3686dd5a}{E\+Blend\+Mode}}}]{Mode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_graphics_a5c131dd1416b1e115f5cdbdbd5496ca9}{I\+Graphics}}.
+
+\mbox{\Hypertarget{class_c_o_g_l_graphics_a41b061dda087eec0fd80bbb065eee721}\label{class_c_o_g_l_graphics_a41b061dda087eec0fd80bbb065eee721}} 
+\index{COGLGraphics@{COGLGraphics}!SetClearColor@{SetClearColor}}
+\index{SetClearColor@{SetClearColor}!COGLGraphics@{COGLGraphics}}
+\doxysubsubsection{\texorpdfstring{SetClearColor()}{SetClearColor()}}
+{\footnotesize\ttfamily void C\+O\+G\+L\+Graphics\+::\+Set\+Clear\+Color (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_color}{Color}} \&}]{Clear\+Cr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_graphics_aec6356d2828bf9c930afb683fd4ad090}{I\+Graphics}}.
+
+\mbox{\Hypertarget{class_c_o_g_l_graphics_acefb304af399f528e30db6b742ae89e8}\label{class_c_o_g_l_graphics_acefb304af399f528e30db6b742ae89e8}} 
+\index{COGLGraphics@{COGLGraphics}!SetCullActive@{SetCullActive}}
+\index{SetCullActive@{SetCullActive}!COGLGraphics@{COGLGraphics}}
+\doxysubsubsection{\texorpdfstring{SetCullActive()}{SetCullActive()}}
+{\footnotesize\ttfamily void C\+O\+G\+L\+Graphics\+::\+Set\+Cull\+Active (\begin{DoxyParamCaption}\item[{const bool}]{Arg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_graphics_ac94524089beefb83ba3d0d2574e254cf}{I\+Graphics}}.
+
+\mbox{\Hypertarget{class_c_o_g_l_graphics_a880fb7ed80b2ddda3416c406c4e89c75}\label{class_c_o_g_l_graphics_a880fb7ed80b2ddda3416c406c4e89c75}} 
+\index{COGLGraphics@{COGLGraphics}!SetCullMode@{SetCullMode}}
+\index{SetCullMode@{SetCullMode}!COGLGraphics@{COGLGraphics}}
+\doxysubsubsection{\texorpdfstring{SetCullMode()}{SetCullMode()}}
+{\footnotesize\ttfamily void C\+O\+G\+L\+Graphics\+::\+Set\+Cull\+Mode (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_graphics_8hpp_acb1e92521e1d5e281d7d65e74fee4fca}{E\+Cull\+Mode}}}]{a\+Mode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_graphics_ab07388dff2d49e25690fbf650abcaf9d}{I\+Graphics}}.
+
+\mbox{\Hypertarget{class_c_o_g_l_graphics_a25e5f81731bcaaf6384838dee9abb76a}\label{class_c_o_g_l_graphics_a25e5f81731bcaaf6384838dee9abb76a}} 
+\index{COGLGraphics@{COGLGraphics}!SetDepthActive@{SetDepthActive}}
+\index{SetDepthActive@{SetDepthActive}!COGLGraphics@{COGLGraphics}}
+\doxysubsubsection{\texorpdfstring{SetDepthActive()}{SetDepthActive()}}
+{\footnotesize\ttfamily bool C\+O\+G\+L\+Graphics\+::\+Set\+Depth\+Active (\begin{DoxyParamCaption}\item[{const bool}]{Active }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_graphics_abcf50477a34155423a86ff5c784a6a40}{I\+Graphics}}.
+
+\mbox{\Hypertarget{class_c_o_g_l_graphics_a764ef8fafc40c9abd9436701ee75f693}\label{class_c_o_g_l_graphics_a764ef8fafc40c9abd9436701ee75f693}} 
+\index{COGLGraphics@{COGLGraphics}!SetDepthFunction@{SetDepthFunction}}
+\index{SetDepthFunction@{SetDepthFunction}!COGLGraphics@{COGLGraphics}}
+\doxysubsubsection{\texorpdfstring{SetDepthFunction()}{SetDepthFunction()}}
+{\footnotesize\ttfamily bool C\+O\+G\+L\+Graphics\+::\+Set\+Depth\+Function (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_graphics_8hpp_afee5874e8c6730fff0994aad3c60d71a}{E\+Depth\+Mode}}}]{Mode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_graphics_a779ddcbb10384b2936844a8494bcb619}{I\+Graphics}}.
+
+\mbox{\Hypertarget{class_c_o_g_l_graphics_ad3ca2dbe43881b11f93d70637e6dcbf8}\label{class_c_o_g_l_graphics_ad3ca2dbe43881b11f93d70637e6dcbf8}} 
+\index{COGLGraphics@{COGLGraphics}!SetFrontFace@{SetFrontFace}}
+\index{SetFrontFace@{SetFrontFace}!COGLGraphics@{COGLGraphics}}
+\doxysubsubsection{\texorpdfstring{SetFrontFace()}{SetFrontFace()}}
+{\footnotesize\ttfamily void C\+O\+G\+L\+Graphics\+::\+Set\+Front\+Face (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_graphics_8hpp_a2b48b9d1f90d21ec00e650da00e94286}{E\+Front\+Face}}}]{a\+Mode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_graphics_a15382687fd2ca5c0ce1a9c92fbefec90}{I\+Graphics}}.
+
+\mbox{\Hypertarget{class_c_o_g_l_graphics_ab81826ad74c3ede5a2bda7a66f9920f1}\label{class_c_o_g_l_graphics_ab81826ad74c3ede5a2bda7a66f9920f1}} 
+\index{COGLGraphics@{COGLGraphics}!SetPolygonMode@{SetPolygonMode}}
+\index{SetPolygonMode@{SetPolygonMode}!COGLGraphics@{COGLGraphics}}
+\doxysubsubsection{\texorpdfstring{SetPolygonMode()}{SetPolygonMode()}}
+{\footnotesize\ttfamily bool C\+O\+G\+L\+Graphics\+::\+Set\+Polygon\+Mode (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_graphics_8hpp_a5d452bf4b32c2fc2570e29af84fcccce}{E\+Polygon\+Mode}}}]{Mode }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_graphics_a2b59877bb09507f541b7eac33aec98b4}{I\+Graphics}}.
+
+\mbox{\Hypertarget{class_c_o_g_l_graphics_adc942e45d1f8b73e2a634b3d36e3a491}\label{class_c_o_g_l_graphics_adc942e45d1f8b73e2a634b3d36e3a491}} 
+\index{COGLGraphics@{COGLGraphics}!SetViewport@{SetViewport}}
+\index{SetViewport@{SetViewport}!COGLGraphics@{COGLGraphics}}
+\doxysubsubsection{\texorpdfstring{SetViewport()}{SetViewport()}}
+{\footnotesize\ttfamily bool C\+O\+G\+L\+Graphics\+::\+Set\+Viewport (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_rect2_8hpp_aecd0edc6c303236c6a6f888091e44bc7}{Rect2}} \&}]{Rect }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_graphics_a1c999fe8f083a40e2ab928c49644bdd4}{I\+Graphics}}.
+
+\mbox{\Hypertarget{class_c_o_g_l_graphics_a54dbac1b68546c5cd0e42df5487a979d}\label{class_c_o_g_l_graphics_a54dbac1b68546c5cd0e42df5487a979d}} 
+\index{COGLGraphics@{COGLGraphics}!SwapBuffers@{SwapBuffers}}
+\index{SwapBuffers@{SwapBuffers}!COGLGraphics@{COGLGraphics}}
+\doxysubsubsection{\texorpdfstring{SwapBuffers()}{SwapBuffers()}}
+{\footnotesize\ttfamily void C\+O\+G\+L\+Graphics\+::\+Swap\+Buffers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Implements \mbox{\hyperlink{class_i_graphics_a395be26f862b98e425ac448e2624bd3b}{I\+Graphics}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Engine/\+Implementation/\+O\+G\+L/\mbox{\hyperlink{_o_g_l_graphics_8hpp}{O\+G\+L\+Graphics.\+hpp}}\item 
+Source/\+Engine/\+Implementation/\+O\+G\+L/\mbox{\hyperlink{_o_g_l_graphics_8cpp}{O\+G\+L\+Graphics.\+cpp}}\end{DoxyCompactItemize}

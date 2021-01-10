@@ -1,0 +1,799 @@
+\hypertarget{class_c_entity}{}\doxysection{C\+Entity Class Reference}
+\label{class_c_entity}\index{CEntity@{CEntity}}
+
+
+{\ttfamily \#include $<$Entity.\+hpp$>$}
+
+Inheritance diagram for C\+Entity\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.557078cm]{class_c_entity}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_entity_ae4e7660ac9f62eab96adfaeb09fba0f6}{C\+Entity}} (\mbox{\hyperlink{class_c_engine}{C\+Engine}} $\ast$)
+\item 
+virtual \mbox{\hyperlink{class_c_entity_a11b9405b57ca1b32d270c6a661c11683}{$\sim$\+C\+Entity}} ()
+\item 
+\mbox{\hyperlink{class_c_engine}{C\+Engine}} $\ast$ \mbox{\hyperlink{class_c_entity_ac075a1e4bdb691ecdc7855ea8631122e}{Get\+Engine}} () const
+\item 
+void \mbox{\hyperlink{class_c_entity_a04ebc0a4cfee669372742913b0eb2991}{Set\+ID}} (const int a\+ID)
+\item 
+int \mbox{\hyperlink{class_c_entity_aaf82bf665368d352c291c12c8adfdffc}{Get\+ID}} () const
+\item 
+void \mbox{\hyperlink{class_c_entity_ad398f5e17a99c706d90ab31c567da0d3}{Set\+Name}} (const std\+::string \&a\+Name)
+\item 
+const std\+::string \& \mbox{\hyperlink{class_c_entity_a6c62db2e75948a7f044bc9c1c9478760}{Get\+Name}} () const
+\item 
+void \mbox{\hyperlink{class_c_entity_a232944313966ddae26c362d284d11f27}{Set\+Tag}} (const std\+::string \&a\+Tag)
+\item 
+const std\+::string \& \mbox{\hyperlink{class_c_entity_a3e9de17cb41596b2ac3f9baca7f637f7}{Get\+Tag}} () const
+\item 
+void \mbox{\hyperlink{class_c_entity_a6d52eee2d26c2cdae9641ebec54dd3f9}{Set\+World}} (\mbox{\hyperlink{class_c_world}{C\+World}} $\ast$a\+World)
+\item 
+\mbox{\hyperlink{class_c_world}{C\+World}} $\ast$ \mbox{\hyperlink{class_c_entity_a573f00aba857dc4f78d9a66c2fdd46f0}{Get\+World}} () const
+\item 
+bool \mbox{\hyperlink{class_c_entity_a602b961f681e2090c11d1d49cc337ea7}{Is\+Attached\+To\+World}} () const
+\item 
+void \mbox{\hyperlink{class_c_entity_a5a3a512cbe2762f4590004169ea3d70d}{Set\+Parent}} (\mbox{\hyperlink{class_c_entity}{C\+Entity}} $\ast$)
+\item 
+\mbox{\hyperlink{class_c_entity}{C\+Entity}} $\ast$ \mbox{\hyperlink{class_c_entity_a0997072746b97526c7fc36c4fa103a8a}{Get\+Parent}} () const
+\item 
+bool \mbox{\hyperlink{class_c_entity_ae9202cd7a7761c56ab6e9f1ce1f27cbd}{Has\+Parent}} () const
+\item 
+bool \mbox{\hyperlink{class_c_entity_a3fbb6fe4b63e97f87e1d3bfa97da77c6}{Is\+Active}} () const
+\item 
+void \mbox{\hyperlink{class_c_entity_ad903eedf1e847c82e3c302d2c1423509}{Set\+Active}} (const bool Value)
+\item 
+bool \mbox{\hyperlink{class_c_entity_a5b3b9f3d27f907bb93c5c46d008a40e2}{Is\+Updated}} () const
+\item 
+void \mbox{\hyperlink{class_c_entity_a34a8b9fea9d092538a7bdfa3fba3c250}{Set\+Updated}} (const bool)
+\item 
+virtual void \mbox{\hyperlink{class_c_entity_ada214e6a60b1ba044403580f90519ffa}{On\+Enabled}} ()
+\item 
+virtual void \mbox{\hyperlink{class_c_entity_a48718a1426deb46291fb95b67c044f4a}{On\+Disabled}} ()
+\item 
+bool \mbox{\hyperlink{class_c_entity_a0c014134eddc5b72d5b2254d1a08fc94}{Is\+Rendered}} () const
+\item 
+void \mbox{\hyperlink{class_c_entity_aaae1c42834ad3850313e096cf9700552}{Set\+Rendered}} (const bool)
+\item 
+void \mbox{\hyperlink{class_c_entity_aa9eb55d553fd03eb7ec35e220d731bcb}{Set\+Transform}} (const \mbox{\hyperlink{class_c_transform}{C\+Transform}} \&a\+Transform)
+\item 
+\mbox{\hyperlink{class_c_transform}{C\+Transform}} \& \mbox{\hyperlink{class_c_entity_a6b91f40ba258d88ed9fbff2480d850fc}{Get\+Transform}} ()
+\item 
+const \mbox{\hyperlink{class_c_transform}{C\+Transform}} \& \mbox{\hyperlink{class_c_entity_af99449bd19bac9845903ff8ed90d95e1}{Get\+Transform}} () const
+\item 
+\mbox{\hyperlink{class_i_component}{I\+Component}} $\ast$ \mbox{\hyperlink{class_c_entity_ab94f19050f25453ee5d476218797373b}{Create\+Component}} (const std\+::string \&)
+\item 
+{\footnotesize template$<$class T $>$ }\\T $\ast$ \mbox{\hyperlink{class_c_entity_ac097e609c9828f4795c17fcaf94833af}{Create\+Component}} ()
+\item 
+bool \mbox{\hyperlink{class_c_entity_a63434541f0bc3a5b602dbf5064caa743}{Has\+Component}} (const std\+::string \&) const
+\item 
+{\footnotesize template$<$class T $>$ }\\bool \mbox{\hyperlink{class_c_entity_a41cb7b896371b1042bee8fc52113776e}{Has\+Component}} () const
+\item 
+\mbox{\hyperlink{class_i_component}{I\+Component}} $\ast$ \mbox{\hyperlink{class_c_entity_a1c55422bf8b99e0676f7d0c6875b0f16}{Get\+Component}} (const std\+::string \&) const
+\item 
+{\footnotesize template$<$class T $>$ }\\T $\ast$ \mbox{\hyperlink{class_c_entity_ac0d8475c5575738ce255da4ad6344fa9}{Get\+Component}} () const
+\item 
+\mbox{\hyperlink{_component_8hpp_ae92c0fa24ada5993d0627520b342f153}{Component\+Array}} \mbox{\hyperlink{class_c_entity_a83c3772217015934b7d1a99f65179d40}{Get\+Components}} (const std\+::string \&) const
+\item 
+{\footnotesize template$<$class T $>$ }\\std\+::vector$<$ T $\ast$ $>$ \mbox{\hyperlink{class_c_entity_a44562d264c90d6f88b93baa3eb137769}{Get\+Components}} () const
+\item 
+const \mbox{\hyperlink{_component_8hpp_ae92c0fa24ada5993d0627520b342f153}{Component\+Array}} \& \mbox{\hyperlink{class_c_entity_a85668f92bd0587c91af852ee9940b471}{Get\+Components}} () const
+\item 
+bool \mbox{\hyperlink{class_c_entity_a10abbf65a588adcdb6f27ace8445684f}{Has\+Components}} () const
+\item 
+std\+::size\+\_\+t \mbox{\hyperlink{class_c_entity_a73f917c6f73b14aaea3d04480fe10f05}{Get\+Component\+Count}} () const
+\item 
+void \mbox{\hyperlink{class_c_entity_af3e5f4e63ed57e135a4681c3dfb7b1af}{Destroy\+Component}} (\mbox{\hyperlink{class_i_component}{I\+Component}} $\ast$)
+\item 
+void \mbox{\hyperlink{class_c_entity_a220bb3986c60f71741df8c1e58807bd6}{Destroy\+Component}} (const std\+::string \&)
+\item 
+{\footnotesize template$<$class T $>$ }\\void \mbox{\hyperlink{class_c_entity_a2c07c7784c7d00aa0089f323a9fce94b}{Destroy\+Component}} ()
+\item 
+void \mbox{\hyperlink{class_c_entity_a191b0be31c3129cbd436199be6bcd7a1}{Destroy\+Components}} (const std\+::string \&)
+\item 
+{\footnotesize template$<$class T $>$ }\\void \mbox{\hyperlink{class_c_entity_a2f1e34d4f533557a57712a9ebc00fd14}{Destroy\+Components}} ()
+\item 
+void \mbox{\hyperlink{class_c_entity_ae887a2f672831017350b110a2a852d46}{Destroy\+Components}} ()
+\item 
+\mbox{\hyperlink{class_c_entity}{C\+Entity}} $\ast$ \mbox{\hyperlink{class_c_entity_a146663fddfb54cdfbf6a49a9aab56def}{Create\+Child}} (const std\+::string \&)
+\item 
+{\footnotesize template$<$class T $>$ }\\T $\ast$ \mbox{\hyperlink{class_c_entity_a4bb7005c2db7bd1d6c5bb36e1606ac4f}{Create\+Child}} ()
+\item 
+\mbox{\hyperlink{class_c_entity}{C\+Entity}} $\ast$ \mbox{\hyperlink{class_c_entity_aa879ee31f0ea8bee602ae1c79b741bc1}{Get\+Child}} (const int) const
+\item 
+{\footnotesize template$<$class T $>$ }\\T $\ast$ \mbox{\hyperlink{class_c_entity_ac57802b044fab0c4d950086292752c1d}{Get\+Child}} (const int \mbox{\hyperlink{class_c_entity_ae9e6f96b8187a81fa03fd7b708b85fb7}{ID}}) const
+\item 
+\mbox{\hyperlink{class_c_entity}{C\+Entity}} $\ast$ \mbox{\hyperlink{class_c_entity_ac12e6a5b1d64a8de7543f98b97307322}{Get\+Child}} (const std\+::string \&) const
+\item 
+{\footnotesize template$<$class T $>$ }\\T $\ast$ \mbox{\hyperlink{class_c_entity_a4068e2264334d2db13f611e9b7626a11}{Get\+Child}} (const std\+::string \&\mbox{\hyperlink{class_c_entity_a711953ad315c573d794875a5a29875c0}{Name}}) const
+\item 
+\mbox{\hyperlink{_entity_8hpp_a68c47dc1259fcb57347d3386dd6131a4}{Entity\+Array}} \mbox{\hyperlink{class_c_entity_ae0a4f6b01b1884be2d5efa442b4d00f5}{Get\+Children}} (const std\+::string \&) const
+\item 
+{\footnotesize template$<$class T $>$ }\\std\+::vector$<$ T $\ast$ $>$ \mbox{\hyperlink{class_c_entity_a5e2dfa1c8a64c8b94aa7026707255288}{Get\+Children}} (const std\+::string \&\mbox{\hyperlink{class_c_entity_a0c3e88965938b8113e4b6e96a6f84db8}{Tag}}) const
+\item 
+{\footnotesize template$<$class T $>$ }\\std\+::vector$<$ T $\ast$ $>$ \mbox{\hyperlink{class_c_entity_aef07764972d0abc4654aa5b3bc59d0be}{Get\+Children\+As}} () const
+\item 
+const \mbox{\hyperlink{_entity_8hpp_a68c47dc1259fcb57347d3386dd6131a4}{Entity\+Array}} \& \mbox{\hyperlink{class_c_entity_ab5a094b1cb4fff57758f45af0695cd6c}{Get\+Children}} () const
+\item 
+bool \mbox{\hyperlink{class_c_entity_a75bca02cf7bcb139dc65240534602bfd}{Has\+Children}} () const
+\item 
+std\+::size\+\_\+t \mbox{\hyperlink{class_c_entity_a82edd6fa0c98938994d3f2be07718ae9}{Get\+Children\+Count}} () const
+\item 
+void \mbox{\hyperlink{class_c_entity_af6670334ed481cf27b779969711d45dd}{Destroy}} ()
+\item 
+void \mbox{\hyperlink{class_c_entity_a30cc8930835a853638eeededc237c37d}{Destroy\+Child}} (\mbox{\hyperlink{class_c_entity}{C\+Entity}} $\ast$)
+\item 
+void \mbox{\hyperlink{class_c_entity_a51ab0481bb698b50f962a58003158c27}{Destroy\+Child}} (const int)
+\item 
+void \mbox{\hyperlink{class_c_entity_a28735dcf428c2dbc9e1acab069e14fed}{Destroy\+Child}} (const std\+::string \&)
+\item 
+void \mbox{\hyperlink{class_c_entity_aaffd0bc2fc432b3ac32df6fbf82a4832}{Destroy\+Children}} (const std\+::string \&)
+\item 
+void \mbox{\hyperlink{class_c_entity_ad94327209b49330f2896fb927b68aac1}{Destroy\+Children}} ()
+\item 
+virtual bool \mbox{\hyperlink{class_c_entity_a21d041da0992ab08f02b062f73725a31}{On\+Load}} (\mbox{\hyperlink{class_c_x_m_l_element}{C\+X\+M\+L\+Element}} $\ast$)
+\item 
+virtual bool \mbox{\hyperlink{class_c_entity_a4f13258229eb92ebff71fcf9685661a9}{On\+Save}} (\mbox{\hyperlink{class_c_x_m_l_element}{C\+X\+M\+L\+Element}} $\ast$)
+\item 
+virtual void \mbox{\hyperlink{class_c_entity_a55f94cec37ccd62a8b208be348011804}{On\+Create}} ()
+\item 
+virtual void \mbox{\hyperlink{class_c_entity_a101fccf2cc93e86ffa843b193dc935c9}{On\+Start}} ()
+\item 
+virtual void \mbox{\hyperlink{class_c_entity_a534a26687286d7cde7b30e590f9f8c11}{On\+Begin\+Frame}} ()
+\item 
+virtual void \mbox{\hyperlink{class_c_entity_a72f19e381fab2bfb41bf9beb95ecd3ed}{On\+Update}} (const float)
+\item 
+virtual void \mbox{\hyperlink{class_c_entity_a8531344485eeb213385e622d3194c488}{On\+Late\+Update}} (const float)
+\item 
+virtual void \mbox{\hyperlink{class_c_entity_abfce5d3457ac515a36bb15432cccc866}{On\+G\+UI}} ()
+\item 
+virtual void \mbox{\hyperlink{class_c_entity_a5967b70ea0528ee2acd5f668140b1f5a}{On\+Render}} ()
+\item 
+virtual void \mbox{\hyperlink{class_c_entity_a2cfa94f582928cb22fb06616cff89ff5}{On\+End\+Frame}} ()
+\item 
+virtual void \mbox{\hyperlink{class_c_entity_adb0cc93d5dfd2a855a80c34fe7c8c978}{On\+Destroy}} ()
+\item 
+virtual void \mbox{\hyperlink{class_c_entity_a048c8d93566b34f76ddcc8384b2b3971}{On\+Collision\+Enter}} (const \mbox{\hyperlink{struct_s_entity_collision2_d}{S\+Entity\+Collision2D}} \&)
+\item 
+virtual void \mbox{\hyperlink{class_c_entity_aaf016d9a3d428acf68eee7f1ea5eae1b}{On\+Collision\+Leave}} (const \mbox{\hyperlink{struct_s_entity_collision2_d}{S\+Entity\+Collision2D}} \&)
+\item 
+{\footnotesize template$<$class E , class F $>$ }\\void \mbox{\hyperlink{class_c_entity_a7f05d7f84920454b8a259ac00c37f9b3}{Subscribe}} (const F \&a\+Function)
+\item 
+void \mbox{\hyperlink{class_c_entity_abc9eb71957ccdcbb21b333cb1add2082}{Un\+Subscribe}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_c_entity_a35ef674f57b50b8266c896e690ec8dcf}{Destroy}} (\mbox{\hyperlink{class_i_component}{I\+Component}} $\ast$)
+\item 
+static void \mbox{\hyperlink{class_c_entity_a62ef4355aa3f1a38d228803321b74919}{Destroy}} (\mbox{\hyperlink{class_c_entity}{C\+Entity}} $\ast$)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_c_entity_a396726de42014e0b5448dd114d11c4f1}{Load}} (\mbox{\hyperlink{class_c_x_m_l_element}{C\+X\+M\+L\+Element}} $\ast$)
+\item 
+bool \mbox{\hyperlink{class_c_entity_ac55b604a9cce170e7f1f0bb0065b221d}{Save}} (\mbox{\hyperlink{class_c_x_m_l_element}{C\+X\+M\+L\+Element}} $\ast$)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_engine}{C\+Engine}} $\ast$ \mbox{\hyperlink{class_c_entity_a1c063ee559c67e58d21b772e5a04d868}{Engine}} = nullptr
+\item 
+\mbox{\hyperlink{class_c_event_manager}{C\+Event\+Manager}} $\ast$ \mbox{\hyperlink{class_c_entity_acb88cb4bf6bc3ee09056b05a052a6e93}{Event\+Manager}} = nullptr
+\item 
+int \mbox{\hyperlink{class_c_entity_ae9e6f96b8187a81fa03fd7b708b85fb7}{ID}} = -\/1
+\item 
+std\+::string \mbox{\hyperlink{class_c_entity_a711953ad315c573d794875a5a29875c0}{Name}}
+\item 
+std\+::string \mbox{\hyperlink{class_c_entity_a0c3e88965938b8113e4b6e96a6f84db8}{Tag}}
+\item 
+\mbox{\hyperlink{class_c_world}{C\+World}} $\ast$ \mbox{\hyperlink{class_c_entity_a4dbb6ad094da445e4c184b9d4b6eb725}{World}} = nullptr
+\item 
+\mbox{\hyperlink{class_c_entity}{C\+Entity}} $\ast$ \mbox{\hyperlink{class_c_entity_af775ef609c14554f937808e66f453e7c}{Parent}} = nullptr
+\item 
+\mbox{\hyperlink{class_c_transform}{C\+Transform}} \mbox{\hyperlink{class_c_entity_a4216df31bab674f8e8b24b12c05303e6}{Transform}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_c_entity_ae4e7660ac9f62eab96adfaeb09fba0f6}\label{class_c_entity_ae4e7660ac9f62eab96adfaeb09fba0f6}} 
+\index{CEntity@{CEntity}!CEntity@{CEntity}}
+\index{CEntity@{CEntity}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{CEntity()}{CEntity()}}
+{\footnotesize\ttfamily C\+Entity\+::\+C\+Entity (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_engine}{C\+Engine}} $\ast$}]{a\+Engine }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_entity_a11b9405b57ca1b32d270c6a661c11683}\label{class_c_entity_a11b9405b57ca1b32d270c6a661c11683}} 
+\index{CEntity@{CEntity}!````~CEntity@{$\sim$CEntity}}
+\index{````~CEntity@{$\sim$CEntity}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{$\sim$CEntity()}{~CEntity()}}
+{\footnotesize\ttfamily C\+Entity\+::$\sim$\+C\+Entity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_c_entity_a4bb7005c2db7bd1d6c5bb36e1606ac4f}\label{class_c_entity_a4bb7005c2db7bd1d6c5bb36e1606ac4f}} 
+\index{CEntity@{CEntity}!CreateChild@{CreateChild}}
+\index{CreateChild@{CreateChild}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{CreateChild()}{CreateChild()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T$\ast$ C\+Entity\+::\+Create\+Child (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_entity_a146663fddfb54cdfbf6a49a9aab56def}\label{class_c_entity_a146663fddfb54cdfbf6a49a9aab56def}} 
+\index{CEntity@{CEntity}!CreateChild@{CreateChild}}
+\index{CreateChild@{CreateChild}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{CreateChild()}{CreateChild()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_entity}{C\+Entity}} $\ast$ C\+Entity\+::\+Create\+Child (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Type }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_entity_ac097e609c9828f4795c17fcaf94833af}\label{class_c_entity_ac097e609c9828f4795c17fcaf94833af}} 
+\index{CEntity@{CEntity}!CreateComponent@{CreateComponent}}
+\index{CreateComponent@{CreateComponent}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{CreateComponent()}{CreateComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T$\ast$ C\+Entity\+::\+Create\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_entity_ab94f19050f25453ee5d476218797373b}\label{class_c_entity_ab94f19050f25453ee5d476218797373b}} 
+\index{CEntity@{CEntity}!CreateComponent@{CreateComponent}}
+\index{CreateComponent@{CreateComponent}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{CreateComponent()}{CreateComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_i_component}{I\+Component}} $\ast$ C\+Entity\+::\+Create\+Component (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Type }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_entity_af6670334ed481cf27b779969711d45dd}\label{class_c_entity_af6670334ed481cf27b779969711d45dd}} 
+\index{CEntity@{CEntity}!Destroy@{Destroy}}
+\index{Destroy@{Destroy}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{Destroy()}{Destroy()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void C\+Entity\+::\+Destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_entity_a62ef4355aa3f1a38d228803321b74919}\label{class_c_entity_a62ef4355aa3f1a38d228803321b74919}} 
+\index{CEntity@{CEntity}!Destroy@{Destroy}}
+\index{Destroy@{Destroy}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{Destroy()}{Destroy()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void C\+Entity\+::\+Destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_entity}{C\+Entity}} $\ast$}]{Entity }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_c_entity_a35ef674f57b50b8266c896e690ec8dcf}\label{class_c_entity_a35ef674f57b50b8266c896e690ec8dcf}} 
+\index{CEntity@{CEntity}!Destroy@{Destroy}}
+\index{Destroy@{Destroy}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{Destroy()}{Destroy()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void C\+Entity\+::\+Destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_i_component}{I\+Component}} $\ast$}]{Component }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_c_entity_a30cc8930835a853638eeededc237c37d}\label{class_c_entity_a30cc8930835a853638eeededc237c37d}} 
+\index{CEntity@{CEntity}!DestroyChild@{DestroyChild}}
+\index{DestroyChild@{DestroyChild}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{DestroyChild()}{DestroyChild()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily void C\+Entity\+::\+Destroy\+Child (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_entity}{C\+Entity}} $\ast$}]{a\+Entity }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_entity_a51ab0481bb698b50f962a58003158c27}\label{class_c_entity_a51ab0481bb698b50f962a58003158c27}} 
+\index{CEntity@{CEntity}!DestroyChild@{DestroyChild}}
+\index{DestroyChild@{DestroyChild}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{DestroyChild()}{DestroyChild()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void C\+Entity\+::\+Destroy\+Child (\begin{DoxyParamCaption}\item[{const int}]{ID }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_entity_a28735dcf428c2dbc9e1acab069e14fed}\label{class_c_entity_a28735dcf428c2dbc9e1acab069e14fed}} 
+\index{CEntity@{CEntity}!DestroyChild@{DestroyChild}}
+\index{DestroyChild@{DestroyChild}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{DestroyChild()}{DestroyChild()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void C\+Entity\+::\+Destroy\+Child (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_entity_ad94327209b49330f2896fb927b68aac1}\label{class_c_entity_ad94327209b49330f2896fb927b68aac1}} 
+\index{CEntity@{CEntity}!DestroyChildren@{DestroyChildren}}
+\index{DestroyChildren@{DestroyChildren}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{DestroyChildren()}{DestroyChildren()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void C\+Entity\+::\+Destroy\+Children (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_entity_aaffd0bc2fc432b3ac32df6fbf82a4832}\label{class_c_entity_aaffd0bc2fc432b3ac32df6fbf82a4832}} 
+\index{CEntity@{CEntity}!DestroyChildren@{DestroyChildren}}
+\index{DestroyChildren@{DestroyChildren}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{DestroyChildren()}{DestroyChildren()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void C\+Entity\+::\+Destroy\+Children (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Tag }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_entity_a2c07c7784c7d00aa0089f323a9fce94b}\label{class_c_entity_a2c07c7784c7d00aa0089f323a9fce94b}} 
+\index{CEntity@{CEntity}!DestroyComponent@{DestroyComponent}}
+\index{DestroyComponent@{DestroyComponent}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{DestroyComponent()}{DestroyComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void C\+Entity\+::\+Destroy\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_entity_a220bb3986c60f71741df8c1e58807bd6}\label{class_c_entity_a220bb3986c60f71741df8c1e58807bd6}} 
+\index{CEntity@{CEntity}!DestroyComponent@{DestroyComponent}}
+\index{DestroyComponent@{DestroyComponent}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{DestroyComponent()}{DestroyComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void C\+Entity\+::\+Destroy\+Component (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Type }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_entity_af3e5f4e63ed57e135a4681c3dfb7b1af}\label{class_c_entity_af3e5f4e63ed57e135a4681c3dfb7b1af}} 
+\index{CEntity@{CEntity}!DestroyComponent@{DestroyComponent}}
+\index{DestroyComponent@{DestroyComponent}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{DestroyComponent()}{DestroyComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void C\+Entity\+::\+Destroy\+Component (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_i_component}{I\+Component}} $\ast$}]{a\+Component }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_entity_a2f1e34d4f533557a57712a9ebc00fd14}\label{class_c_entity_a2f1e34d4f533557a57712a9ebc00fd14}} 
+\index{CEntity@{CEntity}!DestroyComponents@{DestroyComponents}}
+\index{DestroyComponents@{DestroyComponents}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{DestroyComponents()}{DestroyComponents()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void C\+Entity\+::\+Destroy\+Components (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_entity_ae887a2f672831017350b110a2a852d46}\label{class_c_entity_ae887a2f672831017350b110a2a852d46}} 
+\index{CEntity@{CEntity}!DestroyComponents@{DestroyComponents}}
+\index{DestroyComponents@{DestroyComponents}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{DestroyComponents()}{DestroyComponents()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily void C\+Entity\+::\+Destroy\+Components (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_entity_a191b0be31c3129cbd436199be6bcd7a1}\label{class_c_entity_a191b0be31c3129cbd436199be6bcd7a1}} 
+\index{CEntity@{CEntity}!DestroyComponents@{DestroyComponents}}
+\index{DestroyComponents@{DestroyComponents}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{DestroyComponents()}{DestroyComponents()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void C\+Entity\+::\+Destroy\+Components (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Type }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_entity_ac57802b044fab0c4d950086292752c1d}\label{class_c_entity_ac57802b044fab0c4d950086292752c1d}} 
+\index{CEntity@{CEntity}!GetChild@{GetChild}}
+\index{GetChild@{GetChild}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{GetChild()}{GetChild()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T$\ast$ C\+Entity\+::\+Get\+Child (\begin{DoxyParamCaption}\item[{const int}]{ID }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_entity_aa879ee31f0ea8bee602ae1c79b741bc1}\label{class_c_entity_aa879ee31f0ea8bee602ae1c79b741bc1}} 
+\index{CEntity@{CEntity}!GetChild@{GetChild}}
+\index{GetChild@{GetChild}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{GetChild()}{GetChild()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_entity}{C\+Entity}} $\ast$ C\+Entity\+::\+Get\+Child (\begin{DoxyParamCaption}\item[{const int}]{ID }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_c_entity_ac12e6a5b1d64a8de7543f98b97307322}\label{class_c_entity_ac12e6a5b1d64a8de7543f98b97307322}} 
+\index{CEntity@{CEntity}!GetChild@{GetChild}}
+\index{GetChild@{GetChild}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{GetChild()}{GetChild()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_entity}{C\+Entity}} $\ast$ C\+Entity\+::\+Get\+Child (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Name }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_c_entity_a4068e2264334d2db13f611e9b7626a11}\label{class_c_entity_a4068e2264334d2db13f611e9b7626a11}} 
+\index{CEntity@{CEntity}!GetChild@{GetChild}}
+\index{GetChild@{GetChild}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{GetChild()}{GetChild()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T$\ast$ C\+Entity\+::\+Get\+Child (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Name }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_entity_ab5a094b1cb4fff57758f45af0695cd6c}\label{class_c_entity_ab5a094b1cb4fff57758f45af0695cd6c}} 
+\index{CEntity@{CEntity}!GetChildren@{GetChildren}}
+\index{GetChildren@{GetChildren}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{GetChildren()}{GetChildren()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{_entity_8hpp_a68c47dc1259fcb57347d3386dd6131a4}{Entity\+Array}}\& C\+Entity\+::\+Get\+Children (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_entity_ae0a4f6b01b1884be2d5efa442b4d00f5}\label{class_c_entity_ae0a4f6b01b1884be2d5efa442b4d00f5}} 
+\index{CEntity@{CEntity}!GetChildren@{GetChildren}}
+\index{GetChildren@{GetChildren}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{GetChildren()}{GetChildren()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_entity_8hpp_a68c47dc1259fcb57347d3386dd6131a4}{Entity\+Array}} C\+Entity\+::\+Get\+Children (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Tag }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_c_entity_a5e2dfa1c8a64c8b94aa7026707255288}\label{class_c_entity_a5e2dfa1c8a64c8b94aa7026707255288}} 
+\index{CEntity@{CEntity}!GetChildren@{GetChildren}}
+\index{GetChildren@{GetChildren}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{GetChildren()}{GetChildren()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::vector$<$T$\ast$$>$ C\+Entity\+::\+Get\+Children (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Tag }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_entity_aef07764972d0abc4654aa5b3bc59d0be}\label{class_c_entity_aef07764972d0abc4654aa5b3bc59d0be}} 
+\index{CEntity@{CEntity}!GetChildrenAs@{GetChildrenAs}}
+\index{GetChildrenAs@{GetChildrenAs}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{GetChildrenAs()}{GetChildrenAs()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::vector$<$T$\ast$$>$ C\+Entity\+::\+Get\+Children\+As (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_entity_a82edd6fa0c98938994d3f2be07718ae9}\label{class_c_entity_a82edd6fa0c98938994d3f2be07718ae9}} 
+\index{CEntity@{CEntity}!GetChildrenCount@{GetChildrenCount}}
+\index{GetChildrenCount@{GetChildrenCount}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{GetChildrenCount()}{GetChildrenCount()}}
+{\footnotesize\ttfamily std\+::size\+\_\+t C\+Entity\+::\+Get\+Children\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_entity_ac0d8475c5575738ce255da4ad6344fa9}\label{class_c_entity_ac0d8475c5575738ce255da4ad6344fa9}} 
+\index{CEntity@{CEntity}!GetComponent@{GetComponent}}
+\index{GetComponent@{GetComponent}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{GetComponent()}{GetComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T$\ast$ C\+Entity\+::\+Get\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_entity_a1c55422bf8b99e0676f7d0c6875b0f16}\label{class_c_entity_a1c55422bf8b99e0676f7d0c6875b0f16}} 
+\index{CEntity@{CEntity}!GetComponent@{GetComponent}}
+\index{GetComponent@{GetComponent}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{GetComponent()}{GetComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_i_component}{I\+Component}} $\ast$ C\+Entity\+::\+Get\+Component (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Type }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_c_entity_a73f917c6f73b14aaea3d04480fe10f05}\label{class_c_entity_a73f917c6f73b14aaea3d04480fe10f05}} 
+\index{CEntity@{CEntity}!GetComponentCount@{GetComponentCount}}
+\index{GetComponentCount@{GetComponentCount}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{GetComponentCount()}{GetComponentCount()}}
+{\footnotesize\ttfamily std\+::size\+\_\+t C\+Entity\+::\+Get\+Component\+Count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_entity_a44562d264c90d6f88b93baa3eb137769}\label{class_c_entity_a44562d264c90d6f88b93baa3eb137769}} 
+\index{CEntity@{CEntity}!GetComponents@{GetComponents}}
+\index{GetComponents@{GetComponents}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{GetComponents()}{GetComponents()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::vector$<$T$\ast$$>$ C\+Entity\+::\+Get\+Components (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_entity_a85668f92bd0587c91af852ee9940b471}\label{class_c_entity_a85668f92bd0587c91af852ee9940b471}} 
+\index{CEntity@{CEntity}!GetComponents@{GetComponents}}
+\index{GetComponents@{GetComponents}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{GetComponents()}{GetComponents()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{_component_8hpp_ae92c0fa24ada5993d0627520b342f153}{Component\+Array}}\& C\+Entity\+::\+Get\+Components (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_entity_a83c3772217015934b7d1a99f65179d40}\label{class_c_entity_a83c3772217015934b7d1a99f65179d40}} 
+\index{CEntity@{CEntity}!GetComponents@{GetComponents}}
+\index{GetComponents@{GetComponents}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{GetComponents()}{GetComponents()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_component_8hpp_ae92c0fa24ada5993d0627520b342f153}{Component\+Array}} C\+Entity\+::\+Get\+Components (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Type }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_c_entity_ac075a1e4bdb691ecdc7855ea8631122e}\label{class_c_entity_ac075a1e4bdb691ecdc7855ea8631122e}} 
+\index{CEntity@{CEntity}!GetEngine@{GetEngine}}
+\index{GetEngine@{GetEngine}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{GetEngine()}{GetEngine()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_engine}{C\+Engine}}$\ast$ C\+Entity\+::\+Get\+Engine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_entity_aaf82bf665368d352c291c12c8adfdffc}\label{class_c_entity_aaf82bf665368d352c291c12c8adfdffc}} 
+\index{CEntity@{CEntity}!GetID@{GetID}}
+\index{GetID@{GetID}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{GetID()}{GetID()}}
+{\footnotesize\ttfamily int C\+Entity\+::\+Get\+ID (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_entity_a6c62db2e75948a7f044bc9c1c9478760}\label{class_c_entity_a6c62db2e75948a7f044bc9c1c9478760}} 
+\index{CEntity@{CEntity}!GetName@{GetName}}
+\index{GetName@{GetName}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{GetName()}{GetName()}}
+{\footnotesize\ttfamily const std\+::string\& C\+Entity\+::\+Get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_entity_a0997072746b97526c7fc36c4fa103a8a}\label{class_c_entity_a0997072746b97526c7fc36c4fa103a8a}} 
+\index{CEntity@{CEntity}!GetParent@{GetParent}}
+\index{GetParent@{GetParent}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{GetParent()}{GetParent()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_entity}{C\+Entity}}$\ast$ C\+Entity\+::\+Get\+Parent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_entity_a3e9de17cb41596b2ac3f9baca7f637f7}\label{class_c_entity_a3e9de17cb41596b2ac3f9baca7f637f7}} 
+\index{CEntity@{CEntity}!GetTag@{GetTag}}
+\index{GetTag@{GetTag}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{GetTag()}{GetTag()}}
+{\footnotesize\ttfamily const std\+::string\& C\+Entity\+::\+Get\+Tag (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_entity_a6b91f40ba258d88ed9fbff2480d850fc}\label{class_c_entity_a6b91f40ba258d88ed9fbff2480d850fc}} 
+\index{CEntity@{CEntity}!GetTransform@{GetTransform}}
+\index{GetTransform@{GetTransform}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{GetTransform()}{GetTransform()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_transform}{C\+Transform}}\& C\+Entity\+::\+Get\+Transform (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_entity_af99449bd19bac9845903ff8ed90d95e1}\label{class_c_entity_af99449bd19bac9845903ff8ed90d95e1}} 
+\index{CEntity@{CEntity}!GetTransform@{GetTransform}}
+\index{GetTransform@{GetTransform}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{GetTransform()}{GetTransform()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{class_c_transform}{C\+Transform}}\& C\+Entity\+::\+Get\+Transform (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_entity_a573f00aba857dc4f78d9a66c2fdd46f0}\label{class_c_entity_a573f00aba857dc4f78d9a66c2fdd46f0}} 
+\index{CEntity@{CEntity}!GetWorld@{GetWorld}}
+\index{GetWorld@{GetWorld}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{GetWorld()}{GetWorld()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_world}{C\+World}}$\ast$ C\+Entity\+::\+Get\+World (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_entity_a75bca02cf7bcb139dc65240534602bfd}\label{class_c_entity_a75bca02cf7bcb139dc65240534602bfd}} 
+\index{CEntity@{CEntity}!HasChildren@{HasChildren}}
+\index{HasChildren@{HasChildren}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{HasChildren()}{HasChildren()}}
+{\footnotesize\ttfamily bool C\+Entity\+::\+Has\+Children (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_entity_a41cb7b896371b1042bee8fc52113776e}\label{class_c_entity_a41cb7b896371b1042bee8fc52113776e}} 
+\index{CEntity@{CEntity}!HasComponent@{HasComponent}}
+\index{HasComponent@{HasComponent}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{HasComponent()}{HasComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool C\+Entity\+::\+Has\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_entity_a63434541f0bc3a5b602dbf5064caa743}\label{class_c_entity_a63434541f0bc3a5b602dbf5064caa743}} 
+\index{CEntity@{CEntity}!HasComponent@{HasComponent}}
+\index{HasComponent@{HasComponent}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{HasComponent()}{HasComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool C\+Entity\+::\+Has\+Component (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Type }\end{DoxyParamCaption}) const}
+
+\mbox{\Hypertarget{class_c_entity_a10abbf65a588adcdb6f27ace8445684f}\label{class_c_entity_a10abbf65a588adcdb6f27ace8445684f}} 
+\index{CEntity@{CEntity}!HasComponents@{HasComponents}}
+\index{HasComponents@{HasComponents}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{HasComponents()}{HasComponents()}}
+{\footnotesize\ttfamily bool C\+Entity\+::\+Has\+Components (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_entity_ae9202cd7a7761c56ab6e9f1ce1f27cbd}\label{class_c_entity_ae9202cd7a7761c56ab6e9f1ce1f27cbd}} 
+\index{CEntity@{CEntity}!HasParent@{HasParent}}
+\index{HasParent@{HasParent}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{HasParent()}{HasParent()}}
+{\footnotesize\ttfamily bool C\+Entity\+::\+Has\+Parent (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_entity_a3fbb6fe4b63e97f87e1d3bfa97da77c6}\label{class_c_entity_a3fbb6fe4b63e97f87e1d3bfa97da77c6}} 
+\index{CEntity@{CEntity}!IsActive@{IsActive}}
+\index{IsActive@{IsActive}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{IsActive()}{IsActive()}}
+{\footnotesize\ttfamily bool C\+Entity\+::\+Is\+Active (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_entity_a602b961f681e2090c11d1d49cc337ea7}\label{class_c_entity_a602b961f681e2090c11d1d49cc337ea7}} 
+\index{CEntity@{CEntity}!IsAttachedToWorld@{IsAttachedToWorld}}
+\index{IsAttachedToWorld@{IsAttachedToWorld}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{IsAttachedToWorld()}{IsAttachedToWorld()}}
+{\footnotesize\ttfamily bool C\+Entity\+::\+Is\+Attached\+To\+World (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_entity_a0c014134eddc5b72d5b2254d1a08fc94}\label{class_c_entity_a0c014134eddc5b72d5b2254d1a08fc94}} 
+\index{CEntity@{CEntity}!IsRendered@{IsRendered}}
+\index{IsRendered@{IsRendered}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{IsRendered()}{IsRendered()}}
+{\footnotesize\ttfamily bool C\+Entity\+::\+Is\+Rendered (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_entity_a5b3b9f3d27f907bb93c5c46d008a40e2}\label{class_c_entity_a5b3b9f3d27f907bb93c5c46d008a40e2}} 
+\index{CEntity@{CEntity}!IsUpdated@{IsUpdated}}
+\index{IsUpdated@{IsUpdated}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{IsUpdated()}{IsUpdated()}}
+{\footnotesize\ttfamily bool C\+Entity\+::\+Is\+Updated (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_entity_a396726de42014e0b5448dd114d11c4f1}\label{class_c_entity_a396726de42014e0b5448dd114d11c4f1}} 
+\index{CEntity@{CEntity}!Load@{Load}}
+\index{Load@{Load}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily bool C\+Entity\+::\+Load (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_x_m_l_element}{C\+X\+M\+L\+Element}} $\ast$}]{Root }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_c_entity_a534a26687286d7cde7b30e590f9f8c11}\label{class_c_entity_a534a26687286d7cde7b30e590f9f8c11}} 
+\index{CEntity@{CEntity}!OnBeginFrame@{OnBeginFrame}}
+\index{OnBeginFrame@{OnBeginFrame}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{OnBeginFrame()}{OnBeginFrame()}}
+{\footnotesize\ttfamily virtual void C\+Entity\+::\+On\+Begin\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_c_entity_a048c8d93566b34f76ddcc8384b2b3971}\label{class_c_entity_a048c8d93566b34f76ddcc8384b2b3971}} 
+\index{CEntity@{CEntity}!OnCollisionEnter@{OnCollisionEnter}}
+\index{OnCollisionEnter@{OnCollisionEnter}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{OnCollisionEnter()}{OnCollisionEnter()}}
+{\footnotesize\ttfamily virtual void C\+Entity\+::\+On\+Collision\+Enter (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_s_entity_collision2_d}{S\+Entity\+Collision2D}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_c_test_object_ae58a32044f54cb0b24226b4d65910bd8}{C\+Test\+Object}}.
+
+\mbox{\Hypertarget{class_c_entity_aaf016d9a3d428acf68eee7f1ea5eae1b}\label{class_c_entity_aaf016d9a3d428acf68eee7f1ea5eae1b}} 
+\index{CEntity@{CEntity}!OnCollisionLeave@{OnCollisionLeave}}
+\index{OnCollisionLeave@{OnCollisionLeave}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{OnCollisionLeave()}{OnCollisionLeave()}}
+{\footnotesize\ttfamily virtual void C\+Entity\+::\+On\+Collision\+Leave (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_s_entity_collision2_d}{S\+Entity\+Collision2D}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_c_test_object_a4d02335c35f123b94abb8cce04f077ec}{C\+Test\+Object}}.
+
+\mbox{\Hypertarget{class_c_entity_a55f94cec37ccd62a8b208be348011804}\label{class_c_entity_a55f94cec37ccd62a8b208be348011804}} 
+\index{CEntity@{CEntity}!OnCreate@{OnCreate}}
+\index{OnCreate@{OnCreate}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{OnCreate()}{OnCreate()}}
+{\footnotesize\ttfamily virtual void C\+Entity\+::\+On\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_c_game_manager_acd9edbc157df9020a8503e6cc05ea94c}{C\+Game\+Manager}}, \mbox{\hyperlink{class_c_player_aaff4920c96c65af1e3beb53276da897c}{C\+Player}}, and \mbox{\hyperlink{class_c_camera_controller_a483b7ab3820f306a519c6619ba0661a5}{C\+Camera\+Controller}}.
+
+\mbox{\Hypertarget{class_c_entity_adb0cc93d5dfd2a855a80c34fe7c8c978}\label{class_c_entity_adb0cc93d5dfd2a855a80c34fe7c8c978}} 
+\index{CEntity@{CEntity}!OnDestroy@{OnDestroy}}
+\index{OnDestroy@{OnDestroy}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{OnDestroy()}{OnDestroy()}}
+{\footnotesize\ttfamily virtual void C\+Entity\+::\+On\+Destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_c_player_ae3461dd79eec8f13d6266777b1f1b5cc}{C\+Player}}.
+
+\mbox{\Hypertarget{class_c_entity_a48718a1426deb46291fb95b67c044f4a}\label{class_c_entity_a48718a1426deb46291fb95b67c044f4a}} 
+\index{CEntity@{CEntity}!OnDisabled@{OnDisabled}}
+\index{OnDisabled@{OnDisabled}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{OnDisabled()}{OnDisabled()}}
+{\footnotesize\ttfamily virtual void C\+Entity\+::\+On\+Disabled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_c_entity_ada214e6a60b1ba044403580f90519ffa}\label{class_c_entity_ada214e6a60b1ba044403580f90519ffa}} 
+\index{CEntity@{CEntity}!OnEnabled@{OnEnabled}}
+\index{OnEnabled@{OnEnabled}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{OnEnabled()}{OnEnabled()}}
+{\footnotesize\ttfamily virtual void C\+Entity\+::\+On\+Enabled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_c_entity_a2cfa94f582928cb22fb06616cff89ff5}\label{class_c_entity_a2cfa94f582928cb22fb06616cff89ff5}} 
+\index{CEntity@{CEntity}!OnEndFrame@{OnEndFrame}}
+\index{OnEndFrame@{OnEndFrame}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{OnEndFrame()}{OnEndFrame()}}
+{\footnotesize\ttfamily virtual void C\+Entity\+::\+On\+End\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_c_entity_abfce5d3457ac515a36bb15432cccc866}\label{class_c_entity_abfce5d3457ac515a36bb15432cccc866}} 
+\index{CEntity@{CEntity}!OnGUI@{OnGUI}}
+\index{OnGUI@{OnGUI}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{OnGUI()}{OnGUI()}}
+{\footnotesize\ttfamily virtual void C\+Entity\+::\+On\+G\+UI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_c_player_ab4a7b0a7d5b70197cc26f1c74a3b3db7}{C\+Player}}, \mbox{\hyperlink{class_c_test_object_af9b1cf24b245dd83514d8a65dc1bd55a}{C\+Test\+Object}}, and \mbox{\hyperlink{class_c_camera_controller_a2071aea59a9db85764bcf8a4c9a03197}{C\+Camera\+Controller}}.
+
+\mbox{\Hypertarget{class_c_entity_a8531344485eeb213385e622d3194c488}\label{class_c_entity_a8531344485eeb213385e622d3194c488}} 
+\index{CEntity@{CEntity}!OnLateUpdate@{OnLateUpdate}}
+\index{OnLateUpdate@{OnLateUpdate}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{OnLateUpdate()}{OnLateUpdate()}}
+{\footnotesize\ttfamily virtual void C\+Entity\+::\+On\+Late\+Update (\begin{DoxyParamCaption}\item[{const float}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_c_enemy_abf41139563be0ba0bab577f31eeaee50}{C\+Enemy}}.
+
+\mbox{\Hypertarget{class_c_entity_a21d041da0992ab08f02b062f73725a31}\label{class_c_entity_a21d041da0992ab08f02b062f73725a31}} 
+\index{CEntity@{CEntity}!OnLoad@{OnLoad}}
+\index{OnLoad@{OnLoad}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{OnLoad()}{OnLoad()}}
+{\footnotesize\ttfamily virtual bool C\+Entity\+::\+On\+Load (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_x_m_l_element}{C\+X\+M\+L\+Element}} $\ast$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_c_game_manager_ab386961a431e398265846a772457bbba}{C\+Game\+Manager}}, and \mbox{\hyperlink{class_c_player_ad786ef5ae69aeb4f827901828f84535b}{C\+Player}}.
+
+\mbox{\Hypertarget{class_c_entity_a5967b70ea0528ee2acd5f668140b1f5a}\label{class_c_entity_a5967b70ea0528ee2acd5f668140b1f5a}} 
+\index{CEntity@{CEntity}!OnRender@{OnRender}}
+\index{OnRender@{OnRender}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{OnRender()}{OnRender()}}
+{\footnotesize\ttfamily virtual void C\+Entity\+::\+On\+Render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_c_game_manager_a4d16fa48357f65a3b48ed246ff191b18}{C\+Game\+Manager}}, and \mbox{\hyperlink{class_c_camera_controller_a7dba2c87c3e95f8be2862d912870e658}{C\+Camera\+Controller}}.
+
+\mbox{\Hypertarget{class_c_entity_a4f13258229eb92ebff71fcf9685661a9}\label{class_c_entity_a4f13258229eb92ebff71fcf9685661a9}} 
+\index{CEntity@{CEntity}!OnSave@{OnSave}}
+\index{OnSave@{OnSave}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{OnSave()}{OnSave()}}
+{\footnotesize\ttfamily virtual bool C\+Entity\+::\+On\+Save (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_x_m_l_element}{C\+X\+M\+L\+Element}} $\ast$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_c_game_manager_a7db4e3274feb4bfcc22ba8c11a92006b}{C\+Game\+Manager}}, and \mbox{\hyperlink{class_c_player_ab823fa4f8314005c622c84768e11a31b}{C\+Player}}.
+
+\mbox{\Hypertarget{class_c_entity_a101fccf2cc93e86ffa843b193dc935c9}\label{class_c_entity_a101fccf2cc93e86ffa843b193dc935c9}} 
+\index{CEntity@{CEntity}!OnStart@{OnStart}}
+\index{OnStart@{OnStart}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{OnStart()}{OnStart()}}
+{\footnotesize\ttfamily virtual void C\+Entity\+::\+On\+Start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_c_enemy_a5085175dac63809354b05a40d85085cd}{C\+Enemy}}.
+
+\mbox{\Hypertarget{class_c_entity_a72f19e381fab2bfb41bf9beb95ecd3ed}\label{class_c_entity_a72f19e381fab2bfb41bf9beb95ecd3ed}} 
+\index{CEntity@{CEntity}!OnUpdate@{OnUpdate}}
+\index{OnUpdate@{OnUpdate}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{OnUpdate()}{OnUpdate()}}
+{\footnotesize\ttfamily virtual void C\+Entity\+::\+On\+Update (\begin{DoxyParamCaption}\item[{const float}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_c_game_manager_a0fe4222657355e3b8b72deb21c7b2d72}{C\+Game\+Manager}}, \mbox{\hyperlink{class_c_player_a87d305cdd81a840cf1334fc5678e7138}{C\+Player}}, and \mbox{\hyperlink{class_c_camera_controller_a59abc88cff716e6eae8ac9401d4d9fa6}{C\+Camera\+Controller}}.
+
+\mbox{\Hypertarget{class_c_entity_ac55b604a9cce170e7f1f0bb0065b221d}\label{class_c_entity_ac55b604a9cce170e7f1f0bb0065b221d}} 
+\index{CEntity@{CEntity}!Save@{Save}}
+\index{Save@{Save}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{Save()}{Save()}}
+{\footnotesize\ttfamily bool C\+Entity\+::\+Save (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_x_m_l_element}{C\+X\+M\+L\+Element}} $\ast$}]{Root }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_c_entity_ad903eedf1e847c82e3c302d2c1423509}\label{class_c_entity_ad903eedf1e847c82e3c302d2c1423509}} 
+\index{CEntity@{CEntity}!SetActive@{SetActive}}
+\index{SetActive@{SetActive}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{SetActive()}{SetActive()}}
+{\footnotesize\ttfamily void C\+Entity\+::\+Set\+Active (\begin{DoxyParamCaption}\item[{const bool}]{Value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_entity_a04ebc0a4cfee669372742913b0eb2991}\label{class_c_entity_a04ebc0a4cfee669372742913b0eb2991}} 
+\index{CEntity@{CEntity}!SetID@{SetID}}
+\index{SetID@{SetID}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{SetID()}{SetID()}}
+{\footnotesize\ttfamily void C\+Entity\+::\+Set\+ID (\begin{DoxyParamCaption}\item[{const int}]{a\+ID }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_entity_ad398f5e17a99c706d90ab31c567da0d3}\label{class_c_entity_ad398f5e17a99c706d90ab31c567da0d3}} 
+\index{CEntity@{CEntity}!SetName@{SetName}}
+\index{SetName@{SetName}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{SetName()}{SetName()}}
+{\footnotesize\ttfamily void C\+Entity\+::\+Set\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{a\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_entity_a5a3a512cbe2762f4590004169ea3d70d}\label{class_c_entity_a5a3a512cbe2762f4590004169ea3d70d}} 
+\index{CEntity@{CEntity}!SetParent@{SetParent}}
+\index{SetParent@{SetParent}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{SetParent()}{SetParent()}}
+{\footnotesize\ttfamily void C\+Entity\+::\+Set\+Parent (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_entity}{C\+Entity}} $\ast$}]{New\+Parent }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_entity_aaae1c42834ad3850313e096cf9700552}\label{class_c_entity_aaae1c42834ad3850313e096cf9700552}} 
+\index{CEntity@{CEntity}!SetRendered@{SetRendered}}
+\index{SetRendered@{SetRendered}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{SetRendered()}{SetRendered()}}
+{\footnotesize\ttfamily void C\+Entity\+::\+Set\+Rendered (\begin{DoxyParamCaption}\item[{const bool}]{Value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_entity_a232944313966ddae26c362d284d11f27}\label{class_c_entity_a232944313966ddae26c362d284d11f27}} 
+\index{CEntity@{CEntity}!SetTag@{SetTag}}
+\index{SetTag@{SetTag}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{SetTag()}{SetTag()}}
+{\footnotesize\ttfamily void C\+Entity\+::\+Set\+Tag (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{a\+Tag }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_entity_aa9eb55d553fd03eb7ec35e220d731bcb}\label{class_c_entity_aa9eb55d553fd03eb7ec35e220d731bcb}} 
+\index{CEntity@{CEntity}!SetTransform@{SetTransform}}
+\index{SetTransform@{SetTransform}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{SetTransform()}{SetTransform()}}
+{\footnotesize\ttfamily void C\+Entity\+::\+Set\+Transform (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_c_transform}{C\+Transform}} \&}]{a\+Transform }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_entity_a34a8b9fea9d092538a7bdfa3fba3c250}\label{class_c_entity_a34a8b9fea9d092538a7bdfa3fba3c250}} 
+\index{CEntity@{CEntity}!SetUpdated@{SetUpdated}}
+\index{SetUpdated@{SetUpdated}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{SetUpdated()}{SetUpdated()}}
+{\footnotesize\ttfamily void C\+Entity\+::\+Set\+Updated (\begin{DoxyParamCaption}\item[{const bool}]{Value }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_entity_a6d52eee2d26c2cdae9641ebec54dd3f9}\label{class_c_entity_a6d52eee2d26c2cdae9641ebec54dd3f9}} 
+\index{CEntity@{CEntity}!SetWorld@{SetWorld}}
+\index{SetWorld@{SetWorld}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{SetWorld()}{SetWorld()}}
+{\footnotesize\ttfamily void C\+Entity\+::\+Set\+World (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_world}{C\+World}} $\ast$}]{a\+World }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_entity_a7f05d7f84920454b8a259ac00c37f9b3}\label{class_c_entity_a7f05d7f84920454b8a259ac00c37f9b3}} 
+\index{CEntity@{CEntity}!Subscribe@{Subscribe}}
+\index{Subscribe@{Subscribe}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{Subscribe()}{Subscribe()}}
+{\footnotesize\ttfamily template$<$class E , class F $>$ \\
+void C\+Entity\+::\+Subscribe (\begin{DoxyParamCaption}\item[{const F \&}]{a\+Function }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_entity_abc9eb71957ccdcbb21b333cb1add2082}\label{class_c_entity_abc9eb71957ccdcbb21b333cb1add2082}} 
+\index{CEntity@{CEntity}!UnSubscribe@{UnSubscribe}}
+\index{UnSubscribe@{UnSubscribe}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{UnSubscribe()}{UnSubscribe()}}
+{\footnotesize\ttfamily void C\+Entity\+::\+Un\+Subscribe (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_c_entity_a1c063ee559c67e58d21b772e5a04d868}\label{class_c_entity_a1c063ee559c67e58d21b772e5a04d868}} 
+\index{CEntity@{CEntity}!Engine@{Engine}}
+\index{Engine@{Engine}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{Engine}{Engine}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_engine}{C\+Engine}}$\ast$ C\+Entity\+::\+Engine = nullptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_c_entity_acb88cb4bf6bc3ee09056b05a052a6e93}\label{class_c_entity_acb88cb4bf6bc3ee09056b05a052a6e93}} 
+\index{CEntity@{CEntity}!EventManager@{EventManager}}
+\index{EventManager@{EventManager}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{EventManager}{EventManager}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_event_manager}{C\+Event\+Manager}}$\ast$ C\+Entity\+::\+Event\+Manager = nullptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_c_entity_ae9e6f96b8187a81fa03fd7b708b85fb7}\label{class_c_entity_ae9e6f96b8187a81fa03fd7b708b85fb7}} 
+\index{CEntity@{CEntity}!ID@{ID}}
+\index{ID@{ID}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{ID}{ID}}
+{\footnotesize\ttfamily int C\+Entity\+::\+ID = -\/1\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_c_entity_a711953ad315c573d794875a5a29875c0}\label{class_c_entity_a711953ad315c573d794875a5a29875c0}} 
+\index{CEntity@{CEntity}!Name@{Name}}
+\index{Name@{Name}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{Name}{Name}}
+{\footnotesize\ttfamily std\+::string C\+Entity\+::\+Name\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_c_entity_af775ef609c14554f937808e66f453e7c}\label{class_c_entity_af775ef609c14554f937808e66f453e7c}} 
+\index{CEntity@{CEntity}!Parent@{Parent}}
+\index{Parent@{Parent}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{Parent}{Parent}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_entity}{C\+Entity}}$\ast$ C\+Entity\+::\+Parent = nullptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_c_entity_a0c3e88965938b8113e4b6e96a6f84db8}\label{class_c_entity_a0c3e88965938b8113e4b6e96a6f84db8}} 
+\index{CEntity@{CEntity}!Tag@{Tag}}
+\index{Tag@{Tag}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{Tag}{Tag}}
+{\footnotesize\ttfamily std\+::string C\+Entity\+::\+Tag\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_c_entity_a4216df31bab674f8e8b24b12c05303e6}\label{class_c_entity_a4216df31bab674f8e8b24b12c05303e6}} 
+\index{CEntity@{CEntity}!Transform@{Transform}}
+\index{Transform@{Transform}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{Transform}{Transform}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_transform}{C\+Transform}} C\+Entity\+::\+Transform\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_c_entity_a4dbb6ad094da445e4c184b9d4b6eb725}\label{class_c_entity_a4dbb6ad094da445e4c184b9d4b6eb725}} 
+\index{CEntity@{CEntity}!World@{World}}
+\index{World@{World}!CEntity@{CEntity}}
+\doxysubsubsection{\texorpdfstring{World}{World}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_world}{C\+World}}$\ast$ C\+Entity\+::\+World = nullptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Engine/\+Scene/\mbox{\hyperlink{_entity_8hpp}{Entity.\+hpp}}\item 
+Source/\+Engine/\+Scene/\mbox{\hyperlink{_entity_8cpp}{Entity.\+cpp}}\end{DoxyCompactItemize}

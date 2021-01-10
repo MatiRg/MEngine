@@ -16,7 +16,7 @@ CApp::~CApp()
     LOG( ESeverity::Debug ) << "App - Destroyed\n";
 }
 
-int CApp::Run(const std::vector<std::string>& Cmd)
+int CApp::Run(const StringVec& Cmd)
 {
     try
     {

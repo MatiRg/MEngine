@@ -1,6 +1,8 @@
 #pragma once
 #include "../Engine/EngineModule.hpp"
+#include "../Math/Color.hpp"
 #include "Renderable3D.hpp"
+#include "Light.hpp"
 #include <vector>
 
 class IGraphics;
@@ -25,6 +27,9 @@ public:
     void SetCameraPosition(const Vector3& aVec) { CameraPosition = aVec; }
     const Vector3& GetCameraPosition() const { return CameraPosition; }
 
+    void SetAmbientColor(const Color& v) { AmbientColor = v; }
+    const Color& GetAmbientColor() const { return AmbientColor; }
+
     bool Init(const SEngineParams&) override;
     void Exit() override;
 
@@ -35,4 +40,7 @@ private:
     Matrix4 ProjectionMatrix;
     Vector3 CameraPosition;
     std::vector<IRenderable3D*> Renderables;
+    std::vector<CLight*> Lights;
+    //
+    Color AmbientColor = Color(0.1f, 0.1f, 0.1f);
 };

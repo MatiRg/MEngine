@@ -11,7 +11,7 @@ int main(int Argc, char* Argv[])
     int ExitCode = 1;
     try
     {
-        std::vector<std::string> Cmd;
+        StringVec Cmd;
         for(int i = 1; i < Argc; ++i) // ignore program name
         {
             Cmd.push_back( Argv[i] );

@@ -1,14 +1,12 @@
 #include "Light.hpp"
-#include "../System/MemoryManager.hpp"
 
-CLight::CLight()
+CLight::CLight():
+    IRenderable3D(ERenderableType::Light)
 {
-    ADD_MEMORY_RECORD(this);
 }
 	
 CLight::~CLight()
 {
-    ERASE_MEMORY_RECORD(this);
 }
 
 // https://tannerhelland.com/2012/09/18/convert-temperature-rgb-algorithm-code.html

@@ -1,0 +1,200 @@
+\hypertarget{class_c_scene}{}\doxysection{C\+Scene Class Reference}
+\label{class_c_scene}\index{CScene@{CScene}}
+
+
+{\ttfamily \#include $<$Scene.\+hpp$>$}
+
+Inheritance diagram for C\+Scene\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=4.000000cm]{class_c_scene}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_scene_af6f6d9e6eb5c7915d28a3b8a70681564}{C\+Scene}} (\mbox{\hyperlink{class_c_engine}{C\+Engine}} $\ast$)
+\item 
+\mbox{\hyperlink{class_c_scene_a8f230d53cbde78e2a0d4a94fca1653b7}{$\sim$\+C\+Scene}} ()
+\item 
+\mbox{\hyperlink{class_c_event_manager}{C\+Event\+Manager}} $\ast$ \mbox{\hyperlink{class_c_scene_adfaf2a6785a58e190b9400e4e1f396a5}{Get\+Event\+Manager}} ()
+\item 
+{\footnotesize template$<$class T $>$ }\\void \mbox{\hyperlink{class_c_scene_a526c984f528a9bc3c49e33d142e056cb}{Register\+Entity\+Factory}} ()
+\item 
+\mbox{\hyperlink{class_c_entity}{C\+Entity}} $\ast$ \mbox{\hyperlink{class_c_scene_aa2ae0b8f8524e10cbd297226a676057b}{Create\+Entity}} (const std\+::string \&)
+\item 
+{\footnotesize template$<$class T $>$ }\\T $\ast$ \mbox{\hyperlink{class_c_scene_a33e4b3fa9ad33b71ed6cb830ab45c20f}{Create\+Entity}} ()
+\item 
+{\footnotesize template$<$class T $>$ }\\void \mbox{\hyperlink{class_c_scene_a36862e7ece035a336163768eb28ed377}{Register\+Component\+Factory}} ()
+\item 
+\mbox{\hyperlink{class_i_component}{I\+Component}} $\ast$ \mbox{\hyperlink{class_c_scene_aea39cad30fad1eaf698d8fcfa8848589}{Create\+Component}} (const std\+::string \&)
+\item 
+{\footnotesize template$<$class T $>$ }\\T $\ast$ \mbox{\hyperlink{class_c_scene_abb13b6fbfd6311e31d7565bec3bf36ae}{Create\+Component}} ()
+\item 
+bool \mbox{\hyperlink{class_c_scene_ac2a2e49e58f37bebab4e1fd9ae2c3d41}{Init}} (const \mbox{\hyperlink{struct_s_engine_params}{S\+Engine\+Params}} \&) override
+\item 
+void \mbox{\hyperlink{class_c_scene_ad08b38f0d2e842f62d282f8fb22550ef}{On\+Begin\+Frame}} () override
+\item 
+void \mbox{\hyperlink{class_c_scene_a19e606b9dd467d9763f8893129988fc5}{On\+Update}} (const float) override
+\item 
+void \mbox{\hyperlink{class_c_scene_a25be50a2fb6581c60e69f7e978cd2556}{On\+Late\+Update}} (const float) override
+\item 
+void \mbox{\hyperlink{class_c_scene_aae34ca6302f4a6128a600b5bf6d23839}{On\+G\+UI}} () override
+\item 
+void \mbox{\hyperlink{class_c_scene_a31641fd86da9ec8756be4f1377a77ac1}{On\+Render}} () override
+\item 
+void \mbox{\hyperlink{class_c_scene_aca8fa10b7dc48253b0f7824002a83ae8}{On\+End\+Frame}} () override
+\item 
+void \mbox{\hyperlink{class_c_scene_a53c1a634e314eedd30ff73fd8fe06734}{On\+Exit}} () override
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_c_scene_af6f6d9e6eb5c7915d28a3b8a70681564}\label{class_c_scene_af6f6d9e6eb5c7915d28a3b8a70681564}} 
+\index{CScene@{CScene}!CScene@{CScene}}
+\index{CScene@{CScene}!CScene@{CScene}}
+\doxysubsubsection{\texorpdfstring{CScene()}{CScene()}}
+{\footnotesize\ttfamily C\+Scene\+::\+C\+Scene (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_engine}{C\+Engine}} $\ast$}]{a\+Engine }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_scene_a8f230d53cbde78e2a0d4a94fca1653b7}\label{class_c_scene_a8f230d53cbde78e2a0d4a94fca1653b7}} 
+\index{CScene@{CScene}!````~CScene@{$\sim$CScene}}
+\index{````~CScene@{$\sim$CScene}!CScene@{CScene}}
+\doxysubsubsection{\texorpdfstring{$\sim$CScene()}{~CScene()}}
+{\footnotesize\ttfamily C\+Scene\+::$\sim$\+C\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_c_scene_abb13b6fbfd6311e31d7565bec3bf36ae}\label{class_c_scene_abb13b6fbfd6311e31d7565bec3bf36ae}} 
+\index{CScene@{CScene}!CreateComponent@{CreateComponent}}
+\index{CreateComponent@{CreateComponent}!CScene@{CScene}}
+\doxysubsubsection{\texorpdfstring{CreateComponent()}{CreateComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T$\ast$ C\+Scene\+::\+Create\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_scene_aea39cad30fad1eaf698d8fcfa8848589}\label{class_c_scene_aea39cad30fad1eaf698d8fcfa8848589}} 
+\index{CScene@{CScene}!CreateComponent@{CreateComponent}}
+\index{CreateComponent@{CreateComponent}!CScene@{CScene}}
+\doxysubsubsection{\texorpdfstring{CreateComponent()}{CreateComponent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_i_component}{I\+Component}} $\ast$ C\+Scene\+::\+Create\+Component (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Type }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_scene_a33e4b3fa9ad33b71ed6cb830ab45c20f}\label{class_c_scene_a33e4b3fa9ad33b71ed6cb830ab45c20f}} 
+\index{CScene@{CScene}!CreateEntity@{CreateEntity}}
+\index{CreateEntity@{CreateEntity}!CScene@{CScene}}
+\doxysubsubsection{\texorpdfstring{CreateEntity()}{CreateEntity()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T$\ast$ C\+Scene\+::\+Create\+Entity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_scene_aa2ae0b8f8524e10cbd297226a676057b}\label{class_c_scene_aa2ae0b8f8524e10cbd297226a676057b}} 
+\index{CScene@{CScene}!CreateEntity@{CreateEntity}}
+\index{CreateEntity@{CreateEntity}!CScene@{CScene}}
+\doxysubsubsection{\texorpdfstring{CreateEntity()}{CreateEntity()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_entity}{C\+Entity}} $\ast$ C\+Scene\+::\+Create\+Entity (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{Type }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_scene_adfaf2a6785a58e190b9400e4e1f396a5}\label{class_c_scene_adfaf2a6785a58e190b9400e4e1f396a5}} 
+\index{CScene@{CScene}!GetEventManager@{GetEventManager}}
+\index{GetEventManager@{GetEventManager}!CScene@{CScene}}
+\doxysubsubsection{\texorpdfstring{GetEventManager()}{GetEventManager()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_event_manager}{C\+Event\+Manager}}$\ast$ C\+Scene\+::\+Get\+Event\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_scene_ac2a2e49e58f37bebab4e1fd9ae2c3d41}\label{class_c_scene_ac2a2e49e58f37bebab4e1fd9ae2c3d41}} 
+\index{CScene@{CScene}!Init@{Init}}
+\index{Init@{Init}!CScene@{CScene}}
+\doxysubsubsection{\texorpdfstring{Init()}{Init()}}
+{\footnotesize\ttfamily bool C\+Scene\+::\+Init (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_s_engine_params}{S\+Engine\+Params}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_i_engine_module_aa55c3398a7ad1a295b8bac85e7654302}{I\+Engine\+Module}}.
+
+\mbox{\Hypertarget{class_c_scene_ad08b38f0d2e842f62d282f8fb22550ef}\label{class_c_scene_ad08b38f0d2e842f62d282f8fb22550ef}} 
+\index{CScene@{CScene}!OnBeginFrame@{OnBeginFrame}}
+\index{OnBeginFrame@{OnBeginFrame}!CScene@{CScene}}
+\doxysubsubsection{\texorpdfstring{OnBeginFrame()}{OnBeginFrame()}}
+{\footnotesize\ttfamily void C\+Scene\+::\+On\+Begin\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_i_updatable_a6f47418be7b277a107e7661a9a3f0d87}{I\+Updatable}}.
+
+\mbox{\Hypertarget{class_c_scene_aca8fa10b7dc48253b0f7824002a83ae8}\label{class_c_scene_aca8fa10b7dc48253b0f7824002a83ae8}} 
+\index{CScene@{CScene}!OnEndFrame@{OnEndFrame}}
+\index{OnEndFrame@{OnEndFrame}!CScene@{CScene}}
+\doxysubsubsection{\texorpdfstring{OnEndFrame()}{OnEndFrame()}}
+{\footnotesize\ttfamily void C\+Scene\+::\+On\+End\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_i_updatable_aa23850a383af551e924a067e9b11090a}{I\+Updatable}}.
+
+\mbox{\Hypertarget{class_c_scene_a53c1a634e314eedd30ff73fd8fe06734}\label{class_c_scene_a53c1a634e314eedd30ff73fd8fe06734}} 
+\index{CScene@{CScene}!OnExit@{OnExit}}
+\index{OnExit@{OnExit}!CScene@{CScene}}
+\doxysubsubsection{\texorpdfstring{OnExit()}{OnExit()}}
+{\footnotesize\ttfamily void C\+Scene\+::\+On\+Exit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_i_updatable_af5cb6fc56c779ad90ddf0de44af664ec}{I\+Updatable}}.
+
+\mbox{\Hypertarget{class_c_scene_aae34ca6302f4a6128a600b5bf6d23839}\label{class_c_scene_aae34ca6302f4a6128a600b5bf6d23839}} 
+\index{CScene@{CScene}!OnGUI@{OnGUI}}
+\index{OnGUI@{OnGUI}!CScene@{CScene}}
+\doxysubsubsection{\texorpdfstring{OnGUI()}{OnGUI()}}
+{\footnotesize\ttfamily void C\+Scene\+::\+On\+G\+UI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_i_updatable_a15d6e90e502b7b0ab3cf009c0791f896}{I\+Updatable}}.
+
+\mbox{\Hypertarget{class_c_scene_a25be50a2fb6581c60e69f7e978cd2556}\label{class_c_scene_a25be50a2fb6581c60e69f7e978cd2556}} 
+\index{CScene@{CScene}!OnLateUpdate@{OnLateUpdate}}
+\index{OnLateUpdate@{OnLateUpdate}!CScene@{CScene}}
+\doxysubsubsection{\texorpdfstring{OnLateUpdate()}{OnLateUpdate()}}
+{\footnotesize\ttfamily void C\+Scene\+::\+On\+Late\+Update (\begin{DoxyParamCaption}\item[{const float}]{DT }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_i_updatable_ae66c5b0be63cc05b1afe6749177befa7}{I\+Updatable}}.
+
+\mbox{\Hypertarget{class_c_scene_a31641fd86da9ec8756be4f1377a77ac1}\label{class_c_scene_a31641fd86da9ec8756be4f1377a77ac1}} 
+\index{CScene@{CScene}!OnRender@{OnRender}}
+\index{OnRender@{OnRender}!CScene@{CScene}}
+\doxysubsubsection{\texorpdfstring{OnRender()}{OnRender()}}
+{\footnotesize\ttfamily void C\+Scene\+::\+On\+Render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_i_updatable_ac54378b73b803d15ed132396e52f38ea}{I\+Updatable}}.
+
+\mbox{\Hypertarget{class_c_scene_a19e606b9dd467d9763f8893129988fc5}\label{class_c_scene_a19e606b9dd467d9763f8893129988fc5}} 
+\index{CScene@{CScene}!OnUpdate@{OnUpdate}}
+\index{OnUpdate@{OnUpdate}!CScene@{CScene}}
+\doxysubsubsection{\texorpdfstring{OnUpdate()}{OnUpdate()}}
+{\footnotesize\ttfamily void C\+Scene\+::\+On\+Update (\begin{DoxyParamCaption}\item[{const float}]{DT }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented from \mbox{\hyperlink{class_i_updatable_a20422230fbfce2ce812213e9ba6c2a06}{I\+Updatable}}.
+
+\mbox{\Hypertarget{class_c_scene_a36862e7ece035a336163768eb28ed377}\label{class_c_scene_a36862e7ece035a336163768eb28ed377}} 
+\index{CScene@{CScene}!RegisterComponentFactory@{RegisterComponentFactory}}
+\index{RegisterComponentFactory@{RegisterComponentFactory}!CScene@{CScene}}
+\doxysubsubsection{\texorpdfstring{RegisterComponentFactory()}{RegisterComponentFactory()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void C\+Scene\+::\+Register\+Component\+Factory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_scene_a526c984f528a9bc3c49e33d142e056cb}\label{class_c_scene_a526c984f528a9bc3c49e33d142e056cb}} 
+\index{CScene@{CScene}!RegisterEntityFactory@{RegisterEntityFactory}}
+\index{RegisterEntityFactory@{RegisterEntityFactory}!CScene@{CScene}}
+\doxysubsubsection{\texorpdfstring{RegisterEntityFactory()}{RegisterEntityFactory()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void C\+Scene\+::\+Register\+Entity\+Factory (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Engine/\+Scene/\mbox{\hyperlink{_scene_8hpp}{Scene.\+hpp}}\item 
+Source/\+Engine/\+Scene/\mbox{\hyperlink{_scene_8cpp}{Scene.\+cpp}}\end{DoxyCompactItemize}

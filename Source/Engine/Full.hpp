@@ -80,6 +80,7 @@
 #include "Scene/Components/AudioSource.hpp"
 #include "Scene/Components/Camera.hpp"
 #include "Scene/Components/Camera2D.hpp"
+#include "Scene/Components/LightComponent.hpp"
 #include "Scene/Components/MeshRenderer.hpp"
 #include "Scene/Components/RectRenderer2D.hpp"
 #include "Scene/Components/StaticSprite2D.hpp"

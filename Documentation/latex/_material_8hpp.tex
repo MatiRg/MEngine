@@ -1,0 +1,86 @@
+\hypertarget{_material_8hpp}{}\doxysection{Source/\+Engine/\+Graphics/\+Material.hpp File Reference}
+\label{_material_8hpp}\index{Source/Engine/Graphics/Material.hpp@{Source/Engine/Graphics/Material.hpp}}
+{\ttfamily \#include \char`\"{}../\+Resources/\+Resource\+Manager.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Shader.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Texture2\+D.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$variant$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_c_material_variable}{C\+Material\+Variable}}
+\item 
+class \mbox{\hyperlink{class_c_material}{C\+Material}}
+\item 
+class \mbox{\hyperlink{class_c_material_manager}{C\+Material\+Manager}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespace_utils}{Utils}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{_material_8hpp_a5d18b968f5c92843cd9615edc80989c9}{E\+Material\+Variable\+Type}} \{ \newline
+\mbox{\hyperlink{_material_8hpp_a5d18b968f5c92843cd9615edc80989c9a6adf97f83acf6453d4a6a4b1070f3754}{E\+Material\+Variable\+Type\+::\+None}}, 
+\mbox{\hyperlink{_material_8hpp_a5d18b968f5c92843cd9615edc80989c9a1686a6c336b71b36d77354cea19a8b52}{E\+Material\+Variable\+Type\+::\+Int}}, 
+\mbox{\hyperlink{_material_8hpp_a5d18b968f5c92843cd9615edc80989c9a22ae0e2b89e5e3d477f988cc36d3272b}{E\+Material\+Variable\+Type\+::\+Float}}, 
+\mbox{\hyperlink{_material_8hpp_a5d18b968f5c92843cd9615edc80989c9a1bebc5ae2822f8e361fb0ce57b5e09e2}{E\+Material\+Variable\+Type\+::\+Vector2}}, 
+\newline
+\mbox{\hyperlink{_material_8hpp_a5d18b968f5c92843cd9615edc80989c9a02b4dab58bbc49e0851fb3fd8df520cc}{E\+Material\+Variable\+Type\+::\+Vector3}}, 
+\mbox{\hyperlink{_material_8hpp_a5d18b968f5c92843cd9615edc80989c9acf637ffa2663b40ae52857aa0bdb1ec3}{E\+Material\+Variable\+Type\+::\+Vector4}}, 
+\mbox{\hyperlink{_material_8hpp_a5d18b968f5c92843cd9615edc80989c9acb5feb1b7314637725a2e73bdc9f7295}{E\+Material\+Variable\+Type\+::\+Color}}, 
+\mbox{\hyperlink{_material_8hpp_a5d18b968f5c92843cd9615edc80989c9aa3e8ae43188ae76d38f414b2bdb0077b}{E\+Material\+Variable\+Type\+::\+Texture}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+std\+::string \mbox{\hyperlink{namespace_utils_ad1ebaf99727f4df2abc4795220003d10}{Utils\+::\+Material\+Variable\+Type\+To\+String}} (\mbox{\hyperlink{_material_8hpp_a5d18b968f5c92843cd9615edc80989c9}{E\+Material\+Variable\+Type}} x)
+\item 
+\mbox{\hyperlink{_material_8hpp_a5d18b968f5c92843cd9615edc80989c9}{E\+Material\+Variable\+Type}} \mbox{\hyperlink{namespace_utils_adbd4dc0528ccf9ea8f64f8bcfff53149}{Utils\+::\+Material\+Variable\+Type\+From\+String}} (const std\+::string \&x)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{_material_8hpp_a5d18b968f5c92843cd9615edc80989c9}\label{_material_8hpp_a5d18b968f5c92843cd9615edc80989c9}} 
+\index{Material.hpp@{Material.hpp}!EMaterialVariableType@{EMaterialVariableType}}
+\index{EMaterialVariableType@{EMaterialVariableType}!Material.hpp@{Material.hpp}}
+\doxysubsubsection{\texorpdfstring{EMaterialVariableType}{EMaterialVariableType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_material_8hpp_a5d18b968f5c92843cd9615edc80989c9}{E\+Material\+Variable\+Type}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{None@{None}!Material.hpp@{Material.hpp}}\index{Material.hpp@{Material.hpp}!None@{None}}}\mbox{\Hypertarget{_material_8hpp_a5d18b968f5c92843cd9615edc80989c9a6adf97f83acf6453d4a6a4b1070f3754}\label{_material_8hpp_a5d18b968f5c92843cd9615edc80989c9a6adf97f83acf6453d4a6a4b1070f3754}} 
+None&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Int@{Int}!Material.hpp@{Material.hpp}}\index{Material.hpp@{Material.hpp}!Int@{Int}}}\mbox{\Hypertarget{_material_8hpp_a5d18b968f5c92843cd9615edc80989c9a1686a6c336b71b36d77354cea19a8b52}\label{_material_8hpp_a5d18b968f5c92843cd9615edc80989c9a1686a6c336b71b36d77354cea19a8b52}} 
+Int&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Float@{Float}!Material.hpp@{Material.hpp}}\index{Material.hpp@{Material.hpp}!Float@{Float}}}\mbox{\Hypertarget{_material_8hpp_a5d18b968f5c92843cd9615edc80989c9a22ae0e2b89e5e3d477f988cc36d3272b}\label{_material_8hpp_a5d18b968f5c92843cd9615edc80989c9a22ae0e2b89e5e3d477f988cc36d3272b}} 
+Float&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Vector2@{Vector2}!Material.hpp@{Material.hpp}}\index{Material.hpp@{Material.hpp}!Vector2@{Vector2}}}\mbox{\Hypertarget{_material_8hpp_a5d18b968f5c92843cd9615edc80989c9a1bebc5ae2822f8e361fb0ce57b5e09e2}\label{_material_8hpp_a5d18b968f5c92843cd9615edc80989c9a1bebc5ae2822f8e361fb0ce57b5e09e2}} 
+Vector2&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Vector3@{Vector3}!Material.hpp@{Material.hpp}}\index{Material.hpp@{Material.hpp}!Vector3@{Vector3}}}\mbox{\Hypertarget{_material_8hpp_a5d18b968f5c92843cd9615edc80989c9a02b4dab58bbc49e0851fb3fd8df520cc}\label{_material_8hpp_a5d18b968f5c92843cd9615edc80989c9a02b4dab58bbc49e0851fb3fd8df520cc}} 
+Vector3&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Vector4@{Vector4}!Material.hpp@{Material.hpp}}\index{Material.hpp@{Material.hpp}!Vector4@{Vector4}}}\mbox{\Hypertarget{_material_8hpp_a5d18b968f5c92843cd9615edc80989c9acf637ffa2663b40ae52857aa0bdb1ec3}\label{_material_8hpp_a5d18b968f5c92843cd9615edc80989c9acf637ffa2663b40ae52857aa0bdb1ec3}} 
+Vector4&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Color@{Color}!Material.hpp@{Material.hpp}}\index{Material.hpp@{Material.hpp}!Color@{Color}}}\mbox{\Hypertarget{_material_8hpp_a5d18b968f5c92843cd9615edc80989c9acb5feb1b7314637725a2e73bdc9f7295}\label{_material_8hpp_a5d18b968f5c92843cd9615edc80989c9acb5feb1b7314637725a2e73bdc9f7295}} 
+Color&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Texture@{Texture}!Material.hpp@{Material.hpp}}\index{Material.hpp@{Material.hpp}!Texture@{Texture}}}\mbox{\Hypertarget{_material_8hpp_a5d18b968f5c92843cd9615edc80989c9aa3e8ae43188ae76d38f414b2bdb0077b}\label{_material_8hpp_a5d18b968f5c92843cd9615edc80989c9aa3e8ae43188ae76d38f414b2bdb0077b}} 
+Texture&\\
+\hline
+
+\end{DoxyEnumFields}

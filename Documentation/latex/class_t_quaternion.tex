@@ -1,0 +1,419 @@
+\hypertarget{class_t_quaternion}{}\doxysection{T\+Quaternion$<$ T $>$ Class Template Reference}
+\label{class_t_quaternion}\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+
+
+{\ttfamily \#include $<$Quaternion.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_t_quaternion_a2caa1f204596d85a88dda8a9f8dc889f}{T\+Quaternion}} ()
+\item 
+\mbox{\hyperlink{class_t_quaternion_a835c36866a1a93d958d3cd36b833b20f}{T\+Quaternion}} (const T ax, const T ay, const T az)
+\item 
+\mbox{\hyperlink{class_t_quaternion_a90d06c465a03b0a3315611694a75aaec}{T\+Quaternion}} (const \mbox{\hyperlink{class_t_vector3}{T\+Vector3}}$<$ T $>$ \&v)
+\item 
+\mbox{\hyperlink{class_t_quaternion_a379cf575cbd815cf1347ade8d70f7ec8}{T\+Quaternion}} (const \mbox{\hyperlink{class_t_vector3}{T\+Vector3}}$<$ T $>$ \&v, const T angle)
+\begin{DoxyCompactList}\small\item\em Degrees, Axis\+Angle, Axis normalized. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_t_quaternion_aafdc945f47f3fd851b19c5a2ac4a643d}{T\+Quaternion}} (const T ax, const T ay, const T az, const T aw)
+\begin{DoxyCompactList}\small\item\em Construct from components. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_t_quaternion_a2aa5b5e3b6b66ebc8f45a2da16df4276}{T\+Quaternion}} (const \mbox{\hyperlink{class_t_matrix4}{T\+Matrix4}}$<$ T $>$ \&D)
+\begin{DoxyCompactList}\small\item\em Pure Rotation matrix. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_t_quaternion_ab20ad6d60d8640db020ef23af17b3e0e}{T\+Quaternion}} (const \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \&D)
+\item 
+\mbox{\hyperlink{class_t_quaternion_a6847719ccbb268dc302b00af7bc1b95e}{$\sim$\+T\+Quaternion}} ()
+\item 
+void \mbox{\hyperlink{class_t_quaternion_ac05bdf8f44493086c9168f780a4bd1c6}{Identity}} ()
+\item 
+\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \mbox{\hyperlink{class_t_quaternion_aef16a2592532b1a12a6a6b5c1d65b74d}{Conjugate}} () const
+\item 
+T \mbox{\hyperlink{class_t_quaternion_a1e318c4ad7afa2a657187fd059e5b6a4}{Length}} () const
+\item 
+T \mbox{\hyperlink{class_t_quaternion_a2a2e419ecd38d23340c8683f8c8c786d}{Length\+Squared}} () const
+\item 
+void \mbox{\hyperlink{class_t_quaternion_a3f3ceac1b837f0661c8fa58ffe6ef506}{Normalize}} ()
+\item 
+T \mbox{\hyperlink{class_t_quaternion_ab8e884973c3ebf5f93fa04774ba3601f}{Dot\+Product}} (const \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \&Other) const
+\item 
+\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \mbox{\hyperlink{class_t_quaternion_a21c3c512913fe1f187d28995651fc487}{Inverse}} () const
+\item 
+void \mbox{\hyperlink{class_t_quaternion_a039a26ecce59f72a9cb3a0e34c5a9d2f}{Invert}} ()
+\item 
+\mbox{\hyperlink{class_t_vector3}{T\+Vector3}}$<$ T $>$ \mbox{\hyperlink{class_t_quaternion_a9c0e2c3d3463e8021b32189cd9a71689}{To\+Euler\+Angles}} () const
+\item 
+void \mbox{\hyperlink{class_t_quaternion_a6c8be385eaeff82d32ec7d52e3f5b64b}{From\+Euler\+Angles}} (const T ax, const T ay, const T az)
+\item 
+void \mbox{\hyperlink{class_t_quaternion_ae340ce282c8cd40e427ccffa62295057}{From\+Euler\+Angles}} (const \mbox{\hyperlink{class_t_vector3}{T\+Vector3}}$<$ T $>$ \&v)
+\item 
+void \mbox{\hyperlink{class_t_quaternion_ad5e99424e1805f9e13507078d84766b0}{To\+Axis\+Angle}} (\mbox{\hyperlink{class_t_vector3}{T\+Vector3}}$<$ T $>$ \&v, T \&angle) const
+\item 
+void \mbox{\hyperlink{class_t_quaternion_a3c9e14eb476db801374604ac994a7ca4}{From\+Axis\+Angle}} (const \mbox{\hyperlink{class_t_vector3}{T\+Vector3}}$<$ T $>$ \&v, const T angle)
+\item 
+\mbox{\hyperlink{class_t_matrix4}{T\+Matrix4}}$<$ T $>$ \mbox{\hyperlink{class_t_quaternion_a588d296ddf605b987eacaae517ccfe0b}{To\+Matrix}} () const
+\item 
+void \mbox{\hyperlink{class_t_quaternion_a1587c7bab25d2fe92edfaa929fd546ca}{From\+Matrix}} (const \mbox{\hyperlink{class_t_matrix4}{T\+Matrix4}}$<$ T $>$ \&m)
+\item 
+T \& \mbox{\hyperlink{class_t_quaternion_aa60ac3eecd7923ae8fa85f5ffc8273ca}{operator\mbox{[}$\,$\mbox{]}}} (std\+::size\+\_\+t idx)
+\item 
+const T \& \mbox{\hyperlink{class_t_quaternion_ad92fdda3abe2f28d391f9cac8b93d5b6}{operator\mbox{[}$\,$\mbox{]}}} (std\+::size\+\_\+t idx) const
+\item 
+\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \& \mbox{\hyperlink{class_t_quaternion_ae6015dc8f387f8faee1e783d587b9af7}{operator=}} (const \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \&D)
+\item 
+\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \mbox{\hyperlink{class_t_quaternion_ae25a5b49555b65acd87575c3a61bdf7a}{operator$\ast$}} (const T Other) const
+\item 
+\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \& \mbox{\hyperlink{class_t_quaternion_a037511e17eb894ec94f9744ad4028f15}{operator$\ast$=}} (const T Other)
+\item 
+\mbox{\hyperlink{class_t_vector3}{T\+Vector3}}$<$ T $>$ \mbox{\hyperlink{class_t_quaternion_a30446b175f6db1a9a1f0830b8faa9441}{operator$\ast$}} (const \mbox{\hyperlink{class_t_vector3}{T\+Vector3}}$<$ T $>$ \&Other) const
+\item 
+\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \mbox{\hyperlink{class_t_quaternion_a68deb03459598e6ced631ce25ef3c779}{operator$\ast$}} (const \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \&D) const
+\item 
+\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \& \mbox{\hyperlink{class_t_quaternion_a8717a5cf8072e8105377702eda25e952}{operator$\ast$=}} (const \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \&D)
+\item 
+\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \mbox{\hyperlink{class_t_quaternion_a7a419c0858f348d3f213f1c76048c5b4}{operator+}} (const \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \&Other) const
+\item 
+\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \& \mbox{\hyperlink{class_t_quaternion_a5d559ee9393a9cbaf587c34c3af6b501}{operator+=}} (const \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \&Other)
+\item 
+\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \mbox{\hyperlink{class_t_quaternion_ab815559585313e36fc05385e99977277}{operator-\/}} (const \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \&Other) const
+\item 
+\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \& \mbox{\hyperlink{class_t_quaternion_a59dc15564d78e65eab3b6b2cb56c8371}{operator-\/=}} (const \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \&Other)
+\item 
+void \mbox{\hyperlink{class_t_quaternion_a9549a6e45fe02dab4585618e9fdae743}{Add\+Scaled\+Vector}} (const \mbox{\hyperlink{class_t_vector3}{T\+Vector3}}$<$ T $>$ \&v, const T s)
+\item 
+void \mbox{\hyperlink{class_t_quaternion_af9197e75ab3d4c2fd71dba5700882564}{Rotate\+By\+Vector}} (const \mbox{\hyperlink{class_t_vector3}{T\+Vector3}}$<$ T $>$ \&v)
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+T \mbox{\hyperlink{class_t_quaternion_ae29c5243f951b729586f2c819fa53fca}{x}}
+\item 
+T \mbox{\hyperlink{class_t_quaternion_a3bdd10d631b4656d96742e65b11d2a00}{y}}
+\item 
+T \mbox{\hyperlink{class_t_quaternion_aef3eba7b7ee5c285b58e3cbca205fc37}{z}}
+\item 
+T \mbox{\hyperlink{class_t_quaternion_a84d6100eb02c42371bae7c6eb4b55ebf}{w}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \mbox{\hyperlink{class_t_quaternion_ae5c6b91ae27ee5b645b6e00c031ea68b}{I\+D\+E\+N\+T\+I\+TY}} = \{\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_t_quaternion_a2caa1f204596d85a88dda8a9f8dc889f}\label{class_t_quaternion_a2caa1f204596d85a88dda8a9f8dc889f}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!TQuaternion@{TQuaternion}}
+\index{TQuaternion@{TQuaternion}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{TQuaternion()}{TQuaternion()}\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_quaternion_a835c36866a1a93d958d3cd36b833b20f}\label{class_t_quaternion_a835c36866a1a93d958d3cd36b833b20f}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!TQuaternion@{TQuaternion}}
+\index{TQuaternion@{TQuaternion}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{TQuaternion()}{TQuaternion()}\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}} (\begin{DoxyParamCaption}\item[{const T}]{ax,  }\item[{const T}]{ay,  }\item[{const T}]{az }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_quaternion_a90d06c465a03b0a3315611694a75aaec}\label{class_t_quaternion_a90d06c465a03b0a3315611694a75aaec}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!TQuaternion@{TQuaternion}}
+\index{TQuaternion@{TQuaternion}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{TQuaternion()}{TQuaternion()}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_t_vector3}{T\+Vector3}}$<$ T $>$ \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_quaternion_a379cf575cbd815cf1347ade8d70f7ec8}\label{class_t_quaternion_a379cf575cbd815cf1347ade8d70f7ec8}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!TQuaternion@{TQuaternion}}
+\index{TQuaternion@{TQuaternion}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{TQuaternion()}{TQuaternion()}\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_t_vector3}{T\+Vector3}}$<$ T $>$ \&}]{v,  }\item[{const T}]{angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Degrees, Axis\+Angle, Axis normalized. 
+
+\mbox{\Hypertarget{class_t_quaternion_aafdc945f47f3fd851b19c5a2ac4a643d}\label{class_t_quaternion_aafdc945f47f3fd851b19c5a2ac4a643d}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!TQuaternion@{TQuaternion}}
+\index{TQuaternion@{TQuaternion}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{TQuaternion()}{TQuaternion()}\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}} (\begin{DoxyParamCaption}\item[{const T}]{ax,  }\item[{const T}]{ay,  }\item[{const T}]{az,  }\item[{const T}]{aw }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct from components. 
+
+\mbox{\Hypertarget{class_t_quaternion_a2aa5b5e3b6b66ebc8f45a2da16df4276}\label{class_t_quaternion_a2aa5b5e3b6b66ebc8f45a2da16df4276}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!TQuaternion@{TQuaternion}}
+\index{TQuaternion@{TQuaternion}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{TQuaternion()}{TQuaternion()}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_t_matrix4}{T\+Matrix4}}$<$ T $>$ \&}]{D }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Pure Rotation matrix. 
+
+\mbox{\Hypertarget{class_t_quaternion_ab20ad6d60d8640db020ef23af17b3e0e}\label{class_t_quaternion_ab20ad6d60d8640db020ef23af17b3e0e}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!TQuaternion@{TQuaternion}}
+\index{TQuaternion@{TQuaternion}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{TQuaternion()}{TQuaternion()}\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \&}]{D }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_quaternion_a6847719ccbb268dc302b00af7bc1b95e}\label{class_t_quaternion_a6847719ccbb268dc302b00af7bc1b95e}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!````~TQuaternion@{$\sim$TQuaternion}}
+\index{````~TQuaternion@{$\sim$TQuaternion}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$TQuaternion()}{~TQuaternion()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::$\sim$\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_t_quaternion_a9549a6e45fe02dab4585618e9fdae743}\label{class_t_quaternion_a9549a6e45fe02dab4585618e9fdae743}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!AddScaledVector@{AddScaledVector}}
+\index{AddScaledVector@{AddScaledVector}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{AddScaledVector()}{AddScaledVector()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::Add\+Scaled\+Vector (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_t_vector3}{T\+Vector3}}$<$ T $>$ \&}]{v,  }\item[{const T}]{s }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_quaternion_aef16a2592532b1a12a6a6b5c1d65b74d}\label{class_t_quaternion_aef16a2592532b1a12a6a6b5c1d65b74d}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!Conjugate@{Conjugate}}
+\index{Conjugate@{Conjugate}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Conjugate()}{Conjugate()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$T$>$ \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::Conjugate (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_quaternion_ab8e884973c3ebf5f93fa04774ba3601f}\label{class_t_quaternion_ab8e884973c3ebf5f93fa04774ba3601f}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!DotProduct@{DotProduct}}
+\index{DotProduct@{DotProduct}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{DotProduct()}{DotProduct()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::Dot\+Product (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \&}]{Other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_quaternion_a3c9e14eb476db801374604ac994a7ca4}\label{class_t_quaternion_a3c9e14eb476db801374604ac994a7ca4}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!FromAxisAngle@{FromAxisAngle}}
+\index{FromAxisAngle@{FromAxisAngle}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{FromAxisAngle()}{FromAxisAngle()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::From\+Axis\+Angle (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_t_vector3}{T\+Vector3}}$<$ T $>$ \&}]{v,  }\item[{const T}]{angle }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_quaternion_a6c8be385eaeff82d32ec7d52e3f5b64b}\label{class_t_quaternion_a6c8be385eaeff82d32ec7d52e3f5b64b}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!FromEulerAngles@{FromEulerAngles}}
+\index{FromEulerAngles@{FromEulerAngles}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{FromEulerAngles()}{FromEulerAngles()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::From\+Euler\+Angles (\begin{DoxyParamCaption}\item[{const T}]{ax,  }\item[{const T}]{ay,  }\item[{const T}]{az }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_quaternion_ae340ce282c8cd40e427ccffa62295057}\label{class_t_quaternion_ae340ce282c8cd40e427ccffa62295057}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!FromEulerAngles@{FromEulerAngles}}
+\index{FromEulerAngles@{FromEulerAngles}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{FromEulerAngles()}{FromEulerAngles()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::From\+Euler\+Angles (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_t_vector3}{T\+Vector3}}$<$ T $>$ \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_quaternion_a1587c7bab25d2fe92edfaa929fd546ca}\label{class_t_quaternion_a1587c7bab25d2fe92edfaa929fd546ca}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!FromMatrix@{FromMatrix}}
+\index{FromMatrix@{FromMatrix}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{FromMatrix()}{FromMatrix()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::From\+Matrix (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_t_matrix4}{T\+Matrix4}}$<$ T $>$ \&}]{m }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_quaternion_ac05bdf8f44493086c9168f780a4bd1c6}\label{class_t_quaternion_ac05bdf8f44493086c9168f780a4bd1c6}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!Identity@{Identity}}
+\index{Identity@{Identity}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Identity()}{Identity()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::Identity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_quaternion_a21c3c512913fe1f187d28995651fc487}\label{class_t_quaternion_a21c3c512913fe1f187d28995651fc487}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!Inverse@{Inverse}}
+\index{Inverse@{Inverse}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Inverse()}{Inverse()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$T$>$ \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::Inverse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_quaternion_a039a26ecce59f72a9cb3a0e34c5a9d2f}\label{class_t_quaternion_a039a26ecce59f72a9cb3a0e34c5a9d2f}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!Invert@{Invert}}
+\index{Invert@{Invert}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Invert()}{Invert()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::Invert (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_quaternion_a1e318c4ad7afa2a657187fd059e5b6a4}\label{class_t_quaternion_a1e318c4ad7afa2a657187fd059e5b6a4}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!Length@{Length}}
+\index{Length@{Length}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Length()}{Length()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::Length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_quaternion_a2a2e419ecd38d23340c8683f8c8c786d}\label{class_t_quaternion_a2a2e419ecd38d23340c8683f8c8c786d}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!LengthSquared@{LengthSquared}}
+\index{LengthSquared@{LengthSquared}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{LengthSquared()}{LengthSquared()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::Length\+Squared (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_quaternion_a3f3ceac1b837f0661c8fa58ffe6ef506}\label{class_t_quaternion_a3f3ceac1b837f0661c8fa58ffe6ef506}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!Normalize@{Normalize}}
+\index{Normalize@{Normalize}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Normalize()}{Normalize()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::Normalize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_quaternion_ae25a5b49555b65acd87575c3a61bdf7a}\label{class_t_quaternion_ae25a5b49555b65acd87575c3a61bdf7a}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$T$>$ \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{const T}]{Other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_quaternion_a68deb03459598e6ced631ce25ef3c779}\label{class_t_quaternion_a68deb03459598e6ced631ce25ef3c779}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$T$>$ \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \&}]{D }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_quaternion_a30446b175f6db1a9a1f0830b8faa9441}\label{class_t_quaternion_a30446b175f6db1a9a1f0830b8faa9441}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$()}{operator*()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_t_vector3}{T\+Vector3}}$<$T$>$ \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::operator$\ast$ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_t_vector3}{T\+Vector3}}$<$ T $>$ \&}]{Other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_quaternion_a037511e17eb894ec94f9744ad4028f15}\label{class_t_quaternion_a037511e17eb894ec94f9744ad4028f15}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$=()}{operator*=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$T$>$\& \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::operator$\ast$= (\begin{DoxyParamCaption}\item[{const T}]{Other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_quaternion_a8717a5cf8072e8105377702eda25e952}\label{class_t_quaternion_a8717a5cf8072e8105377702eda25e952}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator$\ast$=()}{operator*=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$T$>$\& \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::operator$\ast$= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \&}]{D }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_quaternion_a7a419c0858f348d3f213f1c76048c5b4}\label{class_t_quaternion_a7a419c0858f348d3f213f1c76048c5b4}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!operator+@{operator+}}
+\index{operator+@{operator+}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$T$>$ \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \&}]{Other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_quaternion_a5d559ee9393a9cbaf587c34c3af6b501}\label{class_t_quaternion_a5d559ee9393a9cbaf587c34c3af6b501}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$T$>$\& \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::operator+= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \&}]{Other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_quaternion_ab815559585313e36fc05385e99977277}\label{class_t_quaternion_ab815559585313e36fc05385e99977277}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$T$>$ \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \&}]{Other }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_quaternion_a59dc15564d78e65eab3b6b2cb56c8371}\label{class_t_quaternion_a59dc15564d78e65eab3b6b2cb56c8371}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$T$>$\& \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::operator-\/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \&}]{Other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_quaternion_ae6015dc8f387f8faee1e783d587b9af7}\label{class_t_quaternion_ae6015dc8f387f8faee1e783d587b9af7}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!operator=@{operator=}}
+\index{operator=@{operator=}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$T$>$\& \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \&}]{D }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_quaternion_aa60ac3eecd7923ae8fa85f5ffc8273ca}\label{class_t_quaternion_aa60ac3eecd7923ae8fa85f5ffc8273ca}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T\& \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{idx }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_quaternion_ad92fdda3abe2f28d391f9cac8b93d5b6}\label{class_t_quaternion_ad92fdda3abe2f28d391f9cac8b93d5b6}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+const T\& \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{std\+::size\+\_\+t}]{idx }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_quaternion_af9197e75ab3d4c2fd71dba5700882564}\label{class_t_quaternion_af9197e75ab3d4c2fd71dba5700882564}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!RotateByVector@{RotateByVector}}
+\index{RotateByVector@{RotateByVector}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{RotateByVector()}{RotateByVector()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::Rotate\+By\+Vector (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_t_vector3}{T\+Vector3}}$<$ T $>$ \&}]{v }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_quaternion_ad5e99424e1805f9e13507078d84766b0}\label{class_t_quaternion_ad5e99424e1805f9e13507078d84766b0}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!ToAxisAngle@{ToAxisAngle}}
+\index{ToAxisAngle@{ToAxisAngle}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{ToAxisAngle()}{ToAxisAngle()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::To\+Axis\+Angle (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_t_vector3}{T\+Vector3}}$<$ T $>$ \&}]{v,  }\item[{T \&}]{angle }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_quaternion_a9c0e2c3d3463e8021b32189cd9a71689}\label{class_t_quaternion_a9c0e2c3d3463e8021b32189cd9a71689}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!ToEulerAngles@{ToEulerAngles}}
+\index{ToEulerAngles@{ToEulerAngles}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{ToEulerAngles()}{ToEulerAngles()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_t_vector3}{T\+Vector3}}$<$T$>$ \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::To\+Euler\+Angles (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_t_quaternion_a588d296ddf605b987eacaae517ccfe0b}\label{class_t_quaternion_a588d296ddf605b987eacaae517ccfe0b}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!ToMatrix@{ToMatrix}}
+\index{ToMatrix@{ToMatrix}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{ToMatrix()}{ToMatrix()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_t_matrix4}{T\+Matrix4}}$<$T$>$ \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::To\+Matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_t_quaternion_ae5c6b91ae27ee5b645b6e00c031ea68b}\label{class_t_quaternion_ae5c6b91ae27ee5b645b6e00c031ea68b}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!IDENTITY@{IDENTITY}}
+\index{IDENTITY@{IDENTITY}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{IDENTITY}{IDENTITY}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::I\+D\+E\+N\+T\+I\+TY = \{\}\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{class_t_quaternion_a84d6100eb02c42371bae7c6eb4b55ebf}\label{class_t_quaternion_a84d6100eb02c42371bae7c6eb4b55ebf}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!w@{w}}
+\index{w@{w}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{w}{w}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::w}
+
+\mbox{\Hypertarget{class_t_quaternion_ae29c5243f951b729586f2c819fa53fca}\label{class_t_quaternion_ae29c5243f951b729586f2c819fa53fca}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!x@{x}}
+\index{x@{x}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{x}{x}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::x}
+
+\mbox{\Hypertarget{class_t_quaternion_a3bdd10d631b4656d96742e65b11d2a00}\label{class_t_quaternion_a3bdd10d631b4656d96742e65b11d2a00}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!y@{y}}
+\index{y@{y}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{y}{y}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::y}
+
+\mbox{\Hypertarget{class_t_quaternion_aef3eba7b7ee5c285b58e3cbca205fc37}\label{class_t_quaternion_aef3eba7b7ee5c285b58e3cbca205fc37}} 
+\index{TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}!z@{z}}
+\index{z@{z}!TQuaternion$<$ T $>$@{TQuaternion$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{z}{z}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$\+::z}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Engine/\+Math/\mbox{\hyperlink{_quaternion_8hpp}{Quaternion.\+hpp}}\end{DoxyCompactItemize}

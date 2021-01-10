@@ -1,0 +1,147 @@
+\hypertarget{class_c_material_variable}{}\doxysection{C\+Material\+Variable Class Reference}
+\label{class_c_material_variable}\index{CMaterialVariable@{CMaterialVariable}}
+
+
+{\ttfamily \#include $<$Material.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_material_variable_ad594dd7f437175e850ce1ba970095778}{C\+Material\+Variable}} (\mbox{\hyperlink{class_c_material}{C\+Material}} $\ast$, const std\+::string \&)
+\item 
+\mbox{\hyperlink{class_c_material_variable_ab4c922715506eb1e452658e1891e2eae}{$\sim$\+C\+Material\+Variable}} ()
+\item 
+void \mbox{\hyperlink{class_c_material_variable_a500565fa8c5504fab7f71802100020a3}{Bind}} (\mbox{\hyperlink{class_i_shader}{I\+Shader}} $\ast$)
+\item 
+void \mbox{\hyperlink{class_c_material_variable_a78cb3ea3d7abf3eda3c28ea8fdb18e3b}{Set\+Value}} (const int)
+\item 
+void \mbox{\hyperlink{class_c_material_variable_a2f164c4c0c60ad896b76ab9df44f1059}{Set\+Value}} (const float)
+\item 
+void \mbox{\hyperlink{class_c_material_variable_a4a6eb32d8a5c97012678a67f546caae6}{Set\+Value}} (const \mbox{\hyperlink{_vector2_8hpp_ab50a46295e259c17345421d0fc1cb3bb}{Vector2}} \&)
+\item 
+void \mbox{\hyperlink{class_c_material_variable_a254b7a29ac99441096797d749ca77a58}{Set\+Value}} (const \mbox{\hyperlink{_vector3_8hpp_abb63d82e5aaa1616fff243d45937ad17}{Vector3}} \&)
+\item 
+void \mbox{\hyperlink{class_c_material_variable_a731f218d46aa728b7da9bb1996401f5a}{Set\+Value}} (const \mbox{\hyperlink{_vector4_8hpp_a1542ba9453e2215413cafeeb0cf849d7}{Vector4}} \&)
+\item 
+void \mbox{\hyperlink{class_c_material_variable_ac8b5eddaf50853a08d7c4f153a2fe7dc}{Set\+Value}} (const \mbox{\hyperlink{class_color}{Color}} \&)
+\item 
+void \mbox{\hyperlink{class_c_material_variable_a2be036a27c2724e9937e371743a748a4}{Set\+Value}} (\mbox{\hyperlink{class_i_texture2_d}{I\+Texture2D}} $\ast$)
+\item 
+const std\+::string \& \mbox{\hyperlink{class_c_material_variable_ab1dd0fe29eacf3b440457cb3dd5c6a22}{Get\+Name}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_material}{C\+Material}} $\ast$ \mbox{\hyperlink{class_c_material_variable_aaeacade2702de49d9a5394f8393d82cc}{Material}} = nullptr
+\item 
+std\+::string \mbox{\hyperlink{class_c_material_variable_ae1c56c7604feb81511d3c5baaca0ca7d}{Name}}
+\item 
+\mbox{\hyperlink{_material_8hpp_a5d18b968f5c92843cd9615edc80989c9}{E\+Material\+Variable\+Type}} \mbox{\hyperlink{class_c_material_variable_af3d0b07ea923a200895fdb0f7cb506f7}{Type}} = E\+Material\+Variable\+Type\+::\+None
+\item 
+std\+::variant$<$ int, float, \mbox{\hyperlink{_vector2_8hpp_ab50a46295e259c17345421d0fc1cb3bb}{Vector2}}, \mbox{\hyperlink{_vector3_8hpp_abb63d82e5aaa1616fff243d45937ad17}{Vector3}}, \mbox{\hyperlink{_vector4_8hpp_a1542ba9453e2215413cafeeb0cf849d7}{Vector4}}, \mbox{\hyperlink{class_color}{Color}}, \mbox{\hyperlink{class_i_texture2_d}{I\+Texture2D}} $\ast$ $>$ \mbox{\hyperlink{class_c_material_variable_a8d1618dcd2648e6121637546d0930e09}{Value}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_c_material_variable_ad594dd7f437175e850ce1ba970095778}\label{class_c_material_variable_ad594dd7f437175e850ce1ba970095778}} 
+\index{CMaterialVariable@{CMaterialVariable}!CMaterialVariable@{CMaterialVariable}}
+\index{CMaterialVariable@{CMaterialVariable}!CMaterialVariable@{CMaterialVariable}}
+\doxysubsubsection{\texorpdfstring{CMaterialVariable()}{CMaterialVariable()}}
+{\footnotesize\ttfamily C\+Material\+Variable\+::\+C\+Material\+Variable (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_material}{C\+Material}} $\ast$}]{a\+Material,  }\item[{const std\+::string \&}]{a\+Name }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_material_variable_ab4c922715506eb1e452658e1891e2eae}\label{class_c_material_variable_ab4c922715506eb1e452658e1891e2eae}} 
+\index{CMaterialVariable@{CMaterialVariable}!````~CMaterialVariable@{$\sim$CMaterialVariable}}
+\index{````~CMaterialVariable@{$\sim$CMaterialVariable}!CMaterialVariable@{CMaterialVariable}}
+\doxysubsubsection{\texorpdfstring{$\sim$CMaterialVariable()}{~CMaterialVariable()}}
+{\footnotesize\ttfamily C\+Material\+Variable\+::$\sim$\+C\+Material\+Variable (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_c_material_variable_a500565fa8c5504fab7f71802100020a3}\label{class_c_material_variable_a500565fa8c5504fab7f71802100020a3}} 
+\index{CMaterialVariable@{CMaterialVariable}!Bind@{Bind}}
+\index{Bind@{Bind}!CMaterialVariable@{CMaterialVariable}}
+\doxysubsubsection{\texorpdfstring{Bind()}{Bind()}}
+{\footnotesize\ttfamily void C\+Material\+Variable\+::\+Bind (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_i_shader}{I\+Shader}} $\ast$}]{Shader }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_material_variable_ab1dd0fe29eacf3b440457cb3dd5c6a22}\label{class_c_material_variable_ab1dd0fe29eacf3b440457cb3dd5c6a22}} 
+\index{CMaterialVariable@{CMaterialVariable}!GetName@{GetName}}
+\index{GetName@{GetName}!CMaterialVariable@{CMaterialVariable}}
+\doxysubsubsection{\texorpdfstring{GetName()}{GetName()}}
+{\footnotesize\ttfamily const std\+::string\& C\+Material\+Variable\+::\+Get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_c_material_variable_ac8b5eddaf50853a08d7c4f153a2fe7dc}\label{class_c_material_variable_ac8b5eddaf50853a08d7c4f153a2fe7dc}} 
+\index{CMaterialVariable@{CMaterialVariable}!SetValue@{SetValue}}
+\index{SetValue@{SetValue}!CMaterialVariable@{CMaterialVariable}}
+\doxysubsubsection{\texorpdfstring{SetValue()}{SetValue()}\hspace{0.1cm}{\footnotesize\ttfamily [1/7]}}
+{\footnotesize\ttfamily void C\+Material\+Variable\+::\+Set\+Value (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_color}{Color}} \&}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_material_variable_a2f164c4c0c60ad896b76ab9df44f1059}\label{class_c_material_variable_a2f164c4c0c60ad896b76ab9df44f1059}} 
+\index{CMaterialVariable@{CMaterialVariable}!SetValue@{SetValue}}
+\index{SetValue@{SetValue}!CMaterialVariable@{CMaterialVariable}}
+\doxysubsubsection{\texorpdfstring{SetValue()}{SetValue()}\hspace{0.1cm}{\footnotesize\ttfamily [2/7]}}
+{\footnotesize\ttfamily void C\+Material\+Variable\+::\+Set\+Value (\begin{DoxyParamCaption}\item[{const float}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_material_variable_a78cb3ea3d7abf3eda3c28ea8fdb18e3b}\label{class_c_material_variable_a78cb3ea3d7abf3eda3c28ea8fdb18e3b}} 
+\index{CMaterialVariable@{CMaterialVariable}!SetValue@{SetValue}}
+\index{SetValue@{SetValue}!CMaterialVariable@{CMaterialVariable}}
+\doxysubsubsection{\texorpdfstring{SetValue()}{SetValue()}\hspace{0.1cm}{\footnotesize\ttfamily [3/7]}}
+{\footnotesize\ttfamily void C\+Material\+Variable\+::\+Set\+Value (\begin{DoxyParamCaption}\item[{const int}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_material_variable_a4a6eb32d8a5c97012678a67f546caae6}\label{class_c_material_variable_a4a6eb32d8a5c97012678a67f546caae6}} 
+\index{CMaterialVariable@{CMaterialVariable}!SetValue@{SetValue}}
+\index{SetValue@{SetValue}!CMaterialVariable@{CMaterialVariable}}
+\doxysubsubsection{\texorpdfstring{SetValue()}{SetValue()}\hspace{0.1cm}{\footnotesize\ttfamily [4/7]}}
+{\footnotesize\ttfamily void C\+Material\+Variable\+::\+Set\+Value (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_vector2_8hpp_ab50a46295e259c17345421d0fc1cb3bb}{Vector2}} \&}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_material_variable_a254b7a29ac99441096797d749ca77a58}\label{class_c_material_variable_a254b7a29ac99441096797d749ca77a58}} 
+\index{CMaterialVariable@{CMaterialVariable}!SetValue@{SetValue}}
+\index{SetValue@{SetValue}!CMaterialVariable@{CMaterialVariable}}
+\doxysubsubsection{\texorpdfstring{SetValue()}{SetValue()}\hspace{0.1cm}{\footnotesize\ttfamily [5/7]}}
+{\footnotesize\ttfamily void C\+Material\+Variable\+::\+Set\+Value (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_vector3_8hpp_abb63d82e5aaa1616fff243d45937ad17}{Vector3}} \&}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_material_variable_a731f218d46aa728b7da9bb1996401f5a}\label{class_c_material_variable_a731f218d46aa728b7da9bb1996401f5a}} 
+\index{CMaterialVariable@{CMaterialVariable}!SetValue@{SetValue}}
+\index{SetValue@{SetValue}!CMaterialVariable@{CMaterialVariable}}
+\doxysubsubsection{\texorpdfstring{SetValue()}{SetValue()}\hspace{0.1cm}{\footnotesize\ttfamily [6/7]}}
+{\footnotesize\ttfamily void C\+Material\+Variable\+::\+Set\+Value (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_vector4_8hpp_a1542ba9453e2215413cafeeb0cf849d7}{Vector4}} \&}]{x }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_c_material_variable_a2be036a27c2724e9937e371743a748a4}\label{class_c_material_variable_a2be036a27c2724e9937e371743a748a4}} 
+\index{CMaterialVariable@{CMaterialVariable}!SetValue@{SetValue}}
+\index{SetValue@{SetValue}!CMaterialVariable@{CMaterialVariable}}
+\doxysubsubsection{\texorpdfstring{SetValue()}{SetValue()}\hspace{0.1cm}{\footnotesize\ttfamily [7/7]}}
+{\footnotesize\ttfamily void C\+Material\+Variable\+::\+Set\+Value (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_i_texture2_d}{I\+Texture2D}} $\ast$}]{Texture }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_c_material_variable_aaeacade2702de49d9a5394f8393d82cc}\label{class_c_material_variable_aaeacade2702de49d9a5394f8393d82cc}} 
+\index{CMaterialVariable@{CMaterialVariable}!Material@{Material}}
+\index{Material@{Material}!CMaterialVariable@{CMaterialVariable}}
+\doxysubsubsection{\texorpdfstring{Material}{Material}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_material}{C\+Material}}$\ast$ C\+Material\+Variable\+::\+Material = nullptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_c_material_variable_ae1c56c7604feb81511d3c5baaca0ca7d}\label{class_c_material_variable_ae1c56c7604feb81511d3c5baaca0ca7d}} 
+\index{CMaterialVariable@{CMaterialVariable}!Name@{Name}}
+\index{Name@{Name}!CMaterialVariable@{CMaterialVariable}}
+\doxysubsubsection{\texorpdfstring{Name}{Name}}
+{\footnotesize\ttfamily std\+::string C\+Material\+Variable\+::\+Name\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_c_material_variable_af3d0b07ea923a200895fdb0f7cb506f7}\label{class_c_material_variable_af3d0b07ea923a200895fdb0f7cb506f7}} 
+\index{CMaterialVariable@{CMaterialVariable}!Type@{Type}}
+\index{Type@{Type}!CMaterialVariable@{CMaterialVariable}}
+\doxysubsubsection{\texorpdfstring{Type}{Type}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_material_8hpp_a5d18b968f5c92843cd9615edc80989c9}{E\+Material\+Variable\+Type}} C\+Material\+Variable\+::\+Type = E\+Material\+Variable\+Type\+::\+None\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_c_material_variable_a8d1618dcd2648e6121637546d0930e09}\label{class_c_material_variable_a8d1618dcd2648e6121637546d0930e09}} 
+\index{CMaterialVariable@{CMaterialVariable}!Value@{Value}}
+\index{Value@{Value}!CMaterialVariable@{CMaterialVariable}}
+\doxysubsubsection{\texorpdfstring{Value}{Value}}
+{\footnotesize\ttfamily std\+::variant$<$int, float, \mbox{\hyperlink{_vector2_8hpp_ab50a46295e259c17345421d0fc1cb3bb}{Vector2}}, \mbox{\hyperlink{_vector3_8hpp_abb63d82e5aaa1616fff243d45937ad17}{Vector3}}, \mbox{\hyperlink{_vector4_8hpp_a1542ba9453e2215413cafeeb0cf849d7}{Vector4}}, \mbox{\hyperlink{class_color}{Color}}, \mbox{\hyperlink{class_i_texture2_d}{I\+Texture2D}}$\ast$$>$ C\+Material\+Variable\+::\+Value\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Engine/\+Graphics/\mbox{\hyperlink{_material_8hpp}{Material.\+hpp}}\item 
+Source/\+Engine/\+Graphics/\mbox{\hyperlink{_material_8cpp}{Material.\+cpp}}\end{DoxyCompactItemize}

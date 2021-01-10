@@ -1,0 +1,234 @@
+\hypertarget{class_i_component}{}\doxysection{I\+Component Class Reference}
+\label{class_i_component}\index{IComponent@{IComponent}}
+
+
+{\ttfamily \#include $<$Component.\+hpp$>$}
+
+Inheritance diagram for I\+Component\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=12.000000cm]{class_i_component}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_i_component_a4478e432dd7b420abb4433695fd2838f}{I\+Component}} (\mbox{\hyperlink{class_c_engine}{C\+Engine}} $\ast$a\+Engine)
+\item 
+virtual \mbox{\hyperlink{class_i_component_a0c8face3ca659b5283502de91cffbb8b}{$\sim$\+I\+Component}} ()
+\item 
+virtual std\+::string \mbox{\hyperlink{class_i_component_a26ef5d9c30093d3e37f67989c6e2210b}{Get\+Type}} () const =0
+\item 
+\mbox{\hyperlink{class_c_engine}{C\+Engine}} $\ast$ \mbox{\hyperlink{class_i_component_ab0a360f0ee759356c5675ec3b1ce3997}{Get\+Engine}} () const
+\item 
+void \mbox{\hyperlink{class_i_component_aeeb4738bd565d79b66c69d12990a70dc}{Set\+Owner}} (\mbox{\hyperlink{class_c_entity}{C\+Entity}} $\ast$a\+Owner)
+\item 
+\mbox{\hyperlink{class_c_entity}{C\+Entity}} $\ast$ \mbox{\hyperlink{class_i_component_a3d225aa3b286062c96aaab815136ab9b}{Get\+Owner}} () const
+\item 
+virtual bool \mbox{\hyperlink{class_i_component_afc223ed01e1849fdd92c708cc2bdd2de}{On\+Load}} (\mbox{\hyperlink{class_c_x_m_l_element}{C\+X\+M\+L\+Element}} $\ast$)
+\item 
+virtual bool \mbox{\hyperlink{class_i_component_af6b499a0f026ba1c60942ac02088f642}{On\+Save}} (\mbox{\hyperlink{class_c_x_m_l_element}{C\+X\+M\+L\+Element}} $\ast$)
+\item 
+virtual void \mbox{\hyperlink{class_i_component_aa9abf1067bcfb212379cdb81470ef27f}{On\+Enabled}} ()
+\item 
+virtual void \mbox{\hyperlink{class_i_component_a8e7664d6e726794239ba04cc2d3e8a58}{On\+Disabled}} ()
+\item 
+virtual void \mbox{\hyperlink{class_i_component_a82932593f6cc082d0e488983b3831bd8}{On\+Create}} ()
+\item 
+virtual void \mbox{\hyperlink{class_i_component_ad5498e7303d2d3c74e111b3c7016add1}{On\+Begin\+Frame}} ()
+\item 
+virtual void \mbox{\hyperlink{class_i_component_a9cb04e63845ed073fe24cc2b739afb67}{On\+Update}} (const float)
+\item 
+virtual void \mbox{\hyperlink{class_i_component_aea185f0817aa4dcb273458a60aae8996}{On\+Late\+Update}} (const float)
+\item 
+virtual void \mbox{\hyperlink{class_i_component_a6b68f82f9d5c79ac739cfe655dce9174}{On\+G\+UI}} ()
+\item 
+virtual void \mbox{\hyperlink{class_i_component_ab09abb9a9ed67b000532016d55d72fd5}{On\+Render}} ()
+\item 
+virtual void \mbox{\hyperlink{class_i_component_a0a8cda3a20929edf70b7e11c1daede46}{On\+End\+Frame}} ()
+\item 
+virtual void \mbox{\hyperlink{class_i_component_ac685c951d4853b0c6ea838ab536d55f0}{On\+Destroy}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_engine}{C\+Engine}} $\ast$ \mbox{\hyperlink{class_i_component_af938f1b3bc0ae78c240739d4dd443a28}{Engine}} = nullptr
+\item 
+\mbox{\hyperlink{class_c_entity}{C\+Entity}} $\ast$ \mbox{\hyperlink{class_i_component_a8fb52032996084a88bcdfd9cc4772d12}{Owner}} = nullptr
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_i_component_a4478e432dd7b420abb4433695fd2838f}\label{class_i_component_a4478e432dd7b420abb4433695fd2838f}} 
+\index{IComponent@{IComponent}!IComponent@{IComponent}}
+\index{IComponent@{IComponent}!IComponent@{IComponent}}
+\doxysubsubsection{\texorpdfstring{IComponent()}{IComponent()}}
+{\footnotesize\ttfamily I\+Component\+::\+I\+Component (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_engine}{C\+Engine}} $\ast$}]{a\+Engine }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_i_component_a0c8face3ca659b5283502de91cffbb8b}\label{class_i_component_a0c8face3ca659b5283502de91cffbb8b}} 
+\index{IComponent@{IComponent}!````~IComponent@{$\sim$IComponent}}
+\index{````~IComponent@{$\sim$IComponent}!IComponent@{IComponent}}
+\doxysubsubsection{\texorpdfstring{$\sim$IComponent()}{~IComponent()}}
+{\footnotesize\ttfamily I\+Component\+::$\sim$\+I\+Component (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_i_component_ab0a360f0ee759356c5675ec3b1ce3997}\label{class_i_component_ab0a360f0ee759356c5675ec3b1ce3997}} 
+\index{IComponent@{IComponent}!GetEngine@{GetEngine}}
+\index{GetEngine@{GetEngine}!IComponent@{IComponent}}
+\doxysubsubsection{\texorpdfstring{GetEngine()}{GetEngine()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_engine}{C\+Engine}}$\ast$ I\+Component\+::\+Get\+Engine (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_i_component_a3d225aa3b286062c96aaab815136ab9b}\label{class_i_component_a3d225aa3b286062c96aaab815136ab9b}} 
+\index{IComponent@{IComponent}!GetOwner@{GetOwner}}
+\index{GetOwner@{GetOwner}!IComponent@{IComponent}}
+\doxysubsubsection{\texorpdfstring{GetOwner()}{GetOwner()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_entity}{C\+Entity}}$\ast$ I\+Component\+::\+Get\+Owner (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_i_component_a26ef5d9c30093d3e37f67989c6e2210b}\label{class_i_component_a26ef5d9c30093d3e37f67989c6e2210b}} 
+\index{IComponent@{IComponent}!GetType@{GetType}}
+\index{GetType@{GetType}!IComponent@{IComponent}}
+\doxysubsubsection{\texorpdfstring{GetType()}{GetType()}}
+{\footnotesize\ttfamily virtual std\+::string I\+Component\+::\+Get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\mbox{\Hypertarget{class_i_component_ad5498e7303d2d3c74e111b3c7016add1}\label{class_i_component_ad5498e7303d2d3c74e111b3c7016add1}} 
+\index{IComponent@{IComponent}!OnBeginFrame@{OnBeginFrame}}
+\index{OnBeginFrame@{OnBeginFrame}!IComponent@{IComponent}}
+\doxysubsubsection{\texorpdfstring{OnBeginFrame()}{OnBeginFrame()}}
+{\footnotesize\ttfamily virtual void I\+Component\+::\+On\+Begin\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_c_rigid_body2_d_a8c2c68850a2fbd209933eb7ce2d65b8e}{C\+Rigid\+Body2D}}, \mbox{\hyperlink{class_c_audio_source_a12a59c725b147df01b0672b063ad3a95}{C\+Audio\+Source}}, and \mbox{\hyperlink{class_c_audio_listener_a57b7f4005efcae1d6628bf62c4002018}{C\+Audio\+Listener}}.
+
+\mbox{\Hypertarget{class_i_component_a82932593f6cc082d0e488983b3831bd8}\label{class_i_component_a82932593f6cc082d0e488983b3831bd8}} 
+\index{IComponent@{IComponent}!OnCreate@{OnCreate}}
+\index{OnCreate@{OnCreate}!IComponent@{IComponent}}
+\doxysubsubsection{\texorpdfstring{OnCreate()}{OnCreate()}}
+{\footnotesize\ttfamily virtual void I\+Component\+::\+On\+Create (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_c_rigid_body2_d_ac2a37266a3cf015bd715ba367a51cdb4}{C\+Rigid\+Body2D}}, \mbox{\hyperlink{class_c_physics_world2_d_a9820fa1f5fc2904f02ab33e779ef57fc}{C\+Physics\+World2D}}, \mbox{\hyperlink{class_c_mesh_renderer_ad12e1e61379927bb2a8739819af686b5}{C\+Mesh\+Renderer}}, \mbox{\hyperlink{class_c_camera_a6eb2b68cb54c6eb286a5c07f7ba2917d}{C\+Camera}}, \mbox{\hyperlink{class_c_box_collider2_d_ae06d5726edccf76cef53eb6e553ddcf6}{C\+Box\+Collider2D}}, \mbox{\hyperlink{class_c_audio_source_a70aeb65ae0cbf6395db7a0768338d4bd}{C\+Audio\+Source}}, and \mbox{\hyperlink{class_c_audio_listener_aa08846a1dce7b75c19f2436d690570ee}{C\+Audio\+Listener}}.
+
+\mbox{\Hypertarget{class_i_component_ac685c951d4853b0c6ea838ab536d55f0}\label{class_i_component_ac685c951d4853b0c6ea838ab536d55f0}} 
+\index{IComponent@{IComponent}!OnDestroy@{OnDestroy}}
+\index{OnDestroy@{OnDestroy}!IComponent@{IComponent}}
+\doxysubsubsection{\texorpdfstring{OnDestroy()}{OnDestroy()}}
+{\footnotesize\ttfamily virtual void I\+Component\+::\+On\+Destroy (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_c_audio_source_a906794fb0e68948b47d5509b24035c7d}{C\+Audio\+Source}}, and \mbox{\hyperlink{class_c_audio_listener_a9cb85900e19fee4d69a552a22bfb38b5}{C\+Audio\+Listener}}.
+
+\mbox{\Hypertarget{class_i_component_a8e7664d6e726794239ba04cc2d3e8a58}\label{class_i_component_a8e7664d6e726794239ba04cc2d3e8a58}} 
+\index{IComponent@{IComponent}!OnDisabled@{OnDisabled}}
+\index{OnDisabled@{OnDisabled}!IComponent@{IComponent}}
+\doxysubsubsection{\texorpdfstring{OnDisabled()}{OnDisabled()}}
+{\footnotesize\ttfamily virtual void I\+Component\+::\+On\+Disabled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_c_rigid_body2_d_a630285d155fe8a02089ce1125e865a10}{C\+Rigid\+Body2D}}, \mbox{\hyperlink{class_c_audio_source_a0534f7b2b5ead74b9bd1f8c785961961}{C\+Audio\+Source}}, and \mbox{\hyperlink{class_c_audio_listener_a385ca6f538d6ffa2de645a4e84aac0a6}{C\+Audio\+Listener}}.
+
+\mbox{\Hypertarget{class_i_component_aa9abf1067bcfb212379cdb81470ef27f}\label{class_i_component_aa9abf1067bcfb212379cdb81470ef27f}} 
+\index{IComponent@{IComponent}!OnEnabled@{OnEnabled}}
+\index{OnEnabled@{OnEnabled}!IComponent@{IComponent}}
+\doxysubsubsection{\texorpdfstring{OnEnabled()}{OnEnabled()}}
+{\footnotesize\ttfamily virtual void I\+Component\+::\+On\+Enabled (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_c_rigid_body2_d_ad3304e22d0a871d5c221035103972e7b}{C\+Rigid\+Body2D}}, \mbox{\hyperlink{class_c_audio_source_aea50708c13f477828d2e236acde13f23}{C\+Audio\+Source}}, and \mbox{\hyperlink{class_c_audio_listener_a1b0638f3caeb257c47a65b0fd7802b74}{C\+Audio\+Listener}}.
+
+\mbox{\Hypertarget{class_i_component_a0a8cda3a20929edf70b7e11c1daede46}\label{class_i_component_a0a8cda3a20929edf70b7e11c1daede46}} 
+\index{IComponent@{IComponent}!OnEndFrame@{OnEndFrame}}
+\index{OnEndFrame@{OnEndFrame}!IComponent@{IComponent}}
+\doxysubsubsection{\texorpdfstring{OnEndFrame()}{OnEndFrame()}}
+{\footnotesize\ttfamily virtual void I\+Component\+::\+On\+End\+Frame (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_i_component_a6b68f82f9d5c79ac739cfe655dce9174}\label{class_i_component_a6b68f82f9d5c79ac739cfe655dce9174}} 
+\index{IComponent@{IComponent}!OnGUI@{OnGUI}}
+\index{OnGUI@{OnGUI}!IComponent@{IComponent}}
+\doxysubsubsection{\texorpdfstring{OnGUI()}{OnGUI()}}
+{\footnotesize\ttfamily virtual void I\+Component\+::\+On\+G\+UI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_i_component_aea185f0817aa4dcb273458a60aae8996}\label{class_i_component_aea185f0817aa4dcb273458a60aae8996}} 
+\index{IComponent@{IComponent}!OnLateUpdate@{OnLateUpdate}}
+\index{OnLateUpdate@{OnLateUpdate}!IComponent@{IComponent}}
+\doxysubsubsection{\texorpdfstring{OnLateUpdate()}{OnLateUpdate()}}
+{\footnotesize\ttfamily virtual void I\+Component\+::\+On\+Late\+Update (\begin{DoxyParamCaption}\item[{const float}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_c_mesh_renderer_a8c0f380b886c73d686e9f2816c47eafe}{C\+Mesh\+Renderer}}, \mbox{\hyperlink{class_c_camera2_d_a2dd3792b3659db9896aad30041c52f12}{C\+Camera2D}}, and \mbox{\hyperlink{class_c_camera_a055d6166b97b90debb19edaa6a312788}{C\+Camera}}.
+
+\mbox{\Hypertarget{class_i_component_afc223ed01e1849fdd92c708cc2bdd2de}\label{class_i_component_afc223ed01e1849fdd92c708cc2bdd2de}} 
+\index{IComponent@{IComponent}!OnLoad@{OnLoad}}
+\index{OnLoad@{OnLoad}!IComponent@{IComponent}}
+\doxysubsubsection{\texorpdfstring{OnLoad()}{OnLoad()}}
+{\footnotesize\ttfamily virtual bool I\+Component\+::\+On\+Load (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_x_m_l_element}{C\+X\+M\+L\+Element}} $\ast$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_c_fall_component_ab7c2fa7f9d0cb3073c4e3e9b24b21108}{C\+Fall\+Component}}, \mbox{\hyperlink{class_c_static_sprite2_d_a9dfea04dbae461fc9e128122d269eb5e}{C\+Static\+Sprite2D}}, \mbox{\hyperlink{class_c_rigid_body2_d_a957e71600fa2e7752279a1627d7aa338}{C\+Rigid\+Body2D}}, \mbox{\hyperlink{class_c_rect_renderer2_d_adaa4f53e6a2283677081311d6cac02bc}{C\+Rect\+Renderer2D}}, \mbox{\hyperlink{class_c_physics_world2_d_a4ee680dbc783b9bf6560868d62ce9219}{C\+Physics\+World2D}}, \mbox{\hyperlink{class_c_mesh_renderer_aff9d775968a60b3f1b59b50e05e35bf8}{C\+Mesh\+Renderer}}, \mbox{\hyperlink{class_c_camera2_d_a73fe1e6acf783fe0e76f27f594b9c00d}{C\+Camera2D}}, \mbox{\hyperlink{class_c_camera_ad5a8f40e1977ac377dcd6fc6adcdb30e}{C\+Camera}}, \mbox{\hyperlink{class_c_box_collider2_d_ae43903e58a9a9a55068a383965d0777f}{C\+Box\+Collider2D}}, \mbox{\hyperlink{class_c_audio_source_a7f1fabe8b8590669728f7452746608c7}{C\+Audio\+Source}}, and \mbox{\hyperlink{class_c_audio_listener_ae7bafe9a19db9cd337a9414af634df30}{C\+Audio\+Listener}}.
+
+\mbox{\Hypertarget{class_i_component_ab09abb9a9ed67b000532016d55d72fd5}\label{class_i_component_ab09abb9a9ed67b000532016d55d72fd5}} 
+\index{IComponent@{IComponent}!OnRender@{OnRender}}
+\index{OnRender@{OnRender}!IComponent@{IComponent}}
+\doxysubsubsection{\texorpdfstring{OnRender()}{OnRender()}}
+{\footnotesize\ttfamily virtual void I\+Component\+::\+On\+Render (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_c_static_sprite2_d_a211304f9a2204828fdb319d46dcd56ac}{C\+Static\+Sprite2D}}, \mbox{\hyperlink{class_c_rect_renderer2_d_a4a99954364fb179cad9892099e2e6bba}{C\+Rect\+Renderer2D}}, \mbox{\hyperlink{class_c_physics_world2_d_aaf520d588710e3e4377fbce5c9277a2c}{C\+Physics\+World2D}}, and \mbox{\hyperlink{class_c_mesh_renderer_abc8e6955e24d61d30a10aea5325064c5}{C\+Mesh\+Renderer}}.
+
+\mbox{\Hypertarget{class_i_component_af6b499a0f026ba1c60942ac02088f642}\label{class_i_component_af6b499a0f026ba1c60942ac02088f642}} 
+\index{IComponent@{IComponent}!OnSave@{OnSave}}
+\index{OnSave@{OnSave}!IComponent@{IComponent}}
+\doxysubsubsection{\texorpdfstring{OnSave()}{OnSave()}}
+{\footnotesize\ttfamily virtual bool I\+Component\+::\+On\+Save (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_x_m_l_element}{C\+X\+M\+L\+Element}} $\ast$}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_c_fall_component_a6f3b8220443317e5f9a0df386f68848a}{C\+Fall\+Component}}, \mbox{\hyperlink{class_c_static_sprite2_d_a5519171fdd3ba22413a6e013ef172063}{C\+Static\+Sprite2D}}, \mbox{\hyperlink{class_c_rigid_body2_d_a73e12b77558cacf3a7b995be670c3f9e}{C\+Rigid\+Body2D}}, \mbox{\hyperlink{class_c_rect_renderer2_d_a46a4a87e73c9a0f144bee6d779296b98}{C\+Rect\+Renderer2D}}, \mbox{\hyperlink{class_c_physics_world2_d_a43c073d79b3fa568d80e23a3ce764f82}{C\+Physics\+World2D}}, \mbox{\hyperlink{class_c_mesh_renderer_a1df1d7ae37062d0e63affcfde437b328}{C\+Mesh\+Renderer}}, \mbox{\hyperlink{class_c_camera2_d_a39e6d34930ec5a27b1d6de140cde0951}{C\+Camera2D}}, \mbox{\hyperlink{class_c_camera_ad1b786f2d24040b65af21ed2d28450a9}{C\+Camera}}, \mbox{\hyperlink{class_c_box_collider2_d_ad38342773224eb1378d34ed1a70edf13}{C\+Box\+Collider2D}}, \mbox{\hyperlink{class_c_audio_source_a3499d2c0f0411ff77c2158ed4e4eb813}{C\+Audio\+Source}}, and \mbox{\hyperlink{class_c_audio_listener_afad42fb7c917650577c1f9e02791b50d}{C\+Audio\+Listener}}.
+
+\mbox{\Hypertarget{class_i_component_a9cb04e63845ed073fe24cc2b739afb67}\label{class_i_component_a9cb04e63845ed073fe24cc2b739afb67}} 
+\index{IComponent@{IComponent}!OnUpdate@{OnUpdate}}
+\index{OnUpdate@{OnUpdate}!IComponent@{IComponent}}
+\doxysubsubsection{\texorpdfstring{OnUpdate()}{OnUpdate()}}
+{\footnotesize\ttfamily virtual void I\+Component\+::\+On\+Update (\begin{DoxyParamCaption}\item[{const float}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Reimplemented in \mbox{\hyperlink{class_c_physics_world2_d_a34f699d1f12b71fb07057fceb474b28c}{C\+Physics\+World2D}}, and \mbox{\hyperlink{class_c_fall_component_a5f767d0b041670d72d17535eb8548e14}{C\+Fall\+Component}}.
+
+\mbox{\Hypertarget{class_i_component_aeeb4738bd565d79b66c69d12990a70dc}\label{class_i_component_aeeb4738bd565d79b66c69d12990a70dc}} 
+\index{IComponent@{IComponent}!SetOwner@{SetOwner}}
+\index{SetOwner@{SetOwner}!IComponent@{IComponent}}
+\doxysubsubsection{\texorpdfstring{SetOwner()}{SetOwner()}}
+{\footnotesize\ttfamily void I\+Component\+::\+Set\+Owner (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_entity}{C\+Entity}} $\ast$}]{a\+Owner }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_i_component_af938f1b3bc0ae78c240739d4dd443a28}\label{class_i_component_af938f1b3bc0ae78c240739d4dd443a28}} 
+\index{IComponent@{IComponent}!Engine@{Engine}}
+\index{Engine@{Engine}!IComponent@{IComponent}}
+\doxysubsubsection{\texorpdfstring{Engine}{Engine}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_engine}{C\+Engine}}$\ast$ I\+Component\+::\+Engine = nullptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_i_component_a8fb52032996084a88bcdfd9cc4772d12}\label{class_i_component_a8fb52032996084a88bcdfd9cc4772d12}} 
+\index{IComponent@{IComponent}!Owner@{Owner}}
+\index{Owner@{Owner}!IComponent@{IComponent}}
+\doxysubsubsection{\texorpdfstring{Owner}{Owner}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_c_entity}{C\+Entity}}$\ast$ I\+Component\+::\+Owner = nullptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Engine/\+Scene/\mbox{\hyperlink{_component_8hpp}{Component.\+hpp}}\item 
+Source/\+Engine/\+Scene/\mbox{\hyperlink{_component_8cpp}{Component.\+cpp}}\end{DoxyCompactItemize}

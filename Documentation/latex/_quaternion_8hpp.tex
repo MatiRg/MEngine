@@ -1,0 +1,65 @@
+\hypertarget{_quaternion_8hpp}{}\doxysection{Source/\+Engine/\+Math/\+Quaternion.hpp File Reference}
+\label{_quaternion_8hpp}\index{Source/Engine/Math/Quaternion.hpp@{Source/Engine/Math/Quaternion.hpp}}
+{\ttfamily \#include \char`\"{}Functions.\+hpp\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Matrix4.\+hpp\char`\"{}}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion$<$ T $>$}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespace_math}{Math}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{_quaternion_8hpp_aa62c832059ac8e255e7b02326e673c05}{Quaternion}} = \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ float $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{class_t_matrix4}{T\+Matrix4}}$<$ T $>$ \mbox{\hyperlink{namespace_math_a49175fcc43513ff88290176c3f112602}{Math\+::\+Transform}} (const \mbox{\hyperlink{class_t_vector3}{T\+Vector3}}$<$ T $>$ \&a\+Position, const \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \&a\+Rotation, const \mbox{\hyperlink{class_t_vector3}{T\+Vector3}}$<$ T $>$ \&a\+Scale)
+\item 
+{\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{class_t_matrix4}{T\+Matrix4}}$<$ T $>$ \mbox{\hyperlink{namespace_math_a97ab57b9ecf597fe8798eb8fb775dbb6}{Math\+::\+Transform2D}} (const \mbox{\hyperlink{class_t_vector2}{T\+Vector2}}$<$ T $>$ \&a\+Origin, const T a\+Angle, const \mbox{\hyperlink{class_t_vector2}{T\+Vector2}}$<$ T $>$ \&a\+Scale)
+\item 
+{\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \mbox{\hyperlink{namespace_math_a49164428090e1281c0fe687af3aa1624}{Math\+::\+Normalize}} (const \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \&a)
+\item 
+{\footnotesize template$<$class T $>$ }\\T \mbox{\hyperlink{namespace_math_a9e2d9333ee264a0ca95aed69de05573e}{Math\+::\+Dot\+Product}} (const \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \&a, const \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \&b)
+\item 
+{\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{class_t_matrix4}{T\+Matrix4}}$<$ T $>$ \mbox{\hyperlink{namespace_math_a704d068b251760669c1248e192f64119}{Math\+::\+Rotation}} (const T x, const T y, const T z)
+\item 
+{\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{class_t_matrix4}{T\+Matrix4}}$<$ T $>$ \mbox{\hyperlink{namespace_math_afd96db5aa10724fa4afffc520a420015}{Math\+::\+Rotation}} (const \mbox{\hyperlink{class_t_vector3}{T\+Vector3}}$<$ T $>$ \&v)
+\item 
+{\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{class_t_matrix4}{T\+Matrix4}}$<$ T $>$ \mbox{\hyperlink{namespace_math_a3783e1f12cbeb597ba614aa3d83cf20c}{Math\+::\+Rotation}} (const \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \&a)
+\item 
+{\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \mbox{\hyperlink{namespace_math_a620bcb091014c649b7f03fac1d30e547}{Math\+::\+Look\+Rotation}} (const \mbox{\hyperlink{class_t_vector3}{T\+Vector3}}$<$ T $>$ \&a\+Dir, const \mbox{\hyperlink{class_t_vector3}{T\+Vector3}}$<$ T $>$ \&Up)
+\item 
+{\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \mbox{\hyperlink{namespace_math_ab727c0dc85ca57c45276415f1cd50369}{Math\+::\+Rotation\+Between\+Vectors}} (const \mbox{\hyperlink{class_t_vector3}{T\+Vector3}}$<$ T $>$ \&a\+Start, const \mbox{\hyperlink{class_t_vector3}{T\+Vector3}}$<$ T $>$ \&a\+Dest)
+\item 
+{\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \mbox{\hyperlink{namespace_math_a30bb4f46d60c4575306dccf9aa5215d3}{Math\+::\+Lerp}} (const \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \&a, const \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \&b, const T v)
+\begin{DoxyCompactList}\small\item\em Normalized. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\\mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \mbox{\hyperlink{namespace_math_a3724d506c7ac3077e86e62f1fc1f2047}{Math\+::\+S\+Lerp}} (const \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \&a, const \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \&b, const T v)
+\begin{DoxyCompactList}\small\item\em Normalized. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\std\+::ostream \& \mbox{\hyperlink{_quaternion_8hpp_af98c70d425428b4510c74ee6beae21d3}{operator$<$$<$}} (std\+::ostream \&Stream, const \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \&Other)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{_quaternion_8hpp_aa62c832059ac8e255e7b02326e673c05}\label{_quaternion_8hpp_aa62c832059ac8e255e7b02326e673c05}} 
+\index{Quaternion.hpp@{Quaternion.hpp}!Quaternion@{Quaternion}}
+\index{Quaternion@{Quaternion}!Quaternion.hpp@{Quaternion.hpp}}
+\doxysubsubsection{\texorpdfstring{Quaternion}{Quaternion}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{_quaternion_8hpp_aa62c832059ac8e255e7b02326e673c05}{Quaternion}} =  \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$float$>$}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_quaternion_8hpp_af98c70d425428b4510c74ee6beae21d3}\label{_quaternion_8hpp_af98c70d425428b4510c74ee6beae21d3}} 
+\index{Quaternion.hpp@{Quaternion.hpp}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Quaternion.hpp@{Quaternion.hpp}}
+\doxysubsubsection{\texorpdfstring{operator$<$$<$()}{operator<<()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+std\+::ostream\& operator$<$$<$ (\begin{DoxyParamCaption}\item[{std\+::ostream \&}]{Stream,  }\item[{const \mbox{\hyperlink{class_t_quaternion}{T\+Quaternion}}$<$ T $>$ \&}]{Other }\end{DoxyParamCaption})}
+

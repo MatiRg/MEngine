@@ -1,0 +1,63 @@
+\hypertarget{_performance_counter_8hpp}{}\doxysection{Source/\+Engine/\+Engine/\+Performance\+Counter.hpp File Reference}
+\label{_performance_counter_8hpp}\index{Source/Engine/Engine/PerformanceCounter.hpp@{Source/Engine/Engine/PerformanceCounter.hpp}}
+{\ttfamily \#include \char`\"{}Engine\+Module.\+hpp\char`\"{}}\newline
+{\ttfamily \#include $<$cstdint$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_c_performance_counter}{C\+Performance\+Counter}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{_performance_counter_8hpp_af0c862ac1b61b74be5950bef3f7563bc}{E\+Perf\+Counter}} \{ \newline
+\mbox{\hyperlink{_performance_counter_8hpp_af0c862ac1b61b74be5950bef3f7563bca1a06729125544cab7cee73195fc044f0}{E\+Perf\+Counter\+::\+Begin}} = 0, 
+\mbox{\hyperlink{_performance_counter_8hpp_af0c862ac1b61b74be5950bef3f7563bcaa4ecfc70574394990cf17bd83df499f7}{E\+Perf\+Counter\+::\+Event}}, 
+\mbox{\hyperlink{_performance_counter_8hpp_af0c862ac1b61b74be5950bef3f7563bca06933067aafd48425d67bcb01bba5cb6}{E\+Perf\+Counter\+::\+Update}}, 
+\mbox{\hyperlink{_performance_counter_8hpp_af0c862ac1b61b74be5950bef3f7563bca2609005edfde618c70f2140bb3e9b7c2}{E\+Perf\+Counter\+::\+Late\+Update}}, 
+\newline
+\mbox{\hyperlink{_performance_counter_8hpp_af0c862ac1b61b74be5950bef3f7563bca71ff71526d15db86eb50fcac245d183b}{E\+Perf\+Counter\+::\+UI}}, 
+\mbox{\hyperlink{_performance_counter_8hpp_af0c862ac1b61b74be5950bef3f7563bcaa6e8f9aed2ac6481dc25a18a33342d03}{E\+Perf\+Counter\+::\+Rendering}}, 
+\mbox{\hyperlink{_performance_counter_8hpp_af0c862ac1b61b74be5950bef3f7563bca87557f11575c0ad78e4e28abedc13b6e}{E\+Perf\+Counter\+::\+End}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{_performance_counter_8hpp_af0c862ac1b61b74be5950bef3f7563bc}\label{_performance_counter_8hpp_af0c862ac1b61b74be5950bef3f7563bc}} 
+\index{PerformanceCounter.hpp@{PerformanceCounter.hpp}!EPerfCounter@{EPerfCounter}}
+\index{EPerfCounter@{EPerfCounter}!PerformanceCounter.hpp@{PerformanceCounter.hpp}}
+\doxysubsubsection{\texorpdfstring{EPerfCounter}{EPerfCounter}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_performance_counter_8hpp_af0c862ac1b61b74be5950bef3f7563bc}{E\+Perf\+Counter}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Begin@{Begin}!PerformanceCounter.hpp@{PerformanceCounter.hpp}}\index{PerformanceCounter.hpp@{PerformanceCounter.hpp}!Begin@{Begin}}}\mbox{\Hypertarget{_performance_counter_8hpp_af0c862ac1b61b74be5950bef3f7563bca1a06729125544cab7cee73195fc044f0}\label{_performance_counter_8hpp_af0c862ac1b61b74be5950bef3f7563bca1a06729125544cab7cee73195fc044f0}} 
+Begin&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Event@{Event}!PerformanceCounter.hpp@{PerformanceCounter.hpp}}\index{PerformanceCounter.hpp@{PerformanceCounter.hpp}!Event@{Event}}}\mbox{\Hypertarget{_performance_counter_8hpp_af0c862ac1b61b74be5950bef3f7563bcaa4ecfc70574394990cf17bd83df499f7}\label{_performance_counter_8hpp_af0c862ac1b61b74be5950bef3f7563bcaa4ecfc70574394990cf17bd83df499f7}} 
+Event&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Update@{Update}!PerformanceCounter.hpp@{PerformanceCounter.hpp}}\index{PerformanceCounter.hpp@{PerformanceCounter.hpp}!Update@{Update}}}\mbox{\Hypertarget{_performance_counter_8hpp_af0c862ac1b61b74be5950bef3f7563bca06933067aafd48425d67bcb01bba5cb6}\label{_performance_counter_8hpp_af0c862ac1b61b74be5950bef3f7563bca06933067aafd48425d67bcb01bba5cb6}} 
+Update&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{LateUpdate@{LateUpdate}!PerformanceCounter.hpp@{PerformanceCounter.hpp}}\index{PerformanceCounter.hpp@{PerformanceCounter.hpp}!LateUpdate@{LateUpdate}}}\mbox{\Hypertarget{_performance_counter_8hpp_af0c862ac1b61b74be5950bef3f7563bca2609005edfde618c70f2140bb3e9b7c2}\label{_performance_counter_8hpp_af0c862ac1b61b74be5950bef3f7563bca2609005edfde618c70f2140bb3e9b7c2}} 
+Late\+Update&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{UI@{UI}!PerformanceCounter.hpp@{PerformanceCounter.hpp}}\index{PerformanceCounter.hpp@{PerformanceCounter.hpp}!UI@{UI}}}\mbox{\Hypertarget{_performance_counter_8hpp_af0c862ac1b61b74be5950bef3f7563bca71ff71526d15db86eb50fcac245d183b}\label{_performance_counter_8hpp_af0c862ac1b61b74be5950bef3f7563bca71ff71526d15db86eb50fcac245d183b}} 
+UI&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Rendering@{Rendering}!PerformanceCounter.hpp@{PerformanceCounter.hpp}}\index{PerformanceCounter.hpp@{PerformanceCounter.hpp}!Rendering@{Rendering}}}\mbox{\Hypertarget{_performance_counter_8hpp_af0c862ac1b61b74be5950bef3f7563bcaa6e8f9aed2ac6481dc25a18a33342d03}\label{_performance_counter_8hpp_af0c862ac1b61b74be5950bef3f7563bcaa6e8f9aed2ac6481dc25a18a33342d03}} 
+Rendering&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{End@{End}!PerformanceCounter.hpp@{PerformanceCounter.hpp}}\index{PerformanceCounter.hpp@{PerformanceCounter.hpp}!End@{End}}}\mbox{\Hypertarget{_performance_counter_8hpp_af0c862ac1b61b74be5950bef3f7563bca87557f11575c0ad78e4e28abedc13b6e}\label{_performance_counter_8hpp_af0c862ac1b61b74be5950bef3f7563bca87557f11575c0ad78e4e28abedc13b6e}} 
+End&\\
+\hline
+
+\end{DoxyEnumFields}

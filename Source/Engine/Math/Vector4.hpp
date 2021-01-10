@@ -66,6 +66,13 @@ public:
         }
     }
 
+    TVector4<T> Normalized() const
+    {
+        TVector4<T> Tmp = *this;
+        Tmp.Normalize();
+        return Tmp;
+    }
+
     T DotProduct(const TVector4<T>& Other) const
     {
         return x*Other.x + y*Other.y + z*Other.z + w*Other.w;

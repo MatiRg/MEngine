@@ -1,0 +1,126 @@
+\hypertarget{class_i_resource}{}\doxysection{I\+Resource Class Reference}
+\label{class_i_resource}\index{IResource@{IResource}}
+
+
+{\ttfamily \#include $<$Resource.\+hpp$>$}
+
+Inheritance diagram for I\+Resource\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.191781cm]{class_i_resource}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_i_resource_a36d3c6dc8b1ca4f68821e21fc055fe0d}{I\+Resource}} (const std\+::string \&a\+Name)
+\item 
+virtual \mbox{\hyperlink{class_i_resource_aba0af0e90b127b4dbcc03b343ec44f9e}{$\sim$\+I\+Resource}} ()
+\item 
+virtual std\+::string \mbox{\hyperlink{class_i_resource_a4ca8713f70a6781ee51fae34efe68737}{Get\+Type}} () const =0
+\item 
+virtual bool \mbox{\hyperlink{class_i_resource_a1604f047969f579f2709be337bc37ee3}{Find}} (\mbox{\hyperlink{class_c_resources}{C\+Resources}} $\ast$)
+\item 
+virtual bool \mbox{\hyperlink{class_i_resource_ac6a325f2759bec48ecfa8fb6cdcf6e0d}{Exist}} (\mbox{\hyperlink{class_c_resources}{C\+Resources}} $\ast$)
+\item 
+virtual bool \mbox{\hyperlink{class_i_resource_af0f08da3d59d49733fed31a1b6a15f10}{Load}} (\mbox{\hyperlink{class_c_resources}{C\+Resources}} $\ast$, const \mbox{\hyperlink{_resource_8hpp_aeb9246ef736382503cd1784ef4ca742a}{Resource\+Create\+Map}} \&)=0
+\item 
+bool \mbox{\hyperlink{class_i_resource_acc315df45f4d283e166905adfbf5dd3f}{Is\+Valid}} () const
+\item 
+const std\+::string \& \mbox{\hyperlink{class_i_resource_ad6247c8fb1df491df06e7b38d549439c}{Get\+Name}} () const
+\item 
+const std\+::string \& \mbox{\hyperlink{class_i_resource_a73cf27d99f66ceba992d26a073087ebe}{Get\+Path}} () const
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_i_resource_a0c9eb00d782258f7ad742b7c57fa55dd}{Valid}} = false
+\item 
+std\+::string \mbox{\hyperlink{class_i_resource_a9e46c4a2d46d5e533fb66552b76e8f5d}{Path}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_i_resource_a36d3c6dc8b1ca4f68821e21fc055fe0d}\label{class_i_resource_a36d3c6dc8b1ca4f68821e21fc055fe0d}} 
+\index{IResource@{IResource}!IResource@{IResource}}
+\index{IResource@{IResource}!IResource@{IResource}}
+\doxysubsubsection{\texorpdfstring{IResource()}{IResource()}}
+{\footnotesize\ttfamily I\+Resource\+::\+I\+Resource (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{a\+Name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_i_resource_aba0af0e90b127b4dbcc03b343ec44f9e}\label{class_i_resource_aba0af0e90b127b4dbcc03b343ec44f9e}} 
+\index{IResource@{IResource}!````~IResource@{$\sim$IResource}}
+\index{````~IResource@{$\sim$IResource}!IResource@{IResource}}
+\doxysubsubsection{\texorpdfstring{$\sim$IResource()}{~IResource()}}
+{\footnotesize\ttfamily virtual I\+Resource\+::$\sim$\+I\+Resource (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_i_resource_ac6a325f2759bec48ecfa8fb6cdcf6e0d}\label{class_i_resource_ac6a325f2759bec48ecfa8fb6cdcf6e0d}} 
+\index{IResource@{IResource}!Exist@{Exist}}
+\index{Exist@{Exist}!IResource@{IResource}}
+\doxysubsubsection{\texorpdfstring{Exist()}{Exist()}}
+{\footnotesize\ttfamily bool I\+Resource\+::\+Exist (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_resources}{C\+Resources}} $\ast$}]{Resources }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_i_resource_a1604f047969f579f2709be337bc37ee3}\label{class_i_resource_a1604f047969f579f2709be337bc37ee3}} 
+\index{IResource@{IResource}!Find@{Find}}
+\index{Find@{Find}!IResource@{IResource}}
+\doxysubsubsection{\texorpdfstring{Find()}{Find()}}
+{\footnotesize\ttfamily bool I\+Resource\+::\+Find (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_resources}{C\+Resources}} $\ast$}]{Resources }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+\mbox{\Hypertarget{class_i_resource_ad6247c8fb1df491df06e7b38d549439c}\label{class_i_resource_ad6247c8fb1df491df06e7b38d549439c}} 
+\index{IResource@{IResource}!GetName@{GetName}}
+\index{GetName@{GetName}!IResource@{IResource}}
+\doxysubsubsection{\texorpdfstring{GetName()}{GetName()}}
+{\footnotesize\ttfamily const std\+::string\& I\+Resource\+::\+Get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_i_resource_a73cf27d99f66ceba992d26a073087ebe}\label{class_i_resource_a73cf27d99f66ceba992d26a073087ebe}} 
+\index{IResource@{IResource}!GetPath@{GetPath}}
+\index{GetPath@{GetPath}!IResource@{IResource}}
+\doxysubsubsection{\texorpdfstring{GetPath()}{GetPath()}}
+{\footnotesize\ttfamily const std\+::string\& I\+Resource\+::\+Get\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_i_resource_a4ca8713f70a6781ee51fae34efe68737}\label{class_i_resource_a4ca8713f70a6781ee51fae34efe68737}} 
+\index{IResource@{IResource}!GetType@{GetType}}
+\index{GetType@{GetType}!IResource@{IResource}}
+\doxysubsubsection{\texorpdfstring{GetType()}{GetType()}}
+{\footnotesize\ttfamily virtual std\+::string I\+Resource\+::\+Get\+Type (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+\mbox{\Hypertarget{class_i_resource_acc315df45f4d283e166905adfbf5dd3f}\label{class_i_resource_acc315df45f4d283e166905adfbf5dd3f}} 
+\index{IResource@{IResource}!IsValid@{IsValid}}
+\index{IsValid@{IsValid}!IResource@{IResource}}
+\doxysubsubsection{\texorpdfstring{IsValid()}{IsValid()}}
+{\footnotesize\ttfamily bool I\+Resource\+::\+Is\+Valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_i_resource_af0f08da3d59d49733fed31a1b6a15f10}\label{class_i_resource_af0f08da3d59d49733fed31a1b6a15f10}} 
+\index{IResource@{IResource}!Load@{Load}}
+\index{Load@{Load}!IResource@{IResource}}
+\doxysubsubsection{\texorpdfstring{Load()}{Load()}}
+{\footnotesize\ttfamily virtual bool I\+Resource\+::\+Load (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_c_resources}{C\+Resources}} $\ast$}]{,  }\item[{const \mbox{\hyperlink{_resource_8hpp_aeb9246ef736382503cd1784ef4ca742a}{Resource\+Create\+Map}} \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Implemented in \mbox{\hyperlink{class_c_s_d_l_font_a63d59ebc37eb22b8960c54f37095929f}{C\+S\+D\+L\+Font}}, \mbox{\hyperlink{class_c_o_g_l_texture2_d_abecc223dbc7495bee77e3ad62bfc260b}{C\+O\+G\+L\+Texture2D}}, \mbox{\hyperlink{class_c_o_g_l_shader_a571dbe99bd171661d11f97a29948f784}{C\+O\+G\+L\+Shader}}, \mbox{\hyperlink{class_c_o_a_l_sound_data_a4906b17c3db5f0f8174fd6177df60f42}{C\+O\+A\+L\+Sound\+Data}}, \mbox{\hyperlink{class_c_null_sound_data_aba5179a183b0cb7b622f94b860b5f900}{C\+Null\+Sound\+Data}}, \mbox{\hyperlink{class_c_model_af3ab32729d5776bfc18709604b9b9bfd}{C\+Model}}, and \mbox{\hyperlink{class_c_material_a3be84dfa0a4d766d09a18194a8e679f2}{C\+Material}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_i_resource_a9e46c4a2d46d5e533fb66552b76e8f5d}\label{class_i_resource_a9e46c4a2d46d5e533fb66552b76e8f5d}} 
+\index{IResource@{IResource}!Path@{Path}}
+\index{Path@{Path}!IResource@{IResource}}
+\doxysubsubsection{\texorpdfstring{Path}{Path}}
+{\footnotesize\ttfamily std\+::string I\+Resource\+::\+Path\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{class_i_resource_a0c9eb00d782258f7ad742b7c57fa55dd}\label{class_i_resource_a0c9eb00d782258f7ad742b7c57fa55dd}} 
+\index{IResource@{IResource}!Valid@{Valid}}
+\index{Valid@{Valid}!IResource@{IResource}}
+\doxysubsubsection{\texorpdfstring{Valid}{Valid}}
+{\footnotesize\ttfamily bool I\+Resource\+::\+Valid = false\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Source/\+Engine/\+Resources/\mbox{\hyperlink{_resource_8hpp}{Resource.\+hpp}}\item 
+Source/\+Engine/\+Resources/\mbox{\hyperlink{_resource_8cpp}{Resource.\+cpp}}\end{DoxyCompactItemize}
