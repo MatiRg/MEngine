@@ -1,6 +1,9 @@
 <Material>
 	<Shader Name="Default.shader">
 		<Define Value="USE_DIFFUSE"/>
+		<Define Value="USE_SPECULAR"/>
+		<Define Value="IS_LIT"/>
 	</Shader>
 	<Variable Name="DiffuseTexture" Type="Texture" Value="backpack_diffuse.jpg"/>
+	<Variable Name="SpecularTexture" Type="Texture" Value="backpack_specular.jpg"/>
 </Material>

@@ -49,6 +49,11 @@ public:
     Quaternion GetWorldRotation() const;
     Quaternion GetInvWorldRotation() const;
 
+    // ?
+    void SetForward(const Vector3&);
+    Vector3 GetForward() const;
+    Vector3 GetWorldForward() const;
+
     // 2D
     void SetPosition2D(const Vector2& aPosition, const bool Silent = false) { SetPosition({ aPosition, Position.z }, Silent); }
     Vector2 GetPosition2D() const { return GetPosition().XY(); }

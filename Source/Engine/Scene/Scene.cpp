@@ -10,6 +10,7 @@
 #include "Components/BoxCollider2D.hpp"
 #include "Components/Camera.hpp"
 #include "Components/MeshRenderer.hpp"
+#include "Components/LightComponent.hpp"
 #include "../Engine/Engine.hpp"
 
 CScene::CScene(CEngine* aEngine):
@@ -34,6 +35,7 @@ bool CScene::Init(const SEngineParams&)
     RegisterComponentFactory<CPhysicsWorld2D>();
     RegisterComponentFactory<CCamera>();
     RegisterComponentFactory<CMeshRenderer>();
+    RegisterComponentFactory<CLightComponent>();
     //
     RegisterEntityFactory<CEntity>();
 

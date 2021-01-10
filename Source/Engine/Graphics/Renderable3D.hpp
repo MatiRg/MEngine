@@ -1,4 +1,5 @@
 #pragma once
+#include "../Core/NonCopyable.hpp"
 #include "../Math/Matrix4.hpp"
 #include "Material.hpp"
 #include "VertexBuffer.hpp"
@@ -9,16 +10,16 @@ enum class ERenderableType
 {
     Solid,
     Transparent,
-    Light // ?
+    Light
 };
 
-class IRenderable3D
+class IRenderable3D: public NonCopyableMovable
 {
 public:
     IRenderable3D(ERenderableType);
     virtual ~IRenderable3D();
 
-    ERenderableType GetType() const { return Type; }
+    ERenderableType GetRenderableType() const { return Type; }
 	
     bool HasMaterial() const { return GetMaterial(); }
     virtual CMaterial* GetMaterial() const = 0;

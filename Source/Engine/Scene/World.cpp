@@ -3,6 +3,7 @@
 #include "../Core/XML.hpp"
 #include "../Engine/Engine.hpp"
 #include "../System/System.hpp"
+#include "../Graphics/Renderer3D.hpp"
 
 CWorld::CWorld(CEngine* aEngine):
     CEntity(aEngine)
@@ -16,6 +17,11 @@ CWorld::CWorld(CEngine* aEngine):
 CWorld::~CWorld()
 {
     LOG( ESeverity::Debug ) << "World - Destroyed\n";
+}
+
+void CWorld::OnRender()
+{
+    Engine->GetRenderer3D()->SetAmbientColor(AmbientColor);
 }
 
 bool CWorld::Load(const std::string& Path)
@@ -42,6 +48,7 @@ bool CWorld::Load(const std::string& Path)
     }
 
 	IDPool = XML::LoadInt(Root, "IDPool", 0);
+    AmbientColor = XML::LoadColor(Root, "AmbientColor", Color(0.1f, 0.1f, 0.1f));
 
     if( !CEntity::Load(Root) )
     {
@@ -58,6 +65,7 @@ bool CWorld::Save(const std::string& Path)
     CXMLElement* Root = Doc.NewElement("World");
 
 	XML::SaveInt(Root, "IDPool", IDPool);
+    XML::SaveColor(Root, "AmbientColor", AmbientColor);
 
     if( !CEntity::Save(Root) )
     {

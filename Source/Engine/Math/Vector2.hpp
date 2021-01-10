@@ -68,6 +68,13 @@ public:
         }
     }
 
+    TVector2<T> Normalized() const
+    {
+        TVector2<T> Tmp = *this;
+        Tmp.Normalize();
+        return Tmp;
+    }
+
     T DotProduct(const TVector2<T>& Other) const
     {
         return x*Other.x + y*Other.y;

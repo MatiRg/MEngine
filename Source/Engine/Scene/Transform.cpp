@@ -152,6 +152,21 @@ Quaternion CTransform::GetInvWorldRotation() const
     return GetWorldRotation().Inverse();
 }
 
+void CTransform::SetForward(const Vector3& NewForward)
+{
+    SetRotation( Quaternion(Vector3::FORWARD, NewForward) );
+}
+
+Vector3 CTransform::GetForward() const
+{
+    return Rotation * Vector3::FORWARD;
+}
+
+Vector3 CTransform::GetWorldForward() const
+{
+    return GetWorldRotation() * Vector3::FORWARD;
+}
+
 void CTransform::Translate(const Vector3& Delta)
 {
     SetPosition( Position + Rotation*Delta );

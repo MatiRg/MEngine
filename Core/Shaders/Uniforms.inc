@@ -23,3 +23,8 @@ vec3 ObjectToWorldNormal(vec3 n)
 {
     return normalize(mat3(transpose(inverse(Model)))*n);
 }
+
+vec3 GetViewDirection(vec3 f) 
+{
+    return normalize(CameraPosition - f);
+}

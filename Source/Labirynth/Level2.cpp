@@ -48,6 +48,12 @@ void CLevel2::OnEnter()
     App->GetInput()->SetMouseMode(EMouseMode::Relative);
     //
     World = std::make_unique<CWorld>(App->GetEngine());
+    CEntity* Sun = World->CreateChild<CEntity>();
+    CLightComponent* LightSun = Sun->CreateComponent<CLightComponent>();
+    LightSun->SetLightType( ELightType::Direction );
+    LightSun->SetTemperature( 2500.f );
+    Sun->GetTransform().SetRotation( Quaternion(-30.0f, 0.0f, 0.0f) );
+
     CEntity* Entity = World->CreateChild<CEntity>();
     CameraObject = World->CreateChild<CEntity>();
 

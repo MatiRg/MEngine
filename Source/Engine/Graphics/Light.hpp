@@ -1,23 +1,24 @@
 #pragma once
-#include "../Core/NonCopyable.hpp"
+#include "Renderable3D.hpp"
 #include "../Math/Color.hpp"
 #include "../Math/Vector3.hpp"
 
 enum class ELightType
 {
-    //Point,
-    Direction,
+    Direction = 0,
+    //Point = 1,
+    //Spot = 2,
     None
 };
 
-class CLight: public NonCopyableMovable
+class CLight: public IRenderable3D
 {
 public:
     CLight();
     ~CLight();
 
-    void SetType(ELightType x) { Type = x; }
-    ELightType GetType() const { return Type; }
+    void SetLightType(ELightType x) { LightType = x; }
+    ELightType GetLightType() const { return LightType; }
 
     void SetColor(const Color& x) { Diffuse = x; }
     const Color& GetColor() const { return Diffuse; }
@@ -35,10 +36,13 @@ public:
     // Directional
     void SetDirection(const Vector3& x) { Direction = x; }
     const Vector3& GetDirection() const { return Direction; }
+
+    CMaterial* GetMaterial() const override { return nullptr; }
+    IVertexBuffer* GetVertexBuffer() const override { return nullptr; }
 private:
-    ELightType Type = ELightType::None;
+    ELightType LightType = ELightType::None;
     Color Diffuse = Color::WHITE;
-    float Range = 0.0f;
+    float Range = 1.0f;
     Vector3 Position = Vector3::ZERO;
     Vector3 Direction = Vector3::FORWARD;
 };

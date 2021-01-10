@@ -202,6 +202,8 @@ set(SOURCES_BASE
 	Source/Engine/Scene/Components/Camera.cpp
 	Source/Engine/Scene/Components/Camera2D.hpp
 	Source/Engine/Scene/Components/Camera2D.cpp
+	Source/Engine/Scene/Components/LightComponent.hpp
+	Source/Engine/Scene/Components/LightComponent.cpp
 	Source/Engine/Scene/Components/MeshRenderer.hpp
 	Source/Engine/Scene/Components/MeshRenderer.cpp
 	Source/Engine/Scene/Components/RectRenderer2D.hpp

@@ -14,6 +14,12 @@ namespace Math
     template<class T>
     T Sign(T value)
     {
+        return value < T(0) ? T(-1) : T(1);
+    }
+
+    template<class T>
+    T Sign0(T value)
+    {
         if( value > T(0) )
         {
             return T(1);
@@ -70,6 +76,19 @@ namespace Math
     T Clamp01(T Val)
     {
         return Clamp(Val, T(0), T(1));
+    }
+
+    template<class T>
+    T FMod(const T a, const T b)
+    {
+        return std::fmod(a, b);
+    }
+
+    // Wrap Val To <0, Max)
+    template<class T>
+    T Repeat(T Val, T Max)
+    {
+        return FMod(Val, Max);
     }
 
     // Wrap Val To <Min, Max)
