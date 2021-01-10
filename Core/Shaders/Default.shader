@@ -56,8 +56,8 @@ void main()
 		}
 		//
 		Color = vec4(Result, 1.0);
-		float Gamma = 1.4;
-		Color.rgb = pow(Color.rgb, vec3(1.0/Gamma));
+		//float Gamma = 1.4; Gamma Correction make as PostProcess last stage
+		//Color.rgb = pow(Color.rgb, vec3(1.0/Gamma));
 	#else
 		#ifdef USE_DIFFUSE
 		Color = vec4(texture(DiffuseTexture, TexCoords).rgb, 1.0);
@@ -69,17 +69,16 @@ void main()
 
 vec3 CalculateDirLight(int index, vec3 viewDir)
 {
-    vec3 lightDir = normalize(LightParam1[index].xyz); // -LightParam1[index].xyz ?
+    vec3 lightDir = normalize(-LightParam1[index].xyz);
     // Diffuse shading
     float diff = max(dot(Normal, lightDir), 0.0);
 	// blinn-phong
-    vec3 halfwayDir = normalize(lightDir + viewDir);  
+    vec3 halfwayDir = normalize(lightDir + viewDir);
     float spec = pow(max(dot(Normal, halfwayDir), 0.0), Shininess);
 	// phong shading
     //vec3 reflectDir = reflect(-lightDir, Normal);
     //float spec = pow(max(dot(viewDir, reflectDir), 0.0), Shininess);
     // Combine results
-    //vec3 Ambient = LightColor[index].rgb * vec3(texture(DiffuseTexture, TexCoords));
 	#ifdef USE_DIFFUSE
 	vec3 Diffuse = LightColor[index].rgb * diff * vec3(texture(DiffuseTexture, TexCoords));
 	#else
@@ -92,7 +91,6 @@ vec3 CalculateDirLight(int index, vec3 viewDir)
 	vec3 Specular = LightColor[index].rgb * spec;
 	#endif
 	return (Diffuse + Specular);
-    //return (Ambient + Diffuse + Specular);
 }
 
 #endif

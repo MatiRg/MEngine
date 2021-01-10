@@ -33,7 +33,7 @@ void CRenderer3D::Render()
         CMaterial* Material = i->GetMaterial();
         IShader* Shader = Material ? i->GetMaterial()->GetShader() : nullptr;
         IVertexBuffer* Buffer = i->GetVertexBuffer();
-        if ( Material && Shader && Buffer )
+        if (Material && Shader && Buffer)
         {
             Material->Bind();
             // Constants
@@ -51,7 +51,7 @@ void CRenderer3D::Render()
             }
             if (Shader->HasUniform("ViewProjection"))
             {
-                Shader->SetMatrix4("ViewProjection", ProjectionMatrix*ViewMatrix);
+                Shader->SetMatrix4("ViewProjection", ProjectionMatrix * ViewMatrix);
             }
             if (Shader->HasUniform("CameraPosition")) // ViewPos
             {
@@ -63,18 +63,23 @@ void CRenderer3D::Render()
                 Shader->SetColor("AmbientColor", AmbientColor);
             }
             // Lights
+            bool HasLights = false;
             if (Shader->HasUniform("LightCount"))
             {
-                Shader->SetInteger( "LightCount", static_cast<int>(Lights.size()) );
+                HasLights = true;
+                Shader->SetInteger("LightCount", static_cast<int>(Lights.size()));
             }
-            for (std::size_t i = 0u; i < Lights.size(); ++i)
-            {
-                std::string PostFix = "[" + std::to_string(static_cast<int>(i)) + "]";
-                Shader->SetInteger( "LightType"+ PostFix, static_cast<int>(Lights[i]->GetLightType()) );
-                Shader->SetColor("LightColor"+ PostFix, Lights[i]->GetColor());
-                if (Lights[i]->GetLightType() == ELightType::Direction)
+            if (HasLights)
+            {    
+                for (std::size_t i = 0u; i < Lights.size(); ++i)
                 {
-                    Shader->SetVector4("LightParam1" + PostFix, { Lights[i]->GetDirection(), 0.0f } );
+                    std::string PostFix = "[" + std::to_string(static_cast<int>(i)) + "]";
+                    Shader->SetInteger("LightType" + PostFix, static_cast<int>(Lights[i]->GetLightType()));
+                    Shader->SetColor("LightColor" + PostFix, Lights[i]->GetColor());
+                    if (Lights[i]->GetLightType() == ELightType::Direction)
+                    {
+                        Shader->SetVector4("LightParam1" + PostFix, { Lights[i]->GetDirection(), 0.0f });
+                    }
                 }
             }
             //
