@@ -51,7 +51,7 @@ public:
     EDepthMode GetDepthFunction() const override { return DepthMode; }
 
     void SetCullActive(const bool) override;
-    bool IsCullActiva() const override { return CullModeActive; }
+    bool IsCullActive() const override { return CullModeActive; }
 
     void SetCullMode(const ECullMode) override;
     ECullMode GetCullMode() const override { return CullMode; }

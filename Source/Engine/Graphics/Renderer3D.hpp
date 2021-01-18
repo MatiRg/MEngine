@@ -16,7 +16,7 @@ public:
     ENGINE_MODULE(CRenderer3D)
 
     // Non Ownership
-    void AddRenderable(IRenderable3D*);
+    void AddRenderable(CRenderable3D*);
 
     void SetViewMatrix(const Matrix4& aMtx) { ViewMatrix = aMtx; }
     const Matrix4& GetViewMatrix() const { return ViewMatrix; }
@@ -39,7 +39,7 @@ private:
     Matrix4 ViewMatrix;
     Matrix4 ProjectionMatrix;
     Vector3 CameraPosition;
-    std::vector<IRenderable3D*> Renderables;
+    std::vector<CRenderable3D*> Renderables;
     std::vector<CLight*> Lights;
     //
     Color AmbientColor = Color(0.1f, 0.1f, 0.1f);

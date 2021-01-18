@@ -30,6 +30,7 @@ void CLightComponent::OnRender()
 {
     const CTransform& Transform = Owner->GetTransform();
     
+    LightData.SetMatrix( Transform.GetWorldMatrix() );
     LightData.SetPosition( Transform.GetWorldPosition() );
     LightData.SetDirection( Transform.GetWorldForward() );
 

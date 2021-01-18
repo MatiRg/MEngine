@@ -1,5 +1,5 @@
 # Engine 
-Simple and Crude 2D/3D Game Engine made during Engineering Degree.Inspired by HPL1, Unity5 and Urho3D.
+Simple and Crude 2D/3D Game Engine made during Engineering Degree.Inspired by HPL2, Unity5 and Urho3D.
 ## Installing
 See [INSTALL.md](INSTALL.md)
 ## Features
@@ -21,5 +21,7 @@ If You want to help with development please see these points below.
 See [STYLEGUIDE.md](STYLEGUIDE.md)
 ## Third Party
 See [THIRDPARTY.md](THIRDPARTY.md)
+## License
+See [LICENSE.txt](LICENSE.txt)
 ## Authors
 Mateusz Rugor

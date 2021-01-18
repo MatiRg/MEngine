@@ -27,10 +27,10 @@ XML Data format
 ```xml
 <Material>
 	<Shader Name="Value">
-		<Define>Value</Define>
+		<Define Value="Value"/>
 		...
 	</Shader>
-	<Variable Name="Name" Type="Type">Value</Variable>
+	<Variable Name="Name" Type="Type" Value="Value"/>
 	...
 </Material>
 ```

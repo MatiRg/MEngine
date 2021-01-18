@@ -1,7 +1,10 @@
 #include "Model.hpp"
 #include "Graphics.hpp"
+#include "Material.hpp"
+#include "../Resources/Resources.hpp"
 #include "../System/MemoryManager.hpp"
 #include "../Core/Log.hpp"
+#include "../Core/Utils.hpp"
 #include <assimp/Importer.hpp>
 #include <assimp/scene.h>
 #include <assimp/postprocess.h>
@@ -39,9 +42,7 @@ CMesh* CMeshNode::GetMesh(const std::string& aName) const
 
 //
 
-CMesh::CMesh(IGraphics* aGraphics, CMeshNode* aNode):
-    Graphics(aGraphics),
-    Node(aNode)
+CMesh::CMesh()
 {
     ADD_MEMORY_RECORD(this);
 }
@@ -50,15 +51,6 @@ CMesh::~CMesh()
 {
     Buffer.reset();
     ERASE_MEMORY_RECORD(this);
-}
-
-void CMesh::Create(const std::vector<Vector3>& Position, const std::vector<Vector2>& UVs, const std::vector<Vector3>& Normals, const std::vector<unsigned int>& Indices)
-{
-    Buffer = Graphics->CreateVertexBuffer({EVertexElement::Position, EVertexElement::TexCoord0, EVertexElement::Normal}, false );
-    Buffer->SetData(EVertexElement::Position, Position);
-    Buffer->SetData(EVertexElement::TexCoord0, UVs);
-    Buffer->SetData(EVertexElement::Normal, Normals);
-    Buffer->SetIndices(Indices);
 }
 
 //
@@ -77,7 +69,7 @@ CModel::~CModel()
     }
 }
 
-bool CModel::Load(CResources*, const ResourceCreateMap&)
+bool CModel::Load(CResources* Resources, const ResourceCreateMap&)
 {
     Assimp::Importer Importer;
     // aiProcessPreset_TargetRealtime_Fast or aiProcessPreset_TargetRealtime_Quality
@@ -86,6 +78,18 @@ bool CModel::Load(CResources*, const ResourceCreateMap&)
     {
         LOG(ESeverity::Error) << "Mesh - " << GetPath() << ": " << Importer.GetErrorString() << "\n";
         return false;
+    }
+
+    Material = Resources->CreateResource<CMaterial>(Utils::GetNameFromExt(GetName())+".mat" );
+    if (!Material)
+    {
+        LOG(ESeverity::Warning) << "Switching to Default Material\n";
+        Material = Resources->CreateResource<CMaterial>("Default.mat");
+        if (!Material)
+        {
+            LOG(ESeverity::Error) << "No Default Material\n";
+            return false;
+        }
     }
 
     ProcessNode(Scene->mRootNode, Scene, GetRoot() );
@@ -170,9 +174,18 @@ void CModel::ProcessMesh(aiMesh* AssimpMesh, const aiScene* Scene, CMeshNode* Me
 
     if (!Position.empty())
     {     
-        CMesh* Mesh = new CMesh(Graphics, MeshNode);
+        std::unique_ptr<IVertexBuffer> Buffer = Graphics->CreateVertexBuffer({ EVertexElement::Position, EVertexElement::TexCoord0, EVertexElement::Normal }, false);
+        Buffer->SetData(EVertexElement::Position, Position);
+        Buffer->SetData(EVertexElement::TexCoord0, UVs);
+        Buffer->SetData(EVertexElement::Normal, Normals);
+        Buffer->SetIndices(Indices);
+
+        CMesh* Mesh = new CMesh();
         Mesh->SetName(Name);
-        Mesh->Create(Position, UVs, Normals, Indices);
+        Mesh->SetMeshNode(MeshNode);
+        Mesh->SetMaterial(Material);
+        Mesh->SetVertexBuffer( std::move(Buffer) );
+
         Meshes.push_back(Mesh);
         MeshNode->AddMesh(Mesh);
     }

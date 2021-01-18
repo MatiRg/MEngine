@@ -54,8 +54,8 @@ void CLevel2::OnEnter()
     LightSun->SetTemperature( 2500.f );
     Sun->GetTransform().SetRotation( Quaternion(-30.0f, 0.0f, 0.0f) );
 
-    CEntity* Entity = World->CreateChild<CEntity>();
-    CameraObject = World->CreateChild<CEntity>();
+    CEntity* Entity = World->CreateModel<CEntity>("backpack.obj");
+    /*CEntity* Entity = World->CreateChild<CEntity>();
 
     CMeshRenderer* MeshRenderer = Entity->CreateComponent<CMeshRenderer>();
     CResources* Resources = App->GetResources();
@@ -65,10 +65,11 @@ void CLevel2::OnEnter()
    
     MeshRenderer->SetMesh(ModelCube->GetMeshes()[0]);
     //MeshRenderer->SetMaterial( Resources->CreateResource<CMaterial>("Default.mat") );
-    MeshRenderer->SetMaterial(Resources->CreateResource<CMaterial>("backpack.mat"));
+    MeshRenderer->SetMaterial(Resources->CreateResource<CMaterial>("backpack.mat"));*/
 
-    PrintModel(ModelCube->GetRoot(), 0);
+    //PrintModel(ModelCube->GetRoot(), 0);
 
+    CameraObject = World->CreateChild<CEntity>();
     CameraComponent = CameraObject->CreateComponent<CCamera>();
     CameraComponent->SetAspect(App->GetWindow()->GetAspectRatio());
     CameraComponent->SetFOV(Fov);

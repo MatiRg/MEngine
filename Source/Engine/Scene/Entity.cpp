@@ -5,6 +5,9 @@
 #include "../Engine/Engine.hpp"
 #include "../Core/XML.hpp"
 #include "../System/MemoryManager.hpp"
+#include "../Resources/Resources.hpp"
+#include "../Graphics/Model.hpp"
+#include "Components/MeshRenderer.hpp"
 
 CEntity::CEntity(CEngine* aEngine) :
     Engine(aEngine),
@@ -405,6 +408,43 @@ void CEntity::DestroyComponents()
     {
         ToComponentsRemove.push_back(i);
     }
+}
+
+void CEntity::ProcessMeshNode(CEntity* Out, CMeshNode* Node)
+{
+    CTransform& OtherTransform = Out->GetTransform();
+    //
+    Out->SetName( Node->GetName() );
+    OtherTransform.SetPosition( Node->GetPosition() );
+    OtherTransform.SetScale( Node->GetScale() );
+    OtherTransform.SetRotation( Node->GetRotation() );
+    //
+    for (const auto& i : Node->GetMeshes())
+    {
+        CMeshRenderer* MshRenderer = Out->CreateComponent<CMeshRenderer>();
+        MshRenderer->SetMesh(i);
+    }
+    //
+    for (const auto& i : Node->GetChildren())
+    {
+        CEntity* Child = Out->CreateChild<CEntity>();
+        ProcessMeshNode(Child, i);
+    }
+}
+
+CEntity* CEntity::CreateModel(const std::string& ModelName, const std::string& Type)
+{
+    CModel* Model = Engine->GetResources()->CreateResource<CModel>(ModelName);
+    if (!Model)
+    {
+        LOG(ESeverity::Warning) << "Unable to Create Hierarchy from Model File: " << ModelName << "\n";
+        return nullptr;
+    }
+    CEntity* RootModel = CreateChild(Type);
+    ProcessMeshNode(RootModel, Model->GetRoot());
+    CTransform& OtherTransform = RootModel->GetTransform();
+    OtherTransform.SetPosition( Vector3::ZERO );
+    return RootModel;
 }
 
 CEntity* CEntity::CreateChild(const std::string& Type)
