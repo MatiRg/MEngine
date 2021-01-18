@@ -27,6 +27,9 @@ static constexpr int INVALID_ENTITY = -1000;
 class CRigidBody2D;
 class CBoxCollider2D;
 
+// 3D
+class CMeshNode;
+
 struct SEntityCollision2D
 {
     SEntityCollision2D(CRigidBody2D* aRigidBody, CBoxCollider2D* aCollider) :
@@ -174,6 +177,15 @@ public:
     //
     void DestroyComponents();
 
+    // Model Name; Returns Loaded Model Root, Type
+    CEntity* CreateModel(const std::string&, const std::string&);
+    //
+    template<class T>
+    T* CreateModel(const std::string& ModelName)
+    {
+        static_assert(std::is_base_of<CEntity, T>::value, "Must be base of CEntity");
+        return dynamic_cast<T*>(CreateModel(ModelName, T::GetTypeStatic()));
+    }
 
     CEntity* CreateChild(const std::string&);
     //
@@ -293,6 +305,8 @@ protected:
     bool Load(CXMLElement*);
     bool Save(CXMLElement*);
 private:
+    static void ProcessMeshNode(CEntity*, CMeshNode*);
+    //
     void BeginFrame(const EBeginFrame&);
     void Update(const EUpdate&);
     void LateUpdate(const ELateUpdate&);

@@ -11,7 +11,7 @@ enum class ELightType
     None
 };
 
-class CLight: public IRenderable3D
+class CLight: public CRenderable3D
 {
 public:
     CLight();
@@ -36,9 +36,6 @@ public:
     // Directional
     void SetDirection(const Vector3& x) { Direction = x; }
     const Vector3& GetDirection() const { return Direction; }
-
-    CMaterial* GetMaterial() const override { return nullptr; }
-    IVertexBuffer* GetVertexBuffer() const override { return nullptr; }
 private:
     ELightType LightType = ELightType::None;
     Color Diffuse = Color::WHITE;

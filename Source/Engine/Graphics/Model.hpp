@@ -13,6 +13,7 @@ class IGraphics;
 class IVertexBuffer;
 class CModel;
 class CMeshNode;
+class CMaterial;
 
 struct aiNode;
 struct aiScene;
@@ -21,22 +22,27 @@ struct aiMesh;
 class CMesh: public NonCopyableMovable
 {
 public:
-    CMesh(IGraphics*, CMeshNode*);
+    CMesh();
     ~CMesh();
 
+    bool HasMeshNode() const { return GetMeshNode(); }
     CMeshNode* GetMeshNode() const { return Node; }
-
-    // Position, UVs, Normals, Indices
-    void Create(const std::vector<Vector3>&, const std::vector<Vector2>&, const std::vector<Vector3>&, const std::vector<unsigned int>&);
+    void SetMeshNode(CMeshNode* aNode) { Node = aNode; }
 
     void SetName(const std::string& aName) { Name = aName; }
     const std::string& GetName() const { return Name; }
 
-    IVertexBuffer* GetBuffer() const { return Buffer.get(); }
+    bool HasMaterial() const { return GetMaterial(); }
+    CMaterial* GetMaterial() const { return Material; };
+    void SetMaterial(CMaterial* aMaterial) { Material = aMaterial; }
+
+    bool HasVertexBuffer() const { return GetVertexBuffer(); }
+    IVertexBuffer* GetVertexBuffer() const { return Buffer.get(); }
+    void SetVertexBuffer(std::unique_ptr<IVertexBuffer>&& aVertexBuffer) { Buffer = std::move(aVertexBuffer); }
 private:
-    IGraphics* Graphics = nullptr;
     CMeshNode* Node = nullptr;
     std::string Name;
+    CMaterial* Material = nullptr;
     std::unique_ptr<IVertexBuffer> Buffer;
 };
 
@@ -93,12 +99,15 @@ public:
 
     CMesh* GetMesh(const std::string&) const;
     const MeshArray& GetMeshes() const { return Meshes; }
+
+    CMaterial* GetMaterial() const { return Material; }
 private:
     void ProcessNode(aiNode*, const aiScene*, CMeshNode*);
     void ProcessMesh(aiMesh*, const aiScene*, CMeshNode*);
 private:
     CMeshNode Root = {};
     MeshArray Meshes;
+    CMaterial* Material = nullptr;
     IGraphics* Graphics = nullptr;
 };
 

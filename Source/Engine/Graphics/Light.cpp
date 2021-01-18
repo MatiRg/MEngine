@@ -1,7 +1,7 @@
 #include "Light.hpp"
 
 CLight::CLight():
-    IRenderable3D(ERenderableType::Light)
+    CRenderable3D(ERenderableType::Light)
 {
 }
 	

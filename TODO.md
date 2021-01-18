@@ -1,3 +1,4 @@
+CMesh make independent from CModel Set/Get VertexBuffer And Material
 Add 3D.
 add reload method to IResource
 Proper Physics Update

@@ -105,7 +105,7 @@ public:
     virtual EDepthMode GetDepthFunction() const = 0;
 
     virtual void SetCullActive(const bool) = 0;
-    virtual bool IsCullActiva() const = 0;
+    virtual bool IsCullActive() const = 0;
 
     virtual void SetCullMode(const ECullMode) = 0;
     virtual ECullMode GetCullMode() const = 0;

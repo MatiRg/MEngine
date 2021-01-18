@@ -14,7 +14,6 @@ public:
 
     void OnRender() override;
 
-    // Self
     void SetLightType(ELightType x) { LightData.SetLightType(x); }
     ELightType GetLightType() const { return LightData.GetLightType(); }
 

@@ -7,7 +7,7 @@
 
 CMeshRenderer::CMeshRenderer(CEngine* aEngine): 
     IComponent(aEngine),
-    IRenderable3D(ERenderableType::Solid)
+    Renderable(ERenderableType::Solid)
 {
 }
 
@@ -23,20 +23,17 @@ bool CMeshRenderer::OnSave(CXMLElement* Root)
 
 void CMeshRenderer::OnCreate()
 {
-    //Material = 
-}
-
-void CMeshRenderer::OnLateUpdate(const float)
-{
-    SetMatrix(GetOwner()->GetTransform().GetWorldMatrix());
 }
 
 void CMeshRenderer::OnRender()
 {
-    GetEngine()->GetRenderer3D()->AddRenderable(this);
+    Renderable.SetMatrix( GetOwner()->GetTransform().GetWorldMatrix() );
+    GetEngine()->GetRenderer3D()->AddRenderable(&Renderable);
 }
 
-IVertexBuffer* CMeshRenderer::GetVertexBuffer() const
-{
-    return Mesh->GetBuffer();
+void CMeshRenderer::SetMesh(CMesh* aMesh)
+{ 
+    Mesh = aMesh; 
+    Renderable.SetMaterial(Mesh ? Mesh->GetMaterial() : nullptr );
+    Renderable.SetVertexBuffer(Mesh ? Mesh->GetVertexBuffer() : nullptr);
 }
