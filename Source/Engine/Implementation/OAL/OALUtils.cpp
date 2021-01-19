@@ -1,5 +1,5 @@
 #include "OALUtils.hpp"
-#include "../Core/Log.hpp"
+#include "../../Core/Log.hpp"
 #include <AL/al.h>
 
 namespace OAL

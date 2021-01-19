@@ -1,5 +1,5 @@
 #pragma once
-#include "../Physics/PhysicsWorld3D.hpp"
+#include "../../Physics/PhysicsWorld3D.hpp"
 
 class CBulletPhysicsWorld3D final: public IPhysicsWorld3D
 {

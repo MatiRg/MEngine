@@ -1,5 +1,5 @@
 #pragma once
-#include "../Audio/Sound.hpp"
+#include "../../Audio/Sound.hpp"
 #include "OALSoundData.hpp"
 #include <memory>
 #include <AL/al.h>

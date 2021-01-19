@@ -21,7 +21,6 @@ bool CNullAudio::Init(const SEngineParams&)
 
 void CNullAudio::Exit()
 {
-    Sounds.clear();
     LOG( ESeverity::Info ) << "Audio - Exit\n";
 }
 
@@ -30,31 +29,12 @@ std::unique_ptr<ISoundData> CNullAudio::CreateSoundData(const std::string& Name)
     return std::make_unique<CNullSoundData>( Name );
 }
 
-ISound* CNullAudio::CreateSound(ISoundData*)
+std::unique_ptr<ISound> CNullAudio::CreateSound(ISoundData*)
 {
     auto Sound = std::make_unique<CNullSound>();
-    auto Raw = Sound.get();
-    Sounds.push_back( std::move(Sound) );
-    return Raw;
-}
-
-void CNullAudio::DestroySound(ISound* aSound)
-{
-    auto Iterator = std::find_if(Sounds.begin(), Sounds.end(), [&](const std::unique_ptr<ISound>& Sound)
-    {
-        return Sound.get() == aSound;
-    });
-    if( Iterator != Sounds.end() )
-    {
-        (*Iterator)->Stop();
-        Sounds.erase(Iterator);
-    }
+    return Sound;
 }
 
 void CNullAudio::SetVolume(const float)
-{
-}
-
-void CNullAudio::StopAll()
 {
 }

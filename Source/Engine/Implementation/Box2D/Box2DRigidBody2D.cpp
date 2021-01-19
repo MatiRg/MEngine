@@ -1,7 +1,7 @@
 #include "Box2DRigidBody2D.hpp"
 #include "Box2DPhysicsWorld2D.hpp"
 #include "Box2DUtils.hpp"
-#include "../Math/Functions.hpp"
+#include "../../Math/Functions.hpp"
 
 namespace
 {

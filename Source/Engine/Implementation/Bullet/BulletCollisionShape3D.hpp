@@ -1,5 +1,5 @@
 #pragma once
-#include "../Physics/CollisionShape3D.hpp"
+#include "../../Physics/CollisionShape3D.hpp"
 
 class CBulletCollisionShape3D final: public ICollisionShape3D
 {

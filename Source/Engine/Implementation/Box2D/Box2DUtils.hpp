@@ -1,6 +1,6 @@
 #pragma once
-#include "../Math/Vector2.hpp"
-#include "../Math/Color.hpp"
+#include "../../Math/Vector2.hpp"
+#include "../../Math/Color.hpp"
 #include <box2d/box2d.h>
 
 inline b2Vec2 Tob2Vec2(const Vector2& Val)

@@ -2,8 +2,8 @@
 #include "Box2DRigidBody2D.hpp"
 #include "Box2DCollisionShape2D.hpp"
 #include "Box2DUtils.hpp"
-#include "../Graphics/Renderer2D.hpp"
-#include "../Core/Log.hpp"
+#include "../../Graphics/Renderer2D.hpp"
+#include "../../Core/Log.hpp"
 
 void CBox2DPhysicsWorld2D::CContactListener::BeginContact(b2Contact* Contact)
 { 

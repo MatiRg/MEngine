@@ -1,7 +1,7 @@
 #include "OALSound.hpp"
 #include "OALAudio.hpp"
-#include "../Math/Functions.hpp"
-#include "../Core/Log.hpp"
+#include "../../Math/Functions.hpp"
+#include "../../Core/Log.hpp"
 #include "OALUtils.hpp"
 
 COALSound::COALSound(COALAudio* aAudio, COALSoundData* aData):

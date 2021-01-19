@@ -1,7 +1,7 @@
 #include "OALSoundData.hpp"
-#include "../Core/Log.hpp"
-#include "../Core/BinaryFile.hpp"
-#include "../Core/Utils.hpp"
+#include "../../Core/Log.hpp"
+#include "../../Core/BinaryFile.hpp"
+#include "../../Core/Utils.hpp"
 #include "OALUtils.hpp"
 #include <stb_vorbis.c>
 #include <vector>

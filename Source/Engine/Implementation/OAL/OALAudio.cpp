@@ -1,9 +1,9 @@
 #include "OALAudio.hpp"
 #include "OALSoundData.hpp"
 #include "OALSound.hpp"
-#include "../Core/Log.hpp"
-#include "../Math/Functions.hpp"
-#include "../Core/Utils.hpp"
+#include "../../Core/Log.hpp"
+#include "../../Math/Functions.hpp"
+#include "../../Core/Utils.hpp"
 #include "OALUtils.hpp"
 #include <algorithm>
 
@@ -13,7 +13,6 @@ COALAudio::COALAudio()
 
 COALAudio::~COALAudio()
 {
-    COALAudio::StopAll();
 	alcMakeContextCurrent( nullptr );
 	if( Context )
     {
@@ -74,8 +73,6 @@ bool COALAudio::Init(const SEngineParams&)
 
 void COALAudio::Exit()
 {
-    StopAll();
-    Sounds.clear();
     LOG( ESeverity::Info ) << "Audio - Exit\n";
 }
 
@@ -84,29 +81,14 @@ std::unique_ptr<ISoundData> COALAudio::CreateSoundData(const std::string& Name)
     return std::make_unique<COALSoundData>( Name );
 }
 
-ISound* COALAudio::CreateSound(ISoundData* Data)
+std::unique_ptr<ISound> COALAudio::CreateSound(ISoundData* Data)
 {
     auto Sound = std::make_unique<COALSound>( this, dynamic_cast<COALSoundData*>(Data) );
     if( !Sound->CreateSource() )
     {
         return nullptr;
     }
-    auto Raw = Sound.get();
-    Sounds.push_back( std::move(Sound) );
-    return Raw;
-}
-
-void COALAudio::DestroySound(ISound* aSound)
-{
-    auto Iterator = std::find_if(Sounds.begin(), Sounds.end(), [&](const std::unique_ptr<ISound>& Sound)
-    {
-        return Sound.get() == aSound;
-    });
-    if( Iterator != Sounds.end() )
-    {
-        (*Iterator)->Stop();
-        Sounds.erase(Iterator);
-    }
+    return Sound;
 }
 
 void COALAudio::SetVolume(const float aVolume)
@@ -129,15 +111,4 @@ void COALAudio::SetListenerPosition(const Vector3& Position)
 void COALAudio::SetListenerVelocity(const Vector3& Velocity)
 {
     alListener3f( AL_VELOCITY, Velocity.x, Velocity.y, Velocity.z );
-}
-
-void COALAudio::StopAll()
-{
-    for(auto& i: Sounds)
-    {
-        if( i ) 
-        {
-            i->Stop();
-        }
-    }
 }

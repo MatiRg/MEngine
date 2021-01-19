@@ -18,7 +18,7 @@ public:
     void OnCreate() override;
     void OnDestroy() override;
 
-    void OnBeginFrame() override;
+    void OnLateUpdate(const float) override;
 
     void SetMuted(const bool);
     bool IsMuted() const { return Muted; }
@@ -36,7 +36,7 @@ public:
     void SetData(ISoundData*);
     ISoundData* GetData() const { return Data; }
 private:
-    ISound* Sound = nullptr;
+    std::unique_ptr<ISound> Sound;
     bool Muted = false;
     float Volume = 1.0f;
     bool Looped = false;

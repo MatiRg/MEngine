@@ -121,10 +121,10 @@ void CAudioSource::OnCreate()
 void CAudioSource::OnDestroy()
 {
     Stop();
-    Engine->GetAudio()->DestroySound(Sound);
+    Sound.reset();
 }
 
-void CAudioSource::OnBeginFrame()
+void CAudioSource::OnLateUpdate(const float)
 {
     if( Sound )
     {

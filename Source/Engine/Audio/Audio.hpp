@@ -1,10 +1,10 @@
 #pragma once
 #include "../Engine/EngineModule.hpp"
 #include "../Math/Vector3.hpp"
+#include "Sound.hpp"
 #include <memory>
 
 class ISoundData;
-class ISound;
 
 class IAudio: public IEngineModule
 {
@@ -17,9 +17,8 @@ public:
     // Name - Resources Usage
     virtual std::unique_ptr<ISoundData> CreateSoundData(const std::string&) = 0;
 
-    virtual ISound* CreateSound() = 0;
-    virtual ISound* CreateSound(ISoundData*) = 0;
-    virtual void DestroySound(ISound*) = 0;
+    virtual std::unique_ptr<ISound> CreateSound() = 0;
+    virtual std::unique_ptr<ISound> CreateSound(ISoundData*) = 0;
 
     virtual float GetVolume() const = 0;
     // 0.0 To 1.0
@@ -30,8 +29,6 @@ public:
 
     virtual void SetListenerPosition(const Vector3&) = 0;
     virtual void SetListenerVelocity(const Vector3&) = 0;
-
-    virtual void StopAll() = 0;
 };
 
 

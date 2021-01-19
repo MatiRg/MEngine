@@ -1,5 +1,5 @@
 #pragma once
-#include "../Audio/SoundData.hpp"
+#include "../../Audio/SoundData.hpp"
 #include <AL/al.h>
 
 class COALSoundData: public ISoundData

@@ -1,4 +1,4 @@
-CMesh make independent from CModel Set/Get VertexBuffer And Material
+Add CMaterial Options -> Texture Filter/Ani, Double Sided, Blend Mode/Enabled, Depth Mode/Enabled, Pass Type -> Solid or Transparent
 Add 3D.
 add reload method to IResource
 Proper Physics Update

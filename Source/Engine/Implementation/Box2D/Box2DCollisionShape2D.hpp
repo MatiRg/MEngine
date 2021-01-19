@@ -1,5 +1,5 @@
 #pragma once
-#include "../Physics/CollisionShape2D.hpp"
+#include "../../Physics/CollisionShape2D.hpp"
 #include <box2d/box2d.h>
 
 class CBox2DRigidBody2D;
