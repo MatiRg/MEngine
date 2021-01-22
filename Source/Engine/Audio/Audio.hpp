@@ -28,7 +28,13 @@ public:
     virtual bool IsMuted() const = 0;
 
     virtual void SetListenerPosition(const Vector3&) = 0;
+    virtual const Vector3& GetListenerPosition() const = 0;
+
+    virtual void SetListenerDirection(const Vector3&) = 0;
+    virtual const Vector3& GetListenerDirection() const = 0;
+
     virtual void SetListenerVelocity(const Vector3&) = 0;
+    virtual const Vector3& GetListenerVelocity() const = 0;
 };
 
 

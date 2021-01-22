@@ -9,6 +9,6 @@ public:
 
     bool Load(CResources*, const ResourceCreateMap&) override;
 
-    int GetSamples() const override { return 0; }
+    int GetDuration() const override { return 0; }
 };
 

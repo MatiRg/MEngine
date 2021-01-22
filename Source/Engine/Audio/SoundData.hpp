@@ -17,8 +17,8 @@ public:
 
     RESOURCE(ISoundData)
 
-    // Clip Length in Samples 
-    virtual int GetSamples() const = 0;
+    // Clip Length in milliseconds
+    virtual int GetDuration() const = 0;
 };
 
 //

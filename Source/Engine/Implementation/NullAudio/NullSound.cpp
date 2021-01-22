@@ -1,6 +1,7 @@
 #include "NullSound.hpp"
 
-CNullSound::CNullSound()
+CNullSound::CNullSound(ISoundData* aData):
+	Data(aData)
 {
 }
 
@@ -8,22 +9,15 @@ CNullSound::~CNullSound()
 {
 }
 
-bool CNullSound::Play()
+void CNullSound::Play()
 {
-    return true;
 }
 
-bool CNullSound::Pause(const bool)
+void CNullSound::Pause(const bool)
 {
-    return true;
 }
 
-bool CNullSound::Stop()
+void CNullSound::Stop()
 {
-    return true;
-}
-
-bool CNullSound::SetVolume(const float)
-{
-    return true;
+	Offset = 0;
 }

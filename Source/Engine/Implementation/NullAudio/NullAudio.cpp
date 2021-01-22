@@ -2,7 +2,6 @@
 #include "NullSound.hpp"
 #include "NullSoundData.hpp"
 #include "../../Core/Log.hpp"
-#include <algorithm>
 
 CNullAudio::CNullAudio()
 {
@@ -29,12 +28,8 @@ std::unique_ptr<ISoundData> CNullAudio::CreateSoundData(const std::string& Name)
     return std::make_unique<CNullSoundData>( Name );
 }
 
-std::unique_ptr<ISound> CNullAudio::CreateSound(ISoundData*)
+std::unique_ptr<ISound> CNullAudio::CreateSound(ISoundData* aData)
 {
-    auto Sound = std::make_unique<CNullSound>();
+    auto Sound = std::make_unique<CNullSound>(aData);
     return Sound;
-}
-
-void CNullAudio::SetVolume(const float)
-{
 }

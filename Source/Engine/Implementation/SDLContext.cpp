@@ -3,7 +3,7 @@
 #include "SDLEventQueue.hpp"
 #include "SDLInput.hpp"
 #include "SDLWindow.hpp"
-#include "OAL/OALAudio.hpp"
+#include "SFMLAudio/SFMLAudio.hpp"
 #include "OGL/OGLGraphics.hpp"
 #include "NullAudio/NullAudio.hpp"
 #include "Bullet/BulletPhysics3D.hpp"
@@ -59,7 +59,7 @@ bool CSDLContext::Init(const SEngineParams& Params)
     Input = std::make_unique<CSDLInput>( Window.get() );
     if( Params.UseAudio )
     {
-        Audio = std::make_unique<COALAudio>();
+        Audio = std::make_unique<CSFMLAudio>();
     }
     else
     {

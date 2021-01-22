@@ -29,9 +29,14 @@ void CAudioHandler::OnExit()
 void CAudioHandler::PlayMusic(const std::string& Name)
 {
     StopMusic();
-    Music.reset();
-    
-    Music = Audio->CreateSound( Resources->CreateResource<ISoundData>( Name ) );
+    if (!Music)
+    {
+        Music = Audio->CreateSound(Resources->CreateResource<ISoundData>(Name));
+    }
+    else
+    {
+        Music->SetSoundData(Resources->CreateResource<ISoundData>(Name));
+    }
 
     if( Music ) 
     {

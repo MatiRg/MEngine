@@ -28,21 +28,33 @@ public:
 
     virtual bool IsValid() const = 0;
 
-    virtual bool Play() = 0;
-    virtual bool Pause(const bool) = 0;
-    virtual bool Stop() = 0;
+    virtual void Play() = 0;
+    virtual void Pause(const bool) = 0;
+    virtual void Stop() = 0;
 
     virtual ESoundState GetState() = 0;
 
+    virtual void SetRelative(const bool) = 0;
+    virtual bool IsRelative() const = 0;
+
+    virtual void SetMinDistance(const float) = 0;
+    virtual float GetMinDistance() const = 0;
+
+    virtual void SetAttenuation(const float) = 0;
+    virtual float GetAttenuation() const = 0;
+
     // 0.0 To 1.0
-    virtual bool SetVolume(const float) = 0;
+    virtual void SetVolume(const float) = 0;
+    virtual float GetVolume() const = 0;
 
     virtual void SetMuted(const bool) = 0;
     virtual bool IsMuted() const = 0;
 
     virtual void SetLooped(const bool) = 0;
+    virtual bool IsLooped() const = 0;
 
     virtual void SetPosition(const Vector3&) = 0;
+    virtual const Vector3& GetPosition() const = 0;
 
     // In Samples
     virtual void SetOffset(const int) = 0;
