@@ -2,6 +2,31 @@
 #include "../../Audio/Sound.hpp"
 #include "SFMLSoundData.hpp"
 
+class ISFMLSoundSource: public NonCopyableMovable
+{
+public:
+    ISFMLSoundSource() = default;
+    virtual ~ISFMLSoundSource() = default;
+
+    virtual void Play() = 0;
+    virtual void Pause(const bool) = 0;
+    virtual void Stop() = 0;
+
+    virtual ESoundState GetState() = 0;
+    virtual void SetRelative(const bool) = 0;
+    virtual void SetMinDistance(const float) = 0;
+    virtual void SetAttenuation(const float) = 0;
+    virtual void SetVolume(const float) = 0;
+    virtual void SetMuted(const bool, const float) = 0;
+    virtual void SetLooped(const bool) = 0;
+    virtual void SetPosition(const Vector3&) = 0;
+
+    virtual bool SetSoundData(CSFMLSoundData*) = 0;
+
+    virtual void SetOffset(const int) = 0;
+    virtual int GetOffset() const = 0;
+};
+
 class CSFMLSound: public ISound
 {
 public:
@@ -47,7 +72,7 @@ public:
     ISoundData* GetSoundData() const override { return Data; }
 private:
     CSFMLSoundData* Data = nullptr;
-    sf::Sound Sound;
+    std::unique_ptr<ISFMLSoundSource> Sound;
     bool Valid = false;
     float Volume = 0.5f;
     bool Muted = false;

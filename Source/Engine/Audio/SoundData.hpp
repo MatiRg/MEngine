@@ -3,6 +3,9 @@
 
 class IAudio;
 
+// For Resource Var Map
+static constexpr char RESOURCES_VAR_IS_STREAM[] = "__IS_STREAM";
+
 class ISoundData: public IResource
 {
 public:
@@ -16,6 +19,8 @@ public:
     }
 
     RESOURCE(ISoundData)
+
+    virtual bool IsStream() const = 0;
 
     // Clip Length in milliseconds
     virtual int GetDuration() const = 0;

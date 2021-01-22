@@ -2,6 +2,143 @@
 #include "../../Math/Functions.hpp"
 #include "../../Core/Log.hpp"
 
+template<class T>
+class TSFMLSoundSource: public ISFMLSoundSource
+{
+public:
+    TSFMLSoundSource() = default;
+    virtual ~TSFMLSoundSource() = default;
+
+    void Play() override
+    {
+        Sound.play();
+    }
+
+    void Pause(const bool State) override
+    {
+        if (State)
+        {
+            Sound.pause();
+        }
+        else
+        {
+            Sound.play();
+        }
+    }
+
+    void Stop() override
+    {
+        Sound.stop();
+    }
+
+    ESoundState GetState() override
+    {
+        switch (Sound.getStatus())
+        {
+        case sf::SoundSource::Status::Playing:
+            return ESoundState::Playing;
+        case sf::SoundSource::Status::Paused:
+            return ESoundState::Paused;
+        case sf::SoundSource::Status::Stopped:
+            return ESoundState::Idle;
+        default:
+            return ESoundState::Invalid;
+        }
+    }
+
+    void SetVolume(const float Volume) override
+    {
+        Sound.setVolume(Volume * 100.0f);
+    }
+
+    void SetMuted(const bool Muted, const float Volume) override
+    {
+        Sound.setVolume(Muted ? 0.0f : (Volume * 100.0f));
+    }
+
+    void SetRelative(const bool Relative) override
+    {
+        Sound.setRelativeToListener(Relative);
+    }
+
+    void SetMinDistance(const float MinDistance) override
+    {
+        Sound.setMinDistance(MinDistance);
+    }
+
+    void SetAttenuation(const float Attenuation) override
+    {
+        Sound.setAttenuation(Attenuation);
+    }
+
+    void SetPosition(const Vector3& Position) override
+    {
+        Sound.setPosition(sf::Vector3f(Position.x, Position.y, Position.z));
+    }
+
+    void SetLooped(const bool Looped) override
+    {
+        Sound.setLoop(Looped);
+    }
+
+    int GetOffset() const override
+    {
+        return Sound.getPlayingOffset().asMilliseconds();
+    }
+protected:
+    T Sound;
+};
+
+class CSFMLSoundSource : public TSFMLSoundSource<sf::Sound>
+{
+public:
+    CSFMLSoundSource() = default;
+    ~CSFMLSoundSource() = default;
+
+    void SetOffset(const int Offset) override
+    {
+        if( Offset < Data->GetDuration() )
+        {
+            Sound.setPlayingOffset(sf::milliseconds(Offset));
+        }
+    }
+
+    bool SetSoundData(CSFMLSoundData* aData) override
+    {
+        Data = aData;
+        Sound.setBuffer( Data->GetBuffer() );
+        return true;
+    }
+private:
+    CSFMLSoundData* Data = nullptr;
+};
+
+class CSFMLStreamSource : public TSFMLSoundSource<sf::Music>
+{
+public:
+    CSFMLStreamSource() = default;
+    ~CSFMLStreamSource() = default;
+
+    void SetOffset(const int Offset) override
+    {
+        if (Offset < Sound.getDuration().asMilliseconds() )
+        {
+            Sound.setPlayingOffset(sf::milliseconds(Offset));
+        }
+    }
+
+    bool SetSoundData(CSFMLSoundData* Data) override
+    {
+        if( !Sound.openFromFile(Data->GetPath()) )
+        {
+            return false;
+        }
+        return true;
+    }
+};
+
+///////////////////////////////////////////////////////////////
+
 CSFMLSound::CSFMLSound(CSFMLSoundData* aData):
     Data( aData )
 {
@@ -13,17 +150,33 @@ CSFMLSound::~CSFMLSound()
 
 bool CSFMLSound::CreateSource()
 {
-    if( Data )
+    Sound.reset();
+    if (Data)
     {
-        Sound.setBuffer( Data->GetBuffer() );
-    }
+        if( Data->IsStream() )
+        {
+            Sound = std::make_unique<CSFMLStreamSource>();
+        }
+        else
+        {
+            Sound = std::make_unique<CSFMLSoundSource>();
+        }
 
-    Sound.setVolume(Volume * 100.0f);
-    Sound.setRelativeToListener(Relative);
-    Sound.setLoop(Looped);
-    Sound.setMinDistance(MinDistance);
-    Sound.setAttenuation(Attenuation);
-    Sound.setPosition(sf::Vector3f(Position.x, Position.y, Position.z));
+        if( !Sound->SetSoundData(Data) )
+        {
+            LOG(ESeverity::Error) << "Unable to create ISound form File: " << Data->GetName() << "\n";
+            Valid = false;
+            return false;
+        }
+
+        Sound->SetVolume(Volume);
+        Sound->SetMuted(Muted, Volume);
+        Sound->SetRelative(Relative);
+        Sound->SetLooped(Looped);
+        Sound->SetMinDistance(MinDistance);
+        Sound->SetAttenuation(Attenuation);
+        Sound->SetPosition(Position);
+    }
 
     Valid = true;
     return true;
@@ -37,7 +190,10 @@ void CSFMLSound::Play()
         return;
     }
 
-    Sound.play();
+    if (Sound)
+    {
+        Sound->Play();
+    }
 }
 
 void CSFMLSound::Pause(const bool State)
@@ -48,13 +204,9 @@ void CSFMLSound::Pause(const bool State)
         return;
     }
 
-    if( State )
+    if (Sound)
     {
-        Sound.pause();
-    }
-    else
-    {
-        Sound.play();
+        Sound->Pause(State);
     }
 }
 
@@ -66,7 +218,10 @@ void CSFMLSound::Stop()
         return;
     }
 
-    Sound.stop();
+    if (Sound)
+    {
+        Sound->Stop();
+    }
 }
 
 ESoundState CSFMLSound::GetState()
@@ -77,17 +232,12 @@ ESoundState CSFMLSound::GetState()
         return ESoundState::Invalid;
     }
 
-    switch(Sound.getStatus())
+    if( !Sound )
     {
-        case sf::SoundSource::Status::Playing:
-            return ESoundState::Playing;
-        case sf::SoundSource::Status::Paused:
-            return ESoundState::Paused;
-        case sf::SoundSource::Status::Stopped:
-            return ESoundState::Idle;
-        default:
-            return ESoundState::Invalid;
+        return ESoundState::Invalid;
     }
+
+    return Sound->GetState();
 }
 
 void CSFMLSound::SetVolume(const float aVolume)
@@ -99,8 +249,10 @@ void CSFMLSound::SetVolume(const float aVolume)
     }
 
     Volume = Math::Clamp( aVolume, 0.0f, 1.0f );
-
-    Sound.setVolume( Volume * 100.0f );
+    if (Sound)
+    {
+        Sound->SetVolume(Volume);
+    }
 }
 
 void CSFMLSound::SetMuted(const bool aMute)
@@ -112,8 +264,10 @@ void CSFMLSound::SetMuted(const bool aMute)
     }
 
     Muted = aMute;
-
-    Sound.setVolume(Muted ? 0.0f : (Volume * 100.0f) );
+    if (Sound)
+    {
+        Sound->SetMuted(Muted, Volume);
+    }
 }
 
 void CSFMLSound::SetRelative(const bool aRelative)
@@ -125,7 +279,10 @@ void CSFMLSound::SetRelative(const bool aRelative)
     }
 
     Relative = aRelative;
-    Sound.setRelativeToListener(Relative);
+    if (Sound)
+    {
+        Sound->SetRelative(Relative);
+    }
 }
 
 void CSFMLSound::SetMinDistance(const float aMinDistance)
@@ -137,7 +294,10 @@ void CSFMLSound::SetMinDistance(const float aMinDistance)
     }
 
     MinDistance = aMinDistance;
-    Sound.setMinDistance(MinDistance);
+    if (Sound)
+    {
+        Sound->SetMinDistance(MinDistance);
+    }
 }
 
 void CSFMLSound::SetAttenuation(const float aAttenuation)
@@ -149,7 +309,10 @@ void CSFMLSound::SetAttenuation(const float aAttenuation)
     }
 
     Attenuation = aAttenuation;
-    Sound.setAttenuation(Attenuation);
+    if (Sound)
+    {
+        Sound->SetAttenuation(Attenuation);
+    }
 }
 
 void CSFMLSound::SetPosition(const Vector3& aPosition)
@@ -161,7 +324,10 @@ void CSFMLSound::SetPosition(const Vector3& aPosition)
     }
 
     Position = aPosition;
-    Sound.setPosition(sf::Vector3f(Position.x, Position.y, Position.z));
+    if (Sound)
+    {
+        Sound->SetPosition(Position);
+    }
 }
 
 void CSFMLSound::SetLooped(const bool aLooped)
@@ -173,7 +339,10 @@ void CSFMLSound::SetLooped(const bool aLooped)
     }
 
     Looped = aLooped;
-    Sound.setLoop(Looped);
+    if (Sound)
+    {
+        Sound->SetLooped(Looped);
+    }
 }
 
 void CSFMLSound::SetSoundData(ISoundData* aData)
@@ -182,7 +351,7 @@ void CSFMLSound::SetSoundData(ISoundData* aData)
     Data = dynamic_cast<CSFMLSoundData*>(aData);
     if( Data )
     {
-        Sound.setBuffer( Data->GetBuffer() );
+        CreateSource();
     }
     else
     {
@@ -198,9 +367,9 @@ void CSFMLSound::SetOffset(const int Offset)
         return;
     }
 
-    if( Data && (Offset < Data->GetDuration()) )
+    if (Sound)
     {
-        Sound.setPlayingOffset( sf::milliseconds(Offset) );
+        Sound->SetOffset(Offset);
     }
 }
 
@@ -212,5 +381,10 @@ int CSFMLSound::GetOffset() const
         return 0;
     }
 
-    return Sound.getPlayingOffset().asMilliseconds();
+    if (!Sound)
+    {
+        return 0;
+    }
+
+    return Sound->GetOffset();
 }

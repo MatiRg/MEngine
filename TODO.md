@@ -2,7 +2,6 @@ Add CMaterial Options -> Texture Filter/Ani, Double Sided, Blend Mode/Enabled, D
 Add 3D.
 add reload method to IResource
 Proper Physics Update
-1.Replace OpenAL with OpenAL Soft or SFML!! or IrrKlang
 Support some components multiple, some unique add static method bool CanMultiple() - defined by macro COMPONENT; CreateComponent will return if only one or unique per entity
 Rework or Remove 2D Support -> See Sprite2D shader
 
@@ -49,9 +48,7 @@ Pre Thesis
 1.Resources - Reload method nad it`s usage maybe weak_ptr) - Like SDLSurface, Maybe Scripts
 1.USE AngelScript as Script to Relaoding
 1.Add Debug Window to Engine RUntime(C++) for realaoding
-1.Batches are amalgmated in CRenderer2D.Render() into MultiSet(CDrawBatch, IDrawCommand) -> Set State Here ,Make campatibile with 3D, Refactor IGraphics
-
-1.Project maybe to do -> // Path + Name // bool SaveAs(const std::string&)
+1.Batches are amalgmated in CRenderer2D.Render() into MultiSet(CDrawBatch, IDrawCommand) -> Set State Here ,Make campatibile with 3D
 
 1.Tiled Map Support
 1.Use Full Entity Component System
