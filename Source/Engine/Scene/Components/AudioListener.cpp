@@ -51,9 +51,11 @@ void CAudioListener::OnDestroy()
     Audio->SetVolume(OrginalVolume);
 }
 
-void CAudioListener::OnBeginFrame()
+void CAudioListener::OnLateUpdate(const float)
 {
     auto Transform = GetOwner()->GetTransform();
+
+    Audio->SetListenerDirection( Transform.GetWorldForward() );
     Audio->SetListenerPosition( Transform.GetWorldPosition() );
 }
 

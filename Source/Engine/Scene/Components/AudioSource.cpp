@@ -20,6 +20,13 @@ bool CAudioSource::OnLoad(CXMLElement* Root)
 	Looped = XML::LoadBool( Root, "Looped", false );
     SetLooped(Looped);
 
+    Relative = XML::LoadBool(Root, "Relative", false);
+    SetRelative(Relative);
+    MinDistance = XML::LoadFloat(Root, "MinDistance", 1.0f);
+    SetMinDistance(MinDistance);
+    Attenuation = XML::LoadFloat(Root, "Attenuation", 1.0f);
+    SetAttenuation(Attenuation);
+
     if( XML::LoadBool(Root, "HasData", false) )
     {
         std::string DataName = XML::LoadString( Root, "DataName", "");
@@ -69,6 +76,10 @@ bool CAudioSource::OnSave(CXMLElement* Root)
     XML::SaveBool( Root, "Muted", Muted);
     XML::SaveFloat( Root, "Volume", Volume);
     XML::SaveBool( Root, "Looped", Looped);
+
+    XML::SaveBool(Root, "Relative", Relative);
+    XML::SaveFloat(Root, "MinDistance", MinDistance);
+    XML::SaveFloat(Root, "Attenuation", Attenuation);
 
     if( Data )
     {
@@ -121,10 +132,10 @@ void CAudioSource::OnCreate()
 void CAudioSource::OnDestroy()
 {
     Stop();
-    Engine->GetAudio()->DestroySound(Sound);
+    Sound.reset();
 }
 
-void CAudioSource::OnBeginFrame()
+void CAudioSource::OnLateUpdate(const float)
 {
     if( Sound )
     {
@@ -157,6 +168,33 @@ void CAudioSource::SetLooped(const bool Value)
     if( Sound )
     {
         Sound->SetLooped(Looped);
+    }
+}
+
+void CAudioSource::SetRelative(const bool aRelative)
+{
+    Relative = aRelative;
+    if (Sound)
+    {
+        Sound->SetRelative(Relative);
+    }
+}
+
+void CAudioSource::SetMinDistance(const float aMinDistance)
+{
+    MinDistance = aMinDistance;
+    if (Sound)
+    {
+        Sound->SetMinDistance(MinDistance);
+    }
+}
+
+void CAudioSource::SetAttenuation(const float aAttenuation)
+{
+    Attenuation = aAttenuation;
+    if (Sound)
+    {
+        Sound->SetAttenuation(Attenuation);
     }
 }
 

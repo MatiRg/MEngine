@@ -111,7 +111,11 @@ public:
         AudioSource = CreateComponent<CAudioSource>();
         AudioSource->SetLooped(true);
         AudioSource->SetVolume(0.75f);
-        AudioSource->SetData( Engine->GetResources()->CreateResource<ISoundData>("menu.ogg") );
+
+        ResourceCreateMap ResVar;
+        ResVar[RESOURCES_VAR_IS_STREAM] = true;
+        AudioSource->SetData(Engine->GetResources()->CreateResource<ISoundData>("menu.ogg", ResVar));
+
         AudioSource->Play();
 
         CameraObject = CreateChild<CEntity>();

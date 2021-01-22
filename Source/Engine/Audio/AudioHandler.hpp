@@ -1,12 +1,11 @@
 #pragma once
 #include "../Engine/EngineModule.hpp"
+#include "Audio.hpp"
 #include <memory>
 #include <string>
 #include <map>
 
-class IAudio;
 class CResources;
-class ISound;
 
 class CAudioHandler final: public IEngineModule
 {
@@ -25,6 +24,6 @@ public:
 private:
     IAudio* Audio = nullptr;
     CResources* Resources = nullptr;
-    ISound* Music = nullptr;
-    std::map<std::string, ISound*> Sounds;
+    std::unique_ptr<ISound> Music;
+    std::map<std::string, std::unique_ptr<ISound>> Sounds;
 };

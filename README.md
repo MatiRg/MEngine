@@ -3,7 +3,7 @@ Simple and Crude 2D/3D Game Engine made during Engineering Degree.Inspired by HP
 ## Installing
 See [INSTALL.md](INSTALL.md)
 ## Features
-Features Tree Scene Hierarchy and EC(Entity Component) like system, 2D sound playback, resource manager, 
+Features Tree Scene Hierarchy and EC(Entity Component) like system, 2D/3D sound playback, resource manager, 
 file system support, XML support, Box2d support, rendering using OpenGL 4.6 nad ImGUI support.
 ### Dev Build
  * F10 - Performance Counters

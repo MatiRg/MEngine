@@ -106,6 +106,12 @@ set(SOURCES_BASE
 	Source/Engine/Implementation/NullAudio/NullSound.hpp
 	Source/Engine/Implementation/NullAudio/NullSoundData.cpp
 	Source/Engine/Implementation/NullAudio/NullSoundData.hpp
+	Source/Engine/Implementation/SFMLAudio/SFMLAudio.cpp
+	Source/Engine/Implementation/SFMLAudio/SFMLAudio.hpp
+	Source/Engine/Implementation/SFMLAudio/SFMLSound.cpp
+	Source/Engine/Implementation/SFMLAudio/SFMLSound.hpp
+	Source/Engine/Implementation/SFMLAudio/SFMLSoundData.cpp
+	Source/Engine/Implementation/SFMLAudio/SFMLSoundData.hpp
 	Source/Engine/Implementation/OGL/OGLFrameBuffer.cpp
 	Source/Engine/Implementation/OGL/OGLFrameBuffer.hpp
 	Source/Engine/Implementation/OGL/OGLGraphics.cpp
@@ -118,31 +124,23 @@ set(SOURCES_BASE
 	Source/Engine/Implementation/OGL/OGLUtils.hpp
 	Source/Engine/Implementation/OGL/OGLVertexBuffer.cpp
 	Source/Engine/Implementation/OGL/OGLVertexBuffer.hpp
-	Source/Engine/Implementation/Box2DUtils.hpp
-	Source/Engine/Implementation/Box2DPhysics2D.cpp
-	Source/Engine/Implementation/Box2DPhysics2D.hpp
-	Source/Engine/Implementation/Box2DCollisionShape2D.cpp
-	Source/Engine/Implementation/Box2DCollisionShape2D.hpp
-	Source/Engine/Implementation/Box2DPhysicsWorld2D.cpp
-	Source/Engine/Implementation/Box2DPhysicsWorld2D.hpp
-	Source/Engine/Implementation/Box2DRigidBody2D.cpp
-	Source/Engine/Implementation/Box2DRigidBody2D.hpp	
-	Source/Engine/Implementation/BulletPhysics3D.cpp
-	Source/Engine/Implementation/BulletPhysics3D.hpp
-	Source/Engine/Implementation/BulletCollisionShape3D.cpp
-	Source/Engine/Implementation/BulletCollisionShape3D.hpp
-	Source/Engine/Implementation/BulletPhysicsWorld3D.cpp
-	Source/Engine/Implementation/BulletPhysicsWorld3D.hpp
-	Source/Engine/Implementation/BulletRigidBody3D.cpp
-	Source/Engine/Implementation/BulletRigidBody3D.hpp
-	Source/Engine/Implementation/OALAudio.cpp
-	Source/Engine/Implementation/OALAudio.hpp
-	Source/Engine/Implementation/OALSound.cpp
-	Source/Engine/Implementation/OALSound.hpp
-	Source/Engine/Implementation/OALSoundData.cpp
-	Source/Engine/Implementation/OALSoundData.hpp
-	Source/Engine/Implementation/OALUtils.cpp
-	Source/Engine/Implementation/OALUtils.hpp
+	Source/Engine/Implementation/Box2D/Box2DUtils.hpp
+	Source/Engine/Implementation/Box2D/Box2DPhysics2D.cpp
+	Source/Engine/Implementation/Box2D/Box2DPhysics2D.hpp
+	Source/Engine/Implementation/Box2D/Box2DCollisionShape2D.cpp
+	Source/Engine/Implementation/Box2D/Box2DCollisionShape2D.hpp
+	Source/Engine/Implementation/Box2D/Box2DPhysicsWorld2D.cpp
+	Source/Engine/Implementation/Box2D/Box2DPhysicsWorld2D.hpp
+	Source/Engine/Implementation/Box2D/Box2DRigidBody2D.cpp
+	Source/Engine/Implementation/Box2D/Box2DRigidBody2D.hpp	
+	Source/Engine/Implementation/Bullet/BulletPhysics3D.cpp
+	Source/Engine/Implementation/Bullet/BulletPhysics3D.hpp
+	Source/Engine/Implementation/Bullet/BulletCollisionShape3D.cpp
+	Source/Engine/Implementation/Bullet/BulletCollisionShape3D.hpp
+	Source/Engine/Implementation/Bullet/BulletPhysicsWorld3D.cpp
+	Source/Engine/Implementation/Bullet/BulletPhysicsWorld3D.hpp
+	Source/Engine/Implementation/Bullet/BulletRigidBody3D.cpp
+	Source/Engine/Implementation/Bullet/BulletRigidBody3D.hpp
 	Source/Engine/Implementation/SDLEventQueue.cpp
 	Source/Engine/Implementation/SDLEventQueue.hpp
 	Source/Engine/Implementation/SDLFont.cpp
@@ -337,7 +335,8 @@ if("${CMAKE_SYSTEM_NAME}" MATCHES "Windows")
 	link_directories(${WIN_PATH_LIBS}/lib)
 	
 	if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
-		set(LIBS SDL2main SDL2 SDL2_image SDL2_ttf OpenAL32 box2d assimp-vc142-mt BulletCollision BulletDynamics BulletInverseDynamics BulletSoftBody LinearMath)
+		set(LIBS_DBG SDL2main SDL2 SDL2_image SDL2_ttf sfml-audio-d sfml-system-d box2d assimp-vc142-mt BulletCollision BulletDynamics BulletInverseDynamics BulletSoftBody LinearMath)
+		set(LIBS SDL2main SDL2 SDL2_image SDL2_ttf sfml-audio sfml-system box2d assimp-vc142-mt BulletCollision BulletDynamics BulletInverseDynamics BulletSoftBody LinearMath)
 	elseif(CMAKE_CXX_COMPILER_ID MATCHES "Clang|GNU")
 		set(LIBS SDL2main SDL2.dll SDL2_image.dll SDL2_ttf.dll openal.dll) # TO DO
 	endif()
@@ -346,7 +345,7 @@ if("${CMAKE_SYSTEM_NAME}" MATCHES "Windows")
     add_custom_target(copy-dll-files ALL
         COMMAND cmake -E copy ${WIN_DLL_LIB} ${CMAKE_BINARY_DIR}
         DEPENDS ${MY_TARGET})
-elseif("${CMAKE_SYSTEM_NAME}" MATCHES "Linux")
+elseif("${CMAKE_SYSTEM_NAME}" MATCHES "Linux") # TO DO
     message(STATUS "Linux system")
     set(LIBS SDL2 SDL2_image SDL2_ttf openal dl)
 else()
@@ -365,13 +364,26 @@ elseif(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 	)
 endif()
 
+if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
+	set(LIBS_DBG 
+		MyEngine
+		${LIBS_DBG}
+	)
+endif()
 set(LIBS 
 	MyEngine 
 	${LIBS}
 )
 
-target_link_libraries(HelloWorld2D ${LIBS})
-target_link_libraries(Labirynth ${LIBS})
+if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
+	target_link_libraries(HelloWorld2D debug ${LIBS_DBG})
+	target_link_libraries(Labirynth debug ${LIBS_DBG})
+	target_link_libraries(HelloWorld2D optimized ${LIBS})
+	target_link_libraries(Labirynth optimized ${LIBS})
+else()
+	target_link_libraries(HelloWorld2D ${LIBS})
+	target_link_libraries(Labirynth ${LIBS})
+endif()
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "Clang|AppleClang|GNU")
 	set(CMP_GNU -Wall -Wextra -Wunreachable-code -Wpedantic)

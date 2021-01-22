@@ -19,7 +19,7 @@ public:
     void OnCreate() override;
     void OnDestroy() override;
 
-    void OnBeginFrame() override;
+    void OnLateUpdate(const float) override;
 
     void SetMuted(const bool);
     bool IsMuted() const { return Muted; }

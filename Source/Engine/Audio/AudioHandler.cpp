@@ -1,6 +1,4 @@
 #include "AudioHandler.hpp"
-#include "Audio.hpp"
-#include "Sound.hpp"
 #include "SoundData.hpp"
 #include "../Resources/Resources.hpp"
 #include "../Core/Log.hpp"
@@ -19,13 +17,11 @@ CAudioHandler::~CAudioHandler()
 void CAudioHandler::OnExit()
 {
 	StopMusic();
-    Audio->DestroySound(Music);
-	Music = nullptr;
+	Music.reset();
 
 	for(auto& i: Sounds)
 	{
 		i.second->Stop();
-        Audio->DestroySound(i.second);
 	}
 	Sounds.clear();
 }
@@ -33,13 +29,13 @@ void CAudioHandler::OnExit()
 void CAudioHandler::PlayMusic(const std::string& Name)
 {
     StopMusic();
-    if( !Music )
+    if (!Music)
     {
-        Music = Audio->CreateSound( Resources->CreateResource<ISoundData>( Name ) );
+        Music = Audio->CreateSound(Resources->CreateResource<ISoundData>(Name));
     }
     else
     {
-        Music->SetSoundData( Resources->CreateResource<ISoundData>( Name ) );
+        Music->SetSoundData(Resources->CreateResource<ISoundData>(Name));
     }
 
     if( Music ) 
@@ -66,10 +62,10 @@ void CAudioHandler::PlaySound(const std::string& Name)
     }
     else
     {
-        ISound* Sound = Audio->CreateSound( Resources->CreateResource<ISoundData>( Name ) );
+        std::unique_ptr<ISound> Sound = Audio->CreateSound( Resources->CreateResource<ISoundData>( Name ) );
         if( Sound )
         {
-            Sounds[Name] = Sound;
+            Sounds[Name] = std::move(Sound);
             Sounds[Name]->SetLooped(false);
             Sounds[Name]->Play();
         }
