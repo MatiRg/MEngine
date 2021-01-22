@@ -235,3 +235,8 @@ CScriptModule* CApp::GetScriptModule() const
 {
     return (!Engine.get()) ? nullptr : Engine->GetScriptModule();
 }
+
+CPerformanceCounters* CApp::GetPerformanceCounters() const
+{
+    return (!Engine.get()) ? nullptr : Engine->GetPerformanceCounters();
+}
