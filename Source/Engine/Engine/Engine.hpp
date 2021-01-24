@@ -23,7 +23,7 @@ class IPhysics2D;
 class CImGUI;
 class CScene;
 class CScriptModule;
-class CPerformanceCounter;
+class CPerformanceCounters;
 struct SEngineParams;
 
 class CEngine final: public NonCopyableMovable
@@ -62,6 +62,7 @@ public:
     CImGUI* GetImGUI() const { return ImGUI.get(); }
     CScene* GetScene() const { return Scene.get(); }
     CScriptModule* GetScriptModule() const { return ScriptModule.get(); }
+    CPerformanceCounters* GetPerformanceCounters() const { return Counter.get(); }
 
     // Type
     IEngineModule* GetModule(const std::string&) const;
@@ -97,6 +98,6 @@ private:
     std::unique_ptr<CImGUI> ImGUI;
     std::unique_ptr<CScene> Scene;
     std::unique_ptr<CScriptModule> ScriptModule;
-    std::unique_ptr<CPerformanceCounter> Counter;
+    std::unique_ptr<CPerformanceCounters> Counter;
 };
 

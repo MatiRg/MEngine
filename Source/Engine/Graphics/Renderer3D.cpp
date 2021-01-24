@@ -1,10 +1,13 @@
 #include "Renderer3D.hpp"
 #include "Graphics.hpp"
+#include "../Resources/Resources.hpp"
 #include "../Core/Log.hpp"
+#include <algorithm>
 
-CRenderer3D::CRenderer3D(IGraphics* aGraphics):
+CRenderer3D::CRenderer3D(IGraphics* aGraphics, CResources* aResources):
     IEngineModule( "Renderer3D" ),
-    Graphics(aGraphics)
+    Graphics(aGraphics),
+    Resources(aResources)
 {
 }
 
@@ -14,13 +17,68 @@ CRenderer3D::~CRenderer3D()
 
 bool CRenderer3D::Init(const SEngineParams&)
 {
+    DefaultFrameBuffer = Graphics->CreateFrameBuffer();
+    if (!DefaultFrameBuffer)
+    {
+        LOG(ESeverity::Fatal) << "Renderer3D: Invalid Default Frame Buffer\n";
+        return false;
+    }
+
+    std::vector<Vector3> ScreenPositions = {
+        {-1.0f,  1.0f, 0.0f },
+        {-1.0f, -1.0f, 0.0f },
+        { 1.0f, -1.0f, 0.0f },
+        {-1.0f,  1.0f, 0.0f },
+        { 1.0f, -1.0f, 0.0f },
+        { 1.0f,  1.0f, 0.0f }
+    };
+    std::vector<Vector2> ScreenTexCoords = {
+        { 0.0f, 1.0f },
+        { 0.0f, 0.0f },
+        { 1.0f, 0.0f },
+        { 0.0f, 1.0f },
+        { 1.0f, 0.0f },
+        { 1.0f, 1.0f }
+    };
+    QuadVertexBuffer = Graphics->CreateVertexBuffer({ EVertexElement::Position, EVertexElement::TexCoord0 }, false);
+    if (!QuadVertexBuffer)
+    {
+        LOG(ESeverity::Fatal) << "Renderer3D: Invalid Screen Vertex Buffer\n";
+        return false;
+    }
+    QuadVertexBuffer->SetData(EVertexElement::Position, ScreenPositions);
+    QuadVertexBuffer->SetData(EVertexElement::TexCoord0, ScreenTexCoords);
+
+    ScreenShader = Resources->CreateResource<IShader>("Screen.shader");
+    if (!ScreenShader)
+    {
+        LOG(ESeverity::Fatal) << "Renderer3D: Invalid 'Screen.shader' Shader\n";
+        return false;
+    }
+
     LOG( ESeverity::Info ) << "Renderer3D - Init\n";
     return true;
 }
 
 void CRenderer3D::Exit()
 {
+    Effects.clear();
+    QuadVertexBuffer.reset();
+    DefaultFrameBuffer.reset();
     LOG( ESeverity::Info ) << "Renderer3D - Exit\n";
+}
+
+CPostEffect* CRenderer3D::CreatePostEffect(const std::string& ShaderName, const int Order)
+{
+    PostEffectPtr Ptr = std::make_unique<CPostEffect>(Graphics, Resources, Order);
+    if( !Ptr->Create(ShaderName) )
+    {
+        LOG(ESeverity::Error) << "Unable to Create Post Effect for: '" << ShaderName << "' Shader\n";
+        return nullptr;
+    }
+    CPostEffect* RawPtr = Ptr.get();
+    Effects.push_back( std::move(Ptr) );
+    return RawPtr;
 }
 
 void CRenderer3D::Render()
@@ -35,15 +93,20 @@ void CRenderer3D::Render()
     bool SavedBlendActive = Graphics->IsBlendActive();
     EBlendMode SavedBlendMode = Graphics->GetBlendMode();
     //
+    /////////////////////////////////////////////////////////////
+    //
+    DefaultFrameBuffer->Bind();
+    //
     Graphics->SetDepthActive(true);
     Graphics->SetDepthFunction(EDepthMode::Less);
     Graphics->SetCullActive(true);
     Graphics->SetCullMode(ECullMode::Back);
     Graphics->SetFrontFace(EFrontFace::CCW);
     Graphics->SetPolygonMode(EPolygonMode::Fill);
-    Graphics->SetClearColor( Color(0.0f, 1.0f) );
+    Graphics->SetClearColor(Color(0.0f, 1.0f));
     Graphics->SetBlendActive(true);
     Graphics->SetBlendMode(EBlendMode::None);
+    Graphics->Clear();
     //
     for (const auto& i : Renderables)
     {
@@ -104,6 +167,49 @@ void CRenderer3D::Render()
         //
         Material->UnBind();
     }
+    DefaultFrameBuffer->UnBind();
+    //
+    /////////////////////////////////////////////////////////////
+    //
+    // Post Process
+    std::sort(Effects.begin(), Effects.end(), [](const PostEffectPtr& rhs, const PostEffectPtr& lhs) {
+        return rhs->GetOrder() < lhs->GetOrder();
+    });
+    IFrameBuffer* LastFrameBuffer = DefaultFrameBuffer.get();
+    ITexture2D* FinalOutputTexture = LastFrameBuffer->GetColorAttachment();
+    Graphics->SetDepthActive(false);
+    for (const auto& i : Effects)
+    {
+        if (i->IsEnabled())
+        {
+            i->Bind(LastFrameBuffer);
+            QuadVertexBuffer->Bind();
+            QuadVertexBuffer->Draw(EPrimitiveMode::Triangles, 6u);
+            QuadVertexBuffer->UnBind();
+            i->UnBind();
+            //
+            LastFrameBuffer = i->GetFrameBuffer();
+            FinalOutputTexture = i->GetColorAttachment();
+        }
+    }
+    //
+    /////////////////////////////////////////////////////////////
+    //
+    // Final Draw
+    Graphics->Clear();
+    //
+    ScreenShader->Bind();
+    ScreenShader->SetTexture("ScreenTexture", FinalOutputTexture, 0);
+    ScreenShader->SetFloat("GammaCorrection", GammaCorrection);
+    //
+    QuadVertexBuffer->Bind();
+    QuadVertexBuffer->Draw(EPrimitiveMode::Triangles, 6u);
+    QuadVertexBuffer->UnBind();
+    //
+    ScreenShader->UnBind();
+    //
+    /////////////////////////////////////////////////////////////
+    //
     Renderables.clear();
     Lights.clear();
     //

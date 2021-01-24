@@ -60,13 +60,13 @@ bool CEngine::Create()
     UserUpdater = std::make_unique<CUserUpdater>();
     Resources = std::make_unique<CResources>( this );
     AudioHandler = std::make_unique<CAudioHandler>( Audio, Resources.get() );
-    Renderer3D = std::make_unique<CRenderer3D>(Graphics);
+    Renderer3D = std::make_unique<CRenderer3D>(Graphics, Resources.get());
     Drawer2D = std::make_unique<CDrawer2D>( Graphics, Resources.get(), Window );
     Renderer2D = std::make_unique<CRenderer2D>( Drawer2D.get() );
     ImGUI = std::make_unique<CImGUI>( Input, Graphics );
     Scene = std::make_unique<CScene>( this );
     ScriptModule = std::make_unique<CScriptModule>( this );
-    Counter = std::make_unique<CPerformanceCounter>( ImGUI.get() );
+    Counter = std::make_unique<CPerformanceCounters>( ImGUI.get(), System );
 
     EngineUpdater->AddEngineModule( System );
     EngineUpdater->AddEngineModule( EventQueue );
@@ -150,19 +150,20 @@ void CEngine::Run()
     EngineUpdater->OnEnter();
     while( Loop )
     {
+        Counter->StartMeasurment();
+
         float NewTime = static_cast<float>(System->GetTime()) / 1000.0f;
         float FrameTime = NewTime - CurrentTime;
         Accumulator += FrameTime;
         CurrentTime = NewTime;
 
         {
-            uint32_t Start = System->GetTime();
+            CPerformanceCounter PerfCounter{ EPerformanceCounter::Begin, Counter.get() };
             EngineUpdater->OnBeginFrame();
-            Counter->SetTime( EPerfCounter::Begin, System->GetTime()-Start );
         }
 
         {
-            uint32_t Start = System->GetTime();
+            CPerformanceCounter PerfCounter{ EPerformanceCounter::Event, Counter.get() };
             CEvent Event;
             EventQueue->PullEvents();
             while( EventQueue->PopEvent( Event ) )
@@ -186,47 +187,55 @@ void CEngine::Run()
                     Quit();
                 }
             }
-            Counter->SetTime( EPerfCounter::Event, System->GetTime()-Start );
         }
 
         {
-            uint32_t Start = System->GetTime();
+            CPerformanceCounter PerfCounter{ EPerformanceCounter::Update, Counter.get() };
             while( Accumulator >= DeltaTime ) // Fixed Delta Time for Simulation & Rendering at Different Framerates
             {
                 EngineUpdater->OnUpdate( DeltaTime );
                 Accumulator -= DeltaTime;
             }
-            Counter->SetTime( EPerfCounter::Update, System->GetTime()-Start );
-
-            Start = System->GetTime();
-            EngineUpdater->OnLateUpdate( DeltaTime );
-            Counter->SetTime( EPerfCounter::LateUpdate, System->GetTime()-Start );
         }
 
         {
-            uint32_t Start = System->GetTime();
+            CPerformanceCounter PerfCounter{ EPerformanceCounter::LateUpdate, Counter.get() };
+            EngineUpdater->OnLateUpdate(DeltaTime);
+        }
+
+        {
+            CPerformanceCounter PerfCounter{ EPerformanceCounter::ImGUI, Counter.get() };
             EngineUpdater->OnGUI();
-            Counter->SetTime( EPerfCounter::UI, System->GetTime()-Start );
         }
 
+        Graphics->Clear();
         {
-            uint32_t Start = System->GetTime();
-            Graphics->Clear();
-
+            CPerformanceCounter PerfCounter{ EPerformanceCounter::OnRender, Counter.get() };
             EngineUpdater->OnRender();
-            Renderer3D->Render();
-            Renderer2D->Render();
-            ImGUI->Draw();
-
-            Graphics->SwapBuffers();
-            Counter->SetTime( EPerfCounter::Rendering, System->GetTime()-Start );
         }
+        //
+        {
+            CPerformanceCounter PerfCounter{ EPerformanceCounter::Render3D, Counter.get() };
+            Renderer3D->Render();
+        }
+        //
+        {
+            CPerformanceCounter PerfCounter{ EPerformanceCounter::Render2D, Counter.get() };
+            Renderer2D->Render();
+        }
+        //
+        {
+            CPerformanceCounter PerfCounter{ EPerformanceCounter::RenderImGUI, Counter.get() };
+            ImGUI->Draw();
+        }
+        Graphics->SwapBuffers();
 
         {
-            uint32_t Start = System->GetTime();
+            CPerformanceCounter PerfCounter{ EPerformanceCounter::End, Counter.get() };
             EngineUpdater->OnEndFrame();
-            Counter->SetTime( EPerfCounter::End, System->GetTime()-Start );
         }
+
+        Counter->EndMeasurment();
     }
     EngineUpdater->OnLeave();
     LOG( ESeverity::Debug ) << "Game Loop - Shutdown\n";

@@ -26,6 +26,7 @@ class IPhysics2D;
 class CImGUI;
 class CScene;
 class CScriptModule;
+class CPerformanceCounters;
 class CEngine;
 
 class CApp: public NonCopyableMovable
@@ -56,6 +57,7 @@ public:
     CImGUI* GetImGUI() const;
     CScene* GetScene() const;
     CScriptModule* GetScriptModule() const;
+    CPerformanceCounters* GetPerformanceCounters() const;
 protected:
     virtual bool PreInit() { return true; } // Before Engine & Context Creation, Before Config Loading
     virtual bool Init() { return true; } // After Context & Engine Creation, Before Engine Init

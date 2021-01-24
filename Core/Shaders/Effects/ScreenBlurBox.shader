@@ -1,7 +1,7 @@
 #include "Locations.inc"
 #include "Uniforms.inc"
+#include "PostEffect.inc"
 
-uniform sampler2D ScreenTexture;
 uniform int Samples;
 
 #ifdef VS
@@ -11,7 +11,7 @@ out vec2 TexCoords;
 void main()
 {
 	TexCoords = TexCoords1;
-	gl_Position = vec4(Position.x, Position.y, Position.z, 1.0);
+	gl_Position = vec4(Position, 1.0);
 }
 
 #endif
@@ -33,7 +33,7 @@ void main()
     {    
 		for (int y = -Samples; y <= Samples; y++)
         {    
-			Sum += texture(ScreenTexture,
+			Sum += texture(BackBufferColor,
                 vec2(TexCoords.x + x * BlurSizeH, TexCoords.y + y * BlurSizeV)
             ) / Pow;
 		}

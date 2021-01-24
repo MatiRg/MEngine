@@ -83,6 +83,8 @@ set(SOURCES_BASE
 	Source/Engine/Graphics/Material.hpp
 	Source/Engine/Graphics/Model.cpp
 	Source/Engine/Graphics/Model.hpp
+	Source/Engine/Graphics/PostEffect.cpp
+	Source/Engine/Graphics/PostEffect.hpp
 	Source/Engine/Graphics/Renderable2D.cpp
 	Source/Engine/Graphics/Renderable2D.hpp
 	Source/Engine/Graphics/Renderable3D.cpp
