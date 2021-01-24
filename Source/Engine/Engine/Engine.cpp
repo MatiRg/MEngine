@@ -60,7 +60,7 @@ bool CEngine::Create()
     UserUpdater = std::make_unique<CUserUpdater>();
     Resources = std::make_unique<CResources>( this );
     AudioHandler = std::make_unique<CAudioHandler>( Audio, Resources.get() );
-    Renderer3D = std::make_unique<CRenderer3D>(Graphics);
+    Renderer3D = std::make_unique<CRenderer3D>(Graphics, Resources.get());
     Drawer2D = std::make_unique<CDrawer2D>( Graphics, Resources.get(), Window );
     Renderer2D = std::make_unique<CRenderer2D>( Drawer2D.get() );
     ImGUI = std::make_unique<CImGUI>( Input, Graphics );

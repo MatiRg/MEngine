@@ -34,4 +34,6 @@ private:
     std::unique_ptr<CMaterial> Material;
     CEntity* CameraObject = nullptr;
     CCamera* CameraComponent = nullptr;
+    ///////////////////////////
+    CPostEffect* BlurEffect = nullptr;
 };

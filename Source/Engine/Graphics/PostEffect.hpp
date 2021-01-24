@@ -1,14 +1,18 @@
 #pragma once
-#include "../Resources/ResourceManager.hpp"
 #include "Shader.hpp"
 #include "Texture2D.hpp"
-#include <vector>
+#include "FrameBuffer.hpp"
+#include "../Core/NonCopyable.hpp"
+#include "../Math/Color.hpp"
+#include "../Math/Vector3.hpp"
+#include <memory>
 #include <variant>
 
+class IGraphics;
 class CResources;
-class CMaterial;
+class CPostEffect;
 
-enum class EMaterialVariableType
+enum class EPostEffectVariableType
 {
     None,
     Int,
@@ -20,17 +24,11 @@ enum class EMaterialVariableType
     Texture
 };
 
-namespace Utils
-{
-    std::string MaterialVariableTypeToString(EMaterialVariableType x);
-    EMaterialVariableType MaterialVariableTypeFromString(const std::string& x);
-}
-
-class CMaterialVariable
+class CPostEffectVariable
 {
 public:
-    CMaterialVariable(CMaterial*, const std::string&);
-    ~CMaterialVariable();
+    CPostEffectVariable(CPostEffect*, const std::string&);
+    ~CPostEffectVariable();
 
     void Bind(IShader*);
 
@@ -44,26 +42,31 @@ public:
 
     const std::string& GetName() const { return Name; }
 protected:
-    CMaterial* Material = nullptr;
+    CPostEffect* Effect = nullptr;
     std::string Name; // Name in Shader Uniform
-    EMaterialVariableType Type = EMaterialVariableType::None;
+    EPostEffectVariableType Type = EPostEffectVariableType::None;
     std::variant<int, float, Vector2, Vector3, Vector4, Color, ITexture2D*> Value;
 };
 
-class CMaterial: public IResource
+class CPostEffect: public NonCopyableMovable
 {
-    friend CMaterialVariable;
+    friend CPostEffectVariable;
 public:
-    CMaterial();
-    CMaterial(const std::string&);
-    ~CMaterial();
+    CPostEffect(IGraphics*, CResources*, const int);
+    ~CPostEffect();
 
-    RESOURCE(CMaterial)
+    // Shader Name
+    bool Create(const std::string&);
 
-    bool Load(CResources*, const ResourceCreateMap&) override;
-
-    void Bind();
+    // Last Frame Buffer
+    void Bind(IFrameBuffer*);
     void UnBind();
+
+    void SetEnabled(const bool x) { Enabled = x; }
+    bool IsEnabled() const { return Enabled; }
+
+    int GetOrder() const { return Order; }
+    void SetOrder(const int n) { Order = n; }
 
     bool HasVariable(const std::string&);
 
@@ -82,23 +85,22 @@ public:
     // Set or Modify Variable
     void SetTexture(const std::string&, ITexture2D*);
 
-    void SetShader(IShader* aShader) { Shader = aShader; }
-    bool HasShader() const { return Shader; }
+    IFrameBuffer* GetFrameBuffer() const { return FrameBuffer.get(); }
     IShader* GetShader() const { return Shader; }
+    ITexture2D* GetColorAttachment() const { return FrameBuffer->GetColorAttachment(); }
 private:
     int GetNextTextureIndex();
-    CMaterialVariable* CreateOrGetVariable(const std::string&);
-    CMaterialVariable* GetVariable(const std::string&);
+    CPostEffectVariable* CreateOrGetVariable(const std::string&);
+    CPostEffectVariable* GetVariable(const std::string&);
 private:
-    int TextureIndexPool = 0;
+    IGraphics* Graphics = nullptr;
+    CResources* Resources = nullptr;
     IShader* Shader = nullptr;
-    std::vector<CMaterialVariable*> Variables;
+    std::unique_ptr<IFrameBuffer> FrameBuffer;
+    int Order = 0;
+    int TextureIndexPool = 0;
+    std::vector<CPostEffectVariable*> Variables;
+    bool Enabled = true;
 };
 
-class CMaterialManager: public TResourceManager<CMaterial>
-{
-public:
-    RESOURCE_MANAGER(CMaterialManager)
-protected:
-    std::unique_ptr<IResource> MakeResource(const std::string&, const ResourceCreateMap&) override;
-};
+using PostEffectPtr = std::unique_ptr<CPostEffect>;

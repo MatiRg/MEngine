@@ -56,8 +56,6 @@ void main()
 		}
 		//
 		Color = vec4(Result, 1.0);
-		//float Gamma = 1.4; Gamma Correction make as PostProcess last stage
-		//Color.rgb = pow(Color.rgb, vec3(1.0/Gamma));
 	#else
 		#ifdef USE_DIFFUSE
 		Color = vec4(texture(DiffuseTexture, TexCoords).rgb, 1.0);

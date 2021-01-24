@@ -19,6 +19,12 @@ void CLevel2::OnInit()
     Material = std::make_unique<CMaterial>();
     Material->SetShader( Resources->CreateResource<IShader>("TextureLSDEffects.shader") );
     Material->SetTexture("Diffuse", Resources->CreateResource<ITexture2D>("wall.jpg") );
+    //
+    BlurEffect = App->GetRenderer3D()->CreatePostEffect( "ScreenBlurBox.shader", 10 );
+    if( BlurEffect )
+    {
+        BlurEffect->SetInt("Samples", 4);
+    }
 }
 
 namespace

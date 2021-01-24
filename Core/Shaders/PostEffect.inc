@@ -1,0 +1,2 @@
+uniform sampler2D BackBufferColor;
+uniform sampler2D BackBufferDepth;

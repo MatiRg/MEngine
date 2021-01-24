@@ -33,6 +33,7 @@
 #include "Graphics/Light.hpp"
 #include "Graphics/Material.hpp"
 #include "Graphics/Model.hpp"
+#include "Graphics/PostEffect.hpp"
 #include "Graphics/Renderable2D.hpp"
 #include "Graphics/Renderable3D.hpp"
 #include "Graphics/Renderer2D.hpp"
