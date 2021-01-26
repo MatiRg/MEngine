@@ -145,6 +145,12 @@ void CPostEffect::Bind(IFrameBuffer* OldFrameBuffer)
     {
         Shader->SetTexture("BackBufferDepth", OldFrameBuffer->GetDepthAttachment(), TextureIndexPool++);
     }
+    if (Shader->HasUniform("PixelSize"))
+    {
+        ITexture2D* ColorAttachment = OldFrameBuffer->GetColorAttachment();
+        Vector2 PixelSize = { 1.0f / static_cast<float>(ColorAttachment->GetWidth()), 1.0f / static_cast<float>(ColorAttachment->GetHeight()) };
+        Shader->SetVector2("PixelSize", PixelSize);
+    }
     //
     for (const auto& i : Variables)
     {

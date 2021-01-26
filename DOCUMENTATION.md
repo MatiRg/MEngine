@@ -694,4 +694,94 @@ void CLevel1::OnInit()
 }
 // Other Code ...
 ```
+## Working with Post Effects
+Post Effects are applied after Object are rendered in Frame Buffer.
+They Are applied in given order.As with shaders they are written in GLSL.
+```C++
+// ...
+class CLevel1: public IUpdatable
+{
+public:
+    // ...
+    void OnInit() override
+    {
+        // Create Effect only once
+        // Effect is created and added to stack with order given in second argument
+        // CRenderer3D is ownership of the effect
+        // Best option is to create Effects in one place
+        // Effects are applied in ascending order
+        MyEffect = App->GetRenderer3D()->CreatePostEffect("ChromaticAberration.shader", 10);
+        // Set Effect Parameter
+        MyEffect->SetFloat("Strength", 0.75f);
+    }
+    // ...
+    void OnUpdate(const float TimeStep) override
+    {
+        // ...
+        // Enable/Disable Post Effect
+        if (Input->IsMouseKeyDown(EMouseKey::LButton))
+        {
+            // Toggle It
+            MyEffect->SetEnabled( !MyEffect->IsEnabled() );
+        }
+    }
+    // ...
+private:
+    // ...
+    // For easier use
+    CPostEffect* MyEffect = nullptr;
+};
+// ...
+```
+And Shader Code.
+```glsl
+// Based on ChromaticAberration.fx from ReShade
+// First Includes 
+#include "Locations.inc" // Vertex Input
+#include "Uniforms.inc" // Typical Uniforms
+#include "PostEffect.inc" // Post Process Uniforms
+
+// Uniforms
+// -10 to 10
+uniform vec2 Shift = {2.5, -0.5};
+// 0 to 1
+uniform float Strength = 0.5;
+
+// Vertex Shader
+#ifdef VS
+
+out vec2 TexCoords;
+
+void main()
+{
+	TexCoords = TexCoords1;
+	gl_Position = vec4(Position, 1.0);
+}
+
+#endif
+
+// Fragment Shader
+#ifdef FS
+
+in vec2 TexCoords;
+
+out vec4 Color;
+
+void main()
+{	
+    vec3 InputColor = texture(BackBufferColor, TexCoords).rgb;
+    vec3 Tmp = texture(BackBufferColor, TexCoords).rgb;
+
+	// Sample the color components
+	Tmp.r = texture(BackBufferColor, TexCoords + (PixelSize * Shift)).r;
+	Tmp.g = InputColor.g;
+	Tmp.b = texture(BackBufferColor, TexCoords - (PixelSize * Shift)).b;
+	// Adjust the strength of the effect
+	Tmp = mix(InputColor, Tmp, Strength);
+
+    Color = vec4(Tmp, 1.0);
+}
+
+#endif
+```
 TO DO

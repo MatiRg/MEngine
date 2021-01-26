@@ -34,14 +34,15 @@ Engine comes with several sample for easier use.
  * Engine Modules(C++) - How to manage and create User Engine Modules
  * Scene Creation(C++) - How to Create World and work with
  * Audio Playback(C++) - How work with sound
+ * Post Effect(C++) - How work with Post Effect stack
  * Labirynth(C++) - Simple 3D Game
  * Test2D(C++) - Simple 2D Example: Features Simple Game and Physics 2D Test
 ## Documentation
 Documention consists of two parts:
  * Doxygen generated part for Classes, functions etc. 
  * Typical documentation and samples with includes this file.
-See [DOCUMENTATION.md](DOCUMENTATION.md)
-See [Doxygen.html](Doxygen.html)
+ * See [DOCUMENTATION.md](DOCUMENTATION.md)
+ * See [Doxygen.html](Doxygen.html)
 ## Components
 Source Directory
  * Engine(C++) - Engine Code - Base|Shared
