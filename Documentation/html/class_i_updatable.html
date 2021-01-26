@@ -90,6 +90,9 @@ $(document).ready(function(){initNavTree('class_i_updatable.html',''); initResiz
 </div><!--header-->
 <div class="contents">
 
+<p>Interface for Updatables - Game States, in derrivied class <a class="el" href="_updatable_8hpp.html#ab6a311561c567b6cf8b3a94e2cc70d31" title="Macro used for setting up primitive reflection for IUpdatable.">UPDATABLE(CLASS_NAME)</a> must be used.  
+ <a href="class_i_updatable.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_updatable_8hpp_source.html">Updatable.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for IUpdatable:</div>
@@ -97,70 +100,89 @@ Inheritance diagram for IUpdatable:</div>
  <div class="center">
   <img src="class_i_updatable.png" usemap="#IUpdatable_map" alt=""/>
   <map id="IUpdatable_map" name="IUpdatable_map">
-<area href="class_non_copyable_movable.html" alt="NonCopyableMovable" shape="rect" coords="298,0,437,24"/>
-<area href="class_c_level2.html" alt="CLevel2" shape="rect" coords="0,112,139,136"/>
-<area href="class_c_main_menu.html" alt="CMainMenu" shape="rect" coords="149,112,288,136"/>
-<area href="class_c_physics_play.html" alt="CPhysicsPlay" shape="rect" coords="298,112,437,136"/>
-<area href="class_c_play_ground.html" alt="CPlayGround" shape="rect" coords="447,112,586,136"/>
-<area href="class_i_engine_module.html" alt="IEngineModule" shape="rect" coords="596,112,735,136"/>
-<area href="class_c_audio_handler.html" alt="CAudioHandler" shape="rect" coords="745,168,884,192"/>
-<area href="class_c_drawer2_d.html" alt="CDrawer2D" shape="rect" coords="745,224,884,248"/>
-<area href="class_c_im_g_u_i.html" alt="CImGUI" shape="rect" coords="745,280,884,304"/>
-<area href="class_c_performance_counter.html" alt="CPerformanceCounter" shape="rect" coords="745,336,884,360"/>
-<area href="class_c_renderer2_d.html" alt="CRenderer2D" shape="rect" coords="745,392,884,416"/>
-<area href="class_c_renderer3_d.html" alt="CRenderer3D" shape="rect" coords="745,448,884,472"/>
-<area href="class_c_resources.html" alt="CResources" shape="rect" coords="745,504,884,528"/>
-<area href="class_c_scene.html" alt="CScene" shape="rect" coords="745,560,884,584"/>
-<area href="class_c_script_module.html" alt="CScriptModule" shape="rect" coords="745,616,884,640"/>
-<area href="class_c_user_updater.html" alt="CUserUpdater" shape="rect" coords="745,672,884,696"/>
-<area href="class_i_audio.html" alt="IAudio" shape="rect" coords="745,728,884,752"/>
-<area href="class_i_event_queue.html" alt="IEventQueue" shape="rect" coords="745,784,884,808"/>
-<area href="class_i_graphics.html" alt="IGraphics" shape="rect" coords="745,840,884,864"/>
-<area href="class_i_input.html" alt="IInput" shape="rect" coords="745,896,884,920"/>
-<area href="class_i_physics2_d.html" alt="IPhysics2D" shape="rect" coords="745,952,884,976"/>
-<area href="class_i_physics3_d.html" alt="IPhysics3D" shape="rect" coords="745,1008,884,1032"/>
-<area href="class_i_system.html" alt="ISystem" shape="rect" coords="745,1064,884,1088"/>
-<area href="class_i_window.html" alt="IWindow" shape="rect" coords="745,1120,884,1144"/>
+<area href="class_non_copyable_movable.html" alt="NonCopyableMovable" shape="rect" coords="465,0,610,24"/>
+<area href="class_c_level1.html" alt="CLevel1" shape="rect" coords="0,112,145,136"/>
+<area href="class_c_level2.html" alt="CLevel2" shape="rect" coords="155,112,300,136"/>
+<area href="class_c_main_menu.html" alt="CMainMenu" shape="rect" coords="310,112,455,136"/>
+<area href="class_c_physics_play.html" alt="CPhysicsPlay" shape="rect" coords="465,112,610,136"/>
+<area href="class_c_player_manager.html" alt="CPlayerManager" shape="rect" coords="620,112,765,136"/>
+<area href="class_c_play_ground.html" alt="CPlayGround" shape="rect" coords="775,112,920,136"/>
+<area href="class_i_engine_module.html" title="Interface for Engine modules, in derrivied class ENGINE_MODULE(CLASS_NAME) must be used." alt="IEngineModule" shape="rect" coords="930,112,1075,136"/>
+<area href="class_c_audio_handler.html" alt="CAudioHandler" shape="rect" coords="1085,168,1230,192"/>
+<area href="class_c_drawer2_d.html" alt="CDrawer2D" shape="rect" coords="1085,224,1230,248"/>
+<area href="class_c_im_g_u_i.html" title="Debug UI system, use in OnGUI() callback." alt="CImGUI" shape="rect" coords="1085,280,1230,304"/>
+<area href="class_c_my_engine_module.html" alt="CMyEngineModule" shape="rect" coords="1085,336,1230,360"/>
+<area href="class_c_performance_counters.html" alt="CPerformanceCounters" shape="rect" coords="1085,392,1230,416"/>
+<area href="class_c_renderer2_d.html" alt="CRenderer2D" shape="rect" coords="1085,448,1230,472"/>
+<area href="class_c_renderer3_d.html" alt="CRenderer3D" shape="rect" coords="1085,504,1230,528"/>
+<area href="class_c_resources.html" title="Class for managing Resource like Textures, Models, Sound Data." alt="CResources" shape="rect" coords="1085,560,1230,584"/>
+<area href="class_c_scene.html" title="Class for registering and creating Components and Entities classes." alt="CScene" shape="rect" coords="1085,616,1230,640"/>
+<area href="class_c_script_module.html" alt="CScriptModule" shape="rect" coords="1085,672,1230,696"/>
+<area href="class_c_user_updater.html" title="Container class for all Game Updatables." alt="CUserUpdater" shape="rect" coords="1085,728,1230,752"/>
+<area href="class_i_audio.html" alt="IAudio" shape="rect" coords="1085,784,1230,808"/>
+<area href="class_i_event_queue.html" title="Interface for Translating System Event to Engine Event, can also send custom events." alt="IEventQueue" shape="rect" coords="1085,840,1230,864"/>
+<area href="class_i_graphics.html" alt="IGraphics" shape="rect" coords="1085,896,1230,920"/>
+<area href="class_i_input.html" title="Interface for Input Checking like Mouse and Keyboard." alt="IInput" shape="rect" coords="1085,952,1230,976"/>
+<area href="class_i_physics2_d.html" alt="IPhysics2D" shape="rect" coords="1085,1008,1230,1032"/>
+<area href="class_i_physics3_d.html" alt="IPhysics3D" shape="rect" coords="1085,1064,1230,1088"/>
+<area href="class_i_system.html" title="Interface for File System Manging, getting System Time and Message Boxes." alt="ISystem" shape="rect" coords="1085,1120,1230,1144"/>
+<area href="class_i_window.html" alt="IWindow" shape="rect" coords="1085,1176,1230,1200"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aea5cf84600a1dd26b77b331b907a3959"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#aea5cf84600a1dd26b77b331b907a3959">IUpdatable</a> (const std::string &amp;aName)</td></tr>
+<tr class="memdesc:aea5cf84600a1dd26b77b331b907a3959"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct <a class="el" href="class_i_updatable.html" title="Interface for Updatables - Game States, in derrivied class UPDATABLE(CLASS_NAME) must be used.">IUpdatable</a> with given name.  <a href="class_i_updatable.html#aea5cf84600a1dd26b77b331b907a3959">More...</a><br /></td></tr>
 <tr class="separator:aea5cf84600a1dd26b77b331b907a3959"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab888fbdde9c5e651c7a8f59753d832ec"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#ab888fbdde9c5e651c7a8f59753d832ec">~IUpdatable</a> ()</td></tr>
 <tr class="separator:ab888fbdde9c5e651c7a8f59753d832ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a701ac0a01770df8ecdea799ba8136d"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#a9a701ac0a01770df8ecdea799ba8136d">GetType</a> () const =0</td></tr>
 <tr class="separator:a9a701ac0a01770df8ecdea799ba8136d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f18ef4870404c59b50d7d6c97cf4271"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#a0f18ef4870404c59b50d7d6c97cf4271">SetName</a> (const std::string &amp;aName)</td></tr>
+<tr class="memdesc:a0f18ef4870404c59b50d7d6c97cf4271"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set Name.  <a href="class_i_updatable.html#a0f18ef4870404c59b50d7d6c97cf4271">More...</a><br /></td></tr>
 <tr class="separator:a0f18ef4870404c59b50d7d6c97cf4271"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1c9386612f548c41bb21c8bb9e31fd0"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#af1c9386612f548c41bb21c8bb9e31fd0">GetName</a> () const</td></tr>
+<tr class="memdesc:af1c9386612f548c41bb21c8bb9e31fd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Name.  <a href="class_i_updatable.html#af1c9386612f548c41bb21c8bb9e31fd0">More...</a><br /></td></tr>
 <tr class="separator:af1c9386612f548c41bb21c8bb9e31fd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae592f42ea503a068927b5beae0d84c98"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#ae592f42ea503a068927b5beae0d84c98">SetActive</a> (const bool x)</td></tr>
+<tr class="memdesc:ae592f42ea503a068927b5beae0d84c98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set Active - Engine Modules Can`t be deactivated.  <a href="class_i_updatable.html#ae592f42ea503a068927b5beae0d84c98">More...</a><br /></td></tr>
 <tr class="separator:ae592f42ea503a068927b5beae0d84c98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3c00fa9fbbe6b5529808a729eaa4c28"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#ae3c00fa9fbbe6b5529808a729eaa4c28">IsActive</a> () const</td></tr>
+<tr class="memdesc:ae3c00fa9fbbe6b5529808a729eaa4c28"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is Active - Engine Modules Can`t be deactivated.  <a href="class_i_updatable.html#ae3c00fa9fbbe6b5529808a729eaa4c28">More...</a><br /></td></tr>
 <tr class="separator:ae3c00fa9fbbe6b5529808a729eaa4c28"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a2c425ef3e4672497fdbd3f6e783d45"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#a6a2c425ef3e4672497fdbd3f6e783d45">OnInit</a> ()</td></tr>
+<tr class="memdesc:a6a2c425ef3e4672497fdbd3f6e783d45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called only once, can be used to init something.  <a href="class_i_updatable.html#a6a2c425ef3e4672497fdbd3f6e783d45">More...</a><br /></td></tr>
 <tr class="separator:a6a2c425ef3e4672497fdbd3f6e783d45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a399ea2f2252ed8bf8156d0cb0e4d8eae"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#a399ea2f2252ed8bf8156d0cb0e4d8eae">OnEnter</a> ()</td></tr>
+<tr class="memdesc:a399ea2f2252ed8bf8156d0cb0e4d8eae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called everytime Container holding this Updatable is actived.  <a href="class_i_updatable.html#a399ea2f2252ed8bf8156d0cb0e4d8eae">More...</a><br /></td></tr>
 <tr class="separator:a399ea2f2252ed8bf8156d0cb0e4d8eae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6f47418be7b277a107e7661a9a3f0d87"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#a6f47418be7b277a107e7661a9a3f0d87">OnBeginFrame</a> ()</td></tr>
+<tr class="memdesc:a6f47418be7b277a107e7661a9a3f0d87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called just after main loop cycle is started.  <a href="class_i_updatable.html#a6f47418be7b277a107e7661a9a3f0d87">More...</a><br /></td></tr>
 <tr class="separator:a6f47418be7b277a107e7661a9a3f0d87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69ed05737704c5232db69883b7aa73b1"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#a69ed05737704c5232db69883b7aa73b1">OnEvent</a> (const <a class="el" href="class_c_event.html">CEvent</a> &amp;)</td></tr>
+<tr class="memdesc:a69ed05737704c5232db69883b7aa73b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called for every sysem event.  <a href="class_i_updatable.html#a69ed05737704c5232db69883b7aa73b1">More...</a><br /></td></tr>
 <tr class="separator:a69ed05737704c5232db69883b7aa73b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20422230fbfce2ce812213e9ba6c2a06"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#a20422230fbfce2ce812213e9ba6c2a06">OnUpdate</a> (const float)</td></tr>
+<tr class="memdesc:a20422230fbfce2ce812213e9ba6c2a06"><td class="mdescLeft">&#160;</td><td class="mdescRight">Can be called 0, 1 or many time during update.  <a href="class_i_updatable.html#a20422230fbfce2ce812213e9ba6c2a06">More...</a><br /></td></tr>
 <tr class="separator:a20422230fbfce2ce812213e9ba6c2a06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae66c5b0be63cc05b1afe6749177befa7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#ae66c5b0be63cc05b1afe6749177befa7">OnLateUpdate</a> (const float)</td></tr>
+<tr class="memdesc:ae66c5b0be63cc05b1afe6749177befa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called only once after main update.  <a href="class_i_updatable.html#ae66c5b0be63cc05b1afe6749177befa7">More...</a><br /></td></tr>
 <tr class="separator:ae66c5b0be63cc05b1afe6749177befa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15d6e90e502b7b0ab3cf009c0791f896"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#a15d6e90e502b7b0ab3cf009c0791f896">OnGUI</a> ()</td></tr>
+<tr class="memdesc:a15d6e90e502b7b0ab3cf009c0791f896"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used for ImGUI.  <a href="class_i_updatable.html#a15d6e90e502b7b0ab3cf009c0791f896">More...</a><br /></td></tr>
 <tr class="separator:a15d6e90e502b7b0ab3cf009c0791f896"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac54378b73b803d15ed132396e52f38ea"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#ac54378b73b803d15ed132396e52f38ea">OnRender</a> ()</td></tr>
+<tr class="memdesc:ac54378b73b803d15ed132396e52f38ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called on start rendering, can be used to drwa something or add something to Renderer3D.  <a href="class_i_updatable.html#ac54378b73b803d15ed132396e52f38ea">More...</a><br /></td></tr>
 <tr class="separator:ac54378b73b803d15ed132396e52f38ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa23850a383af551e924a067e9b11090a"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#aa23850a383af551e924a067e9b11090a">OnEndFrame</a> ()</td></tr>
+<tr class="memdesc:aa23850a383af551e924a067e9b11090a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called just before main loop cycle is ended.  <a href="class_i_updatable.html#aa23850a383af551e924a067e9b11090a">More...</a><br /></td></tr>
 <tr class="separator:aa23850a383af551e924a067e9b11090a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85023b523b0b14655200e8c357e18c68"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#a85023b523b0b14655200e8c357e18c68">OnLeave</a> ()</td></tr>
+<tr class="memdesc:a85023b523b0b14655200e8c357e18c68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called everytime Container holding this Updatable is deactived.  <a href="class_i_updatable.html#a85023b523b0b14655200e8c357e18c68">More...</a><br /></td></tr>
 <tr class="separator:a85023b523b0b14655200e8c357e18c68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5cb6fc56c779ad90ddf0de44af664ec"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#af5cb6fc56c779ad90ddf0de44af664ec">OnExit</a> ()</td></tr>
+<tr class="memdesc:af5cb6fc56c779ad90ddf0de44af664ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called only once, can be used to shutdown something.  <a href="class_i_updatable.html#af5cb6fc56c779ad90ddf0de44af664ec">More...</a><br /></td></tr>
 <tr class="separator:af5cb6fc56c779ad90ddf0de44af664ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
@@ -171,7 +193,9 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:accea568757b9528356e613a9d0d6536c inherit pro_methods_class_non_copyable_movable"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_non_copyable_movable.html#accea568757b9528356e613a9d0d6536c">~NonCopyableMovable</a> ()=default</td></tr>
 <tr class="separator:accea568757b9528356e613a9d0d6536c inherit pro_methods_class_non_copyable_movable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Interface for Updatables - Game States, in derrivied class <a class="el" href="_updatable_8hpp.html#ab6a311561c567b6cf8b3a94e2cc70d31" title="Macro used for setting up primitive reflection for IUpdatable.">UPDATABLE(CLASS_NAME)</a> must be used. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aea5cf84600a1dd26b77b331b907a3959"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aea5cf84600a1dd26b77b331b907a3959">&#9670;&nbsp;</a></span>IUpdatable()</h2>
 
@@ -195,6 +219,14 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Construct <a class="el" href="class_i_updatable.html" title="Interface for Updatables - Game States, in derrivied class UPDATABLE(CLASS_NAME) must be used.">IUpdatable</a> with given name. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aName</td><td><a class="el" href="class_i_updatable.html" title="Interface for Updatables - Game States, in derrivied class UPDATABLE(CLASS_NAME) must be used.">IUpdatable</a> Name </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -247,6 +279,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Get Name. </p>
+
 </div>
 </div>
 <a id="a9a701ac0a01770df8ecdea799ba8136d"></a>
@@ -297,6 +331,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Is Active - Engine Modules Can`t be deactivated. </p>
+
 </div>
 </div>
 <a id="a6f47418be7b277a107e7661a9a3f0d87"></a>
@@ -321,6 +357,8 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Called just after main loop cycle is started. </p>
 
 <p>Reimplemented in <a class="el" href="class_c_scene.html#ad08b38f0d2e842f62d282f8fb22550ef">CScene</a>, <a class="el" href="class_i_input.html#a88cfd258800a30a28eb1d54a320514ba">IInput</a>, and <a class="el" href="class_c_user_updater.html#a2785a1f3be49f87e5fb980ac28a0c96f">CUserUpdater</a>.</p>
 
@@ -349,6 +387,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Called just before main loop cycle is ended. </p>
+
 <p>Reimplemented in <a class="el" href="class_c_scene.html#aca8fa10b7dc48253b0f7824002a83ae8">CScene</a>, and <a class="el" href="class_c_user_updater.html#aab1c6a353075a8251652aa6aacff49a5">CUserUpdater</a>.</p>
 
 </div>
@@ -376,7 +416,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="class_c_level2.html#a68511cd6a517e11ab0eef33c362a1420">CLevel2</a>, <a class="el" href="class_c_play_ground.html#afe1114786606c2e8c1fa9e562d72ff01">CPlayGround</a>, <a class="el" href="class_c_physics_play.html#a20790ff9f1a4489ffafb342f7d5d1207">CPhysicsPlay</a>, <a class="el" href="class_c_main_menu.html#a5e142830f9adb1abd5996b5dc007d952">CMainMenu</a>, and <a class="el" href="class_c_user_updater.html#a49bbf1789c23860768ae92df7d4a648f">CUserUpdater</a>.</p>
+<p>Called everytime Container holding this Updatable is actived. </p>
+
+<p>Reimplemented in <a class="el" href="class_c_play_ground.html#afe1114786606c2e8c1fa9e562d72ff01">CPlayGround</a>, <a class="el" href="class_c_physics_play.html#a20790ff9f1a4489ffafb342f7d5d1207">CPhysicsPlay</a>, <a class="el" href="class_c_main_menu.html#a5e142830f9adb1abd5996b5dc007d952">CMainMenu</a>, <a class="el" href="class_c_level2.html#a68511cd6a517e11ab0eef33c362a1420">CLevel2</a>, <a class="el" href="class_c_level1.html#abb8d016392c63d1f0caa214bc4d306bd">CLevel1</a>, <a class="el" href="class_c_level1.html#abb8d016392c63d1f0caa214bc4d306bd">CLevel1</a>, <a class="el" href="class_c_level1.html#abb8d016392c63d1f0caa214bc4d306bd">CLevel1</a>, and <a class="el" href="class_c_user_updater.html#a49bbf1789c23860768ae92df7d4a648f">CUserUpdater</a>.</p>
 
 </div>
 </div>
@@ -403,6 +445,14 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Called for every sysem event. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Event</td><td>Event </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Reimplemented in <a class="el" href="class_c_im_g_u_i.html#a5873693e4aba53d7b8ae8b9d60f964fa">CImGUI</a>, <a class="el" href="class_c_s_d_l_input.html#afeb34104076fcfbac4a6fa33c5d0a5c3">CSDLInput</a>, <a class="el" href="class_c_o_g_l_graphics.html#ace9cb023e5315b2838a91c9466e350d9">COGLGraphics</a>, and <a class="el" href="class_c_user_updater.html#a48bd5f34cecde9148620e62d1dee434f">CUserUpdater</a>.</p>
 
@@ -431,6 +481,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Called only once, can be used to shutdown something. </p>
+
 <p>Reimplemented in <a class="el" href="class_c_level2.html#aeafab74293b8f75737ea68efbc8809eb">CLevel2</a>, <a class="el" href="class_c_scene.html#a53c1a634e314eedd30ff73fd8fe06734">CScene</a>, <a class="el" href="class_c_user_updater.html#a958bacacca8bd046da1858ba65b80347">CUserUpdater</a>, and <a class="el" href="class_c_audio_handler.html#a80167c36394b5bf6d74cc71c9a1655a5">CAudioHandler</a>.</p>
 
 </div>
@@ -458,7 +510,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="class_c_level2.html#a9302b98e4fb8c5b947a260ac11fd39df">CLevel2</a>, <a class="el" href="class_c_play_ground.html#a5c17328e32a8a0d3e33b08b9c1f58a27">CPlayGround</a>, <a class="el" href="class_c_physics_play.html#a0815de1fd31d76fe50a80b8d55267ecc">CPhysicsPlay</a>, <a class="el" href="class_c_main_menu.html#ac11677fd761017a8bbba17039f64a016">CMainMenu</a>, <a class="el" href="class_c_im_g_u_i.html#a075dd616762ebd52f6b4afda269421ac">CImGUI</a>, <a class="el" href="class_c_scene.html#aae34ca6302f4a6128a600b5bf6d23839">CScene</a>, <a class="el" href="class_c_user_updater.html#aa22343c21cc43c90ffb213719e55d4a1">CUserUpdater</a>, and <a class="el" href="class_c_performance_counter.html#a488f6e4b76d8348a4254c7e20d60a983">CPerformanceCounter</a>.</p>
+<p>Used for ImGUI. </p>
+
+<p>Reimplemented in <a class="el" href="class_c_play_ground.html#a5c17328e32a8a0d3e33b08b9c1f58a27">CPlayGround</a>, <a class="el" href="class_c_physics_play.html#a0815de1fd31d76fe50a80b8d55267ecc">CPhysicsPlay</a>, <a class="el" href="class_c_main_menu.html#ac11677fd761017a8bbba17039f64a016">CMainMenu</a>, <a class="el" href="class_c_level2.html#a9302b98e4fb8c5b947a260ac11fd39df">CLevel2</a>, <a class="el" href="class_c_my_engine_module.html#ab0cef8e124a66a754667507c0ff1f3a0">CMyEngineModule</a>, <a class="el" href="class_c_im_g_u_i.html#a075dd616762ebd52f6b4afda269421ac">CImGUI</a>, <a class="el" href="class_c_scene.html#aae34ca6302f4a6128a600b5bf6d23839">CScene</a>, <a class="el" href="class_c_user_updater.html#aa22343c21cc43c90ffb213719e55d4a1">CUserUpdater</a>, and <a class="el" href="class_c_performance_counters.html#a02e286dbf31bf3b576d5ec3b4678d142">CPerformanceCounters</a>.</p>
 
 </div>
 </div>
@@ -485,7 +539,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="class_c_level2.html#a2d2afe0b374cc46eee828453033479b0">CLevel2</a>, <a class="el" href="class_c_play_ground.html#ab8559483643a6424874f8cbef8c317d2">CPlayGround</a>, <a class="el" href="class_c_physics_play.html#accba147f4ea0cb024ba179f5aa5e34c7">CPhysicsPlay</a>, <a class="el" href="class_c_main_menu.html#a2bb681702d3964d787f8b35ecdc5493e">CMainMenu</a>, <a class="el" href="class_c_im_g_u_i.html#a3e1779f4cd1e894955845dd365415710">CImGUI</a>, and <a class="el" href="class_c_user_updater.html#aa8151c7aba31b272a881140e614404a4">CUserUpdater</a>.</p>
+<p>Called only once, can be used to init something. </p>
+
+<p>Reimplemented in <a class="el" href="class_c_play_ground.html#ab8559483643a6424874f8cbef8c317d2">CPlayGround</a>, <a class="el" href="class_c_physics_play.html#accba147f4ea0cb024ba179f5aa5e34c7">CPhysicsPlay</a>, <a class="el" href="class_c_main_menu.html#a2bb681702d3964d787f8b35ecdc5493e">CMainMenu</a>, <a class="el" href="class_c_level2.html#a2d2afe0b374cc46eee828453033479b0">CLevel2</a>, <a class="el" href="class_c_player_manager.html#a60d885a88f0cc658ba25a06fd7cd731e">CPlayerManager</a>, <a class="el" href="class_c_im_g_u_i.html#a3e1779f4cd1e894955845dd365415710">CImGUI</a>, and <a class="el" href="class_c_user_updater.html#aa8151c7aba31b272a881140e614404a4">CUserUpdater</a>.</p>
 
 </div>
 </div>
@@ -513,7 +569,15 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="class_c_level2.html#a69c63c5d44228dd93862ae00dbdbe9cc">CLevel2</a>, <a class="el" href="class_c_play_ground.html#a1adb163f86727f61e092f5029f38c578">CPlayGround</a>, <a class="el" href="class_c_physics_play.html#a0cf339e2f9ee26c93e8291c91d248b8d">CPhysicsPlay</a>, <a class="el" href="class_c_main_menu.html#ab83ef6c441367af9a0b364d208acb386">CMainMenu</a>, <a class="el" href="class_c_im_g_u_i.html#af68d171a9fc6d4d1a589dff58c68640e">CImGUI</a>, <a class="el" href="class_c_scene.html#a25be50a2fb6581c60e69f7e978cd2556">CScene</a>, and <a class="el" href="class_c_user_updater.html#ad6b6ca522b4a1acc67b0e60ba725ac95">CUserUpdater</a>.</p>
+<p>Called only once after main update. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">DT</td><td>Delta Time </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented in <a class="el" href="class_c_play_ground.html#a1adb163f86727f61e092f5029f38c578">CPlayGround</a>, <a class="el" href="class_c_physics_play.html#a0cf339e2f9ee26c93e8291c91d248b8d">CPhysicsPlay</a>, <a class="el" href="class_c_main_menu.html#ab83ef6c441367af9a0b364d208acb386">CMainMenu</a>, <a class="el" href="class_c_level2.html#a69c63c5d44228dd93862ae00dbdbe9cc">CLevel2</a>, <a class="el" href="class_c_level2.html#a69c63c5d44228dd93862ae00dbdbe9cc">CLevel2</a>, <a class="el" href="class_c_level1.html#a423c4c3cc92a10904a245b6b691cf8db">CLevel1</a>, <a class="el" href="class_c_player_manager.html#aa47e2f75c19439390974d9f830a2d4a4">CPlayerManager</a>, <a class="el" href="class_c_im_g_u_i.html#af68d171a9fc6d4d1a589dff58c68640e">CImGUI</a>, <a class="el" href="class_c_scene.html#a25be50a2fb6581c60e69f7e978cd2556">CScene</a>, and <a class="el" href="class_c_user_updater.html#ad6b6ca522b4a1acc67b0e60ba725ac95">CUserUpdater</a>.</p>
 
 </div>
 </div>
@@ -540,7 +604,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="class_c_level2.html#aa716ab5cd3cc5f6cbf48cb4184e12afc">CLevel2</a>, <a class="el" href="class_c_play_ground.html#ab9ed44e6e67874f0f4d403ac4ca36d8e">CPlayGround</a>, <a class="el" href="class_c_physics_play.html#aed1e1be282711cff3ef2aa7c178f9ace">CPhysicsPlay</a>, and <a class="el" href="class_c_user_updater.html#a8d227e4e3de83ae84ef416b80fa4dccd">CUserUpdater</a>.</p>
+<p>Called everytime Container holding this Updatable is deactived. </p>
+
+<p>Reimplemented in <a class="el" href="class_c_play_ground.html#ab9ed44e6e67874f0f4d403ac4ca36d8e">CPlayGround</a>, <a class="el" href="class_c_physics_play.html#aed1e1be282711cff3ef2aa7c178f9ace">CPhysicsPlay</a>, <a class="el" href="class_c_level2.html#aa716ab5cd3cc5f6cbf48cb4184e12afc">CLevel2</a>, <a class="el" href="class_c_level1.html#ae5aceb161cc809133478481333ddd6e7">CLevel1</a>, <a class="el" href="class_c_level1.html#ae5aceb161cc809133478481333ddd6e7">CLevel1</a>, and <a class="el" href="class_c_user_updater.html#a8d227e4e3de83ae84ef416b80fa4dccd">CUserUpdater</a>.</p>
 
 </div>
 </div>
@@ -567,7 +633,9 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="class_c_level2.html#a11d22cfb1e1c6b048561f97b7945d193">CLevel2</a>, <a class="el" href="class_c_play_ground.html#aa060524c49cca984e9eb4c4ce4ce8c92">CPlayGround</a>, <a class="el" href="class_c_physics_play.html#a77e797d550d1b69ca919da3398f9f688">CPhysicsPlay</a>, <a class="el" href="class_c_main_menu.html#ac2669c034b9fad5b3e29f2e73c1939cf">CMainMenu</a>, <a class="el" href="class_c_scene.html#a31641fd86da9ec8756be4f1377a77ac1">CScene</a>, <a class="el" href="class_c_user_updater.html#a0905e11dac00f937ba397b22407922b0">CUserUpdater</a>, and <a class="el" href="class_c_performance_counter.html#a2e479713a385e958b42b25a323cbe223">CPerformanceCounter</a>.</p>
+<p>Called on start rendering, can be used to drwa something or add something to Renderer3D. </p>
+
+<p>Reimplemented in <a class="el" href="class_c_play_ground.html#aa060524c49cca984e9eb4c4ce4ce8c92">CPlayGround</a>, <a class="el" href="class_c_physics_play.html#a77e797d550d1b69ca919da3398f9f688">CPhysicsPlay</a>, <a class="el" href="class_c_main_menu.html#ac2669c034b9fad5b3e29f2e73c1939cf">CMainMenu</a>, <a class="el" href="class_c_level2.html#a11d22cfb1e1c6b048561f97b7945d193">CLevel2</a>, <a class="el" href="class_c_scene.html#a31641fd86da9ec8756be4f1377a77ac1">CScene</a>, and <a class="el" href="class_c_user_updater.html#a0905e11dac00f937ba397b22407922b0">CUserUpdater</a>.</p>
 
 </div>
 </div>
@@ -595,7 +663,15 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="class_c_level2.html#af646c9c46b5b5284e12a88ab954e5053">CLevel2</a>, <a class="el" href="class_c_play_ground.html#ab5ad9ff42f3dd02380282a3a91b24e7c">CPlayGround</a>, <a class="el" href="class_c_physics_play.html#ab1929a0b0d21b1027b71bc6da7372b09">CPhysicsPlay</a>, <a class="el" href="class_c_main_menu.html#a788621d468faded69c2aa66473d61913">CMainMenu</a>, <a class="el" href="class_c_im_g_u_i.html#afdba3cd6abd7ffff546d08fbe34eaa7c">CImGUI</a>, <a class="el" href="class_c_scene.html#a19e606b9dd467d9763f8893129988fc5">CScene</a>, <a class="el" href="class_c_user_updater.html#af1cdf5477a4e13fe31b5670f75335641">CUserUpdater</a>, and <a class="el" href="class_c_performance_counter.html#a7d00a22d7b7f37620ef8fdda0bf44e78">CPerformanceCounter</a>.</p>
+<p>Can be called 0, 1 or many time during update. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">DT</td><td>Delta Time </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p>Reimplemented in <a class="el" href="class_c_play_ground.html#ab5ad9ff42f3dd02380282a3a91b24e7c">CPlayGround</a>, <a class="el" href="class_c_physics_play.html#ab1929a0b0d21b1027b71bc6da7372b09">CPhysicsPlay</a>, <a class="el" href="class_c_main_menu.html#a788621d468faded69c2aa66473d61913">CMainMenu</a>, <a class="el" href="class_c_level2.html#af646c9c46b5b5284e12a88ab954e5053">CLevel2</a>, <a class="el" href="class_c_player_manager.html#ade4a08873aaa9f9919d301599c039ca7">CPlayerManager</a>, <a class="el" href="class_c_player_manager.html#ade4a08873aaa9f9919d301599c039ca7">CPlayerManager</a>, <a class="el" href="class_c_im_g_u_i.html#afdba3cd6abd7ffff546d08fbe34eaa7c">CImGUI</a>, <a class="el" href="class_c_scene.html#a19e606b9dd467d9763f8893129988fc5">CScene</a>, <a class="el" href="class_c_user_updater.html#af1cdf5477a4e13fe31b5670f75335641">CUserUpdater</a>, <a class="el" href="class_c_level1.html#a8bc3699bef9c0745baf8940795dc99cf">CLevel1</a>, and <a class="el" href="class_c_level1.html#a8bc3699bef9c0745baf8940795dc99cf">CLevel1</a>.</p>
 
 </div>
 </div>
@@ -623,6 +699,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Set Active - Engine Modules Can`t be deactivated. </p>
+
 </div>
 </div>
 <a id="a0f18ef4870404c59b50d7d6c97cf4271"></a>
@@ -648,6 +726,8 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Set Name. </p>
 
 </div>
 </div>

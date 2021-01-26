@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 
+//! Structure containing engine creation parameters
 struct SEngineParams
 {
     int Width = 800;

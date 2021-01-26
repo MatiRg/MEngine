@@ -90,34 +90,40 @@ $(document).ready(function(){initNavTree('_performance_counter_8hpp.html',''); i
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="_engine_module_8hpp_source.html">EngineModule.hpp</a>&quot;</code><br />
-<code>#include &lt;cstdint&gt;</code><br />
-<code>#include &lt;vector&gt;</code><br />
+<code>#include &quot;<a class="el" href="_types_8hpp_source.html">../Core/Types.hpp</a>&quot;</code><br />
 </div>
 <p><a href="_performance_counter_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_performance_counter.html">CPerformanceCounter</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Class used for time measure.Create it int enclosed scope, result will saved in <a class="el" href="class_c_performance_counters.html">CPerformanceCounters</a> class when this class is destroyed.  <a href="class_c_performance_counter.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_performance_counters.html">CPerformanceCounters</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:af0c862ac1b61b74be5950bef3f7563bc"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_performance_counter_8hpp.html#af0c862ac1b61b74be5950bef3f7563bc">EPerfCounter</a> { <br />
-&#160;&#160;<a class="el" href="_performance_counter_8hpp.html#af0c862ac1b61b74be5950bef3f7563bca1a06729125544cab7cee73195fc044f0">EPerfCounter::Begin</a> = 0, 
-<a class="el" href="_performance_counter_8hpp.html#af0c862ac1b61b74be5950bef3f7563bcaa4ecfc70574394990cf17bd83df499f7">EPerfCounter::Event</a>, 
-<a class="el" href="_performance_counter_8hpp.html#af0c862ac1b61b74be5950bef3f7563bca06933067aafd48425d67bcb01bba5cb6">EPerfCounter::Update</a>, 
-<a class="el" href="_performance_counter_8hpp.html#af0c862ac1b61b74be5950bef3f7563bca2609005edfde618c70f2140bb3e9b7c2">EPerfCounter::LateUpdate</a>, 
+<tr class="memitem:a5623da4cc0f48da8b21ca41c268470c0"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_performance_counter_8hpp.html#a5623da4cc0f48da8b21ca41c268470c0">EPerformanceCounter</a> { <br />
+&#160;&#160;<a class="el" href="_performance_counter_8hpp.html#a5623da4cc0f48da8b21ca41c268470c0a1a06729125544cab7cee73195fc044f0">EPerformanceCounter::Begin</a> = 0, 
+<a class="el" href="_performance_counter_8hpp.html#a5623da4cc0f48da8b21ca41c268470c0aa4ecfc70574394990cf17bd83df499f7">EPerformanceCounter::Event</a>, 
+<a class="el" href="_performance_counter_8hpp.html#a5623da4cc0f48da8b21ca41c268470c0a06933067aafd48425d67bcb01bba5cb6">EPerformanceCounter::Update</a>, 
+<a class="el" href="_performance_counter_8hpp.html#a5623da4cc0f48da8b21ca41c268470c0a2609005edfde618c70f2140bb3e9b7c2">EPerformanceCounter::LateUpdate</a>, 
 <br />
-&#160;&#160;<a class="el" href="_performance_counter_8hpp.html#af0c862ac1b61b74be5950bef3f7563bca71ff71526d15db86eb50fcac245d183b">EPerfCounter::UI</a>, 
-<a class="el" href="_performance_counter_8hpp.html#af0c862ac1b61b74be5950bef3f7563bcaa6e8f9aed2ac6481dc25a18a33342d03">EPerfCounter::Rendering</a>, 
-<a class="el" href="_performance_counter_8hpp.html#af0c862ac1b61b74be5950bef3f7563bca87557f11575c0ad78e4e28abedc13b6e">EPerfCounter::End</a>
+&#160;&#160;<a class="el" href="_performance_counter_8hpp.html#a5623da4cc0f48da8b21ca41c268470c0a142fbe65fa185efee9eca3a49a165890">EPerformanceCounter::ImGUI</a>, 
+<a class="el" href="_performance_counter_8hpp.html#a5623da4cc0f48da8b21ca41c268470c0a6c03367cce64232b2e7b1c4939dd937b">EPerformanceCounter::OnRender</a>, 
+<a class="el" href="_performance_counter_8hpp.html#a5623da4cc0f48da8b21ca41c268470c0af715fed75227bbe2b536952774963141">EPerformanceCounter::Render2D</a>, 
+<a class="el" href="_performance_counter_8hpp.html#a5623da4cc0f48da8b21ca41c268470c0a6617115c766d433ef0f49fbb648b3e79">EPerformanceCounter::Render3D</a>, 
+<br />
+&#160;&#160;<a class="el" href="_performance_counter_8hpp.html#a5623da4cc0f48da8b21ca41c268470c0ab7393c82b2e157beb768755a87ac2fb2">EPerformanceCounter::RenderImGUI</a>, 
+<a class="el" href="_performance_counter_8hpp.html#a5623da4cc0f48da8b21ca41c268470c0a87557f11575c0ad78e4e28abedc13b6e">EPerformanceCounter::End</a>
 <br />
  }</td></tr>
-<tr class="separator:af0c862ac1b61b74be5950bef3f7563bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a5623da4cc0f48da8b21ca41c268470c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="af0c862ac1b61b74be5950bef3f7563bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af0c862ac1b61b74be5950bef3f7563bc">&#9670;&nbsp;</a></span>EPerfCounter</h2>
+<a id="a5623da4cc0f48da8b21ca41c268470c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5623da4cc0f48da8b21ca41c268470c0">&#9670;&nbsp;</a></span>EPerformanceCounter</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -126,7 +132,7 @@ Enumerations</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="_performance_counter_8hpp.html#af0c862ac1b61b74be5950bef3f7563bc">EPerfCounter</a></td>
+          <td class="memname">enum <a class="el" href="_performance_counter_8hpp.html#a5623da4cc0f48da8b21ca41c268470c0">EPerformanceCounter</a></td>
         </tr>
       </table>
   </td>
@@ -136,13 +142,16 @@ Enumerations</h2></td></tr>
 </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af0c862ac1b61b74be5950bef3f7563bca1a06729125544cab7cee73195fc044f0"></a>Begin&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af0c862ac1b61b74be5950bef3f7563bcaa4ecfc70574394990cf17bd83df499f7"></a>Event&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af0c862ac1b61b74be5950bef3f7563bca06933067aafd48425d67bcb01bba5cb6"></a>Update&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af0c862ac1b61b74be5950bef3f7563bca2609005edfde618c70f2140bb3e9b7c2"></a>LateUpdate&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af0c862ac1b61b74be5950bef3f7563bca71ff71526d15db86eb50fcac245d183b"></a>UI&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af0c862ac1b61b74be5950bef3f7563bcaa6e8f9aed2ac6481dc25a18a33342d03"></a>Rendering&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af0c862ac1b61b74be5950bef3f7563bca87557f11575c0ad78e4e28abedc13b6e"></a>End&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a5623da4cc0f48da8b21ca41c268470c0a1a06729125544cab7cee73195fc044f0"></a>Begin&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5623da4cc0f48da8b21ca41c268470c0aa4ecfc70574394990cf17bd83df499f7"></a>Event&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5623da4cc0f48da8b21ca41c268470c0a06933067aafd48425d67bcb01bba5cb6"></a>Update&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5623da4cc0f48da8b21ca41c268470c0a2609005edfde618c70f2140bb3e9b7c2"></a>LateUpdate&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5623da4cc0f48da8b21ca41c268470c0a142fbe65fa185efee9eca3a49a165890"></a>ImGUI&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5623da4cc0f48da8b21ca41c268470c0a6c03367cce64232b2e7b1c4939dd937b"></a>OnRender&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5623da4cc0f48da8b21ca41c268470c0af715fed75227bbe2b536952774963141"></a>Render2D&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5623da4cc0f48da8b21ca41c268470c0a6617115c766d433ef0f49fbb648b3e79"></a>Render3D&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5623da4cc0f48da8b21ca41c268470c0ab7393c82b2e157beb768755a87ac2fb2"></a>RenderImGUI&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5623da4cc0f48da8b21ca41c268470c0a87557f11575c0ad78e4e28abedc13b6e"></a>End&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
 </div>

@@ -88,48 +88,47 @@ $(document).ready(function(){initNavTree('_audio_handler_8hpp_source.html',''); 
 <div class="contents">
 <a href="_audio_handler_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;../Engine/EngineModule.hpp&quot;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160; </div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">class </span><a class="code" href="class_i_audio.html">IAudio</a>;</div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_audio_8hpp.html">Audio.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;map&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">class </span><a class="code" href="class_c_resources.html">CResources</a>;</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">class </span><a class="code" href="class_i_sound.html">ISound</a>;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_c_audio_handler.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_c_audio_handler.html">CAudioHandler</a> final: <span class="keyword">public</span> <a class="code" href="class_i_engine_module.html">IEngineModule</a></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="class_c_audio_handler.html#a5bf1ab1d00de439da0087d9dc16f5da6">CAudioHandler</a>(<a class="code" href="class_i_audio.html">IAudio</a>*, <a class="code" href="class_c_resources.html">CResources</a>*);</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="class_c_audio_handler.html#a88abcb2352a304bf979b13156866cb88">~CAudioHandler</a>();</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="_engine_module_8hpp.html#ae819ff40a9200cbe8e2a0902960a2893">ENGINE_MODULE</a>(<a class="code" href="class_c_audio_handler.html">CAudioHandler</a>)</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_audio_handler.html#a80167c36394b5bf6d74cc71c9a1655a5">OnExit</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_audio_handler.html#ade8b9c6ec8d1e6fe0da65f9253c991d6">PlayMusic</a>(<span class="keyword">const</span> std::string&amp;);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_audio_handler.html#a748855cd6afe315b87ce0eda285f6247">StopMusic</a>();</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_audio_handler.html#af2b3d3fd3cb69367f67c5d1490777c2e">PlaySound</a>(<span class="keyword">const</span> std::string&amp;);</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="class_i_audio.html">IAudio</a>* Audio = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <a class="code" href="class_c_resources.html">CResources</a>* Resources = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <a class="code" href="class_i_sound.html">ISound</a>* Music = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    std::map&lt;std::string, ISound*&gt; Sounds;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;};</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_c_audio_handler.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_c_audio_handler.html">CAudioHandler</a> final: <span class="keyword">public</span> <a class="code" href="class_i_engine_module.html">IEngineModule</a></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="class_c_audio_handler.html#a5bf1ab1d00de439da0087d9dc16f5da6">CAudioHandler</a>(<a class="code" href="class_i_audio.html">IAudio</a>*, <a class="code" href="class_c_resources.html">CResources</a>*);</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <a class="code" href="class_c_audio_handler.html#a88abcb2352a304bf979b13156866cb88">~CAudioHandler</a>();</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="_engine_module_8hpp.html#ae819ff40a9200cbe8e2a0902960a2893">ENGINE_MODULE</a>(<a class="code" href="class_c_audio_handler.html">CAudioHandler</a>)</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_audio_handler.html#a80167c36394b5bf6d74cc71c9a1655a5">OnExit</a>() <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_audio_handler.html#ade8b9c6ec8d1e6fe0da65f9253c991d6">PlayMusic</a>(<span class="keyword">const</span> std::string&amp;);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_audio_handler.html#a748855cd6afe315b87ce0eda285f6247">StopMusic</a>();</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_audio_handler.html#af2b3d3fd3cb69367f67c5d1490777c2e">PlaySound</a>(<span class="keyword">const</span> std::string&amp;);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <a class="code" href="class_i_audio.html">IAudio</a>* Audio = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="class_c_resources.html">CResources</a>* Resources = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    std::unique_ptr&lt;ISound&gt; Music;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    std::map&lt;std::string, std::unique_ptr&lt;ISound&gt;&gt; Sounds;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_c_audio_handler_html_af2b3d3fd3cb69367f67c5d1490777c2e"><div class="ttname"><a href="class_c_audio_handler.html#af2b3d3fd3cb69367f67c5d1490777c2e">CAudioHandler::PlaySound</a></div><div class="ttdeci">void PlaySound(const std::string &amp;)</div><div class="ttdef"><b>Definition:</b> AudioHandler.cpp:60</div></div>
-<div class="ttc" id="aclass_c_audio_handler_html_a748855cd6afe315b87ce0eda285f6247"><div class="ttname"><a href="class_c_audio_handler.html#a748855cd6afe315b87ce0eda285f6247">CAudioHandler::StopMusic</a></div><div class="ttdeci">void StopMusic()</div><div class="ttdef"><b>Definition:</b> AudioHandler.cpp:52</div></div>
-<div class="ttc" id="a_engine_module_8hpp_html_ae819ff40a9200cbe8e2a0902960a2893"><div class="ttname"><a href="_engine_module_8hpp.html#ae819ff40a9200cbe8e2a0902960a2893">ENGINE_MODULE</a></div><div class="ttdeci">#define ENGINE_MODULE(X)</div><div class="ttdef"><b>Definition:</b> EngineModule.hpp:6</div></div>
-<div class="ttc" id="aclass_c_audio_handler_html_a88abcb2352a304bf979b13156866cb88"><div class="ttname"><a href="class_c_audio_handler.html#a88abcb2352a304bf979b13156866cb88">CAudioHandler::~CAudioHandler</a></div><div class="ttdeci">~CAudioHandler()</div><div class="ttdef"><b>Definition:</b> AudioHandler.cpp:15</div></div>
-<div class="ttc" id="aclass_c_audio_handler_html_a80167c36394b5bf6d74cc71c9a1655a5"><div class="ttname"><a href="class_c_audio_handler.html#a80167c36394b5bf6d74cc71c9a1655a5">CAudioHandler::OnExit</a></div><div class="ttdeci">void OnExit() override</div><div class="ttdef"><b>Definition:</b> AudioHandler.cpp:19</div></div>
-<div class="ttc" id="aclass_i_engine_module_html"><div class="ttname"><a href="class_i_engine_module.html">IEngineModule</a></div><div class="ttdef"><b>Definition:</b> EngineModule.hpp:12</div></div>
-<div class="ttc" id="aclass_i_sound_html"><div class="ttname"><a href="class_i_sound.html">ISound</a></div><div class="ttdef"><b>Definition:</b> Sound.hpp:17</div></div>
-<div class="ttc" id="aclass_c_audio_handler_html"><div class="ttname"><a href="class_c_audio_handler.html">CAudioHandler</a></div><div class="ttdef"><b>Definition:</b> AudioHandler.hpp:12</div></div>
-<div class="ttc" id="aclass_c_resources_html"><div class="ttname"><a href="class_c_resources.html">CResources</a></div><div class="ttdef"><b>Definition:</b> Resources.hpp:12</div></div>
+<div class="ttc" id="aclass_c_audio_handler_html_af2b3d3fd3cb69367f67c5d1490777c2e"><div class="ttname"><a href="class_c_audio_handler.html#af2b3d3fd3cb69367f67c5d1490777c2e">CAudioHandler::PlaySound</a></div><div class="ttdeci">void PlaySound(const std::string &amp;)</div><div class="ttdef"><b>Definition:</b> AudioHandler.cpp:56</div></div>
+<div class="ttc" id="aclass_c_audio_handler_html_a748855cd6afe315b87ce0eda285f6247"><div class="ttname"><a href="class_c_audio_handler.html#a748855cd6afe315b87ce0eda285f6247">CAudioHandler::StopMusic</a></div><div class="ttdeci">void StopMusic()</div><div class="ttdef"><b>Definition:</b> AudioHandler.cpp:48</div></div>
+<div class="ttc" id="a_engine_module_8hpp_html_ae819ff40a9200cbe8e2a0902960a2893"><div class="ttname"><a href="_engine_module_8hpp.html#ae819ff40a9200cbe8e2a0902960a2893">ENGINE_MODULE</a></div><div class="ttdeci">#define ENGINE_MODULE(X)</div><div class="ttdoc">Macro used for setting up primitive reflection for IEngineModule.</div><div class="ttdef"><b>Definition:</b> EngineModule.hpp:10</div></div>
+<div class="ttc" id="aclass_c_audio_handler_html_a88abcb2352a304bf979b13156866cb88"><div class="ttname"><a href="class_c_audio_handler.html#a88abcb2352a304bf979b13156866cb88">CAudioHandler::~CAudioHandler</a></div><div class="ttdeci">~CAudioHandler()</div><div class="ttdef"><b>Definition:</b> AudioHandler.cpp:13</div></div>
+<div class="ttc" id="aclass_c_audio_handler_html_a80167c36394b5bf6d74cc71c9a1655a5"><div class="ttname"><a href="class_c_audio_handler.html#a80167c36394b5bf6d74cc71c9a1655a5">CAudioHandler::OnExit</a></div><div class="ttdeci">void OnExit() override</div><div class="ttdoc">Called only once, can be used to shutdown something.</div><div class="ttdef"><b>Definition:</b> AudioHandler.cpp:17</div></div>
+<div class="ttc" id="aclass_i_engine_module_html"><div class="ttname"><a href="class_i_engine_module.html">IEngineModule</a></div><div class="ttdoc">Interface for Engine modules, in derrivied class ENGINE_MODULE(CLASS_NAME) must be used.</div><div class="ttdef"><b>Definition:</b> EngineModule.hpp:20</div></div>
+<div class="ttc" id="aclass_c_audio_handler_html"><div class="ttname"><a href="class_c_audio_handler.html">CAudioHandler</a></div><div class="ttdef"><b>Definition:</b> AudioHandler.hpp:11</div></div>
+<div class="ttc" id="aclass_c_resources_html"><div class="ttname"><a href="class_c_resources.html">CResources</a></div><div class="ttdoc">Class for managing Resource like Textures, Models, Sound Data.</div><div class="ttdef"><b>Definition:</b> Resources.hpp:16</div></div>
 <div class="ttc" id="aclass_i_audio_html"><div class="ttname"><a href="class_i_audio.html">IAudio</a></div><div class="ttdef"><b>Definition:</b> Audio.hpp:10</div></div>
-<div class="ttc" id="aclass_c_audio_handler_html_ade8b9c6ec8d1e6fe0da65f9253c991d6"><div class="ttname"><a href="class_c_audio_handler.html#ade8b9c6ec8d1e6fe0da65f9253c991d6">CAudioHandler::PlayMusic</a></div><div class="ttdeci">void PlayMusic(const std::string &amp;)</div><div class="ttdef"><b>Definition:</b> AudioHandler.cpp:33</div></div>
-<div class="ttc" id="aclass_c_audio_handler_html_a5bf1ab1d00de439da0087d9dc16f5da6"><div class="ttname"><a href="class_c_audio_handler.html#a5bf1ab1d00de439da0087d9dc16f5da6">CAudioHandler::CAudioHandler</a></div><div class="ttdeci">CAudioHandler(IAudio *, CResources *)</div><div class="ttdef"><b>Definition:</b> AudioHandler.cpp:8</div></div>
+<div class="ttc" id="aclass_c_audio_handler_html_ade8b9c6ec8d1e6fe0da65f9253c991d6"><div class="ttname"><a href="class_c_audio_handler.html#ade8b9c6ec8d1e6fe0da65f9253c991d6">CAudioHandler::PlayMusic</a></div><div class="ttdeci">void PlayMusic(const std::string &amp;)</div><div class="ttdef"><b>Definition:</b> AudioHandler.cpp:29</div></div>
+<div class="ttc" id="aclass_c_audio_handler_html_a5bf1ab1d00de439da0087d9dc16f5da6"><div class="ttname"><a href="class_c_audio_handler.html#a5bf1ab1d00de439da0087d9dc16f5da6">CAudioHandler::CAudioHandler</a></div><div class="ttdeci">CAudioHandler(IAudio *, CResources *)</div><div class="ttdef"><b>Definition:</b> AudioHandler.cpp:6</div></div>
+<div class="ttc" id="a_audio_8hpp_html"><div class="ttname"><a href="_audio_8hpp.html">Audio.hpp</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

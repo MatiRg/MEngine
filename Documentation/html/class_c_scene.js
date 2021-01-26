@@ -5,7 +5,7 @@ var class_c_scene =
     [ "CreateComponent", "class_c_scene.html#abb13b6fbfd6311e31d7565bec3bf36ae", null ],
     [ "CreateComponent", "class_c_scene.html#aea39cad30fad1eaf698d8fcfa8848589", null ],
     [ "CreateEntity", "class_c_scene.html#a33e4b3fa9ad33b71ed6cb830ab45c20f", null ],
-    [ "CreateEntity", "class_c_scene.html#aa2ae0b8f8524e10cbd297226a676057b", null ],
+    [ "CreateEntity", "class_c_scene.html#abae9f989690ff4ada7f4b3acd793c89d", null ],
     [ "GetEventManager", "class_c_scene.html#adfaf2a6785a58e190b9400e4e1f396a5", null ],
     [ "Init", "class_c_scene.html#ac2a2e49e58f37bebab4e1fd9ae2c3d41", null ],
     [ "OnBeginFrame", "class_c_scene.html#ad08b38f0d2e842f62d282f8fb22550ef", null ],

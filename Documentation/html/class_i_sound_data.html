@@ -100,7 +100,7 @@ Inheritance diagram for ISoundData:</div>
 <area href="class_i_resource.html" alt="IResource" shape="rect" coords="74,56,212,80"/>
 <area href="class_non_copyable_movable.html" alt="NonCopyableMovable" shape="rect" coords="74,0,212,24"/>
 <area href="class_c_null_sound_data.html" alt="CNullSoundData" shape="rect" coords="0,168,138,192"/>
-<area href="class_c_o_a_l_sound_data.html" alt="COALSoundData" shape="rect" coords="148,168,286,192"/>
+<area href="class_c_s_f_m_l_sound_data.html" alt="CSFMLSoundData" shape="rect" coords="148,168,286,192"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -110,8 +110,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3584ce0748c9db33f656aa50bd75a384"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae4e93f3f7cec75a6fb6c562a8963893d"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_sound_data.html#ae4e93f3f7cec75a6fb6c562a8963893d">~ISoundData</a> ()</td></tr>
 <tr class="separator:ae4e93f3f7cec75a6fb6c562a8963893d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af0e24d662eb8f60ce07cb5d16eadaf9d"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_sound_data.html#af0e24d662eb8f60ce07cb5d16eadaf9d">GetSamples</a> () const =0</td></tr>
-<tr class="separator:af0e24d662eb8f60ce07cb5d16eadaf9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a059da68c919f013b79341f3dfa6b26a1"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_sound_data.html#a059da68c919f013b79341f3dfa6b26a1">IsStream</a> () const =0</td></tr>
+<tr class="separator:a059da68c919f013b79341f3dfa6b26a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68c4bc942f92aee7e6ed61435faab65e"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_sound_data.html#a68c4bc942f92aee7e6ed61435faab65e">GetDuration</a> () const =0</td></tr>
+<tr class="separator:a68c4bc942f92aee7e6ed61435faab65e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_i_resource"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_i_resource')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_i_resource.html">IResource</a></td></tr>
 <tr class="memitem:a36d3c6dc8b1ca4f68821e21fc055fe0d inherit pub_methods_class_i_resource"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_resource.html#a36d3c6dc8b1ca4f68821e21fc055fe0d">IResource</a> (const std::string &amp;aName)</td></tr>
 <tr class="separator:a36d3c6dc8b1ca4f68821e21fc055fe0d inherit pub_methods_class_i_resource"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -198,8 +200,8 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="af0e24d662eb8f60ce07cb5d16eadaf9d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af0e24d662eb8f60ce07cb5d16eadaf9d">&#9670;&nbsp;</a></span>GetSamples()</h2>
+<a id="a68c4bc942f92aee7e6ed61435faab65e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68c4bc942f92aee7e6ed61435faab65e">&#9670;&nbsp;</a></span>GetDuration()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -208,7 +210,7 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual int ISoundData::GetSamples </td>
+          <td class="memname">virtual int ISoundData::GetDuration </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -221,7 +223,34 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_c_o_a_l_sound_data.html#aa92f243bf2ff47979988425074916be2">COALSoundData</a>, and <a class="el" href="class_c_null_sound_data.html#af75e6270b569386a9147319f7d7218f4">CNullSoundData</a>.</p>
+<p>Implemented in <a class="el" href="class_c_s_f_m_l_sound_data.html#a96a8a6b9f86da151d0f2aba3bb33afe5">CSFMLSoundData</a>, and <a class="el" href="class_c_null_sound_data.html#af6ca43971260031f8420e34b9662a711">CNullSoundData</a>.</p>
+
+</div>
+</div>
+<a id="a059da68c919f013b79341f3dfa6b26a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a059da68c919f013b79341f3dfa6b26a1">&#9670;&nbsp;</a></span>IsStream()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool ISoundData::IsStream </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_c_s_f_m_l_sound_data.html#a38bf457ef6bb862fe730c18d02145f4e">CSFMLSoundData</a>, and <a class="el" href="class_c_null_sound_data.html#a254cc36306a15d8126dbdae40c4e90d7">CNullSoundData</a>.</p>
 
 </div>
 </div>

@@ -12,6 +12,7 @@ var class_c_app =
     [ "GetGraphics", "class_c_app.html#a5feabe4df4fce15649c6177d78700c68", null ],
     [ "GetImGUI", "class_c_app.html#af55de6806904bddaaad0d41b01d50846", null ],
     [ "GetInput", "class_c_app.html#a6b19f4b9eb89a3c5b201186691ac46e7", null ],
+    [ "GetPerformanceCounters", "class_c_app.html#a7431e9c9f5c3266f6df19e34d147b722", null ],
     [ "GetPhysics2D", "class_c_app.html#a29bf8765eb70ec8b6770520839ed9c7a", null ],
     [ "GetPhysics3D", "class_c_app.html#a44547c0bb0d5bf97e441e1c05ead6cc4", null ],
     [ "GetRenderer2D", "class_c_app.html#aa357c7ea4754610c580d630f44a264c5", null ],
@@ -28,8 +29,8 @@ var class_c_app =
     [ "PostExit", "class_c_app.html#a0512f4ad9dc3a80e8041f9b8b8845c5d", null ],
     [ "PreInit", "class_c_app.html#ab17c75619eebddb22b1bccf6cbad4b4e", null ],
     [ "Quit", "class_c_app.html#af1885ec3b772d22a2b827bb4d3db0cd8", null ],
-    [ "Run", "class_c_app.html#a52dfe5742ddff2e4028432c28b83f4a2", null ],
-    [ "CommandLine", "class_c_app.html#af5ab59173d89f7b3dd2b3f07b1c2be69", null ],
+    [ "Run", "class_c_app.html#aa72db870de5e251ca1355c586eff4bee", null ],
+    [ "CommandLine", "class_c_app.html#af12d1cac02d7dbd3b59236dcdf2c05fa", null ],
     [ "ConfigFile", "class_c_app.html#a0d0db681cd2c8a8f05b719fdef3d07e4", null ],
     [ "Params", "class_c_app.html#aa59ee30de5b2de6ef3a8f625d955dce4", null ],
     [ "UseConfigFile", "class_c_app.html#af4cbc9589512717e41378b608084b146", null ]

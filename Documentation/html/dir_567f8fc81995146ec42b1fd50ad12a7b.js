@@ -20,6 +20,10 @@ var dir_567f8fc81995146ec42b1fd50ad12a7b =
     [ "Camera2D.hpp", "_camera2_d_8hpp.html", [
       [ "CCamera2D", "class_c_camera2_d.html", "class_c_camera2_d" ]
     ] ],
+    [ "LightComponent.cpp", "_light_component_8cpp.html", null ],
+    [ "LightComponent.hpp", "_light_component_8hpp.html", [
+      [ "CLightComponent", "class_c_light_component.html", "class_c_light_component" ]
+    ] ],
     [ "MeshRenderer.cpp", "_mesh_renderer_8cpp.html", null ],
     [ "MeshRenderer.hpp", "_mesh_renderer_8hpp.html", [
       [ "CMeshRenderer", "class_c_mesh_renderer.html", "class_c_mesh_renderer" ]

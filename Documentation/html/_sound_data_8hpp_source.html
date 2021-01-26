@@ -91,51 +91,57 @@ $(document).ready(function(){initNavTree('_sound_data_8hpp_source.html',''); ini
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="keyword">class </span><a class="code" href="class_i_audio.html">IAudio</a>;</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="class_i_sound_data.html">    6</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_i_sound_data.html">ISoundData</a>: <span class="keyword">public</span> <a class="code" href="class_i_resource.html">IResource</a></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;{</div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_i_sound_data.html#a3584ce0748c9db33f656aa50bd75a384">    9</a></span>&#160;    <a class="code" href="class_i_sound_data.html#a3584ce0748c9db33f656aa50bd75a384">ISoundData</a>(<span class="keyword">const</span> std::string&amp; Name):</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;        <a class="code" href="class_i_resource.html">IResource</a>( Name )</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    {</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    }</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_i_sound_data.html#ae4e93f3f7cec75a6fb6c562a8963893d">   14</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_i_sound_data.html#ae4e93f3f7cec75a6fb6c562a8963893d">~ISoundData</a>() </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    }</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <a class="code" href="_resource_8hpp.html#a1298261425a29b634116a19ee67d6450">RESOURCE</a>(<a class="code" href="class_i_sound_data.html">ISoundData</a>)</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="comment">// Clip Length in Samples </span></div>
-<div class="line"><a name="l00021"></a><span class="lineno"><a class="line" href="class_i_sound_data.html#af0e24d662eb8f60ce07cb5d16eadaf9d">   21</a></span>&#160;    virtual <span class="keywordtype">int</span> <a class="code" href="class_i_sound_data.html#af0e24d662eb8f60ce07cb5d16eadaf9d">GetSamples</a>() const = 0;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;};</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">//</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
-<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_c_sound_data_manager.html">   26</a></span>&#160;class <a class="code" href="class_c_sound_data_manager.html">CSoundDataManager</a>: public <a class="code" href="class_t_resource_manager.html">TResourceManager</a>&lt;<a class="code" href="class_i_sound_data.html">ISoundData</a>&gt;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;{</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="class_c_sound_data_manager.html">CSoundDataManager</a>(<a class="code" href="class_i_audio.html">IAudio</a>*);</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">// For Resource Var Map</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">static</span> constexpr <span class="keywordtype">char</span> RESOURCES_VAR_IS_STREAM[] = <span class="stringliteral">&quot;__IS_STREAM&quot;</span>;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="class_i_sound_data.html">    9</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_i_sound_data.html">ISoundData</a>: <span class="keyword">public</span> <a class="code" href="class_i_resource.html">IResource</a></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;{</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="class_i_sound_data.html#a3584ce0748c9db33f656aa50bd75a384">   12</a></span>&#160;    <a class="code" href="class_i_sound_data.html#a3584ce0748c9db33f656aa50bd75a384">ISoundData</a>(<span class="keyword">const</span> std::string&amp; Name):</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <a class="code" href="class_i_resource.html">IResource</a>( Name )</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    {</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    }</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="class_i_sound_data.html#ae4e93f3f7cec75a6fb6c562a8963893d">   17</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_i_sound_data.html#ae4e93f3f7cec75a6fb6c562a8963893d">~ISoundData</a>() </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    }</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="_resource_8hpp.html#a1298261425a29b634116a19ee67d6450">RESOURCE</a>(<a class="code" href="class_i_sound_data.html">ISoundData</a>)</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_i_sound_data.html#a059da68c919f013b79341f3dfa6b26a1">   23</a></span>&#160;    virtual <span class="keywordtype">bool</span> <a class="code" href="class_i_sound_data.html#a059da68c919f013b79341f3dfa6b26a1">IsStream</a>() const = 0;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="comment">// Clip Length in milliseconds</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno"><a class="line" href="class_i_sound_data.html#a68c4bc942f92aee7e6ed61435faab65e">   26</a></span>&#160;    virtual <span class="keywordtype">int</span> <a class="code" href="class_i_sound_data.html#a68c4bc942f92aee7e6ed61435faab65e">GetDuration</a>() const = 0;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;};</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment">//</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="_resource_manager_8hpp.html#a9035282b1a43866334b2e046f8896a01">RESOURCE_MANAGER</a>(<a class="code" href="class_c_material_manager.html">CMaterialManager</a>)</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    std::unique_ptr&lt;IResource&gt; MakeResource(<span class="keyword">const</span> std::string&amp;, <span class="keyword">const</span> <a class="code" href="_resource_8hpp.html#aeb9246ef736382503cd1784ef4ca742a">ResourceCreateMap</a>&amp;) <span class="keyword">override</span>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="class_i_audio.html">IAudio</a>* Audio = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="class_c_sound_data_manager.html">   31</a></span>&#160;class <a class="code" href="class_c_sound_data_manager.html">CSoundDataManager</a>: public <a class="code" href="class_t_resource_manager.html">TResourceManager</a>&lt;<a class="code" href="class_i_sound_data.html">ISoundData</a>&gt;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="class_c_sound_data_manager.html">CSoundDataManager</a>(<a class="code" href="class_i_audio.html">IAudio</a>*);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160; </div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <a class="code" href="_resource_manager_8hpp.html#a9035282b1a43866334b2e046f8896a01">RESOURCE_MANAGER</a>(<a class="code" href="class_c_material_manager.html">CMaterialManager</a>)</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    std::unique_ptr&lt;IResource&gt; MakeResource(<span class="keyword">const</span> std::string&amp;, <span class="keyword">const</span> <a class="code" href="_resource_8hpp.html#aeb9246ef736382503cd1784ef4ca742a">ResourceCreateMap</a>&amp;) <span class="keyword">override</span>;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <a class="code" href="class_i_audio.html">IAudio</a>* Audio = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="aclass_c_material_manager_html"><div class="ttname"><a href="class_c_material_manager.html">CMaterialManager</a></div><div class="ttdef"><b>Definition:</b> Material.hpp:99</div></div>
-<div class="ttc" id="aclass_i_sound_data_html"><div class="ttname"><a href="class_i_sound_data.html">ISoundData</a></div><div class="ttdef"><b>Definition:</b> SoundData.hpp:7</div></div>
+<div class="ttc" id="aclass_i_sound_data_html"><div class="ttname"><a href="class_i_sound_data.html">ISoundData</a></div><div class="ttdef"><b>Definition:</b> SoundData.hpp:10</div></div>
 <div class="ttc" id="a_resource_8hpp_html_a1298261425a29b634116a19ee67d6450"><div class="ttname"><a href="_resource_8hpp.html#a1298261425a29b634116a19ee67d6450">RESOURCE</a></div><div class="ttdeci">#define RESOURCE(X)</div><div class="ttdef"><b>Definition:</b> Resource.hpp:14</div></div>
 <div class="ttc" id="aclass_t_resource_manager_html"><div class="ttname"><a href="class_t_resource_manager.html">TResourceManager</a></div><div class="ttdef"><b>Definition:</b> ResourceManager.hpp:43</div></div>
 <div class="ttc" id="a_resource_8hpp_html_aeb9246ef736382503cd1784ef4ca742a"><div class="ttname"><a href="_resource_8hpp.html#aeb9246ef736382503cd1784ef4ca742a">ResourceCreateMap</a></div><div class="ttdeci">StringMap&lt; ResourceCreateVar &gt; ResourceCreateMap</div><div class="ttdef"><b>Definition:</b> Resource.hpp:9</div></div>
 <div class="ttc" id="a_resource_manager_8hpp_html_a9035282b1a43866334b2e046f8896a01"><div class="ttname"><a href="_resource_manager_8hpp.html#a9035282b1a43866334b2e046f8896a01">RESOURCE_MANAGER</a></div><div class="ttdeci">#define RESOURCE_MANAGER(X)</div><div class="ttdef"><b>Definition:</b> ResourceManager.hpp:12</div></div>
-<div class="ttc" id="aclass_c_sound_data_manager_html"><div class="ttname"><a href="class_c_sound_data_manager.html">CSoundDataManager</a></div><div class="ttdef"><b>Definition:</b> SoundData.hpp:27</div></div>
-<div class="ttc" id="aclass_i_sound_data_html_af0e24d662eb8f60ce07cb5d16eadaf9d"><div class="ttname"><a href="class_i_sound_data.html#af0e24d662eb8f60ce07cb5d16eadaf9d">ISoundData::GetSamples</a></div><div class="ttdeci">virtual int GetSamples() const =0</div></div>
+<div class="ttc" id="aclass_c_sound_data_manager_html"><div class="ttname"><a href="class_c_sound_data_manager.html">CSoundDataManager</a></div><div class="ttdef"><b>Definition:</b> SoundData.hpp:32</div></div>
+<div class="ttc" id="aclass_i_sound_data_html_a68c4bc942f92aee7e6ed61435faab65e"><div class="ttname"><a href="class_i_sound_data.html#a68c4bc942f92aee7e6ed61435faab65e">ISoundData::GetDuration</a></div><div class="ttdeci">virtual int GetDuration() const =0</div></div>
+<div class="ttc" id="aclass_i_sound_data_html_a059da68c919f013b79341f3dfa6b26a1"><div class="ttname"><a href="class_i_sound_data.html#a059da68c919f013b79341f3dfa6b26a1">ISoundData::IsStream</a></div><div class="ttdeci">virtual bool IsStream() const =0</div></div>
 <div class="ttc" id="aclass_i_audio_html"><div class="ttname"><a href="class_i_audio.html">IAudio</a></div><div class="ttdef"><b>Definition:</b> Audio.hpp:10</div></div>
-<div class="ttc" id="aclass_i_sound_data_html_ae4e93f3f7cec75a6fb6c562a8963893d"><div class="ttname"><a href="class_i_sound_data.html#ae4e93f3f7cec75a6fb6c562a8963893d">ISoundData::~ISoundData</a></div><div class="ttdeci">virtual ~ISoundData()</div><div class="ttdef"><b>Definition:</b> SoundData.hpp:14</div></div>
+<div class="ttc" id="aclass_i_sound_data_html_ae4e93f3f7cec75a6fb6c562a8963893d"><div class="ttname"><a href="class_i_sound_data.html#ae4e93f3f7cec75a6fb6c562a8963893d">ISoundData::~ISoundData</a></div><div class="ttdeci">virtual ~ISoundData()</div><div class="ttdef"><b>Definition:</b> SoundData.hpp:17</div></div>
 <div class="ttc" id="aclass_i_resource_html"><div class="ttname"><a href="class_i_resource.html">IResource</a></div><div class="ttdef"><b>Definition:</b> Resource.hpp:18</div></div>
-<div class="ttc" id="aclass_i_sound_data_html_a3584ce0748c9db33f656aa50bd75a384"><div class="ttname"><a href="class_i_sound_data.html#a3584ce0748c9db33f656aa50bd75a384">ISoundData::ISoundData</a></div><div class="ttdeci">ISoundData(const std::string &amp;Name)</div><div class="ttdef"><b>Definition:</b> SoundData.hpp:9</div></div>
+<div class="ttc" id="aclass_i_sound_data_html_a3584ce0748c9db33f656aa50bd75a384"><div class="ttname"><a href="class_i_sound_data.html#a3584ce0748c9db33f656aa50bd75a384">ISoundData::ISoundData</a></div><div class="ttdeci">ISoundData(const std::string &amp;Name)</div><div class="ttdef"><b>Definition:</b> SoundData.hpp:12</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

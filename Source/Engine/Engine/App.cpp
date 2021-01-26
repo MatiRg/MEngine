@@ -98,18 +98,15 @@ int CApp::Run(const StringVec& Cmd)
             LOG(ESeverity::Fatal) << "Unknown Exception\n";
         }
 
-        LOG(ESeverity::Info) << "Entering CApp::OnExit()\n";
-        OnExit();
         LOG(ESeverity::Info) << "Entering CEngine::OnExit()\n";
         Engine->OnExit();
+        LOG(ESeverity::Info) << "Entering CApp::OnExit()\n";
+        OnExit();
 
-        LOG(ESeverity::Info) << "Entering CApp::Exit()\n";
-        Exit();
         LOG(ESeverity::Info) << "Entering CEngine::Exit()\n";
         Engine->Exit();
-
-        LOG(ESeverity::Info) << "Entering CApp::PostExit()\n";
-        PostExit();
+        LOG(ESeverity::Info) << "Entering CApp::Exit()\n";
+        Exit();
 
         LOG(ESeverity::Info) << "Destroying Engine\n";
         Engine.reset();
@@ -123,6 +120,9 @@ int CApp::Run(const StringVec& Cmd)
             Config->Save();
             Config.reset();
         }
+
+        LOG(ESeverity::Info) << "Entering CApp::PostExit()\n";
+        PostExit();
 
         return 0;
     }

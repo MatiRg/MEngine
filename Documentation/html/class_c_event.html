@@ -90,6 +90,9 @@ $(document).ready(function(){initNavTree('class_c_event.html',''); initResizable
 </div><!--header-->
 <div class="contents">
 
+<p>Event class.  
+ <a href="class_c_event.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_input_2_event_8hpp_source.html">Event.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for CEvent:</div>
@@ -104,6 +107,7 @@ Inheritance diagram for CEvent:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a4d04953bf18628d0f6208dee5d62a5ec"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_event.html#a4d04953bf18628d0f6208dee5d62a5ec">CEvent</a> (const <a class="el" href="_event_types_8hpp.html#abfcf510bafec7c6429906a6ecaac656d">EEventType</a> T=EEventType::Null, std::unique_ptr&lt; <a class="el" href="struct_s_event_data.html">SEventData</a> &gt; &amp;&amp;D={})</td></tr>
+<tr class="memdesc:a4d04953bf18628d0f6208dee5d62a5ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Event is taking ownership of data.  <a href="class_c_event.html#a4d04953bf18628d0f6208dee5d62a5ec">More...</a><br /></td></tr>
 <tr class="separator:a4d04953bf18628d0f6208dee5d62a5ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b0e7cbf257f6ad55a5450919ff635b4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_event.html#a6b0e7cbf257f6ad55a5450919ff635b4">CEvent</a> (<a class="el" href="class_c_event.html">CEvent</a> &amp;&amp;Other)</td></tr>
 <tr class="separator:a6b0e7cbf257f6ad55a5450919ff635b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -112,11 +116,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a68f1e377d9732a98902e5985d6b863e6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_event.html">CEvent</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_event.html#a68f1e377d9732a98902e5985d6b863e6">operator=</a> (<a class="el" href="class_c_event.html">CEvent</a> &amp;&amp;Other)</td></tr>
 <tr class="separator:a68f1e377d9732a98902e5985d6b863e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab4712d9789f79af95f129d5e63961871"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_event_types_8hpp.html#abfcf510bafec7c6429906a6ecaac656d">EEventType</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_event.html#ab4712d9789f79af95f129d5e63961871">GetType</a> () const</td></tr>
+<tr class="memdesc:ab4712d9789f79af95f129d5e63961871"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns event type.  <a href="class_c_event.html#ab4712d9789f79af95f129d5e63961871">More...</a><br /></td></tr>
 <tr class="separator:ab4712d9789f79af95f129d5e63961871"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca2c9b8cae392ba3621f2e0b6daed94e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_event.html#aca2c9b8cae392ba3621f2e0b6daed94e">HasData</a> () const</td></tr>
 <tr class="separator:aca2c9b8cae392ba3621f2e0b6daed94e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a10737715b9c20e6688ca485ce3a9a7ed"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:a10737715b9c20e6688ca485ce3a9a7ed"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_c_event.html#a10737715b9c20e6688ca485ce3a9a7ed">GetData</a> () const</td></tr>
+<tr class="memdesc:a10737715b9c20e6688ca485ce3a9a7ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns Data casted to given template type, check for Data type with <a class="el" href="class_c_event.html#ab4712d9789f79af95f129d5e63961871" title="Returns event type.">CEvent::GetType()</a>  <a href="class_c_event.html#a10737715b9c20e6688ca485ce3a9a7ed">More...</a><br /></td></tr>
 <tr class="separator:a10737715b9c20e6688ca485ce3a9a7ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
@@ -127,7 +133,9 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:a143ae2a73c598b07b1c3dcbd22514027 inherit pro_methods_class_non_copyable"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_non_copyable.html#a143ae2a73c598b07b1c3dcbd22514027">~NonCopyable</a> ()=default</td></tr>
 <tr class="separator:a143ae2a73c598b07b1c3dcbd22514027 inherit pro_methods_class_non_copyable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Event class. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a4d04953bf18628d0f6208dee5d62a5ec"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4d04953bf18628d0f6208dee5d62a5ec">&#9670;&nbsp;</a></span>CEvent() <span class="overload">[1/2]</span></h2>
 
@@ -161,6 +169,8 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Event is taking ownership of data. </p>
 
 </div>
 </div>
@@ -241,6 +251,8 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Returns Data casted to given template type, check for Data type with <a class="el" href="class_c_event.html#ab4712d9789f79af95f129d5e63961871" title="Returns event type.">CEvent::GetType()</a> </p>
+
 </div>
 </div>
 <a id="ab4712d9789f79af95f129d5e63961871"></a>
@@ -265,6 +277,8 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns event type. </p>
 
 </div>
 </div>

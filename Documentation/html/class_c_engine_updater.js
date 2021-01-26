@@ -2,7 +2,7 @@ var class_c_engine_updater =
 [
     [ "CEngineUpdater", "class_c_engine_updater.html#ac49a7021695e1ccada487cfec1145b97", null ],
     [ "~CEngineUpdater", "class_c_engine_updater.html#ac5fef661f3bb6a55fb96fb9c43d44c02", null ],
-    [ "AddEngineModule", "class_c_engine_updater.html#a1b2c3228cbd3a7d32376878df226b01c", null ],
+    [ "AddEngineModule", "class_c_engine_updater.html#a9490ed79ffdd0db6c12e23425f639d99", null ],
     [ "Exit", "class_c_engine_updater.html#a06860700a8c8c102efe85eef97b870e8", null ],
     [ "GetEngineModule", "class_c_engine_updater.html#a78795278b2721ab04b07c40fcb0ba876", null ],
     [ "GetEngineModule", "class_c_engine_updater.html#a6e318ff70046ff7232a8464016a65f7b", null ],

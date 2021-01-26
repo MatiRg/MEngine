@@ -154,12 +154,12 @@ $(document).ready(function(){initNavTree('functions_i.html',''); initResizable()
 <li>Init()
 : <a class="el" href="class_c_app.html#a4022ba9f624ee2c49150d792378adde2">CApp</a>
 , <a class="el" href="class_c_drawer2_d.html#abce634ca66e4202876615f2f9aa914a2">CDrawer2D</a>
-, <a class="el" href="class_c_engine.html#ae21af0e4b8a832a9639f618834749546">CEngine</a>
+, <a class="el" href="class_c_engine.html#a0f9620f49540d1747ba7cf91bc6ee594">CEngine</a>
 , <a class="el" href="class_c_engine_updater.html#a9e58342c9f544dbbc79160e118a3d560">CEngineUpdater</a>
 , <a class="el" href="class_c_im_g_u_i.html#a0698de16b69415fb1c5a6b6242db8dab">CImGUI</a>
 , <a class="el" href="class_c_main_app.html#a545f530c30a82ecbfb9c4aa155c2ab93">CMainApp</a>
+, <a class="el" href="class_c_my_engine_module.html#a16b1ae4ccf7f8b7bc96a07715e1507fe">CMyEngineModule</a>
 , <a class="el" href="class_c_null_audio.html#a4356eee45da2d087b245cccbacee033c">CNullAudio</a>
-, <a class="el" href="class_c_o_a_l_audio.html#a5d136024bed4f48924c3015957efa031">COALAudio</a>
 , <a class="el" href="class_c_o_g_l_graphics.html#a4feb558c2fc192b6416e97cba5266e57">COGLGraphics</a>
 , <a class="el" href="class_c_o_g_l_im_g_u_i_renderer.html#aa844d3b1c40712a4396c370ad503a7d7">COGLImGUIRenderer</a>
 , <a class="el" href="class_c_renderer2_d.html#a89719c443261640bf18dabd0f74e7668">CRenderer2D</a>
@@ -171,7 +171,8 @@ $(document).ready(function(){initNavTree('functions_i.html',''); initResizable()
 , <a class="el" href="class_c_s_d_l_event_queue.html#a8b2f30c4c35316ea5b63ac7f5e1530a6">CSDLEventQueue</a>
 , <a class="el" href="class_c_s_d_l_input.html#ae59f1df152f9cf79e500718fd742de9a">CSDLInput</a>
 , <a class="el" href="class_c_s_d_l_window.html#acdd427ba9c66f5329d79e8d3a66605f9">CSDLWindow</a>
-, <a class="el" href="class_i_context.html#abdc590540454c9a9645dc36bc4156ca1">IContext</a>
+, <a class="el" href="class_c_s_f_m_l_audio.html#a4c2125c4d16ef9894c12ffcfaed370da">CSFMLAudio</a>
+, <a class="el" href="class_i_context.html#a1905d1604dd52a58ea5cf375077821db">IContext</a>
 , <a class="el" href="class_i_engine_module.html#aa55c3398a7ad1a295b8bac85e7654302">IEngineModule</a>
 , <a class="el" href="class_i_im_g_u_i_renderer.html#a7c90d1e8365d108ffdb46aafe40a9006">IImGUIRenderer</a>
 </li>
@@ -230,9 +231,6 @@ $(document).ready(function(){initNavTree('functions_i.html',''); initResizable()
 <li>IRenderable2D()
 : <a class="el" href="class_i_renderable2_d.html#ab2f0956eae3d3698d7644d89450fd677">IRenderable2D</a>
 </li>
-<li>IRenderable3D()
-: <a class="el" href="class_i_renderable3_d.html#aa65a6897c9461b4908bc5ca845685dc4">IRenderable3D</a>
-</li>
 <li>IResource()
 : <a class="el" href="class_i_resource.html#a36d3c6dc8b1ca4f68821e21fc055fe0d">IResource</a>
 </li>
@@ -259,9 +257,9 @@ $(document).ready(function(){initNavTree('functions_i.html',''); initResizable()
 : <a class="el" href="class_c_o_g_l_graphics.html#aa679dea20226d23fdb50fa98d981104c">COGLGraphics</a>
 , <a class="el" href="class_i_graphics.html#ac637200f40d711f949e52391827af5b9">IGraphics</a>
 </li>
-<li>IsCullActiva()
-: <a class="el" href="class_c_o_g_l_graphics.html#af6c98aa83322112c85a66e1deb6c27a1">COGLGraphics</a>
-, <a class="el" href="class_i_graphics.html#a7a5fa90f4fafadfce1240d09479e46a9">IGraphics</a>
+<li>IsCullActive()
+: <a class="el" href="class_c_o_g_l_graphics.html#a916c30d33493ebac9bf4e82a7f24f7d0">COGLGraphics</a>
+, <a class="el" href="class_i_graphics.html#aed60f82dea2799cf740a29c8a2888f54">IGraphics</a>
 </li>
 <li>IsCursorVisible()
 : <a class="el" href="class_c_s_d_l_input.html#a4b689388664867f1918ba74cbd5f4205">CSDLInput</a>
@@ -277,10 +275,14 @@ $(document).ready(function(){initNavTree('functions_i.html',''); initResizable()
 </li>
 <li>IsEnabled()
 : <a class="el" href="class_c_box2_d_rigid_body2_d.html#ad93251f3a585ae3092123e1cbdf46d6a">CBox2DRigidBody2D</a>
+, <a class="el" href="class_c_post_effect.html#adffa49405d49dcf4744d41f8c5135fb0">CPostEffect</a>
 , <a class="el" href="class_i_rigid_body2_d.html#a43c39794f3ac0b85587b1352e850eb52">IRigidBody2D</a>
 </li>
 <li>IsFilled()
 : <a class="el" href="class_c_rect_renderer2_d.html#a64254a6ea9332339a1da0dbd85545353">CRectRenderer2D</a>
+</li>
+<li>ISFMLSoundSource()
+: <a class="el" href="class_i_s_f_m_l_sound_source.html#a428441623ef2234b075441be72ac1ec9">ISFMLSoundSource</a>
 </li>
 <li>IsGameOver()
 : <a class="el" href="class_c_player.html#a93a22b606586356d7201dfc9d4991afd">CPlayer</a>
@@ -301,6 +303,9 @@ $(document).ready(function(){initNavTree('functions_i.html',''); initResizable()
 </li>
 <li>IsLooped()
 : <a class="el" href="class_c_audio_source.html#ab016c639aae9206fc3fd5b4ed5d6f0ed">CAudioSource</a>
+, <a class="el" href="class_c_null_sound.html#a6b86c4bd72fc79c96e5f783ca0ac8d8a">CNullSound</a>
+, <a class="el" href="class_c_s_f_m_l_sound.html#af21106647c66be3be26a0b01c96a85ab">CSFMLSound</a>
+, <a class="el" href="class_i_sound.html#ad2a1b13e0766eff5663284aab37d8d43">ISound</a>
 </li>
 <li>IsMouseKeyDown()
 : <a class="el" href="class_c_s_d_l_input.html#aad86702ffb94f48bff243e2723798cf7">CSDLInput</a>
@@ -315,8 +320,8 @@ $(document).ready(function(){initNavTree('functions_i.html',''); initResizable()
 , <a class="el" href="class_c_audio_source.html#a462d9173bba2c1a0b90e7d107d32d57e">CAudioSource</a>
 , <a class="el" href="class_c_null_audio.html#ac6f43e284075442f9c1ce938ae68340b">CNullAudio</a>
 , <a class="el" href="class_c_null_sound.html#a8567b95cd0bde4afc0aed8a17dcbd3c7">CNullSound</a>
-, <a class="el" href="class_c_o_a_l_audio.html#ac9c1ca392f345efae194d8e79a281a59">COALAudio</a>
-, <a class="el" href="class_c_o_a_l_sound.html#a3044e958ce1b7123c430024f487ac6da">COALSound</a>
+, <a class="el" href="class_c_s_f_m_l_audio.html#a7c458d26a6221e9113e4a946fe07ecac">CSFMLAudio</a>
+, <a class="el" href="class_c_s_f_m_l_sound.html#ab63c284f5d18ca577f34a367528ea959">CSFMLSound</a>
 , <a class="el" href="class_i_audio.html#ae68bacfeef488530201eb4a172b30b0f">IAudio</a>
 , <a class="el" href="class_i_sound.html#a5b585a4ef42f7c5a315aba34bde06ea5">ISound</a>
 </li>
@@ -329,6 +334,12 @@ $(document).ready(function(){initNavTree('functions_i.html',''); initResizable()
 <li>ISoundData()
 : <a class="el" href="class_i_sound_data.html#a3584ce0748c9db33f656aa50bd75a384">ISoundData</a>
 </li>
+<li>IsRelative()
+: <a class="el" href="class_c_audio_source.html#a5445e6ad3714087963fd2d3109070878">CAudioSource</a>
+, <a class="el" href="class_c_null_sound.html#af2cbee324664d85f84a73b474778c254">CNullSound</a>
+, <a class="el" href="class_c_s_f_m_l_sound.html#aea38275ffb1fb3d9f67a3c6937b62e11">CSFMLSound</a>
+, <a class="el" href="class_i_sound.html#aa88ca1ef2624fb3eab98338dc5926cc7">ISound</a>
+</li>
 <li>IsRendered()
 : <a class="el" href="class_c_entity.html#a0c014134eddc5b72d5b2254d1a08fc94">CEntity</a>
 </li>
@@ -339,6 +350,11 @@ $(document).ready(function(){initNavTree('functions_i.html',''); initResizable()
 <li>IsSoftware()
 : <a class="el" href="class_c_o_g_l_graphics.html#af50b2f483a02cc8f2ee9592779743bca">COGLGraphics</a>
 , <a class="el" href="class_i_graphics.html#a758cc1fda58d2469f5edb08faa77ed9d">IGraphics</a>
+</li>
+<li>IsStream()
+: <a class="el" href="class_c_null_sound_data.html#a254cc36306a15d8126dbdae40c4e90d7">CNullSoundData</a>
+, <a class="el" href="class_c_s_f_m_l_sound_data.html#a38bf457ef6bb862fe730c18d02145f4e">CSFMLSoundData</a>
+, <a class="el" href="class_i_sound_data.html#a059da68c919f013b79341f3dfa6b26a1">ISoundData</a>
 </li>
 <li>IsSupported()
 : <a class="el" href="class_i_resource_manager.html#a0199be41d6c15a720b184c30c34a8a69">IResourceManager</a>
@@ -353,10 +369,10 @@ $(document).ready(function(){initNavTree('functions_i.html',''); initResizable()
 <li>IsValid()
 : <a class="el" href="class_c_file_sink.html#aabd162aad14f484e0ba948f0106392cc">CFileSink</a>
 , <a class="el" href="class_c_null_sound.html#a17778d080c24b0be25cb75ba47bc85cc">CNullSound</a>
-, <a class="el" href="class_c_o_a_l_sound.html#a50705218d1a90e9c568e0fac03b9825c">COALSound</a>
 , <a class="el" href="class_c_o_g_l_frame_buffer.html#ab75a0a03437c2fb754c434dfb492f015">COGLFrameBuffer</a>
 , <a class="el" href="class_c_o_g_l_vertex_buffer.html#a57b666f3dfbb7444595d52aa1d403b98">COGLVertexBuffer</a>
 , <a class="el" href="class_c_s_d_l_surface.html#af3c65cea5b230eb06d83a384e4f234b8">CSDLSurface</a>
+, <a class="el" href="class_c_s_f_m_l_sound.html#a426d923f6a5c6878acc8e4995a2d007f">CSFMLSound</a>
 , <a class="el" href="class_c_std_sink.html#a5956058d237116975551aae05e72c5a0">CStdSink</a>
 , <a class="el" href="class_i_frame_buffer.html#ad5afd3300124fb9db5298c0fb5436b29">IFrameBuffer</a>
 , <a class="el" href="class_i_resource.html#acc315df45f4d283e166905adfbf5dd3f">IResource</a>

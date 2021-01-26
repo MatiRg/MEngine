@@ -1,19 +1,20 @@
 #pragma once
 
+//! Event type eg. Keyboard, Mouse ...
 enum class EEventType
 {
-    Null = 0,
-    Quit,
-    Keyboard,
-    MouseButton,
-    MouseMotion,
-    MouseWheel,
-    TextInput,
-	WindowSize,
-	Custom
+    Null = 0, //! No Data, For Empty Event
+    Quit, //! No Data 
+    Keyboard, //! For SEventKeyboard
+    MouseButton, //! For SEventMouseButton
+    MouseMotion, //! For SEventMouseMotion
+    MouseWheel, //! For SEventMouseWheel
+    TextInput, //! For SEventTextInput
+	WindowSize, //! For SEventWindowSize
+	Custom //! Must inherits from SEventData
 };
 
-// Synchronized with C# Key
+//! Keyboard Key Enum
 enum class EKey
 {
 	A = 0,
@@ -86,10 +87,11 @@ enum class EKey
 	Insert,
 	Delete,
 	Unknown,
-	Any, // Any key from up
+	Any, //! Any key from up
     Max
 };
 
+//! Keyboard Mod eg. Shift, Alt
 enum class EKeyMod
 {
     None  = 0,
@@ -114,13 +116,13 @@ inline bool operator&(const EKeyMod lhs, const EKeyMod rhs)
     return static_cast<int>(lhs) & static_cast<int>(rhs);
 }
 
-// Synchronized with C# MouseKey
+//! Mouse Key Enum
 enum class EMouseKey
 {
     LButton = 0,
     MButton,
     RButton,
     Unknown,
-    Any, // Any key from up
+    Any, //! Any key from up
     Max
 };

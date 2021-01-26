@@ -268,27 +268,27 @@ set(SOURCES_BASE
 	ThirdParty/Common/imgui/imstb_truetype.h
 )
 
-set(SOURCES_HELLO2D
-	Source/HelloWorld2D/EntryPoint.cpp
-	Source/HelloWorld2D/Globals.hpp
-	Source/HelloWorld2D/MainApp.cpp
-	Source/HelloWorld2D/MainApp.hpp
-	Source/HelloWorld2D/MainMenu.cpp
-	Source/HelloWorld2D/MainMenu.hpp
-	Source/HelloWorld2D/PhysicsPlay.cpp
-	Source/HelloWorld2D/PhysicsPlay.hpp
-	Source/HelloWorld2D/PlayGround.cpp
-	Source/HelloWorld2D/PlayGround.hpp
+# Here You can list add new source/header files
+set(SOURCES_98_LABIRYNTH
+	Source/Samples/98_Labirynth/EntryPoint.cpp
+	Source/Samples/98_Labirynth/Globals.hpp
+	Source/Samples/98_Labirynth/MainApp.cpp
+	Source/Samples/98_Labirynth/MainApp.hpp
+	Source/Samples/98_Labirynth/Level2.cpp
+	Source/Samples/98_Labirynth/Level2.hpp
 )
 
-# Here You can list add new source/header files
-set(SOURCES_LABI
-	Source/Labirynth/EntryPoint.cpp
-	Source/Labirynth/Globals.hpp
-	Source/Labirynth/MainApp.cpp
-	Source/Labirynth/MainApp.hpp
-	Source/Labirynth/Level2.cpp
-	Source/Labirynth/Level2.hpp
+set(SOURCES_99_TEST2D
+	Source/Samples/99_Test_2D/EntryPoint.cpp
+	Source/Samples/99_Test_2D/Globals.hpp
+	Source/Samples/99_Test_2D/MainApp.cpp
+	Source/Samples/99_Test_2D/MainApp.hpp
+	Source/Samples/99_Test_2D/MainMenu.cpp
+	Source/Samples/99_Test_2D/MainMenu.hpp
+	Source/Samples/99_Test_2D/PhysicsPlay.cpp
+	Source/Samples/99_Test_2D/PhysicsPlay.hpp
+	Source/Samples/99_Test_2D/PlayGround.cpp
+	Source/Samples/99_Test_2D/PlayGround.hpp
 )
 
 set_source_files_properties(ThirdParty/Common/tinyfiledialogs.c PROPERTIES LANGUAGE CXX)
@@ -304,21 +304,32 @@ if("${CMAKE_SYSTEM_NAME}" MATCHES "Windows")
 endif()
 
 add_library(MyEngine STATIC ${SOURCES_BASE})
-add_executable(HelloWorld2D ${SOURCES_HELLO2D})
-add_executable(Labirynth ${SOURCES_LABI})
+#
+add_executable(HelloWorld Source/Samples/01_HelloWorld/Main.cpp)
+add_executable(UpdatablesSample Source/Samples/02_Updatables/Main.cpp)
+add_executable(EngineModulesSample Source/Samples/03_EngineModules/Main.cpp)
+add_executable(SceneCreationSample Source/Samples/04_SceneCreation/Main.cpp)
+add_executable(AudioPlaybackSample Source/Samples/05_AudioPlayback/Main.cpp)
+#
+add_executable(Test2D ${SOURCES_99_TEST2D})
+add_executable(Labirynth ${SOURCES_98_LABIRYNTH})
 
 if(DEV_BUILD)
 	set(PPDEFS -DDEV_BUILD)
 	target_compile_definitions(MyEngine PUBLIC ${PPDEFS})
-	target_compile_definitions(HelloWorld2D PUBLIC ${PPDEFS})
+	#
+	target_compile_definitions(HelloWorld PUBLIC ${PPDEFS})
+	target_compile_definitions(UpdatablesSample PUBLIC ${PPDEFS})
+	target_compile_definitions(EngineModulesSample PUBLIC ${PPDEFS})
+	target_compile_definitions(SceneCreationSample PUBLIC ${PPDEFS})
+	target_compile_definitions(AudioPlaybackSample PUBLIC ${PPDEFS})
+	#
+	target_compile_definitions(Test2D PUBLIC ${PPDEFS})
 	target_compile_definitions(Labirynth PUBLIC ${PPDEFS})
 endif()
 
-# Header only libraries
-set(INC_COMMON ThirdParty/Common) 
-target_include_directories(MyEngine PUBLIC ${INC_COMMON})
-target_include_directories(HelloWorld2D PUBLIC ${INC_COMMON})
-target_include_directories(Labirynth PUBLIC ${INC_COMMON})
+# Header only libraries and Common
+set(INC_COMMON ThirdParty/Common Source) 
 
 if("${CMAKE_SYSTEM_NAME}" MATCHES "Windows")
     message(STATUS "Windows system")
@@ -329,18 +340,16 @@ if("${CMAKE_SYSTEM_NAME}" MATCHES "Windows")
 	endif()
 	
 	set(INC_BASE ${WIN_PATH_LIBS}/include)
-
-	target_include_directories(MyEngine PUBLIC ${INC_BASE})
-	target_include_directories(HelloWorld2D PUBLIC ${INC_BASE})
-	target_include_directories(Labirynth PUBLIC ${INC_BASE})
+	set(INC_BASE ${INC_COMMON} ${INC_BASE})
 
 	link_directories(${WIN_PATH_LIBS}/lib)
 	
 	if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
-		set(LIBS_DBG SDL2main SDL2 SDL2_image SDL2_ttf sfml-audio-d sfml-system-d box2d assimp-vc142-mt BulletCollision BulletDynamics BulletInverseDynamics BulletSoftBody LinearMath)
 		set(LIBS SDL2main SDL2 SDL2_image SDL2_ttf sfml-audio sfml-system box2d assimp-vc142-mt BulletCollision BulletDynamics BulletInverseDynamics BulletSoftBody LinearMath)
+		set(LIBS_DBG SDL2main SDL2 SDL2_image SDL2_ttf sfml-audio-d sfml-system-d box2d assimp-vc142-mt BulletCollision BulletDynamics BulletInverseDynamics BulletSoftBody LinearMath)
 	elseif(CMAKE_CXX_COMPILER_ID MATCHES "Clang|GNU")
 		set(LIBS SDL2main SDL2.dll SDL2_image.dll SDL2_ttf.dll openal.dll) # TO DO
+		set(LIBS_DBG ${LIBS})
 	endif()
 	
 	file(GLOB WIN_DLL_LIB "${WIN_PATH_LIBS}/bin/*.dll")
@@ -348,15 +357,34 @@ if("${CMAKE_SYSTEM_NAME}" MATCHES "Windows")
         COMMAND cmake -E copy ${WIN_DLL_LIB} ${CMAKE_BINARY_DIR}
         DEPENDS ${MY_TARGET})
 elseif("${CMAKE_SYSTEM_NAME}" MATCHES "Linux") # TO DO
-    message(STATUS "Linux system")
-    set(LIBS SDL2 SDL2_image SDL2_ttf openal dl)
+	message(STATUS "Linux system")
+
+	set(INC_BASE ${INC_COMMON})
+
+	set(LIBS SDL2 SDL2_image SDL2_ttf openal dl)
+	set(LIBS_DBG ${LIBS})
 else()
 	message(FATAL_ERROR "Unknown System.")
 endif()
 
+target_include_directories(MyEngine PUBLIC ${INC_BASE})
+#
+target_include_directories(HelloWorld PUBLIC ${INC_BASE})
+target_include_directories(UpdatablesSample PUBLIC ${INC_BASE})
+target_include_directories(EngineModulesSample PUBLIC ${INC_BASE})
+target_include_directories(SceneCreationSample PUBLIC ${INC_BASE})
+target_include_directories(AudioPlaybackSample PUBLIC ${INC_BASE})
+#
+target_include_directories(Test2D PUBLIC ${INC_BASE})
+target_include_directories(Labirynth PUBLIC ${INC_BASE})
+
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU")
 	set(LIBS 
 		${LIBS}
+		stdc++fs
+	)
+	set(LIBS_DBG 
+		${LIBS_DBG}
 		stdc++fs
 	)
 elseif(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
@@ -364,47 +392,51 @@ elseif(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 		${LIBS}
 		c++fs
 	)
-endif()
-
-if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
 	set(LIBS_DBG 
-		MyEngine
 		${LIBS_DBG}
+		c++fs
 	)
 endif()
+
+set(LIBS_DBG 
+	MyEngine
+	${LIBS_DBG}
+)
 set(LIBS 
 	MyEngine 
 	${LIBS}
 )
+set(LIBRARIES debug ${LIBS_DBG} optimized ${LIBS})
 
-if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
-	target_link_libraries(HelloWorld2D debug ${LIBS_DBG})
-	target_link_libraries(Labirynth debug ${LIBS_DBG})
-	target_link_libraries(HelloWorld2D optimized ${LIBS})
-	target_link_libraries(Labirynth optimized ${LIBS})
-else()
-	target_link_libraries(HelloWorld2D ${LIBS})
-	target_link_libraries(Labirynth ${LIBS})
-endif()
+target_link_libraries(HelloWorld ${LIBRARIES})
+target_link_libraries(UpdatablesSample ${LIBRARIES})
+target_link_libraries(EngineModulesSample ${LIBRARIES})
+target_link_libraries(SceneCreationSample ${LIBRARIES})
+target_link_libraries(AudioPlaybackSample ${LIBRARIES})
+#
+target_link_libraries(Test2D ${LIBRARIES})
+target_link_libraries(Labirynth ${LIBRARIES})
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "Clang|AppleClang|GNU")
 	set(CMP_GNU -Wall -Wextra -Wunreachable-code -Wpedantic)
-
-    target_compile_options(MyEngine PRIVATE ${CMP_GNU})
-	target_compile_options(HelloWorld2D PRIVATE ${CMP_GNU})
-    target_compile_options(Labirynth PRIVATE ${CMP_GNU})
+	set(CMP_OPT ${CMP_GNU})
 endif()
 if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 	set(CMP_CLN -Wweak-vtables -Wexit-time-destructors -Wglobal-constructors -Wmissing-noreturn)
-
-    target_compile_options(MyEngine PRIVATE ${CMP_CLN})
-	target_compile_options(HelloWorld2D PRIVATE ${CMP_CLN})
-    target_compile_options(Labirynth PRIVATE ${CMP_CLN})
+	set(CMP_OPT ${CMP_CLN})
 endif()
 if(CMAKE_CXX_COMPILER_ID MATCHES "MSVC")
 	set(CMP_MSV /W4 /w44265 /w44062 /wd4201 /wd4458 /wd4996 /wd4244 /wd4061 /wd4456 /wd4457 /wd4701 /wd4267 /wd4245 /wd4100)
-
-    target_compile_options(MyEngine PRIVATE ${CMP_MSV})
-	target_compile_options(HelloWorld2D PRIVATE ${CMP_MSV})
-    target_compile_options(Labirynth PRIVATE ${CMP_MSV})
+	set(CMP_OPT ${CMP_MSV})
 endif()
+
+target_compile_options(MyEngine PRIVATE ${CMP_OPT})
+#
+target_compile_options(HelloWorld PRIVATE ${CMP_OPT})
+target_compile_options(UpdatablesSample PRIVATE ${CMP_OPT})
+target_compile_options(EngineModulesSample PRIVATE ${CMP_OPT})
+target_compile_options(SceneCreationSample PRIVATE ${CMP_OPT})
+target_compile_options(AudioPlaybackSample PRIVATE ${CMP_OPT})
+#
+target_compile_options(Test2D PRIVATE ${CMP_OPT})
+target_compile_options(Labirynth PRIVATE ${CMP_OPT})

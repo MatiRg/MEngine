@@ -19,6 +19,10 @@ using EntityArray = std::vector<CEntity*>;
 static constexpr int WORLD_ENTITY = -1;
 static constexpr int INVALID_ENTITY = -1000;
 
+/**
+ * \brief Define in CEntity children class for reflection
+ * \param x class name of CEntity type, must be base of CEntity
+ */
 #define ENTITY(x) virtual std::string GetType() const override { return #x; } \
                   static std::string GetTypeStatic() { return #x; }
 
@@ -53,85 +57,147 @@ public:
     virtual std::string GetType() const = 0;
 };
 
-// Base Class
+/**
+ * \class CEntity
+ * \brief Base Class for Entities - Contains Components and optionaly user data and logic, 
+ * in derrivied class ENTITY(CLASS_NAME) must be used.
+ *
+ */
 class CEntity : public IEntity
 {
 public:
+    //! All classes should have the same constructor
     CEntity(CEngine*);
     virtual ~CEntity();
 
     ENTITY(CEntity)
     
+    //! Can be used to access Engine Modules
     CEngine* GetEngine() const { return Engine; }
 
+    //! Used Internally
     void SetID(const int aID) { ID = aID; }
+    //! Get Entity ID - Unique to Entire World
     int GetID() const { return ID; }
 
+    //! Set Entity Name - Uniqueness not required
     void SetName(const std::string& aName) { Name = aName; }
+    //! Get Entity Name - Uniqueness not required
     const std::string& GetName() const { return Name; }
 
+    //! Set String Tag - can be used to group Entities
     void SetTag(const std::string& aTag) { Tag = aTag; }
+    //! Get String Tag - can be used to group Entities
     const std::string& GetTag() const { return Tag; }
 
+    //! Set World - Used Internally
     void SetWorld(CWorld* aWorld) { World = aWorld; }
+    //! Gets World Pointer
     CWorld* GetWorld() const { return World; }
+    //! Check if Entity is attached to CWorld
     bool IsAttachedToWorld() const { return World; }
 
+    //! Reparent Entity to new Parent or to None at All. Also reparents CTransform to new Parent
     void SetParent(CEntity*);
+    //! Gets parent Entity
     CEntity* GetParent() const { return Parent; }
+    //! Check if Entity has Parent
     bool HasParent() const { return Parent; }
 
+    //! Check if Entity is Updated and Rendered
     bool IsActive() const { return IsUpdated() && IsRendered(); }
+    //! Sets whether Entity should be Updated and Rendered
     void SetActive(const bool Value)
     {
         SetUpdated(Value);
         SetRendered(Value);
     }
 
-    // Controls OnGUI(), OnLateUpdate(), OnUpdate(), OnBeginFrame(), OnEndFrame()
+    //! Check if Entity is Updated, Controls OnGUI(), OnLateUpdate(), OnUpdate(), OnBeginFrame(), OnEndFrame()
     bool IsUpdated() const { return Updated; }
+    //! Sets whether Entity should be Updated
     void SetUpdated(const bool);
 
+    //! Called when Entity is Enabled
     virtual void OnEnabled() {}
+    //! Called when Entity is Disabled
     virtual void OnDisabled() {}
 
-    // Controls OnRender()
+    //! Check if Entity is Rendered, Controls OnRender()
     bool IsRendered() const { return Rendered; }
+    //! Sets whether Entity should be Rendered
     void SetRendered(const bool);
 
+    //! Set Transform
     void SetTransform(const CTransform& aTransform) { Transform = aTransform; }
+    //! Get Transform
     CTransform& GetTransform() { return Transform; }
+    //! Get Transform
     const CTransform& GetTransform() const { return Transform; }
 
-    IComponent* CreateComponent(const std::string&);
+    /**
+     * \brief Create Component
+     * \param Type type of Component must inherints from IComponent
+     * \return Returns Pointer for created Component or nullptr if error
+     */
+    IComponent* CreateComponent(const std::string& Type);
     //
+    /**
+     * \brief Create Component
+     * \tparam T type of Component must inherints from IComponent
+     * \return Returns Pointer for created Component or nullptr if error
+     */
     template<class T>
     T* CreateComponent()
     {
         static_assert(std::is_base_of<IComponent, T>::value, "Must be base of IComponent");
         return dynamic_cast<T*>(CreateComponent(T::GetTypeStatic()));
     }
-    //
-    bool HasComponent(const std::string&) const;
-    //
+    /**
+     * \brief Check if given component exist
+     * \param Type type of Component must inherints from IComponent
+     * \return Returns true if component exist else returns false
+     */
+    bool HasComponent(const std::string& Type) const;
+    /**
+     * \brief Check if given component exist
+     * \tparam T type of Component must inherints from IComponent
+     * \return Returns true if component exist else returns false
+     */
     template<class T>
     bool HasComponent() const
     {
         static_assert(std::is_base_of<IComponent, T>::value, "Must be base of IComponent");
         return HasComponent(T::GetTypeStatic());
     }
-    //
-    IComponent* GetComponent(const std::string&) const;
-    //
+    /**
+     * \brief Get component of given type
+     * \param Type type of Component must inherints from IComponent
+     * \return Returns Pointer for Component if it exist or nullptr if not
+     */
+    IComponent* GetComponent(const std::string& Type) const;
+    /**
+     * \brief Get component of given type
+     * \tparam T type of Component must inherints from IComponent
+     * \return Returns Pointer for Component if it exist or nullptr if not
+     */
     template<class T>
     T* GetComponent() const
     {
         static_assert(std::is_base_of<IComponent, T>::value, "Must be base of IComponent");
         return dynamic_cast<T*>(GetComponent(T::GetTypeStatic()));
     }
-    //
-    ComponentArray GetComponents(const std::string&) const;
-    //
+    /**
+     * \brief Get all components of given type
+     * \param Type type of Component must inherints from IComponent
+     * \return Returns collection of Component pointers
+     */
+    ComponentArray GetComponents(const std::string& Type) const;
+    /**
+     * \brief Get all components of given type
+     * \tparam T type of Component must inherints from IComponent
+     * \return Returns collection of Component pointers
+     */
     template<class T>
     std::vector<T*> GetComponents() const
     {
@@ -146,40 +212,62 @@ public:
         }
         return Array;
     }
-    //
+    //! Returns all components
     const ComponentArray& GetComponents() const { return Components; }
-    //
+    //! Check if has any components
     bool HasComponents() const { return Components.size() > 0u; }
-    //
+    //! Get Component Count
     std::size_t GetComponentCount() const { return Components.size(); }
-    //
+    //! Static Function to Destroy Component
     static void Destroy(IComponent*);
-    //
+    //! Destroy Given Component if it is hold in this Entity
     void DestroyComponent(IComponent*);
-    //
-    void DestroyComponent(const std::string&);
-    //
+    /**
+     * \brief Destroy Component of type
+     * \param Type type of Component must inherints from IComponent
+     */
+    void DestroyComponent(const std::string& Type);
+    /**
+     * \brief Destroy Component of type
+     * \tparam T type of Component must inherints from IComponent
+     */
     template<class T>
     void DestroyComponent()
     {
         static_assert(std::is_base_of<IComponent, T>::value, "Must be base of IComponent");
         DestroyComponent(T::GetTypeStatic());
     }
-    //
-    void DestroyComponents(const std::string&);
-    //
+    /**
+     * \brief Destroy all Components of type
+     * \param Type type of Component must inherints from IComponent
+     */
+    void DestroyComponents(const std::string& Type);
+    /**
+     * \brief Destroy all Components of type
+     * \tparam T type of Component must inherints from IComponent
+     */
     template<class T>
     void DestroyComponents()
     {
         static_assert(std::is_base_of<IComponent, T>::value, "Must be base of IComponent");
         DestroyComponents(T::GetTypeStatic());
     }
-    //
+    //! Destroy all components
     void DestroyComponents();
 
-    // Model Name; Returns Loaded Model Root, Type
-    CEntity* CreateModel(const std::string&, const std::string&);
-    //
+    /**
+     * \brief Create Model Child Entity
+     * \param Type type of Entity must inherints from CEntity
+     * \param ModelName Model Name
+     * \return Returns Loaded Model Root Entity for given Model Name or nullptr if error
+     */
+    CEntity* CreateModel(const std::string& ModelName, const std::string& Type);
+    /**
+     * \brief Create Model Child Entity
+     * \tparam T type of Entity must inherints from CEntity
+     * \param ModelName Model Name
+     * \return Returns Loaded Model Root Entity for given Model Name or nullptr if error
+     */
     template<class T>
     T* CreateModel(const std::string& ModelName)
     {
@@ -187,35 +275,44 @@ public:
         return dynamic_cast<T*>(CreateModel(ModelName, T::GetTypeStatic()));
     }
 
-    CEntity* CreateChild(const std::string&);
-    //
+    /**
+     * \brief Create Child Entity
+     * \param Type type of Entity must inherints from CEntity
+     * \return Returns created Entity or nullptr if error
+     */
+    CEntity* CreateChild(const std::string& Type);
+    /**
+     * \brief Create Child Entity
+     * \tparam T type of Entity must inherints from CEntity
+     * \return Returns created Entity or nullptr if error
+     */
     template<class T>
     T* CreateChild()
     {
         static_assert(std::is_base_of<CEntity, T>::value, "Must be base of CEntity");
         return dynamic_cast<T*>(CreateChild(T::GetTypeStatic()));
     }
-    // Get Child By ID
+    //! Get Child By ID
     CEntity* GetChild(const int) const;
-    // Get Child By ID
+    //! Get Child By ID, Casts to given type - type must inherints from CEntity
     template<class T>
     T* GetChild(const int ID) const
     {
         static_assert(std::is_base_of<CEntity, T>::value, "Must be base of CEntity");
         return dynamic_cast<T*>(GetChild(ID));
     }
-    // Get Child By Name
+    //! Get Child By Name
     CEntity* GetChild(const std::string&) const;
-    //
+    //! Get Child By Name, Casts to given type - type must inherints from CEntity
     template<class T>
     T* GetChild(const std::string& Name) const
     {
         static_assert(std::is_base_of<CEntity, T>::value, "Must be base of CEntity");
         return dynamic_cast<T*>(GetChild(Name));
     }
-    // By Tag
+    //! Get All children by Tag
     EntityArray GetChildren(const std::string&) const;
-    // By Tag
+    //! Get All children by Tag, Casts to given type - type must inherints from CEntity
     template<class T>
     std::vector<T*> GetChildren(const std::string& Tag) const
     {
@@ -234,7 +331,7 @@ public:
         }
         return Array;
     }
-    //
+    //! Get All children as given type - type must inherints from CEntity
     template<class T>
     std::vector<T*> GetChildrenAs() const
     {
@@ -250,44 +347,50 @@ public:
         }
         return Array;
     }
-    //
+    //! Returns all children
     const EntityArray& GetChildren() const { return Children; }
-    //
+    //! Check if has any children
     bool HasChildren() const { return Children.size() > 0u; }
-    //
+    //! Get number of children
     std::size_t GetChildrenCount() const { return Children.size(); }
     //
     // TO DO: Make Recurse Destruction to find child in parents
-    //
+    //! Destroy self - Unsafe - Do not use
     void Destroy();
-    // Entity
+    //! Static Function to Destroy Entity
     static void Destroy(CEntity*);
-    // Child
+    //! Destroy Given Child
     void DestroyChild(CEntity*);
-    // By ID
+    //! Destroy Given Child by ID
     void DestroyChild(const int);
-    // By Name
+    //! Destroy Given Child by Name
     void DestroyChild(const std::string&);
-    // Destroy Children By Tag
+    //! Destroy All Children with Tag
     void DestroyChildren(const std::string&);
-    //
+    //! Destroy All Children
     void DestroyChildren();
     //
     // Remove Child From This Node: TO DO
 
+    //! Use to load Entity data from XMLElement
     virtual bool OnLoad(CXMLElement*) { return true; }
+    //! Use to save Entity data to XMLElement
     virtual bool OnSave(CXMLElement*) { return true; }
 
-    virtual void OnCreate() {} // Entity Init Code
-    virtual void OnStart() {} // Called Once before first Update
+    //! Called when Entity is created and added as Child - called only once but always when entity is created(after loaded from world file)
+    virtual void OnCreate() {}
+    //! Called Once before first Update Loop - called once is never called again even after world is loaded from file
+    virtual void OnStart() {}
     //
     virtual void OnBeginFrame() {}
     virtual void OnUpdate(const float) {}
     virtual void OnLateUpdate(const float) {}
+    //! Should contain only ImGUI commands 
     virtual void OnGUI() {}
+    //! Should contain only render commands 
     virtual void OnRender() {}
     virtual void OnEndFrame() {}
-    //
+    //! Called just before Entity destruction
     virtual void OnDestroy() {}
     // 2D
     virtual void OnCollisionEnter(const SEntityCollision2D&) {}

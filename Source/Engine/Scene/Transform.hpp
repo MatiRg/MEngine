@@ -12,6 +12,10 @@ using PositionChanged = std::function<void(const Vector3&)>;
 using ScaleChanged = std::function<void(const Vector3&)>;
 using RotationChanged = std::function<void(const Quaternion&)>;
 
+/**
+  \class CTransform
+  \brief Encapsulate Position, Rotation and Scale.Tree Like structure.
+*/
 class CTransform final
 {
 public:

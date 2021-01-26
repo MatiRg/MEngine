@@ -13,6 +13,7 @@ var class_t_vector4 =
     [ "Length", "class_t_vector4.html#a0b9fabd78fdaa043a02f44a82a417b2f", null ],
     [ "LengthSquared", "class_t_vector4.html#a61d0f422eb51678cdc5ad723ca5edb5e", null ],
     [ "Normalize", "class_t_vector4.html#aa0aecc0fd5f61041195ea1cec36830d0", null ],
+    [ "Normalized", "class_t_vector4.html#a1d9557bc615b036efdadaa43164caffe", null ],
     [ "operator*", "class_t_vector4.html#ac62387147459defc007297587659c46b", null ],
     [ "operator*", "class_t_vector4.html#a923d113afdf28feb6a29198952057faf", null ],
     [ "operator*=", "class_t_vector4.html#aec18f51f4aa712befb0a72336dedcc18", null ],

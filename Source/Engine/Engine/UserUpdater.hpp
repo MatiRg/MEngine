@@ -3,6 +3,10 @@
 #include <vector>
 #include <unordered_Map>
 
+/**
+  \class CUserUpdater
+  \brief Container class for all Game Updatables
+*/
 class CUserUpdater final: public IEngineModule
 {
     using UpdatableArray = std::vector<IUpdatable*>;
@@ -29,15 +33,34 @@ public:
     void OnExit() override;
     void Exit() override;
 
-    // Ownership not taken
-    void AddUpdatable(IUpdatable*);
-    // Same Updatables can be push to many Containers, Ownership not taken
-    void AddUpdatable(const std::string&, IUpdatable*);
+    /**
+     * \brief Add Global Updatable, ownership is not taken
+     * \param Ptr Updatable pointer
+     */
+    void AddUpdatable(IUpdatable* Ptr);
+    /**
+     * \brief Add Updatable to given Container, ownership is not taken
+     * \param Container Container Name
+     * \param Ptr Updatable pointer
+     */
+    void AddUpdatable(const std::string& Container, IUpdatable* Ptr);
 
-    IUpdatable* GetUpdatableByName(const std::string&) const;
-    //
-    IUpdatable* GetUpdatableByType(const std::string&) const;
-    // By Type
+    /**
+     * \brief Get Updatable by Name
+     * \param aName Name of Updatable
+     * \return Return Pointer if found given Updatable or nullptr if not
+     */
+    IUpdatable* GetUpdatableByName(const std::string& aName) const;
+    /**
+     * \brief Get Updatable by Type Name
+     * \param aType Name of the Class
+     * \return Return Pointer if found given Updatable or nullptr if not
+     */
+    IUpdatable* GetUpdatableByType(const std::string& aType) const;
+    /**
+     * \brief Get Updatable by Template, class must be derrivied from IUpdatable
+     * \return Return Pointer if found given Updatable or nullptr if not
+     */
     template<class T>
     T* GetUpdatable() const
     {
@@ -45,8 +68,18 @@ public:
         return dynamic_cast<T*>( GetUpdatableByType(T::GetTypeStatic()) );
     }
 
-    bool SetContainer(const std::string&);
-    bool AddContainer(const std::string&);
+    /**
+     * \brief Set active container
+     * \param Container Container Name
+     * \return Return true on success or false if not
+     */
+    bool SetContainer(const std::string& Container);
+    /**
+     * \brief Add new container
+     * \param Container Container Name
+     * \return Return true on success or false if not
+     */
+    bool AddContainer(const std::string& Container);
 private:
     void ChangeContainer();
 private:

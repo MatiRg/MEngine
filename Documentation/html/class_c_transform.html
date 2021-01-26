@@ -90,6 +90,9 @@ $(document).ready(function(){initNavTree('class_c_transform.html',''); initResiz
 </div><!--header-->
 <div class="contents">
 
+<p>Encapsulate Position, Rotation and Scale.Tree Like structure.  
+ <a href="class_c_transform.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_transform_8hpp_source.html">Transform.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
@@ -138,6 +141,12 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a9842f4e32f24638d4fa97379466e4f85"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad309fceec295ef7cdc1663063a2d3c96"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_quaternion_8hpp.html#aa62c832059ac8e255e7b02326e673c05">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#ad309fceec295ef7cdc1663063a2d3c96">GetInvWorldRotation</a> () const</td></tr>
 <tr class="separator:ad309fceec295ef7cdc1663063a2d3c96"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a308af19fb2d4490e67a10c3b6a7d949f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a308af19fb2d4490e67a10c3b6a7d949f">SetForward</a> (const <a class="el" href="_vector3_8hpp.html#abb63d82e5aaa1616fff243d45937ad17">Vector3</a> &amp;)</td></tr>
+<tr class="separator:a308af19fb2d4490e67a10c3b6a7d949f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0bba45faf115bdde04072323b35d94bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_vector3_8hpp.html#abb63d82e5aaa1616fff243d45937ad17">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a0bba45faf115bdde04072323b35d94bb">GetForward</a> () const</td></tr>
+<tr class="separator:a0bba45faf115bdde04072323b35d94bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bdeecae7368acd82d8bf95a4ba317ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_vector3_8hpp.html#abb63d82e5aaa1616fff243d45937ad17">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a3bdeecae7368acd82d8bf95a4ba317ff">GetWorldForward</a> () const</td></tr>
+<tr class="separator:a3bdeecae7368acd82d8bf95a4ba317ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1938214a3aa8d4d944a202419415446"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#ae1938214a3aa8d4d944a202419415446">SetPosition2D</a> (const <a class="el" href="_vector2_8hpp.html#ab50a46295e259c17345421d0fc1cb3bb">Vector2</a> &amp;aPosition, const bool Silent=false)</td></tr>
 <tr class="separator:ae1938214a3aa8d4d944a202419415446"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a853817c3a0dc831fc81fa6a37a666e1d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_vector2_8hpp.html#ab50a46295e259c17345421d0fc1cb3bb">Vector2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a853817c3a0dc831fc81fa6a37a666e1d">GetPosition2D</a> () const</td></tr>
@@ -189,7 +198,9 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a58c56adeccb860fd4557976c6f95542f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a58c56adeccb860fd4557976c6f95542f">RemoveRotationCallback</a> (void *Key)</td></tr>
 <tr class="separator:a58c56adeccb860fd4557976c6f95542f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Encapsulate Position, Rotation and Scale.Tree Like structure. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6cc4e6c97dbb86326341aa1a468986d4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6cc4e6c97dbb86326341aa1a468986d4">&#9670;&nbsp;</a></span>CTransform() <span class="overload">[1/2]</span></h2>
 
@@ -329,6 +340,23 @@ Public Member Functions</h2></td></tr>
           <td></td>
           <td>)</td>
           <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0bba45faf115bdde04072323b35d94bb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0bba45faf115bdde04072323b35d94bb">&#9670;&nbsp;</a></span>GetForward()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_vector3_8hpp.html#abb63d82e5aaa1616fff243d45937ad17">Vector3</a> CTransform::GetForward </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -603,6 +631,23 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a3bdeecae7368acd82d8bf95a4ba317ff"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bdeecae7368acd82d8bf95a4ba317ff">&#9670;&nbsp;</a></span>GetWorldForward()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="_vector3_8hpp.html#abb63d82e5aaa1616fff243d45937ad17">Vector3</a> CTransform::GetWorldForward </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="af81813b027622ef9b15b2bee18c794ff"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af81813b027622ef9b15b2bee18c794ff">&#9670;&nbsp;</a></span>GetWorldMatrix()</h2>
 
@@ -872,6 +917,24 @@ Public Member Functions</h2></td></tr>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_c_x_m_l_element.html">CXMLElement</a> *&#160;</td>
           <td class="paramname"><em>Root</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a308af19fb2d4490e67a10c3b6a7d949f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a308af19fb2d4490e67a10c3b6a7d949f">&#9670;&nbsp;</a></span>SetForward()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CTransform::SetForward </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="_vector3_8hpp.html#abb63d82e5aaa1616fff243d45937ad17">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>NewForward</em></td><td>)</td>
           <td></td>
         </tr>
       </table>

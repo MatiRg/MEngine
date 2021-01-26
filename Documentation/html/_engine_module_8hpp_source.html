@@ -91,38 +91,38 @@ $(document).ready(function(){initNavTree('_engine_module_8hpp_source.html',''); 
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_updatable_8hpp.html">Updatable.hpp</a>&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="_engine_module_8hpp.html#ae819ff40a9200cbe8e2a0902960a2893">    6</a></span>&#160;<span class="preprocessor">#define ENGINE_MODULE(X) std::string GetType() const override final { return #X; } \</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">                         static std::string GetTypeStatic() { return #X; }</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">class </span><a class="code" href="class_c_config.html">CConfig</a>;</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="class_i_engine_module.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_i_engine_module.html">IEngineModule</a>: <span class="keyword">public</span> <a class="code" href="class_i_updatable.html">IUpdatable</a></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;{</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00014"></a><span class="lineno"><a class="line" href="class_i_engine_module.html#a215685399dbcdb64d0d60b6ae90dce02">   14</a></span>&#160;    <a class="code" href="class_i_engine_module.html#a215685399dbcdb64d0d60b6ae90dce02">IEngineModule</a>(<span class="keyword">const</span> std::string&amp; aName): </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <a class="code" href="class_i_updatable.html">IUpdatable</a>(aName) </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    {</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    }</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
-<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_i_engine_module.html#a9a881e268dd41ffec78398d27536e1da">   19</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_i_engine_module.html#a9a881e268dd41ffec78398d27536e1da">~IEngineModule</a>() </div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    {</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    }</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="class_i_engine_module.html#aa55c3398a7ad1a295b8bac85e7654302">   23</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_i_engine_module.html#aa55c3398a7ad1a295b8bac85e7654302">Init</a>(<span class="keyword">const</span> <a class="code" href="struct_s_engine_params.html">SEngineParams</a>&amp;) { <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
-<div class="line"><a name="l00024"></a><span class="lineno"><a class="line" href="class_i_engine_module.html#a353d34da9cf1f84b46d0a3646bc6ebf1">   24</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_i_engine_module.html#a353d34da9cf1f84b46d0a3646bc6ebf1">Exit</a>() {}</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;};</div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="_engine_module_8hpp.html#ae819ff40a9200cbe8e2a0902960a2893">   10</a></span>&#160;<span class="preprocessor">#define ENGINE_MODULE(X) std::string GetType() const override final { return #X; } \</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">                         static std::string GetTypeStatic() { return #X; }</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">class </span><a class="code" href="class_c_config.html">CConfig</a>;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="class_i_engine_module.html">   19</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_i_engine_module.html">IEngineModule</a>: <span class="keyword">public</span> <a class="code" href="class_i_updatable.html">IUpdatable</a></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;{</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00022"></a><span class="lineno"><a class="line" href="class_i_engine_module.html#a215685399dbcdb64d0d60b6ae90dce02">   22</a></span>&#160;    <a class="code" href="class_i_engine_module.html#a215685399dbcdb64d0d60b6ae90dce02">IEngineModule</a>(<span class="keyword">const</span> std::string&amp; aName): </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        <a class="code" href="class_i_updatable.html">IUpdatable</a>(aName) </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    {</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    }</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="class_i_engine_module.html#a9a881e268dd41ffec78398d27536e1da">   27</a></span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_i_engine_module.html#a9a881e268dd41ffec78398d27536e1da">~IEngineModule</a>() </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    }</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00032"></a><span class="lineno"><a class="line" href="class_i_engine_module.html#aa55c3398a7ad1a295b8bac85e7654302">   32</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="class_i_engine_module.html#aa55c3398a7ad1a295b8bac85e7654302">Init</a>(<span class="keyword">const</span> <a class="code" href="struct_s_engine_params.html">SEngineParams</a>&amp;) { <span class="keywordflow">return</span> <span class="keyword">true</span>; }</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_i_engine_module.html#a353d34da9cf1f84b46d0a3646bc6ebf1">   34</a></span>&#160;    <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_i_engine_module.html#a353d34da9cf1f84b46d0a3646bc6ebf1">Exit</a>() {}</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;};</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="aclass_i_engine_module_html_a353d34da9cf1f84b46d0a3646bc6ebf1"><div class="ttname"><a href="class_i_engine_module.html#a353d34da9cf1f84b46d0a3646bc6ebf1">IEngineModule::Exit</a></div><div class="ttdeci">virtual void Exit()</div><div class="ttdef"><b>Definition:</b> EngineModule.hpp:24</div></div>
-<div class="ttc" id="aclass_i_engine_module_html_aa55c3398a7ad1a295b8bac85e7654302"><div class="ttname"><a href="class_i_engine_module.html#aa55c3398a7ad1a295b8bac85e7654302">IEngineModule::Init</a></div><div class="ttdeci">virtual bool Init(const SEngineParams &amp;)</div><div class="ttdef"><b>Definition:</b> EngineModule.hpp:23</div></div>
+<div class="ttc" id="aclass_i_engine_module_html_a353d34da9cf1f84b46d0a3646bc6ebf1"><div class="ttname"><a href="class_i_engine_module.html#a353d34da9cf1f84b46d0a3646bc6ebf1">IEngineModule::Exit</a></div><div class="ttdeci">virtual void Exit()</div><div class="ttdoc">Shutdown Engine Module.</div><div class="ttdef"><b>Definition:</b> EngineModule.hpp:34</div></div>
+<div class="ttc" id="aclass_i_engine_module_html_aa55c3398a7ad1a295b8bac85e7654302"><div class="ttname"><a href="class_i_engine_module.html#aa55c3398a7ad1a295b8bac85e7654302">IEngineModule::Init</a></div><div class="ttdeci">virtual bool Init(const SEngineParams &amp;)</div><div class="ttdoc">Init Engine Module.</div><div class="ttdef"><b>Definition:</b> EngineModule.hpp:32</div></div>
 <div class="ttc" id="a_updatable_8hpp_html"><div class="ttname"><a href="_updatable_8hpp.html">Updatable.hpp</a></div></div>
-<div class="ttc" id="aclass_i_engine_module_html"><div class="ttname"><a href="class_i_engine_module.html">IEngineModule</a></div><div class="ttdef"><b>Definition:</b> EngineModule.hpp:12</div></div>
-<div class="ttc" id="aclass_c_config_html"><div class="ttname"><a href="class_c_config.html">CConfig</a></div><div class="ttdef"><b>Definition:</b> Config.hpp:15</div></div>
-<div class="ttc" id="aclass_i_engine_module_html_a9a881e268dd41ffec78398d27536e1da"><div class="ttname"><a href="class_i_engine_module.html#a9a881e268dd41ffec78398d27536e1da">IEngineModule::~IEngineModule</a></div><div class="ttdeci">virtual ~IEngineModule()</div><div class="ttdef"><b>Definition:</b> EngineModule.hpp:19</div></div>
-<div class="ttc" id="astruct_s_engine_params_html"><div class="ttname"><a href="struct_s_engine_params.html">SEngineParams</a></div><div class="ttdef"><b>Definition:</b> EngineParams.hpp:5</div></div>
+<div class="ttc" id="aclass_i_engine_module_html"><div class="ttname"><a href="class_i_engine_module.html">IEngineModule</a></div><div class="ttdoc">Interface for Engine modules, in derrivied class ENGINE_MODULE(CLASS_NAME) must be used.</div><div class="ttdef"><b>Definition:</b> EngineModule.hpp:20</div></div>
+<div class="ttc" id="aclass_c_config_html"><div class="ttname"><a href="class_c_config.html">CConfig</a></div><div class="ttdoc">Encapsulates XML File.Can be used to Load/Save config files.</div><div class="ttdef"><b>Definition:</b> Config.hpp:22</div></div>
+<div class="ttc" id="aclass_i_engine_module_html_a9a881e268dd41ffec78398d27536e1da"><div class="ttname"><a href="class_i_engine_module.html#a9a881e268dd41ffec78398d27536e1da">IEngineModule::~IEngineModule</a></div><div class="ttdeci">virtual ~IEngineModule()</div><div class="ttdef"><b>Definition:</b> EngineModule.hpp:27</div></div>
+<div class="ttc" id="astruct_s_engine_params_html"><div class="ttname"><a href="struct_s_engine_params.html">SEngineParams</a></div><div class="ttdoc">Structure containing engine creation parameters.</div><div class="ttdef"><b>Definition:</b> EngineParams.hpp:6</div></div>
 <div class="ttc" id="a_engine_params_8hpp_html"><div class="ttname"><a href="_engine_params_8hpp.html">EngineParams.hpp</a></div></div>
-<div class="ttc" id="aclass_i_updatable_html"><div class="ttname"><a href="class_i_updatable.html">IUpdatable</a></div><div class="ttdef"><b>Definition:</b> Updatable.hpp:13</div></div>
-<div class="ttc" id="aclass_i_engine_module_html_a215685399dbcdb64d0d60b6ae90dce02"><div class="ttname"><a href="class_i_engine_module.html#a215685399dbcdb64d0d60b6ae90dce02">IEngineModule::IEngineModule</a></div><div class="ttdeci">IEngineModule(const std::string &amp;aName)</div><div class="ttdef"><b>Definition:</b> EngineModule.hpp:14</div></div>
+<div class="ttc" id="aclass_i_updatable_html"><div class="ttname"><a href="class_i_updatable.html">IUpdatable</a></div><div class="ttdoc">Interface for Updatables - Game States, in derrivied class UPDATABLE(CLASS_NAME) must be used.</div><div class="ttdef"><b>Definition:</b> Updatable.hpp:21</div></div>
+<div class="ttc" id="aclass_i_engine_module_html_a215685399dbcdb64d0d60b6ae90dce02"><div class="ttname"><a href="class_i_engine_module.html#a215685399dbcdb64d0d60b6ae90dce02">IEngineModule::IEngineModule</a></div><div class="ttdeci">IEngineModule(const std::string &amp;aName)</div><div class="ttdef"><b>Definition:</b> EngineModule.hpp:22</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

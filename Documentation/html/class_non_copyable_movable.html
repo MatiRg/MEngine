@@ -97,36 +97,39 @@ Inheritance diagram for NonCopyableMovable:</div>
  <div class="center">
   <img src="class_non_copyable_movable.png" usemap="#NonCopyableMovable_map" alt=""/>
   <map id="NonCopyableMovable_map" name="NonCopyableMovable_map">
-<area href="class_c_app.html" alt="CApp" shape="rect" coords="148,56,286,80"/>
-<area href="class_c_config.html" alt="CConfig" shape="rect" coords="148,112,286,136"/>
-<area href="class_c_engine.html" alt="CEngine" shape="rect" coords="148,168,286,192"/>
-<area href="class_c_engine_updater.html" alt="CEngineUpdater" shape="rect" coords="148,224,286,248"/>
-<area href="class_c_light.html" alt="CLight" shape="rect" coords="148,280,286,304"/>
-<area href="class_c_log.html" alt="CLog" shape="rect" coords="148,336,286,360"/>
-<area href="class_c_memory_manager.html" alt="CMemoryManager" shape="rect" coords="148,392,286,416"/>
-<area href="class_c_mesh.html" alt="CMesh" shape="rect" coords="148,448,286,472"/>
-<area href="class_c_mesh_node.html" alt="CMeshNode" shape="rect" coords="148,504,286,528"/>
-<area href="class_c_x_m_l_object.html" alt="CXMLObject" shape="rect" coords="148,560,286,584"/>
-<area href="class_i_collision_shape2_d.html" alt="ICollisionShape2D" shape="rect" coords="148,616,286,640"/>
-<area href="class_i_collision_shape3_d.html" alt="ICollisionShape3D" shape="rect" coords="148,672,286,696"/>
-<area href="class_i_component.html" alt="IComponent" shape="rect" coords="148,728,286,752"/>
-<area href="class_i_component_factory.html" alt="IComponentFactory" shape="rect" coords="148,784,286,808"/>
-<area href="class_i_context.html" alt="IContext" shape="rect" coords="148,840,286,864"/>
-<area href="class_i_entity.html" alt="IEntity" shape="rect" coords="148,896,286,920"/>
-<area href="class_i_entity_factory.html" alt="IEntityFactory" shape="rect" coords="148,952,286,976"/>
-<area href="class_i_frame_buffer.html" alt="IFrameBuffer" shape="rect" coords="148,1008,286,1032"/>
-<area href="class_i_im_g_u_i_renderer.html" alt="IImGUIRenderer" shape="rect" coords="148,1064,286,1088"/>
-<area href="class_i_physics_world2_d.html" alt="IPhysicsWorld2D" shape="rect" coords="148,1120,286,1144"/>
-<area href="class_i_physics_world3_d.html" alt="IPhysicsWorld3D" shape="rect" coords="148,1176,286,1200"/>
-<area href="class_i_resource.html" alt="IResource" shape="rect" coords="148,1232,286,1256"/>
-<area href="class_i_resource_manager.html" alt="IResourceManager" shape="rect" coords="148,1288,286,1312"/>
-<area href="class_i_rigid_body2_d.html" alt="IRigidBody2D" shape="rect" coords="148,1344,286,1368"/>
-<area href="class_i_rigid_body3_d.html" alt="IRigidBody3D" shape="rect" coords="148,1400,286,1424"/>
-<area href="class_i_sink.html" alt="ISink" shape="rect" coords="148,1456,286,1480"/>
-<area href="class_i_sound.html" alt="ISound" shape="rect" coords="148,1512,286,1536"/>
-<area href="class_i_surface.html" alt="ISurface" shape="rect" coords="148,1568,286,1592"/>
-<area href="class_i_updatable.html" alt="IUpdatable" shape="rect" coords="148,1624,286,1648"/>
-<area href="class_i_vertex_buffer.html" alt="IVertexBuffer" shape="rect" coords="148,1680,286,1704"/>
+<area href="class_c_app.html" title="Creates Engine, Runs Engine Main Loop, Derrive from this class and overwrite virtual methods to start..." alt="CApp" shape="rect" coords="149,56,288,80"/>
+<area href="class_c_config.html" title="Encapsulates XML File.Can be used to Load/Save config files." alt="CConfig" shape="rect" coords="149,112,288,136"/>
+<area href="class_c_engine.html" title="Encapsulated Main Loop, Creates Engine Modules." alt="CEngine" shape="rect" coords="149,168,288,192"/>
+<area href="class_c_engine_updater.html" title="Container class for all Engine Modules." alt="CEngineUpdater" shape="rect" coords="149,224,288,248"/>
+<area href="class_c_log.html" alt="CLog" shape="rect" coords="149,280,288,304"/>
+<area href="class_c_memory_manager.html" title="For debug purposes. After Engine destruction reports alleged memroy leaks. Works with only two macros..." alt="CMemoryManager" shape="rect" coords="149,336,288,360"/>
+<area href="class_c_mesh.html" alt="CMesh" shape="rect" coords="149,392,288,416"/>
+<area href="class_c_mesh_node.html" alt="CMeshNode" shape="rect" coords="149,448,288,472"/>
+<area href="class_c_performance_counter.html" title="Class used for time measure.Create it int enclosed scope, result will saved in CPerformanceCounters c..." alt="CPerformanceCounter" shape="rect" coords="149,504,288,528"/>
+<area href="class_c_post_effect.html" alt="CPostEffect" shape="rect" coords="149,560,288,584"/>
+<area href="class_c_renderable3_d.html" alt="CRenderable3D" shape="rect" coords="149,616,288,640"/>
+<area href="class_c_x_m_l_object.html" alt="CXMLObject" shape="rect" coords="149,672,288,696"/>
+<area href="class_i_collision_shape2_d.html" alt="ICollisionShape2D" shape="rect" coords="149,728,288,752"/>
+<area href="class_i_collision_shape3_d.html" alt="ICollisionShape3D" shape="rect" coords="149,784,288,808"/>
+<area href="class_i_component.html" title="Interface for Components - Contains Logic and Data, in derrivied class COMPONENT(CLASS_NAME) must be ..." alt="IComponent" shape="rect" coords="149,840,288,864"/>
+<area href="class_i_component_factory.html" alt="IComponentFactory" shape="rect" coords="149,896,288,920"/>
+<area href="class_i_context.html" title="Interface descripting Lower Level Modules Creation." alt="IContext" shape="rect" coords="149,952,288,976"/>
+<area href="class_i_entity.html" alt="IEntity" shape="rect" coords="149,1008,288,1032"/>
+<area href="class_i_entity_factory.html" alt="IEntityFactory" shape="rect" coords="149,1064,288,1088"/>
+<area href="class_i_frame_buffer.html" alt="IFrameBuffer" shape="rect" coords="149,1120,288,1144"/>
+<area href="class_i_im_g_u_i_renderer.html" alt="IImGUIRenderer" shape="rect" coords="149,1176,288,1200"/>
+<area href="class_i_physics_world2_d.html" alt="IPhysicsWorld2D" shape="rect" coords="149,1232,288,1256"/>
+<area href="class_i_physics_world3_d.html" alt="IPhysicsWorld3D" shape="rect" coords="149,1288,288,1312"/>
+<area href="class_i_resource.html" alt="IResource" shape="rect" coords="149,1344,288,1368"/>
+<area href="class_i_resource_manager.html" alt="IResourceManager" shape="rect" coords="149,1400,288,1424"/>
+<area href="class_i_rigid_body2_d.html" alt="IRigidBody2D" shape="rect" coords="149,1456,288,1480"/>
+<area href="class_i_rigid_body3_d.html" alt="IRigidBody3D" shape="rect" coords="149,1512,288,1536"/>
+<area href="class_i_s_f_m_l_sound_source.html" alt="ISFMLSoundSource" shape="rect" coords="149,1568,288,1592"/>
+<area href="class_i_sink.html" title="Interface for Appending data to Logger." alt="ISink" shape="rect" coords="149,1624,288,1648"/>
+<area href="class_i_sound.html" alt="ISound" shape="rect" coords="149,1680,288,1704"/>
+<area href="class_i_surface.html" alt="ISurface" shape="rect" coords="149,1736,288,1760"/>
+<area href="class_i_updatable.html" title="Interface for Updatables - Game States, in derrivied class UPDATABLE(CLASS_NAME) must be used." alt="IUpdatable" shape="rect" coords="149,1792,288,1816"/>
+<area href="class_i_vertex_buffer.html" alt="IVertexBuffer" shape="rect" coords="149,1848,288,1872"/>
   </map>
 </div></div>
 <table class="memberdecls">

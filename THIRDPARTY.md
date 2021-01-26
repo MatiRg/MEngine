@@ -10,4 +10,6 @@
  * bullet3 3.06 - zlib
  * Box2D 2.4.0 - MIT
 # Third Party Tools
+ * CMake - BSD-3 - https://cmake.org
+ * doxygen - GPL-2.0 - https://github.com/doxygen/doxygen
  * cloc - GPL-2.0 - https://github.com/AlDanial/cloc

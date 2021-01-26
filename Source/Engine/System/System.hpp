@@ -4,6 +4,7 @@
 #include <cstdint>
 #include <vector>
 
+//! Message Box Icon type
 enum class EMessageBoxIcon
 {
     Info,
@@ -11,6 +12,10 @@ enum class EMessageBoxIcon
     Error
 };
 
+/**
+  \class ISystem
+  \brief Interface for File System Manging, getting System Time and Message Boxes
+*/
 class ISystem: public IEngineModule
 {
 public:
@@ -19,32 +24,32 @@ public:
 
     ENGINE_MODULE(ISystem)
 
-    // Check if file exist
+    //! Check if file exist
     virtual bool FileExist(const std::string&) const = 0;
-    // Check if directory exist
+    //! Check if directory exist
     virtual bool DirectoryExist(const std::string&) const = 0;
-    // Create Directory
+    //! Create Directory
     virtual bool CreateDirectory(const std::string&) = 0;
-    // Copy File From, To
+    //! Copy File From, To
     virtual bool CopyFile(const std::string&, const std::string&) = 0;
-    // Remove
+    //! Remove
     virtual bool Remove(const std::string&) = 0;
-    // Path, Include Subdirectories
+    //! Path, Include Subdirectories
     virtual std::vector<CFileRecord> ListDirectory(const std::string&, const bool) = 0;
 
-    // Returns time in ms
+    //! Returns time in ms
     virtual uint32_t GetTime() const = 0;
 
-    // Title, Text, Icon
+    //! Title, Text, Icon
     virtual void MessageBox(const std::string&, const std::string&, const EMessageBoxIcon) = 0;
-    // Title, Start Path
+    //! Title, Start Path
     virtual std::string OpenFileDialog(const std::string&, const std::string&) = 0;
-    // Title, Start Path
+    //! Title, Start Path
     virtual std::string SaveFileDialog(const std::string&, const std::string&) = 0;
-    // Title, Start Path
+    //! Title, Start Path
     virtual std::string SelectFolderDialog(const std::string&, const std::string&) = 0;
-    // Title, Start Path
+    //! Title, Start Path
     virtual std::string SelectFileDialog(const std::string&, const std::string&) = 0;
-    // Title, Start Path
+    //! Title, Start Path
     virtual std::vector<std::string> SelectFilesDialog(const std::string&, const std::string&) = 0;
 };

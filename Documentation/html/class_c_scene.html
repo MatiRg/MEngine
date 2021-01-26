@@ -90,6 +90,9 @@ $(document).ready(function(){initNavTree('class_c_scene.html',''); initResizable
 </div><!--header-->
 <div class="contents">
 
+<p>Class for registering and creating Components and Entities classes.  
+ <a href="class_c_scene.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_scene_8hpp_source.html">Scene.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for CScene:</div>
@@ -97,8 +100,8 @@ Inheritance diagram for CScene:</div>
  <div class="center">
   <img src="class_c_scene.png" usemap="#CScene_map" alt=""/>
   <map id="CScene_map" name="CScene_map">
-<area href="class_i_engine_module.html" alt="IEngineModule" shape="rect" coords="0,112,138,136"/>
-<area href="class_i_updatable.html" alt="IUpdatable" shape="rect" coords="0,56,138,80"/>
+<area href="class_i_engine_module.html" title="Interface for Engine modules, in derrivied class ENGINE_MODULE(CLASS_NAME) must be used." alt="IEngineModule" shape="rect" coords="0,112,138,136"/>
+<area href="class_i_updatable.html" title="Interface for Updatables - Game States, in derrivied class UPDATABLE(CLASS_NAME) must be used." alt="IUpdatable" shape="rect" coords="0,56,138,80"/>
 <area href="class_non_copyable_movable.html" alt="NonCopyableMovable" shape="rect" coords="0,0,138,24"/>
   </map>
 </div></div>
@@ -113,35 +116,49 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:adfaf2a6785a58e190b9400e4e1f396a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a526c984f528a9bc3c49e33d142e056cb"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:a526c984f528a9bc3c49e33d142e056cb"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_c_scene.html#a526c984f528a9bc3c49e33d142e056cb">RegisterEntityFactory</a> ()</td></tr>
+<tr class="memdesc:a526c984f528a9bc3c49e33d142e056cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register Entity.  <a href="class_c_scene.html#a526c984f528a9bc3c49e33d142e056cb">More...</a><br /></td></tr>
 <tr class="separator:a526c984f528a9bc3c49e33d142e056cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2ae0b8f8524e10cbd297226a676057b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_entity.html">CEntity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_scene.html#aa2ae0b8f8524e10cbd297226a676057b">CreateEntity</a> (const std::string &amp;)</td></tr>
-<tr class="separator:aa2ae0b8f8524e10cbd297226a676057b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abae9f989690ff4ada7f4b3acd793c89d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_entity.html">CEntity</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_scene.html#abae9f989690ff4ada7f4b3acd793c89d">CreateEntity</a> (const std::string &amp;Type)</td></tr>
+<tr class="memdesc:abae9f989690ff4ada7f4b3acd793c89d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create Entity.  <a href="class_c_scene.html#abae9f989690ff4ada7f4b3acd793c89d">More...</a><br /></td></tr>
+<tr class="separator:abae9f989690ff4ada7f4b3acd793c89d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a33e4b3fa9ad33b71ed6cb830ab45c20f"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:a33e4b3fa9ad33b71ed6cb830ab45c20f"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_c_scene.html#a33e4b3fa9ad33b71ed6cb830ab45c20f">CreateEntity</a> ()</td></tr>
+<tr class="memdesc:a33e4b3fa9ad33b71ed6cb830ab45c20f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create Entity.  <a href="class_c_scene.html#a33e4b3fa9ad33b71ed6cb830ab45c20f">More...</a><br /></td></tr>
 <tr class="separator:a33e4b3fa9ad33b71ed6cb830ab45c20f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36862e7ece035a336163768eb28ed377"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:a36862e7ece035a336163768eb28ed377"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_c_scene.html#a36862e7ece035a336163768eb28ed377">RegisterComponentFactory</a> ()</td></tr>
+<tr class="memdesc:a36862e7ece035a336163768eb28ed377"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register Component.  <a href="class_c_scene.html#a36862e7ece035a336163768eb28ed377">More...</a><br /></td></tr>
 <tr class="separator:a36862e7ece035a336163768eb28ed377"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aea39cad30fad1eaf698d8fcfa8848589"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_i_component.html">IComponent</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_scene.html#aea39cad30fad1eaf698d8fcfa8848589">CreateComponent</a> (const std::string &amp;)</td></tr>
+<tr class="memdesc:aea39cad30fad1eaf698d8fcfa8848589"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create Component.  <a href="class_c_scene.html#aea39cad30fad1eaf698d8fcfa8848589">More...</a><br /></td></tr>
 <tr class="separator:aea39cad30fad1eaf698d8fcfa8848589"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abb13b6fbfd6311e31d7565bec3bf36ae"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:abb13b6fbfd6311e31d7565bec3bf36ae"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="class_c_scene.html#abb13b6fbfd6311e31d7565bec3bf36ae">CreateComponent</a> ()</td></tr>
+<tr class="memdesc:abb13b6fbfd6311e31d7565bec3bf36ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create Component.  <a href="class_c_scene.html#abb13b6fbfd6311e31d7565bec3bf36ae">More...</a><br /></td></tr>
 <tr class="separator:abb13b6fbfd6311e31d7565bec3bf36ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac2a2e49e58f37bebab4e1fd9ae2c3d41"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_scene.html#ac2a2e49e58f37bebab4e1fd9ae2c3d41">Init</a> (const <a class="el" href="struct_s_engine_params.html">SEngineParams</a> &amp;) override</td></tr>
+<tr class="memdesc:ac2a2e49e58f37bebab4e1fd9ae2c3d41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Init Engine Module.  <a href="class_c_scene.html#ac2a2e49e58f37bebab4e1fd9ae2c3d41">More...</a><br /></td></tr>
 <tr class="separator:ac2a2e49e58f37bebab4e1fd9ae2c3d41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad08b38f0d2e842f62d282f8fb22550ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_scene.html#ad08b38f0d2e842f62d282f8fb22550ef">OnBeginFrame</a> () override</td></tr>
+<tr class="memdesc:ad08b38f0d2e842f62d282f8fb22550ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called just after main loop cycle is started.  <a href="class_c_scene.html#ad08b38f0d2e842f62d282f8fb22550ef">More...</a><br /></td></tr>
 <tr class="separator:ad08b38f0d2e842f62d282f8fb22550ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19e606b9dd467d9763f8893129988fc5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_scene.html#a19e606b9dd467d9763f8893129988fc5">OnUpdate</a> (const float) override</td></tr>
+<tr class="memdesc:a19e606b9dd467d9763f8893129988fc5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Can be called 0, 1 or many time during update.  <a href="class_c_scene.html#a19e606b9dd467d9763f8893129988fc5">More...</a><br /></td></tr>
 <tr class="separator:a19e606b9dd467d9763f8893129988fc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a25be50a2fb6581c60e69f7e978cd2556"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_scene.html#a25be50a2fb6581c60e69f7e978cd2556">OnLateUpdate</a> (const float) override</td></tr>
+<tr class="memdesc:a25be50a2fb6581c60e69f7e978cd2556"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called only once after main update.  <a href="class_c_scene.html#a25be50a2fb6581c60e69f7e978cd2556">More...</a><br /></td></tr>
 <tr class="separator:a25be50a2fb6581c60e69f7e978cd2556"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aae34ca6302f4a6128a600b5bf6d23839"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_scene.html#aae34ca6302f4a6128a600b5bf6d23839">OnGUI</a> () override</td></tr>
+<tr class="memdesc:aae34ca6302f4a6128a600b5bf6d23839"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used for ImGUI.  <a href="class_c_scene.html#aae34ca6302f4a6128a600b5bf6d23839">More...</a><br /></td></tr>
 <tr class="separator:aae34ca6302f4a6128a600b5bf6d23839"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a31641fd86da9ec8756be4f1377a77ac1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_scene.html#a31641fd86da9ec8756be4f1377a77ac1">OnRender</a> () override</td></tr>
+<tr class="memdesc:a31641fd86da9ec8756be4f1377a77ac1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called on start rendering, can be used to drwa something or add something to Renderer3D.  <a href="class_c_scene.html#a31641fd86da9ec8756be4f1377a77ac1">More...</a><br /></td></tr>
 <tr class="separator:a31641fd86da9ec8756be4f1377a77ac1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aca8fa10b7dc48253b0f7824002a83ae8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_scene.html#aca8fa10b7dc48253b0f7824002a83ae8">OnEndFrame</a> () override</td></tr>
+<tr class="memdesc:aca8fa10b7dc48253b0f7824002a83ae8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called just before main loop cycle is ended.  <a href="class_c_scene.html#aca8fa10b7dc48253b0f7824002a83ae8">More...</a><br /></td></tr>
 <tr class="separator:aca8fa10b7dc48253b0f7824002a83ae8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a53c1a634e314eedd30ff73fd8fe06734"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_scene.html#a53c1a634e314eedd30ff73fd8fe06734">OnExit</a> () override</td></tr>
+<tr class="memdesc:a53c1a634e314eedd30ff73fd8fe06734"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called only once, can be used to shutdown something.  <a href="class_c_scene.html#a53c1a634e314eedd30ff73fd8fe06734">More...</a><br /></td></tr>
 <tr class="separator:a53c1a634e314eedd30ff73fd8fe06734"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_i_engine_module"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_i_engine_module')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_i_engine_module.html">IEngineModule</a></td></tr>
 <tr class="memitem:a215685399dbcdb64d0d60b6ae90dce02 inherit pub_methods_class_i_engine_module"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_engine_module.html#a215685399dbcdb64d0d60b6ae90dce02">IEngineModule</a> (const std::string &amp;aName)</td></tr>
@@ -149,29 +166,39 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9a881e268dd41ffec78398d27536e1da inherit pub_methods_class_i_engine_module"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_engine_module.html#a9a881e268dd41ffec78398d27536e1da">~IEngineModule</a> ()</td></tr>
 <tr class="separator:a9a881e268dd41ffec78398d27536e1da inherit pub_methods_class_i_engine_module"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a353d34da9cf1f84b46d0a3646bc6ebf1 inherit pub_methods_class_i_engine_module"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_engine_module.html#a353d34da9cf1f84b46d0a3646bc6ebf1">Exit</a> ()</td></tr>
+<tr class="memdesc:a353d34da9cf1f84b46d0a3646bc6ebf1 inherit pub_methods_class_i_engine_module"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shutdown Engine Module.  <a href="class_i_engine_module.html#a353d34da9cf1f84b46d0a3646bc6ebf1">More...</a><br /></td></tr>
 <tr class="separator:a353d34da9cf1f84b46d0a3646bc6ebf1 inherit pub_methods_class_i_engine_module"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_i_updatable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_i_updatable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_i_updatable.html">IUpdatable</a></td></tr>
 <tr class="memitem:aea5cf84600a1dd26b77b331b907a3959 inherit pub_methods_class_i_updatable"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#aea5cf84600a1dd26b77b331b907a3959">IUpdatable</a> (const std::string &amp;aName)</td></tr>
+<tr class="memdesc:aea5cf84600a1dd26b77b331b907a3959 inherit pub_methods_class_i_updatable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct <a class="el" href="class_i_updatable.html" title="Interface for Updatables - Game States, in derrivied class UPDATABLE(CLASS_NAME) must be used.">IUpdatable</a> with given name.  <a href="class_i_updatable.html#aea5cf84600a1dd26b77b331b907a3959">More...</a><br /></td></tr>
 <tr class="separator:aea5cf84600a1dd26b77b331b907a3959 inherit pub_methods_class_i_updatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab888fbdde9c5e651c7a8f59753d832ec inherit pub_methods_class_i_updatable"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#ab888fbdde9c5e651c7a8f59753d832ec">~IUpdatable</a> ()</td></tr>
 <tr class="separator:ab888fbdde9c5e651c7a8f59753d832ec inherit pub_methods_class_i_updatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a701ac0a01770df8ecdea799ba8136d inherit pub_methods_class_i_updatable"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#a9a701ac0a01770df8ecdea799ba8136d">GetType</a> () const =0</td></tr>
 <tr class="separator:a9a701ac0a01770df8ecdea799ba8136d inherit pub_methods_class_i_updatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f18ef4870404c59b50d7d6c97cf4271 inherit pub_methods_class_i_updatable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#a0f18ef4870404c59b50d7d6c97cf4271">SetName</a> (const std::string &amp;aName)</td></tr>
+<tr class="memdesc:a0f18ef4870404c59b50d7d6c97cf4271 inherit pub_methods_class_i_updatable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set Name.  <a href="class_i_updatable.html#a0f18ef4870404c59b50d7d6c97cf4271">More...</a><br /></td></tr>
 <tr class="separator:a0f18ef4870404c59b50d7d6c97cf4271 inherit pub_methods_class_i_updatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1c9386612f548c41bb21c8bb9e31fd0 inherit pub_methods_class_i_updatable"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#af1c9386612f548c41bb21c8bb9e31fd0">GetName</a> () const</td></tr>
+<tr class="memdesc:af1c9386612f548c41bb21c8bb9e31fd0 inherit pub_methods_class_i_updatable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Name.  <a href="class_i_updatable.html#af1c9386612f548c41bb21c8bb9e31fd0">More...</a><br /></td></tr>
 <tr class="separator:af1c9386612f548c41bb21c8bb9e31fd0 inherit pub_methods_class_i_updatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae592f42ea503a068927b5beae0d84c98 inherit pub_methods_class_i_updatable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#ae592f42ea503a068927b5beae0d84c98">SetActive</a> (const bool x)</td></tr>
+<tr class="memdesc:ae592f42ea503a068927b5beae0d84c98 inherit pub_methods_class_i_updatable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set Active - Engine Modules Can`t be deactivated.  <a href="class_i_updatable.html#ae592f42ea503a068927b5beae0d84c98">More...</a><br /></td></tr>
 <tr class="separator:ae592f42ea503a068927b5beae0d84c98 inherit pub_methods_class_i_updatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3c00fa9fbbe6b5529808a729eaa4c28 inherit pub_methods_class_i_updatable"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#ae3c00fa9fbbe6b5529808a729eaa4c28">IsActive</a> () const</td></tr>
+<tr class="memdesc:ae3c00fa9fbbe6b5529808a729eaa4c28 inherit pub_methods_class_i_updatable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is Active - Engine Modules Can`t be deactivated.  <a href="class_i_updatable.html#ae3c00fa9fbbe6b5529808a729eaa4c28">More...</a><br /></td></tr>
 <tr class="separator:ae3c00fa9fbbe6b5529808a729eaa4c28 inherit pub_methods_class_i_updatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a2c425ef3e4672497fdbd3f6e783d45 inherit pub_methods_class_i_updatable"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#a6a2c425ef3e4672497fdbd3f6e783d45">OnInit</a> ()</td></tr>
+<tr class="memdesc:a6a2c425ef3e4672497fdbd3f6e783d45 inherit pub_methods_class_i_updatable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called only once, can be used to init something.  <a href="class_i_updatable.html#a6a2c425ef3e4672497fdbd3f6e783d45">More...</a><br /></td></tr>
 <tr class="separator:a6a2c425ef3e4672497fdbd3f6e783d45 inherit pub_methods_class_i_updatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a399ea2f2252ed8bf8156d0cb0e4d8eae inherit pub_methods_class_i_updatable"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#a399ea2f2252ed8bf8156d0cb0e4d8eae">OnEnter</a> ()</td></tr>
+<tr class="memdesc:a399ea2f2252ed8bf8156d0cb0e4d8eae inherit pub_methods_class_i_updatable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called everytime Container holding this Updatable is actived.  <a href="class_i_updatable.html#a399ea2f2252ed8bf8156d0cb0e4d8eae">More...</a><br /></td></tr>
 <tr class="separator:a399ea2f2252ed8bf8156d0cb0e4d8eae inherit pub_methods_class_i_updatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69ed05737704c5232db69883b7aa73b1 inherit pub_methods_class_i_updatable"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#a69ed05737704c5232db69883b7aa73b1">OnEvent</a> (const <a class="el" href="class_c_event.html">CEvent</a> &amp;)</td></tr>
+<tr class="memdesc:a69ed05737704c5232db69883b7aa73b1 inherit pub_methods_class_i_updatable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called for every sysem event.  <a href="class_i_updatable.html#a69ed05737704c5232db69883b7aa73b1">More...</a><br /></td></tr>
 <tr class="separator:a69ed05737704c5232db69883b7aa73b1 inherit pub_methods_class_i_updatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85023b523b0b14655200e8c357e18c68 inherit pub_methods_class_i_updatable"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#a85023b523b0b14655200e8c357e18c68">OnLeave</a> ()</td></tr>
+<tr class="memdesc:a85023b523b0b14655200e8c357e18c68 inherit pub_methods_class_i_updatable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called everytime Container holding this Updatable is deactived.  <a href="class_i_updatable.html#a85023b523b0b14655200e8c357e18c68">More...</a><br /></td></tr>
 <tr class="separator:a85023b523b0b14655200e8c357e18c68 inherit pub_methods_class_i_updatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
@@ -182,7 +209,9 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:accea568757b9528356e613a9d0d6536c inherit pro_methods_class_non_copyable_movable"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_non_copyable_movable.html#accea568757b9528356e613a9d0d6536c">~NonCopyableMovable</a> ()=default</td></tr>
 <tr class="separator:accea568757b9528356e613a9d0d6536c inherit pro_methods_class_non_copyable_movable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Class for registering and creating Components and Entities classes. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af6f6d9e6eb5c7915d28a3b8a70681564"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af6f6d9e6eb5c7915d28a3b8a70681564">&#9670;&nbsp;</a></span>CScene()</h2>
 
@@ -244,6 +273,15 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Create Component. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>type of component must inherints from <a class="el" href="class_i_component.html" title="Interface for Components - Contains Logic and Data, in derrivied class COMPONENT(CLASS_NAME) must be ...">IComponent</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns Pointer for created component or nullptr if error.Pointer must be deleted by user. </dd></dl>
+
 </div>
 </div>
 <a id="aea39cad30fad1eaf698d8fcfa8848589"></a>
@@ -261,6 +299,15 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Create Component. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Type</td><td>type of component must inherints from <a class="el" href="class_i_component.html" title="Interface for Components - Contains Logic and Data, in derrivied class COMPONENT(CLASS_NAME) must be ...">IComponent</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns Pointer for created component or nullptr if error.Pointer must be deleted by user. </dd></dl>
 
 </div>
 </div>
@@ -289,10 +336,19 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Create Entity. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Type</td><td>of entity must inherints from <a class="el" href="class_c_entity.html" title="Base Class for Entities - Contains Components and optionaly user data and logic, in derrivied class E...">CEntity</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns Pointer for created Entity or nullptr if error.Pointer must be deleted by user. </dd></dl>
+
 </div>
 </div>
-<a id="aa2ae0b8f8524e10cbd297226a676057b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2ae0b8f8524e10cbd297226a676057b">&#9670;&nbsp;</a></span>CreateEntity() <span class="overload">[2/2]</span></h2>
+<a id="abae9f989690ff4ada7f4b3acd793c89d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abae9f989690ff4ada7f4b3acd793c89d">&#9670;&nbsp;</a></span>CreateEntity() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -306,6 +362,15 @@ template&lt;class T &gt; </div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Create Entity. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Type</td><td>type of entity must inherints from <a class="el" href="class_c_entity.html" title="Base Class for Entities - Contains Components and optionaly user data and logic, in derrivied class E...">CEntity</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Returns Pointer for created Entity or nullptr if error.Pointer must be deleted by user. </dd></dl>
 
 </div>
 </div>
@@ -358,6 +423,8 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Init Engine Module. </p>
+
 <p>Reimplemented from <a class="el" href="class_i_engine_module.html#aa55c3398a7ad1a295b8bac85e7654302">IEngineModule</a>.</p>
 
 </div>
@@ -384,6 +451,8 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Called just after main loop cycle is started. </p>
 
 <p>Reimplemented from <a class="el" href="class_i_updatable.html#a6f47418be7b277a107e7661a9a3f0d87">IUpdatable</a>.</p>
 
@@ -412,6 +481,8 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Called just before main loop cycle is ended. </p>
+
 <p>Reimplemented from <a class="el" href="class_i_updatable.html#aa23850a383af551e924a067e9b11090a">IUpdatable</a>.</p>
 
 </div>
@@ -438,6 +509,8 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Called only once, can be used to shutdown something. </p>
 
 <p>Reimplemented from <a class="el" href="class_i_updatable.html#af5cb6fc56c779ad90ddf0de44af664ec">IUpdatable</a>.</p>
 
@@ -466,6 +539,8 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Used for ImGUI. </p>
+
 <p>Reimplemented from <a class="el" href="class_i_updatable.html#a15d6e90e502b7b0ab3cf009c0791f896">IUpdatable</a>.</p>
 
 </div>
@@ -483,7 +558,7 @@ template&lt;class T &gt; </div>
           <td class="memname">void CScene::OnLateUpdate </td>
           <td>(</td>
           <td class="paramtype">const float&#160;</td>
-          <td class="paramname"><em>DT</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -493,6 +568,14 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Called only once after main update. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">DT</td><td>Delta Time </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Reimplemented from <a class="el" href="class_i_updatable.html#ae66c5b0be63cc05b1afe6749177befa7">IUpdatable</a>.</p>
 
@@ -521,6 +604,8 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Called on start rendering, can be used to drwa something or add something to Renderer3D. </p>
+
 <p>Reimplemented from <a class="el" href="class_i_updatable.html#ac54378b73b803d15ed132396e52f38ea">IUpdatable</a>.</p>
 
 </div>
@@ -538,7 +623,7 @@ template&lt;class T &gt; </div>
           <td class="memname">void CScene::OnUpdate </td>
           <td>(</td>
           <td class="paramtype">const float&#160;</td>
-          <td class="paramname"><em>DT</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -548,6 +633,14 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Can be called 0, 1 or many time during update. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">DT</td><td>Delta Time </td></tr>
+  </table>
+  </dd>
+</dl>
 
 <p>Reimplemented from <a class="el" href="class_i_updatable.html#a20422230fbfce2ce812213e9ba6c2a06">IUpdatable</a>.</p>
 
@@ -578,6 +671,14 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
+<p>Register Component. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>type of component must inherints from <a class="el" href="class_i_component.html" title="Interface for Components - Contains Logic and Data, in derrivied class COMPONENT(CLASS_NAME) must be ...">IComponent</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <a id="a526c984f528a9bc3c49e33d142e056cb"></a>
@@ -604,6 +705,14 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Register Entity. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>type of entity must inherints from <a class="el" href="class_c_entity.html" title="Base Class for Entities - Contains Components and optionaly user data and logic, in derrivied class E...">CEntity</a> </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

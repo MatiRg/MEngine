@@ -2,13 +2,13 @@ var class_c_user_updater =
 [
     [ "CUserUpdater", "class_c_user_updater.html#a353715224b097d064d93e7522c0c56d6", null ],
     [ "~CUserUpdater", "class_c_user_updater.html#a94eff403219413f8e44221030b3c57df", null ],
-    [ "AddContainer", "class_c_user_updater.html#af290c5f6f2a95218b8012749d4d07499", null ],
-    [ "AddUpdatable", "class_c_user_updater.html#a062d130633df6e1e3bcf740a63b55a96", null ],
-    [ "AddUpdatable", "class_c_user_updater.html#a9d913b0731d0d7676901900dfdd3886f", null ],
+    [ "AddContainer", "class_c_user_updater.html#a78abdd3ddd7a7585f7b938c68336bead", null ],
+    [ "AddUpdatable", "class_c_user_updater.html#add3d8601c6f8e1b474e53bf116972622", null ],
+    [ "AddUpdatable", "class_c_user_updater.html#a2ec1bb84245ad0b76290ca18f7c51cfe", null ],
     [ "Exit", "class_c_user_updater.html#a6d48525e6c18c68ac6b729169c512532", null ],
     [ "GetUpdatable", "class_c_user_updater.html#aa7f958aa794ed15721e2f2bb125ed158", null ],
-    [ "GetUpdatableByName", "class_c_user_updater.html#a41bcc8508f59d5bc42499a1ceb51a5ad", null ],
-    [ "GetUpdatableByType", "class_c_user_updater.html#a20948f8924e812137e1d3540365edd46", null ],
+    [ "GetUpdatableByName", "class_c_user_updater.html#a7c97093b6a01124a49ce286a76f85d0b", null ],
+    [ "GetUpdatableByType", "class_c_user_updater.html#a07960c33d9587c8916828875bc197d17", null ],
     [ "OnBeginFrame", "class_c_user_updater.html#a2785a1f3be49f87e5fb980ac28a0c96f", null ],
     [ "OnEndFrame", "class_c_user_updater.html#aab1c6a353075a8251652aa6aacff49a5", null ],
     [ "OnEnter", "class_c_user_updater.html#a49bbf1789c23860768ae92df7d4a648f", null ],
@@ -20,5 +20,5 @@ var class_c_user_updater =
     [ "OnLeave", "class_c_user_updater.html#a8d227e4e3de83ae84ef416b80fa4dccd", null ],
     [ "OnRender", "class_c_user_updater.html#a0905e11dac00f937ba397b22407922b0", null ],
     [ "OnUpdate", "class_c_user_updater.html#af1cdf5477a4e13fe31b5670f75335641", null ],
-    [ "SetContainer", "class_c_user_updater.html#ab842a790379552cd76ea5e7fae27d2c7", null ]
+    [ "SetContainer", "class_c_user_updater.html#a6c6144505c129618ddd3adc99695dbc3", null ]
 ];

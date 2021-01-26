@@ -85,10 +85,11 @@ struct SEventWindowSize: public SEventData
     int y;
 };
 
+//! Event class
 class CEvent: public NonCopyable
 {
 public:
-    // Event is taking ownership of data
+    //! Event is taking ownership of data
     CEvent(const EEventType T = EEventType::Null, std::unique_ptr<SEventData>&& D = {}):
         Type( T ),
         Data( std::move(D) )
@@ -110,8 +111,10 @@ public:
         return *this;
     }
 
+    //! Returns event type
     EEventType GetType() const { return Type; }
     bool HasData() const { return Data.get(); }
+    //! Returns Data casted to given template type, check for Data type with CEvent::GetType()
     template<class T>
     T* GetData() const { return static_cast<T*>(Data.get()); }
 private:

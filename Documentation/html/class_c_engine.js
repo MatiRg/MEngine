@@ -1,6 +1,6 @@
 var class_c_engine =
 [
-    [ "CEngine", "class_c_engine.html#a7c1f7b966a8238167ef55e2d4c86ab44", null ],
+    [ "CEngine", "class_c_engine.html#a1164eeb5df9541afae3bb7ffa89d2a1c", null ],
     [ "~CEngine", "class_c_engine.html#ac34e00d8beb5aa7cfadc539f83ccab13", null ],
     [ "Create", "class_c_engine.html#afd7a8fd9cfe2bd8b2cc164411526c88d", null ],
     [ "Exit", "class_c_engine.html#aa9b57dee89e8c220597238c10ec527be", null ],
@@ -13,7 +13,8 @@ var class_c_engine =
     [ "GetImGUI", "class_c_engine.html#a9c86e39a5e6ccaeb0986af56e11ed7ce", null ],
     [ "GetInput", "class_c_engine.html#a27f7954510a6a003e42c2b55cb95303d", null ],
     [ "GetModule", "class_c_engine.html#ad7ea2afe4afb2c198da1a595c54c3f45", null ],
-    [ "GetModule", "class_c_engine.html#a827dd776eed6d1f6f0bbafb22bb1da9e", null ],
+    [ "GetModule", "class_c_engine.html#a861b32dc4be062ea426b1401a8747a34", null ],
+    [ "GetPerformanceCounters", "class_c_engine.html#a88eed9b41de83f3e72e953719f9d696f", null ],
     [ "GetPhysics2D", "class_c_engine.html#a10ff4e4f8730e3e1b50e7044ceb65db7", null ],
     [ "GetPhysics3D", "class_c_engine.html#a46358ee06040fb488fcaa0be10efead7", null ],
     [ "GetRenderer2D", "class_c_engine.html#aea3a7c2fbe24fe98ea7130e73d885a77", null ],
@@ -24,10 +25,10 @@ var class_c_engine =
     [ "GetSystem", "class_c_engine.html#ace111805911789e08a1ea6f31f501eac", null ],
     [ "GetUserUpdater", "class_c_engine.html#aa59e14dffe5e1c39b10da16594a5095f", null ],
     [ "GetWindow", "class_c_engine.html#ab4c278cbc6137512ca6df42f07da94c3", null ],
-    [ "Init", "class_c_engine.html#ae21af0e4b8a832a9639f618834749546", null ],
+    [ "Init", "class_c_engine.html#a0f9620f49540d1747ba7cf91bc6ee594", null ],
     [ "OnExit", "class_c_engine.html#abf595ba20b7df78f2e43bdc6cfb362e0", null ],
     [ "OnInit", "class_c_engine.html#a82a7c86de911585b6534c81d26a8235a", null ],
     [ "Quit", "class_c_engine.html#afd2c85d536257606ebd85b51a0c29a58", null ],
     [ "Run", "class_c_engine.html#a825dde0b743966773168f0316efb227e", null ],
-    [ "SetupTicks", "class_c_engine.html#abfc862ec6d489bbecb716e3dc4b6d73b", null ]
+    [ "SetupTicks", "class_c_engine.html#a42a2f9b1ec712584874820552aee46c9", null ]
 ];

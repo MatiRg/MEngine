@@ -262,6 +262,7 @@ void CEntity::SetParent(CEntity* NewParent)
             GetWorld()->OnEntityDestroy(RomovedThis);
         }
     }
+    // TO DO: Change World in Children Entities
     Transform.SetParent(NewParent ? &NewParent->GetTransform() : nullptr);
     Parent = NewParent;
 }

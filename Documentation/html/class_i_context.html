@@ -90,6 +90,9 @@ $(document).ready(function(){initNavTree('class_i_context.html',''); initResizab
 </div><!--header-->
 <div class="contents">
 
+<p>Interface descripting Lower Level Modules Creation.  
+ <a href="class_i_context.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_context_8hpp_source.html">Context.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for IContext:</div>
@@ -108,23 +111,32 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ae67feeaac71d0365047291453deaa234"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1451d7921a5f88bbaeba410feebbd277"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_context.html#a1451d7921a5f88bbaeba410feebbd277">~IContext</a> ()</td></tr>
 <tr class="separator:a1451d7921a5f88bbaeba410feebbd277"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abdc590540454c9a9645dc36bc4156ca1"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_context.html#abdc590540454c9a9645dc36bc4156ca1">Init</a> (const <a class="el" href="struct_s_engine_params.html">SEngineParams</a> &amp;)=0</td></tr>
-<tr class="separator:abdc590540454c9a9645dc36bc4156ca1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1905d1604dd52a58ea5cf375077821db"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_context.html#a1905d1604dd52a58ea5cf375077821db">Init</a> (const <a class="el" href="struct_s_engine_params.html">SEngineParams</a> &amp;aParams)=0</td></tr>
+<tr class="memdesc:a1905d1604dd52a58ea5cf375077821db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create Lower level Modules.  <a href="class_i_context.html#a1905d1604dd52a58ea5cf375077821db">More...</a><br /></td></tr>
+<tr class="separator:a1905d1604dd52a58ea5cf375077821db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac97857ff3bff08bfeaf45a728c938105"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_i_system.html">ISystem</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_context.html#ac97857ff3bff08bfeaf45a728c938105">GetSystem</a> () const =0</td></tr>
+<tr class="memdesc:ac97857ff3bff08bfeaf45a728c938105"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Engine Module.  <a href="class_i_context.html#ac97857ff3bff08bfeaf45a728c938105">More...</a><br /></td></tr>
 <tr class="separator:ac97857ff3bff08bfeaf45a728c938105"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aed12c80fc5c4dad5d96fa9be76b481bf"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_i_event_queue.html">IEventQueue</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_context.html#aed12c80fc5c4dad5d96fa9be76b481bf">GetEventQueue</a> () const =0</td></tr>
+<tr class="memdesc:aed12c80fc5c4dad5d96fa9be76b481bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Engine Module.  <a href="class_i_context.html#aed12c80fc5c4dad5d96fa9be76b481bf">More...</a><br /></td></tr>
 <tr class="separator:aed12c80fc5c4dad5d96fa9be76b481bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab72403eba8a4cfae9aac5f3cecc4db9a"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_i_input.html">IInput</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_context.html#ab72403eba8a4cfae9aac5f3cecc4db9a">GetInput</a> () const =0</td></tr>
+<tr class="memdesc:ab72403eba8a4cfae9aac5f3cecc4db9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Engine Module.  <a href="class_i_context.html#ab72403eba8a4cfae9aac5f3cecc4db9a">More...</a><br /></td></tr>
 <tr class="separator:ab72403eba8a4cfae9aac5f3cecc4db9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a953a9cc63ef3817a3262947f8d92a8d4"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_i_window.html">IWindow</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_context.html#a953a9cc63ef3817a3262947f8d92a8d4">GetWindow</a> () const =0</td></tr>
+<tr class="memdesc:a953a9cc63ef3817a3262947f8d92a8d4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Engine Module.  <a href="class_i_context.html#a953a9cc63ef3817a3262947f8d92a8d4">More...</a><br /></td></tr>
 <tr class="separator:a953a9cc63ef3817a3262947f8d92a8d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a67eb411a3aa479ffdd99e9ada90432a5"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_i_graphics.html">IGraphics</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_context.html#a67eb411a3aa479ffdd99e9ada90432a5">GetGraphics</a> () const =0</td></tr>
+<tr class="memdesc:a67eb411a3aa479ffdd99e9ada90432a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Engine Module.  <a href="class_i_context.html#a67eb411a3aa479ffdd99e9ada90432a5">More...</a><br /></td></tr>
 <tr class="separator:a67eb411a3aa479ffdd99e9ada90432a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5eae8ef8ac871ba168e4e674a9e0972f"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_i_audio.html">IAudio</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_context.html#a5eae8ef8ac871ba168e4e674a9e0972f">GetAudio</a> () const =0</td></tr>
+<tr class="memdesc:a5eae8ef8ac871ba168e4e674a9e0972f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Engine Module.  <a href="class_i_context.html#a5eae8ef8ac871ba168e4e674a9e0972f">More...</a><br /></td></tr>
 <tr class="separator:a5eae8ef8ac871ba168e4e674a9e0972f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a52bb821f95a32d12793c456c93f8f039"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_i_physics3_d.html">IPhysics3D</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_context.html#a52bb821f95a32d12793c456c93f8f039">GetPhysics3D</a> () const =0</td></tr>
+<tr class="memdesc:a52bb821f95a32d12793c456c93f8f039"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Engine Module.  <a href="class_i_context.html#a52bb821f95a32d12793c456c93f8f039">More...</a><br /></td></tr>
 <tr class="separator:a52bb821f95a32d12793c456c93f8f039"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf59ea4d2d6ebee795596c05bedb0ebd"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_i_physics2_d.html">IPhysics2D</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_context.html#adf59ea4d2d6ebee795596c05bedb0ebd">GetPhysics2D</a> () const =0</td></tr>
+<tr class="memdesc:adf59ea4d2d6ebee795596c05bedb0ebd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Engine Module.  <a href="class_i_context.html#adf59ea4d2d6ebee795596c05bedb0ebd">More...</a><br /></td></tr>
 <tr class="separator:adf59ea4d2d6ebee795596c05bedb0ebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
@@ -135,7 +147,9 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:accea568757b9528356e613a9d0d6536c inherit pro_methods_class_non_copyable_movable"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_non_copyable_movable.html#accea568757b9528356e613a9d0d6536c">~NonCopyableMovable</a> ()=default</td></tr>
 <tr class="separator:accea568757b9528356e613a9d0d6536c inherit pro_methods_class_non_copyable_movable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Interface descripting Lower Level Modules Creation. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae67feeaac71d0365047291453deaa234"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae67feeaac71d0365047291453deaa234">&#9670;&nbsp;</a></span>IContext()</h2>
 
@@ -210,6 +224,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Get Engine Module. </p>
+
 <p>Implemented in <a class="el" href="class_c_s_d_l_context.html#a11219a47692a301ee7e3c77c6ecf7493">CSDLContext</a>.</p>
 
 </div>
@@ -236,6 +252,8 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Get Engine Module. </p>
 
 <p>Implemented in <a class="el" href="class_c_s_d_l_context.html#a7611bbc3e2fd98360cc8a86513d71bfa">CSDLContext</a>.</p>
 
@@ -264,6 +282,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Get Engine Module. </p>
+
 <p>Implemented in <a class="el" href="class_c_s_d_l_context.html#a40fce6710d562622148611dd09a18ec2">CSDLContext</a>.</p>
 
 </div>
@@ -290,6 +310,8 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Get Engine Module. </p>
 
 <p>Implemented in <a class="el" href="class_c_s_d_l_context.html#a918e22e2c0737a494707dee8ac526849">CSDLContext</a>.</p>
 
@@ -318,6 +340,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Get Engine Module. </p>
+
 <p>Implemented in <a class="el" href="class_c_s_d_l_context.html#abf9103114d9b27839b0c0d15ae73af3a">CSDLContext</a>.</p>
 
 </div>
@@ -344,6 +368,8 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Get Engine Module. </p>
 
 <p>Implemented in <a class="el" href="class_c_s_d_l_context.html#a194ab931c9db94cfca59e802f7403753">CSDLContext</a>.</p>
 
@@ -372,6 +398,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Get Engine Module. </p>
+
 <p>Implemented in <a class="el" href="class_c_s_d_l_context.html#aac8524d6bca1afbdfdb9677e69c6e3b9">CSDLContext</a>.</p>
 
 </div>
@@ -399,12 +427,14 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Get Engine Module. </p>
+
 <p>Implemented in <a class="el" href="class_c_s_d_l_context.html#ada87cced2ab9d2b7947f687fe20dd04f">CSDLContext</a>.</p>
 
 </div>
 </div>
-<a id="abdc590540454c9a9645dc36bc4156ca1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abdc590540454c9a9645dc36bc4156ca1">&#9670;&nbsp;</a></span>Init()</h2>
+<a id="a1905d1604dd52a58ea5cf375077821db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1905d1604dd52a58ea5cf375077821db">&#9670;&nbsp;</a></span>Init()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -416,7 +446,7 @@ Additional Inherited Members</h2></td></tr>
           <td class="memname">virtual bool IContext::Init </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="struct_s_engine_params.html">SEngineParams</a> &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramname"><em>aParams</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -426,6 +456,15 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Create Lower level Modules. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">aParams</td><td>Engine Creation Parameters </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Return true on success or false if not </dd></dl>
 
 <p>Implemented in <a class="el" href="class_c_s_d_l_context.html#a815c71620e4e3dc468e6b3ccd7dce3c6">CSDLContext</a>.</p>
 

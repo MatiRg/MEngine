@@ -8,6 +8,10 @@
 
 class CEngine;
 
+/**
+  \class CScene
+  \brief Class for registering and creating Components and Entities classes
+*/
 class CScene final: public IEngineModule
 {
 public:
@@ -18,14 +22,27 @@ public:
 
     CEventManager* GetEventManager() { return &EventManager; }
 
+    /**
+     * \brief Register Entity
+     * \tparam T type of entity must inherints from CEntity
+     */
     template<class T>
     void RegisterEntityFactory()
     {
+        static_assert(std::is_base_of<CEntity, T>::value, "Must be base of CEntity");
         EntityFactory.push_back( std::make_unique<TEntityFactory<T>>(Engine) );
     }
-    //
-    CEntity* CreateEntity(const std::string&);
-    //
+    /**
+     * \brief Create Entity
+     * \param Type type of entity must inherints from CEntity
+     * \return Returns Pointer for created Entity or nullptr if error.Pointer must be deleted by user.
+     */
+    CEntity* CreateEntity(const std::string& Type);
+    /**
+     * \brief Create Entity
+     * \tparam Type of entity must inherints from CEntity
+     * \return Returns Pointer for created Entity or nullptr if error.Pointer must be deleted by user.
+     */
     template<class T>
     T* CreateEntity()
     {
@@ -34,14 +51,27 @@ public:
     }
     //
 
+    /**
+     * \brief Register Component
+     * \tparam T type of component must inherints from IComponent
+     */
     template<class T>
     void RegisterComponentFactory()
     {
+        static_assert(std::is_base_of<IComponent, T>::value, "Must be base of IComponent");
         ComponentFactory.push_back( std::make_unique<TComponentFactory<T>>(Engine) );
     }
-    //
+    /**
+     * \brief Create Component
+     * \param Type type of component must inherints from IComponent
+     * \return Returns Pointer for created component or nullptr if error.Pointer must be deleted by user.
+     */
     IComponent* CreateComponent(const std::string&);
-    //
+    /**
+     * \brief Create Component
+     * \tparam T type of component must inherints from IComponent
+     * \return Returns Pointer for created component or nullptr if error.Pointer must be deleted by user.
+     */
     template<class T>
     T* CreateComponent()
     {

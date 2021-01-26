@@ -92,6 +92,9 @@ $(document).ready(function(){initNavTree('class_c_app.html',''); initResizable()
 </div><!--header-->
 <div class="contents">
 
+<p>Creates Engine, Runs Engine Main Loop, Derrive from this class and overwrite virtual methods to start you game creation.  
+ <a href="class_c_app.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_app_8hpp_source.html">App.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for CApp:</div>
@@ -110,9 +113,11 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:af14ddd76e4c5d54998308e299f2c0af5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac83c58f4d11a0b2e73ca14ecea5eda46"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_app.html#ac83c58f4d11a0b2e73ca14ecea5eda46">~CApp</a> ()</td></tr>
 <tr class="separator:ac83c58f4d11a0b2e73ca14ecea5eda46"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52dfe5742ddff2e4028432c28b83f4a2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_app.html#a52dfe5742ddff2e4028432c28b83f4a2">Run</a> (const std::vector&lt; std::string &gt; &amp;)</td></tr>
-<tr class="separator:a52dfe5742ddff2e4028432c28b83f4a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa72db870de5e251ca1355c586eff4bee"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_app.html#aa72db870de5e251ca1355c586eff4bee">Run</a> (const <a class="el" href="_types_8hpp.html#ac02054ca3c46b4cc20e81fa189f833af">StringVec</a> &amp;Args)</td></tr>
+<tr class="memdesc:aa72db870de5e251ca1355c586eff4bee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs Engine Main Loop, creates Engine.  <a href="class_c_app.html#aa72db870de5e251ca1355c586eff4bee">More...</a><br /></td></tr>
+<tr class="separator:aa72db870de5e251ca1355c586eff4bee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1885ec3b772d22a2b827bb4d3db0cd8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_app.html#af1885ec3b772d22a2b827bb4d3db0cd8">Quit</a> ()</td></tr>
+<tr class="memdesc:af1885ec3b772d22a2b827bb4d3db0cd8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Quits Engine/Application.  <a href="class_c_app.html#af1885ec3b772d22a2b827bb4d3db0cd8">More...</a><br /></td></tr>
 <tr class="separator:af1885ec3b772d22a2b827bb4d3db0cd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad2799ad37a30200b8cb1dbad4453c27a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_engine.html">CEngine</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_app.html#ad2799ad37a30200b8cb1dbad4453c27a">GetEngine</a> () const</td></tr>
 <tr class="separator:ad2799ad37a30200b8cb1dbad4453c27a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -152,6 +157,8 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a64ad2b6ef6b6e1806bc57d0af9756447"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac36220aeaeab7e3df2555020af225f71"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_script_module.html">CScriptModule</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_app.html#ac36220aeaeab7e3df2555020af225f71">GetScriptModule</a> () const</td></tr>
 <tr class="separator:ac36220aeaeab7e3df2555020af225f71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7431e9c9f5c3266f6df19e34d147b722"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_performance_counters.html">CPerformanceCounters</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_app.html#a7431e9c9f5c3266f6df19e34d147b722">GetPerformanceCounters</a> () const</td></tr>
+<tr class="separator:a7431e9c9f5c3266f6df19e34d147b722"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
@@ -176,15 +183,22 @@ Protected Member Functions</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
 <tr class="memitem:aa59ee30de5b2de6ef3a8f625d955dce4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_s_engine_params.html">SEngineParams</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_app.html#aa59ee30de5b2de6ef3a8f625d955dce4">Params</a></td></tr>
+<tr class="memdesc:aa59ee30de5b2de6ef3a8f625d955dce4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Structure holding Engine Init Variables that have default values.  <a href="class_c_app.html#aa59ee30de5b2de6ef3a8f625d955dce4">More...</a><br /></td></tr>
 <tr class="separator:aa59ee30de5b2de6ef3a8f625d955dce4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af4cbc9589512717e41378b608084b146"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_app.html#af4cbc9589512717e41378b608084b146">UseConfigFile</a> = true</td></tr>
+<tr class="memdesc:af4cbc9589512717e41378b608084b146"><td class="mdescLeft">&#160;</td><td class="mdescRight">Loading config from file.  <a href="class_c_app.html#af4cbc9589512717e41378b608084b146">More...</a><br /></td></tr>
 <tr class="separator:af4cbc9589512717e41378b608084b146"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0d0db681cd2c8a8f05b719fdef3d07e4"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_app.html#a0d0db681cd2c8a8f05b719fdef3d07e4">ConfigFile</a> = &quot;Engine.xml&quot;</td></tr>
+<tr class="memdesc:a0d0db681cd2c8a8f05b719fdef3d07e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Config file Name.  <a href="class_c_app.html#a0d0db681cd2c8a8f05b719fdef3d07e4">More...</a><br /></td></tr>
 <tr class="separator:a0d0db681cd2c8a8f05b719fdef3d07e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af5ab59173d89f7b3dd2b3f07b1c2be69"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_app.html#af5ab59173d89f7b3dd2b3f07b1c2be69">CommandLine</a></td></tr>
-<tr class="separator:af5ab59173d89f7b3dd2b3f07b1c2be69"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af12d1cac02d7dbd3b59236dcdf2c05fa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_types_8hpp.html#ac02054ca3c46b4cc20e81fa189f833af">StringVec</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_app.html#af12d1cac02d7dbd3b59236dcdf2c05fa">CommandLine</a></td></tr>
+<tr class="memdesc:af12d1cac02d7dbd3b59236dcdf2c05fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Command Line Options.  <a href="class_c_app.html#af12d1cac02d7dbd3b59236dcdf2c05fa">More...</a><br /></td></tr>
+<tr class="separator:af12d1cac02d7dbd3b59236dcdf2c05fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Creates Engine, Runs Engine Main Loop, Derrive from this class and overwrite virtual methods to start you game creation. </p>
+<p>This class encapsulates and creates <a class="el" href="class_c_engine.html" title="Encapsulated Main Loop, Creates Engine Modules.">CEngine</a>. It has virtual methods that can be used to do game init. It is managing <a class="el" href="class_c_engine.html" title="Encapsulated Main Loop, Creates Engine Modules.">CEngine</a> creation and destruction steps.Derrive from this class and overwrite virtual methods to start you game creation. Use ENTRY_POINT macro to create EngineMain function somewhere in .cpp file. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="af14ddd76e4c5d54998308e299f2c0af5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af14ddd76e4c5d54998308e299f2c0af5">&#9670;&nbsp;</a></span>CApp()</h2>
 
@@ -250,8 +264,9 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Virtual method that is called just after Engine and it`s modules are shutdown. Can be used to destroy Updatables and user Engine modules. </p>
 
-<p>Reimplemented in <a class="el" href="class_c_main_app.html#a62db2a123f5c42bb927844389626ebef">CMainApp</a>, and <a class="el" href="class_c_main_app.html#a62db2a123f5c42bb927844389626ebef">CMainApp</a>.</p>
+<p>Reimplemented in <a class="el" href="class_c_main_app.html#a62db2a123f5c42bb927844389626ebef">CMainApp</a>, <a class="el" href="class_c_main_app.html#a62db2a123f5c42bb927844389626ebef">CMainApp</a>, <a class="el" href="class_c_main_app.html#a62db2a123f5c42bb927844389626ebef">CMainApp</a>, <a class="el" href="class_c_main_app.html#a62db2a123f5c42bb927844389626ebef">CMainApp</a>, <a class="el" href="class_c_main_app.html#a62db2a123f5c42bb927844389626ebef">CMainApp</a>, <a class="el" href="class_c_main_app.html#a62db2a123f5c42bb927844389626ebef">CMainApp</a>, and <a class="el" href="class_c_main_app.html#a62db2a123f5c42bb927844389626ebef">CMainApp</a>.</p>
 
 </div>
 </div>
@@ -399,6 +414,23 @@ Protected Attributes</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname"><a class="el" href="class_i_input.html">IInput</a> * CApp::GetInput </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a7431e9c9f5c3266f6df19e34d147b722"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7431e9c9f5c3266f6df19e34d147b722">&#9670;&nbsp;</a></span>GetPerformanceCounters()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_c_performance_counters.html">CPerformanceCounters</a> * CApp::GetPerformanceCounters </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -600,8 +632,9 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Virtual method that is called after Engine and Context is Created. Can be used to creating Engine Modules in <a class="el" href="class_c_engine_updater.html" title="Container class for all Engine Modules.">CEngineUpdater</a> and creating Updatables and setting them to global or some named container in CUserUpdater.Can also be used to setup Resource Search directories in <a class="el" href="class_c_resources.html" title="Class for managing Resource like Textures, Models, Sound Data.">CResources</a> class. </p><dl class="section return"><dt>Returns</dt><dd>Return true on success or false if not </dd></dl>
 
-<p>Reimplemented in <a class="el" href="class_c_main_app.html#a545f530c30a82ecbfb9c4aa155c2ab93">CMainApp</a>, and <a class="el" href="class_c_main_app.html#a545f530c30a82ecbfb9c4aa155c2ab93">CMainApp</a>.</p>
+<p>Reimplemented in <a class="el" href="class_c_main_app.html#a545f530c30a82ecbfb9c4aa155c2ab93">CMainApp</a>, <a class="el" href="class_c_main_app.html#a545f530c30a82ecbfb9c4aa155c2ab93">CMainApp</a>, <a class="el" href="class_c_main_app.html#a545f530c30a82ecbfb9c4aa155c2ab93">CMainApp</a>, <a class="el" href="class_c_main_app.html#a545f530c30a82ecbfb9c4aa155c2ab93">CMainApp</a>, <a class="el" href="class_c_main_app.html#a545f530c30a82ecbfb9c4aa155c2ab93">CMainApp</a>, <a class="el" href="class_c_main_app.html#a545f530c30a82ecbfb9c4aa155c2ab93">CMainApp</a>, and <a class="el" href="class_c_main_app.html#a545f530c30a82ecbfb9c4aa155c2ab93">CMainApp</a>.</p>
 
 </div>
 </div>
@@ -627,6 +660,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Virtual method that is called just after Engine oriented OnExit. Can be used to perform cleanup of resources that are tightly tied to initialized engine modules. </p>
 
 </div>
 </div>
@@ -652,8 +686,9 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Virtual method that is called just before Engine oriented OnInit. Can be used to setup start container in <a class="el" href="class_c_user_updater.html" title="Container class for all Game Updatables.">CUserUpdater</a>, setting window caption in <a class="el" href="class_i_window.html">IWindow</a>, preloading game assets in <a class="el" href="class_c_resources.html" title="Class for managing Resource like Textures, Models, Sound Data.">CResources</a>. </p>
 
-<p>Reimplemented in <a class="el" href="class_c_main_app.html#a5841c0bc323c8da2a0e0993548d573fd">CMainApp</a>, and <a class="el" href="class_c_main_app.html#a5841c0bc323c8da2a0e0993548d573fd">CMainApp</a>.</p>
+<p>Reimplemented in <a class="el" href="class_c_main_app.html#a5841c0bc323c8da2a0e0993548d573fd">CMainApp</a>, <a class="el" href="class_c_main_app.html#a5841c0bc323c8da2a0e0993548d573fd">CMainApp</a>, <a class="el" href="class_c_main_app.html#a5841c0bc323c8da2a0e0993548d573fd">CMainApp</a>, <a class="el" href="class_c_main_app.html#a5841c0bc323c8da2a0e0993548d573fd">CMainApp</a>, <a class="el" href="class_c_main_app.html#a5841c0bc323c8da2a0e0993548d573fd">CMainApp</a>, <a class="el" href="class_c_main_app.html#a5841c0bc323c8da2a0e0993548d573fd">CMainApp</a>, and <a class="el" href="class_c_main_app.html#a5841c0bc323c8da2a0e0993548d573fd">CMainApp</a>.</p>
 
 </div>
 </div>
@@ -679,6 +714,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Virtual method that is called just after Engine, it`s modules and config is destroyed. </p>
 
 </div>
 </div>
@@ -704,6 +740,7 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+<p>Virtual method that is called before Engine, Context and Config is Created. Can be used to change Config File Name or do not load config file at all. </p><dl class="section return"><dt>Returns</dt><dd>Return true on success or false if not </dd></dl>
 
 </div>
 </div>
@@ -722,10 +759,12 @@ Protected Attributes</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Quits Engine/Application. </p>
+
 </div>
 </div>
-<a id="a52dfe5742ddff2e4028432c28b83f4a2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52dfe5742ddff2e4028432c28b83f4a2">&#9670;&nbsp;</a></span>Run()</h2>
+<a id="aa72db870de5e251ca1355c586eff4bee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa72db870de5e251ca1355c586eff4bee">&#9670;&nbsp;</a></span>Run()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -733,18 +772,27 @@ Protected Attributes</h2></td></tr>
         <tr>
           <td class="memname">int CApp::Run </td>
           <td>(</td>
-          <td class="paramtype">const std::vector&lt; std::string &gt; &amp;&#160;</td>
-          <td class="paramname"><em>Cmd</em></td><td>)</td>
+          <td class="paramtype">const <a class="el" href="_types_8hpp.html#ac02054ca3c46b4cc20e81fa189f833af">StringVec</a> &amp;&#160;</td>
+          <td class="paramname"><em>Args</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Runs Engine Main Loop, creates Engine. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Args</td><td>Command Line Arguments </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Will return 0 on success or any other number on error </dd></dl>
+
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="af5ab59173d89f7b3dd2b3f07b1c2be69"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af5ab59173d89f7b3dd2b3f07b1c2be69">&#9670;&nbsp;</a></span>CommandLine</h2>
+<a id="af12d1cac02d7dbd3b59236dcdf2c05fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af12d1cac02d7dbd3b59236dcdf2c05fa">&#9670;&nbsp;</a></span>CommandLine</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -753,7 +801,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;std::string&gt; CApp::CommandLine</td>
+          <td class="memname"><a class="el" href="_types_8hpp.html#ac02054ca3c46b4cc20e81fa189f833af">StringVec</a> CApp::CommandLine</td>
         </tr>
       </table>
   </td>
@@ -762,6 +810,8 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Command Line Options. </p>
 
 </div>
 </div>
@@ -785,6 +835,8 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Config file Name. </p>
+
 </div>
 </div>
 <a id="aa59ee30de5b2de6ef3a8f625d955dce4"></a>
@@ -807,6 +859,8 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Structure holding Engine Init Variables that have default values. </p>
+
 </div>
 </div>
 <a id="af4cbc9589512717e41378b608084b146"></a>
@@ -828,6 +882,8 @@ Protected Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Loading config from file. </p>
 
 </div>
 </div>

@@ -3,7 +3,10 @@
 #include <vector>
 #include <string>
 
-// For debug purposes
+/**
+  \class CMemoryManager
+  \brief For debug purposes. After Engine destruction reports alleged memroy leaks. Works with only two macros: ADD_MEMORY_RECORD and ERASE_MEMORY_RECORD
+*/
 class CMemoryManager final: public NonCopyableMovable
 {
     struct SRecord
@@ -41,6 +44,8 @@ inline CMemoryManager& GetMemoryManager()
     return CMemoryManager::GetInstance();
 }
 
+//! Add given pointer to Memory Manager
 #define ADD_MEMORY_RECORD(Ptr) GetMemoryManager().AddRecord( Ptr , __FILE__, __LINE__ )
 
+//! Remove given pointer to Memory Manager
 #define ERASE_MEMORY_RECORD(Ptr) GetMemoryManager().EraseRecord( Ptr )

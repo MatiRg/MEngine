@@ -20,11 +20,26 @@ enum class EPerformanceCounter
     End // Always last
 };
 
+/**
+  \class CPerformanceCounter
+  \brief Class used for time measure.Create it int enclosed scope, result will saved in CPerformanceCounters class when this class is destroyed.
+*/
 class CPerformanceCounter final : public NonCopyableMovable
 {
 public:
+    /**
+     * \brief Construct CPerformanceCounter with given name(from enum for Engine Stages)
+     * \param Type Enum Type
+     * \param aCounter CPerformanceCounters Poiner
+     */
     CPerformanceCounter(const EPerformanceCounter Type, CPerformanceCounters* aCounter);
+    /**
+     * \brief Construct CPerformanceCounter with given name
+     * \param aName Name
+     * \param aCounter CPerformanceCounters Poiner
+     */
     CPerformanceCounter(const std::string& aName, CPerformanceCounters* aCounter);
+    //! When destoroyed result is saved in CPerformanceCounters under given name
     ~CPerformanceCounter();
 private:
     CPerformanceCounters* Counter = nullptr;

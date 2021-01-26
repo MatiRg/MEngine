@@ -90,6 +90,9 @@ $(document).ready(function(){initNavTree('class_i_input.html',''); initResizable
 </div><!--header-->
 <div class="contents">
 
+<p>Interface for Input Checking like Mouse and Keyboard.  
+ <a href="class_i_input.html#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_input_8hpp_source.html">Input.hpp</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for IInput:</div>
@@ -97,8 +100,8 @@ Inheritance diagram for IInput:</div>
  <div class="center">
   <img src="class_i_input.png" usemap="#IInput_map" alt=""/>
   <map id="IInput_map" name="IInput_map">
-<area href="class_i_engine_module.html" alt="IEngineModule" shape="rect" coords="0,112,138,136"/>
-<area href="class_i_updatable.html" alt="IUpdatable" shape="rect" coords="0,56,138,80"/>
+<area href="class_i_engine_module.html" title="Interface for Engine modules, in derrivied class ENGINE_MODULE(CLASS_NAME) must be used." alt="IEngineModule" shape="rect" coords="0,112,138,136"/>
+<area href="class_i_updatable.html" title="Interface for Updatables - Game States, in derrivied class UPDATABLE(CLASS_NAME) must be used." alt="IUpdatable" shape="rect" coords="0,56,138,80"/>
 <area href="class_non_copyable_movable.html" alt="NonCopyableMovable" shape="rect" coords="0,0,138,24"/>
 <area href="class_c_s_d_l_input.html" alt="CSDLInput" shape="rect" coords="0,224,138,248"/>
   </map>
@@ -111,36 +114,51 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aac58e2d35ef17c41dc24f1899ab1163a"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_input.html#aac58e2d35ef17c41dc24f1899ab1163a">~IInput</a> ()</td></tr>
 <tr class="separator:aac58e2d35ef17c41dc24f1899ab1163a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a88cfd258800a30a28eb1d54a320514ba"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_input.html#a88cfd258800a30a28eb1d54a320514ba">OnBeginFrame</a> () override</td></tr>
+<tr class="memdesc:a88cfd258800a30a28eb1d54a320514ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called just after main loop cycle is started.  <a href="class_i_input.html#a88cfd258800a30a28eb1d54a320514ba">More...</a><br /></td></tr>
 <tr class="separator:a88cfd258800a30a28eb1d54a320514ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6243f4560f239102d79b84f453e47a16"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_input.html#a6243f4560f239102d79b84f453e47a16">ClearInput</a> ()=0</td></tr>
 <tr class="separator:a6243f4560f239102d79b84f453e47a16"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2510c2edccbe15fbc2e62efd24ef10d"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_input.html#aa2510c2edccbe15fbc2e62efd24ef10d">IsKeyDown</a> (const <a class="el" href="_event_types_8hpp.html#acf6120e5498fcaa4a807f587242c3385">EKey</a>) const =0</td></tr>
+<tr class="memdesc:aa2510c2edccbe15fbc2e62efd24ef10d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if given keyboard key is down.  <a href="class_i_input.html#aa2510c2edccbe15fbc2e62efd24ef10d">More...</a><br /></td></tr>
 <tr class="separator:aa2510c2edccbe15fbc2e62efd24ef10d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a99f7504700cd73dc792216bd3c1b19"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_input.html#a6a99f7504700cd73dc792216bd3c1b19">IsKeyPressed</a> (const <a class="el" href="_event_types_8hpp.html#acf6120e5498fcaa4a807f587242c3385">EKey</a>) const =0</td></tr>
+<tr class="memdesc:a6a99f7504700cd73dc792216bd3c1b19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if given keyboard key is pressed.  <a href="class_i_input.html#a6a99f7504700cd73dc792216bd3c1b19">More...</a><br /></td></tr>
 <tr class="separator:a6a99f7504700cd73dc792216bd3c1b19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a65ad01115ff6cf7a488dd75c837e777b"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_input.html#a65ad01115ff6cf7a488dd75c837e777b">IsMouseKeyDown</a> (const <a class="el" href="_event_types_8hpp.html#a68cdb12948007098c9db56c850c98a61">EMouseKey</a>) const =0</td></tr>
+<tr class="memdesc:a65ad01115ff6cf7a488dd75c837e777b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if given mouse key is down.  <a href="class_i_input.html#a65ad01115ff6cf7a488dd75c837e777b">More...</a><br /></td></tr>
 <tr class="separator:a65ad01115ff6cf7a488dd75c837e777b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ace9e7f462a243d7483a117b6a999babc"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_input.html#ace9e7f462a243d7483a117b6a999babc">IsMouseKeyPressed</a> (const <a class="el" href="_event_types_8hpp.html#a68cdb12948007098c9db56c850c98a61">EMouseKey</a>) const =0</td></tr>
+<tr class="memdesc:ace9e7f462a243d7483a117b6a999babc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if given mouse key is pressed.  <a href="class_i_input.html#ace9e7f462a243d7483a117b6a999babc">More...</a><br /></td></tr>
 <tr class="separator:ace9e7f462a243d7483a117b6a999babc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a699583ba9a10eeeec28f8c87b2ff27ab"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_input.html#a699583ba9a10eeeec28f8c87b2ff27ab">SetMousePosition</a> (const <a class="el" href="_vector2_8hpp.html#ab50a46295e259c17345421d0fc1cb3bb">Vector2</a> &amp;)=0</td></tr>
+<tr class="memdesc:a699583ba9a10eeeec28f8c87b2ff27ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets new mouse position.  <a href="class_i_input.html#a699583ba9a10eeeec28f8c87b2ff27ab">More...</a><br /></td></tr>
 <tr class="separator:a699583ba9a10eeeec28f8c87b2ff27ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a19e555c8f726a1073bdc9fdbc01d24ce"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="_vector2_8hpp.html#ab50a46295e259c17345421d0fc1cb3bb">Vector2</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_input.html#a19e555c8f726a1073bdc9fdbc01d24ce">GetMousePosition</a> () const =0</td></tr>
+<tr class="memdesc:a19e555c8f726a1073bdc9fdbc01d24ce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns mouse position.  <a href="class_i_input.html#a19e555c8f726a1073bdc9fdbc01d24ce">More...</a><br /></td></tr>
 <tr class="separator:a19e555c8f726a1073bdc9fdbc01d24ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8bab6274226eaa7781370a7109299a15"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="_vector2_8hpp.html#ab50a46295e259c17345421d0fc1cb3bb">Vector2</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_input.html#a8bab6274226eaa7781370a7109299a15">GetRelativeMouseMotion</a> () const =0</td></tr>
+<tr class="memdesc:a8bab6274226eaa7781370a7109299a15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns relative moues motion.  <a href="class_i_input.html#a8bab6274226eaa7781370a7109299a15">More...</a><br /></td></tr>
 <tr class="separator:a8bab6274226eaa7781370a7109299a15"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a390a31b395a073a2714a4bc930c18bbb"><td class="memItemLeft" align="right" valign="top">virtual const <a class="el" href="_vector2_8hpp.html#ab50a46295e259c17345421d0fc1cb3bb">Vector2</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_input.html#a390a31b395a073a2714a4bc930c18bbb">GetMouseWheel</a> () const =0</td></tr>
+<tr class="memdesc:a390a31b395a073a2714a4bc930c18bbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns Mouse wheel motion.  <a href="class_i_input.html#a390a31b395a073a2714a4bc930c18bbb">More...</a><br /></td></tr>
 <tr class="separator:a390a31b395a073a2714a4bc930c18bbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a474e7fe8d984a3a01063f32f949f2348"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_input.html#a474e7fe8d984a3a01063f32f949f2348">SetMouseMode</a> (const <a class="el" href="_input_8hpp.html#a20a99bd071d8ef1f565ef983ae84393b">EMouseMode</a>)=0</td></tr>
+<tr class="memdesc:a474e7fe8d984a3a01063f32f949f2348"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets new mouse mode.  <a href="class_i_input.html#a474e7fe8d984a3a01063f32f949f2348">More...</a><br /></td></tr>
 <tr class="separator:a474e7fe8d984a3a01063f32f949f2348"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:add25583fa0e1045111064b483e2742c3"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="_input_8hpp.html#a20a99bd071d8ef1f565ef983ae84393b">EMouseMode</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_input.html#add25583fa0e1045111064b483e2742c3">GetMouseMode</a> () const =0</td></tr>
+<tr class="memdesc:add25583fa0e1045111064b483e2742c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns mouse mode.  <a href="class_i_input.html#add25583fa0e1045111064b483e2742c3">More...</a><br /></td></tr>
 <tr class="separator:add25583fa0e1045111064b483e2742c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab4e945cd562e9851e332023c2e7e78a7"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_input.html#ab4e945cd562e9851e332023c2e7e78a7">ShowCursor</a> (const bool)=0</td></tr>
+<tr class="memdesc:ab4e945cd562e9851e332023c2e7e78a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set if mouse cursor should be drawn.  <a href="class_i_input.html#ab4e945cd562e9851e332023c2e7e78a7">More...</a><br /></td></tr>
 <tr class="separator:ab4e945cd562e9851e332023c2e7e78a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8660cdc00fc2e7a3c72bbb1ba81dc144"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_input.html#a8660cdc00fc2e7a3c72bbb1ba81dc144">IsCursorVisible</a> () const =0</td></tr>
+<tr class="memdesc:a8660cdc00fc2e7a3c72bbb1ba81dc144"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns true if mouse cursor is drawn.  <a href="class_i_input.html#a8660cdc00fc2e7a3c72bbb1ba81dc144">More...</a><br /></td></tr>
 <tr class="separator:a8660cdc00fc2e7a3c72bbb1ba81dc144"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2dfdba5d01b55e3097fcbfd66f1a3bfb"><td class="memItemLeft" align="right" valign="top">virtual const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_input.html#a2dfdba5d01b55e3097fcbfd66f1a3bfb">GetClipBoardText</a> () const =0</td></tr>
+<tr class="memdesc:a2dfdba5d01b55e3097fcbfd66f1a3bfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns actual clipboard text.  <a href="class_i_input.html#a2dfdba5d01b55e3097fcbfd66f1a3bfb">More...</a><br /></td></tr>
 <tr class="separator:a2dfdba5d01b55e3097fcbfd66f1a3bfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5a7ec088b90dc862e445b0516bb2f4e5"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_input.html#a5a7ec088b90dc862e445b0516bb2f4e5">SetClipBoardText</a> (const std::string &amp;)=0</td></tr>
+<tr class="memdesc:a5a7ec088b90dc862e445b0516bb2f4e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets actual clipboard text.  <a href="class_i_input.html#a5a7ec088b90dc862e445b0516bb2f4e5">More...</a><br /></td></tr>
 <tr class="separator:a5a7ec088b90dc862e445b0516bb2f4e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_i_engine_module"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_i_engine_module')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_i_engine_module.html">IEngineModule</a></td></tr>
 <tr class="memitem:a215685399dbcdb64d0d60b6ae90dce02 inherit pub_methods_class_i_engine_module"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_engine_module.html#a215685399dbcdb64d0d60b6ae90dce02">IEngineModule</a> (const std::string &amp;aName)</td></tr>
@@ -148,43 +166,60 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:a9a881e268dd41ffec78398d27536e1da inherit pub_methods_class_i_engine_module"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_engine_module.html#a9a881e268dd41ffec78398d27536e1da">~IEngineModule</a> ()</td></tr>
 <tr class="separator:a9a881e268dd41ffec78398d27536e1da inherit pub_methods_class_i_engine_module"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa55c3398a7ad1a295b8bac85e7654302 inherit pub_methods_class_i_engine_module"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_engine_module.html#aa55c3398a7ad1a295b8bac85e7654302">Init</a> (const <a class="el" href="struct_s_engine_params.html">SEngineParams</a> &amp;)</td></tr>
+<tr class="memdesc:aa55c3398a7ad1a295b8bac85e7654302 inherit pub_methods_class_i_engine_module"><td class="mdescLeft">&#160;</td><td class="mdescRight">Init Engine Module.  <a href="class_i_engine_module.html#aa55c3398a7ad1a295b8bac85e7654302">More...</a><br /></td></tr>
 <tr class="separator:aa55c3398a7ad1a295b8bac85e7654302 inherit pub_methods_class_i_engine_module"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a353d34da9cf1f84b46d0a3646bc6ebf1 inherit pub_methods_class_i_engine_module"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_engine_module.html#a353d34da9cf1f84b46d0a3646bc6ebf1">Exit</a> ()</td></tr>
+<tr class="memdesc:a353d34da9cf1f84b46d0a3646bc6ebf1 inherit pub_methods_class_i_engine_module"><td class="mdescLeft">&#160;</td><td class="mdescRight">Shutdown Engine Module.  <a href="class_i_engine_module.html#a353d34da9cf1f84b46d0a3646bc6ebf1">More...</a><br /></td></tr>
 <tr class="separator:a353d34da9cf1f84b46d0a3646bc6ebf1 inherit pub_methods_class_i_engine_module"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_methods_class_i_updatable"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_class_i_updatable')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="class_i_updatable.html">IUpdatable</a></td></tr>
 <tr class="memitem:aea5cf84600a1dd26b77b331b907a3959 inherit pub_methods_class_i_updatable"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#aea5cf84600a1dd26b77b331b907a3959">IUpdatable</a> (const std::string &amp;aName)</td></tr>
+<tr class="memdesc:aea5cf84600a1dd26b77b331b907a3959 inherit pub_methods_class_i_updatable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct <a class="el" href="class_i_updatable.html" title="Interface for Updatables - Game States, in derrivied class UPDATABLE(CLASS_NAME) must be used.">IUpdatable</a> with given name.  <a href="class_i_updatable.html#aea5cf84600a1dd26b77b331b907a3959">More...</a><br /></td></tr>
 <tr class="separator:aea5cf84600a1dd26b77b331b907a3959 inherit pub_methods_class_i_updatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab888fbdde9c5e651c7a8f59753d832ec inherit pub_methods_class_i_updatable"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#ab888fbdde9c5e651c7a8f59753d832ec">~IUpdatable</a> ()</td></tr>
 <tr class="separator:ab888fbdde9c5e651c7a8f59753d832ec inherit pub_methods_class_i_updatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9a701ac0a01770df8ecdea799ba8136d inherit pub_methods_class_i_updatable"><td class="memItemLeft" align="right" valign="top">virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#a9a701ac0a01770df8ecdea799ba8136d">GetType</a> () const =0</td></tr>
 <tr class="separator:a9a701ac0a01770df8ecdea799ba8136d inherit pub_methods_class_i_updatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0f18ef4870404c59b50d7d6c97cf4271 inherit pub_methods_class_i_updatable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#a0f18ef4870404c59b50d7d6c97cf4271">SetName</a> (const std::string &amp;aName)</td></tr>
+<tr class="memdesc:a0f18ef4870404c59b50d7d6c97cf4271 inherit pub_methods_class_i_updatable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set Name.  <a href="class_i_updatable.html#a0f18ef4870404c59b50d7d6c97cf4271">More...</a><br /></td></tr>
 <tr class="separator:a0f18ef4870404c59b50d7d6c97cf4271 inherit pub_methods_class_i_updatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af1c9386612f548c41bb21c8bb9e31fd0 inherit pub_methods_class_i_updatable"><td class="memItemLeft" align="right" valign="top">const std::string &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#af1c9386612f548c41bb21c8bb9e31fd0">GetName</a> () const</td></tr>
+<tr class="memdesc:af1c9386612f548c41bb21c8bb9e31fd0 inherit pub_methods_class_i_updatable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Name.  <a href="class_i_updatable.html#af1c9386612f548c41bb21c8bb9e31fd0">More...</a><br /></td></tr>
 <tr class="separator:af1c9386612f548c41bb21c8bb9e31fd0 inherit pub_methods_class_i_updatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae592f42ea503a068927b5beae0d84c98 inherit pub_methods_class_i_updatable"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#ae592f42ea503a068927b5beae0d84c98">SetActive</a> (const bool x)</td></tr>
+<tr class="memdesc:ae592f42ea503a068927b5beae0d84c98 inherit pub_methods_class_i_updatable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set Active - Engine Modules Can`t be deactivated.  <a href="class_i_updatable.html#ae592f42ea503a068927b5beae0d84c98">More...</a><br /></td></tr>
 <tr class="separator:ae592f42ea503a068927b5beae0d84c98 inherit pub_methods_class_i_updatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3c00fa9fbbe6b5529808a729eaa4c28 inherit pub_methods_class_i_updatable"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#ae3c00fa9fbbe6b5529808a729eaa4c28">IsActive</a> () const</td></tr>
+<tr class="memdesc:ae3c00fa9fbbe6b5529808a729eaa4c28 inherit pub_methods_class_i_updatable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Is Active - Engine Modules Can`t be deactivated.  <a href="class_i_updatable.html#ae3c00fa9fbbe6b5529808a729eaa4c28">More...</a><br /></td></tr>
 <tr class="separator:ae3c00fa9fbbe6b5529808a729eaa4c28 inherit pub_methods_class_i_updatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6a2c425ef3e4672497fdbd3f6e783d45 inherit pub_methods_class_i_updatable"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#a6a2c425ef3e4672497fdbd3f6e783d45">OnInit</a> ()</td></tr>
+<tr class="memdesc:a6a2c425ef3e4672497fdbd3f6e783d45 inherit pub_methods_class_i_updatable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called only once, can be used to init something.  <a href="class_i_updatable.html#a6a2c425ef3e4672497fdbd3f6e783d45">More...</a><br /></td></tr>
 <tr class="separator:a6a2c425ef3e4672497fdbd3f6e783d45 inherit pub_methods_class_i_updatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a399ea2f2252ed8bf8156d0cb0e4d8eae inherit pub_methods_class_i_updatable"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#a399ea2f2252ed8bf8156d0cb0e4d8eae">OnEnter</a> ()</td></tr>
+<tr class="memdesc:a399ea2f2252ed8bf8156d0cb0e4d8eae inherit pub_methods_class_i_updatable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called everytime Container holding this Updatable is actived.  <a href="class_i_updatable.html#a399ea2f2252ed8bf8156d0cb0e4d8eae">More...</a><br /></td></tr>
 <tr class="separator:a399ea2f2252ed8bf8156d0cb0e4d8eae inherit pub_methods_class_i_updatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69ed05737704c5232db69883b7aa73b1 inherit pub_methods_class_i_updatable"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#a69ed05737704c5232db69883b7aa73b1">OnEvent</a> (const <a class="el" href="class_c_event.html">CEvent</a> &amp;)</td></tr>
+<tr class="memdesc:a69ed05737704c5232db69883b7aa73b1 inherit pub_methods_class_i_updatable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called for every sysem event.  <a href="class_i_updatable.html#a69ed05737704c5232db69883b7aa73b1">More...</a><br /></td></tr>
 <tr class="separator:a69ed05737704c5232db69883b7aa73b1 inherit pub_methods_class_i_updatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20422230fbfce2ce812213e9ba6c2a06 inherit pub_methods_class_i_updatable"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#a20422230fbfce2ce812213e9ba6c2a06">OnUpdate</a> (const float)</td></tr>
+<tr class="memdesc:a20422230fbfce2ce812213e9ba6c2a06 inherit pub_methods_class_i_updatable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Can be called 0, 1 or many time during update.  <a href="class_i_updatable.html#a20422230fbfce2ce812213e9ba6c2a06">More...</a><br /></td></tr>
 <tr class="separator:a20422230fbfce2ce812213e9ba6c2a06 inherit pub_methods_class_i_updatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae66c5b0be63cc05b1afe6749177befa7 inherit pub_methods_class_i_updatable"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#ae66c5b0be63cc05b1afe6749177befa7">OnLateUpdate</a> (const float)</td></tr>
+<tr class="memdesc:ae66c5b0be63cc05b1afe6749177befa7 inherit pub_methods_class_i_updatable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called only once after main update.  <a href="class_i_updatable.html#ae66c5b0be63cc05b1afe6749177befa7">More...</a><br /></td></tr>
 <tr class="separator:ae66c5b0be63cc05b1afe6749177befa7 inherit pub_methods_class_i_updatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15d6e90e502b7b0ab3cf009c0791f896 inherit pub_methods_class_i_updatable"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#a15d6e90e502b7b0ab3cf009c0791f896">OnGUI</a> ()</td></tr>
+<tr class="memdesc:a15d6e90e502b7b0ab3cf009c0791f896 inherit pub_methods_class_i_updatable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Used for ImGUI.  <a href="class_i_updatable.html#a15d6e90e502b7b0ab3cf009c0791f896">More...</a><br /></td></tr>
 <tr class="separator:a15d6e90e502b7b0ab3cf009c0791f896 inherit pub_methods_class_i_updatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac54378b73b803d15ed132396e52f38ea inherit pub_methods_class_i_updatable"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#ac54378b73b803d15ed132396e52f38ea">OnRender</a> ()</td></tr>
+<tr class="memdesc:ac54378b73b803d15ed132396e52f38ea inherit pub_methods_class_i_updatable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called on start rendering, can be used to drwa something or add something to Renderer3D.  <a href="class_i_updatable.html#ac54378b73b803d15ed132396e52f38ea">More...</a><br /></td></tr>
 <tr class="separator:ac54378b73b803d15ed132396e52f38ea inherit pub_methods_class_i_updatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa23850a383af551e924a067e9b11090a inherit pub_methods_class_i_updatable"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#aa23850a383af551e924a067e9b11090a">OnEndFrame</a> ()</td></tr>
+<tr class="memdesc:aa23850a383af551e924a067e9b11090a inherit pub_methods_class_i_updatable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called just before main loop cycle is ended.  <a href="class_i_updatable.html#aa23850a383af551e924a067e9b11090a">More...</a><br /></td></tr>
 <tr class="separator:aa23850a383af551e924a067e9b11090a inherit pub_methods_class_i_updatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a85023b523b0b14655200e8c357e18c68 inherit pub_methods_class_i_updatable"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#a85023b523b0b14655200e8c357e18c68">OnLeave</a> ()</td></tr>
+<tr class="memdesc:a85023b523b0b14655200e8c357e18c68 inherit pub_methods_class_i_updatable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called everytime Container holding this Updatable is deactived.  <a href="class_i_updatable.html#a85023b523b0b14655200e8c357e18c68">More...</a><br /></td></tr>
 <tr class="separator:a85023b523b0b14655200e8c357e18c68 inherit pub_methods_class_i_updatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af5cb6fc56c779ad90ddf0de44af664ec inherit pub_methods_class_i_updatable"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_updatable.html#af5cb6fc56c779ad90ddf0de44af664ec">OnExit</a> ()</td></tr>
+<tr class="memdesc:af5cb6fc56c779ad90ddf0de44af664ec inherit pub_methods_class_i_updatable"><td class="mdescLeft">&#160;</td><td class="mdescRight">Called only once, can be used to shutdown something.  <a href="class_i_updatable.html#af5cb6fc56c779ad90ddf0de44af664ec">More...</a><br /></td></tr>
 <tr class="separator:af5cb6fc56c779ad90ddf0de44af664ec inherit pub_methods_class_i_updatable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
@@ -195,7 +230,9 @@ Additional Inherited Members</h2></td></tr>
 <tr class="memitem:accea568757b9528356e613a9d0d6536c inherit pro_methods_class_non_copyable_movable"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_non_copyable_movable.html#accea568757b9528356e613a9d0d6536c">~NonCopyableMovable</a> ()=default</td></tr>
 <tr class="separator:accea568757b9528356e613a9d0d6536c inherit pro_methods_class_non_copyable_movable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Interface for Input Checking like Mouse and Keyboard. </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="aaf41ef080bf17d91d7393fc8ad7d4c3c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#aaf41ef080bf17d91d7393fc8ad7d4c3c">&#9670;&nbsp;</a></span>IInput()</h2>
 
@@ -297,6 +334,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns actual clipboard text. </p>
+
 <p>Implemented in <a class="el" href="class_c_s_d_l_input.html#a8eedf4c8999f045aa27d901d27c655f0">CSDLInput</a>.</p>
 
 </div>
@@ -323,6 +362,8 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns mouse mode. </p>
 
 <p>Implemented in <a class="el" href="class_c_s_d_l_input.html#a67981160d98c42413d3f775963c48bd6">CSDLInput</a>.</p>
 
@@ -351,6 +392,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns mouse position. </p>
+
 <p>Implemented in <a class="el" href="class_c_s_d_l_input.html#a94a2093ba337d2b9be0eefb1296ba0ac">CSDLInput</a>.</p>
 
 </div>
@@ -377,6 +420,8 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns Mouse wheel motion. </p>
 
 <p>Implemented in <a class="el" href="class_c_s_d_l_input.html#ae81ec71aacf29dae81e9d7e7aebb84a3">CSDLInput</a>.</p>
 
@@ -405,6 +450,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns relative moues motion. </p>
+
 <p>Implemented in <a class="el" href="class_c_s_d_l_input.html#a5ecf6a12691267b450c0d1cbe5416d30">CSDLInput</a>.</p>
 
 </div>
@@ -431,6 +478,8 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns true if mouse cursor is drawn. </p>
 
 <p>Implemented in <a class="el" href="class_c_s_d_l_input.html#a4b689388664867f1918ba74cbd5f4205">CSDLInput</a>.</p>
 
@@ -460,6 +509,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns true if given keyboard key is down. </p>
+
 <p>Implemented in <a class="el" href="class_c_s_d_l_input.html#ae0697a9248a34257906f22aa8b824ca2">CSDLInput</a>.</p>
 
 </div>
@@ -487,6 +538,8 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Returns true if given keyboard key is pressed. </p>
 
 <p>Implemented in <a class="el" href="class_c_s_d_l_input.html#a7223cd48e9903e630637629a2ab92b12">CSDLInput</a>.</p>
 
@@ -516,6 +569,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns true if given mouse key is down. </p>
+
 <p>Implemented in <a class="el" href="class_c_s_d_l_input.html#aad86702ffb94f48bff243e2723798cf7">CSDLInput</a>.</p>
 
 </div>
@@ -544,6 +599,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns true if given mouse key is pressed. </p>
+
 <p>Implemented in <a class="el" href="class_c_s_d_l_input.html#a12ed959aeca4e2066f5f53ba362e74b4">CSDLInput</a>.</p>
 
 </div>
@@ -570,6 +627,8 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Called just after main loop cycle is started. </p>
 
 <p>Reimplemented from <a class="el" href="class_i_updatable.html#a6f47418be7b277a107e7661a9a3f0d87">IUpdatable</a>.</p>
 
@@ -599,6 +658,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Sets actual clipboard text. </p>
+
 <p>Implemented in <a class="el" href="class_c_s_d_l_input.html#ae6a1bab13a5a72e971aa473894049115">CSDLInput</a>.</p>
 
 </div>
@@ -626,6 +687,8 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Sets new mouse mode. </p>
 
 <p>Implemented in <a class="el" href="class_c_s_d_l_input.html#a8779a4cc43a3f80ec30e0f46499677a6">CSDLInput</a>.</p>
 
@@ -655,6 +718,8 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Sets new mouse position. </p>
+
 <p>Implemented in <a class="el" href="class_c_s_d_l_input.html#ac73b2ad2f9bc80c9755d07c792721c9a">CSDLInput</a>.</p>
 
 </div>
@@ -682,6 +747,8 @@ Additional Inherited Members</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Set if mouse cursor should be drawn. </p>
 
 <p>Implemented in <a class="el" href="class_c_s_d_l_input.html#aa8bcdff312613c52ce25a507d2c11dc9">CSDLInput</a>.</p>
 

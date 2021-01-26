@@ -91,53 +91,52 @@ $(document).ready(function(){initNavTree('_memory_manager_8hpp_source.html','');
 <div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160; </div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">// For debug purposes</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno"><a class="line" href="class_c_memory_manager.html">    7</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_c_memory_manager.html">CMemoryManager</a> final: <span class="keyword">public</span> <a class="code" href="class_non_copyable_movable.html">NonCopyableMovable</a></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;{</div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;    <span class="keyword">struct </span>SRecord</div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;        <span class="keywordtype">void</span>* Ptr = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;        std::string File;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;        <span class="keywordtype">int</span> Line = 0;</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        SRecord(<span class="keywordtype">void</span>* aPtr, <span class="keyword">const</span> std::string&amp; aFile, <span class="keyword">const</span> <span class="keywordtype">int</span> aLine):</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;            Ptr(aPtr),</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;            File(aFile),</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;            Line(aLine)</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;        {</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;        }</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    };</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <a class="code" href="class_c_memory_manager.html#a2e609b1276459d743cfb91669007eee2">~CMemoryManager</a>();</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_c_memory_manager.html">CMemoryManager</a>&amp; <a class="code" href="class_c_memory_manager.html#a05feae93ba33666193f4a26f404e2fb0">GetInstance</a>();</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="comment">// Ptr, File, Line</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_memory_manager.html#a169cf2639d562374b1825081a7b9b0b7">AddRecord</a>(<span class="keywordtype">void</span>*, <span class="keyword">const</span> std::string&amp;, <span class="keyword">const</span> <span class="keywordtype">int</span>);</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="comment">// Ptr</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_memory_manager.html#a4767a12fccda35a6b1cbe6265d7ce867">EraseRecord</a>(<span class="keywordtype">void</span>*);</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_memory_manager.html#af537c58a2af6e9ca3d84d901c20aad37">Report</a>();</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="class_c_memory_manager.html">CMemoryManager</a>();</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    std::vector&lt;SRecord&gt; Records;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;};</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160; </div>
-<div class="line"><a name="l00039"></a><span class="lineno"><a class="line" href="_memory_manager_8hpp.html#a0e5f35383cf3ab6795f9813fa0243d83">   39</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="class_c_memory_manager.html">CMemoryManager</a>&amp; <a class="code" href="_memory_manager_8hpp.html#a0e5f35383cf3ab6795f9813fa0243d83">GetMemoryManager</a>()</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;{</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="class_c_memory_manager.html#a05feae93ba33666193f4a26f404e2fb0">CMemoryManager::GetInstance</a>();</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;}</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno"><a class="line" href="_memory_manager_8hpp.html#ae03f6f7a8d990aeba40f2eb289b33013">   44</a></span>&#160;<span class="preprocessor">#define ADD_MEMORY_RECORD(Ptr) GetMemoryManager().AddRecord( Ptr , __FILE__, __LINE__ )</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#define ERASE_MEMORY_RECORD(Ptr) GetMemoryManager().EraseRecord( Ptr )</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="class_c_memory_manager.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_c_memory_manager.html">CMemoryManager</a> final: <span class="keyword">public</span> <a class="code" href="class_non_copyable_movable.html">NonCopyableMovable</a></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;{</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">struct </span>SRecord</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;        <span class="keywordtype">void</span>* Ptr = <span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        std::string File;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;        <span class="keywordtype">int</span> Line = 0;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160; </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        SRecord(<span class="keywordtype">void</span>* aPtr, <span class="keyword">const</span> std::string&amp; aFile, <span class="keyword">const</span> <span class="keywordtype">int</span> aLine):</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            Ptr(aPtr),</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            File(aFile),</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            Line(aLine)</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        }</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    };</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <a class="code" href="class_c_memory_manager.html#a2e609b1276459d743cfb91669007eee2">~CMemoryManager</a>();</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">static</span> <a class="code" href="class_c_memory_manager.html">CMemoryManager</a>&amp; <a class="code" href="class_c_memory_manager.html#a05feae93ba33666193f4a26f404e2fb0">GetInstance</a>();</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <span class="comment">// Ptr, File, Line</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_memory_manager.html#a169cf2639d562374b1825081a7b9b0b7">AddRecord</a>(<span class="keywordtype">void</span>*, <span class="keyword">const</span> std::string&amp;, <span class="keyword">const</span> <span class="keywordtype">int</span>);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="comment">// Ptr</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_memory_manager.html#a4767a12fccda35a6b1cbe6265d7ce867">EraseRecord</a>(<span class="keywordtype">void</span>*);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_c_memory_manager.html#af537c58a2af6e9ca3d84d901c20aad37">Report</a>();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="class_c_memory_manager.html">CMemoryManager</a>();</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    std::vector&lt;SRecord&gt; Records;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;};</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno"><a class="line" href="_memory_manager_8hpp.html#a0e5f35383cf3ab6795f9813fa0243d83">   42</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="class_c_memory_manager.html">CMemoryManager</a>&amp; <a class="code" href="_memory_manager_8hpp.html#a0e5f35383cf3ab6795f9813fa0243d83">GetMemoryManager</a>()</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;{</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="class_c_memory_manager.html#a05feae93ba33666193f4a26f404e2fb0">CMemoryManager::GetInstance</a>();</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;}</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="_memory_manager_8hpp.html#ae03f6f7a8d990aeba40f2eb289b33013">   48</a></span>&#160;<span class="preprocessor">#define ADD_MEMORY_RECORD(Ptr) GetMemoryManager().AddRecord( Ptr , __FILE__, __LINE__ )</span></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160; </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;<span class="preprocessor">#define ERASE_MEMORY_RECORD(Ptr) GetMemoryManager().EraseRecord( Ptr )</span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="a_memory_manager_8hpp_html_a0e5f35383cf3ab6795f9813fa0243d83"><div class="ttname"><a href="_memory_manager_8hpp.html#a0e5f35383cf3ab6795f9813fa0243d83">GetMemoryManager</a></div><div class="ttdeci">CMemoryManager &amp; GetMemoryManager()</div><div class="ttdef"><b>Definition:</b> MemoryManager.hpp:39</div></div>
+<div class="ttc" id="a_memory_manager_8hpp_html_a0e5f35383cf3ab6795f9813fa0243d83"><div class="ttname"><a href="_memory_manager_8hpp.html#a0e5f35383cf3ab6795f9813fa0243d83">GetMemoryManager</a></div><div class="ttdeci">CMemoryManager &amp; GetMemoryManager()</div><div class="ttdef"><b>Definition:</b> MemoryManager.hpp:42</div></div>
 <div class="ttc" id="aclass_c_memory_manager_html_a2e609b1276459d743cfb91669007eee2"><div class="ttname"><a href="class_c_memory_manager.html#a2e609b1276459d743cfb91669007eee2">CMemoryManager::~CMemoryManager</a></div><div class="ttdeci">~CMemoryManager()</div><div class="ttdef"><b>Definition:</b> MemoryManager.cpp:11</div></div>
 <div class="ttc" id="aclass_c_memory_manager_html_af537c58a2af6e9ca3d84d901c20aad37"><div class="ttname"><a href="class_c_memory_manager.html#af537c58a2af6e9ca3d84d901c20aad37">CMemoryManager::Report</a></div><div class="ttdeci">void Report()</div><div class="ttdef"><b>Definition:</b> MemoryManager.cpp:39</div></div>
-<div class="ttc" id="aclass_c_memory_manager_html"><div class="ttname"><a href="class_c_memory_manager.html">CMemoryManager</a></div><div class="ttdef"><b>Definition:</b> MemoryManager.hpp:8</div></div>
+<div class="ttc" id="aclass_c_memory_manager_html"><div class="ttname"><a href="class_c_memory_manager.html">CMemoryManager</a></div><div class="ttdoc">For debug purposes. After Engine destruction reports alleged memroy leaks. Works with only two macros...</div><div class="ttdef"><b>Definition:</b> MemoryManager.hpp:11</div></div>
 <div class="ttc" id="aclass_c_memory_manager_html_a4767a12fccda35a6b1cbe6265d7ce867"><div class="ttname"><a href="class_c_memory_manager.html#a4767a12fccda35a6b1cbe6265d7ce867">CMemoryManager::EraseRecord</a></div><div class="ttdeci">void EraseRecord(void *)</div><div class="ttdef"><b>Definition:</b> MemoryManager.cpp:27</div></div>
 <div class="ttc" id="aclass_non_copyable_movable_html"><div class="ttname"><a href="class_non_copyable_movable.html">NonCopyableMovable</a></div><div class="ttdef"><b>Definition:</b> NonCopyable.hpp:29</div></div>
 <div class="ttc" id="aclass_c_memory_manager_html_a169cf2639d562374b1825081a7b9b0b7"><div class="ttname"><a href="class_c_memory_manager.html#a169cf2639d562374b1825081a7b9b0b7">CMemoryManager::AddRecord</a></div><div class="ttdeci">void AddRecord(void *, const std::string &amp;, const int)</div><div class="ttdef"><b>Definition:</b> MemoryManager.cpp:22</div></div>

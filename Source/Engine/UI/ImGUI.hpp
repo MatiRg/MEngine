@@ -11,6 +11,10 @@
 class IInput;
 class IGraphics;
 
+/**
+  \class CImGUI
+  \brief Debug UI system, use in OnGUI() callback
+*/
 class CImGUI final: public IEngineModule
 {
 public:
@@ -28,51 +32,51 @@ public:
 
     void Draw();
 
-    // Title
+    //! Title
     void Begin(const std::string&);
-    // Title, Flags
+    //! Title, Flags
     void Begin(const std::string&, const EImGUIWindowFlags);
-    // Title, Position, Size
+    //! Title, Position, Size
     void Begin(const std::string&, const IntVector2&, const IntVector2&);
-    // Title, Position, Size, Flags
+    //! Title, Position, Size, Flags
     void Begin(const std::string&, const IntVector2&, const IntVector2&, const EImGUIWindowFlags);
     void End();
 
-    // Name, Selected, Values
+    //! Name, Selected, Values
     void Combo(const std::string&, int&, const std::vector<std::string>&);
 
-    // Name, Value
+    //! Name, Value
     void CheckBox(const std::string&, bool&);
 
-    // Text
+    //! Text
     void Text(const std::string&);
-    // Text, Color
+    //! Text, Color
     void TextColor(const std::string&, const Color&);
-    // Name, Value
+    //! Name, Value
     void InputText(const std::string&, std::string&);
-    // Name, Value
+    //! Name, Value
     void InputFloat(const std::string&, float&);
-    // Name, Value
+    //! Name, Value
     void InputVector2(const std::string&, Vector2&);
-    // Name, Value
+    //! Name, Value
     void InputVector3(const std::string&, Vector3&);
-    // Name, Value
+    //! Name, Value
     void InputVector4(const std::string&, Vector4&);
-    // Name, Value
+    //! Name, Value
     void InputRect2(const std::string&, Rect2&);
-    // Name, Value
+    //! Name, Value
     void InputRect2(const std::string&, IntRect2&);
-    // Name
+    //! Name
     bool Button(const std::string&);
-    // Next widget is in same line
+    //1 Next widget is in same line
     void SameLine();
-    // Collapsible Header, Name
+    //! Collapsible Header, Name
     bool Header(const std::string&);
 
-    // Name/ID
+    //! Name/ID
     bool BeginItemContextMenu(const std::string&);
     bool BeginWindowContextMenu(const std::string&);
-    // Name/ID
+    //! Name/ID
     void OpenContextMenu(const std::string&);
     void EndContextMenu();
 
@@ -80,15 +84,15 @@ public:
     void ClosePopup();
     bool BeginPopup(const std::string&);
     void EndPopup();
-    // Name
+    //! Name
     bool BeginMenu(const std::string&);
-    // Name, Enabled
+    //! Name, Enabled
     bool BeginMenu(const std::string&, const bool); 
-    // Name
+    //! Name
     bool MenuItem(const std::string&);
-    // Name, Enabled
+    //! Name, Enabled
     bool MenuItem(const std::string&, const bool);
-    // Horizontal Line
+    //! Horizontal Line
     void Separator();
     void EndMenu();
 

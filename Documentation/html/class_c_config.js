@@ -1,6 +1,6 @@
 var class_c_config =
 [
-    [ "CConfig", "class_c_config.html#ae580388e079511a04b6bedc1c9597fc3", null ],
+    [ "CConfig", "class_c_config.html#ab20db23867ecc15926f20b10118d1c6e", null ],
     [ "~CConfig", "class_c_config.html#ad129a0d7fbca66d68a61ba60080e2e67", null ],
     [ "GetBool", "class_c_config.html#ac5bd8cecaead4555d0df8fea9c6a3e23", null ],
     [ "GetColor", "class_c_config.html#a0be0b1e207c6119215fa8369bb097b8e", null ],

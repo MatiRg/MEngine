@@ -20,7 +20,7 @@ var class_i_graphics =
     [ "GetPolygonMode", "class_i_graphics.html#ae33be7bb9437dc87b7b5bc60853b4623", null ],
     [ "GetViewport", "class_i_graphics.html#acdaa487a92cc11599511440babdc54ef", null ],
     [ "IsBlendActive", "class_i_graphics.html#ac637200f40d711f949e52391827af5b9", null ],
-    [ "IsCullActiva", "class_i_graphics.html#a7a5fa90f4fafadfce1240d09479e46a9", null ],
+    [ "IsCullActive", "class_i_graphics.html#aed60f82dea2799cf740a29c8a2888f54", null ],
     [ "IsDepthActive", "class_i_graphics.html#a9c5f7c816719db2ffc5d00d655986275", null ],
     [ "IsSoftware", "class_i_graphics.html#a758cc1fda58d2469f5edb08faa77ed9d", null ],
     [ "SaveWindowSurface", "class_i_graphics.html#aee140516b0339182db83ead77d6b4882", null ],

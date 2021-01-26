@@ -98,11 +98,13 @@ $(document).ready(function(){initNavTree('_engine_module_8hpp.html',''); initRes
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_engine_module.html">IEngineModule</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface for Engine modules, in derrivied class <a class="el" href="_engine_module_8hpp.html#ae819ff40a9200cbe8e2a0902960a2893" title="Macro used for setting up primitive reflection for IEngineModule.">ENGINE_MODULE(CLASS_NAME)</a> must be used.  <a href="class_i_engine_module.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:ae819ff40a9200cbe8e2a0902960a2893"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_engine_module_8hpp.html#ae819ff40a9200cbe8e2a0902960a2893">ENGINE_MODULE</a>(X)</td></tr>
+<tr class="memdesc:ae819ff40a9200cbe8e2a0902960a2893"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro used for setting up primitive reflection for <a class="el" href="class_i_engine_module.html" title="Interface for Engine modules, in derrivied class ENGINE_MODULE(CLASS_NAME) must be used.">IEngineModule</a>.  <a href="_engine_module_8hpp.html#ae819ff40a9200cbe8e2a0902960a2893">More...</a><br /></td></tr>
 <tr class="separator:ae819ff40a9200cbe8e2a0902960a2893"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -124,6 +126,14 @@ Macros</h2></td></tr>
 <b>Value:</b><div class="fragment"><div class="line">                         std::string GetType() const override final { <span class="keywordflow">return</span> #X; } \</div>
 <div class="line">                         static std::string GetTypeStatic() { <span class="keywordflow">return</span> #X; }</div>
 </div><!-- fragment -->
+<p>Macro used for setting up primitive reflection for <a class="el" href="class_i_engine_module.html" title="Interface for Engine modules, in derrivied class ENGINE_MODULE(CLASS_NAME) must be used.">IEngineModule</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">X</td><td>Class Name that is derrivied from <a class="el" href="class_i_engine_module.html" title="Interface for Engine modules, in derrivied class ENGINE_MODULE(CLASS_NAME) must be used.">IEngineModule</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 </div><!-- contents -->

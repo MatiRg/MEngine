@@ -6,18 +6,22 @@
 #include <memory>
 #include <fstream>
 
-// Synchronized with C# counter part - Severity
+//! Log level 
 enum class ESeverity
 {
-    Verbose = 0, /// Everything
+    Verbose = 0, //! Everything
     Debug   = 1,
     Info    = 2,
     Warning = 3,
     Error   = 4,
-    Fatal   = 5,
+    Fatal   = 5, //! Only Fatal
     Script  = 6
 };
 
+/**
+  \class ISink
+  \brief Interface for Appending data to Logger
+*/
 class ISink: public NonCopyableMovable 
 {
 public:
@@ -78,7 +82,16 @@ inline CLog& GetLog()
     return CLog::GetInstance();
 }
 
+/**
+ * \brief Macro used for logging data
+ * \param Severity Level of message
+ */
 #define LOG(Severity) if( Severity >= GetLog().GetSeverity() ) GetLog().Write( Severity )
+/**
+ * \brief Macro used for conditional logging data
+ * \param Severity Level of message
+ * \param Condition Condition
+ */
 #define LOG_IF(Severity, Condition) if( Condition ) LOG( Severity )
 
 //

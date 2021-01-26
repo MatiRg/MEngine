@@ -4,6 +4,10 @@
 
 class CEngine;
 
+/**
+  \class CWorld
+  \brief Root where all objects are created
+*/
 class CWorld final: public CEntity
 {
 public:
@@ -12,14 +16,16 @@ public:
 
     ENTITY(CWorld)
 
+    //! Sets world ambient light color
     void SetAmbientColor(const Color& v) { AmbientColor = v; }
+    //! Gets world ambient light color
     const Color& GetAmbientColor() const { return AmbientColor; }
 
     void OnRender() override;
 
-    // Path + Name.world
+    //! Load world from given file
     bool Load(const std::string&);
-    // Path + Name.world
+    //! Save world to given file
     bool Save(const std::string&);
 
     void OnEntityCreate(CEntity*);

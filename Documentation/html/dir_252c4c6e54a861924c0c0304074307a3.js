@@ -21,6 +21,8 @@ var dir_252c4c6e54a861924c0c0304074307a3 =
     [ "Material.hpp", "_material_8hpp.html", "_material_8hpp" ],
     [ "Model.cpp", "_model_8cpp.html", null ],
     [ "Model.hpp", "_model_8hpp.html", "_model_8hpp" ],
+    [ "PostEffect.cpp", "_post_effect_8cpp.html", null ],
+    [ "PostEffect.hpp", "_post_effect_8hpp.html", "_post_effect_8hpp" ],
     [ "Renderable2D.cpp", "_renderable2_d_8cpp.html", null ],
     [ "Renderable2D.hpp", "_renderable2_d_8hpp.html", [
       [ "IRenderable2D", "class_i_renderable2_d.html", "class_i_renderable2_d" ],

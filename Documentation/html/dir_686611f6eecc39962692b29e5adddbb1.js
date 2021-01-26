@@ -1,55 +1,10 @@
 var dir_686611f6eecc39962692b29e5adddbb1 =
 [
+    [ "Box2D", "dir_2672d5e0d7e33f6fc9a1e552a5e403c7.html", "dir_2672d5e0d7e33f6fc9a1e552a5e403c7" ],
+    [ "Bullet", "dir_ca98e3ee17ac8bc3fa949dee11c3bffa.html", "dir_ca98e3ee17ac8bc3fa949dee11c3bffa" ],
     [ "NullAudio", "dir_ca1be141bf0cbe6bd6ad7c3e7f5c946a.html", "dir_ca1be141bf0cbe6bd6ad7c3e7f5c946a" ],
     [ "OGL", "dir_7591c8c0ff3fd9898a2342d4292ad215.html", "dir_7591c8c0ff3fd9898a2342d4292ad215" ],
-    [ "Box2DCollisionShape2D.cpp", "_box2_d_collision_shape2_d_8cpp.html", null ],
-    [ "Box2DCollisionShape2D.hpp", "_box2_d_collision_shape2_d_8hpp.html", [
-      [ "CBox2DCollisionShape2D", "class_c_box2_d_collision_shape2_d.html", "class_c_box2_d_collision_shape2_d" ]
-    ] ],
-    [ "Box2DPhysics2D.cpp", "_box2_d_physics2_d_8cpp.html", null ],
-    [ "Box2DPhysics2D.hpp", "_box2_d_physics2_d_8hpp.html", [
-      [ "CBox2DPhysics2D", "class_c_box2_d_physics2_d.html", "class_c_box2_d_physics2_d" ]
-    ] ],
-    [ "Box2DPhysicsWorld2D.cpp", "_box2_d_physics_world2_d_8cpp.html", null ],
-    [ "Box2DPhysicsWorld2D.hpp", "_box2_d_physics_world2_d_8hpp.html", [
-      [ "CBox2DDebugDraw", "class_c_box2_d_debug_draw.html", "class_c_box2_d_debug_draw" ],
-      [ "CBox2DPhysicsWorld2D", "class_c_box2_d_physics_world2_d.html", "class_c_box2_d_physics_world2_d" ]
-    ] ],
-    [ "Box2DRigidBody2D.cpp", "_box2_d_rigid_body2_d_8cpp.html", null ],
-    [ "Box2DRigidBody2D.hpp", "_box2_d_rigid_body2_d_8hpp.html", [
-      [ "CBox2DRigidBody2D", "class_c_box2_d_rigid_body2_d.html", "class_c_box2_d_rigid_body2_d" ]
-    ] ],
-    [ "Box2DUtils.hpp", "_box2_d_utils_8hpp.html", "_box2_d_utils_8hpp" ],
-    [ "BulletCollisionShape3D.cpp", "_bullet_collision_shape3_d_8cpp.html", null ],
-    [ "BulletCollisionShape3D.hpp", "_bullet_collision_shape3_d_8hpp.html", [
-      [ "CBulletCollisionShape3D", "class_c_bullet_collision_shape3_d.html", "class_c_bullet_collision_shape3_d" ]
-    ] ],
-    [ "BulletPhysics3D.cpp", "_bullet_physics3_d_8cpp.html", null ],
-    [ "BulletPhysics3D.hpp", "_bullet_physics3_d_8hpp.html", [
-      [ "CBulletPhysics3D", "class_c_bullet_physics3_d.html", "class_c_bullet_physics3_d" ]
-    ] ],
-    [ "BulletPhysicsWorld3D.cpp", "_bullet_physics_world3_d_8cpp.html", null ],
-    [ "BulletPhysicsWorld3D.hpp", "_bullet_physics_world3_d_8hpp.html", [
-      [ "CBulletPhysicsWorld3D", "class_c_bullet_physics_world3_d.html", "class_c_bullet_physics_world3_d" ]
-    ] ],
-    [ "BulletRigidBody3D.cpp", "_bullet_rigid_body3_d_8cpp.html", null ],
-    [ "BulletRigidBody3D.hpp", "_bullet_rigid_body3_d_8hpp.html", [
-      [ "CBulletRigidBody3D", "class_c_bullet_rigid_body3_d.html", "class_c_bullet_rigid_body3_d" ]
-    ] ],
-    [ "OALAudio.cpp", "_o_a_l_audio_8cpp.html", null ],
-    [ "OALAudio.hpp", "_o_a_l_audio_8hpp.html", [
-      [ "COALAudio", "class_c_o_a_l_audio.html", "class_c_o_a_l_audio" ]
-    ] ],
-    [ "OALSound.cpp", "_o_a_l_sound_8cpp.html", null ],
-    [ "OALSound.hpp", "_o_a_l_sound_8hpp.html", [
-      [ "COALSound", "class_c_o_a_l_sound.html", "class_c_o_a_l_sound" ]
-    ] ],
-    [ "OALSoundData.cpp", "_o_a_l_sound_data_8cpp.html", null ],
-    [ "OALSoundData.hpp", "_o_a_l_sound_data_8hpp.html", [
-      [ "COALSoundData", "class_c_o_a_l_sound_data.html", "class_c_o_a_l_sound_data" ]
-    ] ],
-    [ "OALUtils.cpp", "_o_a_l_utils_8cpp.html", "_o_a_l_utils_8cpp" ],
-    [ "OALUtils.hpp", "_o_a_l_utils_8hpp.html", "_o_a_l_utils_8hpp" ],
+    [ "SFMLAudio", "dir_0a028502e67420868ff10ca3cb5e993a.html", "dir_0a028502e67420868ff10ca3cb5e993a" ],
     [ "SDLContext.cpp", "_s_d_l_context_8cpp.html", null ],
     [ "SDLContext.hpp", "_s_d_l_context_8hpp.html", [
       [ "CSDLContext", "class_c_s_d_l_context.html", "class_c_s_d_l_context" ]

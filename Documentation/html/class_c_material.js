@@ -5,7 +5,6 @@ var class_c_material =
     [ "~CMaterial", "class_c_material.html#ad4e986a9a628c785b4f0a0684064a2ca", null ],
     [ "Bind", "class_c_material.html#ade34622cc934bb6afc6db72b9b0a4934", null ],
     [ "GetShader", "class_c_material.html#a060e38924341e9c47476407e5d74ce69", null ],
-    [ "GetVariable", "class_c_material.html#af61c9ff911379b563702e22a40b5b170", null ],
     [ "HasShader", "class_c_material.html#a2d07671f248cef596fbfa758f2b86e59", null ],
     [ "HasVariable", "class_c_material.html#ad7d9483ad516c6a6dc734687287de47c", null ],
     [ "Load", "class_c_material.html#a3be84dfa0a4d766d09a18194a8e679f2", null ],

@@ -87,22 +87,22 @@ $(document).ready(function(){initNavTree('_main_8hpp_source.html',''); initResiz
 </div><!--header-->
 <div class="contents">
 <a href="_main_8hpp.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160; </div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="comment">// Args</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno"><a class="line" href="_main_8hpp.html#a11922d4b2846a6762f40b9dc15d466cb">    6</a></span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="_main_8hpp.html#a11922d4b2846a6762f40b9dc15d466cb">EngineMain</a>(<span class="keyword">const</span> std::vector&lt;std::string&gt;&amp;);</div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
-<div class="line"><a name="l00008"></a><span class="lineno"><a class="line" href="_main_8hpp.html#a1959ff07410cfdccfca956b24d9b938a">    8</a></span>&#160;<span class="preprocessor">#define ENTRY_POINT(Class, File) int EngineMain(const std::vector&lt;std::string&gt;&amp; Cmd) \</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">{ \</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">    GetLog().AddSink( std::make_shared&lt;CFileSink&gt;( File ) ); \</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">    Class GameApp; \</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">    return GameApp.Run( Cmd ); \</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">}</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_types_8hpp.html">Core/Types.hpp</a>&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160; </div>
+<div class="line"><a name="l00009"></a><span class="lineno"><a class="line" href="_main_8hpp.html#a6a098f284ab35e896ac6589131affe50">    9</a></span>&#160;<span class="keyword">extern</span> <span class="keywordtype">int</span> <a class="code" href="_main_8hpp.html#a6a098f284ab35e896ac6589131affe50">EngineMain</a>(<span class="keyword">const</span> <a class="code" href="_types_8hpp.html#ac02054ca3c46b4cc20e81fa189f833af">StringVec</a>&amp; Args);</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno"><a class="line" href="_main_8hpp.html#a1959ff07410cfdccfca956b24d9b938a">   17</a></span>&#160;<span class="preprocessor">#define ENTRY_POINT(Class, File) int EngineMain(const StringVec&amp; Cmd) \</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">{ \</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">    GetLog().AddSink( std::make_shared&lt;CFileSink&gt;( File ) ); \</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">    Class GameApp; \</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">    return GameApp.Run( Cmd ); \</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">}</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="a_main_8hpp_html_a11922d4b2846a6762f40b9dc15d466cb"><div class="ttname"><a href="_main_8hpp.html#a11922d4b2846a6762f40b9dc15d466cb">EngineMain</a></div><div class="ttdeci">int EngineMain(const std::vector&lt; std::string &gt; &amp;)</div></div>
+<div class="ttc" id="a_main_8hpp_html_a6a098f284ab35e896ac6589131affe50"><div class="ttname"><a href="_main_8hpp.html#a6a098f284ab35e896ac6589131affe50">EngineMain</a></div><div class="ttdeci">int EngineMain(const StringVec &amp;Args)</div><div class="ttdoc">Engine Main Function that is called from int main() which is hidden in Engine Library.</div></div>
+<div class="ttc" id="a_types_8hpp_html_ac02054ca3c46b4cc20e81fa189f833af"><div class="ttname"><a href="_types_8hpp.html#ac02054ca3c46b4cc20e81fa189f833af">StringVec</a></div><div class="ttdeci">std::vector&lt; std::string &gt; StringVec</div><div class="ttdef"><b>Definition:</b> Types.hpp:7</div></div>
+<div class="ttc" id="a_types_8hpp_html"><div class="ttname"><a href="_types_8hpp.html">Types.hpp</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

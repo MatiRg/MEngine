@@ -16,6 +16,7 @@ var class_t_vector2 =
     [ "Length", "class_t_vector2.html#a78fa720c45c67ec0a227b94ebf2869c6", null ],
     [ "LengthSquared", "class_t_vector2.html#a970fd34185fb0b952f937489a2032cda", null ],
     [ "Normalize", "class_t_vector2.html#a5e3939fba70f57e55473f4b001812c7d", null ],
+    [ "Normalized", "class_t_vector2.html#a41c8d8050eebc7bda503b9a1f9808a77", null ],
     [ "operator*", "class_t_vector2.html#a74f555f7a95873ae2d70c5b8368f56d5", null ],
     [ "operator*", "class_t_vector2.html#a098f10611e3e9bb54af9a83980ef435c", null ],
     [ "operator*=", "class_t_vector2.html#a4bb3eb7960d105ed9804b2bb64476649", null ],

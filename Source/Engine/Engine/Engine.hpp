@@ -26,22 +26,48 @@ class CScriptModule;
 class CPerformanceCounters;
 struct SEngineParams;
 
+/**
+  \class CEngine
+  \brief Encapsulated Main Loop, Creates Engine Modules
+*/
 class CEngine final: public NonCopyableMovable
 {
 public:
-    CEngine(IContext*);
+    /**
+     * \brief Construct CEngine
+     * \param aContext Pointer to class that implements IContext interface. Ownership is not taken.
+     */
+    CEngine(IContext* aContext);
     ~CEngine();
 
+    /**
+     * \brief Create Engine, called by CApp
+     * \return Return true on success or false if not
+     */
     bool Create();
-    bool Init(const SEngineParams&);
+    /**
+     * \brief Init Engine, called by CApp
+     * \param aParams Engine Creation Parameters
+     * \return Return true on success or false if not
+     */
+    bool Init(const SEngineParams& aParams);
+    //! OnInit Engine, called by CApp
     void OnInit();
+    //! OnExit Engine, called by CApp
     void OnExit();
+    //! Exit Engine, called by CApp
     void Exit();
 
-    void SetupTicks(const uint32_t);
+    /**
+     * \brief Setup Main Loop Timer to number of ticks
+     * \param aTicks Number of ticks, example: 60 or 30
+     */
+    void SetupTicks(const uint32_t aTicks);
 
+    //! Engine Main Loop - Fixed Delta Time for Simulation, Rendering at Different Framerates
     void Run();
 
+    //! Exit Main Loop, called by CApp, Use CApp::Quit()
     void Quit() { Loop = false; }
 
     ISystem* GetSystem() const { return System; }
@@ -64,9 +90,16 @@ public:
     CScriptModule* GetScriptModule() const { return ScriptModule.get(); }
     CPerformanceCounters* GetPerformanceCounters() const { return Counter.get(); }
 
-    // Type
-    IEngineModule* GetModule(const std::string&) const;
-    // Type
+    /**
+     * \brief Get Engine Module by Type Name
+     * \param aType Name of the Class
+     * \return Return Pointer if found given module or nullptr if not
+     */
+    IEngineModule* GetModule(const std::string& aType) const;
+    /**
+     * \brief Get Engine Module by Template, class must be derrivied from IEngineModule
+     * \return Return Pointer if found given module or nullptr if not
+     */
     template<class T>
     T* GetModule() const
     {
@@ -75,6 +108,7 @@ public:
     }
 private:
     uint32_t Ticks = 0u;
+    //! Delta Time Value
     float DeltaTime = 0.0f;
     float CurrentTime = 0.0f;
     float Accumulator = 0.0f; 

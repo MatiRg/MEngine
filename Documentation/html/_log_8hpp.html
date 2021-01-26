@@ -103,6 +103,7 @@ $(document).ready(function(){initNavTree('_log_8hpp.html',''); initResizable(); 
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_sink.html">ISink</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Interface for Appending data to Logger.  <a href="class_i_sink.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_log.html">CLog</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -114,8 +115,10 @@ Classes</h2></td></tr>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:a1bd0524f040055949b7ac231f13bf0af"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_log_8hpp.html#a1bd0524f040055949b7ac231f13bf0af">LOG</a>(Severity)&#160;&#160;&#160;if( Severity &gt;= <a class="el" href="_log_8hpp.html#a9a6d032944a1896aa8ff166aa6675c71">GetLog</a>().GetSeverity() ) <a class="el" href="_log_8hpp.html#a9a6d032944a1896aa8ff166aa6675c71">GetLog</a>().Write( Severity )</td></tr>
+<tr class="memdesc:a1bd0524f040055949b7ac231f13bf0af"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro used for logging data.  <a href="_log_8hpp.html#a1bd0524f040055949b7ac231f13bf0af">More...</a><br /></td></tr>
 <tr class="separator:a1bd0524f040055949b7ac231f13bf0af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adef0828479d8610ca035a203356e14ec"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_log_8hpp.html#adef0828479d8610ca035a203356e14ec">LOG_IF</a>(Severity,  Condition)&#160;&#160;&#160;if( Condition ) <a class="el" href="_log_8hpp.html#a1bd0524f040055949b7ac231f13bf0af">LOG</a>( Severity )</td></tr>
+<tr class="memdesc:adef0828479d8610ca035a203356e14ec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Macro used for conditional logging data.  <a href="_log_8hpp.html#adef0828479d8610ca035a203356e14ec">More...</a><br /></td></tr>
 <tr class="separator:adef0828479d8610ca035a203356e14ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
@@ -131,6 +134,7 @@ Enumerations</h2></td></tr>
 <a class="el" href="_log_8hpp.html#a1367b7b1041692c28ef450e8d0511216af907e651164789346ae0a1e257c462d8">ESeverity::Script</a> = 6
 <br />
  }</td></tr>
+<tr class="memdesc:a1367b7b1041692c28ef450e8d0511216"><td class="mdescLeft">&#160;</td><td class="mdescRight">Log level.  <a href="_log_8hpp.html#a1367b7b1041692c28ef450e8d0511216">More...</a><br /></td></tr>
 <tr class="separator:a1367b7b1041692c28ef450e8d0511216"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -154,6 +158,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Macro used for logging data. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Severity</td><td>Level of message </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
@@ -183,6 +195,15 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Macro used for conditional logging data. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">Severity</td><td>Level of message </td></tr>
+    <tr><td class="paramname">Condition</td><td>Condition </td></tr>
+  </table>
+  </dd>
+</dl>
+
 </div>
 </div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
@@ -205,6 +226,8 @@ Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Log level. </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a1367b7b1041692c28ef450e8d0511216ad4a9fa383ab700c5bdd6f31cf7df0faf"></a>Verbose&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a1367b7b1041692c28ef450e8d0511216aa603905470e2a5b8c13e96b579ef0dba"></a>Debug&#160;</td><td class="fielddoc"><p>Everything. </p>
@@ -213,7 +236,8 @@ Functions</h2></td></tr>
 <tr><td class="fieldname"><a id="a1367b7b1041692c28ef450e8d0511216a0eaadb4fcb48a0a0ed7bc9868be9fbaa"></a>Warning&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a1367b7b1041692c28ef450e8d0511216a902b0d55fddef6f8d651fe1035b7d4bd"></a>Error&#160;</td><td class="fielddoc"></td></tr>
 <tr><td class="fieldname"><a id="a1367b7b1041692c28ef450e8d0511216a882384ec38ce8d9582b57e70861730e4"></a>Fatal&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a1367b7b1041692c28ef450e8d0511216af907e651164789346ae0a1e257c462d8"></a>Script&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a1367b7b1041692c28ef450e8d0511216af907e651164789346ae0a1e257c462d8"></a>Script&#160;</td><td class="fielddoc"><p>Only Fatal. </p>
+</td></tr>
 </table>
 
 </div>

@@ -1,5 +1,5 @@
 Add CMaterial Options -> Texture Filter/Ani, Double Sided, Blend Mode/Enabled, Depth Mode/Enabled, Pass Type -> Solid or Transparent
-Add 3D.
+Rework 2D Rendering to 3D rendering -> Scene Module Part CCamera2D(Ortho) to CCamera
 add reload method to IResource
 Proper Physics Update
 Support some components multiple, some unique add static method bool CanMultiple() - defined by macro COMPONENT; CreateComponent will return if only one or unique per entity

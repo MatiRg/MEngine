@@ -21,7 +21,7 @@ var class_c_o_g_l_graphics =
     [ "GetViewport", "class_c_o_g_l_graphics.html#a2e2138ff1b9fe9b04f8e2a9a62231bce", null ],
     [ "Init", "class_c_o_g_l_graphics.html#a4feb558c2fc192b6416e97cba5266e57", null ],
     [ "IsBlendActive", "class_c_o_g_l_graphics.html#aa679dea20226d23fdb50fa98d981104c", null ],
-    [ "IsCullActiva", "class_c_o_g_l_graphics.html#af6c98aa83322112c85a66e1deb6c27a1", null ],
+    [ "IsCullActive", "class_c_o_g_l_graphics.html#a916c30d33493ebac9bf4e82a7f24f7d0", null ],
     [ "IsDepthActive", "class_c_o_g_l_graphics.html#a3b72c6b3dd3a754a515fb96a5f618b41", null ],
     [ "IsSoftware", "class_c_o_g_l_graphics.html#af50b2f483a02cc8f2ee9592779743bca", null ],
     [ "OnEvent", "class_c_o_g_l_graphics.html#ace9cb023e5315b2838a91c9466e350d9", null ],
