@@ -16,7 +16,7 @@ Turned on/off in CMake Options.
  * F10 - Performance Counters - How munch each Engine Stages takes time
  * F11 - ImGUI Demo
 ### Graphics
- * Basic 2D Drawing
+ * Basic 2D Drawing - Rework/Remove
  * Basic 3D Rendering
  * Supports Basic User Created Post Effects
  * Supports Directional Lights and Ambient Lights
@@ -36,7 +36,7 @@ Engine comes with several sample for easier use.
  * Audio Playback(C++) - How work with sound
  * Post Effect(C++) - How work with Post Effect stack
  * Labirynth(C++) - Simple 3D Game
- * Test2D(C++) - Simple 2D Example: Features Simple Game and Physics 2D Test
+ * Test2D(C++) - Simple 2D Example: Features Simple Game and Physics 2D Test - Rework/Remove
 ## Documentation
 Documention consists of two parts:
  * Doxygen generated part for Classes, functions etc. 
