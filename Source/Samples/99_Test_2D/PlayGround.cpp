@@ -114,7 +114,7 @@ public:
 
         ResourceCreateMap ResVar;
         ResVar[RESOURCES_VAR_IS_STREAM] = true;
-        AudioSource->SetData(Engine->GetResources()->CreateResource<ISoundData>("menu.ogg", ResVar));
+        AudioSource->SetData(Engine->GetResources()->CreateResource<ISoundData>("Debussy - Arabesque No. 1 (Ciccolini).ogg", ResVar));
 
         AudioSource->Play();
 

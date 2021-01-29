@@ -28,13 +28,15 @@ Audio Files Can be converted with Audacity for example.
  * 3D Sound play back is supported only for Mono Sounds
  * Supported Formats: WAV and OGG 
 ### Samples
-Engine comes with several sample for easier use.
+Engine comes with several samples for easier use.
  * Hello World(C++) - Empty Application
  * Updatables(C++) - How to manage and create Updatables(Game States)
  * Engine Modules(C++) - How to manage and create User Engine Modules
  * Scene Creation(C++) - How to Create World and work with
- * Audio Playback(C++) - How work with sound
- * Post Effect(C++) - How work with Post Effect stack
+ * Audio Playback(C++) - How to work with sound
+ * Post Effect(C++) - How to work with Post Effect stack
+ * Sky(C++) - How to work create Sky Dome
+ * Physics(C++) - How to work with Physics Engine
  * Labirynth(C++) - Simple 3D Game
  * Test2D(C++) - Simple 2D Example: Features Simple Game and Physics 2D Test - Rework/Remove
 ## Documentation
@@ -52,7 +54,7 @@ Source Directory
 If You want to help with development please see these points below.
 ### Style Guide
 See [STYLEGUIDE.md](STYLEGUIDE.md)
-## Third Party
+## Third Party and Credits
 See [THIRDPARTY.md](THIRDPARTY.md)
 ## License
 See [LICENSE.txt](LICENSE.txt)
