@@ -11,6 +11,9 @@
 #include "Components/Camera.hpp"
 #include "Components/MeshRenderer.hpp"
 #include "Components/LightComponent.hpp"
+#include "Components/RigidBody3D.hpp"
+#include "Components/PhysicsWorld3D.hpp"
+#include "Components/BoxCollider3D.hpp"
 #include "../Engine/Engine.hpp"
 
 CScene::CScene(CEngine* aEngine):
@@ -36,6 +39,9 @@ bool CScene::Init(const SEngineParams&)
     RegisterComponentFactory<CCamera>();
     RegisterComponentFactory<CMeshRenderer>();
     RegisterComponentFactory<CLightComponent>();
+    RegisterComponentFactory<CBoxCollider3D>();
+    RegisterComponentFactory<CRigidBody3D>();
+    RegisterComponentFactory<CPhysicsWorld3D>();
     //
     RegisterEntityFactory<CEntity>();
 

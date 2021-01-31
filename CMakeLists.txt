@@ -143,6 +143,7 @@ set(SOURCES_BASE
 	Source/Engine/Implementation/Bullet/BulletPhysicsWorld3D.hpp
 	Source/Engine/Implementation/Bullet/BulletRigidBody3D.cpp
 	Source/Engine/Implementation/Bullet/BulletRigidBody3D.hpp
+	Source/Engine/Implementation/Bullet/BulletUtils.hpp
 	Source/Engine/Implementation/SDLEventQueue.cpp
 	Source/Engine/Implementation/SDLEventQueue.hpp
 	Source/Engine/Implementation/SDLFont.cpp
@@ -216,6 +217,12 @@ set(SOURCES_BASE
 	Source/Engine/Scene/Components/PhysicsWorld2D.cpp
 	Source/Engine/Scene/Components/RigidBody2D.hpp
 	Source/Engine/Scene/Components/RigidBody2D.cpp
+	Source/Engine/Scene/Components/PhysicsWorld3D.hpp
+	Source/Engine/Scene/Components/PhysicsWorld3D.cpp
+	Source/Engine/Scene/Components/BoxCollider3D.hpp
+	Source/Engine/Scene/Components/BoxCollider3D.cpp
+	Source/Engine/Scene/Components/RigidBody3D.hpp
+	Source/Engine/Scene/Components/RigidBody3D.cpp
 	Source/Engine/Scene/Component.cpp
 	Source/Engine/Scene/Component.hpp
 	Source/Engine/Scene/Entity.cpp
@@ -352,7 +359,7 @@ if("${CMAKE_SYSTEM_NAME}" MATCHES "Windows")
 	
 	if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
 		set(LIBS SDL2main SDL2 SDL2_image SDL2_ttf sfml-audio sfml-system box2d assimp-vc142-mt BulletCollision BulletDynamics BulletInverseDynamics BulletSoftBody LinearMath)
-		set(LIBS_DBG SDL2main SDL2 SDL2_image SDL2_ttf sfml-audio-d sfml-system-d box2d assimp-vc142-mt BulletCollision BulletDynamics BulletInverseDynamics BulletSoftBody LinearMath)
+		set(LIBS_DBG SDL2main SDL2 SDL2_image SDL2_ttf sfml-audio-d sfml-system-d box2d assimp-vc142-mt BulletCollision_Debug BulletDynamics_Debug BulletInverseDynamics_Debug BulletSoftBody_Debug LinearMath_Debug)
 	elseif(CMAKE_CXX_COMPILER_ID MATCHES "Clang|GNU")
 		set(LIBS SDL2main SDL2.dll SDL2_image.dll SDL2_ttf.dll openal.dll) # TO DO
 		set(LIBS_DBG ${LIBS})
@@ -415,7 +422,8 @@ set(LIBS
 	MyEngine 
 	${LIBS}
 )
-set(LIBRARIES debug ${LIBS_DBG} optimized ${LIBS})
+#set(LIBRARIES debug ${LIBS_DBG} optimized ${LIBS}) # Fix
+set(LIBRARIES ${LIBS_DBG})
 
 target_link_libraries(HelloWorld ${LIBRARIES})
 target_link_libraries(UpdatablesSample ${LIBRARIES})

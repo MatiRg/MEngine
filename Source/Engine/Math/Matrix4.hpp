@@ -416,8 +416,8 @@ namespace Math
     TMatrix4<T> LookAt(const TVector3<T>& Camera, const TVector3<T>& Position, const TVector3<T>& Up)
     {
         TVector3<T> f = Normalize(Position - Camera);
-        TVector3<T> s = Normalize(CrossProduct(f, Up));
-        TVector3<T> u = CrossProduct(s, f);
+        TVector3<T> s = Normalize(CrossProduct(Up, f)); // f, Up For RH
+        TVector3<T> u = CrossProduct(f, s); // s, f For RH
 
         TMatrix4<T> R;
 
@@ -427,12 +427,12 @@ namespace Math
         R[1] = u.x;
         R[5] = u.y;
         R[9] = u.z;
-        R[2] = f.x;
-        R[6] = f.y;
-        R[10] = f.z;
+        R[2] = f.x; // - For RH
+        R[6] = f.y; // - For RH
+        R[10] = f.z; // - For RH
         R[12] = -DotProduct(s, Camera);
         R[13] = -DotProduct(u, Camera);
-        R[14] = -DotProduct(f, Camera);
+        R[14] = -DotProduct(f, Camera); // + For RH
 
         return R;
     }
@@ -447,8 +447,8 @@ namespace Math
 
         Result[0] = T(1) / (Aspect * HalfTan);
         Result[5] = T(1) / (HalfTan);
-        Result[10] = (Far + Near) / (Far - Near);
-        Result[11] = T(1);
+        Result[10] = (Far + Near) / (Far - Near); // - For RH
+        Result[11] = T(1); // - For RH
         Result[14] = -(T(2) * Far * Near) / (Far - Near);
         Result[15] = T(0);
 
@@ -466,7 +466,7 @@ namespace Math
 
         R[0] = T(2) / (Right - Left);
         R[5] = T(2) / (Top - Bottom);
-        R[10] = T(2) / (Far - Near);
+        R[10] = T(2) / (Far - Near); // - For RH
         R[12] = -(Right + Left) / (Right - Left);
         R[13] = -(Top + Bottom) / (Top - Bottom);
         R[14] = -(Far + Near) / (Far - Near);

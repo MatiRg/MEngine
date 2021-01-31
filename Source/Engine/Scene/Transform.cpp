@@ -1,5 +1,6 @@
 #include "Transform.hpp"
 #include "../Core/XML.hpp"
+#include <algorithm> 
 
 CTransform::CTransform()
 {

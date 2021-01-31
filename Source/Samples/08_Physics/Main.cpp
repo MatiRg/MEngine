@@ -33,9 +33,13 @@ public:
     {
         // Set Mouse Mode for Free Camera
         App->GetInput()->SetMouseMode(EMouseMode::Relative);
+
         // Create World
         World = std::make_unique<CWorld>( App->GetEngine() );
-        //
+        // Create Physics World
+        CPhysicsWorld3D* PhysicsWorld = World->CreateComponent<CPhysicsWorld3D>();
+        PhysicsWorld->SetGravity( {0.0f, -10.0f, 0.0f} );
+
         // Create Sky Dome
         CEntity* SkyDome = World->CreateModel<CEntity>("sky2.dae");
         // Make it Big
@@ -51,7 +55,7 @@ public:
         LightSun->SetTemperature(2500.f);
         // Set Proper Rotation
         Sun->GetTransform().SetRotation(Quaternion(-30.0f, 0.0f, 0.0f));
-        //
+       
         // Create Camera Object
         CameraObject = World->CreateChild<CEntity>();
         // Create Camera Component Required
@@ -64,6 +68,11 @@ public:
         CameraComponent->SetNearClipPlane(0.3f);
         // ... and Far Plane
         CameraComponent->SetFarClipPlane(1000.0f);
+
+        // Create Physics Box
+        CEntity* Box1 = World->CreateModel<CEntity>("cube.dae");
+        Box1->GetTransform().SetWorldPosition( {0.0f, 0.0f, -10.0f} );
+        Box1->CreateComponent<CRigidBody3D>();
     }
 
     void OnUpdate(const float TimeStep) override
