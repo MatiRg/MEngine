@@ -8,6 +8,39 @@
 #include "../../Core/XML.hpp"
 #include "../Entity.hpp"
 
+#define WORLD_PHYSICS_3D_CALLBACK(Func) \
+    CRigidBody3D* BodyA = Contact.BodyA->GetUserDataAs<CRigidBody3D>(); \
+    CRigidBody3D* BodyB = Contact.BodyB->GetUserDataAs<CRigidBody3D>(); \
+    CEntity* EntityA = BodyA->GetOwner(); \
+    CEntity* EntityB = BodyB->GetOwner(); \
+    SEntityCollision3D DataA(BodyB, EntityB, Contact.ContactPoints); \
+    EntityA-> Func (DataA); \
+    SEntityCollision3D DataB(BodyA, EntityA, Contact.ContactPoints); \
+    EntityB-> Func (DataB); 
+
+class CWorldContactCallback3D : public IContactCallback3D
+{
+public:
+    void OnCollisionEnter(const SContact3D& Contact) override 
+    {
+        WORLD_PHYSICS_3D_CALLBACK(OnCollisionEnter)
+    }
+
+    void OnCollisionStay(const SContact3D& Contact) override
+    {
+        WORLD_PHYSICS_3D_CALLBACK(OnCollisionStay)
+    }
+
+    void OnCollisionLeave(const SContact3D& Contact) override
+    {
+        WORLD_PHYSICS_3D_CALLBACK(OnCollisionLeave)
+    }
+};
+
+#undef WORLD_PHYSICS_3D_CALLBACK
+
+//
+
 CPhysicsWorld3D::CPhysicsWorld3D(CEngine* aEngine): 
     IComponent(aEngine)
 {
@@ -19,7 +52,9 @@ CPhysicsWorld3D::~CPhysicsWorld3D()
 
 void CPhysicsWorld3D::OnCreate()
 {
+    Callback = std::make_unique<CWorldContactCallback3D>();
     World = Engine->GetPhysics3D()->CreateWorld( {0.0f, -10.0f, 0.0f} );
+    World->SetContactCallback(Callback.get());
 }
 
 bool CPhysicsWorld3D::OnLoad(CXMLElement* Root)

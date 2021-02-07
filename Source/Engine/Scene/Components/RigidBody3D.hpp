@@ -22,6 +22,46 @@ public:
 
     void OnBeginFrame() override;
 
+    void SetGravity(const Vector3&);
+    Vector3 GetGravity() const;
+
+    void SetMass(float);
+    float GetMass() const;
+
+    void SetLinearVelocity(const Vector3&);
+    Vector3 GetLinearVelocity() const;
+
+    void SetAngularVelocity(const Vector3&);
+    Vector3 GetAngularVelocity() const;
+
+    void AddForce(const Vector3&);
+    void AddForceAtPosition(const Vector3&, const Vector3&);
+    void AddTorque(const Vector3&);
+
+    void SetFriction(const float);
+    float GetFriction() const;
+
+    void SetRollingFriction(const float);
+    float GetRollingFriction() const;
+
+    void SetRestitution(const float);
+    float GetRestitution() const;
+
+    void SetLinearFactor(const Vector3&);
+    Vector3 GetLinearFactor() const;
+
+    void SetAngularFactor(const Vector3&);
+    Vector3 GetAngularFactor() const;
+
+    void SetLinearDamping(const float);
+    float GetLinearDamping() const;
+
+    void SetAngularDamping(const float);
+    float GetAngularDamping() const;
+
+    void SetBodyType(const ERigidBodyType3D);
+    ERigidBodyType3D GetBodyType() const;
+
     IRigidBody3D* GetBody() const { return Body; }
 private:
     CPhysicsWorld3D* PhysicsWorld3D = nullptr;

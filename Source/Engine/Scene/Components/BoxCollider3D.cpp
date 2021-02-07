@@ -31,11 +31,11 @@ void CBoxCollider3D::OnCreate()
     }
     Shape = PhysicsWorld3D->GetWorld()->CreateBoxShape({ 0.5f });
     Shape->SetUserData(this);
-    CRigidBody3D* Body = GetOwner()->GetComponent<CRigidBody3D>();
+    /*CRigidBody3D* Body = GetOwner()->GetComponent<CRigidBody3D>();
     if (!Body)
     {
         Body = GetOwner()->CreateComponent<CRigidBody3D>();
-    }
+    }*/
 }
 
 bool CBoxCollider3D::OnLoad(CXMLElement* Root)

@@ -1,7 +1,8 @@
-#pragma once
+﻿#pragma once
 #include <string>
 #include <memory>
 #include <vector>
+#include <utility>
 
 namespace Utils
 {
@@ -29,4 +30,24 @@ namespace Utils
     std::u16string ToUTF16(const std::string&);
 
     int GetHexDigit(char, const int);
+
+    // See boost::​hash_combine
+    // Pass hash values starting from 0
+    void HashCombine(std::size_t&, const std::size_t);
 }
+
+struct PairHash
+{
+    template<class T1, class T2>
+    std::size_t operator()(const std::pair<T1, T2>& Pair) const
+    {
+        std::size_t a1 = std::hash<T1>()(Pair.first);
+        std::size_t a2 = std::hash<T2>()(Pair.second);
+        //
+        std::size_t Out = 0u;
+        Utils::HashCombine(Out, a1);
+        Utils::HashCombine(Out, a2);
+        return Out;
+        //return a1 ^ (a2 << 1); // Replace with something better
+    }
+};

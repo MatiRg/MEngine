@@ -189,6 +189,7 @@ set(SOURCES_BASE
 	Source/Engine/Physics/PhysicsWorld3D.hpp
 	Source/Engine/Physics/RigidBody3D.cpp
 	Source/Engine/Physics/RigidBody3D.hpp
+	Source/Engine/Physics/Contact3D.hpp
 	Source/Engine/Resources/Resource.cpp
 	Source/Engine/Resources/Resource.hpp
 	Source/Engine/Resources/ResourceManager.cpp

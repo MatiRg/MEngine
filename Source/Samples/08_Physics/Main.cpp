@@ -18,6 +18,62 @@ private:
     std::unique_ptr<CLevel> Level;
 };
 
+// Create Custom Entity Class
+
+class CGameObject: public CEntity
+{
+public:
+    //! Proper Constructor
+    CGameObject(CEngine* aEngine):
+        CEntity(aEngine)
+    {
+    }
+
+    virtual ~CGameObject()
+    {
+    }
+
+    //! Use for Reflection Basic - Must be Used
+    ENTITY(CGameObject)
+
+    void OnGUI() override
+    {
+        CImGUI* UI = Engine->GetImGUI();
+        UI->Begin("Collision Info");
+        if (HasCollision)
+        {
+            UI->Text(CollisionInfo);
+        }
+        else
+        {
+            UI->Text("No Collision!");
+        }
+        UI->End();
+    }
+
+    void OnCollisionEnter(const SEntityCollision3D& Collision) override
+    {
+        HasCollision = true;
+        CollisionInfo = "ID: " + std::to_string(Collision.Entity->GetID()) + " -> " + Collision.Entity->GetName();
+    }
+
+    void OnCollisionStay(const SEntityCollision3D& Collision) override
+    {
+        CollisionInfo = "ID: " + std::to_string(Collision.Entity->GetID()) + " -> " + Collision.Entity->GetName();
+    }
+
+    void OnCollisionLeave(const SEntityCollision3D& Collision) override
+    {
+        CollisionInfo = "ID: " + std::to_string(Collision.Entity->GetID()) + " -> " + Collision.Entity->GetName();
+        HasCollision = false;
+    }
+private:
+    bool HasCollision = false;
+    std::string CollisionInfo;
+};
+
+//
+
 class CLevel : public IUpdatable
 {
 public:
@@ -27,6 +83,8 @@ public:
 
     void OnInit() override
     {
+        // Register Custom Entity Class
+        App->GetScene()->RegisterEntityFactory<CGameObject>();
     }
 
     void OnEnter() override 
@@ -43,7 +101,7 @@ public:
         // Create Sky Dome
         CEntity* SkyDome = World->CreateModel<CEntity>("sky2.dae");
         // Make it Big
-        SkyDome->GetTransform().SetScale(Vector3(250.0f));
+        SkyDome->GetTransform().SetScale(Vector3(500.0f));
         //
         // Create Sun Entity
         CEntity* Sun = World->CreateChild<CEntity>();
@@ -52,7 +110,7 @@ public:
         // Set Type
         LightSun->SetLightType(ELightType::Direction);
         // Set Color - From Kelvin Temperature
-        LightSun->SetTemperature(2500.f);
+        LightSun->SetTemperature(5500.f);
         // Set Proper Rotation
         Sun->GetTransform().SetRotation(Quaternion(-30.0f, 0.0f, 0.0f));
        
@@ -69,10 +127,33 @@ public:
         // ... and Far Plane
         CameraComponent->SetFarClipPlane(1000.0f);
 
-        // Create Physics Box
-        CEntity* Box1 = World->CreateModel<CEntity>("cube.dae");
-        Box1->GetTransform().SetWorldPosition( {0.0f, 0.0f, -10.0f} );
-        Box1->CreateComponent<CRigidBody3D>();
+        // Create Physics Box, Using our Custom Entity Class
+        Box1 = World->CreateModel<CGameObject>("cube.dae");
+        // Set Name
+        Box1->SetName("FallingBox");
+        // Change Position
+        Box1->GetTransform().SetPosition( {0.0f, 0.0f, -10.0f} );
+        // First Create Collision Shape
+        Box1->CreateComponent<CBoxCollider3D>();
+        // ... Then RigidBody
+        CRigidBody3D* Body1 = Box1->CreateComponent<CRigidBody3D>();
+        // Change Gravity for Body1
+        Body1->SetGravity( Vector3::DOWN*3.33f );
+
+        // Create Ground
+        CEntity* Ground = World->CreateModel<CEntity>("cube.dae");
+        // Set Name
+        Ground->SetName("Ground");
+        // Change Position
+        Ground->GetTransform().SetPosition({ 0.0f, -5.0f, -10.0f });
+        // Change Rotation
+        Ground->GetTransform().SetRotation(Quaternion(33.0f, 33.0f, 0.0f));
+        // First Create Collision Shape
+        Ground->CreateComponent<CBoxCollider3D>();
+        // ... Then RigidBody
+        CRigidBody3D* GroundBody = Ground->CreateComponent<CRigidBody3D>();
+        // Make it Static Body
+        GroundBody->SetBodyType(ERigidBodyType3D::Static);
     }
 
     void OnUpdate(const float TimeStep) override
@@ -135,6 +216,12 @@ public:
 
         // Set Updated FOV
         CameraComponent->SetFOV(Fov);
+
+        // Add Force
+        if (Input->IsMouseKeyDown(EMouseKey::LButton))
+        {
+            Box1->GetComponent<CRigidBody3D>()->AddForce(Box1->GetTransform().GetForward()*30.0f);
+        }
     }
 
     void OnLeave() override
@@ -159,6 +246,8 @@ private:
     CEntity* CameraObject = nullptr;
     // For easier use
     CCamera* CameraComponent = nullptr;
+    // Physics Box 1
+    CGameObject* Box1 = nullptr;
 };
 
 bool CMainApp::Init()

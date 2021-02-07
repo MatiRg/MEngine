@@ -18,6 +18,8 @@ CBulletPhysicsWorld3D::CBulletPhysicsWorld3D()
 	World = std::make_unique<btDiscreteDynamicsWorld>(Dispatcher.get(), BroadphaseInterface.get(), SequentialImpulseConstraintSolver.get(), CollisionConfiguration.get());
 	World->setGravity({ 0.0f, -10.0f, 0.0f });
 	World->setWorldUserInfo(this);
+	World->getDispatchInfo().m_useContinuous = true;
+	World->getSolverInfo().m_splitImpulse = false; // Performance Fix ?
 }
 
 CBulletPhysicsWorld3D::~CBulletPhysicsWorld3D()
@@ -110,6 +112,91 @@ void CBulletPhysicsWorld3D::DestroyBody(IRigidBody3D* Body)
 void CBulletPhysicsWorld3D::OnUpdate(const float DT)
 {
 	World->stepSimulation(DT, 10);
+	// Collisions
+	Collisions.clear();
+	int NumManifolds = Dispatcher->getNumManifolds();
+	for (int i = 0; i < NumManifolds; ++i)
+	{
+		btPersistentManifold* Manifold = Dispatcher->getManifoldByIndexInternal(i);
+		// Could Be None
+		if (!Manifold->getNumContacts())
+		{
+			continue;
+		}
+		//
+		auto CBa = Manifold->getBody0();
+		auto CBb = Manifold->getBody1();
+		CBulletRigidBody3D* BodyA = static_cast<CBulletRigidBody3D*>(CBa->getUserPointer());
+		CBulletRigidBody3D* BodyB = static_cast<CBulletRigidBody3D*>(CBb->getUserPointer());
+		// Skip static object they are static after all
+		if (BodyA->GetBodyType() == ERigidBodyType3D::Static && BodyB->GetBodyType() == ERigidBodyType3D::Static)
+		{
+			continue;
+		}
+		// Proper Order For Hash and Detection
+		//if (BodyA <= BodyB)
+		//{
+		Collisions[{BodyA, BodyB}] = Manifold;
+		//}
+		//else
+		//{
+		//	Collisions[{BodyB, BodyA}] = Manifold;
+		//}
+	}
+	//
+	for (const auto& i : Collisions)
+	{
+		CBulletRigidBody3D* BodyA = i.first.first;
+		CBulletRigidBody3D* BodyB = i.first.second;
+		btPersistentManifold* Manifold = i.second;
+		SContact3D Contact = MakeContactFromManifold(BodyA, BodyB, Manifold);
+		//
+		auto It = PreviousCollisions.find(i.first);
+		if( It != PreviousCollisions.end() )
+		{
+			// OnStay
+			if (ContactCallback)
+			{
+				ContactCallback->OnCollisionStay(Contact);
+			}
+			PreviousCollisions.erase(It);
+		}
+		else
+		{
+			// OnEnter
+			if (ContactCallback)
+			{
+				ContactCallback->OnCollisionEnter(Contact);
+			}
+		}
+	}
+	for (const auto& i : PreviousCollisions)
+	{
+		CBulletRigidBody3D* BodyA = i.first.first;
+		CBulletRigidBody3D* BodyB = i.first.second;
+		btPersistentManifold* Manifold = i.second;
+		SContact3D Contact = MakeContactFromManifold(BodyA, BodyB, Manifold);
+		// OnLeave
+		if (ContactCallback)
+		{
+			ContactCallback->OnCollisionLeave(Contact);
+		}
+	}
+	//
+	PreviousCollisions = Collisions;
+}
+
+SContact3D CBulletPhysicsWorld3D::MakeContactFromManifold(CBulletRigidBody3D* BodyA, CBulletRigidBody3D* BodyB, btPersistentManifold* Manifold) const
+{
+	SContact3D Contact(BodyA, BodyB);
+	int NumContacts = Manifold->getNumContacts();
+	for (int i = 0; i < NumContacts; ++i)
+	{
+		const auto& Point = Manifold->getContactPoint(i);
+		//
+		Contact.ContactPoints.push_back({ ToVector3(Point.m_normalWorldOnB), ToVector3(Point.m_positionWorldOnB) });
+	}
+	return Contact;
 }
 
 void CBulletPhysicsWorld3D::DebugDraw(CRenderer3D*)

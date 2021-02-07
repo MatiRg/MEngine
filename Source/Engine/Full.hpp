@@ -72,6 +72,7 @@
 #include "Physics/CollisionShape3D.hpp"
 #include "Physics/PhysicsWorld3D.hpp"
 #include "Physics/RigidBody3D.hpp"
+#include "Physics/Contact3D.hpp"
 
 #include "Resources/Resource.hpp"
 #include "Resources/ResourceManager.hpp"

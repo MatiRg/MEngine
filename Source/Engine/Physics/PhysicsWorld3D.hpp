@@ -1,10 +1,22 @@
 #pragma once
 #include "../Core/NonCopyable.hpp"
 #include "../Math/Vector3.hpp"
+#include "Contact3D.hpp"
 
 class CRenderer3D;
 class ICollisionShape3D;
 class IRigidBody3D;
+
+class IContactCallback3D
+{
+public:
+    IContactCallback3D() = default;
+    virtual ~IContactCallback3D() = default;
+
+    virtual void OnCollisionEnter(const SContact3D&) {}
+    virtual void OnCollisionStay(const SContact3D&) {}
+    virtual void OnCollisionLeave(const SContact3D&) {}
+};
 
 class IPhysicsWorld3D: public NonCopyableMovable
 {
@@ -25,4 +37,10 @@ public:
     virtual void DestroyBody(IRigidBody3D*) = 0;
 
     virtual void DebugDraw(CRenderer3D*) = 0;
+
+    //! Will not Takes Ownership
+    void SetContactCallback(IContactCallback3D* aContactCallback) { ContactCallback = aContactCallback; }
+    IContactCallback3D* GetContactCallback() const { return ContactCallback; }
+protected:
+    IContactCallback3D* ContactCallback = nullptr;
 };

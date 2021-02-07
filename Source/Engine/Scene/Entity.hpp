@@ -1,6 +1,7 @@
 #pragma once
 #include "../Core/NonCopyable.hpp"
 #include "../Physics/Contact2D.hpp"
+#include "../Physics/Contact3D.hpp"
 #include "EventManager.hpp"
 #include "Event.hpp"
 #include "Component.hpp"
@@ -31,12 +32,9 @@ static constexpr int INVALID_ENTITY = -1000;
 class CRigidBody2D;
 class CBoxCollider2D;
 
-// 3D
-class CMeshNode;
-
 struct SEntityCollision2D
 {
-    SEntityCollision2D(CRigidBody2D* aRigidBody, CBoxCollider2D* aCollider) :
+    SEntityCollision2D(CRigidBody2D* aRigidBody, CBoxCollider2D* aCollider):
         RigidBody(aRigidBody),
         Collider(aCollider)
     {
@@ -44,6 +42,25 @@ struct SEntityCollision2D
 
     CRigidBody2D* RigidBody = nullptr;
     CBoxCollider2D* Collider = nullptr;
+};
+
+// 3D
+
+class CMeshNode;
+class CRigidBody3D;
+
+struct SEntityCollision3D
+{
+    SEntityCollision3D(CRigidBody3D* aRigidBody, CEntity* aEntity, const std::vector<SContactPoint3D>& aContacts):
+        RigidBody(aRigidBody),
+        Entity(aEntity),
+        Contacts(aContacts)
+    {
+    }
+
+    CRigidBody3D* RigidBody = nullptr;
+    CEntity* Entity = nullptr;
+    std::vector<SContactPoint3D> Contacts;
 };
 
 // 
@@ -395,7 +412,10 @@ public:
     // 2D
     virtual void OnCollisionEnter(const SEntityCollision2D&) {}
     virtual void OnCollisionLeave(const SEntityCollision2D&) {}
-    //
+    // 3D
+    virtual void OnCollisionEnter(const SEntityCollision3D&) {}
+    virtual void OnCollisionStay(const SEntityCollision3D&) {}
+    virtual void OnCollisionLeave(const SEntityCollision3D&) {}
 
     template<class E, class F>
     void Subscribe(const F& aFunction)

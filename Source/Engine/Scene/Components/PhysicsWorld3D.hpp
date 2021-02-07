@@ -3,6 +3,8 @@
 #include "../../Physics/PhysicsWorld3D.hpp"
 #include <memory>
 
+class CWorldContactCallback3D;
+
 // Should be always attached to World(Root) Object
 class CPhysicsWorld3D final: public IComponent
 {
@@ -29,4 +31,5 @@ public:
 private:
     std::unique_ptr<IPhysicsWorld3D> World;
     bool DebugDraw = false;
+    std::unique_ptr<CWorldContactCallback3D> Callback;
 };

@@ -102,3 +102,138 @@ void CRigidBody3D::OnBeginFrame()
     Owner->GetTransform().SetWorldPosition(Body->GetPosition(), true);
     Owner->GetTransform().SetWorldRotation(Body->GetRotation(), true);
 }
+
+void CRigidBody3D::SetGravity(const Vector3& x)
+{
+    Body->SetGravity(x);
+}
+
+Vector3 CRigidBody3D::GetGravity() const
+{
+    return Body->GetGravity();
+}
+
+void CRigidBody3D::SetMass(float x)
+{
+    Body->SetMass(x);
+}
+
+float CRigidBody3D::GetMass() const
+{
+    return Body->GetMass();
+}
+
+void CRigidBody3D::SetLinearVelocity(const Vector3& x)
+{
+    Body->SetLinearVelocity(x);
+}
+
+Vector3 CRigidBody3D::GetLinearVelocity() const
+{
+    return Body->GetLinearVelocity();
+}
+
+void CRigidBody3D::SetAngularVelocity(const Vector3& x)
+{
+    Body->SetAngularVelocity(x);
+}
+
+Vector3 CRigidBody3D::GetAngularVelocity() const
+{
+    return Body->GetAngularVelocity();
+}
+
+void CRigidBody3D::AddForce(const Vector3& x)
+{
+    Body->AddForce(x);
+}
+
+void CRigidBody3D::AddForceAtPosition(const Vector3& x, const Vector3& p)
+{
+    Body->AddForceAtPosition(x, p);
+}
+
+void CRigidBody3D::AddTorque(const Vector3& x)
+{
+    Body->AddTorque(x);
+}
+
+void CRigidBody3D::SetFriction(const float x)
+{
+    Body->SetFriction(x);
+}
+
+float CRigidBody3D::GetFriction() const
+{
+    return Body->GetFriction();
+}
+
+void CRigidBody3D::SetRollingFriction(const float x)
+{
+    Body->SetRollingFriction(x);
+}
+
+float CRigidBody3D::GetRollingFriction() const
+{
+    return Body->GetRollingFriction();
+}
+
+void CRigidBody3D::SetRestitution(const float x)
+{
+    Body->SetRestitution(x);
+}
+
+float CRigidBody3D::GetRestitution() const
+{
+    return Body->GetRestitution();
+}
+
+void CRigidBody3D::SetLinearFactor(const Vector3& x)
+{
+    Body->SetLinearFactor(x);
+}
+
+Vector3 CRigidBody3D::GetLinearFactor() const
+{
+    return Body->GetLinearFactor();
+}
+
+void CRigidBody3D::SetAngularFactor(const Vector3& x)
+{
+    Body->SetAngularFactor(x);
+}
+
+Vector3 CRigidBody3D::GetAngularFactor() const
+{
+    return Body->GetAngularFactor();
+}
+
+void CRigidBody3D::SetLinearDamping(const float x)
+{
+    Body->SetLinearDamping(x);
+}
+
+float CRigidBody3D::GetLinearDamping() const
+{
+    return Body->GetLinearDamping();
+}
+
+void CRigidBody3D::SetAngularDamping(const float x)
+{
+    Body->SetAngularDamping(x);
+}
+
+float CRigidBody3D::GetAngularDamping() const
+{
+    return Body->GetAngularDamping();
+}
+
+void CRigidBody3D::SetBodyType(const ERigidBodyType3D x)
+{
+    Body->SetBodyType(x);
+}
+
+ERigidBodyType3D CRigidBody3D::GetBodyType() const
+{
+    return Body->GetBodyType();
+}

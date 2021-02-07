@@ -1,8 +1,10 @@
-#pragma once
+﻿#pragma once
 #include "../../Physics/PhysicsWorld3D.hpp"
+#include "../../Core/Utils.hpp"
 #include <Bullet/btBulletDynamicsCommon.h>
 #include <memory>
 #include <vector>
+#include <unordered_map>
 
 class CBulletCollisionShape3D;
 class CBulletRigidBody3D;
@@ -28,6 +30,10 @@ public:
 
     btDiscreteDynamicsWorld* GetWorld() const { return World.get(); }
 private:
+    using CollidingBodies = std::unordered_map<std::pair<CBulletRigidBody3D*, CBulletRigidBody3D*>, btPersistentManifold*, PairHash>;
+private:
+    SContact3D MakeContactFromManifold(CBulletRigidBody3D*, CBulletRigidBody3D*, btPersistentManifold*) const;
+private:
     std::unique_ptr<btDefaultCollisionConfiguration> CollisionConfiguration;
     std::unique_ptr<btCollisionDispatcher> Dispatcher;
     std::unique_ptr<btBroadphaseInterface> BroadphaseInterface;
@@ -36,4 +42,7 @@ private:
     //
     std::vector<CBulletCollisionShape3D*> Shapes;
     std::vector<CBulletRigidBody3D*> Bodies;
+    //
+    CollidingBodies Collisions;
+    CollidingBodies PreviousCollisions;
 };
