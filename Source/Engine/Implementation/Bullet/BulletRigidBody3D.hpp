@@ -14,6 +14,9 @@ public:
 
     IPhysicsWorld3D* GetWorld() const override;
 
+    void SetEnabled(const bool) override;
+    bool IsEnabled() const override;
+
     void SetPosition(const Vector3&) override;
     Vector3 GetPosition() const override;
 
@@ -59,6 +62,9 @@ public:
 
     void SetBodyType(const ERigidBodyType3D) override;
     ERigidBodyType3D GetBodyType() const override;
+
+    void SetCollisionShape(ICollisionShape3D*) override;
+    ICollisionShape3D* GetCollisionShape() const override;
 
     btRigidBody* GetBody() const { return Body.get(); }
 private:

@@ -89,12 +89,12 @@ bool CRigidBody3D::OnSave(CXMLElement* Root)
 
 void CRigidBody3D::OnEnabled()
 {
-    //Body->SetEnabled(true);
+    Body->SetEnabled(true);
 }
 
 void CRigidBody3D::OnDisabled()
 {
-    //Body->SetEnabled(false);
+    Body->SetEnabled(false);
 }
 
 void CRigidBody3D::OnBeginFrame()

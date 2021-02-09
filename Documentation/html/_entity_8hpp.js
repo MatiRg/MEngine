@@ -1,6 +1,7 @@
 var _entity_8hpp =
 [
     [ "SEntityCollision2D", "struct_s_entity_collision2_d.html", "struct_s_entity_collision2_d" ],
+    [ "SEntityCollision3D", "struct_s_entity_collision3_d.html", "struct_s_entity_collision3_d" ],
     [ "IEntity", "class_i_entity.html", "class_i_entity" ],
     [ "CEntity", "class_c_entity.html", "class_c_entity" ],
     [ "IEntityFactory", "class_i_entity_factory.html", "class_i_entity_factory" ],

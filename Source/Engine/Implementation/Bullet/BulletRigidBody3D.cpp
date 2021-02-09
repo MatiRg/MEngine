@@ -88,6 +88,9 @@ void CBulletRigidBody3D::SetMass(float Mass)
 	if (Mass != 0.0f)
 	{
 		BodyType = ERigidBodyType3D::Dynamic;
+		// ?
+		Body->setCollisionFlags(DefaultCollisionFlags);
+		Body->setActivationState(DefaultActivationState);
 	}
 	else
 	{
@@ -257,7 +260,49 @@ void CBulletRigidBody3D::RemoveRigidBodyFromWorld()
 	}
 }
 
+void CBulletRigidBody3D::SetEnabled(const bool x)
+{
+	if (x)
+	{
+		AddRigidBodyToWorld();
+	}
+	else
+	{
+		RemoveRigidBodyFromWorld();
+	}
+}
+
+bool CBulletRigidBody3D::IsEnabled() const
+{
+	return AddedToWorld;
+}
+
 ERigidBodyType3D CBulletRigidBody3D::GetBodyType() const
 {
 	return BodyType;
+}
+
+void CBulletRigidBody3D::SetCollisionShape(ICollisionShape3D* NewShape)
+{
+	if (!NewShape)
+	{
+		return;
+	}
+	//
+	RemoveRigidBodyFromWorld();
+	//
+	float Mass = GetMass();
+	btVector3 LocalInertia(0, 0, 0);
+	Shape = static_cast<CBulletCollisionShape3D*>(NewShape);
+	Body->setCollisionShape( Shape->GetShape() );
+	Shape->GetShape()->calculateLocalInertia(Mass, LocalInertia);
+	Body->setMassProps(Mass, LocalInertia);
+	Body->updateInertiaTensor();
+	//
+	AddRigidBodyToWorld();
+}
+
+ICollisionShape3D* CBulletRigidBody3D::GetCollisionShape() const
+{ 
+	return Shape; 
 }

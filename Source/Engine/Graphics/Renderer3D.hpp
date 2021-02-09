@@ -37,8 +37,13 @@ public:
     void SetGammaCorrection(const float v) { GammaCorrection = v; }
     float GetGammaCorrection() const { return GammaCorrection; }
 
+    void SetWireframe(const bool x) { Wireframe = x; }
+    bool GetWireframe() const { return Wireframe; }
+
     bool Init(const SEngineParams&) override;
     void Exit() override;
+
+    void OnUpdate(const float) override;
 
     void Render();
 private:
@@ -56,4 +61,6 @@ private:
     //
     Color AmbientColor = Color(0.1f, 0.1f, 0.1f);
     float GammaCorrection = 1.4f;
+    bool Wireframe = false;
+    float Time = 0.0f;
 };

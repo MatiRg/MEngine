@@ -29,13 +29,10 @@ void CBoxCollider3D::OnCreate()
     {
         PhysicsWorld3D = World->CreateComponent<CPhysicsWorld3D>();
     }
-    Shape = PhysicsWorld3D->GetWorld()->CreateBoxShape({ 0.5f });
+    //
+    Size = { 0.5f };
+    Shape = PhysicsWorld3D->GetWorld()->CreateBoxShape(Size);
     Shape->SetUserData(this);
-    /*CRigidBody3D* Body = GetOwner()->GetComponent<CRigidBody3D>();
-    if (!Body)
-    {
-        Body = GetOwner()->CreateComponent<CRigidBody3D>();
-    }*/
 }
 
 bool CBoxCollider3D::OnLoad(CXMLElement* Root)
@@ -61,4 +58,22 @@ bool CBoxCollider3D::OnSave(CXMLElement* Root)
     //XML::SaveVector2( Root, "Offset", GetOffset() );
     //XML::SaveBool( Root, "Sensor", GetSensor() );
     return true;
+}
+
+void CBoxCollider3D::SetSize(const Vector3& aSize)
+{
+    Size = aSize;
+    //
+    ICollisionShape3D* OldShape = Shape;
+    
+    Shape = PhysicsWorld3D->GetWorld()->CreateBoxShape(Size);
+    Shape->SetUserData(this);
+
+    CRigidBody3D* Body = GetOwner()->GetComponent<CRigidBody3D>();
+    if( Body )
+    {
+        Body->GetBody()->SetCollisionShape(Shape);
+    }
+
+    PhysicsWorld3D->GetWorld()->DestroyShape(OldShape);
 }

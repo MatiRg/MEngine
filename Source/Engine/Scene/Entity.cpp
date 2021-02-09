@@ -411,7 +411,7 @@ void CEntity::DestroyComponents()
     }
 }
 
-void CEntity::ProcessMeshNode(CEntity* Out, CMeshNode* Node)
+void CEntity::ProcessMeshNode(CEntity* Out, CMeshNode* Node, CMaterial* Material)
 {
     CTransform& OtherTransform = Out->GetTransform();
     //
@@ -423,17 +423,18 @@ void CEntity::ProcessMeshNode(CEntity* Out, CMeshNode* Node)
     for (const auto& i : Node->GetMeshes())
     {
         CMeshRenderer* MshRenderer = Out->CreateComponent<CMeshRenderer>();
+        MshRenderer->SetMaterial(Material);
         MshRenderer->SetMesh(i);
     }
     //
     for (const auto& i : Node->GetChildren())
     {
         CEntity* Child = Out->CreateChild<CEntity>();
-        ProcessMeshNode(Child, i);
+        ProcessMeshNode(Child, i, Material);
     }
 }
 
-CEntity* CEntity::CreateModel(const std::string& ModelName, const std::string& Type)
+CEntity* CEntity::CreateModel(const std::string& ModelName, const std::string& Type, CMaterial* Material)
 {
     CModel* Model = Engine->GetResources()->CreateResource<CModel>(ModelName);
     if (!Model)
@@ -442,7 +443,7 @@ CEntity* CEntity::CreateModel(const std::string& ModelName, const std::string& T
         return nullptr;
     }
     CEntity* RootModel = CreateChild(Type);
-    ProcessMeshNode(RootModel, Model->GetRoot());
+    ProcessMeshNode(RootModel, Model->GetRoot(), Material);
     CTransform& OtherTransform = RootModel->GetTransform();
     OtherTransform.SetPosition( Vector3::ZERO );
     return RootModel;

@@ -3,6 +3,7 @@ uniform mat4 View;
 uniform mat4 Projection;
 uniform mat4 ViewProjection;
 uniform vec3 CameraPosition;
+uniform float Time;
 
 vec4 ObjectToClipPos(vec3 p)
 {

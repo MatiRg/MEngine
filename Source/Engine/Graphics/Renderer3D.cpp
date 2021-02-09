@@ -68,6 +68,11 @@ void CRenderer3D::Exit()
     LOG( ESeverity::Info ) << "Renderer3D - Exit\n";
 }
 
+void CRenderer3D::OnUpdate(const float DT)
+{
+    Time += DT;
+}
+
 CPostEffect* CRenderer3D::CreatePostEffect(const std::string& ShaderName, const int Order)
 {
     PostEffectPtr Ptr = std::make_unique<CPostEffect>(Graphics, Resources, Order);
@@ -102,7 +107,7 @@ void CRenderer3D::Render()
     Graphics->SetCullActive(true);
     Graphics->SetCullMode(ECullMode::Back);
     Graphics->SetFrontFace(EFrontFace::CCW);
-    Graphics->SetPolygonMode(EPolygonMode::Fill);
+    Graphics->SetPolygonMode(Wireframe ? EPolygonMode::Line : EPolygonMode::Fill);
     Graphics->SetClearColor(Color(0.0f, 1.0f));
     Graphics->SetBlendActive(true);
     Graphics->SetBlendMode(EBlendMode::None);
@@ -134,6 +139,10 @@ void CRenderer3D::Render()
         if (Shader->HasUniform("CameraPosition")) // ViewPos
         {
             Shader->SetVector3("CameraPosition", CameraPosition);
+        }
+        if (Shader->HasUniform("Time"))
+        {
+            Shader->SetFloat("Time", Time);
         }
         // Global
         if (Shader->HasUniform("AmbientColor"))
@@ -177,6 +186,10 @@ void CRenderer3D::Render()
     });
     IFrameBuffer* LastFrameBuffer = DefaultFrameBuffer.get();
     ITexture2D* FinalOutputTexture = LastFrameBuffer->GetColorAttachment();
+    if (Wireframe)
+    {
+        Graphics->SetPolygonMode(EPolygonMode::Fill);
+    }
     Graphics->SetDepthActive(false);
     for (const auto& i : Effects)
     {

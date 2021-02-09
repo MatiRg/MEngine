@@ -15,5 +15,6 @@ var dir_ca98e3ee17ac8bc3fa949dee11c3bffa =
     [ "BulletRigidBody3D.cpp", "_bullet_rigid_body3_d_8cpp.html", null ],
     [ "BulletRigidBody3D.hpp", "_bullet_rigid_body3_d_8hpp.html", [
       [ "CBulletRigidBody3D", "class_c_bullet_rigid_body3_d.html", "class_c_bullet_rigid_body3_d" ]
-    ] ]
+    ] ],
+    [ "BulletUtils.hpp", "_bullet_utils_8hpp.html", "_bullet_utils_8hpp" ]
 ];

@@ -140,6 +140,9 @@ public:
         // Change Gravity for Body1
         Body1->SetGravity( Vector3::DOWN*3.33f );
 
+        // For Test
+        //Box1->SetUpdated(false);
+
         // Create Ground
         CEntity* Ground = World->CreateModel<CEntity>("cube.dae");
         // Set Name
@@ -149,11 +152,15 @@ public:
         // Change Rotation
         Ground->GetTransform().SetRotation(Quaternion(33.0f, 33.0f, 0.0f));
         // First Create Collision Shape
-        Ground->CreateComponent<CBoxCollider3D>();
+        CBoxCollider3D* ColliderGround = Ground->CreateComponent<CBoxCollider3D>();
+        // For Test
+        //ColliderGround->SetSize({1.0f});
         // ... Then RigidBody
         CRigidBody3D* GroundBody = Ground->CreateComponent<CRigidBody3D>();
         // Make it Static Body
         GroundBody->SetBodyType(ERigidBodyType3D::Static);
+        // For Test
+        //ColliderGround->SetSize({ 1.0f });
     }
 
     void OnUpdate(const float TimeStep) override

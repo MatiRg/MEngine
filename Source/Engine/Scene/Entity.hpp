@@ -48,6 +48,7 @@ struct SEntityCollision2D
 
 class CMeshNode;
 class CRigidBody3D;
+class CMaterial;
 
 struct SEntityCollision3D
 {
@@ -276,20 +277,22 @@ public:
      * \brief Create Model Child Entity
      * \param Type type of Entity must inherints from CEntity
      * \param ModelName Model Name
+     * \param Overwrite Material, Ownerships is not taken
      * \return Returns Loaded Model Root Entity for given Model Name or nullptr if error
      */
-    CEntity* CreateModel(const std::string& ModelName, const std::string& Type);
+    CEntity* CreateModel(const std::string& ModelName, const std::string& Type, CMaterial* = nullptr);
     /**
      * \brief Create Model Child Entity
      * \tparam T type of Entity must inherints from CEntity
      * \param ModelName Model Name
+     * \param Overwrite Material, Ownerships is not taken
      * \return Returns Loaded Model Root Entity for given Model Name or nullptr if error
      */
     template<class T>
-    T* CreateModel(const std::string& ModelName)
+    T* CreateModel(const std::string& ModelName, CMaterial* Material = nullptr)
     {
         static_assert(std::is_base_of<CEntity, T>::value, "Must be base of CEntity");
-        return dynamic_cast<T*>(CreateModel(ModelName, T::GetTypeStatic()));
+        return dynamic_cast<T*>(CreateModel(ModelName, T::GetTypeStatic(), Material));
     }
 
     /**
@@ -428,7 +431,7 @@ protected:
     bool Load(CXMLElement*);
     bool Save(CXMLElement*);
 private:
-    static void ProcessMeshNode(CEntity*, CMeshNode*);
+    static void ProcessMeshNode(CEntity*, CMeshNode*, CMaterial*);
     //
     void BeginFrame(const EBeginFrame&);
     void Update(const EUpdate&);

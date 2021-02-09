@@ -71,6 +71,8 @@ set(SOURCES_BASE
 	Source/Engine/Engine/Updatable.hpp
 	Source/Engine/Engine/UserUpdater.cpp
 	Source/Engine/Engine/UserUpdater.hpp
+	Source/Engine/Graphics/DebugDrawer.cpp
+	Source/Engine/Graphics/DebugDrawer.hpp
 	Source/Engine/Graphics/Drawer2D.cpp
 	Source/Engine/Graphics/Drawer2D.hpp
 	Source/Engine/Graphics/Font.cpp

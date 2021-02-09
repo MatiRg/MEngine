@@ -2,6 +2,35 @@
 #include "MainApp.hpp"
 #include "Globals.hpp"
 
+//
+
+CGameObject::CGameObject(CEngine* aEngine) :
+    CEntity(aEngine)
+{
+}
+
+CGameObject::~CGameObject()
+{
+}
+
+void CGameObject::OnGUI()
+{
+}
+
+void CGameObject::OnCollisionEnter(const SEntityCollision3D& Collision)
+{    
+}
+
+void CGameObject::OnCollisionStay(const SEntityCollision3D& Collision)
+{
+}
+
+void CGameObject::OnCollisionLeave(const SEntityCollision3D& Collision)
+{
+}
+
+//
+
 CLevel2::CLevel2(CMainApp* aApp) :
     IUpdatable("Level2"),
     App(aApp)
@@ -12,18 +41,104 @@ CLevel2::~CLevel2()
 {
 }
 
+void CLevel2::LoadMap()
+{
+    std::string Path;
+    if( !App->GetResources()->FindPath("Labirynt.xml", Path) )
+    {
+        return;
+    }
+
+    CXMLDocument Doc;
+    if (!Doc.Load(Path))
+    {
+        return;
+    }
+
+    CXMLElement* Root = Doc.GetElement("map");
+    if (!Root)
+    {
+        return;
+    }
+    Width = Root->GetIntAttribute("W", 0);
+    Height = Root->GetIntAttribute("H", 0);
+
+    XMLElementArray Rows = Root->GetElements("row");
+    for (const auto& i : Rows)
+    {
+        int Row = i->GetIntAttribute("id", 0);
+        XMLElementArray Cols = i->GetElements("col");
+        for (const auto& j : Cols)
+        {
+            int Col = j->GetIntAttribute("id", 0);
+            int Value = j->GetInt(0);
+            //CGameObject* Object = nullptr;
+            //if (Value)
+            //{
+            CGameObject* Object = World->CreateModel<CGameObject>( "cube.dae", Materials[Math::Random(0, 4)].get() );
+            //}
+            //else
+            //{
+            //    Object = World->CreateModel<CGameObject>("cube.dae");
+            //}
+            Object->SetValue(Value);
+            Object->GetTransform().SetPosition({ static_cast<float>(Row), static_cast<float>(Value), static_cast<float>(Col)});
+        }
+    }
+
+    CXMLElement* StartXRoot = Doc.GetElement("start_x");
+    if (!StartXRoot)
+    {
+        return;
+    }
+    StartX = StartXRoot->GetInt(0);
+    //
+    CXMLElement* StartYRoot = Doc.GetElement("start_y");
+    if (!StartYRoot)
+    {
+        return;
+    }
+    StartY = StartYRoot->GetInt(0);
+}
+
 void CLevel2::OnInit()
 {
+    App->GetScene()->RegisterEntityFactory<CGameObject>();
+    //
     CResources* Resources = App->GetResources();
     //
-    Material = std::make_unique<CMaterial>();
-    Material->SetShader( Resources->CreateResource<IShader>("TextureLSDEffects.shader") );
-    Material->SetTexture("Diffuse", Resources->CreateResource<ITexture2D>("wall.jpg") );
+    IShader* ShaderCube = Resources->CreateResource<IShader>("TextureLSDEffects.shader");
+    ITexture2D* TextureCube = Resources->CreateResource<ITexture2D>("wall.jpg");
+    //
+    Materials[0] = std::make_unique<CMaterial>();
+    Materials[0]->SetShader(ShaderCube );
+    Materials[0]->SetTexture("Diffuse", TextureCube);
+    Materials[0]->SetInt("SwitchVar", 0);
+    //
+    Materials[1] = std::make_unique<CMaterial>();
+    Materials[1]->SetShader(ShaderCube);
+    Materials[1]->SetTexture("Diffuse", TextureCube);
+    Materials[1]->SetInt("SwitchVar", 1);
+    //
+    Materials[2] = std::make_unique<CMaterial>();
+    Materials[2]->SetShader(ShaderCube);
+    Materials[2]->SetTexture("Diffuse", TextureCube);
+    Materials[2]->SetInt("SwitchVar", 2);
+    //
+    Materials[3] = std::make_unique<CMaterial>();
+    Materials[3]->SetShader(ShaderCube);
+    Materials[3]->SetTexture("Diffuse", TextureCube);
+    Materials[3]->SetInt("SwitchVar", 3);
+    //
+    Materials[4] = std::make_unique<CMaterial>();
+    Materials[4]->SetShader(ShaderCube);
+    Materials[4]->SetTexture("Diffuse", TextureCube);
+    Materials[4]->SetInt("SwitchVar", 4);
     //
     BlurEffect = App->GetRenderer3D()->CreatePostEffect( "ScreenBlurBox.shader", 10 );
     if( BlurEffect )
     {
-        BlurEffect->SetInt("Samples", 4);
+        BlurEffect->SetInt("Samples", 1);
     }
 }
 
@@ -54,33 +169,31 @@ void CLevel2::OnEnter()
     App->GetInput()->SetMouseMode(EMouseMode::Relative);
     //
     World = std::make_unique<CWorld>(App->GetEngine());
+
+    // Create Sky Dome
+    CEntity* SkyDome = World->CreateModel<CEntity>("sky2.dae");
+    // Make it Big
+    SkyDome->GetTransform().SetScale(Vector3(500.0f));
+
     CEntity* Sun = World->CreateChild<CEntity>();
+    //
     CLightComponent* LightSun = Sun->CreateComponent<CLightComponent>();
     LightSun->SetLightType( ELightType::Direction );
-    LightSun->SetTemperature( 2500.f );
+    LightSun->SetTemperature( 5500.f );
+    //
     Sun->GetTransform().SetRotation( Quaternion(-30.0f, 0.0f, 0.0f) );
 
-    CEntity* Entity = World->CreateModel<CEntity>("backpack.obj");
-    /*CEntity* Entity = World->CreateChild<CEntity>();
-
-    CMeshRenderer* MeshRenderer = Entity->CreateComponent<CMeshRenderer>();
-    CResources* Resources = App->GetResources();
-
-    //CModel* ModelCube = Resources->CreateResource<CModel>("backpack.obj");
-    CModel* ModelCube = Resources->CreateResource<CModel>("cube.dae");
-   
-    MeshRenderer->SetMesh(ModelCube->GetMeshes()[0]);
-    //MeshRenderer->SetMaterial( Resources->CreateResource<CMaterial>("Default.mat") );
-    MeshRenderer->SetMaterial(Resources->CreateResource<CMaterial>("backpack.mat"));*/
-
-    //PrintModel(ModelCube->GetRoot(), 0);
+    //CEntity* Entity = World->CreateModel<CEntity>("cube.dae", Material.get());
 
     CameraObject = World->CreateChild<CEntity>();
+    //
     CameraComponent = CameraObject->CreateComponent<CCamera>();
     CameraComponent->SetAspect(App->GetWindow()->GetAspectRatio());
     CameraComponent->SetFOV(Fov);
     CameraComponent->SetNearClipPlane(0.3f);
     CameraComponent->SetFarClipPlane(1000.0f);
+
+    LoadMap();
 }
 
 void CLevel2::OnUpdate(const float TimeStep)
@@ -135,6 +248,17 @@ void CLevel2::OnUpdate(const float TimeStep)
     ScrollSpeed = 0.0f;
 
     CameraComponent->SetFOV(Fov);
+
+    // Blur Toggle
+    if (Input->IsKeyDown(EKey::V))
+    {
+        BlurEffect->SetEnabled(!BlurEffect->IsEnabled());
+    }
+    // Wireframe Mode Toggle
+    if (Input->IsKeyDown(EKey::B))
+    {
+        App->GetRenderer3D()->SetWireframe(!App->GetRenderer3D()->GetWireframe());
+    }
 }
 
 void CLevel2::OnLateUpdate(const float)
@@ -155,13 +279,12 @@ void CLevel2::OnGUI()
 
 void CLevel2::OnRender()
 {
-    Material->SetFloat("Time", Time);
 }
 
 void CLevel2::OnLeave()
 {
     World.reset();
-    Material.reset();
+    MaterialArray{}.swap(Materials);
     //
     App->GetInput()->SetMouseMode(EMouseMode::Normal);
 }

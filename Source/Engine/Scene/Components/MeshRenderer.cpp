@@ -34,6 +34,26 @@ void CMeshRenderer::OnRender()
 void CMeshRenderer::SetMesh(CMesh* aMesh)
 { 
     Mesh = aMesh; 
-    Renderable.SetMaterial(Mesh ? Mesh->GetMaterial() : nullptr );
+    if (Material)
+    {
+        Renderable.SetMaterial(Material);
+    }
+    else
+    {
+        Renderable.SetMaterial(Mesh ? Mesh->GetMaterial() : nullptr);
+    }
     Renderable.SetVertexBuffer(Mesh ? Mesh->GetVertexBuffer() : nullptr);
+}
+
+void CMeshRenderer::SetMaterial(CMaterial* aMaterial)
+{
+    Material = aMaterial; 
+    if (Material)
+    {
+        Renderable.SetMaterial(Material);
+    }
+    else
+    {
+        Renderable.SetMaterial(Mesh ? Mesh->GetMaterial() : nullptr);
+    }
 }

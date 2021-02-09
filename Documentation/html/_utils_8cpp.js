@@ -7,6 +7,7 @@ var _utils_8cpp =
     [ "GetNameFromExt", "_utils_8cpp.html#a380788cad6d31ae5e1a2069550362fa3", null ],
     [ "GetNameFromPath", "_utils_8cpp.html#a7e2bd7e77f686a9dcc7db60035da8963", null ],
     [ "GetPath", "_utils_8cpp.html#a274a540b5619ee787b9606c7a4918e7e", null ],
+    [ "HashCombine", "_utils_8cpp.html#a60975720b3191c30cfb43d79cf5933bd", null ],
     [ "IsInteger", "_utils_8cpp.html#a6b94ce2490732500a9d45ea7ea75cc63", null ],
     [ "NormalizePath", "_utils_8cpp.html#a2e3e1ccfbad43209e3468abc85ba2179", null ],
     [ "Split", "_utils_8cpp.html#a3ae2d462d9a63d477da77ff37a170cf0", null ],

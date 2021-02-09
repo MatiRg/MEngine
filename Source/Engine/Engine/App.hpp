@@ -21,6 +21,7 @@ class CAudioHandler;
 class CRenderer3D;
 class CDrawer2D;
 class CRenderer2D;
+class CDebugDrawer;
 class IPhysics3D;
 class IPhysics2D;
 class CImGUI;
@@ -68,6 +69,7 @@ public:
     CRenderer3D* GetRenderer3D() const;
     CDrawer2D* GetDrawer2D() const;
     CRenderer2D* GetRenderer2D() const;
+    CDebugDrawer* GetDebugDrawer() const;
     CImGUI* GetImGUI() const;
     CScene* GetScene() const;
     CScriptModule* GetScriptModule() const;

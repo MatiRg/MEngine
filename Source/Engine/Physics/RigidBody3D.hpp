@@ -4,6 +4,7 @@
 #include "../Math/Quaternion.hpp"
 
 class IPhysicsWorld3D;
+class ICollisionShape3D;
 
 enum class ERigidBodyType3D
 {
@@ -19,6 +20,9 @@ public:
     virtual ~IRigidBody3D();
 
     virtual IPhysicsWorld3D* GetWorld() const = 0;
+
+    virtual void SetEnabled(const bool) = 0;
+    virtual bool IsEnabled() const = 0;
 
     virtual void SetPosition(const Vector3&) = 0;
     virtual Vector3 GetPosition() const = 0;
@@ -65,6 +69,9 @@ public:
 
     virtual void SetBodyType(const ERigidBodyType3D) = 0;
     virtual ERigidBodyType3D GetBodyType() const = 0;
+
+    virtual void SetCollisionShape(ICollisionShape3D*) = 0;
+    virtual ICollisionShape3D* GetCollisionShape() const = 0;
 
     void SetUserData(void* Data) { UserData = Data; }
     void* GetUserData() const { return UserData; }

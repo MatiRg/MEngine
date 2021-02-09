@@ -26,6 +26,7 @@
 #include "Engine/Updatable.hpp"
 #include "Engine/UserUpdater.hpp"
 
+#include "Graphics/DebugDrawer.hpp"
 #include "Graphics/Drawer2D.hpp"
 #include "Graphics/Font.hpp"
 #include "Graphics/FrameBuffer.hpp"

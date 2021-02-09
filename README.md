@@ -3,8 +3,8 @@ Simple and Crude 2D/3D Game Engine made during Engineering Degree.Inspired by HP
 ## Installing
 See [INSTALL.md](INSTALL.md)
 ## Features
-Features Tree Scene Hierarchy and EC(Entity Component) like system, 2D/3D sound playback, resource manager, 
-file system support, XML support, Box2d support, rendering using OpenGL 4.6 and ImGUI support.
+Features Tree Scene Hierarchy and EC(Entity Component) like System, 2D/3D Sound Playback, Resource Manager, 
+File System support, XML Support, Box2d Integration, Bullet3 Integration, OpenGL 4.6 Renderer and ImGUI Ssupport.
 ### Core
  * Supports XML Files
  * Supports Scene System like to Unity 5
@@ -16,6 +16,7 @@ Turned on/off in CMake Options.
  * F10 - Performance Counters - How munch each Engine Stages takes time
  * F11 - ImGUI Demo
 ### Graphics
+ * Basic Debug Drawing
  * Basic 2D Drawing - Rework/Remove
  * Basic 3D Rendering
  * Supports Basic User Created Post Effects
@@ -46,7 +47,7 @@ Documention consists of two parts:
  * See [DOCUMENTATION.md](DOCUMENTATION.md)
  * See [Doxygen.html](Doxygen.html)
 ## Components
-Source Directory
+Source Directories
  * Engine(C++) - Engine Code - Base|Shared
  * Samples(C++) - Sample Application
  * Tools(C++) - Tools to use with Engine

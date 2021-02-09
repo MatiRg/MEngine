@@ -5,6 +5,7 @@ var class_c_app =
     [ "Exit", "class_c_app.html#aa811eddb904f8cd37ce21da59aece377", null ],
     [ "GetAudio", "class_c_app.html#a618ae48ee8e96ce4006df2af72d7ce65", null ],
     [ "GetAudioHandler", "class_c_app.html#a24a5660d001025950cd0363bde6de564", null ],
+    [ "GetDebugDrawer", "class_c_app.html#a20c2976995881a7a27d1506c85dd6ad4", null ],
     [ "GetDrawer2D", "class_c_app.html#ad75d2862ad1e8866d5b85c3a31ec28fe", null ],
     [ "GetEngine", "class_c_app.html#ad2799ad37a30200b8cb1dbad4453c27a", null ],
     [ "GetEngineUpdater", "class_c_app.html#aafad19da6a755c18c083c5c432a33c24", null ],

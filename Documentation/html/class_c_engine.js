@@ -6,6 +6,7 @@ var class_c_engine =
     [ "Exit", "class_c_engine.html#aa9b57dee89e8c220597238c10ec527be", null ],
     [ "GetAudio", "class_c_engine.html#a10132a97dd9b9636a840781f10e368db", null ],
     [ "GetAudioHandler", "class_c_engine.html#a7e1cbd11e0fa362f09196478c45dbf81", null ],
+    [ "GetDebugDrawer", "class_c_engine.html#a55f1b6998266862c1d3c79666534fe88", null ],
     [ "GetDrawer2D", "class_c_engine.html#a29ad7941bce79ffda2ec8bc636c163db", null ],
     [ "GetEngineUpdater", "class_c_engine.html#ad3603747747730965d5b7fafd0a6f266", null ],
     [ "GetEventQueue", "class_c_engine.html#a722e0a4055ff3cf461cfcd4989bb2d52", null ],
