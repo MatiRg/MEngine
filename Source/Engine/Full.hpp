@@ -30,6 +30,7 @@
 #include "Graphics/Drawer2D.hpp"
 #include "Graphics/Font.hpp"
 #include "Graphics/FrameBuffer.hpp"
+#include "Graphics/GraphicsTypes.hpp"
 #include "Graphics/Graphics.hpp"
 #include "Graphics/Light.hpp"
 #include "Graphics/Material.hpp"

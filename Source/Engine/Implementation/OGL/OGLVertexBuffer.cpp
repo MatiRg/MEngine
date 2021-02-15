@@ -3,15 +3,15 @@
 
 namespace
 {
-    GLenum ToGLPrimitiveMode(const EPrimitiveMode x)
+    GLenum ToGLPrimitiveMode(const EPrimitiveType x)
     {
         switch(x)
         {
-        case EPrimitiveMode::Triangles:
+        case EPrimitiveType::Triangles:
             return GL_TRIANGLES;
-        case EPrimitiveMode::Lines:
+        case EPrimitiveType::Lines:
             return GL_LINES;
-        case EPrimitiveMode::Points:
+        case EPrimitiveType::Points:
             return GL_POINTS;
         default:
             return GL_TRIANGLES;
@@ -104,12 +104,12 @@ void COGLVertexBuffer::Bind()
     }
 }
 
-void COGLVertexBuffer::Draw(const EPrimitiveMode Mode)
+void COGLVertexBuffer::Draw(const EPrimitiveType Mode)
 {
     Draw(Mode, HasEBO ? IndicesCount : VertexCount);
 }
 
-void COGLVertexBuffer::Draw(const EPrimitiveMode Mode, const std::size_t Size)
+void COGLVertexBuffer::Draw(const EPrimitiveType Mode, const std::size_t Size)
 {
     if( IsValid() )
     {

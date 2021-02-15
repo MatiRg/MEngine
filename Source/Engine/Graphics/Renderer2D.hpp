@@ -31,7 +31,7 @@ public:
     void SetViewProjection(const Matrix4&);
 
     // Vertexes, Type, Matrix, Layer
-    IRenderable2D* DrawPolygon(const std::vector<SVertex2D>&, const EPrimitiveMode, const Matrix4&, const float);
+    IRenderable2D* DrawPolygon(const std::vector<SVertex2D>&, const EPrimitiveType, const Matrix4&, const float);
 
     // Position, Color, Matrix, Layer
     IRenderable2D* DrawPoint(const Vector2&, const Color&, const Matrix4&, const float);

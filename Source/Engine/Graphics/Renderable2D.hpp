@@ -40,7 +40,7 @@ protected:
 class CPolygonRenderable2D: public IRenderable2D
 {
 public:
-    CPolygonRenderable2D(const std::vector<SVertex2D>& aVertices, const EPrimitiveMode aType, const Matrix4& aMatrix, const float aLayer):
+    CPolygonRenderable2D(const std::vector<SVertex2D>& aVertices, const EPrimitiveType aType, const Matrix4& aMatrix, const float aLayer):
         IRenderable2D(aMatrix, aLayer),
         Vertices(aVertices),
         Type(aType)
@@ -50,7 +50,7 @@ public:
     void Render(CDrawer2D*) override;
 protected:
     std::vector<SVertex2D> Vertices;
-    EPrimitiveMode Type;
+    EPrimitiveType Type;
 };
 
 class CTextRenderable2D: public IRenderable2D

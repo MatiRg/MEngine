@@ -122,7 +122,7 @@ void CRenderer3D::Render()
         SetupMaterialShaderParameters(i);
         //
         Buffer->Bind();
-        Buffer->Draw(EPrimitiveMode::Triangles);
+        Buffer->Draw(Material->GetPrimitiveType());
         Buffer->UnBind();
         //
         Material->UnBind();
@@ -148,7 +148,7 @@ void CRenderer3D::Render()
         {
             i->Bind(LastFrameBuffer);
             QuadVertexBuffer->Bind();
-            QuadVertexBuffer->Draw(EPrimitiveMode::Triangles, 6u);
+            QuadVertexBuffer->Draw(EPrimitiveType::Triangles, 6u);
             QuadVertexBuffer->UnBind();
             i->UnBind();
             //
@@ -167,7 +167,7 @@ void CRenderer3D::Render()
     ScreenShader->SetFloat("GammaCorrection", GammaCorrection);
     //
     QuadVertexBuffer->Bind();
-    QuadVertexBuffer->Draw(EPrimitiveMode::Triangles, 6u);
+    QuadVertexBuffer->Draw(EPrimitiveType::Triangles, 6u);
     QuadVertexBuffer->UnBind();
     //
     ScreenShader->UnBind();

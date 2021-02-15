@@ -3,7 +3,7 @@
 #include "../Math/Vector3.hpp"
 #include "Contact3D.hpp"
 
-class CRenderer3D;
+class CDebugDrawer;
 class ICollisionShape3D;
 class IRigidBody3D;
 
@@ -36,7 +36,7 @@ public:
     virtual IRigidBody3D* CreateBody(ICollisionShape3D*) = 0;
     virtual void DestroyBody(IRigidBody3D*) = 0;
 
-    virtual void DebugDraw(CRenderer3D*) = 0;
+    virtual void DebugDraw(CDebugDrawer*) = 0;
 
     //! Will not Takes Ownership
     void SetContactCallback(IContactCallback3D* aContactCallback) { ContactCallback = aContactCallback; }

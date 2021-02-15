@@ -49,7 +49,7 @@ void CRenderer2D::SetViewProjection(const Matrix4& aViewProjecion)
     ViewProjection = aViewProjecion;
 }
 
-IRenderable2D* CRenderer2D::DrawPolygon(const std::vector<SVertex2D>& Vertices, const EPrimitiveMode Type,
+IRenderable2D* CRenderer2D::DrawPolygon(const std::vector<SVertex2D>& Vertices, const EPrimitiveType Type,
     const Matrix4& aMatrix, const float aLayer)
 {
     Renderables.push_back( std::make_unique<CPolygonRenderable2D>(Vertices, Type, aMatrix, aLayer) );

@@ -2,7 +2,9 @@
 #include "BulletCollisionShape3D.hpp"
 #include "BulletRigidBody3D.hpp"
 #include "BulletUtils.hpp"
+#include "../../Graphics/DebugDrawer.hpp"
 #include <algorithm>
+#include <Bullet/LinearMath/btIDebugDraw.h>
 
 CBulletPhysicsWorld3D::CBulletPhysicsWorld3D()
 {
@@ -47,6 +49,8 @@ CBulletPhysicsWorld3D::~CBulletPhysicsWorld3D()
 	Dispatcher.reset();
 	// Configuration
 	CollisionConfiguration.reset();
+	//
+	BulletDebugDrawer.reset();
 }
 
 void CBulletPhysicsWorld3D::SetGravity(const Vector3& Gravity)
@@ -212,7 +216,38 @@ SContact3D CBulletPhysicsWorld3D::MakeContactFromManifold(CBulletRigidBody3D* Bo
 	return Contact;
 }
 
-void CBulletPhysicsWorld3D::DebugDraw(CRenderer3D*)
+class CBulletDebugDrawer : public btIDebugDraw
 {
-    // TO DO
+public:
+	CBulletDebugDrawer(CDebugDrawer* aDrawer):
+		Drawer(aDrawer),
+		Mode(btIDebugDraw::DBG_DrawWireframe)
+	{
+	}
+	~CBulletDebugDrawer() = default;
+
+	void drawLine(const btVector3& from, const btVector3& to, const btVector3& color) override
+	{
+		Drawer->AddLine(ToVector3(from), ToVector3(to), ToColor(color));
+	}
+
+	void drawContactPoint(const btVector3&, const btVector3&, btScalar, int, const btVector3&) override {}
+	void reportErrorWarning(const char*) override {}
+	void draw3dText(const btVector3&, const char*) override {}
+
+	void setDebugMode(int debugMode) { Mode = debugMode; }
+	int getDebugMode() const { return Mode; }
+private:
+	CDebugDrawer* Drawer = nullptr;
+	int Mode = 0;
+};
+
+void CBulletPhysicsWorld3D::DebugDraw(CDebugDrawer* DebugDrawer)
+{
+	if (!BulletDebugDrawer)
+	{
+		BulletDebugDrawer = std::make_unique<CBulletDebugDrawer>(DebugDrawer);
+		World->setDebugDrawer(BulletDebugDrawer.get());
+	}
+	World->debugDrawWorld();
 }

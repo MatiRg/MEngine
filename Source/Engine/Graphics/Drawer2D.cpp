@@ -63,12 +63,12 @@ void CDrawer2D::Exit()
     LOG( ESeverity::Info ) << "Drawer2D - Exit\n";
 }
 
-void CDrawer2D::DrawPolygon(const std::vector<SVertex2D>& Vertexes, const EPrimitiveMode Type, const float Layer)
+void CDrawer2D::DrawPolygon(const std::vector<SVertex2D>& Vertexes, const EPrimitiveType Type, const float Layer)
 {
     DrawPolygon(Vertexes, Type, Matrix4(), Layer);
 }
 
-void CDrawer2D::DrawPolygon(const std::vector<SVertex2D>& Vertexes, const EPrimitiveMode Type, const Matrix4& Matrix, const float Layer)
+void CDrawer2D::DrawPolygon(const std::vector<SVertex2D>& Vertexes, const EPrimitiveType Type, const Matrix4& Matrix, const float Layer)
 {
     Graphics->SetBlendMode(BlendMode);
     VertexBuffer->Bind();
@@ -113,7 +113,7 @@ void CDrawer2D::DrawPoint(const Vector2& Position, const Color& DrawColor, const
     BasicShader->SetColor( "OurColor", DrawColor );
     BasicShader->SetMatrix4("Model", Matrix);
     BasicShader->SetMatrix4( "ViewProjection", ViewProjection );
-    VertexBuffer->Draw( EPrimitiveMode::Points, 1u );
+    VertexBuffer->Draw( EPrimitiveType::Points, 1u );
     BasicShader->UnBind();
 
     VertexBuffer->UnBind();
@@ -139,7 +139,7 @@ void CDrawer2D::DrawLine(const Vector2& Start, const Vector2& End, const Color& 
     BasicShader->SetColor( "OurColor", DrawColor );
     BasicShader->SetMatrix4("Model", Matrix);
     BasicShader->SetMatrix4( "ViewProjection", ViewProjection );
-    VertexBuffer->Draw( EPrimitiveMode::Lines, 2u );
+    VertexBuffer->Draw( EPrimitiveType::Lines, 2u );
     BasicShader->UnBind();
 
     VertexBuffer->UnBind();
@@ -172,7 +172,7 @@ void CDrawer2D::DrawRect(const Rect2& Rectangle, const bool Fill, const Color& D
         BasicShader->SetColor( "OurColor", DrawColor );
         BasicShader->SetMatrix4("Model", Matrix);
         BasicShader->SetMatrix4( "ViewProjection", ViewProjection );
-        VertexBuffer->Draw( EPrimitiveMode::Triangles, 6u );
+        VertexBuffer->Draw( EPrimitiveType::Triangles, 6u );
         BasicShader->UnBind();
     }
     else
@@ -196,7 +196,7 @@ void CDrawer2D::DrawRect(const Rect2& Rectangle, const bool Fill, const Color& D
         BasicShader->SetColor( "OurColor", DrawColor );
         BasicShader->SetMatrix4("Model", Matrix);
         BasicShader->SetMatrix4( "ViewProjection", ViewProjection );
-        VertexBuffer->Draw( EPrimitiveMode::Lines, 8u );
+        VertexBuffer->Draw( EPrimitiveType::Lines, 8u );
         BasicShader->UnBind();
     }
     VertexBuffer->UnBind();
@@ -312,7 +312,7 @@ void CDrawer2D::DrawTexture(ITexture2D* Texture, const Rect2& Src, const Rect2& 
     TextureShader->SetColor( "ModColor", Texture->GetColorMod() );
     TextureShader->SetMatrix4("Model", Matrix);
     TextureShader->SetMatrix4( "ViewProjection", ViewProjection );
-    VertexBuffer->Draw(EPrimitiveMode::Triangles, 6u);
+    VertexBuffer->Draw(EPrimitiveType::Triangles, 6u);
     TextureShader->UnBind();
 
     VertexBuffer->UnBind();

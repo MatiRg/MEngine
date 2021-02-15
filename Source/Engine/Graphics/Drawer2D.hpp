@@ -32,9 +32,9 @@ public:
     void Exit() override;
 
     // Vertexes, Type, Layer
-    void DrawPolygon(const std::vector<SVertex2D>&, const EPrimitiveMode, const float);
+    void DrawPolygon(const std::vector<SVertex2D>&, const EPrimitiveType, const float);
     // Vertexes, Type, Transform, Layer
-    void DrawPolygon(const std::vector<SVertex2D>&, const EPrimitiveMode, const Matrix4&, const float);
+    void DrawPolygon(const std::vector<SVertex2D>&, const EPrimitiveType, const Matrix4&, const float);
 
     // Position, Color, Layer
     void DrawPoint(const Vector2&, const Color&, const float);

@@ -4,14 +4,8 @@
 #include "../Math/Vector2.hpp"
 #include "../Core/NonCopyable.hpp"
 #include "../System/MemoryManager.hpp"
+#include "GraphicsTypes.hpp"
 #include <vector>
-
-enum class EPrimitiveMode
-{
-    Triangles = 0,
-    Lines,
-    Points
-};
 
 // Index of Element is same in shader layout
 enum class EVertexElement
@@ -68,7 +62,7 @@ public:
     virtual void SetIndices(const std::vector<unsigned int>&) = 0;
 
     virtual void Bind() = 0;
-    virtual void Draw(const EPrimitiveMode) = 0;
-    virtual void Draw(const EPrimitiveMode, const std::size_t) = 0;
+    virtual void Draw(const EPrimitiveType) = 0;
+    virtual void Draw(const EPrimitiveType, const std::size_t) = 0;
     virtual void UnBind() = 0;
 };

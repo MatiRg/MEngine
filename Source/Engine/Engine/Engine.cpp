@@ -65,7 +65,7 @@ bool CEngine::Create()
     Renderer3D = std::make_unique<CRenderer3D>(Graphics, Resources.get());
     Drawer2D = std::make_unique<CDrawer2D>( Graphics, Resources.get(), Window );
     Renderer2D = std::make_unique<CRenderer2D>( Drawer2D.get() );
-    DebugDrawer = std::make_unique<CDebugDrawer>(Renderer3D.get(), Resources.get() );
+    DebugDrawer = std::make_unique<CDebugDrawer>(Renderer3D.get(), Graphics, Resources.get() );
     ImGUI = std::make_unique<CImGUI>( Input, Graphics );
     Scene = std::make_unique<CScene>( this );
     ScriptModule = std::make_unique<CScriptModule>( this );

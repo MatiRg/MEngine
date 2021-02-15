@@ -1,6 +1,7 @@
 #pragma once
 #include "VertexBuffer.hpp"
 #include "Texture2D.hpp"
+#include "GraphicsTypes.hpp"
 #include "../Engine/EngineModule.hpp"
 #include "../Math/Rect2.hpp"
 #include "../Math/Color.hpp"
@@ -13,46 +14,6 @@ class IFont;
 class IShader;
 class IFrameBuffer;
 class CResources;
-
-enum class EBlendMode
-{
-    None,
-    Alpha,
-    Add,
-    Mod
-};
-
-enum class EPolygonMode
-{
-    Point,
-    Line,
-    Fill
-};
-
-enum class EDepthMode
-{
-    Never,
-    Less,
-    LessOrEqual,
-    Greater,
-    GreaterOrEqual,
-    Equal,
-    NotEqual,
-    Always
-};
-
-enum class ECullMode
-{
-    Front,
-    Back,
-    FrontBack
-};
-
-enum class EFrontFace
-{
-    CW, // Clockwise
-    CCW // Counterclockwise
-};
 
 class IGraphics: public IEngineModule
 {

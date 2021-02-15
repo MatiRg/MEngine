@@ -78,6 +78,7 @@ set(SOURCES_BASE
 	Source/Engine/Graphics/Font.cpp
 	Source/Engine/Graphics/Font.hpp
 	Source/Engine/Graphics/FrameBuffer.hpp
+	Source/Engine/Graphics/GraphicsTypes.hpp
 	Source/Engine/Graphics/Graphics.hpp
 	Source/Engine/Graphics/Light.cpp
 	Source/Engine/Graphics/Light.hpp

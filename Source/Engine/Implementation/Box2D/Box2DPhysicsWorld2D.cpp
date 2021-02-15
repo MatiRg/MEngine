@@ -116,7 +116,7 @@ void CBox2DDebugDraw::DrawPolygon(const b2Vec2* vertices, int32 vertexCount, con
         Vertexes.push_back({ p2, ToColor(color) });
         p1 = p2;
     }
-    Renderer2D->DrawPolygon(Vertexes, EPrimitiveMode::Lines, Matrix4(), 0.0f);
+    Renderer2D->DrawPolygon(Vertexes, EPrimitiveType::Lines, Matrix4(), 0.0f);
 }
 
 /// Draw a solid closed polygon provided in CCW order.
@@ -131,7 +131,7 @@ void CBox2DDebugDraw::DrawSolidPolygon(const b2Vec2* vertices, int32 vertexCount
         Vertexes.push_back({ ToVector2(vertices[i]), FillColor });
         Vertexes.push_back({ ToVector2(vertices[i + 1]), FillColor });
     }
-    Renderer2D->DrawPolygon(Vertexes, EPrimitiveMode::Triangles, Matrix4(), 0.0f);
+    Renderer2D->DrawPolygon(Vertexes, EPrimitiveType::Triangles, Matrix4(), 0.0f);
 
     Vertexes.clear();
 
@@ -143,7 +143,7 @@ void CBox2DDebugDraw::DrawSolidPolygon(const b2Vec2* vertices, int32 vertexCount
         Vertexes.push_back({ p2, ToColor(color) });
         p1 = p2;
     }
-    Renderer2D->DrawPolygon(Vertexes, EPrimitiveMode::Lines, Matrix4(), 0.0f);
+    Renderer2D->DrawPolygon(Vertexes, EPrimitiveType::Lines, Matrix4(), 0.0f);
 }
 
 /// Draw a circle.
@@ -171,7 +171,7 @@ void CBox2DDebugDraw::DrawCircle(const b2Vec2& center, float radius, const b2Col
         v1 = v2;
     }
 
-    Renderer2D->DrawPolygon(VertexesLines, EPrimitiveMode::Lines, Matrix4(), 0.0f);
+    Renderer2D->DrawPolygon(VertexesLines, EPrimitiveType::Lines, Matrix4(), 0.0f);
 }
 
 /// Draw a solid circle.
@@ -222,8 +222,8 @@ void CBox2DDebugDraw::DrawSolidCircle(const b2Vec2& center, float radius, const 
     VertexesLines.push_back({ ToVector2(center), DrawColor });
     VertexesLines.push_back({ ToVector2(p), DrawColor });
 
-    Renderer2D->DrawPolygon(VertexesTriangle, EPrimitiveMode::Triangles, Matrix4(), 0.0f);
-    Renderer2D->DrawPolygon(VertexesLines, EPrimitiveMode::Lines, Matrix4(), 0.0f);
+    Renderer2D->DrawPolygon(VertexesTriangle, EPrimitiveType::Triangles, Matrix4(), 0.0f);
+    Renderer2D->DrawPolygon(VertexesLines, EPrimitiveType::Lines, Matrix4(), 0.0f);
 }
 
 /// Draw a line segment.
@@ -249,7 +249,7 @@ void CBox2DDebugDraw::DrawTransform(const b2Transform& xf)
     p2 = p1 + AxisScale * xf.q.GetYAxis();
     Vertexes.push_back({ ToVector2(p2), Color::GREEN });
 
-    Renderer2D->DrawPolygon(Vertexes, EPrimitiveMode::Lines, Matrix4(), 0.0f);
+    Renderer2D->DrawPolygon(Vertexes, EPrimitiveType::Lines, Matrix4(), 0.0f);
 }
 
 /// Draw a point.

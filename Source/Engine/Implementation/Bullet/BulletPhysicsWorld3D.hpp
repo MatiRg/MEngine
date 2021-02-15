@@ -8,6 +8,7 @@
 
 class CBulletCollisionShape3D;
 class CBulletRigidBody3D;
+class CBulletDebugDrawer;
 
 class CBulletPhysicsWorld3D final: public IPhysicsWorld3D
 {
@@ -26,7 +27,7 @@ public:
     IRigidBody3D* CreateBody(ICollisionShape3D*) override;
     void DestroyBody(IRigidBody3D*) override;
 
-    void DebugDraw(CRenderer3D*) override;
+    void DebugDraw(CDebugDrawer*) override;
 
     btDiscreteDynamicsWorld* GetWorld() const { return World.get(); }
 private:
@@ -45,4 +46,6 @@ private:
     //
     CollidingBodies Collisions;
     CollidingBodies PreviousCollisions;
+    //
+    std::unique_ptr<CBulletDebugDrawer> BulletDebugDrawer;
 };

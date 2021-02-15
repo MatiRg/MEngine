@@ -32,6 +32,7 @@ public:
 
     void OnStart() override;
     void OnUpdate(const float) override;
+    void OnRender() override;
     void OnGUI() override;
 
     void OnCollisionEnter(const SEntityCollision3D& Collision) override;

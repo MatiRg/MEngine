@@ -2,6 +2,7 @@
 #include "../Resources/ResourceManager.hpp"
 #include "Shader.hpp"
 #include "Texture2D.hpp"
+#include "GraphicsTypes.hpp"
 #include <vector>
 #include <variant>
 
@@ -85,6 +86,9 @@ public:
     void SetShader(IShader* aShader) { Shader = aShader; }
     bool HasShader() const { return Shader; }
     IShader* GetShader() const { return Shader; }
+
+    void SetPrimitiveType(const EPrimitiveType aPrimitiveType) { PrimitiveType = aPrimitiveType; }
+    EPrimitiveType GetPrimitiveType() const { return PrimitiveType; }
 private:
     int GetNextTextureIndex();
     CMaterialVariable* CreateOrGetVariable(const std::string&);
@@ -93,6 +97,7 @@ private:
     int TextureIndexPool = 0;
     IShader* Shader = nullptr;
     std::vector<CMaterialVariable*> Variables;
+    EPrimitiveType PrimitiveType = EPrimitiveType::Triangles;
 };
 
 class CMaterialManager: public TResourceManager<CMaterial>

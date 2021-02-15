@@ -1,5 +1,6 @@
 Make Debug Renderer
 Add CMaterial Options -> Texture Filter/Ani, Double Sided, Blend Mode/Enabled, Depth Mode/Enabled, Pass Type -> Solid or Transparent
+CMaterial -> Serialize Rest Variables
 Rework 2D Rendering to 3D rendering -> Scene Module Part CCamera2D(Ortho) to CCamera
 add reload method to IResource
 Proper Physics Update

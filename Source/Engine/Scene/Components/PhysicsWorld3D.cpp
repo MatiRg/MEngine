@@ -92,6 +92,6 @@ void CPhysicsWorld3D::OnRender()
 {
     if( DebugDraw )
     {
-        //World->DebugDraw(Engine->GetRenderer2D());
+        World->DebugDraw(Engine->GetDebugDrawer());
     }
 }

@@ -40,6 +40,12 @@ void CPlayerObject::OnUpdate(const float DT)
 	float D = Math::Distance(Goal, Position);
 }
 
+void CPlayerObject::OnRender()
+{
+	CDebugDrawer* Drawer = Engine->GetDebugDrawer();
+	Drawer->AddLine(Transform.GetWorldPosition(), Transform.GetWorldPosition()-Transform.GetWorldForward()*1.0f, Color::BLUE); // ?
+}
+
 void CPlayerObject::OnGUI()
 {
 	Vector3 Position = Transform.GetWorldPosition();
@@ -276,6 +282,7 @@ void CLevel2::OnInit()
 	BlurEffect = App->GetRenderer3D()->CreatePostEffect("ScreenBlurBox.shader", 10);
 	if (BlurEffect)
 	{
+		BlurEffect->SetEnabled(false);
 		BlurEffect->SetInt("Samples", 1);
 	}
 }
@@ -309,6 +316,7 @@ void CLevel2::OnEnter()
 	World = std::make_unique<CWorld>(App->GetEngine());
 	CPhysicsWorld3D* PhysicsWorld = World->CreateComponent<CPhysicsWorld3D>();
 	PhysicsWorld->SetGravity({ 0.0f, -10.0f, 0.0f });
+	PhysicsWorld->SetDebugDraw(true);
 
 	// Create Sky Dome
 	CEntity* SkyDome = World->CreateModel<CEntity>("sky2.dae");

@@ -23,8 +23,8 @@ public:
     void SetIndices(const std::vector<unsigned int>&) override;
 
     void Bind() override;
-    void Draw(const EPrimitiveMode) override;
-    void Draw(const EPrimitiveMode, const std::size_t) override;
+    void Draw(const EPrimitiveType) override;
+    void Draw(const EPrimitiveType, const std::size_t) override;
     void UnBind() override;
 private:
     struct SVBO
