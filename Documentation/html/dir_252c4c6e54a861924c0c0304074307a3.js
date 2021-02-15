@@ -1,5 +1,9 @@
 var dir_252c4c6e54a861924c0c0304074307a3 =
 [
+    [ "DebugDrawer.cpp", "_debug_drawer_8cpp.html", null ],
+    [ "DebugDrawer.hpp", "_debug_drawer_8hpp.html", [
+      [ "CDebugDrawer", "class_c_debug_drawer.html", "class_c_debug_drawer" ]
+    ] ],
     [ "Drawer2D.cpp", "_drawer2_d_8cpp.html", null ],
     [ "Drawer2D.hpp", "_drawer2_d_8hpp.html", [
       [ "CDrawer2D", "class_c_drawer2_d.html", "class_c_drawer2_d" ]

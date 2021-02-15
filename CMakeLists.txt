@@ -71,6 +71,8 @@ set(SOURCES_BASE
 	Source/Engine/Engine/Updatable.hpp
 	Source/Engine/Engine/UserUpdater.cpp
 	Source/Engine/Engine/UserUpdater.hpp
+	Source/Engine/Graphics/DebugDrawer.cpp
+	Source/Engine/Graphics/DebugDrawer.hpp
 	Source/Engine/Graphics/Drawer2D.cpp
 	Source/Engine/Graphics/Drawer2D.hpp
 	Source/Engine/Graphics/Font.cpp
@@ -143,6 +145,7 @@ set(SOURCES_BASE
 	Source/Engine/Implementation/Bullet/BulletPhysicsWorld3D.hpp
 	Source/Engine/Implementation/Bullet/BulletRigidBody3D.cpp
 	Source/Engine/Implementation/Bullet/BulletRigidBody3D.hpp
+	Source/Engine/Implementation/Bullet/BulletUtils.hpp
 	Source/Engine/Implementation/SDLEventQueue.cpp
 	Source/Engine/Implementation/SDLEventQueue.hpp
 	Source/Engine/Implementation/SDLFont.cpp
@@ -188,6 +191,7 @@ set(SOURCES_BASE
 	Source/Engine/Physics/PhysicsWorld3D.hpp
 	Source/Engine/Physics/RigidBody3D.cpp
 	Source/Engine/Physics/RigidBody3D.hpp
+	Source/Engine/Physics/Contact3D.hpp
 	Source/Engine/Resources/Resource.cpp
 	Source/Engine/Resources/Resource.hpp
 	Source/Engine/Resources/ResourceManager.cpp
@@ -216,6 +220,12 @@ set(SOURCES_BASE
 	Source/Engine/Scene/Components/PhysicsWorld2D.cpp
 	Source/Engine/Scene/Components/RigidBody2D.hpp
 	Source/Engine/Scene/Components/RigidBody2D.cpp
+	Source/Engine/Scene/Components/PhysicsWorld3D.hpp
+	Source/Engine/Scene/Components/PhysicsWorld3D.cpp
+	Source/Engine/Scene/Components/BoxCollider3D.hpp
+	Source/Engine/Scene/Components/BoxCollider3D.cpp
+	Source/Engine/Scene/Components/RigidBody3D.hpp
+	Source/Engine/Scene/Components/RigidBody3D.cpp
 	Source/Engine/Scene/Component.cpp
 	Source/Engine/Scene/Component.hpp
 	Source/Engine/Scene/Entity.cpp
@@ -311,6 +321,8 @@ add_executable(EngineModulesSample Source/Samples/03_EngineModules/Main.cpp)
 add_executable(SceneCreationSample Source/Samples/04_SceneCreation/Main.cpp)
 add_executable(AudioPlaybackSample Source/Samples/05_AudioPlayback/Main.cpp)
 add_executable(PostEffectSample Source/Samples/06_PostEffect/Main.cpp)
+add_executable(SkySample Source/Samples/07_Sky/Main.cpp)
+add_executable(PhysicsSample Source/Samples/08_Physics/Main.cpp)
 #
 add_executable(Test2D ${SOURCES_99_TEST2D})
 add_executable(Labirynth ${SOURCES_98_LABIRYNTH})
@@ -325,6 +337,8 @@ if(DEV_BUILD)
 	target_compile_definitions(SceneCreationSample PUBLIC ${PPDEFS})
 	target_compile_definitions(AudioPlaybackSample PUBLIC ${PPDEFS})
 	target_compile_definitions(PostEffectSample PUBLIC ${PPDEFS})
+	target_compile_definitions(SkySample PUBLIC ${PPDEFS})
+	target_compile_definitions(PhysicsSample PUBLIC ${PPDEFS})
 	#
 	target_compile_definitions(Test2D PUBLIC ${PPDEFS})
 	target_compile_definitions(Labirynth PUBLIC ${PPDEFS})
@@ -348,7 +362,7 @@ if("${CMAKE_SYSTEM_NAME}" MATCHES "Windows")
 	
 	if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
 		set(LIBS SDL2main SDL2 SDL2_image SDL2_ttf sfml-audio sfml-system box2d assimp-vc142-mt BulletCollision BulletDynamics BulletInverseDynamics BulletSoftBody LinearMath)
-		set(LIBS_DBG SDL2main SDL2 SDL2_image SDL2_ttf sfml-audio-d sfml-system-d box2d assimp-vc142-mt BulletCollision BulletDynamics BulletInverseDynamics BulletSoftBody LinearMath)
+		set(LIBS_DBG SDL2main SDL2 SDL2_image SDL2_ttf sfml-audio-d sfml-system-d box2d assimp-vc142-mt BulletCollision_Debug BulletDynamics_Debug BulletInverseDynamics_Debug BulletSoftBody_Debug LinearMath_Debug)
 	elseif(CMAKE_CXX_COMPILER_ID MATCHES "Clang|GNU")
 		set(LIBS SDL2main SDL2.dll SDL2_image.dll SDL2_ttf.dll openal.dll) # TO DO
 		set(LIBS_DBG ${LIBS})
@@ -377,6 +391,8 @@ target_include_directories(EngineModulesSample PUBLIC ${INC_BASE})
 target_include_directories(SceneCreationSample PUBLIC ${INC_BASE})
 target_include_directories(AudioPlaybackSample PUBLIC ${INC_BASE})
 target_include_directories(PostEffectSample PUBLIC ${INC_BASE})
+target_include_directories(SkySample PUBLIC ${INC_BASE})
+target_include_directories(PhysicsSample PUBLIC ${INC_BASE})
 #
 target_include_directories(Test2D PUBLIC ${INC_BASE})
 target_include_directories(Labirynth PUBLIC ${INC_BASE})
@@ -409,7 +425,8 @@ set(LIBS
 	MyEngine 
 	${LIBS}
 )
-set(LIBRARIES debug ${LIBS_DBG} optimized ${LIBS})
+#set(LIBRARIES debug ${LIBS_DBG} optimized ${LIBS}) # Fix
+set(LIBRARIES ${LIBS_DBG})
 
 target_link_libraries(HelloWorld ${LIBRARIES})
 target_link_libraries(UpdatablesSample ${LIBRARIES})
@@ -417,6 +434,8 @@ target_link_libraries(EngineModulesSample ${LIBRARIES})
 target_link_libraries(SceneCreationSample ${LIBRARIES})
 target_link_libraries(AudioPlaybackSample ${LIBRARIES})
 target_link_libraries(PostEffectSample ${LIBRARIES})
+target_link_libraries(SkySample ${LIBRARIES})
+target_link_libraries(PhysicsSample ${LIBRARIES})
 #
 target_link_libraries(Test2D ${LIBRARIES})
 target_link_libraries(Labirynth ${LIBRARIES})
@@ -442,6 +461,8 @@ target_compile_options(EngineModulesSample PRIVATE ${CMP_OPT})
 target_compile_options(SceneCreationSample PRIVATE ${CMP_OPT})
 target_compile_options(AudioPlaybackSample PRIVATE ${CMP_OPT})
 target_compile_options(PostEffectSample PRIVATE ${CMP_OPT})
+target_compile_options(SkySample PRIVATE ${CMP_OPT})
+target_compile_options(PhysicsSample PRIVATE ${CMP_OPT})
 #
 target_compile_options(Test2D PRIVATE ${CMP_OPT})
 target_compile_options(Labirynth PRIVATE ${CMP_OPT})

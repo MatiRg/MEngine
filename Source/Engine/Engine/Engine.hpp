@@ -18,6 +18,7 @@ class CAudioHandler;
 class CRenderer3D;
 class CDrawer2D;
 class CRenderer2D;
+class CDebugDrawer;
 class IPhysics3D;
 class IPhysics2D;
 class CImGUI;
@@ -85,6 +86,7 @@ public:
     CRenderer3D* GetRenderer3D() const { return Renderer3D.get(); }
     CDrawer2D* GetDrawer2D() const { return Drawer2D.get(); }
     CRenderer2D* GetRenderer2D() const { return Renderer2D.get(); }
+    CDebugDrawer* GetDebugDrawer() const { return DebugDrawer.get(); }
     CImGUI* GetImGUI() const { return ImGUI.get(); }
     CScene* GetScene() const { return Scene.get(); }
     CScriptModule* GetScriptModule() const { return ScriptModule.get(); }
@@ -129,6 +131,7 @@ private:
     std::unique_ptr<CRenderer3D> Renderer3D;
     std::unique_ptr<CDrawer2D> Drawer2D;
     std::unique_ptr<CRenderer2D> Renderer2D;
+    std::unique_ptr<CDebugDrawer> DebugDrawer;
     std::unique_ptr<CImGUI> ImGUI;
     std::unique_ptr<CScene> Scene;
     std::unique_ptr<CScriptModule> ScriptModule;

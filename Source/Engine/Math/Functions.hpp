@@ -2,6 +2,7 @@
 #include <cmath>
 #include <tuple>
 #include <limits>
+#include <vector>
 
 namespace Math
 {
@@ -292,6 +293,134 @@ namespace Math
         T tt = T(1)-t;
         return Lerp(a, b, T(1)-(tt*tt) );
     }
+
+    //! Not Best - https://randomascii.wordpress.com/2012/02/25/comparing-floating-point-numbers-2012-edition/
+    template<class T>
+    bool IsEqual(const T a, const T b, const T Eps)
+    {
+        return Abs(a - b) <= Eps;
+    }
+
+    //! Value, Old Min, Old Max, New Min, New Max
+    template<class T>
+    T ReMap(const T Value, const T Start1, const T Stop1, const T Start2, const T Stop2)
+    {
+        return Start2 + (Stop2 - Start2) * ((Value - Start1) / (Stop1 - Start1));
+    }
+
+    template<class T>
+    struct TGradientKey
+    {
+        using Type = T;
+        Type Value;
+        float Time;
+
+        TGradientKey(const Type& aValue, const float aTime) :
+            Value(aValue),
+            Time(aTime)
+        {
+        }
+    };
+
+    template<class T>
+    class TGradient
+    {
+    public:
+        using ValueType = T;
+        using KeyType = TGradientKey<T>;
+    public:
+        TGradient() = default;
+        ~TGradient() = default;
+
+        //! Use unique t values
+        void AddKey(const ValueType& Value, const float t)
+        {
+            Keys.emplace_back(Value, t);
+            std::sort(Keys.begin(), Keys.end(), [](const KeyType& a, const KeyType& b) {
+                return a.Time < b.Time;
+            });
+        }
+
+        ValueType Evaluate(const float t) const
+        {
+            // https://answers.unity.com/questions/1703579/how-does-gradientevaluate-work-internally.html
+            std::size_t Size = Keys.size();
+            if (!Size)
+            {
+                return {};
+            }
+            if (Size == 1u)
+            {
+                return Keys[0u].Value;
+            }
+            // Border Values
+            if (t < Keys[0u].Time || IsEqual(Keys[0u].Time, t, 0.000001f))
+            {
+                return Keys[0u].Value;
+            }
+            if (t > Keys[Size - 1u].Time || IsEqual(Keys[Size - 1u].Time, t, 0.000001f))
+            {
+                return Keys[Size - 1u].Value;
+            }
+            // Rest
+            for (std::size_t i = 0; i < Size - 1u; ++i)
+            {
+                KeyType StartKey = Keys[i];
+                KeyType EndKey = Keys[i + 1u];
+                if (t < EndKey.Time)
+                {
+                    float tt = Clamp01((t - StartKey.Time) / (EndKey.Time - StartKey.Time));
+                    return Lerp(StartKey.Value, EndKey.Value, tt);
+                }
+            }
+            return Keys[Size - 1u].Value;
+        }
+    private:
+        std::vector<KeyType> Keys;
+    };
+
+    // PID
+    // https://forum.unity.com/threads/rigidbody-lookat-torque.146625/#post-1005645
+    template<class T>
+    class TPID
+    {
+    public:
+        using Type = T;
+    public:
+        TPID() = default;
+        TPID(const float aKp, const float aKi, const float aKd) :
+            Kp(aKp),
+            Ki(aKi),
+            Kd(aKd)
+        {
+        }
+        ~TPID() = default;
+
+        Type Evaluate(const Type& Now, const Type& Target, const float DT)
+        {
+            return Evaluate(Now - Target, DT); // Or Target - Now ?
+        }
+
+        Type Evaluate(const Type& Error, const float DT)
+        {
+            I += Error * DT;
+            Type D = (Error - PreviousError) / DT;
+            PreviousError = Error;
+            return Error * Kp + I * Ki + D * Kd;
+            /*Type P = Now - Target;
+            I += P * DT;
+            Type D = (P - PreviousError) / DT;
+            PreviousError = P;
+            return P*Kp + I*Ki + D*Kd;*/
+        }
+    public:
+        float Kp = 1.0f;
+        float Ki = 0.0f;
+        float Kd = 0.1f;
+    private:
+        Type PreviousError = {};
+        Type I = {};
+    };
 
     // Min, Max: Min < Max
     int Random(const int, const int);

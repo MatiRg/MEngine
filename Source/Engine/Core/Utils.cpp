@@ -226,4 +226,9 @@ namespace Utils
         int x1 = x >= '0' && x <= '9' ? x - '0' : x >= 'a' && x <= 'f' ? (x - 'a') + 10 : 0;
         return x1 * std::pow( 16, p );
     }
+
+    void HashCombine(std::size_t& a1, const std::size_t a2)
+    {
+        a1 ^= a2 + 0x9e3779b9 + (a1 << 6) + (a1 >> 2);
+    }
 }

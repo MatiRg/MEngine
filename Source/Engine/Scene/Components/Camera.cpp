@@ -67,7 +67,8 @@ void CCamera::SetNearClipPlane(const float Value)
 Matrix4 CCamera::GetView() const
 {
     const auto& Transform = GetOwner()->GetTransform();
-    return Math::Transform(Transform.GetWorldPosition(), Transform.GetWorldRotation(), Vector3(1.0f)).Inverse();
+    // -1 For Forward+
+    return Math::Transform(Transform.GetWorldPosition(), Transform.GetWorldRotation(), Vector3(1.0f, 1.0f, 1.0f)).Inverse();
     /*if( ViewUpdate )
     {
         const auto& Transform = GetOwner()->GetTransform();

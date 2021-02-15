@@ -114,7 +114,7 @@ public:
 
         ResourceCreateMap ResVar;
         ResVar[RESOURCES_VAR_IS_STREAM] = true;
-        AudioSource->SetData(Engine->GetResources()->CreateResource<ISoundData>("menu.ogg", ResVar));
+        AudioSource->SetData(Engine->GetResources()->CreateResource<ISoundData>("Debussy - Arabesque No. 1 (Ciccolini).ogg", ResVar));
 
         AudioSource->Play();
 
@@ -296,11 +296,11 @@ CPlayGround::~CPlayGround()
 
 void CPlayGround::OnInit()
 {
-    App->GetScene()->RegisterComponentFactory<CFallComponent>();
+    App->GetScene()->RegisterComponent<CFallComponent>();
     //
-    App->GetScene()->RegisterEntityFactory<CGameManager>();
-    App->GetScene()->RegisterEntityFactory<CEnemy>();
-    App->GetScene()->RegisterEntityFactory<CPlayer>();
+    App->GetScene()->RegisterEntity<CGameManager>();
+    App->GetScene()->RegisterEntity<CEnemy>();
+    App->GetScene()->RegisterEntity<CPlayer>();
 }
 
 void CPlayGround::OnEnter()

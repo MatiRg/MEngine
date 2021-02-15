@@ -33,7 +33,9 @@ in vec2 TexCoords;
 
 out vec4 Color;
 
+#ifdef IS_LIT
 vec3 CalculateDirLight(int index, vec3 viewDir);
+#endif
 
 void main()
 {
@@ -65,6 +67,7 @@ void main()
 	#endif
 }
 
+#ifdef IS_LIT
 vec3 CalculateDirLight(int index, vec3 viewDir)
 {
     vec3 lightDir = normalize(-LightParam1[index].xyz);
@@ -90,5 +93,6 @@ vec3 CalculateDirLight(int index, vec3 viewDir)
 	#endif
 	return (Diffuse + Specular);
 }
+#endif
 
 #endif

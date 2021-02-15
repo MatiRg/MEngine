@@ -87,7 +87,7 @@ void CXMLObject::SetIntRect2(const IntRect2& Arg)
 {
     std::array<char, 256> Buffor;
     Buffor.fill('\0');
-    std::snprintf(Buffor.data(), 255, "%u %u %u %u", Arg.GetX(), Arg.GetY(), Arg.GetWidth(), Arg.GetHeight());
+    std::snprintf(Buffor.data(), 255, "%d %d %d %d", Arg.GetX(), Arg.GetY(), Arg.GetWidth(), Arg.GetHeight());
     SetValue(Buffor.data());
 }
 

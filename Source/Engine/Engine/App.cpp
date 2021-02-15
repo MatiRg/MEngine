@@ -211,6 +211,11 @@ CRenderer2D* CApp::GetRenderer2D() const
     return (!Engine.get()) ? nullptr : Engine->GetRenderer2D();
 }
 
+CDebugDrawer* CApp::GetDebugDrawer() const
+{
+    return (!Engine.get()) ? nullptr : Engine->GetDebugDrawer();
+}
+
 IPhysics3D* CApp::GetPhysics3D() const
 {
     return (!Engine.get()) ? nullptr : Engine->GetPhysics3D();

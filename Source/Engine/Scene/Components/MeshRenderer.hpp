@@ -18,9 +18,13 @@ public:
 
     void OnRender() override;
 
+    void SetMaterial(CMaterial* aMaterial);
+    CMaterial* GetMaterial() const { return Material; }
+
     void SetMesh(CMesh* aMesh);
     CMesh* GetMesh() const { return Mesh; }
 private:
     CRenderable3D Renderable;
     CMesh* Mesh = nullptr;
+    CMaterial* Material = nullptr; // Overwrites Mesh Material
 };

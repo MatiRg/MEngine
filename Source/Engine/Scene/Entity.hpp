@@ -1,6 +1,7 @@
 #pragma once
 #include "../Core/NonCopyable.hpp"
 #include "../Physics/Contact2D.hpp"
+#include "../Physics/Contact3D.hpp"
 #include "EventManager.hpp"
 #include "Event.hpp"
 #include "Component.hpp"
@@ -31,12 +32,9 @@ static constexpr int INVALID_ENTITY = -1000;
 class CRigidBody2D;
 class CBoxCollider2D;
 
-// 3D
-class CMeshNode;
-
 struct SEntityCollision2D
 {
-    SEntityCollision2D(CRigidBody2D* aRigidBody, CBoxCollider2D* aCollider) :
+    SEntityCollision2D(CRigidBody2D* aRigidBody, CBoxCollider2D* aCollider):
         RigidBody(aRigidBody),
         Collider(aCollider)
     {
@@ -44,6 +42,26 @@ struct SEntityCollision2D
 
     CRigidBody2D* RigidBody = nullptr;
     CBoxCollider2D* Collider = nullptr;
+};
+
+// 3D
+
+class CMeshNode;
+class CRigidBody3D;
+class CMaterial;
+
+struct SEntityCollision3D
+{
+    SEntityCollision3D(CRigidBody3D* aRigidBody, CEntity* aEntity, const std::vector<SContactPoint3D>& aContacts):
+        RigidBody(aRigidBody),
+        Entity(aEntity),
+        Contacts(aContacts)
+    {
+    }
+
+    CRigidBody3D* RigidBody = nullptr;
+    CEntity* Entity = nullptr;
+    std::vector<SContactPoint3D> Contacts;
 };
 
 // 
@@ -259,20 +277,22 @@ public:
      * \brief Create Model Child Entity
      * \param Type type of Entity must inherints from CEntity
      * \param ModelName Model Name
+     * \param Overwrite Material, Ownerships is not taken
      * \return Returns Loaded Model Root Entity for given Model Name or nullptr if error
      */
-    CEntity* CreateModel(const std::string& ModelName, const std::string& Type);
+    CEntity* CreateModel(const std::string& ModelName, const std::string& Type, CMaterial* = nullptr);
     /**
      * \brief Create Model Child Entity
      * \tparam T type of Entity must inherints from CEntity
      * \param ModelName Model Name
+     * \param Overwrite Material, Ownerships is not taken
      * \return Returns Loaded Model Root Entity for given Model Name or nullptr if error
      */
     template<class T>
-    T* CreateModel(const std::string& ModelName)
+    T* CreateModel(const std::string& ModelName, CMaterial* Material = nullptr)
     {
         static_assert(std::is_base_of<CEntity, T>::value, "Must be base of CEntity");
-        return dynamic_cast<T*>(CreateModel(ModelName, T::GetTypeStatic()));
+        return dynamic_cast<T*>(CreateModel(ModelName, T::GetTypeStatic(), Material));
     }
 
     /**
@@ -395,7 +415,10 @@ public:
     // 2D
     virtual void OnCollisionEnter(const SEntityCollision2D&) {}
     virtual void OnCollisionLeave(const SEntityCollision2D&) {}
-    //
+    // 3D
+    virtual void OnCollisionEnter(const SEntityCollision3D&) {}
+    virtual void OnCollisionStay(const SEntityCollision3D&) {}
+    virtual void OnCollisionLeave(const SEntityCollision3D&) {}
 
     template<class E, class F>
     void Subscribe(const F& aFunction)
@@ -408,7 +431,7 @@ protected:
     bool Load(CXMLElement*);
     bool Save(CXMLElement*);
 private:
-    static void ProcessMeshNode(CEntity*, CMeshNode*);
+    static void ProcessMeshNode(CEntity*, CMeshNode*, CMaterial*);
     //
     void BeginFrame(const EBeginFrame&);
     void Update(const EUpdate&);

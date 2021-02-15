@@ -26,6 +26,7 @@
 #include "Engine/Updatable.hpp"
 #include "Engine/UserUpdater.hpp"
 
+#include "Graphics/DebugDrawer.hpp"
 #include "Graphics/Drawer2D.hpp"
 #include "Graphics/Font.hpp"
 #include "Graphics/FrameBuffer.hpp"
@@ -72,6 +73,7 @@
 #include "Physics/CollisionShape3D.hpp"
 #include "Physics/PhysicsWorld3D.hpp"
 #include "Physics/RigidBody3D.hpp"
+#include "Physics/Contact3D.hpp"
 
 #include "Resources/Resource.hpp"
 #include "Resources/ResourceManager.hpp"
@@ -88,6 +90,9 @@
 #include "Scene/Components/BoxCollider2D.hpp"
 #include "Scene/Components/PhysicsWorld2D.hpp"
 #include "Scene/Components/RigidBody2D.hpp"
+#include "Scene/Components/BoxCollider3D.hpp"
+#include "Scene/Components/PhysicsWorld3D.hpp"
+#include "Scene/Components/RigidBody3D.hpp"
 #include "Scene/Component.hpp"
 #include "Scene/Entity.hpp"
 #include "Scene/Event.hpp"

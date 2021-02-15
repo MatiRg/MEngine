@@ -12,6 +12,7 @@
 #include "../Graphics/Renderer2D.hpp"
 #include "../Graphics/Drawer2D.hpp"
 #include "../Graphics/Renderer3D.hpp"
+#include "../Graphics/DebugDrawer.hpp"
 #include "../Scene/Scene.hpp"
 #include "../UI/ImGUI.hpp"
 #include "../Script/ScriptModule.hpp"
@@ -35,6 +36,7 @@ CEngine::~CEngine()
     ScriptModule.reset();
     Scene.reset();
     ImGUI.reset();
+    DebugDrawer.reset();
     Renderer2D.reset();
     Drawer2D.reset();
     Renderer3D.reset();
@@ -63,6 +65,7 @@ bool CEngine::Create()
     Renderer3D = std::make_unique<CRenderer3D>(Graphics, Resources.get());
     Drawer2D = std::make_unique<CDrawer2D>( Graphics, Resources.get(), Window );
     Renderer2D = std::make_unique<CRenderer2D>( Drawer2D.get() );
+    DebugDrawer = std::make_unique<CDebugDrawer>(Renderer3D.get(), Resources.get() );
     ImGUI = std::make_unique<CImGUI>( Input, Graphics );
     Scene = std::make_unique<CScene>( this );
     ScriptModule = std::make_unique<CScriptModule>( this );
@@ -86,6 +89,7 @@ bool CEngine::Create()
     EngineUpdater->AddEngineModule( ScriptModule.get() );
     EngineUpdater->AddEngineModule( Counter.get() );
     EngineUpdater->AddEngineModule( UserUpdater.get() );
+    EngineUpdater->AddEngineModule( DebugDrawer.get() );
 
     if( !System->DirectoryExist("Core") )
     {

@@ -1,7 +1,8 @@
 #include "Locations.inc"
 #include "Uniforms.inc"
 
-uniform float Time;
+// [0, 4]
+uniform int SwitchVar = 0;
 uniform sampler2D Diffuse;
 
 #ifdef VS
@@ -37,12 +38,9 @@ float f = 5.0;
 float h = 0.09;
 float i = 0.02;
 
-
-int switch_var = 0;
-
 void main()
 {
-	switch(switch_var)
+	switch(SwitchVar)
 	{
 		case 0:
 		{

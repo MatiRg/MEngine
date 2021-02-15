@@ -68,6 +68,11 @@ void CRenderer3D::Exit()
     LOG( ESeverity::Info ) << "Renderer3D - Exit\n";
 }
 
+void CRenderer3D::OnUpdate(const float DT)
+{
+    Time += DT;
+}
+
 CPostEffect* CRenderer3D::CreatePostEffect(const std::string& ShaderName, const int Order)
 {
     PostEffectPtr Ptr = std::make_unique<CPostEffect>(Graphics, Resources, Order);
@@ -102,7 +107,7 @@ void CRenderer3D::Render()
     Graphics->SetCullActive(true);
     Graphics->SetCullMode(ECullMode::Back);
     Graphics->SetFrontFace(EFrontFace::CCW);
-    Graphics->SetPolygonMode(EPolygonMode::Fill);
+    Graphics->SetPolygonMode(Wireframe ? EPolygonMode::Line : EPolygonMode::Fill);
     Graphics->SetClearColor(Color(0.0f, 1.0f));
     Graphics->SetBlendActive(true);
     Graphics->SetBlendMode(EBlendMode::None);
@@ -111,55 +116,10 @@ void CRenderer3D::Render()
     for (const auto& i : Renderables)
     {
         CMaterial* Material = i->GetMaterial();
-        IShader* Shader = i->GetMaterial()->GetShader();
         IVertexBuffer* Buffer = i->GetVertexBuffer();
         Material->Bind();
         // Constants
-        if (Shader->HasUniform("Model"))
-        {
-            Shader->SetMatrix4("Model", i->GetMatrix());
-        }
-        if (Shader->HasUniform("View"))
-        {
-            Shader->SetMatrix4("View", ViewMatrix);
-        }
-        if (Shader->HasUniform("Projection"))
-        {
-            Shader->SetMatrix4("Projection", ProjectionMatrix);
-        }
-        if (Shader->HasUniform("ViewProjection"))
-        {
-            Shader->SetMatrix4("ViewProjection", ProjectionMatrix * ViewMatrix);
-        }
-        if (Shader->HasUniform("CameraPosition")) // ViewPos
-        {
-            Shader->SetVector3("CameraPosition", CameraPosition);
-        }
-        // Global
-        if (Shader->HasUniform("AmbientColor"))
-        {
-            Shader->SetColor("AmbientColor", AmbientColor);
-        }
-        // Lights
-        bool HasLights = false;
-        if (Shader->HasUniform("LightCount"))
-        {
-            HasLights = true;
-            Shader->SetInteger("LightCount", static_cast<int>(Lights.size()));
-        }
-        if (HasLights)
-        {    
-            for (std::size_t i = 0u; i < Lights.size(); ++i)
-            {
-                std::string PostFix = "[" + std::to_string(static_cast<int>(i)) + "]";
-                Shader->SetInteger("LightType" + PostFix, static_cast<int>(Lights[i]->GetLightType()));
-                Shader->SetColor("LightColor" + PostFix, Lights[i]->GetColor());
-                if (Lights[i]->GetLightType() == ELightType::Direction)
-                {
-                    Shader->SetVector4("LightParam1" + PostFix, { Lights[i]->GetDirection(), 0.0f });
-                }
-            }
-        }
+        SetupMaterialShaderParameters(i);
         //
         Buffer->Bind();
         Buffer->Draw(EPrimitiveMode::Triangles);
@@ -177,6 +137,10 @@ void CRenderer3D::Render()
     });
     IFrameBuffer* LastFrameBuffer = DefaultFrameBuffer.get();
     ITexture2D* FinalOutputTexture = LastFrameBuffer->GetColorAttachment();
+    if (Wireframe)
+    {
+        Graphics->SetPolygonMode(EPolygonMode::Fill);
+    }
     Graphics->SetDepthActive(false);
     for (const auto& i : Effects)
     {
@@ -224,9 +188,74 @@ void CRenderer3D::Render()
     Graphics->SetDepthActive(SavedDepth);
 }
 
+void CRenderer3D::SetupMaterialShaderParameters(CRenderable3D* Renderable)
+{
+    IShader* Shader = Renderable->GetMaterial()->GetShader();
+    // Constants
+    if (Shader->HasUniform("Model"))
+    {
+        Shader->SetMatrix4("Model", Renderable->GetMatrix());
+    }
+    if (Shader->HasUniform("View"))
+    {
+        Shader->SetMatrix4("View", ViewMatrix);
+    }
+    if (Shader->HasUniform("Projection"))
+    {
+        Shader->SetMatrix4("Projection", ProjectionMatrix);
+    }
+    if (Shader->HasUniform("ViewProjection"))
+    {
+        Shader->SetMatrix4("ViewProjection", ProjectionMatrix * ViewMatrix);
+    }
+    if (Shader->HasUniform("CameraPosition")) // ViewPos
+    {
+        Shader->SetVector3("CameraPosition", CameraPosition);
+    }
+    if (Shader->HasUniform("Time"))
+    {
+        Shader->SetFloat("Time", Time);
+    }
+    // Global
+    if (Shader->HasUniform("AmbientColor"))
+    {
+        Shader->SetColor("AmbientColor", AmbientColor);
+    }
+    // Lights
+    bool HasLights = false;
+    if (Shader->HasUniform("LightCount"))
+    {
+        HasLights = true;
+        Shader->SetInteger("LightCount", static_cast<int>(Lights.size()));
+    }
+    if (HasLights)
+    {
+        for (std::size_t i = 0u; i < Lights.size(); ++i)
+        {
+            std::string PostFix = "[" + std::to_string(static_cast<int>(i)) + "]";
+            Shader->SetInteger("LightType" + PostFix, static_cast<int>(Lights[i]->GetLightType()));
+            Shader->SetColor("LightColor" + PostFix, Lights[i]->GetColor());
+            if (Lights[i]->GetLightType() == ELightType::Direction)
+            {
+                Shader->SetVector4("LightParam1" + PostFix, { Lights[i]->GetDirection(), 0.0f });
+            }
+        }
+    }
+}
+
 void CRenderer3D::AddRenderable(CRenderable3D* aRenderable)
 {
-    if (aRenderable->GetRenderableType() != ERenderableType::Light)
+    if (!aRenderable)
+    {
+        LOG(ESeverity::Warning) << "Adding Invalid CRenderable3D\n";
+        return;
+    }
+    //
+    if (aRenderable->GetRenderableType() == ERenderableType::Light)
+    {
+        Lights.push_back(static_cast<CLight*>(aRenderable));
+    }
+    else
     {
         if (aRenderable->HasMaterial() && aRenderable->HasVertexBuffer() && aRenderable->GetMaterial()->HasShader())
         {
@@ -236,9 +265,5 @@ void CRenderer3D::AddRenderable(CRenderable3D* aRenderable)
         {
             LOG(ESeverity::Warning) << "Adding Invalid CRenderable3D\n";
         }
-    }
-    else
-    {
-        Lights.push_back( static_cast<CLight*>(aRenderable) );
     }
 }
