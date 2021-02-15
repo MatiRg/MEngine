@@ -106,6 +106,19 @@ void CBulletPhysicsWorld3D::DestroyBody(IRigidBody3D* Body)
 			Bodies.erase(Found);
 			delete BulletBody;
 		}
+		// Remove from Collision Callbacks
+		for (auto It = PreviousCollisions.begin(); It != PreviousCollisions.end();)
+		{
+			const auto& Key = It->first;
+			if (Key.first == BulletBody || Key.second == BulletBody)
+			{
+				It = PreviousCollisions.erase(It);
+			}
+			else
+			{
+				++It;
+			}
+		}
 	}
 }
 

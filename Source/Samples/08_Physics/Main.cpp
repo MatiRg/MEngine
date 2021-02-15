@@ -84,7 +84,7 @@ public:
     void OnInit() override
     {
         // Register Custom Entity Class
-        App->GetScene()->RegisterEntityFactory<CGameObject>();
+        App->GetScene()->RegisterEntity<CGameObject>();
     }
 
     void OnEnter() override 

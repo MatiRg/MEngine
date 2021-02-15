@@ -296,11 +296,11 @@ CPlayGround::~CPlayGround()
 
 void CPlayGround::OnInit()
 {
-    App->GetScene()->RegisterComponentFactory<CFallComponent>();
+    App->GetScene()->RegisterComponent<CFallComponent>();
     //
-    App->GetScene()->RegisterEntityFactory<CGameManager>();
-    App->GetScene()->RegisterEntityFactory<CEnemy>();
-    App->GetScene()->RegisterEntityFactory<CPlayer>();
+    App->GetScene()->RegisterEntity<CGameManager>();
+    App->GetScene()->RegisterEntity<CEnemy>();
+    App->GetScene()->RegisterEntity<CPlayer>();
 }
 
 void CPlayGround::OnEnter()

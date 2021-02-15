@@ -28,22 +28,22 @@ CScene::~CScene()
 
 bool CScene::Init(const SEngineParams&)
 {
-    RegisterComponentFactory<CAudioListener>();
-    RegisterComponentFactory<CAudioSource>();
-    RegisterComponentFactory<CCamera2D>();
-    RegisterComponentFactory<CRectRenderer2D>();
-    RegisterComponentFactory<CStaticSprite2D>();
-    RegisterComponentFactory<CBoxCollider2D>();
-    RegisterComponentFactory<CRigidBody2D>();
-    RegisterComponentFactory<CPhysicsWorld2D>();
-    RegisterComponentFactory<CCamera>();
-    RegisterComponentFactory<CMeshRenderer>();
-    RegisterComponentFactory<CLightComponent>();
-    RegisterComponentFactory<CBoxCollider3D>();
-    RegisterComponentFactory<CRigidBody3D>();
-    RegisterComponentFactory<CPhysicsWorld3D>();
+    RegisterComponent<CAudioListener>();
+    RegisterComponent<CAudioSource>();
+    RegisterComponent<CCamera2D>();
+    RegisterComponent<CRectRenderer2D>();
+    RegisterComponent<CStaticSprite2D>();
+    RegisterComponent<CBoxCollider2D>();
+    RegisterComponent<CRigidBody2D>();
+    RegisterComponent<CPhysicsWorld2D>();
+    RegisterComponent<CCamera>();
+    RegisterComponent<CMeshRenderer>();
+    RegisterComponent<CLightComponent>();
+    RegisterComponent<CBoxCollider3D>();
+    RegisterComponent<CRigidBody3D>();
+    RegisterComponent<CPhysicsWorld3D>();
     //
-    RegisterEntityFactory<CEntity>();
+    RegisterEntity<CEntity>();
 
     LOG( ESeverity::Info ) << "Scene Module - Init\n";
     return true;

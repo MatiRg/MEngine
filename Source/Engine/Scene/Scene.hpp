@@ -27,7 +27,7 @@ public:
      * \tparam T type of entity must inherints from CEntity
      */
     template<class T>
-    void RegisterEntityFactory()
+    void RegisterEntity()
     {
         static_assert(std::is_base_of<CEntity, T>::value, "Must be base of CEntity");
         EntityFactory.push_back( std::make_unique<TEntityFactory<T>>(Engine) );
@@ -56,7 +56,7 @@ public:
      * \tparam T type of component must inherints from IComponent
      */
     template<class T>
-    void RegisterComponentFactory()
+    void RegisterComponent()
     {
         static_assert(std::is_base_of<IComponent, T>::value, "Must be base of IComponent");
         ComponentFactory.push_back( std::make_unique<TComponentFactory<T>>(Engine) );

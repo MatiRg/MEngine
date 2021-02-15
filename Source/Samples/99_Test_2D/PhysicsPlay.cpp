@@ -114,8 +114,8 @@ CPhysicsPlay::~CPhysicsPlay()
 
 void CPhysicsPlay::OnInit()
 {
-    App->GetScene()->RegisterEntityFactory<CCameraController>();
-    App->GetScene()->RegisterEntityFactory<CTestObject>();
+    App->GetScene()->RegisterEntity<CCameraController>();
+    App->GetScene()->RegisterEntity<CTestObject>();
 }
 
 void CPhysicsPlay::OnEnter()

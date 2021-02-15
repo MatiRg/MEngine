@@ -47,6 +47,8 @@ public:
 
     void Render();
 private:
+    void SetupMaterialShaderParameters(CRenderable3D*);
+private:
     IGraphics* Graphics = nullptr;
     CResources* Resources = nullptr;
     Matrix4 ViewMatrix;
