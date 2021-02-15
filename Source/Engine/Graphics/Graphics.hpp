@@ -28,7 +28,8 @@ public:
     virtual const IntVector2& GetMaxTextureSize() const = 0;
     virtual bool IsSoftware() const = 0;
 
-    virtual std::unique_ptr<ITexture2D> CreateRenderSurface(const ERenderTargetType, const int, const int) = 0;
+    // Render Target Type, Width, Height, MSAA Samples
+    virtual std::unique_ptr<ITexture2D> CreateRenderSurface(const ERenderTargetType, const int, const int, const int) = 0;
     // Create From Surface
     virtual std::unique_ptr<ITexture2D> CreateTexture2D(ISurface*) = 0;
     // Name - Resources Usage
@@ -41,8 +42,8 @@ public:
     // Vertex Buffer Description, IsDynamic
     virtual std::unique_ptr<IVertexBuffer> CreateVertexBuffer(const std::vector<SVertexElement>&, const bool) = 0;
 
-    //
     virtual std::unique_ptr<IFrameBuffer> CreateFrameBuffer() = 0;
+    virtual std::unique_ptr<IFrameBuffer> CreateMSAAFrameBuffer(const int) = 0;
 
     virtual void SetClearColor(const Color&) = 0;
     virtual const Color& GetClearColor() const = 0;

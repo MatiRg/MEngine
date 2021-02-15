@@ -40,6 +40,9 @@ public:
     void SetWireframe(const bool x) { Wireframe = x; }
     bool GetWireframe() const { return Wireframe; }
 
+    void SetMSAASamples(int);
+    int GetMSAASamples() const { return MSAASamples; }
+
     bool Init(const SEngineParams&) override;
     void Exit() override;
 
@@ -56,6 +59,7 @@ private:
     Vector3 CameraPosition;
     std::vector<CRenderable3D*> Renderables;
     std::vector<CLight*> Lights;
+    std::unique_ptr<IFrameBuffer> MSAAFrameBuffer;
     std::unique_ptr<IFrameBuffer> DefaultFrameBuffer;
     std::unique_ptr<IVertexBuffer> QuadVertexBuffer;
     IShader* ScreenShader = nullptr;
@@ -65,4 +69,5 @@ private:
     float GammaCorrection = 1.4f;
     bool Wireframe = false;
     float Time = 0.0f;
+    int MSAASamples = 4;
 };

@@ -38,26 +38,35 @@ COGLTexture2D::~COGLTexture2D()
     glDeleteTextures( 1, &Handle );
 }
 
-bool COGLTexture2D::CreateAsRenderSurface(const ERenderTargetType aTarget, const int aW, const int aH)
+bool COGLTexture2D::CreateAsRenderSurface(const ERenderTargetType aTarget, const int aW, const int aH, const int MSAASamples)
 {
     RenderTargetFlag = true;
     RenderTarget = aTarget;
     Width = aW;
     Height = aH;
+    TextureType = RenderTarget == ERenderTargetType::Color || RenderTarget == ERenderTargetType::Depth ? GL_TEXTURE_2D : GL_TEXTURE_2D_MULTISAMPLE;
 
     glGenTextures(1, &Handle);
-    glBindTexture(GL_TEXTURE_2D, Handle);
+    glBindTexture(TextureType, Handle);
 
-    if (RenderTarget == ERenderTargetType::Color)
+    if (RenderTarget == ERenderTargetType::Color )
     {
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, Width, Height, 0, GL_RGB, GL_UNSIGNED_BYTE, nullptr);
+        glTexImage2D(TextureType, 0, GL_RGB, Width, Height, 0, GL_RGB, GL_UNSIGNED_BYTE, nullptr);
     }
-    else // Depth
+    else if (RenderTarget == ERenderTargetType::Color_MSAA)
     {
-        glTexImage2D(GL_TEXTURE_2D, 0, GL_DEPTH_COMPONENT24, Width, Height, 0, GL_DEPTH_COMPONENT, GL_UNSIGNED_BYTE, nullptr);
+        glTexImage2DMultisample(TextureType, MSAASamples, GL_RGB, Width, Height, GL_TRUE); // TO DO: Samples from File
+    }
+    else if (RenderTarget == ERenderTargetType::Depth)
+    {
+        glTexImage2D(TextureType, 0, GL_DEPTH_COMPONENT24, Width, Height, 0, GL_DEPTH_COMPONENT, GL_UNSIGNED_BYTE, nullptr);
+    }
+    else // Depth MSAA
+    {
+        glTexImage2DMultisample(TextureType, MSAASamples, GL_DEPTH_COMPONENT24, Width, Height, GL_TRUE); // TO DO: Samples from File
     }
 
-    glBindTexture(GL_TEXTURE_2D, 0);
+    glBindTexture(TextureType, 0);
 
     OGL::CheckErrorOpenGL();
     Valid = true;
@@ -81,15 +90,16 @@ bool COGLTexture2D::CreateFromSurface(ISurface* Surface)
     RenderTargetFlag = false;
     Width = SDLSurface->GetWidth();
     Height = SDLSurface->GetHeight();
+    TextureType = GL_TEXTURE_2D;
 
     glGenTextures( 1, &Handle );
-    glBindTexture( GL_TEXTURE_2D, Handle );
+    glBindTexture(TextureType, Handle );
 
     std::shared_ptr<CSDLSurface> Converted = std::make_shared<CSDLSurface>();
     if( !Converted->Create( Width, Height ) )
     {
         LOG( ESeverity::Error ) << "Unable to convert surface\n";
-        glBindTexture( GL_TEXTURE_2D, 0 );
+        glBindTexture(TextureType, 0 );
         return false;
     }
     Converted->Blit( SDLSurface, {0.0f, 0.0f, static_cast<float>(Width), static_cast<float>(Height)} );
@@ -105,7 +115,7 @@ bool COGLTexture2D::CreateFromSurface(ISurface* Surface)
             break;
         default:
             LOG( ESeverity::Error ) << "Invalid SDL Surface Format\n";
-            glBindTexture( GL_TEXTURE_2D, 0 );
+            glBindTexture(TextureType, 0 );
             return false;
     }
 
@@ -115,7 +125,7 @@ bool COGLTexture2D::CreateFromSurface(ISurface* Surface)
         SDL_LockSurface( Converted->GetSDLSurface() );
     }
 
-    glTexImage2D( GL_TEXTURE_2D, 0, GL_RGBA, Width, Height, 0, Fmt, GL_UNSIGNED_BYTE, Converted->GetSDLSurface()->pixels );
+    glTexImage2D(TextureType, 0, GL_RGBA, Width, Height, 0, Fmt, GL_UNSIGNED_BYTE, Converted->GetSDLSurface()->pixels );
 
     if( SDL_MUSTLOCK( Converted->GetSDLSurface() ) )
     {
@@ -123,7 +133,7 @@ bool COGLTexture2D::CreateFromSurface(ISurface* Surface)
     }
     glPixelStorei( GL_UNPACK_ALIGNMENT, 4 ); // 4 Default value
 
-    glBindTexture( GL_TEXTURE_2D, 0 );
+    glBindTexture(TextureType, 0 );
 
     OGL::CheckErrorOpenGL();
     Valid = true;
@@ -153,9 +163,9 @@ void COGLTexture2D::SetWrapS(const ETextureWrap Arg)
     if (IsValid())
     {
         WrapS = Arg;
-        glBindTexture(GL_TEXTURE_2D, Handle);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, ToOGLWrap(WrapS));
-        glBindTexture(GL_TEXTURE_2D, 0);
+        glBindTexture(TextureType, Handle);
+        glTexParameteri(TextureType, GL_TEXTURE_WRAP_S, ToOGLWrap(WrapS));
+        glBindTexture(TextureType, 0);
         OGL::CheckErrorOpenGL();
     }
 }
@@ -165,9 +175,9 @@ void COGLTexture2D::SetWrapT(const ETextureWrap Arg)
     if (IsValid())
     {
         WrapT = Arg;
-        glBindTexture(GL_TEXTURE_2D, Handle);
-        glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, ToOGLWrap(WrapT));
-        glBindTexture(GL_TEXTURE_2D, 0);
+        glBindTexture(TextureType, Handle);
+        glTexParameteri(TextureType, GL_TEXTURE_WRAP_T, ToOGLWrap(WrapT));
+        glBindTexture(TextureType, 0);
         OGL::CheckErrorOpenGL();
     }
 }
@@ -177,24 +187,24 @@ void COGLTexture2D::SetFilter(const ETextureFilter Arg)
     if (IsValid())
     {
         Filter = Arg;
-        glBindTexture(GL_TEXTURE_2D, Handle);
+        glBindTexture(TextureType, Handle);
         if (Filter == ETextureFilter::Linear)
         {
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
+            glTexParameteri(TextureType, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
+            glTexParameteri(TextureType, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
         }
         else if (Filter == ETextureFilter::Bilinear)
         {
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+            glTexParameteri(TextureType, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+            glTexParameteri(TextureType, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
         }
         else // Wrong?
         {
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
-            glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-            glGenerateMipmap(GL_TEXTURE_2D);
+            glTexParameteri(TextureType, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
+            glTexParameteri(TextureType, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+            glGenerateMipmap(TextureType);
         }
-        glBindTexture(GL_TEXTURE_2D, 0);
+        glBindTexture(TextureType, 0);
         OGL::CheckErrorOpenGL();
     }
 }
@@ -204,10 +214,10 @@ void COGLTexture2D::SetAnisotropicFiltering(const float Arg)
     if (IsValid())
     {
         Anisotropic = Math::Clamp(Arg, 1.0f, 8.0f);
-        glBindTexture(GL_TEXTURE_2D, Handle);
+        glBindTexture(TextureType, Handle);
         // Wrong?
-        glTexParameterf(GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY, Anisotropic);
-        glBindTexture(GL_TEXTURE_2D, 0);
+        glTexParameterf(TextureType, GL_TEXTURE_MAX_ANISOTROPY, Anisotropic);
+        glBindTexture(TextureType, 0);
         OGL::CheckErrorOpenGL();
     }
 }

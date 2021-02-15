@@ -41,7 +41,7 @@ bool CSDLWindow::Init(const SEngineParams& Parameters)
     SDL_GL_SetAttribute( SDL_GL_STENCIL_SIZE, 8 );
 
     SDL_GL_SetAttribute(SDL_GL_MULTISAMPLEBUFFERS, 1);
-    SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 4);
+    SDL_GL_SetAttribute(SDL_GL_MULTISAMPLESAMPLES, 4); // TO DO: Samples from File
 
     Window = SDL_CreateWindow( Caption.c_str(), WinPosX, WinPosY, Width, Height, Flags );
     if( !Window )

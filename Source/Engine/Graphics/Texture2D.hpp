@@ -35,7 +35,9 @@ enum class ETextureFilter
 enum class ERenderTargetType
 {
     Color,
-    Depth
+    Depth,
+    Color_MSAA,
+    Depth_MSAA
 };
 
 class ITexture2D: public IResource
@@ -52,8 +54,8 @@ public:
 
     RESOURCE(ITexture2D)
 
-    // Width, Height
-    virtual bool CreateAsRenderSurface(const ERenderTargetType, const int, const int) = 0;
+    // Render Target Type, Width, Height, MSAA Samples
+    virtual bool CreateAsRenderSurface(const ERenderTargetType, const int, const int, const int) = 0;
     virtual bool CreateFromSurface(ISurface*) = 0;
 
     virtual bool IsRenderTarget() const = 0;

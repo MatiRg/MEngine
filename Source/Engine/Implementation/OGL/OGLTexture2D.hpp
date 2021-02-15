@@ -11,7 +11,7 @@ public:
     ~COGLTexture2D();
 
     bool Load(CResources*, const ResourceCreateMap&) override;
-    bool CreateAsRenderSurface(const ERenderTargetType, const int, const int) override;
+    bool CreateAsRenderSurface(const ERenderTargetType, const int, const int, const int) override;
     bool CreateFromSurface(ISurface*) override;
 
     bool IsRenderTarget() const override { return RenderTargetFlag; }
@@ -33,6 +33,7 @@ public:
     float GetAnisotropicFiltering() const override { return Anisotropic; }
 
     GLuint GetHandle() const { return Handle; }
+    GLenum GetGLFormat() const { return TextureType; }
 private:
     COGLGraphics* Graphics = nullptr;
     int Width = 0;
@@ -44,4 +45,5 @@ private:
     float Anisotropic = 1.0f; // 1 - No filtering
     bool RenderTargetFlag = false;
     ERenderTargetType RenderTarget = ERenderTargetType::Color;
+    GLenum TextureType = GL_TEXTURE_2D;
 };

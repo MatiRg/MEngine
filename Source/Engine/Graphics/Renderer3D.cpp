@@ -17,6 +17,14 @@ CRenderer3D::~CRenderer3D()
 
 bool CRenderer3D::Init(const SEngineParams&)
 {
+    MSAASamples = 4;
+    MSAAFrameBuffer = Graphics->CreateMSAAFrameBuffer(MSAASamples);
+    if (!MSAAFrameBuffer)
+    {
+        LOG(ESeverity::Fatal) << "Renderer3D: Invalid MSAA Frame Buffer\n";
+        return false;
+    }
+
     DefaultFrameBuffer = Graphics->CreateFrameBuffer();
     if (!DefaultFrameBuffer)
     {
@@ -65,6 +73,7 @@ void CRenderer3D::Exit()
     Effects.clear();
     QuadVertexBuffer.reset();
     DefaultFrameBuffer.reset();
+    MSAAFrameBuffer.reset();
     LOG( ESeverity::Info ) << "Renderer3D - Exit\n";
 }
 
@@ -100,7 +109,7 @@ void CRenderer3D::Render()
     //
     /////////////////////////////////////////////////////////////
     //
-    DefaultFrameBuffer->Bind();
+    MSAAFrameBuffer->Bind();
     //
     Graphics->SetDepthActive(true);
     Graphics->SetDepthFunction(EDepthMode::Less);
@@ -127,7 +136,9 @@ void CRenderer3D::Render()
         //
         Material->UnBind();
     }
-    DefaultFrameBuffer->UnBind();
+    MSAAFrameBuffer->UnBind();
+    // Copy FrameBuffer
+    MSAAFrameBuffer->Blit(DefaultFrameBuffer.get());
     //
     /////////////////////////////////////////////////////////////
     //
@@ -266,4 +277,18 @@ void CRenderer3D::AddRenderable(CRenderable3D* aRenderable)
             LOG(ESeverity::Warning) << "Adding Invalid CRenderable3D\n";
         }
     }
+}
+
+void CRenderer3D::SetMSAASamples(int Samples)
+{
+    Samples = Math::Clamp(Samples, 1, 16);
+    auto TmpFrameBuffer = Graphics->CreateMSAAFrameBuffer(Samples);
+    if (!TmpFrameBuffer)
+    {
+        LOG(ESeverity::Fatal) << "Renderer3D: Unable to ReCreate MSAA FrameBuffer with " << Samples << "\n";
+        return;
+    }
+    MSAASamples = Samples;
+    MSAAFrameBuffer.reset();
+    MSAAFrameBuffer = std::move(TmpFrameBuffer);
 }

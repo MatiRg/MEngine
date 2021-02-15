@@ -285,6 +285,7 @@ void CLevel2::OnInit()
 		BlurEffect->SetEnabled(false);
 		BlurEffect->SetInt("Samples", 1);
 	}
+	// App->GetRenderer3D()->SetMSAASamples(8.0f);
 }
 
 namespace

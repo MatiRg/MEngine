@@ -19,7 +19,7 @@ public:
     const IntVector2& GetMaxTextureSize() const override { return MaxTextureSize; }
     bool IsSoftware() const override { return false; }
 
-    std::unique_ptr<ITexture2D> CreateRenderSurface(const ERenderTargetType, const int, const int) override;
+    std::unique_ptr<ITexture2D> CreateRenderSurface(const ERenderTargetType, const int, const int, const int) override;
     std::unique_ptr<ITexture2D> CreateTexture2D(ISurface*) override;
     std::unique_ptr<ITexture2D> CreateTexture2D(const std::string&) override;
     std::unique_ptr<IFont> CreateFont(const std::string&) override;
@@ -28,6 +28,7 @@ public:
     std::unique_ptr<IVertexBuffer> CreateVertexBuffer(const std::vector<SVertexElement>&, const bool) override;
 
     std::unique_ptr<IFrameBuffer> CreateFrameBuffer() override;
+    std::unique_ptr<IFrameBuffer> CreateMSAAFrameBuffer(const int) override;
 
     void SetClearColor(const Color& ClearCr) override { ClearColor = ClearCr; }
     const Color& GetClearColor() const override { return ClearColor; }

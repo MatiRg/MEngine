@@ -221,10 +221,10 @@ bool COGLGraphics::SaveWindowSurface(const std::string& Path) const
     return true;
 }
 
-std::unique_ptr<ITexture2D> COGLGraphics::CreateRenderSurface(const ERenderTargetType aTarget, const int aW, const int aH)
+std::unique_ptr<ITexture2D> COGLGraphics::CreateRenderSurface(const ERenderTargetType aTarget, const int aW, const int aH, const int MSAASamples)
 {
     auto Ptr = std::make_unique<COGLTexture2D>("", this);
-    if (!Ptr->CreateAsRenderSurface(aTarget, aW, aH))
+    if (!Ptr->CreateAsRenderSurface(aTarget, aW, aH, MSAASamples))
     {
         return {};
     }
@@ -268,13 +268,22 @@ std::unique_ptr<IVertexBuffer> COGLGraphics::CreateVertexBuffer(const std::vecto
 std::unique_ptr<IFrameBuffer> COGLGraphics::CreateFrameBuffer()
 {
     auto FrameBuffer = std::make_unique<COGLFrameBuffer>(this, Window);
-    if (!FrameBuffer->Create())
+    if (!FrameBuffer->Create(false, 0))
     {
         return {};
     }
     return FrameBuffer;
 }
 
+std::unique_ptr<IFrameBuffer> COGLGraphics::CreateMSAAFrameBuffer(const int Samples)
+{
+    auto FrameBuffer = std::make_unique<COGLFrameBuffer>(this, Window);
+    if (!FrameBuffer->Create(true, Samples))
+    {
+        return {};
+    }
+    return FrameBuffer;
+}
 
 std::unique_ptr<IShader> COGLGraphics::CreateShader(const std::string& Name)
 {

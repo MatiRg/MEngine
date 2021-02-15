@@ -2,7 +2,7 @@
     <Width>1024</Width>
     <Height>800</Height>
     <Caption>Engine</Caption>
-    <VSync>TRUE</VSync>
+    <VSync>True</VSync>
     <UseAudio>True</UseAudio>
     <Ticks>60</Ticks>
 </Engine>
