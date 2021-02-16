@@ -82,8 +82,9 @@ void CPlayerObject::OnCollisionLeave(const SEntityCollision3D& Collision)
 
 enum class ERotationAxis
 {
-	// Hmm
-	// X, ... ?
+	X,
+	Y,
+	Z
 };
 
 class CRotator: public IComponent
@@ -96,27 +97,33 @@ public:
 
 	COMPONENT(CRotator)
 
-	void OnCreate() override
-	{
-		// Maybe Save Starting Rotation Eulers here to variable instead of in OnUpdate
-	}
-
 	void OnUpdate(const float DT) override
 	{
-		//
-		//CTransform& Transform = GetOwner()->GetTransform();
-		//Quaternion Rotation = Transform.GetRotation(); // Maybe Up?
-		// ? if(Axis == ERotationAxis::X) .. else if() ... else ...
-		//Transform.SetRotation(Rotation);
+		CTransform& Transform = GetOwner()->GetTransform();
+		switch (Axis)
+		{
+		case ERotationAxis::X:
+			Transform.Rotate(Speed * DT, 0.0f, 0.0f);
+			break;
+		case ERotationAxis::Y:
+			Transform.Rotate(0.0f, Speed * DT, 0.0f);
+			break;
+		case ERotationAxis::Z:
+			Transform.Rotate(0.0f, 0.0f, Speed * DT);
+			break;
+		default:
+			break;
+		}
 	}
 
-	//void SetAxis(const ERotationAxis aAxis) ...
-	//ERotationAxis GetAxis() ...
-	//void SetSpeed(const float aSpeed) { Speed = aSpeed; }
-	//float GetSpeed() const { return Speed; }
+	void SetAxis(const ERotationAxis aAxis) { Axis = aAxis; }
+	ERotationAxis GetAxis() const { return Axis; }
+	
+	void SetSpeed(const float aSpeed) { Speed = aSpeed; }
+	float GetSpeed() const { return Speed; }
 private:
-	//ERotationAxis Axis = ERotationAxis::X;
-	//float Speed = 0.0f;
+	ERotationAxis Axis = ERotationAxis::X;
+	float Speed = 1.0f;
 };
 
 //
@@ -176,13 +183,15 @@ void CLevel2::LoadMap()
 			{
 				CGameObject* Item = World->CreateModel<CGameObject>("cube.dae", Materials[5].get());
 				Item->GetTransform().SetPosition({ static_cast<float>(Row), 0.75f, static_cast<float>(Col) });
+				Item->GetTransform().SetScale(0.5f);
 				//
 				CBoxCollider3D* ColliderItem = Item->CreateComponent<CBoxCollider3D>();
 				ColliderItem->SetSize(Vector3(0.25f));
 				CRigidBody3D* ItemBody = Item->CreateComponent<CRigidBody3D>();
 				ItemBody->SetBodyType(ERigidBodyType3D::Static);
-
-				Item->GetTransform().SetScale(0.5f);
+				CRotator* ItemRotator = Item->CreateComponent<CRotator>();
+				ItemRotator->SetSpeed(16.0f);
+				ItemRotator->SetAxis(ERotationAxis::Y);
 
 				Item->SetValue(Value);
 				Item->SetTag(ITEM_TAG);
@@ -376,8 +385,8 @@ void CLevel2::OnUpdate(const float TimeStep)
 
 	ScrollSpeed = Input->GetMouseWheel().y;
 	Fov -= ScrollSpeed;
-	if (Fov <= 35.0f)
-		Fov = 35.0f;
+	if (Fov <= 25.0f)
+		Fov = 25.0f;
 	if (Fov >= 45.0f)
 		Fov = 45.0f;
 	ScrollSpeed = 0.0f;

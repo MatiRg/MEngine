@@ -16,10 +16,9 @@ CRigidBody3D::CRigidBody3D(CEngine* aEngine):
 
 CRigidBody3D::~CRigidBody3D()
 {
-    if (Body)
-    {
-        PhysicsWorld3D->GetWorld()->DestroyBody(Body);
-    }
+    GetOwner()->GetTransform().RemovePositionCallback(this);
+    GetOwner()->GetTransform().RemoveRotationCallback(this);
+    PhysicsWorld3D->GetWorld()->DestroyBody(Body);
 }
 
 void CRigidBody3D::OnCreate()
@@ -43,6 +42,13 @@ void CRigidBody3D::OnCreate()
     Body->SetRotation( Ts.GetWorldRotation() );
 
     Body->SetUserData(this);
+
+    GetOwner()->GetTransform().AddPositionCallback(this, [&](const Vector3& /*NewPosition*/) {
+        Body->SetPosition(Ts.GetWorldPosition());
+    });
+    GetOwner()->GetTransform().AddRotationCallback(this, [&](const Quaternion& /*NewAngle*/) {
+        Body->SetRotation(Ts.GetWorldRotation());
+    });
 }
 
 bool CRigidBody3D::OnLoad(CXMLElement* Root)

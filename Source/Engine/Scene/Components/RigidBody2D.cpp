@@ -45,7 +45,6 @@ void CRigidBody2D::OnCreate()
     GetOwner()->GetTransform().AddRotationCallback(this, [&](const Quaternion& /*NewAngle*/) {
         Body->SetAngle(GetOwner()->GetParent()->GetTransform().GetWorldRotation2D());
         });
-
 }
 
 bool CRigidBody2D::OnLoad(CXMLElement* Root)

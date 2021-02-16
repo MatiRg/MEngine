@@ -168,9 +168,29 @@ Vector3 CTransform::GetWorldForward() const
     return GetWorldRotation() * Vector3::FORWARD;
 }
 
+void CTransform::SetEulers(const Vector3& Eulers)
+{
+    SetRotation(Quaternion(Eulers));
+}
+
+Vector3 CTransform::GetEulers() const
+{
+    return Rotation.ToEulerAngles();
+}
+
+Vector3 CTransform::GetWorldEulers() const
+{
+    return GetWorldRotation().ToEulerAngles();
+}
+
 void CTransform::Translate(const Vector3& Delta)
 {
     SetPosition( Position + Rotation*Delta );
+}
+
+void CTransform::Rotate(const Vector3& Eulers)
+{
+    SetRotation( Rotation*Quaternion(Eulers) );
 }
 
 Matrix4 CTransform::GetMatrix() const

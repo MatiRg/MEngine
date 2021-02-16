@@ -58,6 +58,10 @@ public:
     Vector3 GetForward() const;
     Vector3 GetWorldForward() const;
 
+    void SetEulers(const Vector3&);
+    Vector3 GetEulers() const;
+    Vector3 GetWorldEulers() const;
+
     // 2D
     void SetPosition2D(const Vector2& aPosition, const bool Silent = false) { SetPosition({ aPosition, Position.z }, Silent); }
     Vector2 GetPosition2D() const { return GetPosition().XY(); }
@@ -83,6 +87,10 @@ public:
     //
 
     void Translate(const Vector3&);
+    //! Eulers
+    void Rotate(const Vector3&);
+    //! Eulers
+    void Rotate(const float x, const float y, const float z) { Rotate({x, y, z}); }
 
     Matrix4 GetMatrix() const;
     Matrix4 GetInvMatrix() const;
