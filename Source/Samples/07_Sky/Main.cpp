@@ -48,7 +48,7 @@ public:
         // Set Type
         LightSun->SetLightType(ELightType::Direction);
         // Set Color - From Kelvin Temperature
-        LightSun->SetTemperature(2500.f);
+        LightSun->SetTemperature(9500.f);
         // Set Proper Rotation
         Sun->GetTransform().SetRotation(Quaternion(-30.0f, 0.0f, 0.0f));
         //

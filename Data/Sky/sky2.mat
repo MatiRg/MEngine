@@ -1,5 +1,5 @@
 <Material>
-	<Shader Name="Default.shader">
+	<Shader Name="SkyDome.shader">
 		<Define Value="USE_DIFFUSE"/>
 	</Shader>
 	<Variable Name="DiffuseTexture" Type="Texture" Value="grad2.png"/>
