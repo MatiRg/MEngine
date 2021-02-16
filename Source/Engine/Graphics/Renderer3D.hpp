@@ -9,7 +9,7 @@
 class IGraphics;
 class CResources;
 
-class CRenderer3D: public IEngineModule
+class CRenderer3D : public IEngineModule
 {
 public:
     CRenderer3D(IGraphics*, CResources*);
@@ -17,7 +17,7 @@ public:
 
     ENGINE_MODULE(CRenderer3D)
 
-    CPostEffect* CreatePostEffect(const std::string& ShaderName, const int Order);
+        CPostEffect* CreatePostEffect(const std::string& ShaderName, const int Order);
 
     // Non Ownership
     void AddRenderable(CRenderable3D*);
@@ -42,6 +42,10 @@ public:
 
     void SetMSAASamples(int);
     int GetMSAASamples() const { return MSAASamples; }
+
+    //! For Tone Mapping
+    void SetExposure(const float aExposure) { Exposure = aExposure; }
+    float GetExposure() const { return Exposure; }
 
     bool Init(const SEngineParams&) override;
     void Exit() override;
@@ -70,4 +74,5 @@ private:
     bool Wireframe = false;
     float Time = 0.0f;
     int MSAASamples = 4;
+    float Exposure = 1.0f;
 };

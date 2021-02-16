@@ -20,7 +20,11 @@ void main()
 	gl_Position = ObjectToClipPos(Position);
 	FragPos = ObjectToModelPos(Position); 
 	Normal = ObjectToWorldNormal(Normal1);
+	#ifdef FLIP_UVS
+	TexCoords = vec2(TexCoords1.x, 1.0 - TexCoords1.y);
+	#else
 	TexCoords = TexCoords1;
+	#endif
 }
 
 #endif
@@ -72,13 +76,19 @@ vec3 CalculateDirLight(int index, vec3 viewDir)
 {
     vec3 lightDir = normalize(-LightParam1[index].xyz);
     // Diffuse shading
-    float diff = max(dot(Normal, lightDir), 0.0);
-	// blinn-phong
+    //float diff = max(dot(Normal, lightDir), 0.0); // ? Wrong
+	float diff = clamp( dot( Normal, lightDir ), 0.0, 1.0 );
+
+	// Blinn-Phong Shading
     vec3 halfwayDir = normalize(lightDir + viewDir);
-    float spec = pow(max(dot(Normal, halfwayDir), 0.0), Shininess);
-	// phong shading
+    //float spec = pow(max(dot(Normal, halfwayDir), 0.0), Shininess); // ? Wrong
+	float spec = pow(clamp(dot(Normal, halfwayDir), 0.0, 1.0), Shininess);
+
+	// Phong Shading
     //vec3 reflectDir = reflect(-lightDir, Normal);
-    //float spec = pow(max(dot(viewDir, reflectDir), 0.0), Shininess);
+    //float spec = pow(max(dot(viewDir, reflectDir), 0.0), Shininess); // ? Wrong
+    //float spec = pow(clamp(dot(viewDir, reflectDir), 0.0, 1.0), Shininess);
+
     // Combine results
 	#ifdef USE_DIFFUSE
 	vec3 Diffuse = LightColor[index].rgb * diff * vec3(texture(DiffuseTexture, TexCoords));

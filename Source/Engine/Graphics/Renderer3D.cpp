@@ -176,6 +176,7 @@ void CRenderer3D::Render()
     ScreenShader->Bind();
     ScreenShader->SetTexture("ScreenTexture", FinalOutputTexture, 0);
     ScreenShader->SetFloat("GammaCorrection", GammaCorrection);
+    ScreenShader->SetFloat("Exposure", Exposure);
     //
     QuadVertexBuffer->Bind();
     QuadVertexBuffer->Draw(EPrimitiveType::Triangles, 6u);

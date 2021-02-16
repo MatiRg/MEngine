@@ -53,7 +53,7 @@ public:
         Sun->GetTransform().SetRotation(Quaternion(-30.0f, 0.0f, 0.0f));
         //
         // Load Model As Entity Graph
-        // Material is loaded for Model based on it is name, in this case it will be: "backpack.mat"
+        // Material is loaded for Model based on it is name, in this case it will be: "backpack.mat", 
         CEntity* Entity = World->CreateModel<CEntity>("backpack.obj");
         //
         // Create Camera Object
@@ -68,6 +68,9 @@ public:
         CameraComponent->SetNearClipPlane(0.3f);
         // ... and Far Plane
         CameraComponent->SetFarClipPlane(1000.0f);
+
+        // Set HDR Exposure
+        App->GetRenderer3D()->SetExposure(2.0f);
     }
 
     void OnUpdate(const float TimeStep) override

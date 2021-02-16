@@ -22,7 +22,10 @@ vec3 ObjectToModelPos(vec3 p)
 
 vec3 ObjectToWorldNormal(vec3 n)
 {
-    return normalize(mat3(transpose(inverse(Model)))*n);
+    // http://www.opengl-tutorial.org/beginners-tutorials/tutorial-8-basic-shading/#the-importance-of-the-surface-normal
+    mat4 InVM = View*transpose(inverse(Model));
+    return (InVM*vec4(n, 0.0)).xyz;
+    //return normalize(mat3(transpose(inverse(Model)))*n); // Wrong
 }
 
 vec3 GetViewDirection(vec3 f) 

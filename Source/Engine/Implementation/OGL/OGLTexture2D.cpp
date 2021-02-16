@@ -49,21 +49,21 @@ bool COGLTexture2D::CreateAsRenderSurface(const ERenderTargetType aTarget, const
     glGenTextures(1, &Handle);
     glBindTexture(TextureType, Handle);
 
-    if (RenderTarget == ERenderTargetType::Color )
+    if (RenderTarget == ERenderTargetType::Color)
     {
-        glTexImage2D(TextureType, 0, GL_RGB, Width, Height, 0, GL_RGB, GL_UNSIGNED_BYTE, nullptr);
+        glTexImage2D(TextureType, 0, GL_RGBA16F, Width, Height, 0, GL_RGBA, GL_FLOAT, nullptr);
     }
     else if (RenderTarget == ERenderTargetType::Color_MSAA)
     {
-        glTexImage2DMultisample(TextureType, MSAASamples, GL_RGB, Width, Height, GL_TRUE); // TO DO: Samples from File
+        glTexImage2DMultisample(TextureType, MSAASamples, GL_RGBA16F, Width, Height, GL_TRUE);
     }
     else if (RenderTarget == ERenderTargetType::Depth)
     {
-        glTexImage2D(TextureType, 0, GL_DEPTH_COMPONENT24, Width, Height, 0, GL_DEPTH_COMPONENT, GL_UNSIGNED_BYTE, nullptr);
+        glTexImage2D(TextureType, 0, GL_DEPTH_COMPONENT24, Width, Height, 0, GL_DEPTH_COMPONENT, GL_FLOAT, nullptr);
     }
     else // Depth MSAA
     {
-        glTexImage2DMultisample(TextureType, MSAASamples, GL_DEPTH_COMPONENT24, Width, Height, GL_TRUE); // TO DO: Samples from File
+        glTexImage2DMultisample(TextureType, MSAASamples, GL_DEPTH_COMPONENT24, Width, Height, GL_TRUE);
     }
 
     glBindTexture(TextureType, 0);
@@ -71,9 +71,12 @@ bool COGLTexture2D::CreateAsRenderSurface(const ERenderTargetType aTarget, const
     OGL::CheckErrorOpenGL();
     Valid = true;
 
-    SetWrap(ETextureWrap::ClampToEdge);
-    SetFilter(ETextureFilter::Bilinear);
-    SetAnisotropicFiltering(1.0f);
+    if (RenderTarget == ERenderTargetType::Color || RenderTarget == ERenderTargetType::Depth)
+    {
+        SetWrap(ETextureWrap::ClampToEdge);
+        SetFilter(ETextureFilter::Bilinear);
+        SetAnisotropicFiltering(1.0f);
+    }
 
     return true;
 }

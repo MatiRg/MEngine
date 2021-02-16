@@ -72,8 +72,11 @@ CModel::~CModel()
 bool CModel::Load(CResources* Resources, const ResourceCreateMap&)
 {
     Assimp::Importer Importer;
-    // aiProcessPreset_TargetRealtime_Fast or aiProcessPreset_TargetRealtime_Quality
-    const aiScene* Scene = Importer.ReadFile(GetPath(), aiProcessPreset_TargetRealtime_Fast| aiProcess_MakeLeftHanded | aiProcess_OptimizeGraph);
+
+    unsigned int Flags = aiProcessPreset_TargetRealtime_Fast | aiProcess_MakeLeftHanded | aiProcess_OptimizeGraph;
+    //Flags |= aiProcess_FlipUVs;
+
+    const aiScene* Scene = Importer.ReadFile(GetPath(), Flags);
     if( !Scene || Scene->mFlags & AI_SCENE_FLAGS_INCOMPLETE || !Scene->mRootNode )
     {
         LOG(ESeverity::Error) << "Mesh - " << GetPath() << ": " << Importer.GetErrorString() << "\n";
