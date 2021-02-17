@@ -90,11 +90,11 @@ public:
     //! Eulers, Local Space
     void Rotate(const float x, const float y, const float z) { Rotate({x, y, z}); }
 
-    Matrix4 GetMatrix() const;
-    Matrix4 GetInvMatrix() const;
+    const Matrix4& GetMatrix() const;
+    const Matrix4& GetInvMatrix() const;
 
-    Matrix4 GetWorldMatrix() const;
-    Matrix4 GetInvWorldMatrix() const;
+    const Matrix4& GetWorldMatrix() const;
+    const Matrix4& GetInvWorldMatrix() const;
 
     // Key, Callback
     void AddPositionCallback(void* Key, const PositionChanged& Callback);
@@ -105,6 +105,8 @@ public:
     void RemovePositionCallback(void* Key);
     void RemoveScaleCallback(void* Key);
     void RemoveRotationCallback(void* Key);
+
+    bool IsDirty() const { return Dirty; }
 
     // 2D Functions Used by 2D Components
 
@@ -129,14 +131,20 @@ public:
     void SetLayer(const float aLayer) { Position.z = aLayer; }
     float GetLayer() const { return Position.z; }
 private:
-    //void MarkDirty(); 
+    void MarkDirty(); 
+    void RecalculateMatrix() const;
 private:
     Vector3 Position = Vector3::ZERO;
     Vector3 Scale = Vector3::ONE;
     Quaternion Rotation = Quaternion::IDENTITY;
     CTransform* Parent = nullptr;
     TransformArray Children;
-    //mutable bool Dirty = true;
+    // Cache, mutable is used to be modified from const methods. These variables work as cache only
+    mutable bool Dirty = true;
+    mutable Matrix4 Matrix;
+    mutable Matrix4 InvMatrix;
+    mutable Matrix4 WorldMatrix;
+    mutable Matrix4 InvWorldMatrix;
     std::vector<std::pair<void*, PositionChanged>> PositionCallback;
     std::vector<std::pair<void*, ScaleChanged>> ScaleCallback;
     std::vector<std::pair<void*, RotationChanged>> RotationCallback;

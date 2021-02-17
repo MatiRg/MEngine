@@ -246,6 +246,11 @@ namespace XML
     // Root, Name, Default Value
     Quaternion LoadQuaternion(CXMLElement*, const std::string&, const Quaternion&);
 
+    // Root, Name, Value
+    void SaveMatrix4(CXMLElement*, const std::string&, const Matrix4&);
+    // Root, Name, Default Value
+    Matrix4 LoadMatrix4(CXMLElement*, const std::string&, const Matrix4&);
+
 	// Root, Name, Value
     template<class Enum,
         std::enable_if_t<std::is_enum<Enum>::value, int> = 0

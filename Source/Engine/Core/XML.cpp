@@ -974,4 +974,28 @@ namespace XML
         }
         return Container->GetQuaternion(DefaultValue);
     }
+
+    void SaveMatrix4(CXMLElement* Root, const std::string& Name, const Matrix4& Value)
+    {
+        if (!Root)
+        {
+            return;
+        }
+        CXMLElement* Container = Root->NewElement(Name);
+        Container->SetMatrix4(Value);
+    }
+
+    Matrix4 LoadMatrix4(CXMLElement* Root, const std::string& Name, const Matrix4& DefaultValue)
+    {
+        if (!Root)
+        {
+            return DefaultValue;
+        }
+        CXMLElement* Container = Root->GetElement(Name);
+        if (!Container)
+        {
+            return DefaultValue;
+        }
+        return Container->GetMatrix4(DefaultValue);
+    }
 }

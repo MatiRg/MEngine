@@ -23,7 +23,11 @@ bool CTransform::Load(CXMLElement* Root)
 	Position = XML::LoadVector3(Root, "Position", Vector3::ZERO );
 	Scale = XML::LoadVector3(Root, "Scale", Vector3::ONE );
     Rotation = XML::LoadQuaternion(Root, "Rotation", Quaternion::IDENTITY);
-    //Dirty = XML::LoadBool(Root, "Dirty", true);
+    Dirty = XML::LoadBool(Root, "Dirty", true);
+    Matrix = XML::LoadMatrix4(Root, "Matrix", Matrix4::IDENTITY);
+    InvMatrix = XML::LoadMatrix4(Root, "InvMatrix", Matrix4::IDENTITY);
+    WorldMatrix = XML::LoadMatrix4(Root, "WorldMatrix", Matrix4::IDENTITY);
+    InvWorldMatrix = XML::LoadMatrix4(Root, "InvWorldMatrix", Matrix4::IDENTITY);
     return true;
 }
 
@@ -32,7 +36,11 @@ bool CTransform::Save(CXMLElement* Root)
 	XML::SaveVector3(Root, "Position", Position);
 	XML::SaveVector3(Root, "Scale", Scale);
 	XML::SaveQuaternion(Root, "Rotation", Rotation);
-    //XML::SaveBool(Root, "Dirty", Dirty);
+    XML::SaveBool(Root, "Dirty", Dirty);
+    XML::SaveMatrix4(Root, "Matrix", Matrix);
+    XML::SaveMatrix4(Root, "InvMatrix", InvMatrix);
+    XML::SaveMatrix4(Root, "WorldMatrix", WorldMatrix);
+    XML::SaveMatrix4(Root, "InvWorldMatrix", InvWorldMatrix);
     return true;
 }
 
@@ -77,7 +85,7 @@ void CTransform::RemoveChild(CTransform* Other)
 void CTransform::SetPosition(const Vector3& aPosition, const bool Silent)
 {
     Position = aPosition;
-    //Dirty = true;
+    MarkDirty();
     if (!Silent)
     {    
         for (const auto& i : PositionCallback)
@@ -108,7 +116,7 @@ Vector3 CTransform::GetWorldPosition() const
 void CTransform::SetScale(const Vector3& aScale, const bool Silent)
 {
     Scale = aScale;
-    //Dirty = true;
+    MarkDirty();
     if (!Silent)
     {    
         for (const auto& i : ScaleCallback)
@@ -139,7 +147,7 @@ Vector3 CTransform::GetWorldScale() const
 void CTransform::SetRotation(const Quaternion& aRotation, const bool Silent)
 {
     Rotation = aRotation;
-    //Dirty = true;
+    MarkDirty();
     if (!Silent)
     {
         for (const auto& i : RotationCallback)
@@ -227,36 +235,6 @@ void CTransform::Rotate(const Vector3& Eulers)
     SetRotation( Rotation*Quaternion(Eulers) );
 }
 
-Matrix4 CTransform::GetMatrix() const
-{
-    return Math::Transform(Position, Rotation, Scale);
-    /*if (Dirty)
-    {
-        Matrix = Math::Scale(Scale)*Math::Rotation(Rotation)*Math::Translation(Position);
-        Dirty = false;
-    }*/
-}
-
-Matrix4 CTransform::GetWorldMatrix() const
-{
-    Matrix4 Tmp = GetMatrix();
-    if (HasParent())
-    {
-        Tmp = Parent->GetWorldMatrix() * Tmp;
-    }
-    return Tmp;
-}
-
-Matrix4 CTransform::GetInvMatrix() const
-{
-    return GetMatrix().Inverse();
-}
-
-Matrix4 CTransform::GetInvWorldMatrix() const
-{
-    return GetWorldMatrix().Inverse();
-}
-
 void CTransform::AddPositionCallback(void* Key, const PositionChanged& Callback)
 {
     PositionCallback.emplace_back(Key, Callback);
@@ -294,4 +272,64 @@ void CTransform::RemoveRotationCallback(void* Key)
     {
             return Value.first == Key;
     }), RotationCallback.end());
+}
+
+const Matrix4& CTransform::GetMatrix() const
+{
+    if (IsDirty())
+    {
+        RecalculateMatrix();
+    }
+    return Matrix;
+}
+
+const Matrix4& CTransform::GetWorldMatrix() const
+{
+    if (IsDirty())
+    {
+        RecalculateMatrix();
+    }
+    return WorldMatrix;
+}
+
+const Matrix4& CTransform::GetInvMatrix() const
+{
+    if (IsDirty())
+    {
+        RecalculateMatrix();
+    }
+    return InvMatrix;
+}
+
+const Matrix4& CTransform::GetInvWorldMatrix() const
+{
+    if (IsDirty())
+    {
+        RecalculateMatrix();
+    }
+    return InvWorldMatrix;
+}
+
+void CTransform::MarkDirty()
+{
+    Dirty = true;
+    for (const auto& i : Children)
+    {
+        i->MarkDirty();
+    }
+}
+
+void CTransform::RecalculateMatrix() const
+{
+    Matrix = Math::Transform(Position, Rotation, Scale);
+    InvMatrix = Matrix.Inverse();
+    //
+    WorldMatrix = Matrix;
+    if (HasParent())
+    {
+        WorldMatrix = Parent->GetWorldMatrix() * WorldMatrix;
+    }
+    InvWorldMatrix = WorldMatrix.Inverse();
+    //
+    Dirty = false;
 }
