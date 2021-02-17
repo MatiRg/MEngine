@@ -43,7 +43,7 @@ void CPlayerObject::OnUpdate(const float DT)
 void CPlayerObject::OnRender()
 {
 	CDebugDrawer* Drawer = Engine->GetDebugDrawer();
-	Drawer->AddLine(Transform.GetWorldPosition(), Transform.GetWorldPosition()-Transform.GetWorldForward()*1.0f, Color::BLUE); // ?
+	Drawer->AddLine(Transform.GetWorldPosition(), Transform.GetWorldPosition()-Transform.GetForward()*1.0f, Color::BLUE); // ?
 }
 
 void CPlayerObject::OnGUI()

@@ -2,8 +2,8 @@
 #include "PhysicsWorld2D.hpp"
 #include "../../Physics/PhysicsWorld2D.hpp"
 #include "../../Core/XML.hpp"
+#include "../../Math/Transform.hpp"
 #include "../Entity.hpp"
-#include "../Transform.hpp"
 #include "../World.hpp"
 
 CBoxCollider2D::CBoxCollider2D(CEngine* aEngine): 

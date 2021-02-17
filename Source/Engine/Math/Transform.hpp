@@ -1,8 +1,9 @@
 #pragma once
-#include "../Math/Matrix4.hpp"
-#include "../Math/Vector3.hpp"
-#include "../Math/Quaternion.hpp"
-#include "../Math/Functions.hpp"
+#include "../Core/NonCopyable.hpp"
+#include "Matrix4.hpp"
+#include "Vector3.hpp"
+#include "Quaternion.hpp"
+#include "Functions.hpp"
 #include <functional>
 #include <vector>
 
@@ -12,25 +13,34 @@ using PositionChanged = std::function<void(const Vector3&)>;
 using ScaleChanged = std::function<void(const Vector3&)>;
 using RotationChanged = std::function<void(const Quaternion&)>;
 
+class CTransform;
+using TransformArray = std::vector<CTransform*>;
+
 /**
   \class CTransform
   \brief Encapsulate Position, Rotation and Scale.Tree Like structure.
 */
-class CTransform final
+class CTransform final: public NonCopyableMovable
 {
 public:
     CTransform();
-    CTransform(const CTransform& Other);
-    ~CTransform() = default;
-
-    CTransform& operator=(const CTransform& Other);
+    ~CTransform();
 
     bool Load(CXMLElement* Root);
     bool Save(CXMLElement* Root);
 
     void SetParent(CTransform* aParent);
+    //
     bool HasParent() const { return Parent; }
     CTransform* GetParent() const { return Parent; }
+
+    void AddChild(CTransform*);
+    void RemoveChild(CTransform*);
+    //
+    const TransformArray& GetChildren() const { return Children; }
+    //
+    bool HasChildren() const { return !Children.empty(); }
+    std::size_t GetChildrenCount() const { return Children.size(); }
 
     void SetPosition(const Vector3& aPosition, const bool Silent = false);
     const Vector3& GetPosition() const { return Position; }
@@ -53,43 +63,31 @@ public:
     Quaternion GetWorldRotation() const;
     Quaternion GetInvWorldRotation() const;
 
-    // ?
+    // ? World Space
+    void SetRight(const Vector3&);
+    // ? World Space
+    Vector3 GetRight() const;
+
+    // ? World Space
+    void SetUp(const Vector3&);
+    // ? World Space
+    Vector3 GetUp() const;
+
+    // ? World Space
     void SetForward(const Vector3&);
+    // ? World Space
     Vector3 GetForward() const;
-    Vector3 GetWorldForward() const;
 
+    // World Space
     void SetEulers(const Vector3&);
+    // World Space
     Vector3 GetEulers() const;
-    Vector3 GetWorldEulers() const;
 
-    // 2D
-    void SetPosition2D(const Vector2& aPosition, const bool Silent = false) { SetPosition({ aPosition, Position.z }, Silent); }
-    Vector2 GetPosition2D() const { return GetPosition().XY(); }
-
-    void SetWorldPosition2D(const Vector2& aPosition, const bool Silent = false) { SetWorldPosition({ aPosition, Position.z }, Silent); }
-    Vector2 GetWorldPosition2D() const { return GetWorldPosition().XY(); }
-
-    void SetScale2D(const Vector2& aScale, const bool Silent = false) { SetScale( {aScale, 1.0f}, Silent ); }
-    Vector2 GetScale2D() const { return GetScale().XY(); }
-
-    void SetWorldScale2D(const Vector2& aScale, const bool Silent = false) { SetWorldScale({ aScale, 1.0f }, Silent); }
-    Vector2 GetWorldScale2D() const { return GetWorldScale().XY(); }
-
-    void SetRotation2D(const float aAngle, const bool Silent = false) { SetRotation(Quaternion({ 0.0f, 0.0f, 1.0f}, aAngle ), Silent); }
-    float GetRotation2D() const { return Rotation.ToEulerAngles().z; }
-
-    void SetWorldRotation2D(const float aAngle, const bool Silent = false) { SetWorldRotation(Quaternion({ 0.0f, 0.0f, 1.0f }, aAngle), Silent); }
-    float GetWorldRotation2D() const { return GetWorldRotation().ToEulerAngles().z; }
-
-    void SetLayer(const float aLayer) { Position.z = aLayer; }
-    float GetLayer() const { return Position.z; }
-
-    //
-
+    // Local Space
     void Translate(const Vector3&);
-    //! Eulers
+    //! Eulers, Local Space
     void Rotate(const Vector3&);
-    //! Eulers
+    //! Eulers, Local Space
     void Rotate(const float x, const float y, const float z) { Rotate({x, y, z}); }
 
     Matrix4 GetMatrix() const;
@@ -107,11 +105,37 @@ public:
     void RemovePositionCallback(void* Key);
     void RemoveScaleCallback(void* Key);
     void RemoveRotationCallback(void* Key);
+
+    // 2D Functions Used by 2D Components
+
+    void SetPosition2D(const Vector2& aPosition, const bool Silent = false) { SetPosition({ aPosition, Position.z }, Silent); }
+    Vector2 GetPosition2D() const { return GetPosition().XY(); }
+
+    void SetWorldPosition2D(const Vector2& aPosition, const bool Silent = false) { SetWorldPosition({ aPosition, Position.z }, Silent); }
+    Vector2 GetWorldPosition2D() const { return GetWorldPosition().XY(); }
+
+    void SetScale2D(const Vector2& aScale, const bool Silent = false) { SetScale({ aScale, 1.0f }, Silent); }
+    Vector2 GetScale2D() const { return GetScale().XY(); }
+
+    void SetWorldScale2D(const Vector2& aScale, const bool Silent = false) { SetWorldScale({ aScale, 1.0f }, Silent); }
+    Vector2 GetWorldScale2D() const { return GetWorldScale().XY(); }
+
+    void SetRotation2D(const float aAngle, const bool Silent = false) { SetRotation(Quaternion({ 0.0f, 0.0f, 1.0f }, aAngle), Silent); }
+    float GetRotation2D() const { return Rotation.ToEulerAngles().z; }
+
+    void SetWorldRotation2D(const float aAngle, const bool Silent = false) { SetWorldRotation(Quaternion({ 0.0f, 0.0f, 1.0f }, aAngle), Silent); }
+    float GetWorldRotation2D() const { return GetWorldRotation().ToEulerAngles().z; }
+
+    void SetLayer(const float aLayer) { Position.z = aLayer; }
+    float GetLayer() const { return Position.z; }
+private:
+    //void MarkDirty(); 
 private:
     Vector3 Position = Vector3::ZERO;
     Vector3 Scale = Vector3::ONE;
     Quaternion Rotation = Quaternion::IDENTITY;
     CTransform* Parent = nullptr;
+    TransformArray Children;
     //mutable bool Dirty = true;
     std::vector<std::pair<void*, PositionChanged>> PositionCallback;
     std::vector<std::pair<void*, ScaleChanged>> ScaleCallback;

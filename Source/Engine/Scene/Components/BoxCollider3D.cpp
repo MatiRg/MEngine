@@ -3,8 +3,8 @@
 #include "RigidBody3D.hpp"
 #include "../../Physics/PhysicsWorld3D.hpp"
 #include "../../Core/XML.hpp"
+#include "../../Math/Transform.hpp"
 #include "../Entity.hpp"
-#include "../Transform.hpp"
 #include "../World.hpp"
 
 CBoxCollider3D::CBoxCollider3D(CEngine* aEngine): 

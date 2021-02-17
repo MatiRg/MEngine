@@ -10,7 +10,7 @@ void CStaticSprite2D::OnRender()
     CRenderer2D* Renderer = Engine->GetRenderer2D();
     if( HasTexture() )
     {
-        auto Transform = GetOwner()->GetTransform();
+        const auto& Transform = GetOwner()->GetTransform();
         Vector2 Pos = Transform.GetWorldPosition2D();
         Vector2 Pivot = Transform.HasParent() && GetOwner()->GetParent()->GetID() != WORLD_ENTITY
             ? Transform.GetParent()->GetWorldPosition2D() : Pos;
@@ -79,7 +79,7 @@ void CStaticSprite2D::SetTexture(ITexture2D* aTexture)
 
 const Rect2& CStaticSprite2D::GetBox() const
 {
-    auto Transform = GetOwner()->GetTransform();
+    const auto& Transform = GetOwner()->GetTransform();
 
     Vector2 WorldSize = Size*Transform.GetWorldScale2D();
     Box = Rect2( Transform.GetWorldPosition2D()-WorldSize/2.0f, WorldSize );

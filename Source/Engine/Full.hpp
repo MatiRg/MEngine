@@ -61,6 +61,7 @@
 #include "Math/Quaternion.hpp"
 #include "Math/Rect2.hpp"
 #include "Math/Rect3.hpp"
+#include "Math/Transform.hpp"
 #include "Math/Vector2.hpp"
 #include "Math/Vector3.hpp"
 #include "Math/Vector4.hpp"
@@ -99,7 +100,6 @@
 #include "Scene/Event.hpp"
 #include "Scene/EventManager.hpp"
 #include "Scene/Scene.hpp"
-#include "Scene/Transform.hpp"
 #include "Scene/World.hpp"
 
 #include "Script/ScriptModule.hpp"

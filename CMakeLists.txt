@@ -172,6 +172,8 @@ set(SOURCES_BASE
 	Source/Engine/Math/Quaternion.hpp
 	Source/Engine/Math/Rect2.hpp
 	Source/Engine/Math/Rect3.hpp
+	Source/Engine/Math/Transform.cpp
+	Source/Engine/Math/Transform.hpp
 	Source/Engine/Math/Vector2.hpp
 	Source/Engine/Math/Vector3.hpp
 	Source/Engine/Math/Vector4.hpp
@@ -235,8 +237,6 @@ set(SOURCES_BASE
 	Source/Engine/Scene/EventManager.hpp
 	Source/Engine/Scene/Scene.cpp
 	Source/Engine/Scene/Scene.hpp
-	Source/Engine/Scene/Transform.cpp
-	Source/Engine/Scene/Transform.hpp
 	Source/Engine/Scene/World.cpp
 	Source/Engine/Scene/World.hpp
 	Source/Engine/Script/ScriptModule.cpp

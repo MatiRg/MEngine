@@ -53,9 +53,9 @@ void CAudioListener::OnDestroy()
 
 void CAudioListener::OnLateUpdate(const float)
 {
-    auto Transform = GetOwner()->GetTransform();
+    const auto& Transform = GetOwner()->GetTransform();
 
-    Audio->SetListenerDirection( Transform.GetWorldForward() );
+    Audio->SetListenerDirection( Transform.GetForward() );
     Audio->SetListenerPosition( Transform.GetWorldPosition() );
 }
 

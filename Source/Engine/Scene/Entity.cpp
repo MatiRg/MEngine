@@ -239,19 +239,19 @@ void CEntity::SetParent(CEntity* NewParent)
     {
         return;
     }
-    auto RomovedThis = Parent ? Parent->RemoveChild(this) : this;
+    auto RemovedThis = Parent ? Parent->RemoveChild(this) : this;
     if (NewParent)
     {
-        NewParent->InsertChild(RomovedThis);
+        NewParent->InsertChild(RemovedThis);
         if (NewParent->GetWorld() != GetWorld())
         {
             if (GetWorld())
             {
-                GetWorld()->OnEntityDestroy(RomovedThis);
+                GetWorld()->OnEntityDestroy(RemovedThis);
             }
             if (NewParent->GetWorld())
             {
-                NewParent->GetWorld()->OnEntityCreate(RomovedThis);
+                NewParent->GetWorld()->OnEntityCreate(RemovedThis);
             }
         }
     }
@@ -259,7 +259,7 @@ void CEntity::SetParent(CEntity* NewParent)
     {
         if (GetWorld())
         {
-            GetWorld()->OnEntityDestroy(RomovedThis);
+            GetWorld()->OnEntityDestroy(RemovedThis);
         }
     }
     // TO DO: Change World in Children Entities
@@ -513,9 +513,9 @@ void CEntity::DestroyChildrenRaw()
     {
         DestroyEntityRaw(i);
         auto Iterator = std::find_if(Children.begin(), Children.end(), [&](CEntity* Entity)
-            {
-                return Entity == i;
-            });
+        {
+            return Entity == i;
+        });
         if (Iterator != Children.end())
         {
             Children.erase(Iterator);

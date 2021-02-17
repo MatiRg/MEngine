@@ -139,7 +139,7 @@ void CAudioSource::OnLateUpdate(const float)
 {
     if( Sound )
     {
-        auto Transform = GetOwner()->GetTransform();
+        const auto& Transform = GetOwner()->GetTransform();
         Sound->SetPosition( Transform.GetWorldPosition() );
     }
 }

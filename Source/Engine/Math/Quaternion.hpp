@@ -506,10 +506,24 @@ namespace Math
         return a.ToMatrix();
     }
 
+    // ?
+    // https://gist.github.com/aeroson/043001ca12fe29ee911e
     template<class T>
-    TQuaternion<T> LookRotation(const TVector3<T>& aDir, const TVector3<T>& Up)
+    TQuaternion<T> LookRotation(const TVector3<T>& Dir, const TVector3<T>& Up)
     {
-        TVector3<T> Dir = -aDir;
+        TVector3<T> Forward = Normalize(Dir);
+        TVector3<T> Right = Normalize(CrossProduct(Up, Forward));
+        TVector3<T> NewUp = CrossProduct(Forward, Right);
+
+        TMatrix4<T> Result(
+            Right[0], Right[1], Right[2], T(0),
+            NewUp[0], NewUp[1], NewUp[2], T(0),
+            Forward[0], Forward[1], Forward[2], T(0),
+            T(0), T(0), T(0), T(1)
+        );
+        return { Result };
+
+        /*TVector3<T> Dir = -aDir;
         TVector3<T> Right = CrossProduct(Up, Dir);
         TVector3<T> Tmp = Right * InvSqrt(Max(T(0.00001), DotProduct(Right, Right)));
         TVector3<T> Tmp2 = CrossProduct(Dir, Tmp);
@@ -520,7 +534,7 @@ namespace Math
             Dir[0], Dir[1], Dir[2], T(0),
             T(0), T(0), T(0), T(1)
         );
-        return { Result };
+        return { Result }; */
     }
 
     // http://www.opengl-tutorial.org/intermediate-tutorials/tutorial-17-quaternions/

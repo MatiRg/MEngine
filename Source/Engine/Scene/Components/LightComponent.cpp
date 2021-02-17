@@ -1,6 +1,6 @@
 #include "LightComponent.hpp"
 #include "../Entity.hpp"
-#include "../Transform.hpp"
+#include "../../Math/Transform.hpp"
 #include "../../Core/XML.hpp"
 #include "../../Engine/Engine.hpp"
 #include "../../Graphics/Renderer3D.hpp"
@@ -32,7 +32,7 @@ void CLightComponent::OnRender()
     
     LightData.SetMatrix( Transform.GetWorldMatrix() );
     LightData.SetPosition( Transform.GetWorldPosition() );
-    LightData.SetDirection( Transform.GetWorldForward() );
+    LightData.SetDirection( Transform.GetForward() );
 
     if (LightData.GetLightType() != ELightType::None)
     {

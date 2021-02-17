@@ -2,10 +2,10 @@
 #include "../Core/NonCopyable.hpp"
 #include "../Physics/Contact2D.hpp"
 #include "../Physics/Contact3D.hpp"
+#include "../Math/Transform.hpp"
 #include "EventManager.hpp"
 #include "Event.hpp"
 #include "Component.hpp"
-#include "Transform.hpp"
 #include <string>
 #include <memory>
 #include <algorithm>
@@ -146,8 +146,6 @@ public:
     //! Sets whether Entity should be Rendered
     void SetRendered(const bool);
 
-    //! Set Transform
-    void SetTransform(const CTransform& aTransform) { Transform = aTransform; }
     //! Get Transform
     CTransform& GetTransform() { return Transform; }
     //! Get Transform

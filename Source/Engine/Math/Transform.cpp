@@ -1,26 +1,29 @@
 #include "Transform.hpp"
 #include "../Core/XML.hpp"
+#include "../System/MemoryManager.hpp"
 #include <algorithm> 
 
 CTransform::CTransform()
 {
+    ADD_MEMORY_RECORD(this);
 }
 
-CTransform::CTransform(const CTransform& Other):
-    Position(Other.Position),
-    Scale(Other.Scale),
-    Rotation(Other.Rotation),
-    Parent(Other.Parent)
+CTransform::~CTransform()
 {
-    //Dirty = true;
+    if (Parent)
+    {
+        Parent->RemoveChild(this);
+    }
+    //
+    ERASE_MEMORY_RECORD(this);
 }
 
 bool CTransform::Load(CXMLElement* Root)
 {
-    //Dirty = true;
 	Position = XML::LoadVector3(Root, "Position", Vector3::ZERO );
 	Scale = XML::LoadVector3(Root, "Scale", Vector3::ONE );
     Rotation = XML::LoadQuaternion(Root, "Rotation", Quaternion::IDENTITY);
+    //Dirty = XML::LoadBool(Root, "Dirty", true);
     return true;
 }
 
@@ -29,25 +32,46 @@ bool CTransform::Save(CXMLElement* Root)
 	XML::SaveVector3(Root, "Position", Position);
 	XML::SaveVector3(Root, "Scale", Scale);
 	XML::SaveQuaternion(Root, "Rotation", Rotation);
+    //XML::SaveBool(Root, "Dirty", Dirty);
     return true;
-}
-
-CTransform& CTransform::operator=(const CTransform& Other)
-{
-    if( this != &Other )
-    {
-        Position = Other.Position;
-        Scale = Other.Scale;
-        Rotation = Other.Rotation;
-        Parent = Other.Parent;
-        //Dirty = true;
-    }
-    return *this;
 }
 
 void CTransform::SetParent(CTransform* aParent)
 {
+    // Old Parent
+    if (Parent)
+    {
+        Parent->RemoveChild(this);
+    }
+    //
     Parent = aParent;
+    if (Parent)
+    {
+        Parent->AddChild(this);
+    }
+}
+
+void CTransform::AddChild(CTransform* Other)
+{
+    if (Other)
+    {
+        Children.push_back(Other);
+    }
+}
+
+void CTransform::RemoveChild(CTransform* Other)
+{
+    if (Other)
+    {
+        auto Iterator = std::find_if(Children.begin(), Children.end(), [&](CTransform* Transform)
+        {
+            return Transform == Other;
+        });
+        if (Iterator != Children.end())
+        {
+            Children.erase(Iterator);
+        }
+    }
 }
 
 void CTransform::SetPosition(const Vector3& aPosition, const bool Silent)
@@ -153,32 +177,42 @@ Quaternion CTransform::GetInvWorldRotation() const
     return GetWorldRotation().Inverse();
 }
 
+void CTransform::SetRight(const Vector3& NewRight)
+{
+    SetWorldRotation(Quaternion(Vector3::RIGHT, NewRight));
+}
+
+Vector3 CTransform::GetRight() const
+{
+    return GetWorldRotation() * Vector3::RIGHT;
+}
+
+void CTransform::SetUp(const Vector3& NewUp)
+{
+    SetWorldRotation(Quaternion(Vector3::UP, NewUp));
+}
+
+Vector3 CTransform::GetUp() const
+{
+    return GetWorldRotation() * Vector3::UP;
+}
+
 void CTransform::SetForward(const Vector3& NewForward)
 {
-    SetRotation( Quaternion(Vector3::FORWARD, NewForward) );
+    SetWorldRotation( Math::LookRotation(NewForward, Vector3::UP) ); // ?
 }
 
 Vector3 CTransform::GetForward() const
-{
-    return Rotation * Vector3::FORWARD;
-}
-
-Vector3 CTransform::GetWorldForward() const
 {
     return GetWorldRotation() * Vector3::FORWARD;
 }
 
 void CTransform::SetEulers(const Vector3& Eulers)
 {
-    SetRotation(Quaternion(Eulers));
+    SetWorldRotation(Quaternion(Eulers));
 }
 
 Vector3 CTransform::GetEulers() const
-{
-    return Rotation.ToEulerAngles();
-}
-
-Vector3 CTransform::GetWorldEulers() const
 {
     return GetWorldRotation().ToEulerAngles();
 }
