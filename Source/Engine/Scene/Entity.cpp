@@ -600,6 +600,15 @@ void CEntity::DestroyChildren()
     }
 }
 
+void CEntity::Start()
+{
+    if (!Started)
+    {
+        Started = true;
+        OnStart();
+    }
+}
+
 void CEntity::BeginFrame(const EBeginFrame&)
 {
     if (!IsUpdated())
@@ -610,11 +619,7 @@ void CEntity::BeginFrame(const EBeginFrame&)
     DestroyChildrenRaw();
     DestroyComponentsRaw();
 
-    if (!Started)
-    {
-        Started = true;
-        OnStart();
-    }
+    Start();
 
     for (const auto& i : Components)
     {
@@ -629,6 +634,7 @@ void CEntity::Update(const EUpdate& Event)
     {
         return;
     }
+    Start();
     for (const auto& i : Components)
     {
         i->OnUpdate(Event.DT);
@@ -642,6 +648,7 @@ void CEntity::LateUpdate(const ELateUpdate& Event)
     {
         return;
     }
+    Start();
     for (const auto& i : Components)
     {
         i->OnLateUpdate(Event.DT);
@@ -655,6 +662,7 @@ void CEntity::GUI(const EGUI&)
     {
         return;
     }
+    Start();
     for (const auto& i : Components)
     {
         i->OnGUI();
@@ -668,6 +676,7 @@ void CEntity::Render(const ERender&)
     {
         return;
     }
+    Start();
     for (const auto& i : Components)
     {
         i->OnRender();
@@ -681,6 +690,7 @@ void CEntity::EndFrame(const EEndFrame&)
     {
         return;
     }
+    Start();
     for (const auto& i : Components)
     {
         i->OnEndFrame();

@@ -30,20 +30,35 @@ public:
 
     ENTITY(CPlayerObject)
 
+    void SetGoal(const Vector3& aGoal) { Goal = aGoal; }
+    void SetCamera(CEntity*);
+
     void OnStart() override;
     void OnUpdate(const float) override;
     void OnRender() override;
     void OnGUI() override;
 
+    void MoveCamera(const float);
+    void MovePlayer(const float);
+
     void OnCollisionEnter(const SEntityCollision3D& Collision) override;
     void OnCollisionStay(const SEntityCollision3D& Collision) override;
     void OnCollisionLeave(const SEntityCollision3D& Collision) override;
-
-    void SetGoal(const Vector3& aGoal) { Goal = aGoal; }
 private:
     float TotalTime = 0.0f;
     int Score = 0;
     Vector3 Goal = Vector3::ZERO;
+    float PlayerSpeed = 0.75f;
+    //
+    float CameraSpeed = 10.0f;
+    CEntity* CameraObject = nullptr;
+    CTransform* CameraTransform = nullptr;
+    CCamera* CameraComponent = nullptr;
+    float Yaw = 0.0f;
+    float Pitch = 0.0f;
+    //
+    IInput* Input = nullptr;
+    CRigidBody3D* Body = nullptr;
 };
 
 

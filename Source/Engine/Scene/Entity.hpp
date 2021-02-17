@@ -446,6 +446,8 @@ private:
     //
     static void DestroyComponentRaw(IComponent*);
     void DestroyComponentsRaw();
+    //
+    void Start();
 protected:
     CEngine* Engine = nullptr;
     CEventManager* EventManager = nullptr;

@@ -36,14 +36,59 @@ void CPlayerObject::OnUpdate(const float DT)
 {
 	TotalTime += DT;
 	//
-	Vector3 Position = Transform.GetWorldPosition();
-	float D = Math::Distance(Goal, Position);
+	MoveCamera(DT);
+	MovePlayer(DT);
+}
+
+void CPlayerObject::MoveCamera(const float)
+{
+	Input = Engine->GetInput();
+
+	// Update Camera Rotation
+	constexpr float SensitivityRel = 0.05f;
+	Yaw += Input->GetRelativeMouseMotion().x * SensitivityRel;
+	Pitch += Input->GetRelativeMouseMotion().y * SensitivityRel;
+
+	Pitch = Math::Clamp(Pitch, -30.0f, 20.0f);
+
+	// Set New Rotation in Euler Angles
+	CameraTransform->SetRotation(Quaternion(Pitch, Yaw, 0.0f));
+
+	CameraTransform->SetPosition(Transform.GetPosition()+Vector3::UP*0.25f);
+}
+
+void CPlayerObject::MovePlayer(const float DT)
+{
+	Input = Engine->GetInput();
+	Body = GetComponent<CRigidBody3D>();
+
+	Transform.SetRotation(Quaternion(0.0f, Yaw, 0.0f));
+
+	Vector3 Keys = Vector3::ZERO;
+	if (Input->IsKeyPressed(EKey::W))
+	{
+		Keys.z = PlayerSpeed;
+	}
+	if (Input->IsKeyPressed(EKey::S))
+	{
+		Keys.z = -PlayerSpeed;
+	}
+	if (Input->IsKeyPressed(EKey::A))
+	{
+		Keys.x = -PlayerSpeed;
+	}
+	if (Input->IsKeyPressed(EKey::D))
+	{
+		Keys.x = PlayerSpeed;
+	}
+	Vector3 Velocity = Vector3::FORWARD * Keys.z + Vector3::RIGHT * Keys.x;
+	Body->SetLinearVelocity(Transform.GetWorldRotation()*Velocity);
 }
 
 void CPlayerObject::OnRender()
 {
 	CDebugDrawer* Drawer = Engine->GetDebugDrawer();
-	Drawer->AddLine(Transform.GetWorldPosition(), Transform.GetWorldPosition()-Transform.GetForward()*1.0f, Color::BLUE); // ?
+	Drawer->AddLine(Transform.GetWorldPosition(), Transform.GetWorldPosition()+Transform.GetForward()*1.0f, Color::BLUE);
 }
 
 void CPlayerObject::OnGUI()
@@ -53,10 +98,12 @@ void CPlayerObject::OnGUI()
 	//
 	CImGUI* UI = Engine->GetImGUI();
 	UI->Begin("GUI");
-	UI->Text("Time: "+std::to_string(TotalTime));
-	UI->Text("Score: " + std::to_string(Score));
+	UI->Text("Time: "+ Utils::ToString(TotalTime));
+	UI->Text("Score: " + Utils::ToString(Score));
 	UI->Separator();
-	UI->Text("Distance: " + std::to_string(D));
+	UI->Text("Distance: " + Utils::ToString(D));
+	UI->Separator();
+	UI->Text("Camera Angles: " + Utils::ToString(Pitch) + ", " + Utils::ToString(Yaw));
 	UI->End();
 }
 
@@ -76,6 +123,13 @@ void CPlayerObject::OnCollisionStay(const SEntityCollision3D& Collision)
 
 void CPlayerObject::OnCollisionLeave(const SEntityCollision3D& Collision)
 {
+}
+
+void CPlayerObject::SetCamera(CEntity* Object)
+{
+	CameraObject = Object;
+	CameraTransform = &CameraObject->GetTransform();
+	CameraComponent = CameraObject->GetComponent<CCamera>();
 }
 
 //
@@ -140,6 +194,24 @@ CLevel2::~CLevel2()
 
 void CLevel2::LoadMap()
 {
+	World = std::make_unique<CWorld>(App->GetEngine());
+	CPhysicsWorld3D* PhysicsWorld = World->CreateComponent<CPhysicsWorld3D>();
+	PhysicsWorld->SetGravity({ 0.0f, -10.0f, 0.0f });
+	PhysicsWorld->SetDebugDraw(true);
+
+	// Create Sky Dome
+	CEntity* SkyDome = World->CreateModel<CEntity>("sky2.dae");
+	// Make it Big
+	SkyDome->GetTransform().SetScale(Vector3(500.0f));
+
+	CEntity* Sun = World->CreateChild<CEntity>();
+	//
+	CLightComponent* LightSun = Sun->CreateComponent<CLightComponent>();
+	LightSun->SetLightType(ELightType::Direction);
+	LightSun->SetTemperature(5500.f);
+	//
+	Sun->GetTransform().SetRotation(Quaternion(-30.0f, 0.0f, 0.0f));
+
 	std::string Path;
 	if (!App->GetResources()->FindPath("Labirynt.xml", Path))
 	{
@@ -244,6 +316,19 @@ void CLevel2::LoadMap()
 	PlayerBody = PlayerObject->CreateComponent<CRigidBody3D>();
 	PlayerBody->SetBodyType(ERigidBodyType3D::Dynamic);
 	PlayerBody->SetAngularFactor(Vector3::ZERO);
+	PlayerBody->SetMass(45.0f);
+
+	// Camera
+	CameraObject = World->CreateChild<CEntity>();
+	CameraTransform = &CameraObject->GetTransform();
+	//
+	CameraComponent = CameraObject->CreateComponent<CCamera>();
+	CameraComponent->SetAspect(App->GetWindow()->GetAspectRatio());
+	CameraComponent->SetFOV(60.0f);
+	CameraComponent->SetNearClipPlane(0.3f);
+	CameraComponent->SetFarClipPlane(1000.0f);
+
+	PlayerObject->SetCamera(CameraObject);
 }
 
 void CLevel2::OnInit()
@@ -323,35 +408,6 @@ void CLevel2::OnEnter()
 {
 	App->GetInput()->SetMouseMode(EMouseMode::Relative);
 	//
-	World = std::make_unique<CWorld>(App->GetEngine());
-	CPhysicsWorld3D* PhysicsWorld = World->CreateComponent<CPhysicsWorld3D>();
-	PhysicsWorld->SetGravity({ 0.0f, -10.0f, 0.0f });
-	PhysicsWorld->SetDebugDraw(true);
-
-	// Create Sky Dome
-	CEntity* SkyDome = World->CreateModel<CEntity>("sky2.dae");
-	// Make it Big
-	SkyDome->GetTransform().SetScale(Vector3(500.0f));
-
-	CEntity* Sun = World->CreateChild<CEntity>();
-	//
-	CLightComponent* LightSun = Sun->CreateComponent<CLightComponent>();
-	LightSun->SetLightType(ELightType::Direction);
-	LightSun->SetTemperature(5500.f);
-	//
-	Sun->GetTransform().SetRotation(Quaternion(-30.0f, 0.0f, 0.0f));
-
-	CameraObject = World->CreateChild<CEntity>();
-	CameraTransform = &CameraObject->GetTransform();
-	CameraTransform->SetRotation(Quaternion(29.0f, 0.05f, 0.0f));
-	CameraTransform->SetPosition(Vector3(5.25f, 14.15f, -3.5f));
-	//
-	CameraComponent = CameraObject->CreateComponent<CCamera>();
-	CameraComponent->SetAspect(App->GetWindow()->GetAspectRatio());
-	CameraComponent->SetFOV(Fov);
-	CameraComponent->SetNearClipPlane(0.3f);
-	CameraComponent->SetFarClipPlane(1000.0f);
-
 	LoadMap();
 }
 
@@ -363,55 +419,6 @@ void CLevel2::OnUpdate(const float TimeStep)
 	{
 		App->Quit();
 	}
-	// Camera
-	Vector3 CameraPosition = CameraTransform->GetPosition();
-	if (Input->IsKeyPressed(EKey::W))
-	{
-		CameraPosition += Vector3::FORWARD * CameraSpeed * TimeStep;
-	}
-	if (Input->IsKeyPressed(EKey::S))
-	{
-		CameraPosition += Vector3::BACK * CameraSpeed * TimeStep;
-	}
-	if (Input->IsKeyPressed(EKey::A))
-	{
-		CameraPosition += Vector3::LEFT * CameraSpeed * TimeStep;
-	}
-	if (Input->IsKeyPressed(EKey::D))
-	{
-		CameraPosition += Vector3::RIGHT * CameraSpeed * TimeStep;
-	}
-	CameraTransform->SetPosition(CameraPosition);
-
-	ScrollSpeed = Input->GetMouseWheel().y;
-	Fov -= ScrollSpeed;
-	if (Fov <= 25.0f)
-		Fov = 25.0f;
-	if (Fov >= 45.0f)
-		Fov = 45.0f;
-	ScrollSpeed = 0.0f;
-	CameraComponent->SetFOV(Fov);
-
-	// Player Controls
-	Vector3 PlayerVelocity = Vector3::ZERO;
-	if (Input->IsKeyPressed(EKey::Up))
-	{
-		PlayerVelocity.z = PlayerSpeed;
-	}
-	if (Input->IsKeyPressed(EKey::Down))
-	{
-		PlayerVelocity.z = -PlayerSpeed;
-	}
-	if (Input->IsKeyPressed(EKey::Left))
-	{
-		PlayerVelocity.x = -PlayerSpeed;
-	}
-	if (Input->IsKeyPressed(EKey::Right))
-	{
-		PlayerVelocity.x = PlayerSpeed;
-	}
-	PlayerBody->SetLinearVelocity(PlayerVelocity);
-
 	// Blur Toggle
 	if (Input->IsKeyDown(EKey::V))
 	{
@@ -430,14 +437,6 @@ void CLevel2::OnLateUpdate(const float)
 
 void CLevel2::OnGUI()
 {
-	/*CImGUI* Im = App->GetImGUI();
-	Im->Begin("Level Demo");
-	Im->Text("Position: [" + std::to_string(CameraTransform->GetPosition().x) + ", " + std::to_string(CameraTransform->GetPosition().y) + ", " + std::to_string(CameraTransform->GetPosition().z) + "]");
-	Im->Text("Aspect: " + std::to_string(CameraComponent->GetAspect()));
-	Im->Text("Yaw: " + std::to_string(Yaw));
-	Im->Text("Pitch: " + std::to_string(Pitch));
-	Im->Text("FOV: " + std::to_string(Fov));
-	Im->End();*/
 }
 
 void CLevel2::OnRender()
