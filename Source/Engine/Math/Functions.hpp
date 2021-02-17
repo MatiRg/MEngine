@@ -422,6 +422,17 @@ namespace Math
         Type I = {};
     };
 
+    template<class T>
+    T MoveTowards(const T Now, const T Target, const T Delta)
+    {
+        T Tmp = Target - Now;
+        if (Abs(Tmp) <= Delta)
+        {
+            return Target;
+        }
+        return Now + Sign(Tmp) * Delta;
+    }
+
     // Min, Max: Min < Max
     int Random(const int, const int);
 

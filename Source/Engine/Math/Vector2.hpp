@@ -93,7 +93,13 @@ public:
     // Angle between vectors
     T Angle(const TVector2<T>& Other) const
     {
-        return Math::RadToDeg( Math::Acos( DotProduct( Other ) / ( Length() * Other.Length() ) ) );
+        T Denominator = Length() * Other.Length();
+        if (Denominator <= T(0.0000000001f))
+        {
+            return T(0);
+        }
+        T Dot = Math::Clamp( DotProduct(Other) / Denominator, T(-1), T(1) );
+        return Math::RadToDeg( Math::Acos(Dot) );
     }
 
     void SetRotation(T Angle)
@@ -319,6 +325,31 @@ namespace Math
             R[i] = Lerp( a[i], b[i], v );
         }
         return R;
+    }
+
+    // https://answers.unity.com/questions/414829/any-one-know-maths-behind-this-movetowards-functio.html
+    template<class T>
+    TVector2<T> MoveTowards(const TVector2<T>& Now, const TVector2<T>& Target, const T Delta)
+    {
+        TVector2<T> Tmp = Target - Now;
+        T Distance = Tmp.Length();
+        if (Distance <= Delta || IsEqual(Distance, 0.0f, 0.000001f))
+        {
+            return Target;
+        }
+        return Now + (Tmp / Distance) * Delta;
+    }
+
+    template<class T>
+    TVector2<T> Max(const TVector2<T>& l, const TVector2<T>& r)
+    {
+        return TVector2<T>(Max(l.x, r.x), Max(l.y, r.y));
+    }
+
+    template<class T>
+    TVector2<T> Min(const TVector2<T>& l, const TVector2<T>& r)
+    {
+        return TVector2<T>(Min(l.x, r.x), Min(l.y, r.y));
     }
 }
 

@@ -101,7 +101,13 @@ public:
     // Angle between vectors
     T Angle(const TVector3<T>& Other) const
     {
-        return Math::RadToDeg( Math::Acos( DotProduct( Other ) / ( Length() * Other.Length() ) ) );
+        T Denominator = Length() * Other.Length();
+        if (Denominator <= T(0.0000000001f))
+        {
+            return T(0);
+        }
+        T Dot = Math::Clamp(DotProduct(Other) / Denominator, T(-1), T(1));
+        return Math::RadToDeg(Math::Acos(Dot));
     }
 
     void AddScaledVector(const TVector3<T>& Other, const T Scale)
@@ -364,9 +370,18 @@ namespace Math
     }
 
     template<class T>
-    T Angle(const TVector3<T>& a, const TVector3<T>& b)
+    T Angle(const TVector3<T>& From, const TVector3<T>& To)
     {
-        return a.Angle(b);
+        return From.Angle(To);
+    }
+
+    // Should work like Unity
+    template<class T>
+    T SignedAngle(const TVector3<T>& From, const TVector3<T>& To, const TVector3<T>& Axis)
+    {
+        T UnsignedAngle = Angle(From, To);
+        TVector3<T> Cross = CrossProduct(From, To);
+        return UnsignedAngle * Sign( DotProduct(Cross, Axis) );
     }
 
     template<class T>
@@ -378,6 +393,31 @@ namespace Math
             R[i] = Lerp( a[i], b[i], v );
         }
         return R;
+    }
+
+    // https://answers.unity.com/questions/414829/any-one-know-maths-behind-this-movetowards-functio.html
+    template<class T>
+    TVector3<T> MoveTowards(const TVector3<T>& Now, const TVector3<T>& Target, const T Delta)
+    {
+        TVector3<T> Tmp = Target - Now;
+        T Distance = Tmp.Length();
+        if (Distance <= Delta || IsEqual(Distance, 0.0f, 0.000001f))
+        {
+            return Target;
+        }
+        return Now + (Tmp / Distance) * Delta;
+    }
+
+    template<class T>
+    TVector3<T> Max(const TVector3<T>& l, const TVector3<T>& r)
+    {
+        return TVector3<T>(Max(l.x, r.x), Max(l.y, r.y), Max(l.z, r.z));
+    }
+
+    template<class T>
+    TVector3<T> Min(const TVector3<T>& l, const TVector3<T>& r)
+    {
+        return TVector3<T>(Min(l.x, r.x), Min(l.y, r.y), Min(l.z, r.z));
     }
 }
 
