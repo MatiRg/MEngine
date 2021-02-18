@@ -22,6 +22,14 @@ public:
 
     void OnBeginFrame() override;
 
+    //! Always Set Collision Layer And Collision Mask
+    void SetCollisionLayer(int);
+    int GetCollisionLayer() const;
+
+    //! Always Set Collision Layer And Collision Mask
+    void SetCollisionMask(int);
+    int GetCollisionMask() const;
+
     void SetGravity(const Vector3&);
     Vector3 GetGravity() const;
 
@@ -58,6 +66,9 @@ public:
 
     void SetAngularDamping(const float);
     float GetAngularDamping() const;
+
+    void SetSleepThreshold(const Vector2&);
+    Vector2 GetSleepThreshold() const;
 
     void SetBodyType(const ERigidBodyType3D);
     ERigidBodyType3D GetBodyType() const;

@@ -109,6 +109,26 @@ void CRigidBody3D::OnBeginFrame()
     Owner->GetTransform().SetWorldRotation(Body->GetRotation(), true);
 }
 
+void CRigidBody3D::SetCollisionLayer(int Layer)
+{
+    Body->SetCollisionLayer(Layer);
+}
+
+int CRigidBody3D::GetCollisionLayer() const
+{
+    return Body->GetCollisionLayer();
+}
+
+void CRigidBody3D::SetCollisionMask(int Mask)
+{
+    Body->SetCollisionMask(Mask);
+}
+
+int CRigidBody3D::GetCollisionMask() const
+{
+    return Body->GetCollisionMask();
+}
+
 void CRigidBody3D::SetGravity(const Vector3& x)
 {
     Body->SetGravity(x);
@@ -232,6 +252,16 @@ void CRigidBody3D::SetAngularDamping(const float x)
 float CRigidBody3D::GetAngularDamping() const
 {
     return Body->GetAngularDamping();
+}
+
+void CRigidBody3D::SetSleepThreshold(const Vector2& t)
+{
+    Body->SetSleepThreshold(t);
+}
+
+Vector2 CRigidBody3D::GetSleepThreshold() const
+{
+    return Body->GetSleepThreshold();
 }
 
 void CRigidBody3D::SetBodyType(const ERigidBodyType3D x)

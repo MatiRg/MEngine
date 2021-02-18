@@ -258,7 +258,6 @@ void CLevel2::LoadMap()
 				Item->GetTransform().SetScale(0.5f);
 				//
 				CBoxCollider3D* ColliderItem = Item->CreateComponent<CBoxCollider3D>();
-				ColliderItem->SetSize(Vector3(0.25f));
 				CRigidBody3D* ItemBody = Item->CreateComponent<CRigidBody3D>();
 				ItemBody->SetBodyType(ERigidBodyType3D::Static);
 				CRotator* ItemRotator = Item->CreateComponent<CRotator>();
@@ -312,7 +311,6 @@ void CLevel2::LoadMap()
 	PlayerObject->SetGoal(Goal);
 	//
 	CBoxCollider3D* PlayerCollider = PlayerObject->CreateComponent<CBoxCollider3D>();
-	PlayerCollider->SetSize(Vector3(0.25f));
 	PlayerBody = PlayerObject->CreateComponent<CRigidBody3D>();
 	PlayerBody->SetBodyType(ERigidBodyType3D::Dynamic);
 	PlayerBody->SetAngularFactor(Vector3::ZERO);

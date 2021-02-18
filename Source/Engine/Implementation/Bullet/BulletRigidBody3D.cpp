@@ -3,10 +3,13 @@
 #include "BulletCollisionShape3D.hpp"
 #include "BulletUtils.hpp"
 #include "../../Math/Functions.hpp"
+#include <limits>
 
 CBulletRigidBody3D::CBulletRigidBody3D(CBulletPhysicsWorld3D* aWorld, CBulletCollisionShape3D* aShape):
 	World(aWorld),
-	Shape(aShape)
+	Shape(aShape),
+	CollisionLayer(-1),
+	CollisionMask(-1)
 {
 	BodyType = ERigidBodyType3D::Dynamic;
 
@@ -38,6 +41,30 @@ CBulletRigidBody3D::~CBulletRigidBody3D()
 IPhysicsWorld3D* CBulletRigidBody3D::GetWorld() const
 {
 	return World;
+}
+
+void CBulletRigidBody3D::SetCollisionLayer(int Layer)
+{
+	RemoveRigidBodyFromWorld();
+	CollisionLayer = Layer;
+	AddRigidBodyToWorld();
+}
+
+int CBulletRigidBody3D::GetCollisionLayer() const
+{
+	return CollisionLayer;
+}
+
+void CBulletRigidBody3D::SetCollisionMask(int Mask)
+{
+	RemoveRigidBodyFromWorld();
+	CollisionMask = Mask;
+	AddRigidBodyToWorld();
+}
+
+int CBulletRigidBody3D::GetCollisionMask() const
+{
+	return CollisionMask;
 }
 
 void CBulletRigidBody3D::SetPosition(const Vector3& Position)
@@ -114,6 +141,7 @@ float CBulletRigidBody3D::GetMass() const
 
 void CBulletRigidBody3D::SetLinearVelocity(const Vector3& x)
 {
+	Activate();
 	Body->setLinearVelocity(ToBulletVector3(x));
 }
 
@@ -124,6 +152,7 @@ Vector3 CBulletRigidBody3D::GetLinearVelocity() const
 
 void CBulletRigidBody3D::SetAngularVelocity(const Vector3& x)
 {
+	Activate();
 	Body->setAngularVelocity(ToBulletVector3(x));
 }
 
@@ -134,16 +163,19 @@ Vector3 CBulletRigidBody3D::GetAngularVelocity() const
 
 void CBulletRigidBody3D::AddForce(const Vector3& x)
 {
+	Activate();
 	Body->applyCentralForce( ToBulletVector3(x) );
 }
 
 void CBulletRigidBody3D::AddForceAtPosition(const Vector3& x, const Vector3& p)
 {
+	Activate();
 	Body->applyForce(ToBulletVector3(x), ToBulletVector3(p) );
 }
 
 void CBulletRigidBody3D::AddTorque(const Vector3& x)
 {
+	Activate();
 	Body->applyTorque(ToBulletVector3(x));
 }
 
@@ -217,6 +249,16 @@ float CBulletRigidBody3D::GetAngularDamping() const
 	return Body->getAngularDamping();
 }
 
+void CBulletRigidBody3D::SetSleepThreshold(const Vector2& t)
+{
+	Body->setSleepingThresholds(t.x, t.y);
+}
+
+Vector2 CBulletRigidBody3D::GetSleepThreshold() const
+{
+	return { Body->getLinearSleepingThreshold(), Body->getAngularSleepingThreshold() };
+}
+
 void CBulletRigidBody3D::SetBodyType(const ERigidBodyType3D Type)
 {
 	RemoveRigidBodyFromWorld();
@@ -246,7 +288,14 @@ void CBulletRigidBody3D::AddRigidBodyToWorld()
 {
 	if (!AddedToWorld)
 	{
-		World->GetWorld()->addRigidBody(Body.get());
+		if (CollisionLayer >= 0 && CollisionMask >= 0)
+		{
+			World->GetWorld()->addRigidBody(Body.get(), CollisionLayer, CollisionMask);
+		}
+		else
+		{
+			World->GetWorld()->addRigidBody(Body.get());
+		}
 		AddedToWorld = true;
 	}
 }
@@ -305,4 +354,12 @@ void CBulletRigidBody3D::SetCollisionShape(ICollisionShape3D* NewShape)
 ICollisionShape3D* CBulletRigidBody3D::GetCollisionShape() const
 { 
 	return Shape; 
+}
+
+void CBulletRigidBody3D::Activate()
+{
+	if (BodyType == ERigidBodyType3D::Dynamic)
+	{
+		Body->activate(true);
+	}
 }

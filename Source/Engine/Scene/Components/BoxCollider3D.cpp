@@ -14,10 +14,9 @@ CBoxCollider3D::CBoxCollider3D(CEngine* aEngine):
 
 CBoxCollider3D::~CBoxCollider3D()
 {
-    if (Shape)
-    {
-        PhysicsWorld3D->GetWorld()->DestroyShape(Shape);
-    }
+    GetOwner()->GetTransform().RemoveScaleCallback(this);
+    PhysicsWorld3D->GetWorld()->DestroyShape(Shape);
+    // TO DO: When Has RigidBody ?
 }
 
 void CBoxCollider3D::OnCreate()
@@ -30,9 +29,11 @@ void CBoxCollider3D::OnCreate()
         PhysicsWorld3D = World->CreateComponent<CPhysicsWorld3D>();
     }
     //
-    Size = { 0.5f };
-    Shape = PhysicsWorld3D->GetWorld()->CreateBoxShape(Size);
-    Shape->SetUserData(this);
+    SetSize({0.5f});
+    //
+    GetOwner()->GetTransform().AddScaleCallback(this, [&](const Vector3& /*NewScale*/) {
+        SetSize(GetSize());
+    });
 }
 
 bool CBoxCollider3D::OnLoad(CXMLElement* Root)
@@ -66,7 +67,7 @@ void CBoxCollider3D::SetSize(const Vector3& aSize)
     //
     ICollisionShape3D* OldShape = Shape;
     
-    Shape = PhysicsWorld3D->GetWorld()->CreateBoxShape(Size);
+    Shape = PhysicsWorld3D->GetWorld()->CreateBoxShape(Size * GetOwner()->GetTransform().GetWorldScale());
     Shape->SetUserData(this);
 
     CRigidBody3D* Body = GetOwner()->GetComponent<CRigidBody3D>();
@@ -75,5 +76,8 @@ void CBoxCollider3D::SetSize(const Vector3& aSize)
         Body->GetBody()->SetCollisionShape(Shape);
     }
 
-    PhysicsWorld3D->GetWorld()->DestroyShape(OldShape);
+    if (OldShape)
+    {
+        PhysicsWorld3D->GetWorld()->DestroyShape(OldShape);
+    }
 }

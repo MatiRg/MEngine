@@ -16,6 +16,8 @@ bool CCamera::OnLoad(CXMLElement* Root)
     SetAspect( XML::LoadFloat(Root, "Aspect", GetEngine()->GetWindow()->GetAspectRatio() ) );
     SetFarClipPlane( XML::LoadFloat(Root, "Far", 1000.0f) );
     SetNearClipPlane( XML::LoadFloat(Root, "Near", 0.03f) );
+    ProjectionDirty = XML::LoadBool(Root, "ProjectionDirty", true);
+    ProjectionMatrix = XML::LoadMatrix4(Root, "ProjectionMatrix", Matrix4::IDENTITY);
     return true;
 }
 
@@ -25,6 +27,8 @@ bool CCamera::OnSave(CXMLElement* Root)
     XML::SaveFloat(Root, "Aspect", Aspect);
     XML::SaveFloat(Root, "Far", Far);
     XML::SaveFloat(Root, "Near", Near);
+    XML::SaveBool(Root, "ProjectionDirty", ProjectionDirty);
+    XML::SaveMatrix4(Root, "ProjectionMatrix", ProjectionMatrix);
     return true;
 }
 
@@ -43,25 +47,25 @@ void CCamera::OnLateUpdate(const float)
 void CCamera::SetFOV(const float Value)
 {
     Fov = Value;
-    //ProjectionUpdate = true;
+    ProjectionDirty = true;
 }
 
 void CCamera::SetAspect(const float Value)
 {
     Aspect = Value;
-    //ProjectionUpdate = true;
+    ProjectionDirty = true;
 }
 
 void CCamera::SetFarClipPlane(const float Value)
 {
     Far = Value;
-    //ProjectionUpdate = true;
+    ProjectionDirty = true;
 }
 
 void CCamera::SetNearClipPlane(const float Value)
 {
     Near = Value;
-    //ProjectionUpdate = true;
+    ProjectionDirty = true;
 }
 
 Matrix4 CCamera::GetView() const
@@ -78,13 +82,12 @@ Matrix4 CCamera::GetView() const
     return ViewMatrix;*/
 }
 
-Matrix4 CCamera::GetProjection() const
+const Matrix4& CCamera::GetProjection() const
 {
-    return Math::Perspective(Fov, Aspect, Near, Far);;
-    /*if (ProjectionUpdate)
+    if (ProjectionDirty)
     {
         ProjectionMatrix = Math::Perspective(Fov, Aspect, Near, Far);
-        ProjectionUpdate = false;
+        ProjectionDirty = false;
     }
-    return ProjectionMatrix;*/
+    return ProjectionMatrix;
 }

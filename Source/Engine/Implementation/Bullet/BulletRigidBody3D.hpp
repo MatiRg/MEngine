@@ -14,6 +14,12 @@ public:
 
     IPhysicsWorld3D* GetWorld() const override;
 
+    void SetCollisionLayer(int) override;
+    int GetCollisionLayer() const override;
+
+    void SetCollisionMask(int) override;
+    int GetCollisionMask() const override;
+
     void SetEnabled(const bool) override;
     bool IsEnabled() const override;
 
@@ -60,6 +66,9 @@ public:
     void SetAngularDamping(const float) override;
     float GetAngularDamping() const override;
 
+    void SetSleepThreshold(const Vector2&) override;
+    Vector2 GetSleepThreshold() const override;
+
     void SetBodyType(const ERigidBodyType3D) override;
     ERigidBodyType3D GetBodyType() const override;
 
@@ -70,6 +79,7 @@ public:
 private:
     void AddRigidBodyToWorld();
     void RemoveRigidBodyFromWorld();
+    void Activate();
 private:
     CBulletPhysicsWorld3D* World = nullptr;
     CBulletCollisionShape3D* Shape = nullptr;
@@ -79,4 +89,6 @@ private:
     int DefaultCollisionFlags = 0;
     int DefaultActivationState = 0;
     bool AddedToWorld = false;
+    int CollisionLayer = -1; // Start State None
+    int CollisionMask = -1;  // Start State None
 };

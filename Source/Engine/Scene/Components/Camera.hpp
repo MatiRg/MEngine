@@ -28,14 +28,14 @@ public:
     float GetNearClipPlane() const { return Near; }
 
     Matrix4 GetView() const;
-    Matrix4 GetProjection() const;
+    const Matrix4& GetProjection() const;
 private:
     float Fov = 75.0f;
     float Aspect = 4.0f / 3.0f;
     float Far = 1000.0f;
     float Near = 0.03f;
-    //mutable bool ProjectionUpdate = true;
-    //mutable bool ViewUpdate = true;
+    mutable bool ProjectionDirty = true;
+    mutable Matrix4 ProjectionMatrix = Matrix4::IDENTITY;
+    //mutable bool ViewDirty = true;
     //mutable Matrix4 ViewMatrix = Matrix4::IDENTITY;
-    //mutable Matrix4 ProjectionMatrix = Matrix4::IDENTITY;
 };

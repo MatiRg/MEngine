@@ -13,6 +13,14 @@ enum class ERigidBodyType3D
     Kinematic
 };
 
+/**
+  Reuse Collision Shapes where it is possible.
+  There are 3 types of rigid bodies:
+  Dynamic with positive mass. Motion is controlled by physics.
+  Static objects with zero mass. They are not moving (basically collision objects).
+  Kinematic objects with zero mass, Moved by User. There is one-way interaction, and Bullet calculates a velocity based on the timestep and previous and current world transform.
+  Dynamic bodies are automatically deactivated when the velocity is below a threshold for a given time.
+*/
 class IRigidBody3D: public NonCopyableMovable
 {
 public:
@@ -20,6 +28,14 @@ public:
     virtual ~IRigidBody3D();
 
     virtual IPhysicsWorld3D* GetWorld() const = 0;
+
+    //! Always Set Collision Layer And Collision Mask
+    virtual void SetCollisionLayer(int) = 0;
+    virtual int GetCollisionLayer() const = 0;
+
+    //! Always Set Collision Layer And Collision Mask
+    virtual void SetCollisionMask(int) = 0;
+    virtual int GetCollisionMask() const = 0;
 
     virtual void SetEnabled(const bool) = 0;
     virtual bool IsEnabled() const = 0;
@@ -66,6 +82,10 @@ public:
 
     virtual void SetAngularDamping(const float) = 0;
     virtual float GetAngularDamping() const = 0;
+
+    // Linear & Angular Sleep Treshold for Dynamic Objects 
+    virtual void SetSleepThreshold(const Vector2&) = 0;
+    virtual Vector2 GetSleepThreshold() const = 0;
 
     virtual void SetBodyType(const ERigidBodyType3D) = 0;
     virtual ERigidBodyType3D GetBodyType() const = 0;
