@@ -20,7 +20,7 @@ public:
     void OnEnabled() override;
     void OnDisabled() override;
 
-    void OnBeginFrame() override;
+    void OnUpdate(const float) override;
 
     //! Always Set Collision Layer And Collision Mask
     void SetCollisionLayer(int);

@@ -103,7 +103,7 @@ void CRigidBody3D::OnDisabled()
     Body->SetEnabled(false);
 }
 
-void CRigidBody3D::OnBeginFrame()
+void CRigidBody3D::OnUpdate(const float)
 {
     Owner->GetTransform().SetWorldPosition(Body->GetPosition(), true);
     Owner->GetTransform().SetWorldRotation(Body->GetRotation(), true);
