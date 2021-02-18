@@ -8,12 +8,14 @@
 #include <vector>
 
 class CXMLElement;
+class CTransform;
 
 using PositionChanged = std::function<void(const Vector3&)>;
 using ScaleChanged = std::function<void(const Vector3&)>;
 using RotationChanged = std::function<void(const Quaternion&)>;
+//! Is Always Fired, when marked Dirty
+using TransformChanged = std::function<void(CTransform*)>;
 
-class CTransform;
 using TransformArray = std::vector<CTransform*>;
 
 /**
@@ -100,11 +102,13 @@ public:
     void AddPositionCallback(void* Key, const PositionChanged& Callback);
     void AddScaleCallback(void* Key, const ScaleChanged& Callback);
     void AddRotationCallback(void* Key, const RotationChanged& Callback);
+    void AddChangedCallback(void* Key, const TransformChanged& Callback);
 
     // Key
     void RemovePositionCallback(void* Key);
     void RemoveScaleCallback(void* Key);
     void RemoveRotationCallback(void* Key);
+    void RemoveChangedCallback(void* Key);
 
     bool IsDirty() const { return Dirty; }
 
@@ -148,4 +152,5 @@ private:
     std::vector<std::pair<void*, PositionChanged>> PositionCallback;
     std::vector<std::pair<void*, ScaleChanged>> ScaleCallback;
     std::vector<std::pair<void*, RotationChanged>> RotationCallback;
+    std::vector<std::pair<void*, TransformChanged>> TransformChangedCallback;
 };

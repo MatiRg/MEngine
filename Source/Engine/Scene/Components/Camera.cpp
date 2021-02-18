@@ -18,6 +18,8 @@ bool CCamera::OnLoad(CXMLElement* Root)
     SetNearClipPlane( XML::LoadFloat(Root, "Near", 0.03f) );
     ProjectionDirty = XML::LoadBool(Root, "ProjectionDirty", true);
     ProjectionMatrix = XML::LoadMatrix4(Root, "ProjectionMatrix", Matrix4::IDENTITY);
+    ViewDirty = XML::LoadBool(Root, "ViewDirty", true);
+    ViewMatrix = XML::LoadMatrix4(Root, "ViewMatrix", Matrix4::IDENTITY);
     return true;
 }
 
@@ -29,12 +31,23 @@ bool CCamera::OnSave(CXMLElement* Root)
     XML::SaveFloat(Root, "Near", Near);
     XML::SaveBool(Root, "ProjectionDirty", ProjectionDirty);
     XML::SaveMatrix4(Root, "ProjectionMatrix", ProjectionMatrix);
+    XML::SaveBool(Root, "ViewDirty", ViewDirty);
+    XML::SaveMatrix4(Root, "ViewMatrix", ViewMatrix);
     return true;
 }
 
 void CCamera::OnCreate()
 {
+    GetOwner()->GetTransform().AddChangedCallback(this, [&](CTransform*) {
+        ViewDirty = true;
+    });
+    //
     SetAspect( GetEngine()->GetWindow()->GetAspectRatio() );
+}
+
+void CCamera::OnDestroy()
+{
+    GetOwner()->GetTransform().RemoveChangedCallback(this);
 }
 
 void CCamera::OnLateUpdate(const float)
@@ -68,18 +81,15 @@ void CCamera::SetNearClipPlane(const float Value)
     ProjectionDirty = true;
 }
 
-Matrix4 CCamera::GetView() const
+const Matrix4& CCamera::GetView() const
 {
-    const auto& Transform = GetOwner()->GetTransform();
-    // -1 For Forward+
-    return Math::Transform(Transform.GetWorldPosition(), Transform.GetWorldRotation(), Vector3(1.0f, 1.0f, 1.0f)).Inverse();
-    /*if( ViewUpdate )
+    if (ViewDirty)
     {
         const auto& Transform = GetOwner()->GetTransform();
-        ViewMatrix = Math::Transform(Transform.GetWorldPosition(), Transform.GetWorldRotation(), Vector3(1.0f) ).Inverse();
-        //ViewUpdate = false;
+        ViewMatrix = Math::Transform(Transform.GetWorldPosition(), Transform.GetWorldRotation(), Vector3(1.0f, 1.0f, 1.0f)).Inverse();
+        ViewDirty = false;
     }
-    return ViewMatrix;*/
+    return ViewMatrix;
 }
 
 const Matrix4& CCamera::GetProjection() const

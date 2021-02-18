@@ -104,6 +104,7 @@ void CPlayerObject::OnGUI()
 	UI->Text("Distance: " + Utils::ToString(D));
 	UI->Separator();
 	UI->Text("Camera Angles: " + Utils::ToString(Pitch) + ", " + Utils::ToString(Yaw));
+	UI->Text( "Tr. Angles: " + Utils::ToString(CameraTransform->GetRotation().ToEulerAngles()) );
 	UI->End();
 }
 

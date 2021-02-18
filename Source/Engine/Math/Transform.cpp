@@ -250,6 +250,11 @@ void CTransform::AddRotationCallback(void* Key, const RotationChanged& Callback)
     RotationCallback.emplace_back( Key, Callback );
 }
 
+void CTransform::AddChangedCallback(void* Key, const TransformChanged& Callback)
+{
+    TransformChangedCallback.emplace_back(Key, Callback);
+}
+
 void CTransform::RemovePositionCallback(void* Key)
 {
     PositionCallback.erase(std::remove_if(PositionCallback.begin(), PositionCallback.end(), [&](const std::pair<void*, PositionChanged>& Value)
@@ -270,8 +275,16 @@ void CTransform::RemoveRotationCallback(void* Key)
 {
     RotationCallback.erase(std::remove_if(RotationCallback.begin(), RotationCallback.end(), [&](const std::pair<void*, RotationChanged>& Value)
     {
-            return Value.first == Key;
+        return Value.first == Key;
     }), RotationCallback.end());
+}
+
+void CTransform::RemoveChangedCallback(void* Key)
+{
+    TransformChangedCallback.erase(std::remove_if(TransformChangedCallback.begin(), TransformChangedCallback.end(), [&](const std::pair<void*, TransformChanged>& Value)
+    {
+        return Value.first == Key;
+    }), TransformChangedCallback.end());
 }
 
 const Matrix4& CTransform::GetMatrix() const
@@ -316,6 +329,11 @@ void CTransform::MarkDirty()
     for (const auto& i : Children)
     {
         i->MarkDirty();
+    }
+    //
+    for (const auto& i : TransformChangedCallback)
+    {
+        i.second(this);
     }
 }
 
