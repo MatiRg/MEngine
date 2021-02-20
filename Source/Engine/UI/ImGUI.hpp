@@ -37,9 +37,9 @@ public:
     //! Title, Flags
     void Begin(const std::string&, const EImGUIWindowFlags);
     //! Title, Position, Size
-    void Begin(const std::string&, const IntVector2&, const IntVector2&);
+    void Begin(const std::string&, const Vector2&, const Vector2&);
     //! Title, Position, Size, Flags
-    void Begin(const std::string&, const IntVector2&, const IntVector2&, const EImGUIWindowFlags);
+    void Begin(const std::string&, const Vector2&, const Vector2&, const EImGUIWindowFlags);
     void End();
 
     //! Name, Selected, Values
@@ -64,8 +64,6 @@ public:
     void InputVector4(const std::string&, Vector4&);
     //! Name, Value
     void InputRect2(const std::string&, Rect2&);
-    //! Name, Value
-    void InputRect2(const std::string&, IntRect2&);
     //! Name
     bool Button(const std::string&);
     //1 Next widget is in same line

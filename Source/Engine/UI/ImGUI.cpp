@@ -226,14 +226,14 @@ void CImGUI::Begin(const std::string& Caption, const EImGUIWindowFlags Flg)
     ImGui::Begin( Caption.c_str(), nullptr, Flags );
 }
 
-void CImGUI::Begin(const std::string& Caption, const IntVector2& Pos, const IntVector2& Size)
+void CImGUI::Begin(const std::string& Caption, const Vector2& Pos, const Vector2& Size)
 {
-    ImGui::SetNextWindowPos( {static_cast<float>(Pos.x), static_cast<float>(Pos.y)} );
-    ImGui::SetNextWindowSize( {static_cast<float>(Size.x), static_cast<float>(Size.y)} );
+    ImGui::SetNextWindowPos( {Pos.x, Pos.y} );
+    ImGui::SetNextWindowSize( {Size.x, Size.y} );
     ImGui::Begin( Caption.c_str() );
 }
 
-void CImGUI::Begin(const std::string& Caption, const IntVector2& Pos, const IntVector2& Size, const EImGUIWindowFlags Flg)
+void CImGUI::Begin(const std::string& Caption, const Vector2& Pos, const Vector2& Size, const EImGUIWindowFlags Flg)
 {
     ImGuiWindowFlags Flags = ImGuiWindowFlags_None;
     if( Flg & EImGUIWindowFlags::NoTitleBar ) Flags |= ImGuiWindowFlags_NoTitleBar;
@@ -241,8 +241,8 @@ void CImGUI::Begin(const std::string& Caption, const IntVector2& Pos, const IntV
     if( Flg & EImGUIWindowFlags::NoMove ) Flags |= ImGuiWindowFlags_NoMove;
     if( Flg & EImGUIWindowFlags::NoCollapse ) Flags |= ImGuiWindowFlags_NoCollapse;
 
-    ImGui::SetNextWindowPos( {static_cast<float>(Pos.x), static_cast<float>(Pos.y)} );
-    ImGui::SetNextWindowSize( {static_cast<float>(Size.x), static_cast<float>(Size.y)} );
+    ImGui::SetNextWindowPos( {Pos.x, Pos.y} );
+    ImGui::SetNextWindowSize( {Size.x, Size.y} );
     ImGui::Begin( Caption.c_str(), nullptr, Flags );
 }
 
@@ -305,16 +305,6 @@ void CImGUI::InputRect2(const std::string& Caption, Rect2& Value)
 {
     std::array<float, 4> Tmp = {Value.GetX(), Value.GetY(), Value.GetWidth(), Value.GetHeight()};
     ImGui::InputFloat4( Caption.c_str(), Tmp.data() );
-    Value.SetX( Tmp[0] );
-    Value.SetY( Tmp[1] );
-    Value.SetWidth( Tmp[2] );
-    Value.SetHeight( Tmp[3] );
-}
-
-void CImGUI::InputRect2(const std::string& Caption, IntRect2& Value)
-{
-    std::array<int, 4> Tmp = {Value.GetX(), Value.GetY(), Value.GetWidth(), Value.GetHeight()};
-    ImGui::InputInt4( Caption.c_str(), Tmp.data() );
     Value.SetX( Tmp[0] );
     Value.SetY( Tmp[1] );
     Value.SetWidth( Tmp[2] );

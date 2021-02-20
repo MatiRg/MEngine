@@ -1,35 +1,34 @@
 #pragma once
 #include "Vector2.hpp"
 
-template<class T>
-class TRect2
+class Rect2
 {
 public:
-    TRect2()
+    Rect2()
     {
     }
 
-    TRect2(const T X, const T Y, const T W, const T H):
+    Rect2(const float X, const float Y, const float W, const float H):
         Pos( X, Y ),
-        Size( Math::Max(W, T(0)), Math::Max(H, T(0)) )
+        Size( Math::Max(W, 0.0f), Math::Max(H, 0.0f) )
     {
     }
 
-    TRect2(const TVector2<T>& P, const TVector2<T>& S):
+    Rect2(const Vector2& P, const Vector2& S):
         Pos( P ),
-        Size( Math::Max(S.x, T(0)), Math::Max(S.y, T(0)) )
+        Size( Math::Max(S.x, 0.0f), Math::Max(S.y, 0.0f) )
     {
     }
 
-    TRect2(const TRect2<T>& Other):
+    Rect2(const Rect2& Other):
         Pos( Other.Pos ),
         Size( Other.Size )
     {
     }
 
-    ~TRect2() {}
+    ~Rect2() {}
 
-    TRect2<T>& operator=(const TRect2<T>& Other)
+    Rect2& operator=(const Rect2& Other)
     {
         if( this != &Other )
         {
@@ -39,72 +38,64 @@ public:
         return *this;
     }
 
-    void SetPosition(const TVector2<T>& Position)
+    void SetPosition(const Vector2& Position)
     {
         Pos = Position;
     }
 
-    const TVector2<T>& GetPosition() const
+    const Vector2& GetPosition() const
     {
         return Pos;
     }
 
-    void SetSize(const TVector2<T>& S)
+    void SetSize(const Vector2& S)
     {
         Size = S;
     }
 
-    const TVector2<T>& GetSize() const
+    const Vector2& GetSize() const
     {
         return Size;
     }
 
-    void SetX(const T v) { Pos.x = v; }
-    T GetX() const { return Pos.x; }
+    void SetX(const float v) { Pos.x = v; }
+    float GetX() const { return Pos.x; }
 
-    void SetWidth(const T v) { Size.x = Math::Max(v, T(0)); }
-    T GetWidth() const { return Size.x; }
-    T GetMaxX() const { return Pos.x + Size.x; }
+    void SetWidth(const float v) { Size.x = Math::Max(v, 0.0f); }
+    float GetWidth() const { return Size.x; }
+    float GetMaxX() const { return Pos.x + Size.x; }
 
-    void SetY(const T v) { Pos.y = v; }
-    T GetY() const { return Pos.y; }
+    void SetY(const float v) { Pos.y = v; }
+    float GetY() const { return Pos.y; }
 
-    void SetHeight(const T v) { Size.y = Math::Max(v, T(0)); }
-    T GetHeight() const { return Size.y; }
-    T GetMaxY() const { return Pos.y + Size.y; }
+    void SetHeight(const float v) { Size.y = Math::Max(v, 0.0f); }
+    float GetHeight() const { return Size.y; }
+    float GetMaxY() const { return Pos.y + Size.y; }
 
-    void Move(const TVector2<T>& By)
+    void Move(const Vector2& By)
     {
         Pos += By;
     }
 
-    void Translate(const TVector2<T>& By)
+    void Translate(const Vector2& By)
     {
         Pos -= By;
     }
 
-    bool Intersect(const TVector2<T>& p) const
+    bool Intersect(const Vector2& p) const
     {
         return ( (p.x >= GetX() && p.x <= GetMaxX()) && (p.y >= GetY() && p.y <= GetMaxY()) );
     }
 
-    bool Intersect(const TRect2<T>& r2) const
+    bool Intersect(const Rect2& r2) const
     {
         if( GetMaxX() < r2.GetX() || GetX() > r2.GetMaxX() ) return false;
         if( GetMaxY() < r2.GetY() || GetY() > r2.GetMaxY() ) return false;
         return true;
     }
 private:
-    TVector2<T> Pos;
-    TVector2<T> Size;
+    Vector2 Pos;
+    Vector2 Size;
 };
 
-using Rect2 = TRect2<float>;
-using IntRect2 = TRect2<int>;
-
-template<class T>
-std::ostream& operator<<(std::ostream& Stream, const TRect2<T>& r)
-{
-    Stream << r.GetX() << ", " << r.GetY() << " : " << r.GetMaxX() << ", " << r.GetMaxY();
-    return Stream;
-}
+std::ostream& operator<<(std::ostream&, const Rect2&);
