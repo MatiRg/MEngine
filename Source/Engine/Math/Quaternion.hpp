@@ -31,13 +31,13 @@ public:
     /// Based Urho3D code
     TQuaternion(const TVector3<T>& a, const TVector3<T>& b)
     {
-        TVector3<T> na = a.Normalized();
-        TVector3<T> nb = b.Normalized();
-        float d = na.DotProduct(nb);
+        TVector3<T> na = Math::Normalize(a);
+        TVector3<T> nb = Math::Normalize(b);
+        float d = Math::DotProduct(na, nb);
 
-        if (d > T(-1) + Math::EPSILON<T>)
+        if (d > T(-1) + Math::EPSILON)
         {
-            TVector3<T> c = na.CrossProduct(nb);
+            TVector3<T> c = Math::CrossProduct(na, nb);
             float s = Math::Sqrt( (T(1) + d) * T(2) );
             float InvS = T(1) / s;
 
@@ -48,10 +48,10 @@ public:
         }
         else
         {
-            TVector3<T> Axis = TVector3<T>::RIGHT.CrossProduct(na);
-            if (Axis.Length() < Math::EPSILON<T>)
+            TVector3<T> Axis = Math::CrossProduct(TVector3<T>::RIGHT, na);
+            if (Math::Length(Axis) < Math::EPSILON)
             {
-                Axis = TVector3<T>::UP.CrossProduct(na);
+                Axis = Math::CrossProduct(TVector3<T>::UP, na);
             }
             FromAxisAngle(Axis, T(180));
         }
@@ -444,7 +444,7 @@ private:
         T L = D.LengthSquared();
         if( L == 1.0f )
             Self = D.Conjugate();
-        else if (L >= Math::EPSILON<T>)
+        else if (L >= Math::EPSILON)
             Self = D.Conjugate() * ( T(1) / L);
         else
             Self = IDENTITY;

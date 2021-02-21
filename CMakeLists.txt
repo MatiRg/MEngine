@@ -174,8 +174,11 @@ set(SOURCES_BASE
 	Source/Engine/Math/Rect3.hpp
 	Source/Engine/Math/Transform.cpp
 	Source/Engine/Math/Transform.hpp
+	Source/Engine/Math/Vector2.cpp
 	Source/Engine/Math/Vector2.hpp
+	Source/Engine/Math/Vector3.cpp
 	Source/Engine/Math/Vector3.hpp
+	Source/Engine/Math/Vector4.cpp
 	Source/Engine/Math/Vector4.hpp
 	Source/Engine/Physics/CollisionShape2D.cpp
 	Source/Engine/Physics/CollisionShape2D.hpp

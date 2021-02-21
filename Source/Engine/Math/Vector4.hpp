@@ -29,67 +29,9 @@ public:
 
     ~TVector4() {}
 
-    TVector4<T> Inversion() const
+    TVector3<T> ToXYZ() const
     {
-        return TVector4<T>( -x, -y, -z, -w );
-    }
-
-    void Invert()
-    {
-        x = -x;
-        y = -y;
-        z = -z;
-        w = -w;
-    }
-
-    // Length(magnitude) of Vector
-    T Length() const
-    {
-        return Math::Sqrt( LengthSquared() );
-    }
-
-    // Length(magnitude) of Vector Squared
-    T LengthSquared() const
-    {
-        return x*x + y*y + z*z + w*w;
-    }
-
-    void Normalize()
-    {
-        T L = Length();
-        if( L )
-        {
-            x /= L;
-            y /= L;
-            z /= L;
-            w /= L;
-        }
-    }
-
-    TVector4<T> Normalized() const
-    {
-        TVector4<T> Tmp = *this;
-        Tmp.Normalize();
-        return Tmp;
-    }
-
-    T DotProduct(const TVector4<T>& Other) const
-    {
-        return x*Other.x + y*Other.y + z*Other.z + w*Other.w;
-    }
-
-    // Angle between vectors
-    T Angle(const TVector4<T>& Other) const
-    {
-        return Math::RadToDeg( Math::Acos( DotProduct( Other ) / ( Length() * Other.Length() ) ) );
-    }
-
-    void AddScaledVector(const TVector4<T>& Other, const T Scale)
-    {
-        x += Other.x * Scale;
-        y += Other.y * Scale;
-        z += Other.z * Scale;
-        w += Other.w * Scale;
+        return {x, y, z};
     }
 
     TVector4<T>& operator=(const TVector4<T>& Other)
@@ -172,7 +114,7 @@ public:
 
     TVector4<T> operator-() const
     {
-        return Inversion();
+        return {-x, -y, -z, -w};
     }
 
     TVector4<T>& operator-=(const T Other)
@@ -244,46 +186,19 @@ template<class T> TVector4<T> TVector4<T>::ZERO = { T(0), T(0), T(0), T(0) };
 template<class T> TVector4<T> TVector4<T>::ONE = { T(1), T(1), T(1), T(1) };
 
 using Vector4 = TVector4<float>;
-using IntVector4 = TVector4<int>;
-using Size4 = TVector4<uint32_t>;
 
 namespace Math
 {
-    template<class T>
-    TVector4<T> Normalize(const TVector4<T>& a)
-    {
-        TVector4<T> t = a;
-        t.Normalize();
-        return t;
-    }
-
-    template<class T>
-    T DotProduct(const TVector4<T>& a, const TVector4<T>& b)
-    {
-        return a.DotProduct(b);
-    }
-
-    template<class T>
-    T Angle(const TVector4<T>& a, const TVector4<T>& b)
-    {
-        return a.Angle(b);
-    }
-
-    template<class T>
-    TVector4<T> Lerp(const TVector4<T>& a, const TVector4<T>& b, const T v)
-    {
-        TVector4<T> R;
-        for(int i = 0; i < 4; ++i)
-        {
-            R[i] = Lerp( a[i], b[i], v );
-        }
-        return R;
-    }
+    Vector4 Normalize(const Vector4& a);
+    float Distance(const Vector4& a, const Vector4& b);
+    float DistanceSquared(const Vector4& a, const Vector4& b);
+    float Length(const Vector4& a);
+    float LengthSquared(const Vector4& a);
+    float DotProduct(const Vector4& a, const Vector4& b);
+    Vector4 MoveTowards(const Vector4& Now, const Vector4& Target, const float Delta);
+    Vector4 Lerp(const Vector4& a, const Vector4& b, const float t);
+    Vector4 Max(const Vector4& a, const Vector4& b);
+    Vector4 Min(const Vector4& a, const Vector4& b);
 }
 
-template<class T>
-std::ostream& operator<<(std::ostream& Stream, const TVector4<T>& Other)
-{
-    Stream << Other.x << ", " << Other.y << ", " << Other.z << ", " << Other.w;
-    return Stream;
-}
+std::ostream& operator<<(std::ostream& Stream, const Vector4& Other);
