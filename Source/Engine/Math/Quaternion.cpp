@@ -107,14 +107,12 @@ namespace Math
 
     Matrix4 Transform(const Vector3& p, const Quaternion& r, const Vector3& s)
     {
-        /*
         Matrix4 Tmp = MATRIX4_IDENTITY;
         Tmp = glm::translate(Tmp, p);
         Tmp = Tmp*glm::mat4_cast(r);
         Tmp = glm::scale(Tmp, s);
         return Tmp;
-        */
-        return Scale(s) * ToMatrix4(r) * Translation(p);
+        //return Scale(s) * ToMatrix4(r) * Translation(p);
         //return Translation(p) * ToMatrix4(r) * Scale(s);
     }
 

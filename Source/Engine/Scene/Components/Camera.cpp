@@ -86,7 +86,7 @@ const Matrix4& CCamera::GetView() const
     if (ViewDirty)
     {
         const auto& Transform = GetOwner()->GetTransform();
-        ViewMatrix = Math::Inverse(Math::ToMatrix4(Transform.GetWorldRotation()) * Math::Translation(Transform.GetWorldPosition()));
+        ViewMatrix = Math::Inverse(Math::Translation(Transform.GetWorldPosition()) * Math::ToMatrix4(Transform.GetWorldRotation()));
         ViewDirty = false;
     }
     return ViewMatrix;

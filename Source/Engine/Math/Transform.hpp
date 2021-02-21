@@ -145,10 +145,10 @@ private:
     TransformArray Children;
     // Cache, mutable is used to be modified from const methods. These variables work as cache only
     mutable bool Dirty = true;
-    mutable Matrix4 Matrix;
-    mutable Matrix4 InvMatrix;
-    mutable Matrix4 WorldMatrix;
-    mutable Matrix4 InvWorldMatrix;
+    mutable Matrix4 Matrix = MATRIX4_IDENTITY;
+    mutable Matrix4 InvMatrix = MATRIX4_IDENTITY;
+    mutable Matrix4 WorldMatrix = MATRIX4_IDENTITY;
+    mutable Matrix4 InvWorldMatrix = MATRIX4_IDENTITY;
     std::vector<std::pair<void*, PositionChanged>> PositionCallback;
     std::vector<std::pair<void*, ScaleChanged>> ScaleCallback;
     std::vector<std::pair<void*, RotationChanged>> RotationCallback;

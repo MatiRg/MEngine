@@ -4,7 +4,7 @@
 
 using Matrix3 = glm::mat3;
 
-static constexpr Matrix3 MATRIX3_IDENTITY = {};
+static constexpr Matrix3 MATRIX3_IDENTITY = Matrix3(1.0f);
 
 namespace Math
 {

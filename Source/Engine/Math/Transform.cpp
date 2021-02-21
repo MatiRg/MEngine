@@ -1,4 +1,5 @@
 #include "Transform.hpp"
+#include "Vector4.hpp"
 #include "../Core/XML.hpp"
 #include "../System/MemoryManager.hpp"
 #include <algorithm> 
@@ -112,9 +113,9 @@ Vector3 CTransform::GetWorldPosition() const
 {
     const Matrix4& Mtx = GetWorldMatrix();
     Vector3 Tmp;
-    Tmp.x = Mtx[0][3];
-    Tmp.y = Mtx[1][3];
-    Tmp.z = Mtx[2][3];
+    Tmp.x = Mtx[3][0];
+    Tmp.y = Mtx[3][1];
+    Tmp.z = Mtx[3][2];
     return Tmp;
 }
 

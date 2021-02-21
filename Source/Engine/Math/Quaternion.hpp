@@ -6,7 +6,7 @@
 
 using Quaternion = glm::quat;
 
-static constexpr Quaternion QUATERNION_IDENTITY = {};
+static constexpr Quaternion QUATERNION_IDENTITY = Quaternion(1.0f, 0.0f, 0.0f, 0.0f);
 
 namespace Math
 {
