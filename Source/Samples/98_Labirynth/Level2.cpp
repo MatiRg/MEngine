@@ -53,8 +53,6 @@ void CPlayerObject::MoveCamera(const float)
 
 	// Set New Rotation in Euler Angles
 	CameraTransform->SetRotation(Quaternion(Pitch, Yaw, 0.0f));
-
-	CameraTransform->SetPosition(Transform.GetPosition()+Vector3::UP*0.25f);
 }
 
 void CPlayerObject::MovePlayer(const float DT)
@@ -318,7 +316,7 @@ void CLevel2::LoadMap()
 	PlayerBody->SetMass(45.0f);
 
 	// Camera
-	CameraObject = World->CreateChild<CEntity>();
+	CameraObject = PlayerObject->CreateChild<CEntity>();
 	CameraTransform = &CameraObject->GetTransform();
 	//
 	CameraComponent = CameraObject->CreateComponent<CCamera>();

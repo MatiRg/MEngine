@@ -144,32 +144,29 @@ public:
 
     TVector3<T> ToEulerAngles() const
     {
-        T Check = T(2) * (-y * z + w * x);
+        return { Pitch(), Yaw(), Roll() };
+    }
 
-        if (Check < T(-0.995) )
+    T Roll() const
+    {
+        return Math::RadToDeg( static_cast<T>(Math::Atan2(static_cast<T>(2) * (x * y + w * z), w * w + x * x - y * y - z * z)) );
+    }
+
+    T Pitch() const
+    {
+        T yy = static_cast<T>(2) * (y * z + w * x);
+        T xx = w * w - x * x - y * y + z * z;
+
+        if (Math::IsEqual(x, 0.0f, 0.000000001f) && Math::IsEqual(y, 0.0f, 0.000000001f))
         {
-            return TVector3<T>(
-                T(-90.0),
-                T(0.0),
-                Math::RadToDeg(-Math::Atan2(T(2) * (x * z - w * y), T(1) - T(2) * (y * y + z * z)))
-            );
+            return Math::RadToDeg( static_cast<T>(static_cast<T>(2) * Math::Atan2(x, w)) );
         }
-        else if (Check > T(0.995))
-        {
-            return TVector3<T>(
-                T(90.0),
-                T(0.0),
-                Math::RadToDeg(Math::Atan2(T(2) * (x * z - w * y), T(1) - T(2) * (y * y + z * z)))
-            );
-        }
-        else
-        {
-            return TVector3<T>(
-                Math::RadToDeg(Math::Asin(Check)),
-                Math::RadToDeg(Math::Atan2(T(2) * (x * z + w * y), T(1) - T(2) * (x * x + y * y))),
-                Math::RadToDeg(Math::Atan2(T(2) * (x * y + w * z), T(1) - T(2) * (x * x + z * z)))
-            );
-        }
+        return Math::RadToDeg( static_cast<T>(Math::Atan2(yy, xx)) );
+    }
+
+    T Yaw() const
+    {
+        return Math::RadToDeg( Math::Asin(Math::Clamp(static_cast<T>(-2) * (x * z - w * y), static_cast<T>(-1), static_cast<T>(1))) );
     }
 
     void FromEulerAngles(const T ax, const T ay, const T az)
@@ -179,22 +176,16 @@ public:
 
     void FromEulerAngles(const TVector3<T>& v)
     {
-        // ZXY
-        T ax = Math::DegToRad(v.x);
-        T ay = Math::DegToRad(v.y);
-        T az = Math::DegToRad(v.z);
+        T ax = Math::DegToRad(v.x)* T(0.5);
+        T ay = Math::DegToRad(v.y)* T(0.5);
+        T az = Math::DegToRad(v.z) * T(0.5);
+        TVector3<T> c = { Math::Cos(ax), Math::Cos(ay), Math::Cos(az) };
+        TVector3<T> s = { Math::Sin(ax), Math::Sin(ay), Math::Sin(az) };
 
-        T sinX = Math::Sin(ax);
-        T cosX = Math::Cos(ax);
-        T sinY = Math::Sin(ay);
-        T cosY = Math::Cos(ay);
-        T sinZ = Math::Sin(az);
-        T cosZ = Math::Cos(az);
-
-        w = cosY * cosX * cosZ + sinY * sinX * sinZ;
-        x = cosY * sinX * cosZ + sinY * cosX * sinZ;
-        y = sinY * cosX * cosZ - cosY * sinX * sinZ;
-        z = cosY * cosX * sinZ - sinY * sinX * cosZ;
+        w = c.x * c.y * c.z + s.x * s.y * s.z;
+        x = s.x * c.y * c.z - c.x * s.y * s.z;
+        y = c.x * s.y * c.z + s.x * c.y * s.z;
+        z = c.x * c.y * s.z - s.x * s.y * c.z;
     }
 
     // http://www.euclideanspace.com/maths/geometry/rotations/conversions/quaternionToAngle/index.htm
@@ -360,13 +351,23 @@ public:
     // https://gamedev.stackexchange.com/questions/28395/rotating-vector3-by-a-quaternion
     // rotated_point = orientation_quaternion *  point;
     // rotated_point = origin + (orientation_quaternion * (point-origin));
-    TVector3<T> operator*(const TVector3<T>& Other) const
+    TVector3<T> operator*(const TVector3<T>& value) const
     {
-        TVector3<T> QuatVector(x, y, z);
+        T xx = T(2) * (y * value.z - z * value.y);
+        T yy = T(2) * (z * value.x - x * value.z);
+        T zz = T(2) * (x * value.y - y * value.x);
+
+        TVector3<T> result;
+        result.x = value.x + xx * w + (y * zz - z * yy);
+        result.y = value.y + yy * w + (z * xx - x * zz);
+        result.z = value.z + zz * w + (x * yy - y * xx);
+        return result;
+
+        /*TVector3<T> QuatVector(x, y, z);
         TVector3<T> uv = Math::CrossProduct(QuatVector, Other);
         TVector3<T> uuv = Math::CrossProduct(QuatVector, uv);
 
-        return Other + (uv * w + uuv) * T(2);
+        return Other + (uv * w + uuv) * T(2);*/
     }
 
 	TQuaternion<T> operator*(const TQuaternion<T>& D) const

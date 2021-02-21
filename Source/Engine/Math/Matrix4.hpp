@@ -175,28 +175,81 @@ public:
     */
     TVector3<T> operator*(const TVector3<T>& v) const
     {
-        return
-        {
-            Values[0]*v.x + Values[1]*v.y + Values[2]*v.z + Values[3],
-            Values[4]*v.x + Values[5]*v.y + Values[6]*v.z + Values[7],
-            Values[8]*v.x + Values[9]*v.y + Values[10]*v.z + Values[11]
-        };
+        TVector4<T> Tmp = Mul({ v, T(1) });
+        return {Tmp.x, Tmp.y, Tmp.z};
     }
 
     TVector4<T> operator*(const TVector4<T>& v) const
     {
+        Mul(v);
+    }
+
+    TVector4<T> Mul(const TVector4<T>& v) const
+    {
         return
         {
-            Values[0]*v.x + Values[1]*v.y + Values[2]*v.z + Values[3]*v.w,
-            Values[4]*v.x + Values[5]*v.y + Values[6]*v.z + Values[7]*v.w,
-            Values[8]*v.x + Values[9]*v.y + Values[10]*v.z + Values[11]*v.w,
-            Values[12]*v.x + Values[13]*v.y + Values[14]*v.z + Values[15]*v.w,
+            Values[0] * v.x + Values[1] * v.y + Values[2] * v.z + Values[3] * v.w,
+            Values[4] * v.x + Values[5] * v.y + Values[6] * v.z + Values[7] * v.w,
+            Values[8] * v.x + Values[9] * v.y + Values[10] * v.z + Values[11] * v.w,
+            Values[12] * v.x + Values[13] * v.y + Values[14] * v.z + Values[15] * v.w,
         };
+    }
+
+    TVector4<T> Column(const std::size_t idx) const
+    {
+        return { Values[4 * idx + 0],  Values[4 * idx + 1],  Values[4 * idx + 2],  Values[4 * idx + 3] };
     }
 
     TMatrix4<T> operator*(const TMatrix4<T>& o) const
     {
-        return
+        // GLM
+        /*TVector4<T> SrcA0 = Column(0);
+        TVector4<T> SrcA1 = Column(1);
+        TVector4<T> SrcA2 = Column(2);
+        TVector4<T> SrcA3 = Column(3);
+
+        TVector4<T> SrcB0 = o.Column(0);
+        TVector4<T> SrcB1 = o.Column(1);
+        TVector4<T> SrcB2 = o.Column(2);
+        TVector4<T> SrcB3 = o.Column(3);
+
+        TVector4<T> r0 = SrcA0 * SrcB0[0] + SrcA1 * SrcB0[1] + SrcA2 * SrcB0[2] + SrcA3 * SrcB0[3];
+        TVector4<T> r1 = SrcA0 * SrcB1[0] + SrcA1 * SrcB1[1] + SrcA2 * SrcB1[2] + SrcA3 * SrcB1[3];
+        TVector4<T> r2 = SrcA0 * SrcB2[0] + SrcA1 * SrcB2[1] + SrcA2 * SrcB2[2] + SrcA3 * SrcB2[3];
+        TVector4<T> r3 = SrcA0 * SrcB3[0] + SrcA1 * SrcB3[1] + SrcA2 * SrcB3[2] + SrcA3 * SrcB3[3];
+
+
+        return { r0.x, r1.x, r2.x, r3.x,
+            r0.y, r1.y, r2.y, r3.y,
+            r0.z, r1.z, r2.z, r3.z,
+            r0.w, r1.w, r2.w, r3.w,
+        };*/
+
+        // Mono Game
+        TMatrix4<T> result;
+
+        result[0] = Values[0] * o.Values[0] + Values[1] * o.Values[4] + Values[2] * o.Values[8] + Values[3] * o.Values[12];
+        result[1] = Values[0] * o.Values[1] + Values[1] * o.Values[5] + Values[2] * o.Values[9] + Values[3] * o.Values[13];
+        result[2] = Values[0] * o.Values[2] + Values[1] * o.Values[6] + Values[2] * o.Values[10] + Values[3] * o.Values[14];
+        result[3] = Values[0] * o.Values[3] + Values[1] * o.Values[7] + Values[2] * o.Values[11] + Values[3] * o.Values[15];
+
+        result[4] = Values[4] * o.Values[0] + Values[5] * o.Values[4] + Values[6] * o.Values[8] + Values[7] * o.Values[12];
+        result[5] = Values[4] * o.Values[1] + Values[5] * o.Values[5] + Values[6] * o.Values[9] + Values[7] * o.Values[13];
+        result[6] = Values[4] * o.Values[2] + Values[5] * o.Values[6] + Values[6] * o.Values[10] + Values[7] * o.Values[14];
+        result[7] = Values[4] * o.Values[3] + Values[5] * o.Values[7] + Values[6] * o.Values[11] + Values[7] * o.Values[15];
+
+        result[8] = Values[8] * o.Values[0] + Values[9] * o.Values[4] + Values[10] * o.Values[8] + Values[11] * o.Values[12];
+        result[9] = Values[8] * o.Values[1] + Values[9] * o.Values[5] + Values[10] * o.Values[9] + Values[11] * o.Values[13];
+        result[10] = Values[8] * o.Values[2] + Values[9] * o.Values[6] + Values[10] * o.Values[10] + Values[11] * o.Values[14];
+        result[11] = Values[8] * o.Values[3] + Values[9] * o.Values[7] + Values[10] * o.Values[11] + Values[11] * o.Values[15];
+
+        result[12] = Values[12] * o.Values[0] + Values[13] * o.Values[4] + Values[14] * o.Values[8] + Values[15] * o.Values[12];
+        result[13] = Values[12] * o.Values[1] + Values[13] * o.Values[5] + Values[14] * o.Values[9] + Values[15] * o.Values[13];
+        result[14] = Values[12] * o.Values[2] + Values[13] * o.Values[6] + Values[14] * o.Values[10] + Values[15] * o.Values[14];
+        result[15] = Values[12] * o.Values[3] + Values[13] * o.Values[7] + Values[14] * o.Values[11] + Values[15] * o.Values[15];
+
+        return result;
+        /*return
         {
             Values[0]*o.Values[0] + Values[1]*o.Values[4] + Values[2]*o.Values[8] + Values[3]*o.Values[12],
             Values[0]*o.Values[1] + Values[1]*o.Values[5] + Values[2]*o.Values[9] + Values[3]*o.Values[13],
@@ -217,7 +270,7 @@ public:
             Values[12]*o.Values[1] + Values[13]*o.Values[5] + Values[14]*o.Values[9] + Values[15]*o.Values[13],
             Values[12]*o.Values[2] + Values[13]*o.Values[6] + Values[14]*o.Values[10] + Values[15]*o.Values[14],
             Values[12]*o.Values[3] + Values[13]*o.Values[7] + Values[14]*o.Values[11] + Values[15]*o.Values[15]
-        };
+        };*/
     }
 
     T* Data() { return Values; }
@@ -228,7 +281,133 @@ private:
     // https://www.euclideanspace.com/maths/algebra/matrix/functions/inverse/fourD/index.htm
     void InverseHelper(const TMatrix4<T>& D)
     {
-        T det = D.Determinant();
+        T inv[16], det;
+        const T* m = D.Data();
+
+        inv[0] = m[5] * m[10] * m[15] -
+            m[5] * m[11] * m[14] -
+            m[9] * m[6] * m[15] +
+            m[9] * m[7] * m[14] +
+            m[13] * m[6] * m[11] -
+            m[13] * m[7] * m[10];
+
+        inv[4] = -m[4] * m[10] * m[15] +
+            m[4] * m[11] * m[14] +
+            m[8] * m[6] * m[15] -
+            m[8] * m[7] * m[14] -
+            m[12] * m[6] * m[11] +
+            m[12] * m[7] * m[10];
+
+        inv[8] = m[4] * m[9] * m[15] -
+            m[4] * m[11] * m[13] -
+            m[8] * m[5] * m[15] +
+            m[8] * m[7] * m[13] +
+            m[12] * m[5] * m[11] -
+            m[12] * m[7] * m[9];
+
+        inv[12] = -m[4] * m[9] * m[14] +
+            m[4] * m[10] * m[13] +
+            m[8] * m[5] * m[14] -
+            m[8] * m[6] * m[13] -
+            m[12] * m[5] * m[10] +
+            m[12] * m[6] * m[9];
+
+        inv[1] = -m[1] * m[10] * m[15] +
+            m[1] * m[11] * m[14] +
+            m[9] * m[2] * m[15] -
+            m[9] * m[3] * m[14] -
+            m[13] * m[2] * m[11] +
+            m[13] * m[3] * m[10];
+
+        inv[5] = m[0] * m[10] * m[15] -
+            m[0] * m[11] * m[14] -
+            m[8] * m[2] * m[15] +
+            m[8] * m[3] * m[14] +
+            m[12] * m[2] * m[11] -
+            m[12] * m[3] * m[10];
+
+        inv[9] = -m[0] * m[9] * m[15] +
+            m[0] * m[11] * m[13] +
+            m[8] * m[1] * m[15] -
+            m[8] * m[3] * m[13] -
+            m[12] * m[1] * m[11] +
+            m[12] * m[3] * m[9];
+
+        inv[13] = m[0] * m[9] * m[14] -
+            m[0] * m[10] * m[13] -
+            m[8] * m[1] * m[14] +
+            m[8] * m[2] * m[13] +
+            m[12] * m[1] * m[10] -
+            m[12] * m[2] * m[9];
+
+        inv[2] = m[1] * m[6] * m[15] -
+            m[1] * m[7] * m[14] -
+            m[5] * m[2] * m[15] +
+            m[5] * m[3] * m[14] +
+            m[13] * m[2] * m[7] -
+            m[13] * m[3] * m[6];
+
+        inv[6] = -m[0] * m[6] * m[15] +
+            m[0] * m[7] * m[14] +
+            m[4] * m[2] * m[15] -
+            m[4] * m[3] * m[14] -
+            m[12] * m[2] * m[7] +
+            m[12] * m[3] * m[6];
+
+        inv[10] = m[0] * m[5] * m[15] -
+            m[0] * m[7] * m[13] -
+            m[4] * m[1] * m[15] +
+            m[4] * m[3] * m[13] +
+            m[12] * m[1] * m[7] -
+            m[12] * m[3] * m[5];
+
+        inv[14] = -m[0] * m[5] * m[14] +
+            m[0] * m[6] * m[13] +
+            m[4] * m[1] * m[14] -
+            m[4] * m[2] * m[13] -
+            m[12] * m[1] * m[6] +
+            m[12] * m[2] * m[5];
+
+        inv[3] = -m[1] * m[6] * m[11] +
+            m[1] * m[7] * m[10] +
+            m[5] * m[2] * m[11] -
+            m[5] * m[3] * m[10] -
+            m[9] * m[2] * m[7] +
+            m[9] * m[3] * m[6];
+
+        inv[7] = m[0] * m[6] * m[11] -
+            m[0] * m[7] * m[10] -
+            m[4] * m[2] * m[11] +
+            m[4] * m[3] * m[10] +
+            m[8] * m[2] * m[7] -
+            m[8] * m[3] * m[6];
+
+        inv[11] = -m[0] * m[5] * m[11] +
+            m[0] * m[7] * m[9] +
+            m[4] * m[1] * m[11] -
+            m[4] * m[3] * m[9] -
+            m[8] * m[1] * m[7] +
+            m[8] * m[3] * m[5];
+
+        inv[15] = m[0] * m[5] * m[10] -
+            m[0] * m[6] * m[9] -
+            m[4] * m[1] * m[10] +
+            m[4] * m[2] * m[9] +
+            m[8] * m[1] * m[6] -
+            m[8] * m[2] * m[5];
+
+        det = m[0] * inv[0] + m[1] * inv[4] + m[2] * inv[8] + m[3] * inv[12];
+
+        if (det == T(0))
+            return;
+
+        det = T(1) / det;
+
+        for (int i = 0; i < 16; ++i)
+            Values[i] = inv[i]*det;
+
+
+        /*T det = D.Determinant();
         if (det == T(0)) return;
         det = T(1) / det;
 
@@ -252,7 +431,7 @@ private:
         for (int i = 0; i < 16; ++i)
         {
             Values[i] *= det;
-        }
+        }*/
     }
 private:
     /*
@@ -493,6 +672,6 @@ std::ostream& operator<<(std::ostream& Stream, const TMatrix4<T>& Other)
     Stream << Other[0] << " " << Other[1] << " " << Other[2] << " " << Other[3] << "\n";
     Stream << Other[4] << " " << Other[5] << " " << Other[6] << " " << Other[7] << "\n";
     Stream << Other[8] << " " << Other[9] << " " << Other[10] << " " << Other[11] << "\n";
-    Stream << Other[12] << " " << Other[13] << " " << Other[14] << " " << Other[15] << "\n";
+    Stream << Other[12] << " " << Other[13] << " " << Other[14] << " " << Other[15];
     return Stream;
 }
