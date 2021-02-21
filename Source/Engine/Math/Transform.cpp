@@ -243,7 +243,7 @@ void CTransform::Translate(const Vector3& Delta)
 
 void CTransform::Rotate(const Vector3& Eulers)
 {
-    SetRotation( Rotation*Quaternion(Eulers) );
+    SetRotation( Rotation*Math::FromEulerAngles(Eulers) );
 }
 
 void CTransform::AddPositionCallback(void* Key, const PositionChanged& Callback)
