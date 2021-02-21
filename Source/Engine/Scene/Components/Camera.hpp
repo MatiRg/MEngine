@@ -37,7 +37,7 @@ private:
     float Far = 1000.0f;
     float Near = 0.03f;
     mutable bool ProjectionDirty = true;
-    mutable Matrix4 ProjectionMatrix = Matrix4::IDENTITY;
+    mutable Matrix4 ProjectionMatrix = MATRIX4_IDENTITY;
     mutable bool ViewDirty = true;
-    mutable Matrix4 ViewMatrix = Matrix4::IDENTITY;
+    mutable Matrix4 ViewMatrix = MATRIX4_IDENTITY;
 };

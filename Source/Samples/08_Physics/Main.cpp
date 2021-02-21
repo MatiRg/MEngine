@@ -112,7 +112,7 @@ public:
         // Set Color - From Kelvin Temperature
         LightSun->SetTemperature(5500.f);
         // Set Proper Rotation
-        Sun->GetTransform().SetRotation(Quaternion(-30.0f, 0.0f, 0.0f));
+        Sun->GetTransform().SetRotation(Math::FromEulerAngles(-30.0f, 0.0f, 0.0f));
        
         // Create Camera Object
         CameraObject = World->CreateChild<CEntity>();
@@ -138,7 +138,7 @@ public:
         // ... Then RigidBody
         CRigidBody3D* Body1 = Box1->CreateComponent<CRigidBody3D>();
         // Change Gravity for Body1
-        Body1->SetGravity( Vector3::DOWN*3.33f );
+        Body1->SetGravity(VECTOR3_DOWN*3.33f );
 
         // For Test
         //Box1->SetUpdated(false);
@@ -150,7 +150,7 @@ public:
         // Change Position
         Ground->GetTransform().SetPosition({ 0.0f, -5.0f, -10.0f });
         // Change Rotation
-        Ground->GetTransform().SetRotation(Quaternion(33.0f, 33.0f, 0.0f));
+        Ground->GetTransform().SetRotation(Math::FromEulerAngles(33.0f, 33.0f, 0.0f));
         // First Create Collision Shape
         CBoxCollider3D* ColliderGround = Ground->CreateComponent<CBoxCollider3D>();
         // For Test
@@ -175,32 +175,32 @@ public:
         if (Input->IsKeyPressed(EKey::W))
         {
             // Translate object by ... with respect to Time Step
-            CameraObject->GetTransform().Translate(Vector3::FORWARD * CameraSpeed * TimeStep);
+            CameraObject->GetTransform().Translate(VECTOR3_FORWARD * CameraSpeed * TimeStep);
         }
         if (Input->IsKeyPressed(EKey::S))
         {
             // Translate object by ... with respect to Time Step
-            CameraObject->GetTransform().Translate(Vector3::BACK * CameraSpeed * TimeStep);
+            CameraObject->GetTransform().Translate(VECTOR3_BACK * CameraSpeed * TimeStep);
         }
         if (Input->IsKeyPressed(EKey::A))
         {
             // Translate object by ... with respect to Time Step
-            CameraObject->GetTransform().Translate(Vector3::LEFT * CameraSpeed * TimeStep);
+            CameraObject->GetTransform().Translate(VECTOR3_LEFT * CameraSpeed * TimeStep);
         }
         if (Input->IsKeyPressed(EKey::D))
         {
             // Translate object by ... with respect to Time Step
-            CameraObject->GetTransform().Translate(Vector3::RIGHT * CameraSpeed * TimeStep);
+            CameraObject->GetTransform().Translate(VECTOR3_RIGHT * CameraSpeed * TimeStep);
         }
         if (Input->IsKeyPressed(EKey::Q))
         {
             // Translate object by ... with respect to Time Step
-            CameraObject->GetTransform().Translate(Vector3::UP * CameraSpeed * TimeStep);
+            CameraObject->GetTransform().Translate(VECTOR3_UP * CameraSpeed * TimeStep);
         }
         if (Input->IsKeyPressed(EKey::E))
         {
             // Translate object by ... with respect to Time Step
-            CameraObject->GetTransform().Translate(Vector3::DOWN * CameraSpeed * TimeStep);
+            CameraObject->GetTransform().Translate(VECTOR3_DOWN * CameraSpeed * TimeStep);
         }
 
         // Update Camera Rotation
@@ -209,7 +209,7 @@ public:
         Pitch += Input->GetRelativeMouseMotion().y * SensitivityRel;
 
         // Set New Rotation in Euler Angles
-        CameraObject->GetTransform().SetRotation(Quaternion(Pitch, Yaw, 0.0f));
+        CameraObject->GetTransform().SetRotation(Math::FromEulerAngles(Pitch, Yaw, 0.0f));
 
         // Update FOV
         ScrollSpeed = Input->GetMouseWheel().y;

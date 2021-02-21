@@ -115,22 +115,22 @@ public:
     // 2D Functions Used by 2D Components
 
     void SetPosition2D(const Vector2& aPosition, const bool Silent = false) { SetPosition({ aPosition, Position.z }, Silent); }
-    Vector2 GetPosition2D() const { return GetPosition().XY(); }
+    Vector2 GetPosition2D() const { return Math::ToXY(GetPosition()); }
 
     void SetWorldPosition2D(const Vector2& aPosition, const bool Silent = false) { SetWorldPosition({ aPosition, Position.z }, Silent); }
-    Vector2 GetWorldPosition2D() const { return GetWorldPosition().XY(); }
+    Vector2 GetWorldPosition2D() const { return Math::ToXY(GetWorldPosition()); }
 
     void SetScale2D(const Vector2& aScale, const bool Silent = false) { SetScale({ aScale, 1.0f }, Silent); }
-    Vector2 GetScale2D() const { return GetScale().XY(); }
+    Vector2 GetScale2D() const { return Math::ToXY(GetScale()); }
 
     void SetWorldScale2D(const Vector2& aScale, const bool Silent = false) { SetWorldScale({ aScale, 1.0f }, Silent); }
-    Vector2 GetWorldScale2D() const { return GetWorldScale().XY(); }
+    Vector2 GetWorldScale2D() const { return Math::ToXY(GetWorldScale()); }
 
-    void SetRotation2D(const float aAngle, const bool Silent = false) { SetRotation(Quaternion({ 0.0f, 0.0f, 1.0f }, aAngle), Silent); }
-    float GetRotation2D() const { return Rotation.ToEulerAngles().z; }
+    void SetRotation2D(const float aAngle, const bool Silent = false) { SetRotation(Math::FromAxisAngle({ 0.0f, 0.0f, 1.0f }, aAngle), Silent); }
+    float GetRotation2D() const { return Math::ToEulerAngles(Rotation).z; }
 
-    void SetWorldRotation2D(const float aAngle, const bool Silent = false) { SetWorldRotation(Quaternion({ 0.0f, 0.0f, 1.0f }, aAngle), Silent); }
-    float GetWorldRotation2D() const { return GetWorldRotation().ToEulerAngles().z; }
+    void SetWorldRotation2D(const float aAngle, const bool Silent = false) { SetWorldRotation(Math::FromAxisAngle({ 0.0f, 0.0f, 1.0f }, aAngle), Silent); }
+    float GetWorldRotation2D() const { return Math::ToEulerAngles(GetWorldRotation()).z; }
 
     void SetLayer(const float aLayer) { Position.z = aLayer; }
     float GetLayer() const { return Position.z; }
@@ -138,9 +138,9 @@ private:
     void MarkDirty(); 
     void RecalculateMatrix() const;
 private:
-    Vector3 Position = Vector3::ZERO;
-    Vector3 Scale = Vector3::ONE;
-    Quaternion Rotation = Quaternion::IDENTITY;
+    Vector3 Position = VECTOR3_ZERO;
+    Vector3 Scale = VECTOR3_ONE;
+    Quaternion Rotation = QUATERNION_IDENTITY;
     CTransform* Parent = nullptr;
     TransformArray Children;
     // Cache, mutable is used to be modified from const methods. These variables work as cache only

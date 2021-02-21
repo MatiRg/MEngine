@@ -52,9 +52,9 @@ void CPlayerObject::MoveCamera(const float)
 	Pitch = Math::Clamp(Pitch, -30.0f, 20.0f);
 
 	// Set New Rotation in Euler Angles
-	CameraTransform->SetRotation(Quaternion(Pitch, Yaw, 0.0f));
+	CameraTransform->SetRotation(Math::FromEulerAngles(Pitch, Yaw, 0.0f));
 
-	CameraTransform->SetPosition(Transform.GetPosition()+Vector3::UP*0.25f);
+	CameraTransform->SetPosition(Transform.GetPosition()+VECTOR3_UP*0.25f);
 }
 
 void CPlayerObject::MovePlayer(const float DT)
@@ -62,9 +62,9 @@ void CPlayerObject::MovePlayer(const float DT)
 	Input = Engine->GetInput();
 	Body = GetComponent<CRigidBody3D>();
 
-	Transform.SetRotation(Quaternion(0.0f, Yaw, 0.0f));
+	Transform.SetRotation(Math::FromEulerAngles(0.0f, Yaw, 0.0f));
 
-	Vector3 Keys = Vector3::ZERO;
+	Vector3 Keys = VECTOR3_ZERO;
 	if (Input->IsKeyPressed(EKey::W))
 	{
 		Keys.z = PlayerSpeed;
@@ -81,14 +81,14 @@ void CPlayerObject::MovePlayer(const float DT)
 	{
 		Keys.x = PlayerSpeed;
 	}
-	Vector3 Velocity = Vector3::FORWARD * Keys.z + Vector3::RIGHT * Keys.x;
+	Vector3 Velocity = VECTOR3_FORWARD * Keys.z + VECTOR3_RIGHT * Keys.x;
 	Body->SetLinearVelocity(Transform.GetWorldRotation()*Velocity);
 }
 
 void CPlayerObject::OnRender()
 {
 	CDebugDrawer* Drawer = Engine->GetDebugDrawer();
-	Drawer->AddLine(Transform.GetWorldPosition(), Transform.GetWorldPosition()+Transform.GetForward()*1.0f, Color::BLUE);
+	Drawer->AddLine(Transform.GetWorldPosition(), Transform.GetWorldPosition()+Transform.GetForward()*1.0f, COLOR_BLUE);
 }
 
 void CPlayerObject::OnGUI()
@@ -104,7 +104,8 @@ void CPlayerObject::OnGUI()
 	UI->Text("Distance: " + Utils::ToString(D));
 	UI->Separator();
 	UI->Text("Camera Angles: " + Utils::ToString(Pitch) + ", " + Utils::ToString(Yaw));
-	UI->Text( "Tr. Angles: " + Utils::ToString(CameraTransform->GetRotation().ToEulerAngles()) );
+	UI->Text( "Tr. Angles: " + Utils::ToString(Math::ToEulerAngles(CameraTransform->GetRotation())) );
+	UI->Text("Position: " + Utils::ToString(CameraTransform->GetWorldPosition()));
 	UI->End();
 }
 
@@ -211,7 +212,7 @@ void CLevel2::LoadMap()
 	LightSun->SetLightType(ELightType::Direction);
 	LightSun->SetTemperature(5500.f);
 	//
-	Sun->GetTransform().SetRotation(Quaternion(-30.0f, 0.0f, 0.0f));
+	Sun->GetTransform().SetRotation(Math::FromEulerAngles(-30.0f, 0.0f, 0.0f) );
 
 	std::string Path;
 	if (!App->GetResources()->FindPath("Labirynt.xml", Path))
@@ -256,7 +257,7 @@ void CLevel2::LoadMap()
 			{
 				CGameObject* Item = World->CreateModel<CGameObject>("cube.dae", Materials[5].get());
 				Item->GetTransform().SetPosition({ static_cast<float>(Row), 0.75f, static_cast<float>(Col) });
-				Item->GetTransform().SetScale(0.5f);
+				Item->GetTransform().SetScale({ 0.5f, 0.5f, 0.5f });
 				//
 				CBoxCollider3D* ColliderItem = Item->CreateComponent<CBoxCollider3D>();
 				CRigidBody3D* ItemBody = Item->CreateComponent<CRigidBody3D>();
@@ -287,7 +288,7 @@ void CLevel2::LoadMap()
 	}
 	StartY = StartYRoot->GetInt(0);
 
-	Vector3 Goal = Vector3::ZERO;
+	Vector3 Goal = VECTOR3_ZERO;
 	CXMLElement* EndXRoot = Root->GetElement("end_x");
 	if (!EndXRoot)
 	{
@@ -308,13 +309,13 @@ void CLevel2::LoadMap()
 	PlayerObject = World->CreateModel<CPlayerObject>("cube.dae");
 	PlayerObject->GetTransform().SetPosition({ static_cast<float>(StartX), 0.85f, static_cast<float>(StartY) });
 	PlayerObject->SetName("Player");
-	PlayerObject->GetTransform().SetScale(0.5f);
+	PlayerObject->GetTransform().SetScale({ 0.5f, 0.5f, 0.5f });
 	PlayerObject->SetGoal(Goal);
 	//
 	CBoxCollider3D* PlayerCollider = PlayerObject->CreateComponent<CBoxCollider3D>();
 	PlayerBody = PlayerObject->CreateComponent<CRigidBody3D>();
 	PlayerBody->SetBodyType(ERigidBodyType3D::Dynamic);
-	PlayerBody->SetAngularFactor(Vector3::ZERO);
+	PlayerBody->SetAngularFactor(VECTOR3_ZERO);
 	PlayerBody->SetMass(45.0f);
 
 	// Camera

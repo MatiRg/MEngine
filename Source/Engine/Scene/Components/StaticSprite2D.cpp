@@ -44,8 +44,8 @@ bool CStaticSprite2D::OnLoad(CXMLElement* Root)
         return false;
     }
 
-	Size = XML::LoadVector2( Root, "Size", Vector2::ONE );
-	ColorMod = XML::LoadColor( Root, "ColorMod", Color::WHITE );
+	Size = XML::LoadVector2( Root, "Size", VECTOR2_ONE );
+	ColorMod = XML::LoadColor( Root, "ColorMod", COLOR_WHITE );
 	Box = XML::LoadRect2( Root, "Box", Rect2(0.0f, 0.0f, 1.0f, 1.0f) );
     return true;
 }

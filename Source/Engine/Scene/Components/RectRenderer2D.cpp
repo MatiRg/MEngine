@@ -22,7 +22,7 @@ void CRectRenderer2D::OnRender()
 bool CRectRenderer2D::OnLoad(CXMLElement* Root)
 {
 	Size = XML::LoadVector2( Root, "Size", Vector2(32.0f) );
-	DrawColor = XML::LoadColor( Root, "DrawColor", Color::WHITE );
+	DrawColor = XML::LoadColor( Root, "DrawColor", COLOR_WHITE );
 	Filled = XML::LoadBool( Root, "Filled", true );
 	Box = XML::LoadRect2( Root, "Box", Rect2(0.0f, 0.0f, 32.0f, 32.0f) );
     return true;

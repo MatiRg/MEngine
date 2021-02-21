@@ -44,7 +44,7 @@ bool CDebugDrawer::Init(const SEngineParams&)
 
     Renderable.SetMaterial(Material.get());
     Renderable.SetVertexBuffer(Buffer.get());
-    Renderable.SetMatrix(Matrix4::IDENTITY);
+    Renderable.SetMatrix(MATRIX4_IDENTITY);
 
     LOG( ESeverity::Info ) << "DebugDrawer - Init\n";
     return true;

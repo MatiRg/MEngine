@@ -1,41 +1,37 @@
 #pragma once
 #include "Functions.hpp"
+#include "Vector4.hpp"
 #include <ostream>
 
 class Color
 {
 public:
-    Color(const float Val = 0.0f):
+    constexpr Color(const float Val = 0.0f):
         r( Val ), g( Val ), b( Val ), a( Val )
     {
     }
 
-    Color(const float Val, const float Alpha):
+    constexpr Color(const float Val, const float Alpha):
         r( Val ), g( Val ), b( Val ), a( Alpha )
     {
     }
 
-    Color(const float Val1, const float Val2, const float Val3, const float Val4 = 1.0f):
+    constexpr Color(const float Val1, const float Val2, const float Val3, const float Val4 = 1.0f):
         r( Val1 ), g( Val2 ), b( Val3 ), a( Val4 )
     {
     }
 
-    Color(const Color& Val):
+    constexpr Color(const Color& Val):
         r( Val.r ), g( Val.g ), b( Val.b ), a( Val.a )
     {
     }
 
-    ~Color() {}
-
-    Color& operator=(const Color& Other)
+    constexpr Color& operator=(const Color& Other)
     {
-        if( this != &Other)
-        {
-            r = Other.r;
-            g = Other.g;
-            b = Other.b;
-            a = Other.a;
-        }
+        r = Other.r;
+        g = Other.g;
+        b = Other.b;
+        a = Other.a;
         return *this;
     }
 
@@ -49,51 +45,40 @@ public:
     }
 
     float GetR() const { return r; }
-    uint8_t GetR_UInt() const { return static_cast<uint8_t>(r*255.0f); }
     void SetR(const float x) { r = x; }
 
     float GetG() const { return g; }
-    uint8_t GetG_UInt() const { return static_cast<uint8_t>(g*255.0f); }
     void SetG(const float x) { g = x; }
 
     float GetB() const { return b; }
-    uint8_t GetB_UInt() const { return static_cast<uint8_t>(b*255.0f); }
     void SetB(const float x) { b = x; }
 
     float GetA() const { return a; }
-    uint8_t GetA_UInt() const { return static_cast<uint8_t>(a*255.0f); }
     void SetA(const float x) { a = x; }
 
-    static Color WHITE;
-    static Color BLACK;
-    static Color RED;
-    static Color GREEN;
-    static Color BLUE;
-    static Color GREY;
-    static Color YELLOW;
-    static Color CYAN;
-    static Color PINK;
-    static Color MAROON;
+    uint8_t GetR_UInt() const { return static_cast<uint8_t>(r * 255.0f); }
+    uint8_t GetG_UInt() const { return static_cast<uint8_t>(g * 255.0f); }
+    uint8_t GetB_UInt() const { return static_cast<uint8_t>(b * 255.0f); }
+    uint8_t GetA_UInt() const { return static_cast<uint8_t>(a * 255.0f); }
 public:
     float r, g, b, a;
 };
 
+static constexpr Color COLOR_WHITE = { 1.0f, 1.0f };
+static constexpr Color COLOR_BLACK = { 0.0f, 1.0f };
+static constexpr Color COLOR_RED = { 1.0f, 0.0f, 0.0f };
+static constexpr Color COLOR_GREEN = { 0.0f, 1.0f, 0.0f };
+static constexpr Color COLOR_BLUE = { 0.0f, 0.0f, 1.0f };
+static constexpr Color COLOR_GREY = { 0.5f, 0.5f, 0.5f };
+static constexpr Color COLOR_YELLOW = { 1.0f, 1.0f, 0.0f };
+static constexpr Color COLOR_CYAN = { 0.0f, 1.0f, 1.0f };
+static constexpr Color COLOR_PINK = { 1.0f, 0.0f, 1.0f };
+static constexpr Color COLOR_MAROON = { 0.5f, 0.0f, 0.0f };
+
 namespace Math
 {
-    inline Color Lerp(const Color& a, const Color& b, const float v)
-    {
-        Color R(
-            Lerp(a.GetR(), b.GetR(), v),
-            Lerp(a.GetG(), b.GetG(), v),
-            Lerp(a.GetB(), b.GetB(), v),
-            Lerp(a.GetA(), b.GetA(), v)
-        );
-        return R;
-    }
+    Color Lerp(const Color& a, const Color& b, const float t);
+    Vector4 ToVector4(const Color& a);
 }
 
-inline std::ostream& operator<<(std::ostream& Stream, const Color& Other)
-{
-    Stream << Other.GetR() << ", " << Other.GetG() << ", " << Other.GetB() << ", " << Other.GetA();
-    return Stream;
-}
+std::ostream& operator<<(std::ostream& Stream, const Color& Other);

@@ -38,8 +38,8 @@ public:
     const Vector3& GetDirection() const { return Direction; }
 private:
     ELightType LightType = ELightType::None;
-    Color Diffuse = Color::WHITE;
+    Color Diffuse = COLOR_WHITE;
     float Range = 1.0f;
-    Vector3 Position = Vector3::ZERO;
-    Vector3 Direction = Vector3::FORWARD;
+    Vector3 Position = VECTOR3_ZERO;
+    Vector3 Direction = VECTOR3_FORWARD;
 };

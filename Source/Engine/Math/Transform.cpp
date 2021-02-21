@@ -20,14 +20,14 @@ CTransform::~CTransform()
 
 bool CTransform::Load(CXMLElement* Root)
 {
-	Position = XML::LoadVector3(Root, "Position", Vector3::ZERO );
-	Scale = XML::LoadVector3(Root, "Scale", Vector3::ONE );
-    Rotation = XML::LoadQuaternion(Root, "Rotation", Quaternion::IDENTITY);
+	Position = XML::LoadVector3(Root, "Position", VECTOR3_ZERO );
+	Scale = XML::LoadVector3(Root, "Scale", VECTOR3_ONE );
+    Rotation = XML::LoadQuaternion(Root, "Rotation", QUATERNION_IDENTITY);
     Dirty = XML::LoadBool(Root, "Dirty", true);
-    Matrix = XML::LoadMatrix4(Root, "Matrix", Matrix4::IDENTITY);
-    InvMatrix = XML::LoadMatrix4(Root, "InvMatrix", Matrix4::IDENTITY);
-    WorldMatrix = XML::LoadMatrix4(Root, "WorldMatrix", Matrix4::IDENTITY);
-    InvWorldMatrix = XML::LoadMatrix4(Root, "InvWorldMatrix", Matrix4::IDENTITY);
+    Matrix = XML::LoadMatrix4(Root, "Matrix", MATRIX4_IDENTITY);
+    InvMatrix = XML::LoadMatrix4(Root, "InvMatrix", MATRIX4_IDENTITY);
+    WorldMatrix = XML::LoadMatrix4(Root, "WorldMatrix", MATRIX4_IDENTITY);
+    InvWorldMatrix = XML::LoadMatrix4(Root, "InvWorldMatrix", MATRIX4_IDENTITY);
     return true;
 }
 
@@ -99,7 +99,7 @@ void CTransform::SetWorldPosition(const Vector3& aPosition, const bool Silent)
 {
     if (HasParent())
     {
-        Vector3 Tmp = Parent->GetInvWorldMatrix() * aPosition;
+        Vector3 Tmp = Parent->GetInvWorldMatrix() * Vector4(aPosition, 1.0f); // ?
         SetPosition(Tmp, Silent);
     }
     else
@@ -110,7 +110,12 @@ void CTransform::SetWorldPosition(const Vector3& aPosition, const bool Silent)
 
 Vector3 CTransform::GetWorldPosition() const
 {
-    return GetWorldMatrix().GetTranslation();
+    const Matrix4& Mtx = GetWorldMatrix();
+    Vector3 Tmp;
+    Tmp.x = Mtx[0][3];
+    Tmp.y = Mtx[1][3];
+    Tmp.z = Mtx[2][3];
+    return Tmp;
 }
 
 void CTransform::SetScale(const Vector3& aScale, const bool Silent)
@@ -141,7 +146,12 @@ void CTransform::SetWorldScale(const Vector3& aScale, const bool Silent)
 
 Vector3 CTransform::GetWorldScale() const
 {
-    return GetWorldMatrix().GetScale();
+    const Matrix4& Mtx = GetWorldMatrix();
+    Vector3 Tmp;
+    Tmp.x = Math::Length(Vector3(Mtx[0][0], Mtx[0][1], Mtx[0][2]));
+    Tmp.y = Math::Length(Vector3(Mtx[1][0], Mtx[1][1], Mtx[1][2]));
+    Tmp.z = Math::Length(Vector3(Mtx[2][0], Mtx[2][1], Mtx[2][2]));
+    return Tmp;
 }
 
 void CTransform::SetRotation(const Quaternion& aRotation, const bool Silent)
@@ -182,47 +192,47 @@ Quaternion CTransform::GetWorldRotation() const
 
 Quaternion CTransform::GetInvWorldRotation() const
 {
-    return GetWorldRotation().Inverse();
+    return Math::Inverse(GetWorldRotation());
 }
 
 void CTransform::SetRight(const Vector3& NewRight)
 {
-    SetWorldRotation(Quaternion(Vector3::RIGHT, NewRight));
+    SetWorldRotation(Quaternion(VECTOR3_RIGHT, NewRight));
 }
 
 Vector3 CTransform::GetRight() const
 {
-    return GetWorldRotation() * Vector3::RIGHT;
+    return GetWorldRotation() * VECTOR3_RIGHT;
 }
 
 void CTransform::SetUp(const Vector3& NewUp)
 {
-    SetWorldRotation(Quaternion(Vector3::UP, NewUp));
+    SetWorldRotation(Quaternion(VECTOR3_UP, NewUp));
 }
 
 Vector3 CTransform::GetUp() const
 {
-    return GetWorldRotation() * Vector3::UP;
+    return GetWorldRotation() * VECTOR3_UP;
 }
 
 void CTransform::SetForward(const Vector3& NewForward)
 {
-    SetWorldRotation( Math::LookRotation(NewForward, Vector3::UP) ); // ?
+    SetWorldRotation( Math::LookRotation(NewForward, VECTOR3_UP) ); // ?
 }
 
 Vector3 CTransform::GetForward() const
 {
-    return GetWorldRotation() * Vector3::FORWARD;
+    return GetWorldRotation() * VECTOR3_FORWARD;
 }
 
 void CTransform::SetEulers(const Vector3& Eulers)
 {
-    SetWorldRotation(Quaternion(Eulers));
+    SetWorldRotation(Math::FromEulerAngles(Eulers));
 }
 
 Vector3 CTransform::GetEulers() const
 {
-    return GetWorldRotation().ToEulerAngles();
+    return Math::ToEulerAngles(GetWorldRotation());
 }
 
 void CTransform::Translate(const Vector3& Delta)
@@ -340,14 +350,14 @@ void CTransform::MarkDirty()
 void CTransform::RecalculateMatrix() const
 {
     Matrix = Math::Transform(Position, Rotation, Scale);
-    InvMatrix = Matrix.Inverse();
+    InvMatrix = Math::Inverse(Matrix);
     //
     WorldMatrix = Matrix;
     if (HasParent())
     {
         WorldMatrix = Parent->GetWorldMatrix() * WorldMatrix;
     }
-    InvWorldMatrix = WorldMatrix.Inverse();
+    InvWorldMatrix = Math::Inverse(WorldMatrix);
     //
     Dirty = false;
 }

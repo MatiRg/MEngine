@@ -39,11 +39,11 @@ private:
     void CreateFixture();
 private:
     CBox2DRigidBody2D* Rigidbody = nullptr;
-    Vector2 Size = Vector2::ONE;
+    Vector2 Size = VECTOR2_ONE;
     b2Fixture* Fixture = nullptr;
 	float Friction = 0.2f;
 	float Restitution = 0.0f;
 	float Density = 1.0f;
-    Vector2 Offset = Vector2::ZERO;
+    Vector2 Offset = VECTOR2_ZERO;
     bool Sensor = false;
 };

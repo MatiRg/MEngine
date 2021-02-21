@@ -17,9 +17,9 @@ bool CCamera::OnLoad(CXMLElement* Root)
     SetFarClipPlane( XML::LoadFloat(Root, "Far", 1000.0f) );
     SetNearClipPlane( XML::LoadFloat(Root, "Near", 0.03f) );
     ProjectionDirty = XML::LoadBool(Root, "ProjectionDirty", true);
-    ProjectionMatrix = XML::LoadMatrix4(Root, "ProjectionMatrix", Matrix4::IDENTITY);
+    ProjectionMatrix = XML::LoadMatrix4(Root, "ProjectionMatrix", MATRIX4_IDENTITY);
     ViewDirty = XML::LoadBool(Root, "ViewDirty", true);
-    ViewMatrix = XML::LoadMatrix4(Root, "ViewMatrix", Matrix4::IDENTITY);
+    ViewMatrix = XML::LoadMatrix4(Root, "ViewMatrix", MATRIX4_IDENTITY);
     return true;
 }
 
@@ -86,7 +86,7 @@ const Matrix4& CCamera::GetView() const
     if (ViewDirty)
     {
         const auto& Transform = GetOwner()->GetTransform();
-        ViewMatrix = (Math::Rotation(Transform.GetWorldRotation()) * Math::Translation(Transform.GetWorldPosition())).Inverse();
+        ViewMatrix = Math::Inverse(Math::ToMatrix4(Transform.GetWorldRotation()) * Math::Translation(Transform.GetWorldPosition()));
         ViewDirty = false;
     }
     return ViewMatrix;

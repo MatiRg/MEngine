@@ -32,7 +32,7 @@ public:
         auto& Transform = GetOwner()->GetTransform();
 
         Vector2 Position = Transform.GetPosition2D();
-        Position -= Vector2::UP*Speed*DT;
+        Position -= VECTOR2_UP*Speed*DT;
 
         Transform.SetPosition2D( Position );
     }
@@ -58,7 +58,7 @@ public:
 
         auto Rect = CreateComponent<CRectRenderer2D>();
         Rect->SetSize( Vector2(Math::Random(8.0f, 48.0f)) );
-        Rect->SetColor( Color::GREEN );
+        Rect->SetColor( COLOR_GREEN );
 
         auto Fall = CreateComponent<CFallComponent>();
         Fall->SetSpeed( Math::Random(75.0f, 200.0f) );
@@ -127,13 +127,13 @@ public:
         auto Right = CreateChild<CEntity>();
         Right->GetTransform().SetPosition2D(Vector2(16.0f, -16.0f) );
         auto RCRight = Right->CreateComponent<CRectRenderer2D>();
-        RCRight->SetColor( Color::YELLOW );
+        RCRight->SetColor( COLOR_YELLOW );
         RCRight->SetSize( Vector2(16.0f) );
 
         auto Left = CreateChild<CEntity>();
         Left->GetTransform().SetPosition2D(Vector2(-16.0f, -16.0f) );
         auto RCLeft = Left->CreateComponent<CRectRenderer2D>();
-        RCLeft->SetColor( Color::BLUE );
+        RCLeft->SetColor( COLOR_BLUE );
         RCLeft->SetSize( Vector2(16.0f) );
     }
 
@@ -142,19 +142,19 @@ public:
         Vector2 Position = Transform.GetPosition2D();
         if( Engine->GetInput()->IsKeyPressed(EKey::A) )
         {
-            Position += Vector2::LEFT*Speed*DT;
+            Position += VECTOR2_LEFT*Speed*DT;
         }
         if( Engine->GetInput()->IsKeyPressed(EKey::D) )
         {
-            Position += Vector2::RIGHT*Speed*DT;
+            Position += VECTOR2_RIGHT*Speed*DT;
         }
         if( Engine->GetInput()->IsKeyPressed(EKey::W) )
         {
-            Position -= Vector2::DOWN*Speed*DT;
+            Position -= VECTOR2_DOWN*Speed*DT;
         }
         if( Engine->GetInput()->IsKeyPressed(EKey::S) )
         {
-            Position -= Vector2::UP*Speed*DT;
+            Position -= VECTOR2_UP*Speed*DT;
         }
         Transform.SetPosition2D( Position );
         //
@@ -271,10 +271,10 @@ public:
     void OnRender() override
     {
         CDrawer2D* Drawer = Engine->GetDrawer2D();
-        Drawer->DrawText( Font, "Press 'Escape' to Return to Menu", Vector2(32.0f, 16.0f), FONT_SIZE, Color::WHITE, 1000.0f );
+        Drawer->DrawText( Font, "Press 'Escape' to Return to Menu", Vector2(32.0f, 16.0f), FONT_SIZE, COLOR_WHITE, 1000.0f );
         Drawer->DrawText( Font, "Score: "+std::to_string(static_cast<int>(Math::Floor(Score))),
-            Vector2(32.0f, 40.0f), FONT_SIZE, Color::WHITE, 1000.0f );
-        Drawer->DrawText( Font, "Top Score: "+std::to_string(TopScore), Vector2(32.0f, 64.0f), FONT_SIZE, Color::WHITE, 1000.0f );
+            Vector2(32.0f, 40.0f), FONT_SIZE, COLOR_WHITE, 1000.0f );
+        Drawer->DrawText( Font, "Top Score: "+std::to_string(TopScore), Vector2(32.0f, 64.0f), FONT_SIZE, COLOR_WHITE, 1000.0f );
     }
 private:
     IFont* Font = nullptr;

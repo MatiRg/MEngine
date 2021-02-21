@@ -52,11 +52,11 @@ bool CRigidBody2D::OnLoad(CXMLElement* Root)
     Body->SetBodyType(XML::LoadEnum( Root, "BodyType", ERigidBodyType2D::Dynamic) );
     //
 	Body->SetAngle( XML::LoadFloat( Root, "Angle", 0.0f ) );
-	Body->SetPosition( XML::LoadVector2( Root, "Position", Vector2::ZERO ) );
+	Body->SetPosition( XML::LoadVector2( Root, "Position", VECTOR2_ZERO ) );
     //
     Body->SetFixedRotation(XML::LoadBool( Root, "FixedRotation", false));
 
-    Body->SetLinearVelocity(XML::LoadVector2( Root, "LinearVelocity", Vector2::ZERO ));
+    Body->SetLinearVelocity(XML::LoadVector2( Root, "LinearVelocity", VECTOR2_ZERO ));
 
     Body->SetLinearDamping(XML::LoadFloat( Root, "LinearDamping", 0.0f ));
 

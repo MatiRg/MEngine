@@ -13,7 +13,7 @@ CLightComponent::CLightComponent(CEngine* aEngine):
 bool CLightComponent::OnLoad(CXMLElement* Root)
 {
     SetLightType(XML::LoadEnum(Root, "LightType", ELightType::None));
-    SetColor(XML::LoadColor(Root, "Color", Color::WHITE));
+    SetColor(XML::LoadColor(Root, "Color", COLOR_WHITE));
     SetRange(XML::LoadFloat(Root, "Range", 1.0f));
     return true;
 }

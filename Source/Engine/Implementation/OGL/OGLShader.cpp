@@ -387,7 +387,7 @@ void COGLShader::SetMatrix3(const std::string& Name, const Matrix3& v)
     }
     else 
     {
-        glUniformMatrix3fv( Uniform, 1, GL_FALSE, v.Data() );
+        glUniformMatrix3fv( Uniform, 1, GL_FALSE, Math::ToArray(v) );
     }
 }
 
@@ -405,7 +405,7 @@ void COGLShader::SetMatrix4(const std::string& Name, const Matrix4& v)
     }
     else 
     {
-        glUniformMatrix4fv( Uniform, 1, GL_FALSE, v.Data() );
+        glUniformMatrix4fv( Uniform, 1, GL_FALSE, Math::ToArray(v) );
     }
 }
 

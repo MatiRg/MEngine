@@ -91,8 +91,9 @@ void CXMLObject::SetColor(const Color& Arg)
     SetValue(Buffor.data());
 }
 
-void CXMLObject::SetMatrix3(const Matrix3& Arg)
+void CXMLObject::SetMatrix3(const Matrix3& Mtx)
 {
+    const float* Arg = Math::ToArray(Mtx);
     std::array<char, 256> Buffor;
     Buffor.fill('\0');
     std::snprintf(Buffor.data(), 255, "%.3f %.3f %.3f %.3f %.3f %.3f %.3f %.3f %.3f",
@@ -100,8 +101,9 @@ Arg[0], Arg[1], Arg[2], Arg[3], Arg[4], Arg[5], Arg[6], Arg[7], Arg[8] );
     SetValue(Buffor.data());
 }
 
-void CXMLObject::SetMatrix4(const Matrix4& Arg)
+void CXMLObject::SetMatrix4(const Matrix4& Mtx)
 {
+    const float* Arg = Math::ToArray(Mtx);
     std::array<char, 256> Buffor;
     Buffor.fill('\0');
     std::snprintf(Buffor.data(), 255, "%.3f %.3f %.3f %.3f %.3f %.3f %.3f %.3f %.3f %.3f %.3f %.3f %.3f %.3f %.3f %.3f",
@@ -227,26 +229,26 @@ Color CXMLObject::GetColor(const Color& Default)
 
 Matrix3 CXMLObject::GetMatrix3(const Matrix3& Default)
 {
-    Matrix3 Arg;
+    std::array<float, 9> Arg;
     if( std::sscanf(GetValue().c_str(), "%f %f %f %f %f %f %f %f %f",
 &Arg[0], &Arg[1], &Arg[2], &Arg[3], &Arg[4], &Arg[5], &Arg[6], &Arg[7], &Arg[8] ) != 9 )
     {
         LOG(ESeverity::Warning) << "Invalid Value in XML File - " << Document->GetFileName() << " - Param/Attribute Name - " << Name << "\n";
         return Default;
     }
-    return Arg;
+    return Math::MakeMatrix3(Arg.data());
 }
 
 Matrix4 CXMLObject::GetMatrix4(const Matrix4& Default)
 {
-    Matrix4 Arg;
+    std::array<float, 16> Arg;
     if( std::sscanf(GetValue().c_str(), "%f %f %f %f %f %f %f %f %f %f %f %f %f %f %f %f",
 &Arg[0], &Arg[1], &Arg[2], &Arg[3], &Arg[4], &Arg[5], &Arg[6], &Arg[7], &Arg[8], &Arg[9], &Arg[10], &Arg[11], &Arg[12], &Arg[13], &Arg[14], &Arg[15] ) != 16 )
     {
         LOG(ESeverity::Warning) << "Invalid Value in XML File - " << Document->GetFileName() << " - Param/Attribute Name - " << Name << "\n";
         return Default;
     }
-    return Arg;
+    return Math::MakeMatrix4(Arg.data());
 }
 
 Quaternion CXMLObject::GetQuaternion(const Quaternion& Default)

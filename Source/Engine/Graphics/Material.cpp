@@ -248,16 +248,16 @@ bool CMaterial::Load(CResources* Resources, const ResourceCreateMap&)
             SetFloat(TmpName, i->GetFloatAttribute("Value", 0.0f));
             break;
         case EMaterialVariableType::Vector2:
-            SetVector2(TmpName, i->GetVector2Attribute("Value", Vector2::ZERO));
+            SetVector2(TmpName, i->GetVector2Attribute("Value", VECTOR2_ZERO));
             break;
         case EMaterialVariableType::Vector3:
-            SetVector3(TmpName, i->GetVector3Attribute("Value", Vector3::ZERO));
+            SetVector3(TmpName, i->GetVector3Attribute("Value", VECTOR3_ZERO));
             break;
         case EMaterialVariableType::Vector4:
-            SetVector4(TmpName, i->GetVector4Attribute("Value", Vector4::ZERO));
+            SetVector4(TmpName, i->GetVector4Attribute("Value", VECTOR4_ZERO));
             break;
         case EMaterialVariableType::Color:
-            SetColor(TmpName, i->GetColorAttribute("Value", Color::GREY) );
+            SetColor(TmpName, i->GetColorAttribute("Value", COLOR_GREY) );
             break;
         case EMaterialVariableType::Texture:
             {

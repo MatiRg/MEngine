@@ -12,7 +12,8 @@ CDrawer2D::CDrawer2D(IGraphics* aGraphics, CResources* aResources, IWindow* aWin
     IEngineModule( "Drawer2D" ),
     Graphics(aGraphics),
     Resources(aResources),
-    Window(aWindow)
+    Window(aWindow),
+    ViewProjection( Math::Ortho(800.0f, 0.0f, 600.0f, 0.0f, 1000.0f, -1000.0f) )
 {
 }
 
@@ -22,8 +23,8 @@ CDrawer2D::~CDrawer2D()
 
 bool CDrawer2D::Init(const SEngineParams&)
 {
-    ViewProjection = Math::Ortho( static_cast<float>(Window->GetSize().x),
-        static_cast<float>(Window->GetSize().y) );
+    ViewProjection = Math::Ortho( static_cast<float>(Window->GetSize().x), 0.0f,
+        static_cast<float>(Window->GetSize().y), 0.0f, 1000.0f, -1000.0f );
 
     VertexBuffer = Graphics->CreateVertexBuffer({ {EVertexElement::Position}, {EVertexElement::Color}, {EVertexElement::TexCoord0} }, true);
     if( !VertexBuffer )

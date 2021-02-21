@@ -48,7 +48,7 @@ void CMainMenu::OnLateUpdate(const float)
     Vector2 Mouse = App->GetInput()->GetMousePosition();
     if( PhysicsPosition.Intersect(Mouse) )
     {
-        PhysicsColor = Color::WHITE;
+        PhysicsColor = COLOR_WHITE;
         if( App->GetInput()->IsMouseKeyDown(EMouseKey::LButton) )
         {
             App->GetUserUpdater()->SetContainer(PHYSICS_CONTAINER);
@@ -56,12 +56,12 @@ void CMainMenu::OnLateUpdate(const float)
     }
     else
     {
-        PhysicsColor = Color::GREY;
+        PhysicsColor = COLOR_GREY;
     }
 
     if( DodgerPosition.Intersect(Mouse) )
     {
-        DodgerColor = Color::WHITE;
+        DodgerColor = COLOR_WHITE;
         if( App->GetInput()->IsMouseKeyDown(EMouseKey::LButton) )
         {
             App->GetUserUpdater()->SetContainer(DODGER_CONTAINER);
@@ -69,12 +69,12 @@ void CMainMenu::OnLateUpdate(const float)
     }
     else
     {
-        DodgerColor = Color::GREY;
+        DodgerColor = COLOR_GREY;
     }
 
     if( QuitPosition.Intersect(Mouse) )
     {
-        QuitColor = Color::WHITE;
+        QuitColor = COLOR_WHITE;
         if( App->GetInput()->IsMouseKeyDown(EMouseKey::LButton) )
         {
             App->Quit();
@@ -82,7 +82,7 @@ void CMainMenu::OnLateUpdate(const float)
     }
     else
     {
-        QuitColor = Color::GREY;
+        QuitColor = COLOR_GREY;
     }
 }
 

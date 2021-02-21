@@ -1,0 +1,17 @@
+#pragma once
+#define GLM_FORCE_LEFT_HANDED
+#include "glm/glm.hpp"
+#include "glm/gtc/matrix_transform.hpp"
+#include "glm/ext/matrix_clip_space.hpp"
+#include "glm/ext/matrix_projection.hpp"
+#include "glm/ext/quaternion_float.hpp"
+#include "glm/ext/quaternion_common.hpp"
+#include "glm/ext/quaternion_transform.hpp"
+#include "glm/ext/quaternion_geometric.hpp"
+#include "glm/gtx/vector_angle.hpp"
+#include "glm/gtx/projection.hpp"
+#include "glm/gtx/norm.hpp"
+#include "glm/gtc/epsilon.hpp"
+#include "glm/gtc/type_ptr.hpp"
+#include "glm/ext/matrix_common.hpp"
+#include "glm/gtx/euler_angles.hpp"

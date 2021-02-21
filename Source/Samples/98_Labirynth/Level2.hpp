@@ -47,7 +47,7 @@ public:
 private:
     float TotalTime = 0.0f;
     int Score = 0;
-    Vector3 Goal = Vector3::ZERO;
+    Vector3 Goal = VECTOR3_ZERO;
     float PlayerSpeed = 0.75f;
     //
     float CameraSpeed = 10.0f;

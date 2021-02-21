@@ -24,7 +24,7 @@ private:
     Rect2 DodgerPosition;
     Rect2 QuitPosition;
     IFont* Font = nullptr;
-    Color PhysicsColor = Color::GREY;
-    Color DodgerColor = Color::GREY;
-    Color QuitColor = Color::GREY;
+    Color PhysicsColor = COLOR_GREY;
+    Color DodgerColor = COLOR_GREY;
+    Color QuitColor = COLOR_GREY;
 };

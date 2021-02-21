@@ -28,19 +28,19 @@ public:
         Vector2 CameraTranslation;
         if( Engine->GetInput()->IsKeyPressed(EKey::A) )
         {
-            CameraTranslation += Vector2::LEFT*Speed*DT;
+            CameraTranslation += VECTOR2_LEFT*Speed*DT;
         }
         if( Engine->GetInput()->IsKeyPressed(EKey::D) )
         {
-            CameraTranslation += Vector2::RIGHT*Speed*DT;
+            CameraTranslation += VECTOR2_RIGHT*Speed*DT;
         }
         if( Engine->GetInput()->IsKeyPressed(EKey::W) )
         {
-            CameraTranslation -= Vector2::DOWN*Speed*DT;
+            CameraTranslation -= VECTOR2_DOWN*Speed*DT;
         }
         if( Engine->GetInput()->IsKeyPressed(EKey::S) )
         {
-            CameraTranslation -= Vector2::UP*Speed*DT;
+            CameraTranslation -= VECTOR2_UP*Speed*DT;
         }
         Camera->Translate( CameraTranslation );
     }
@@ -57,7 +57,7 @@ std::to_string( Camera->GetTranslation().y) );
     void OnRender() override
     {
         CDrawer2D* Drawer = Engine->GetDrawer2D();
-        Drawer->DrawText( Font, "Press 'Escape' to Return to Menu", Vector2(32.0f, 16.0f), FONT_SIZE, Color::WHITE, 1000.0f );
+        Drawer->DrawText( Font, "Press 'Escape' to Return to Menu", Vector2(32.0f, 16.0f), FONT_SIZE, COLOR_WHITE, 1000.0f );
     }
 private:
     const float Speed = 100.0f;
@@ -135,20 +135,20 @@ void CPhysicsPlay::OnEnter()
     Object->CreateComponent<CRigidBody2D>()->SetFixedRotation(false);
     auto BoxObjectComponent = Object->CreateComponent<CRectRenderer2D>();
     BoxObjectComponent->SetSize( Vector2(32.0f) );
-    BoxObjectComponent->SetColor( Color::BLUE );
+    BoxObjectComponent->SetColor( COLOR_BLUE );
 
     auto Right = Object->CreateChild<CEntity>();
     Right->GetTransform().SetPosition2D(Vector2(16.0f, -16.0f) );
     //Right->CreateComponent<CRigidBody2D>(); Not Recomended use joint for this
     auto RCRight = Right->CreateComponent<CRectRenderer2D>();
-    RCRight->SetColor( Color::YELLOW );
+    RCRight->SetColor( COLOR_YELLOW );
     RCRight->SetSize( Vector2(16.0f) );
 
     auto Left = Object->CreateChild<CEntity>();
     Left->GetTransform().SetPosition2D(Vector2(-16.0f, -16.0f) );
     //Left->CreateComponent<CRigidBody2D>(); Not Recomended use joint for this
     auto RCLeft = Left->CreateComponent<CRectRenderer2D>();
-    RCLeft->SetColor( Color::BLUE );
+    RCLeft->SetColor( COLOR_BLUE );
     RCLeft->SetSize( Vector2(16.0f) );
 
     auto Ground = World->CreateChild<CEntity>();

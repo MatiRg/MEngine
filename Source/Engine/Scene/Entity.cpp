@@ -445,7 +445,7 @@ CEntity* CEntity::CreateModel(const std::string& ModelName, const std::string& T
     CEntity* RootModel = CreateChild(Type);
     ProcessMeshNode(RootModel, Model->GetRoot(), Material);
     CTransform& OtherTransform = RootModel->GetTransform();
-    OtherTransform.SetPosition( Vector3::ZERO );
+    OtherTransform.SetPosition( VECTOR3_ZERO );
     return RootModel;
 }
 

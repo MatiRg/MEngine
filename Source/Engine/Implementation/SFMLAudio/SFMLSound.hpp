@@ -78,7 +78,7 @@ private:
     bool Muted = false;
     bool Looped = false;
     bool Relative = false;
-    Vector3 Position = Vector3::ZERO;
+    Vector3 Position = VECTOR3_ZERO;
     float MinDistance = 1.0f;
     float Attenuation = 1.0f;
 };

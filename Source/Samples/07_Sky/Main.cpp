@@ -50,7 +50,7 @@ public:
         // Set Color - From Kelvin Temperature
         LightSun->SetTemperature(9500.f);
         // Set Proper Rotation
-        Sun->GetTransform().SetRotation(Quaternion(-30.0f, 0.0f, 0.0f));
+        Sun->GetTransform().SetRotation(Math::FromEulerAngles(-30.0f, 0.0f, 0.0f));
         //
         // Load Model As Entity Graph
         // Material is loaded for Model based on it is name, in this case it will be: "backpack.mat", 
@@ -85,32 +85,32 @@ public:
         if (Input->IsKeyPressed(EKey::W))
         {
             // Translate object by ... with respect to Time Step
-            CameraObject->GetTransform().Translate(Vector3::FORWARD * CameraSpeed * TimeStep);
+            CameraObject->GetTransform().Translate(VECTOR3_FORWARD * CameraSpeed * TimeStep);
         }
         if (Input->IsKeyPressed(EKey::S))
         {
             // Translate object by ... with respect to Time Step
-            CameraObject->GetTransform().Translate(Vector3::BACK * CameraSpeed * TimeStep);
+            CameraObject->GetTransform().Translate(VECTOR3_BACK * CameraSpeed * TimeStep);
         }
         if (Input->IsKeyPressed(EKey::A))
         {
             // Translate object by ... with respect to Time Step
-            CameraObject->GetTransform().Translate(Vector3::LEFT * CameraSpeed * TimeStep);
+            CameraObject->GetTransform().Translate(VECTOR3_LEFT * CameraSpeed * TimeStep);
         }
         if (Input->IsKeyPressed(EKey::D))
         {
             // Translate object by ... with respect to Time Step
-            CameraObject->GetTransform().Translate(Vector3::RIGHT * CameraSpeed * TimeStep);
+            CameraObject->GetTransform().Translate(VECTOR3_RIGHT * CameraSpeed * TimeStep);
         }
         if (Input->IsKeyPressed(EKey::Q))
         {
             // Translate object by ... with respect to Time Step
-            CameraObject->GetTransform().Translate(Vector3::UP * CameraSpeed * TimeStep);
+            CameraObject->GetTransform().Translate(VECTOR3_UP * CameraSpeed * TimeStep);
         }
         if (Input->IsKeyPressed(EKey::E))
         {
             // Translate object by ... with respect to Time Step
-            CameraObject->GetTransform().Translate(Vector3::DOWN * CameraSpeed * TimeStep);
+            CameraObject->GetTransform().Translate(VECTOR3_DOWN * CameraSpeed * TimeStep);
         }
 
         // Update Camera Rotation
@@ -119,7 +119,7 @@ public:
         Pitch += Input->GetRelativeMouseMotion().y * SensitivityRel;
 
         // Set New Rotation in Euler Angles
-        CameraObject->GetTransform().SetRotation(Quaternion(Pitch, Yaw, 0.0f));
+        CameraObject->GetTransform().SetRotation(Math::FromEulerAngles(Pitch, Yaw, 0.0f));
 
         // Update FOV
         ScrollSpeed = Input->GetMouseWheel().y;

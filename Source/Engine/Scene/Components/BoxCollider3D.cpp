@@ -29,7 +29,7 @@ void CBoxCollider3D::OnCreate()
         PhysicsWorld3D = World->CreateComponent<CPhysicsWorld3D>();
     }
     //
-    SetSize({0.5f});
+    SetSize({0.5f, 0.5f, 0.5f});
     //
     GetOwner()->GetTransform().AddScaleCallback(this, [&](const Vector3& /*NewScale*/) {
         SetSize(GetSize());

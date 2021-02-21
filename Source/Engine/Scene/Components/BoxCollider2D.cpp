@@ -21,7 +21,7 @@ CBoxCollider2D::~CBoxCollider2D()
 void CBoxCollider2D::OnCreate()
 {
     World = GetOwner()->GetWorld()->GetComponent<CPhysicsWorld2D>();
-    Shape = World->GetWorld()->CreateBoxCollider(Vector2::ONE, Vector2::ZERO);
+    Shape = World->GetWorld()->CreateBoxCollider(VECTOR2_ONE, VECTOR2_ZERO);
     Shape->SetUserData(this);
 
     GetOwner()->GetTransform().AddScaleCallback(this, [&](const Vector3& /*NewScale*/) {
@@ -31,12 +31,12 @@ void CBoxCollider2D::OnCreate()
 
 bool CBoxCollider2D::OnLoad(CXMLElement* Root)
 {
-    SetSize( XML::LoadVector2( Root, "Size", Vector2::ONE) );
+    SetSize( XML::LoadVector2( Root, "Size", VECTOR2_ONE) );
     //
     SetFriction( XML::LoadFloat(Root, "Friction", 0.2f) );
     SetRestitution( XML::LoadFloat( Root, "Restitution", 0.0f) );
     SetDensity( XML::LoadFloat( Root, "Density", 1.0f) );
-    SetOffset(XML::LoadVector2( Root, "Offset", Vector2::ZERO));
+    SetOffset(XML::LoadVector2( Root, "Offset", VECTOR2_ZERO));
     //
     SetSensor(XML::LoadBool(Root, "Sensor", false));
     return true;

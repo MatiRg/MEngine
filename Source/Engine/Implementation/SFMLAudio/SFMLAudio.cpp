@@ -17,7 +17,7 @@ bool CSFMLAudio::Init(const SEngineParams&)
 {
     sf::Listener::setGlobalVolume( Volume * 100.0f);
 
-    Vector3 Up = Vector3::UP;
+    Vector3 Up = VECTOR3_UP;
 
     sf::Listener::setDirection( sf::Vector3f(Forward.x, Forward.y, Forward.z) );
     sf::Listener::setUpVector( sf::Vector3f(Up.x, Up.y, Up.z) );

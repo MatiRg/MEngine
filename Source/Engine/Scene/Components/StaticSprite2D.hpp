@@ -33,7 +33,7 @@ public:
 private:
     ITexture2D* Texture = nullptr;
     ETextureFlip Flip = ETextureFlip::None;
-    Vector2 Size = Vector2::ONE;
-    Color ColorMod = Color::WHITE;
+    Vector2 Size = VECTOR2_ONE;
+    Color ColorMod = COLOR_WHITE;
     mutable Rect2 Box;
 };

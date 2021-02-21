@@ -35,9 +35,9 @@ public:
 private:
     float Volume = 0.75f;
     bool Muted = false;
-    Vector3 Position = Vector3::ZERO;
-    Vector3 Forward = Vector3::FORWARD;
-    Vector3 Velocity = Vector3::ZERO;
+    Vector3 Position = VECTOR3_ZERO;
+    Vector3 Forward = VECTOR3_FORWARD;
+    Vector3 Velocity = VECTOR3_ZERO;
 };
 
 

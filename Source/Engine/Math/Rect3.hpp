@@ -1,4 +1,5 @@
 #pragma once
+#include "Functions.hpp"
 #include "Vector3.hpp"
 
 class Rect3
@@ -102,8 +103,8 @@ public:
         return true;
     }
 private:
-    Vector3 Pos;
-    Vector3 Size;
+    Vector3 Pos = VECTOR3_ZERO;
+    Vector3 Size = VECTOR3_ONE;
 };
 
 std::ostream& operator<<(std::ostream&, const Rect3&);
