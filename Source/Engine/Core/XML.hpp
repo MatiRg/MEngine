@@ -42,7 +42,6 @@ public:
     void SetVector3(const Vector3&);
     void SetVector4(const Vector4&);
     void SetRect2(const Rect2&);
-    void SetIntRect2(const IntRect2&);
     void SetColor(const Color&);
     void SetMatrix3(const Matrix3&);
     void SetMatrix4(const Matrix4&);
@@ -66,8 +65,6 @@ public:
     Vector4 GetVector4(const Vector4&);
     // Default Value
     Rect2 GetRect2(const Rect2&);
-    // Default Value
-    IntRect2 GetIntRect2(const IntRect2&);
     // Default Value
     Color GetColor(const Color&);
     // Default Value
@@ -127,8 +124,6 @@ public:
     // Name, Value
     void SetRect2Attribute(const std::string&, const Rect2&);
     // Name, Value
-    void SetIntRect2Attribute(const std::string&, const IntRect2&);
-    // Name, Value
     void SetColorAttribute(const std::string&, const Color&);
     // Name, Value
     void SetMatrix3Attribute(const std::string&, const Matrix3&);
@@ -155,8 +150,6 @@ public:
     Vector4 GetVector4Attribute(const std::string&, const Vector4&);
     // Name, Default
     Rect2 GetRect2Attribute(const std::string&, const Rect2&);
-    // Name, Default
-    IntRect2 GetIntRect2Attribute(const std::string&, const IntRect2&);
     // Name, Default
     Color GetColorAttribute(const std::string&, const Color&);
     // Name, Default

@@ -83,14 +83,6 @@ void CXMLObject::SetRect2(const Rect2& Arg)
     SetValue(Buffor.data());
 }
 
-void CXMLObject::SetIntRect2(const IntRect2& Arg)
-{
-    std::array<char, 256> Buffor;
-    Buffor.fill('\0');
-    std::snprintf(Buffor.data(), 255, "%d %d %d %d", Arg.GetX(), Arg.GetY(), Arg.GetWidth(), Arg.GetHeight());
-    SetValue(Buffor.data());
-}
-
 void CXMLObject::SetColor(const Color& Arg)
 {
     std::array<char, 256> Buffor;
@@ -220,17 +212,6 @@ Rect2 CXMLObject::GetRect2(const Rect2& Default)
         return Default;
     }
     return Rect2(x, y, w, h);
-}
-
-IntRect2 CXMLObject::GetIntRect2(const IntRect2& Default)
-{
-    int x, y, w, h;
-    if( std::sscanf(GetValue().c_str(), "%d %d %d %d", &x, &y, &w, &h) != 4 )
-    {
-        LOG(ESeverity::Warning) << "Invalid Value in XML File - " << Document->GetFileName() << " - Param/Attribute Name - " << Name << "\n";
-        return Default;
-    }
-    return IntRect2(x, y, w, h);
 }
 
 Color CXMLObject::GetColor(const Color& Default)
@@ -415,12 +396,6 @@ void CXMLElement::SetRect2Attribute(const std::string& Name, const Rect2& Arg)
     Attribute->SetRect2(Arg);
 }
 
-void CXMLElement::SetIntRect2Attribute(const std::string& Name, const IntRect2& Arg)
-{
-    CXMLAttribute* Attribute = NewAttribute(Name);
-    Attribute->SetIntRect2(Arg);
-}
-
 void CXMLElement::SetColorAttribute(const std::string& Name, const Color& Arg)
 {
     CXMLAttribute* Attribute = NewAttribute(Name);
@@ -533,16 +508,6 @@ Rect2 CXMLElement::GetRect2Attribute(const std::string& Name, const Rect2& Defau
         return Default;
     }
     return Attribute->GetRect2(Default);
-}
-
-IntRect2 CXMLElement::GetIntRect2Attribute(const std::string& Name, const IntRect2& Default)
-{
-    CXMLAttribute* Attribute = GetAttribute(Name);
-    if( !Attribute )
-    {
-        return Default;
-    }
-    return Attribute->GetIntRect2(Default);
 }
 
 Color CXMLElement::GetColorAttribute(const std::string& Name, const Color& Default)

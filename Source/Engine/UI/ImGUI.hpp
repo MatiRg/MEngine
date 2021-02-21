@@ -64,8 +64,6 @@ public:
     void InputVector4(const std::string&, Vector4&);
     //! Name, Value
     void InputRect2(const std::string&, Rect2&);
-    //! Name, Value
-    void InputRect2(const std::string&, IntRect2&);
     //! Name
     bool Button(const std::string&);
     //1 Next widget is in same line

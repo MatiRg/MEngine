@@ -311,16 +311,6 @@ void CImGUI::InputRect2(const std::string& Caption, Rect2& Value)
     Value.SetHeight( Tmp[3] );
 }
 
-void CImGUI::InputRect2(const std::string& Caption, IntRect2& Value)
-{
-    std::array<int, 4> Tmp = {Value.GetX(), Value.GetY(), Value.GetWidth(), Value.GetHeight()};
-    ImGui::InputInt4( Caption.c_str(), Tmp.data() );
-    Value.SetX( Tmp[0] );
-    Value.SetY( Tmp[1] );
-    Value.SetWidth( Tmp[2] );
-    Value.SetHeight( Tmp[3] );
-}
-
 bool CImGUI::Button(const std::string& Caption)
 {
     return ImGui::Button( Caption.c_str() );

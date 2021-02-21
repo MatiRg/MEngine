@@ -49,20 +49,21 @@ public:
     }
 
     float GetR() const { return r; }
-    uint8_t GetR_UInt() const { return static_cast<uint8_t>(r*255.0f); }
     void SetR(const float x) { r = x; }
 
     float GetG() const { return g; }
-    uint8_t GetG_UInt() const { return static_cast<uint8_t>(g*255.0f); }
     void SetG(const float x) { g = x; }
 
     float GetB() const { return b; }
-    uint8_t GetB_UInt() const { return static_cast<uint8_t>(b*255.0f); }
     void SetB(const float x) { b = x; }
 
     float GetA() const { return a; }
-    uint8_t GetA_UInt() const { return static_cast<uint8_t>(a*255.0f); }
     void SetA(const float x) { a = x; }
+
+    uint8_t GetR_UInt() const { return static_cast<uint8_t>(r*255.0f); }
+    uint8_t GetG_UInt() const { return static_cast<uint8_t>(g*255.0f); }
+    uint8_t GetB_UInt() const { return static_cast<uint8_t>(b*255.0f); }
+    uint8_t GetA_UInt() const { return static_cast<uint8_t>(a*255.0f); }
 
     static Color WHITE;
     static Color BLACK;
@@ -80,20 +81,7 @@ public:
 
 namespace Math
 {
-    inline Color Lerp(const Color& a, const Color& b, const float v)
-    {
-        Color R(
-            Lerp(a.GetR(), b.GetR(), v),
-            Lerp(a.GetG(), b.GetG(), v),
-            Lerp(a.GetB(), b.GetB(), v),
-            Lerp(a.GetA(), b.GetA(), v)
-        );
-        return R;
-    }
+    Color Lerp(const Color& a, const Color& b, const float t);
 }
 
-inline std::ostream& operator<<(std::ostream& Stream, const Color& Other)
-{
-    Stream << Other.GetR() << ", " << Other.GetG() << ", " << Other.GetB() << ", " << Other.GetA();
-    return Stream;
-}
+std::ostream& operator<<(std::ostream& Stream, const Color& Other);
