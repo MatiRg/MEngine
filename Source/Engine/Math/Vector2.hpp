@@ -1,29 +1,52 @@
 #pragma once
 #include "Functions.hpp"
+#include "IntVector2.hpp"
 #include <ostream>
 
-template<class T>
-class TVector2
+class Vector2
 {
 public:
-    TVector2(const T Val = T(0)):
+    Vector2(const float Val = 0.0f):
         x( Val ), y( Val )
     {
     }
 
-    TVector2(const T Val1, const T Val2):
+    Vector2(const float Val1, const float Val2):
         x( Val1 ), y( Val2 )
     {
     }
 
-    TVector2(const TVector2<T>& Other):
+    Vector2(const IntVector2& Other):
+        x( static_cast<float>(Other.x) ), y( static_cast<float>(Other.y) )
+    {
+    }
+
+    Vector2(const Vector2& Other):
         x( Other.x ), y( Other.y )
     {
     }
 
-    ~TVector2() {}
+    ~Vector2() {}
 
-    TVector2<T>& operator=(const TVector2<T>& Other)
+    Vector2 Normalized() const;
+    //
+    void Normalize();
+    //
+    float Distance(const Vector2& b) const;
+    //
+    float DistanceSquared(const Vector2& b) const;
+    //
+    float Length() const;
+    //
+    float LengthSquared() const;
+    //
+    float DotProduct(const Vector2& b) const;
+    //
+    float CrossProduct(const Vector2& b) const;
+    // Vectors Normalized, In Degrees
+    float Angle(const Vector2& To) const;
+
+    Vector2& operator=(const Vector2& Other)
     {
         if( this != &Other )
         {
@@ -33,137 +56,127 @@ public:
         return *this;
     }
 
-    T& operator[](std::size_t idx)
+    float& operator[](std::size_t idx)
     {
         return (&x)[idx];
     }
 
-    const T& operator[](std::size_t idx) const
+    const float& operator[](std::size_t idx) const
     {
         return (&x)[idx];
     }
 
-    TVector2<T>& operator*=(const T Other)
+    Vector2& operator*=(const float Other)
     {
         x *= Other;
         y *= Other;
         return *this;
     }
 
-    TVector2<T> operator*(const T Other) const
+    Vector2 operator*(const float Other) const
     {
-        return TVector2<T>( x * Other, y * Other );
+        return Vector2( x * Other, y * Other );
     }
 
-    TVector2<T>& operator*=(const TVector2<T>& Other)
+    Vector2& operator*=(const Vector2& Other)
     {
         x *= Other.x;
         y *= Other.y;
         return *this;
     }
 
-    TVector2<T> operator*(const TVector2<T>& Other) const
+    Vector2 operator*(const Vector2& Other) const
     {
-        return TVector2<T>( x * Other.x, y * Other.y );
+        return Vector2( x * Other.x, y * Other.y );
     }
 
-    TVector2<T>& operator+=(const T Other)
+    Vector2& operator+=(const float Other)
     {
         x += Other;
         y += Other;
         return *this;
     }
 
-    TVector2<T> operator+(const T Other) const
+    Vector2 operator+(const float Other) const
     {
-        return TVector2<T>( x + Other, y + Other );
+        return Vector2( x + Other, y + Other );
     }
 
-    TVector2<T>& operator+=(const TVector2<T>& Other)
+    Vector2& operator+=(const Vector2& Other)
     {
         x += Other.x;
         y += Other.y;
         return *this;
     }
 
-    TVector2<T> operator+(const TVector2<T>& Other) const
+    Vector2 operator+(const Vector2& Other) const
     {
-        return TVector2( x + Other.x, y + Other.y );
+        return Vector2( x + Other.x, y + Other.y );
     }
 
-    TVector2<T> operator-() const
+    Vector2 operator-() const
     {
         return {-x, -y};
     }
 
-    TVector2<T>& operator-=(const T Other)
+    Vector2& operator-=(const float Other)
     {
         x -= Other;
         y -= Other;
         return *this;
     }
 
-    TVector2<T> operator-(const T Other) const
+    Vector2 operator-(const float Other) const
     {
-        return TVector2<T>( x - Other, y - Other );
+        return Vector2( x - Other, y - Other );
     }
 
-    TVector2<T>& operator-=(const TVector2<T>& Other)
+    Vector2& operator-=(const Vector2& Other)
     {
         x -= Other.x;
         y -= Other.y;
         return *this;
     }
 
-    TVector2<T> operator-(const TVector2<T>& Other) const
+    Vector2 operator-(const Vector2& Other) const
     {
-        return TVector2<T>( x - Other.x, y - Other.y );
+        return Vector2( x - Other.x, y - Other.y );
     }
 
-    TVector2<T>& operator/=(const T Other)
+    Vector2& operator/=(const float Other)
     {
         x /= Other;
         y /= Other;
         return *this;
     }
 
-    TVector2<T> operator/(const T Other) const
+    Vector2 operator/(const float Other) const
     {
-        return TVector2<T>( x / Other, y / Other );
+        return Vector2( x / Other, y / Other );
     }
 
-    TVector2<T>& operator/=(const TVector2<T>& Other)
+    Vector2& operator/=(const Vector2& Other)
     {
         x /= Other.x;
         y /= Other.y;
         return *this;
     }
 
-    TVector2<T> operator/(const TVector2<T>& Other) const
+    Vector2 operator/(const Vector2& Other) const
     {
-        return TVector2<T>( x / Other.x, y / Other.y );
+        return Vector2( x / Other.x, y / Other.y );
     }
 
-    static TVector2<T> UP;
-    static TVector2<T> DOWN;
-    static TVector2<T> RIGHT;
-    static TVector2<T> LEFT;
-    static TVector2<T> ZERO;
-    static TVector2<T> ONE;
+    static Vector2 UP;
+    static Vector2 DOWN;
+    static Vector2 RIGHT;
+    static Vector2 LEFT;
+    static Vector2 ZERO;
+    static Vector2 ONE;
 public:
-    T x = T(0);
-    T y = T(0);
+    float x = 0.0f;
+    float y = 0.0f;
 };
-
-template<class T> TVector2<T> TVector2<T>::UP = { T(0), T(1) };
-template<class T> TVector2<T> TVector2<T>::DOWN = { T(0), T(-1) };
-template<class T> TVector2<T> TVector2<T>::RIGHT = { T(1), T(0) };
-template<class T> TVector2<T> TVector2<T>::LEFT = { T(-1), T(0) };
-template<class T> TVector2<T> TVector2<T>::ZERO = { T(0), T(0) };
-template<class T> TVector2<T> TVector2<T>::ONE = { T(1), T(1) };
-
-using Vector2 = TVector2<float>;
-using IntVector2 = TVector2<int>;
 
 namespace Math
 {
@@ -183,4 +196,3 @@ namespace Math
 }
 
 std::ostream& operator<<(std::ostream& Stream, const Vector2& Other);
-std::ostream& operator<<(std::ostream& Stream, const IntVector2& Other);

@@ -1,5 +1,57 @@
 #include "Vector2.hpp"
 
+Vector2 Vector2::Normalized() const
+{
+    return Math::Normalize(*this);
+}
+
+void Vector2::Normalize()
+{
+    *this = Math::Normalize(*this);
+}
+
+float Vector2::Distance(const Vector2& b) const
+{
+    return Math::Distance(*this, b);
+}
+
+float Vector2::DistanceSquared(const Vector2& b) const
+{
+    return Math::DistanceSquared(*this, b);
+}
+
+float Vector2::Length() const
+{
+    return Math::Length(*this);
+}
+
+float Vector2::LengthSquared() const
+{
+    return Math::LengthSquared(*this);
+}
+
+float Vector2::DotProduct(const Vector2& b) const
+{
+    return Math::DotProduct(*this, b);
+}
+
+float Vector2::CrossProduct(const Vector2& b) const
+{
+    return Math::CrossProduct(*this, b);
+}
+
+float Vector2::Angle(const Vector2& To) const
+{
+    return Math::Angle(*this, To);
+}
+
+Vector2 Vector2::UP = { 0.0f, 0.0f };
+Vector2 Vector2::DOWN = { 0.0f, -1.0f };
+Vector2 Vector2::RIGHT = { 1.0f, 0.0f };
+Vector2 Vector2::LEFT = { -1.0f, 0.0f };
+Vector2 Vector2::ZERO = { 0.0f, 0.0f };
+Vector2 Vector2::ONE = { 1.0f, 1.0f };
+
 namespace Math
 {
     Vector2 Normalize(const Vector2& a)
@@ -76,12 +128,6 @@ namespace Math
 }
 
 std::ostream& operator<<(std::ostream& Stream, const Vector2& Other)
-{
-    Stream << Other.x << ", " << Other.y;
-    return Stream;
-}
-
-std::ostream& operator<<(std::ostream& Stream, const IntVector2& Other)
 {
     Stream << Other.x << ", " << Other.y;
     return Stream;

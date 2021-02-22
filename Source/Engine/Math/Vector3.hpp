@@ -3,48 +3,67 @@
 #include "Vector2.hpp"
 #include <ostream>
 
-template<class T>
-class TVector3
+class Vector3
 {
 public:
-    TVector3(const T Val = T(0)):
+    Vector3(const float Val = 0.0f):
         x( Val ), y( Val ), z( Val )
     {
     }
 
-    TVector3(const T Val1, const T Val2, const T Val3):
+    Vector3(const float Val1, const float Val2, const float Val3):
         x( Val1 ), y( Val2 ), z( Val3 )
     {
     }
 
-    TVector3(const TVector2<T>& Val1, const T Val3):
+    Vector3(const Vector2& Val1, const float Val3):
         x( Val1.x ), y( Val1.y ), z( Val3 )
     {
     }
 
-    TVector3(const TVector3<T>& Other):
+    Vector3(const Vector3& Other):
         x( Other.x ), y( Other.y ), z( Other.z )
     {
     }
 
-    ~TVector3() {}
+    ~Vector3() {}
 
-    TVector2<T> XZ() const
+    Vector3 Normalized() const;
+    //
+    void Normalize();
+    //
+    float Distance(const Vector3& b) const;
+    //
+    float DistanceSquared(const Vector3& b) const;
+    //
+    float Length() const;
+    //
+    float LengthSquared() const;
+    //
+    float DotProduct(const Vector3& b) const;
+    //
+    Vector3 CrossProduct(const Vector3& b) const;
+    // Vectors Normalized, In Degrees
+    float Angle(const Vector3& To) const;
+    // Vectors Normalized, In Degrees
+    float SignedAngle(const Vector3& To, const Vector3& Axis) const;
+
+    Vector2 XZ() const
     {
         return { x, z };
     }
 
-    TVector2<T> XY() const
+    Vector2 XY() const
     {
         return { x, y };
     }
 
-    TVector2<T> YZ() const
+    Vector2 YZ() const
     {
         return { y, z };
     }
 
-    TVector3<T>& operator=(const TVector3<T>& Other)
+    Vector3& operator=(const Vector3& Other)
     {
         if( this != &Other )
         {
@@ -55,17 +74,17 @@ public:
         return *this;
     }
 
-    T& operator[](std::size_t idx)
+    float& operator[](std::size_t idx)
     {
         return (&x)[idx];
     }
 
-    const T& operator[](std::size_t idx) const
+    const float& operator[](std::size_t idx) const
     {
         return (&x)[idx];
     }
 
-    TVector3<T>& operator*=(const T Other)
+    Vector3& operator*=(const float Other)
     {
         x *= Other;
         y *= Other;
@@ -73,12 +92,12 @@ public:
         return *this;
     }
 
-    TVector3<T> operator*(const T Other) const
+    Vector3 operator*(const float Other) const
     {
-        return TVector3<T>( x * Other, y * Other, z * Other );
+        return Vector3( x * Other, y * Other, z * Other );
     }
 
-    TVector3<T>& operator*=(const TVector3<T>& Other)
+    Vector3& operator*=(const Vector3& Other)
     {
         x *= Other.x;
         y *= Other.y;
@@ -86,12 +105,12 @@ public:
         return *this;
     }
 
-    TVector3<T> operator*(const TVector3<T>& Other) const
+    Vector3 operator*(const Vector3& Other) const
     {
-        return TVector3<T>( x * Other.x, y * Other.y, z * Other.z );
+        return Vector3( x * Other.x, y * Other.y, z * Other.z );
     }
 
-    TVector3<T>& operator+=(const T Other)
+    Vector3& operator+=(const float Other)
     {
         x += Other;
         y += Other;
@@ -99,12 +118,12 @@ public:
         return *this;
     }
 
-    TVector3<T> operator+(const T Other) const
+    Vector3 operator+(const float Other) const
     {
-        return TVector3<T>( x + Other, y + Other, z + Other );
+        return Vector3( x + Other, y + Other, z + Other );
     }
 
-    TVector3<T>& operator+=(const TVector3<T>& Other)
+    Vector3& operator+=(const Vector3& Other)
     {
         x += Other.x;
         y += Other.y;
@@ -112,17 +131,17 @@ public:
         return *this;
     }
 
-    TVector3<T> operator+(const TVector3<T>& Other) const
+    Vector3 operator+(const Vector3& Other) const
     {
-        return TVector3( x + Other.x, y + Other.y, z + Other.z );
+        return Vector3( x + Other.x, y + Other.y, z + Other.z );
     }
 
-    TVector3<T> operator-() const
+    Vector3 operator-() const
     {
         return {-x, -y, -z};
     }
 
-    TVector3<T>& operator-=(const T Other)
+    Vector3& operator-=(const float Other)
     {
         x -= Other;
         y -= Other;
@@ -130,12 +149,12 @@ public:
         return *this;
     }
 
-    TVector3<T> operator-(const T Other) const
+    Vector3 operator-(const float Other) const
     {
-        return TVector3<T>( x - Other, y - Other, z - Other );
+        return Vector3( x - Other, y - Other, z - Other );
     }
 
-    TVector3<T>& operator-=(const TVector3<T>& Other)
+    Vector3& operator-=(const Vector3& Other)
     {
         x -= Other.x;
         y -= Other.y;
@@ -143,12 +162,12 @@ public:
         return *this;
     }
 
-    TVector3<T> operator-(const TVector3<T>& Other) const
+    Vector3 operator-(const Vector3& Other) const
     {
-        return TVector3<T>( x - Other.x, y - Other.y, z - Other.z );
+        return Vector3( x - Other.x, y - Other.y, z - Other.z );
     }
 
-    TVector3<T>& operator/=(const T Other)
+    Vector3& operator/=(const float Other)
     {
         x /= Other;
         y /= Other;
@@ -156,12 +175,12 @@ public:
         return *this;
     }
 
-    TVector3<T> operator/(const T Other) const
+    Vector3 operator/(const float Other) const
     {
-        return TVector3<T>( x / Other, y / Other, z / Other );
+        return Vector3( x / Other, y / Other, z / Other );
     }
 
-    TVector3<T>& operator/=(const TVector3<T>& Other)
+    Vector3& operator/=(const Vector3& Other)
     {
         x /= Other.x;
         y /= Other.y;
@@ -169,35 +188,24 @@ public:
         return *this;
     }
 
-    TVector3<T> operator/(const TVector3<T>& Other) const
+    Vector3 operator/(const Vector3& Other) const
     {
-        return TVector3<T>( x / Other.x, y / Other.y, z / Other.z );
+        return Vector3( x / Other.x, y / Other.y, z / Other.z );
     }
 
-    static TVector3<T> UP;
-    static TVector3<T> DOWN;
-    static TVector3<T> RIGHT;
-    static TVector3<T> LEFT;
-    static TVector3<T> FORWARD;
-    static TVector3<T> BACK;
-    static TVector3<T> ZERO;
-    static TVector3<T> ONE;
+    static Vector3 UP;
+    static Vector3 DOWN;
+    static Vector3 RIGHT;
+    static Vector3 LEFT;
+    static Vector3 FORWARD;
+    static Vector3 BACK;
+    static Vector3 ZERO;
+    static Vector3 ONE;
 public:
-    T x = T(0);
-    T y = T(0);
-    T z = T(0);
+    float x = 0.0f;
+    float y = 0.0f;
+    float z = 0.0f;
 };
-
-template<class T> TVector3<T> TVector3<T>::UP = { T(0), T(1), T(0) };
-template<class T> TVector3<T> TVector3<T>::DOWN = { T(0), T(-1), T(0) };
-template<class T> TVector3<T> TVector3<T>::RIGHT = { T(1), T(0), T(0) };
-template<class T> TVector3<T> TVector3<T>::LEFT = { T(-1), T(0), T(0) };
-template<class T> TVector3<T> TVector3<T>::FORWARD = { T(0), T(0), T(1) };
-template<class T> TVector3<T> TVector3<T>::BACK = { T(0), T(0), T(-1) };
-template<class T> TVector3<T> TVector3<T>::ZERO = { T(0), T(0), T(0) };
-template<class T> TVector3<T> TVector3<T>::ONE = { T(1), T(1), T(1) };
-
-using Vector3 = TVector3<float>;
 
 namespace Math
 {

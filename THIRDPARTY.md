@@ -1,10 +1,11 @@
 # Credits
-Textures, Models, ...
+Textures, Models, Code, ...
  * Courier Prime Code - https://www.1001fonts.com/courier-prime-code-font.html
  * backpack.obj - Backpack model and Textures - https://sketchfab.com/3d-models/survival-guitar-backpack-low-poly-799f8c4511f84fab8c3f12887f7e6b36
  * wall.jpg - https://learnopengl.com/Getting-started/Textures
  * Debussy - Arabesque No. 1 (Ciccolini)
  * mouseclick.wav - https://opengameart.org/content/mouse-click
+ * Uses Math Code From GLM - https://github.com/g-truc/glm - MIT License
 # Third Party Libraries
  * SDL2 2.0.5 - zlib
  * SDL2_image 2.0.1 - zlib

@@ -1,5 +1,43 @@
 #include "Vector4.hpp"
 
+Vector4 Vector4::Normalized() const
+{
+    return Math::Normalize(*this);
+}
+
+void Vector4::Normalize()
+{
+    *this = Math::Normalize(*this);
+}
+
+float Vector4::Distance(const Vector4& b) const
+{
+    return Math::Distance(*this, b);
+}
+
+float Vector4::DistanceSquared(const Vector4& b) const
+{
+    return Math::DistanceSquared(*this, b);
+}
+
+float Vector4::Length() const
+{
+    return Math::Length(*this);
+}
+
+float Vector4::LengthSquared() const
+{
+    return Math::LengthSquared(*this);
+}
+
+float Vector4::DotProduct(const Vector4& b) const
+{
+    return Math::DotProduct(*this, b);
+}
+
+Vector4 Vector4::ZERO = { 0.0f, 0.0f, 0.0f, 0.0f };
+Vector4 Vector4::ONE = { 1.0f, 1.0f, 1.0f, 1.0f };
+
 namespace Math
 {
     Vector4 Normalize(const Vector4& a)

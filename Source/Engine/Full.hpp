@@ -54,6 +54,7 @@
 
 #include "Math/Color.hpp"
 #include "Math/Functions.hpp"
+#include "Math/IntVector2.hpp"
 #include "Math/Matrix3.hpp"
 #include "Math/Matrix4.hpp"
 #include "Math/Quaternion.hpp"

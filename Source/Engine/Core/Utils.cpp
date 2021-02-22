@@ -231,4 +231,24 @@ namespace Utils
     {
         a1 ^= a2 + 0x9e3779b9 + (a1 << 6) + (a1 >> 2);
     }
+
+    std::string ToString(const Vector2& v)
+    {
+        return std::to_string(v.x) + ", " + std::to_string(v.y);
+    }
+
+    std::string ToString(const IntVector2& v)
+    {
+        return std::to_string(v.x) + ", " + std::to_string(v.y);
+    }
+
+    std::string ToString(const Vector3& v)
+    {
+        return std::to_string(v.x) + ", " + std::to_string(v.y) + ", " + std::to_string(v.z);
+    }
+
+    std::string ToString(const bool v)
+    {
+        return v ? "true" : "false";
+    }
 }

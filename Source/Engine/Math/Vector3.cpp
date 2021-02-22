@@ -1,5 +1,64 @@
 #include "Vector3.hpp"
 
+Vector3 Vector3::Normalized() const
+{
+    return Math::Normalize(*this);
+}
+
+void Vector3::Normalize()
+{
+    *this = Math::Normalize(*this);
+}
+
+float Vector3::Distance(const Vector3& b) const
+{
+    return Math::Distance(*this, b);
+}
+
+float Vector3::DistanceSquared(const Vector3& b) const
+{
+    return Math::DistanceSquared(*this, b);
+}
+
+float Vector3::Length() const
+{
+    return Math::Length(*this);
+}
+
+float Vector3::LengthSquared() const
+{
+    return Math::LengthSquared(*this);
+}
+
+float Vector3::DotProduct(const Vector3& b) const
+{
+    return Math::DotProduct(*this, b);
+}
+
+Vector3 Vector3::CrossProduct(const Vector3& b) const
+{
+    return Math::CrossProduct(*this, b);
+}
+
+float Vector3::Angle(const Vector3& To) const
+{
+    return Math::Angle(*this, To);
+}
+
+float Vector3::SignedAngle(const Vector3& To, const Vector3& Axis) const
+{
+    return Math::SignedAngle(*this, To, Axis);
+}
+
+Vector3 Vector3::UP = { 0.0f, 1.0f, 0.0f };
+Vector3 Vector3::DOWN = { 0.0f, -1.0f, 0.0f };
+Vector3 Vector3::RIGHT = { 1.0f, 0.0f, 0.0f };
+Vector3 Vector3::LEFT = { -1.0f, 0.0f, 0.0f };
+Vector3 Vector3::FORWARD = { 0.0f, 0.0f, 1.0f };
+Vector3 Vector3::BACK = { 0.0f, 0.0f, -1.0f };
+Vector3 Vector3::ZERO = { 0.0f, 0.0f, 0.0f };
+Vector3 Vector3::ONE = { 1.0f, 1.0f, 1.0f };
+
 namespace Math
 {
     Vector3 Normalize(const Vector3& a)

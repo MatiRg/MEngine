@@ -323,7 +323,7 @@ void CLevel2::LoadMap()
 	//
 	CameraComponent = CameraObject->CreateComponent<CCamera>();
 	CameraComponent->SetAspect(App->GetWindow()->GetAspectRatio());
-	CameraComponent->SetFOV(60.0f);
+	CameraComponent->SetFOV(90.0f);
 	CameraComponent->SetNearClipPlane(0.3f);
 	CameraComponent->SetFarClipPlane(1000.0f);
 

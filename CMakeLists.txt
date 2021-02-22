@@ -165,8 +165,13 @@ set(SOURCES_BASE
 	Source/Engine/Math/Color.hpp
 	Source/Engine/Math/Functions.cpp
 	Source/Engine/Math/Functions.hpp
+	Source/Engine/Math/IntVector2.cpp
+	Source/Engine/Math/IntVector2.hpp
+	Source/Engine/Math/Matrix3.cpp
 	Source/Engine/Math/Matrix3.hpp
+	Source/Engine/Math/Matrix4.cpp
 	Source/Engine/Math/Matrix4.hpp
+	Source/Engine/Math/Quaternion.cpp
 	Source/Engine/Math/Quaternion.hpp
 	Source/Engine/Math/Rect2.cpp
 	Source/Engine/Math/Rect2.hpp
