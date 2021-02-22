@@ -161,21 +161,29 @@ set(SOURCES_BASE
 	Source/Engine/Implementation/SDLSystem.hpp
 	Source/Engine/Implementation/SDLWindow.cpp
 	Source/Engine/Implementation/SDLWindow.hpp
-	Source/Engine/Math/AABB2.hpp
-	Source/Engine/Math/AABB3.hpp
 	Source/Engine/Math/Color.cpp
 	Source/Engine/Math/Color.hpp
 	Source/Engine/Math/Functions.cpp
 	Source/Engine/Math/Functions.hpp
+	Source/Engine/Math/IntVector2.cpp
+	Source/Engine/Math/IntVector2.hpp
+	Source/Engine/Math/Matrix3.cpp
 	Source/Engine/Math/Matrix3.hpp
+	Source/Engine/Math/Matrix4.cpp
 	Source/Engine/Math/Matrix4.hpp
+	Source/Engine/Math/Quaternion.cpp
 	Source/Engine/Math/Quaternion.hpp
+	Source/Engine/Math/Rect2.cpp
 	Source/Engine/Math/Rect2.hpp
+	Source/Engine/Math/Rect3.cpp
 	Source/Engine/Math/Rect3.hpp
 	Source/Engine/Math/Transform.cpp
 	Source/Engine/Math/Transform.hpp
+	Source/Engine/Math/Vector2.cpp
 	Source/Engine/Math/Vector2.hpp
+	Source/Engine/Math/Vector3.cpp
 	Source/Engine/Math/Vector3.hpp
+	Source/Engine/Math/Vector4.cpp
 	Source/Engine/Math/Vector4.hpp
 	Source/Engine/Physics/CollisionShape2D.cpp
 	Source/Engine/Physics/CollisionShape2D.hpp

@@ -36,22 +36,15 @@ namespace Utils
     // Pass hash values starting from 0
     void HashCombine(std::size_t&, const std::size_t);
 
+    std::string ToString(const Vector2& v);
+    std::string ToString(const IntVector2& v);
+    std::string ToString(const Vector3& v);
+    std::string ToString(const bool v);
+
     template<class T>
     std::string ToString(const T v)
     {
         return std::to_string(v);
-    }
-
-    template<class T>
-    std::string ToString(const TVector2<T>& v)
-    {
-        return std::to_string(v.x) + ", " + std::to_string(v.y);
-    }
-
-    template<class T>
-    std::string ToString(const TVector3<T>& v)
-    {
-        return std::to_string(v.x) + ", " + std::to_string(v.y) + ", " + std::to_string(v.z);
     }
 }
 

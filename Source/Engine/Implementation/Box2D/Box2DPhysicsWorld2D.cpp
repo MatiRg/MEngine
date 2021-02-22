@@ -153,7 +153,7 @@ void CBox2DDebugDraw::DrawCircle(const b2Vec2& center, float radius, const b2Col
     Color DrawColor = ToColor(color);
 
     const float k_segments = 16.0f;
-    const float k_increment = 2.0f * Math::PI<float> / k_segments;
+    const float k_increment = 2.0f * Math::PI / k_segments;
     float sinInc = Math::Sin(k_increment);
     float cosInc = Math::Cos(k_increment);
     b2Vec2 r1(1.0f, 0.0f);
@@ -183,7 +183,7 @@ void CBox2DDebugDraw::DrawSolidCircle(const b2Vec2& center, float radius, const 
     Color DrawColor = ToColor(color);
 
     const float k_segments = 16.0f;
-    const float k_increment = 2.0f * Math::PI<float> / k_segments;
+    const float k_increment = 2.0f * Math::PI / k_segments;
     float sinInc = Math::Sin(k_increment);
     float cosInc = Math::Cos(k_increment);
     b2Vec2 v0 = center;

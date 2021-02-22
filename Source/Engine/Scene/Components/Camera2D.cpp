@@ -22,5 +22,5 @@ void CCamera2D::OnLateUpdate(const float)
 
 Matrix4 CCamera2D::GetViewProjection() const
 {
-    return Math::Translation(GetTranslation().x, GetTranslation().y, 0.0f) * Math::Ortho(GetSize().x, 0.0f, GetSize().y, 0.0f);
+    return Math::Translation(GetTranslation().x, GetTranslation().y, 0.0f) * Math::Ortho(GetSize().x, 0.0f, GetSize().y, 0.0f, 1000.0f, -1000.0f);
 }

@@ -3,96 +3,51 @@
 #include "Vector3.hpp"
 #include <ostream>
 
-template<class T>
-class TVector4
+class Vector4
 {
 public:
-    TVector4(const T Val = T(0)):
+    Vector4(const float Val = 0.0f):
         x( Val ), y( Val ), z( Val ), w( Val )
     {
     }
 
-    TVector4(const T Val1, const T Val2, const T Val3, const T Val4):
+    Vector4(const float Val1, const float Val2, const float Val3, const float Val4):
         x( Val1 ), y( Val2 ), z( Val3 ), w( Val4 )
     {
     }
 
-    TVector4(const TVector3<T>& Val1, const T Val4):
+    Vector4(const Vector3& Val1, const float Val4):
         x( Val1.x ), y( Val1.y ), z( Val1.z ), w( Val4 )
     {
     }
 
-    TVector4(const TVector4<T>& Other):
+    Vector4(const Vector4& Other):
         x( Other.x ), y( Other.y ), z( Other.z ), w( Other.w )
     {
     }
 
-    ~TVector4() {}
+    ~Vector4() {}
 
-    TVector4<T> Inversion() const
+    Vector4 Normalized() const;
+    //
+    void Normalize();
+    //
+    float Distance(const Vector4& b) const;
+    //
+    float DistanceSquared(const Vector4& b) const;
+    //
+    float Length() const;
+    //
+    float LengthSquared() const;
+    //
+    float DotProduct(const Vector4& b) const;
+
+    Vector3 ToXYZ() const
     {
-        return TVector4<T>( -x, -y, -z, -w );
+        return {x, y, z};
     }
 
-    void Invert()
-    {
-        x = -x;
-        y = -y;
-        z = -z;
-        w = -w;
-    }
-
-    // Length(magnitude) of Vector
-    T Length() const
-    {
-        return Math::Sqrt( LengthSquared() );
-    }
-
-    // Length(magnitude) of Vector Squared
-    T LengthSquared() const
-    {
-        return x*x + y*y + z*z + w*w;
-    }
-
-    void Normalize()
-    {
-        T L = Length();
-        if( L )
-        {
-            x /= L;
-            y /= L;
-            z /= L;
-            w /= L;
-        }
-    }
-
-    TVector4<T> Normalized() const
-    {
-        TVector4<T> Tmp = *this;
-        Tmp.Normalize();
-        return Tmp;
-    }
-
-    T DotProduct(const TVector4<T>& Other) const
-    {
-        return x*Other.x + y*Other.y + z*Other.z + w*Other.w;
-    }
-
-    // Angle between vectors
-    T Angle(const TVector4<T>& Other) const
-    {
-        return Math::RadToDeg( Math::Acos( DotProduct( Other ) / ( Length() * Other.Length() ) ) );
-    }
-
-    void AddScaledVector(const TVector4<T>& Other, const T Scale)
-    {
-        x += Other.x * Scale;
-        y += Other.y * Scale;
-        z += Other.z * Scale;
-        w += Other.w * Scale;
-    }
-
-    TVector4<T>& operator=(const TVector4<T>& Other)
+    Vector4& operator=(const Vector4& Other)
     {
         if( this != &Other )
         {
@@ -104,17 +59,17 @@ public:
         return *this;
     }
 
-    T& operator[](std::size_t idx)
+    float& operator[](std::size_t idx)
     {
         return (&x)[idx];
     }
 
-    const T& operator[](std::size_t idx) const
+    const float& operator[](std::size_t idx) const
     {
         return (&x)[idx];
     }
 
-    TVector4<T>& operator*=(const T Other)
+    Vector4& operator*=(const float Other)
     {
         x *= Other;
         y *= Other;
@@ -123,12 +78,12 @@ public:
         return *this;
     }
 
-    TVector4<T> operator*(const T Other) const
+    Vector4 operator*(const float Other) const
     {
-        return TVector4<T>( x * Other, y * Other, z * Other, w * Other );
+        return Vector4( x * Other, y * Other, z * Other, w * Other );
     }
 
-    TVector4<T>& operator*=(const TVector4<T>& Other)
+    Vector4& operator*=(const Vector4& Other)
     {
         x *= Other.x;
         y *= Other.y;
@@ -137,12 +92,12 @@ public:
         return *this;
     }
 
-    TVector4<T> operator*(const TVector4<T>& Other) const
+    Vector4 operator*(const Vector4& Other) const
     {
-        return TVector4<T>( x * Other.x, y * Other.y, z * Other.z, w * Other.w );
+        return Vector4( x * Other.x, y * Other.y, z * Other.z, w * Other.w );
     }
 
-    TVector4<T>& operator+=(const T Other)
+    Vector4& operator+=(const float Other)
     {
         x += Other;
         y += Other;
@@ -151,12 +106,12 @@ public:
         return *this;
     }
 
-    TVector4<T> operator+(const T Other) const
+    Vector4 operator+(const float Other) const
     {
-        return TVector4<T>( x + Other, y + Other, z + Other, w + Other );
+        return Vector4( x + Other, y + Other, z + Other, w + Other );
     }
 
-    TVector4<T>& operator+=(const TVector4<T>& Other)
+    Vector4& operator+=(const Vector4& Other)
     {
         x += Other.x;
         y += Other.y;
@@ -165,17 +120,17 @@ public:
         return *this;
     }
 
-    TVector4<T> operator+(const TVector4<T>& Other) const
+    Vector4 operator+(const Vector4& Other) const
     {
-        return TVector4( x + Other.x, y + Other.y, z + Other.z, w + Other.w );
+        return Vector4( x + Other.x, y + Other.y, z + Other.z, w + Other.w );
     }
 
-    TVector4<T> operator-() const
+    Vector4 operator-() const
     {
-        return Inversion();
+        return {-x, -y, -z, -w};
     }
 
-    TVector4<T>& operator-=(const T Other)
+    Vector4& operator-=(const float Other)
     {
         x -= Other;
         y -= Other;
@@ -184,12 +139,12 @@ public:
         return *this;
     }
 
-    TVector4<T> operator-(const T Other) const
+    Vector4 operator-(const float Other) const
     {
-        return TVector4<T>( x - Other, y - Other, z - Other, w - Other );
+        return Vector4( x - Other, y - Other, z - Other, w - Other );
     }
 
-    TVector4<T>& operator-=(const TVector4<T>& Other)
+    Vector4& operator-=(const Vector4& Other)
     {
         x -= Other.x;
         y -= Other.y;
@@ -198,12 +153,12 @@ public:
         return *this;
     }
 
-    TVector4<T> operator-(const TVector4<T>& Other) const
+    Vector4 operator-(const Vector4& Other) const
     {
-        return TVector4<T>( x - Other.x, y - Other.y, z - Other.z, w - Other.w );
+        return Vector4( x - Other.x, y - Other.y, z - Other.z, w - Other.w );
     }
 
-    TVector4<T>& operator/=(const T Other)
+    Vector4& operator/=(const float Other)
     {
         x /= Other;
         y /= Other;
@@ -212,12 +167,12 @@ public:
         return *this;
     }
 
-    TVector4<T> operator/(const T Other) const
+    Vector4 operator/(const float Other) const
     {
-        return TVector4<T>( x / Other, y / Other, z / Other, w / Other );
+        return Vector4( x / Other, y / Other, z / Other, w / Other );
     }
 
-    TVector4<T>& operator/=(const TVector4<T>& Other)
+    Vector4& operator/=(const Vector4& Other)
     {
         x /= Other.x;
         y /= Other.y;
@@ -226,64 +181,32 @@ public:
         return *this;
     }
 
-    TVector4<T> operator/(const TVector4<T>& Other) const
+    Vector4 operator/(const Vector4& Other) const
     {
-        return TVector4<T>( x / Other.x, y / Other.y, z / Other.z, w / Other.w );
+        return Vector4( x / Other.x, y / Other.y, z / Other.z, w / Other.w );
     }
 
-    static TVector4<T> ZERO;
-    static TVector4<T> ONE;
+    static Vector4 ZERO;
+    static Vector4 ONE;
 public:
-    T x = T(0);
-    T y = T(0);
-    T z = T(0);
-    T w = T(0);
+    float x = 0.0f;
+    float y = 0.0f;
+    float z = 0.0f;
+    float w = 0.0f;
 };
-
-template<class T> TVector4<T> TVector4<T>::ZERO = { T(0), T(0), T(0), T(0) };
-template<class T> TVector4<T> TVector4<T>::ONE = { T(1), T(1), T(1), T(1) };
-
-using Vector4 = TVector4<float>;
-using IntVector4 = TVector4<int>;
-using Size4 = TVector4<uint32_t>;
 
 namespace Math
 {
-    template<class T>
-    TVector4<T> Normalize(const TVector4<T>& a)
-    {
-        TVector4<T> t = a;
-        t.Normalize();
-        return t;
-    }
-
-    template<class T>
-    T DotProduct(const TVector4<T>& a, const TVector4<T>& b)
-    {
-        return a.DotProduct(b);
-    }
-
-    template<class T>
-    T Angle(const TVector4<T>& a, const TVector4<T>& b)
-    {
-        return a.Angle(b);
-    }
-
-    template<class T>
-    TVector4<T> Lerp(const TVector4<T>& a, const TVector4<T>& b, const T v)
-    {
-        TVector4<T> R;
-        for(int i = 0; i < 4; ++i)
-        {
-            R[i] = Lerp( a[i], b[i], v );
-        }
-        return R;
-    }
+    Vector4 Normalize(const Vector4& a);
+    float Distance(const Vector4& a, const Vector4& b);
+    float DistanceSquared(const Vector4& a, const Vector4& b);
+    float Length(const Vector4& a);
+    float LengthSquared(const Vector4& a);
+    float DotProduct(const Vector4& a, const Vector4& b);
+    Vector4 MoveTowards(const Vector4& Now, const Vector4& Target, const float Delta);
+    Vector4 Lerp(const Vector4& a, const Vector4& b, const float t);
+    Vector4 Max(const Vector4& a, const Vector4& b);
+    Vector4 Min(const Vector4& a, const Vector4& b);
 }
 
-template<class T>
-std::ostream& operator<<(std::ostream& Stream, const TVector4<T>& Other)
-{
-    Stream << Other.x << ", " << Other.y << ", " << Other.z << ", " << Other.w;
-    return Stream;
-}
+std::ostream& operator<<(std::ostream& Stream, const Vector4& Other);

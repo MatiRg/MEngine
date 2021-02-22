@@ -211,7 +211,7 @@ float CBulletRigidBody3D::GetRestitution() const
 
 void CBulletRigidBody3D::SetLinearFactor(const Vector3& x)
 {
-	Body->setLinearFactor( ToBulletVector3(x.Normalized()) );
+	Body->setLinearFactor( ToBulletVector3(Math::Normalize(x)) );
 }
 
 Vector3 CBulletRigidBody3D::GetLinearFactor() const
@@ -221,7 +221,7 @@ Vector3 CBulletRigidBody3D::GetLinearFactor() const
 
 void CBulletRigidBody3D::SetAngularFactor(const Vector3& x)
 {
-	Body->setAngularFactor(ToBulletVector3(x.Normalized()));
+	Body->setAngularFactor(ToBulletVector3(Math::Normalize(x)));
 }
 
 Vector3 CBulletRigidBody3D::GetAngularFactor() const
