@@ -69,7 +69,7 @@ bool CEngine::Create()
     ImGUI = std::make_unique<CImGUI>( Input, Graphics );
     Scene = std::make_unique<CScene>( this );
     ScriptModule = std::make_unique<CScriptModule>( this );
-    Counter = std::make_unique<CPerformanceCounters>( ImGUI.get(), System );
+    Counter = std::make_unique<CPerformanceCounters>( ImGUI.get(), System, Renderer3D.get() );
 
     EngineUpdater->AddEngineModule( System );
     EngineUpdater->AddEngineModule( EventQueue );

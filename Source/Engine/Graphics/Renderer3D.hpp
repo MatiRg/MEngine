@@ -53,6 +53,9 @@ public:
     void OnUpdate(const float) override;
 
     void Render();
+
+    // Number of Draw Calls
+    int GetDrawCalls() const { return DrawCalls; }
 private:
     void SetupMaterialShaderParameters(CRenderable3D*);
 private:
@@ -75,4 +78,6 @@ private:
     float Time = 0.0f;
     int MSAASamples = 4;
     float Exposure = 1.0f;
+    //
+    int DrawCalls = 0;
 };

@@ -110,6 +110,7 @@ void CRenderer3D::Render()
     /////////////////////////////////////////////////////////////
     //
     MSAAFrameBuffer->Bind();
+    DrawCalls = 0;
     //
     Graphics->SetDepthActive(true);
     Graphics->SetDepthFunction(EDepthMode::Less);
@@ -135,6 +136,8 @@ void CRenderer3D::Render()
         Buffer->UnBind();
         //
         Material->UnBind();
+        //
+        ++DrawCalls;
     }
     MSAAFrameBuffer->UnBind();
     // Copy FrameBuffer
