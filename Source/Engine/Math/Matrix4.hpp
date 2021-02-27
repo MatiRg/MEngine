@@ -135,13 +135,13 @@ public:
 
     Vector3 operator*(const Vector3& v) const
     {
-        Vector4 Tmp = Mul({ v, 1.0f });
+        Vector4 Tmp = Multiply({ v, 1.0f });
         return {Tmp.x, Tmp.y, Tmp.z};
     }
 
     Vector4 operator*(const Vector4& v) const
     {
-        Mul(v);
+        Multiply(v);
     }
 
     Matrix4 operator*(const Matrix4& o) const;
@@ -151,7 +151,7 @@ public:
 
     static Matrix4 IDENTITY;
 private:
-    Vector4 Mul(const Vector4& v) const
+    Vector4 Multiply(const Vector4& v) const
     {
         return
         {

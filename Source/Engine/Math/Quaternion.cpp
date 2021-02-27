@@ -1,5 +1,7 @@
 #include "Quaternion.hpp"
 
+// Based on GLM Code
+
 void Quaternion::SetIdentity()
 {
     x = y = z = 0.0f;
@@ -261,10 +263,9 @@ namespace Math
     }
 
     // Axis Normalized
-    // ?
     Quaternion LookRotation(const Vector3& Direction, const Vector3& Up)
     {
-        Vector3 c = Direction;
+        Vector3 c = Normalize(Direction);
 		Vector3 Right = CrossProduct(Up, c);
         Vector3 a = Right * InvSqrt(Max(0.00001f, DotProduct(Right, Right)));
         Vector3 b = CrossProduct(c, a);

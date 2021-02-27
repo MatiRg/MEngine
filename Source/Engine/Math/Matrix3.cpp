@@ -1,5 +1,7 @@
 #include "Matrix3.hpp"
 
+// Based on GLM Code
+
 void Matrix3::SetIdentity()
 {
     for(int i = 0; i < 3; ++i)
@@ -69,22 +71,22 @@ namespace Math
 
     Matrix3 Inverse(const Matrix3& D)
     {
-			float OneOverDeterminant = 1.0f / (
-				+ D[0] * (D[4] * D[8] - D[7] * D[5])
-				- D[3] * (D[1] * D[8] - D[7] * D[2])
-				+ D[6] * (D[1] * D[5] - D[4] * D[2]));
-
-			Matrix3 Inverse;
-			Inverse[0] = + (D[4] * D[8] - D[7] * D[5]) * OneOverDeterminant;
-			Inverse[3] = - (D[3] * D[8] - D[6] * D[5]) * OneOverDeterminant;
-			Inverse[6] = + (D[3] * D[7] - D[6] * D[4]) * OneOverDeterminant;
-			Inverse[1] = - (D[1] * D[8] - D[7] * D[2]) * OneOverDeterminant;
-			Inverse[4] = + (D[0] * D[8] - D[6] * D[2]) * OneOverDeterminant;
-			Inverse[7] = - (D[0] * D[7] - D[6] * D[1]) * OneOverDeterminant;
-			Inverse[2] = + (D[1] * D[5] - D[4] * D[2]) * OneOverDeterminant;
-			Inverse[5] = - (D[0] * D[5] - D[3] * D[2]) * OneOverDeterminant;
-			Inverse[8] = + (D[0] * D[4] - D[3] * D[1]) * OneOverDeterminant;
-			return Inverse;
+        float Det = 1.0f / (
+        	+ D[0] * (D[4] * D[8] - D[7] * D[5])
+        	- D[3] * (D[1] * D[8] - D[7] * D[2])
+        	+ D[6] * (D[1] * D[5] - D[4] * D[2]));
+        
+        Matrix3 Inverse;
+        Inverse[0] = + (D[4] * D[8] - D[7] * D[5]) * Det;
+        Inverse[3] = - (D[3] * D[8] - D[6] * D[5]) * Det;
+        Inverse[6] = + (D[3] * D[7] - D[6] * D[4]) * Det;
+        Inverse[1] = - (D[1] * D[8] - D[7] * D[2]) * Det;
+        Inverse[4] = + (D[0] * D[8] - D[6] * D[2]) * Det;
+        Inverse[7] = - (D[0] * D[7] - D[6] * D[1]) * Det;
+        Inverse[2] = + (D[1] * D[5] - D[4] * D[2]) * Det;
+        Inverse[5] = - (D[0] * D[5] - D[3] * D[2]) * Det;
+        Inverse[8] = + (D[0] * D[4] - D[3] * D[1]) * Det;
+        return Inverse;
     }
 
     Matrix3 Lerp(const Matrix3& a, const Matrix3& b, const float t)
