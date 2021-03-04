@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['z_3255',['z',['../class_t_quaternion.html#aef3eba7b7ee5c285b58e3cbca205fc37',1,'TQuaternion::z()'],['../class_t_vector3.html#af0b0320b8060a906d8c8e495350abcda',1,'TVector3::z()'],['../class_t_vector4.html#a31bf99dcab5a4371b1a21990ddb8fe0d',1,'TVector4::z()']]],
-  ['zero_3256',['ZERO',['../class_t_vector2.html#a8e1315db46a5218e06391e1dd017e0dd',1,'TVector2::ZERO()'],['../class_t_vector3.html#a686b1f4f5e990b4dfdf59d60146ed2d3',1,'TVector3::ZERO()'],['../class_t_vector4.html#a04ac8c080619631c34d1d5f6b1e90907',1,'TVector4::ZERO()']]]
+  ['z_3378',['z',['../class_quaternion.html#a625cb732d8ff3083e7852b86b736ab29',1,'Quaternion::z()'],['../class_vector3.html#aa8c9461eb24bd2c364258078811a3e9d',1,'Vector3::z()'],['../class_vector4.html#aa0d02112e7661ac9b90d1c17c8f1b1e6',1,'Vector4::z()']]],
+  ['zero_3379',['ZERO',['../class_int_vector2.html#ab4e41e086cac350e3ce937d9d3442388',1,'IntVector2::ZERO()'],['../class_vector2.html#ac284e44da0551c087f334a2ff5562d97',1,'Vector2::ZERO()'],['../class_vector3.html#a790ce2035844e934d677ce44c600a343',1,'Vector3::ZERO()'],['../class_vector4.html#a923197c1a6df6295cd5412f3c684e963',1,'Vector4::ZERO()']]]
 ];

@@ -24,6 +24,8 @@ bool CTransform::Load(CXMLElement* Root)
 	Scale = XML::LoadVector3(Root, "Scale", Vector3::ONE );
     Rotation = XML::LoadQuaternion(Root, "Rotation", Quaternion::IDENTITY);
     Dirty = XML::LoadBool(Root, "Dirty", true);
+    WorldRotation = XML::LoadQuaternion(Root, "WorldRotation", Quaternion::IDENTITY);
+    InvWorldRotation = XML::LoadQuaternion(Root, "InvWorldRotation", Quaternion::IDENTITY);
     Matrix = XML::LoadMatrix4(Root, "Matrix", Matrix4::IDENTITY);
     InvMatrix = XML::LoadMatrix4(Root, "InvMatrix", Matrix4::IDENTITY);
     WorldMatrix = XML::LoadMatrix4(Root, "WorldMatrix", Matrix4::IDENTITY);
@@ -37,6 +39,8 @@ bool CTransform::Save(CXMLElement* Root)
 	XML::SaveVector3(Root, "Scale", Scale);
 	XML::SaveQuaternion(Root, "Rotation", Rotation);
     XML::SaveBool(Root, "Dirty", Dirty);
+    XML::SaveQuaternion(Root, "WorldRotation", WorldRotation);
+    XML::SaveQuaternion(Root, "InvWorldRotation", InvWorldRotation);
     XML::SaveMatrix4(Root, "Matrix", Matrix);
     XML::SaveMatrix4(Root, "InvMatrix", InvMatrix);
     XML::SaveMatrix4(Root, "WorldMatrix", WorldMatrix);
@@ -95,6 +99,32 @@ void CTransform::SetPosition(const Vector3& aPosition, const bool Silent)
     }
 }
 
+void CTransform::SetScale(const Vector3& aScale, const bool Silent)
+{
+    Scale = aScale;
+    MarkDirty();
+    if (!Silent)
+    {    
+        for (const auto& i : ScaleCallback)
+        {
+            i.second(Scale);
+        }
+    }
+}
+
+void CTransform::SetRotation(const Quaternion& aRotation, const bool Silent)
+{
+    Rotation = aRotation;
+    MarkDirty();
+    if (!Silent)
+    {
+        for (const auto& i : RotationCallback)
+        {
+            i.second(Rotation);
+        }
+    }
+}
+
 void CTransform::SetWorldPosition(const Vector3& aPosition, const bool Silent)
 {
     if (HasParent())
@@ -111,19 +141,6 @@ void CTransform::SetWorldPosition(const Vector3& aPosition, const bool Silent)
 Vector3 CTransform::GetWorldPosition() const
 {
     return GetWorldMatrix().GetTranslation();
-}
-
-void CTransform::SetScale(const Vector3& aScale, const bool Silent)
-{
-    Scale = aScale;
-    MarkDirty();
-    if (!Silent)
-    {    
-        for (const auto& i : ScaleCallback)
-        {
-            i.second(Scale);
-        }
-    }
 }
 
 void CTransform::SetWorldScale(const Vector3& aScale, const bool Silent)
@@ -144,19 +161,6 @@ Vector3 CTransform::GetWorldScale() const
     return GetWorldMatrix().GetScale();
 }
 
-void CTransform::SetRotation(const Quaternion& aRotation, const bool Silent)
-{
-    Rotation = aRotation;
-    MarkDirty();
-    if (!Silent)
-    {
-        for (const auto& i : RotationCallback)
-        {
-            i.second(Rotation);
-        }
-    }
-}
-
 void CTransform::SetWorldRotation(const Quaternion& aRotation, const bool Silent)
 {
     if (HasParent())
@@ -170,19 +174,22 @@ void CTransform::SetWorldRotation(const Quaternion& aRotation, const bool Silent
     }
 }
 
-Quaternion CTransform::GetWorldRotation() const
+const Quaternion& CTransform::GetWorldRotation() const
 {
-    Quaternion Tmp = GetRotation();
-    if (HasParent())
+    if (IsDirty())
     {
-        Tmp = Parent->GetWorldRotation() * Tmp;
+        RecalculateMatrix();
     }
-    return Tmp;
+    return WorldRotation;
 }
 
-Quaternion CTransform::GetInvWorldRotation() const
+const Quaternion& CTransform::GetInvWorldRotation() const
 {
-    return GetWorldRotation().Inverse();
+    if (IsDirty())
+    {
+        RecalculateMatrix();
+    }
+    return InvWorldRotation;
 }
 
 void CTransform::SetRight(const Vector3& NewRight)
@@ -207,7 +214,7 @@ Vector3 CTransform::GetUp() const
 
 void CTransform::SetForward(const Vector3& NewForward)
 {
-    SetWorldRotation( Math::LookRotation(NewForward, Vector3::UP) ); // ?
+    SetWorldRotation( Math::LookRotation(NewForward, Vector3::UP) );
 }
 
 Vector3 CTransform::GetForward() const
@@ -215,12 +222,22 @@ Vector3 CTransform::GetForward() const
     return GetWorldRotation() * Vector3::FORWARD;
 }
 
-void CTransform::SetEulers(const Vector3& Eulers)
+void CTransform::SetEulerAngles(const Vector3& Eulers)
+{
+    SetRotation(Quaternion(Eulers));
+}
+
+Vector3 CTransform::GetEulerAngles() const
+{
+    return GetRotation().ToEulerAngles();
+}
+
+void CTransform::SetWorldEulerAngles(const Vector3& Eulers)
 {
     SetWorldRotation(Quaternion(Eulers));
 }
 
-Vector3 CTransform::GetEulers() const
+Vector3 CTransform::GetWorldEulerAngles() const
 {
     return GetWorldRotation().ToEulerAngles();
 }
@@ -230,9 +247,69 @@ void CTransform::Translate(const Vector3& Delta)
     SetPosition( Position + Rotation*Delta );
 }
 
-void CTransform::Rotate(const Vector3& Eulers)
+void CTransform::Rotate(const Quaternion& Delta)
 {
-    SetRotation( Rotation*Quaternion(Eulers) );
+    SetRotation( Rotation*Delta );
+}
+
+void CTransform::LookAt(const Vector3& Target, const Vector3& Up)
+{
+    Vector3 LookDirection = Target - GetWorldPosition();
+    //
+    if (Math::IsEqual(LookDirection, Vector3::ZERO, Math::EPSILON))
+    {
+        return;
+    }
+    //
+    SetWorldRotation(Math::LookRotation(LookDirection, Up));
+}
+
+// https://answers.unity.com/questions/489350/rotatearound-without-transform.html
+void CTransform::RotateAround(const Vector3& Point, const Vector3& Axis, const float Angle)
+{
+    Quaternion Delta{ Axis.Normalized(), Angle };
+    Vector3 Dir = GetWorldPosition() - Point;
+    //
+    Dir = Delta * Dir;
+    SetWorldPosition(Point+Dir);
+    //
+    SetWorldRotation(Delta * GetWorldRotation());
+}
+
+const Matrix4& CTransform::GetMatrix() const
+{
+    if (IsDirty())
+    {
+        RecalculateMatrix();
+    }
+    return Matrix;
+}
+
+const Matrix4& CTransform::GetWorldMatrix() const
+{
+    if (IsDirty())
+    {
+        RecalculateMatrix();
+    }
+    return WorldMatrix;
+}
+
+const Matrix4& CTransform::GetInvMatrix() const
+{
+    if (IsDirty())
+    {
+        RecalculateMatrix();
+    }
+    return InvMatrix;
+}
+
+const Matrix4& CTransform::GetInvWorldMatrix() const
+{
+    if (IsDirty())
+    {
+        RecalculateMatrix();
+    }
+    return InvWorldMatrix;
 }
 
 void CTransform::AddPositionCallback(void* Key, const PositionChanged& Callback)
@@ -287,58 +364,29 @@ void CTransform::RemoveChangedCallback(void* Key)
     }), TransformChangedCallback.end());
 }
 
-const Matrix4& CTransform::GetMatrix() const
-{
-    if (IsDirty())
-    {
-        RecalculateMatrix();
-    }
-    return Matrix;
-}
-
-const Matrix4& CTransform::GetWorldMatrix() const
-{
-    if (IsDirty())
-    {
-        RecalculateMatrix();
-    }
-    return WorldMatrix;
-}
-
-const Matrix4& CTransform::GetInvMatrix() const
-{
-    if (IsDirty())
-    {
-        RecalculateMatrix();
-    }
-    return InvMatrix;
-}
-
-const Matrix4& CTransform::GetInvWorldMatrix() const
-{
-    if (IsDirty())
-    {
-        RecalculateMatrix();
-    }
-    return InvWorldMatrix;
-}
-
 void CTransform::MarkDirty()
 {
     Dirty = true;
-    for (const auto& i : Children)
-    {
-        i->MarkDirty();
-    }
-    //
     for (const auto& i : TransformChangedCallback)
     {
         i.second(this);
+    }
+    //
+    for (const auto& i : Children)
+    {
+        i->MarkDirty();
     }
 }
 
 void CTransform::RecalculateMatrix() const
 {
+    WorldRotation = GetRotation();
+    if (HasParent())
+    {
+        WorldRotation = Parent->GetWorldRotation() * WorldRotation;
+    }
+    InvWorldRotation = WorldRotation.Inverse();
+    //
     Matrix = Math::Transform(Position, Rotation, Scale);
     InvMatrix = Matrix.Inverse();
     //

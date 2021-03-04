@@ -35,6 +35,13 @@ vec3 GetViewDirection(vec3 f)
 
 //
 
+mat4 RemoveTranslation(mat4 m)
+{
+    return mat4(mat3(m));
+}
+
+//
+
 // -1 .. 1
 float LinearizeDepth1(float d, float zNear, float zFar)
 {

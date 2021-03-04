@@ -94,6 +94,7 @@ $(document).ready(function(){initNavTree('_vertex_buffer_8hpp.html',''); initRes
 <code>#include &quot;<a class="el" href="_vector2_8hpp_source.html">../Math/Vector2.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_non_copyable_8hpp_source.html">../Core/NonCopyable.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_memory_manager_8hpp_source.html">../System/MemoryManager.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_graphics_types_8hpp_source.html">GraphicsTypes.hpp</a>&quot;</code><br />
 <code>#include &lt;vector&gt;</code><br />
 </div>
 <p><a href="_vertex_buffer_8hpp_source.html">Go to the source code of this file.</a></p>
@@ -107,11 +108,6 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a6ace168bd5907e3f42ef7750bef4c246"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_vertex_buffer_8hpp.html#a6ace168bd5907e3f42ef7750bef4c246">EPrimitiveMode</a> { <a class="el" href="_vertex_buffer_8hpp.html#a6ace168bd5907e3f42ef7750bef4c246a7ca66fdfaad3eb33fc65d7490178f856">Triangles</a> = 0
-, <a class="el" href="_vertex_buffer_8hpp.html#a6ace168bd5907e3f42ef7750bef4c246aa0b0293a2db49f5f93c15a62e095c819">Lines</a>
-, <a class="el" href="_vertex_buffer_8hpp.html#a6ace168bd5907e3f42ef7750bef4c246a75dd5f1160a3f02b6fae89c54361a1b3">Points</a>
- }</td></tr>
-<tr class="separator:a6ace168bd5907e3f42ef7750bef4c246"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4f3b3f417353112cf44f7ddb1091a74b"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_vertex_buffer_8hpp.html#a4f3b3f417353112cf44f7ddb1091a74b">EVertexElement</a> { <a class="el" href="_vertex_buffer_8hpp.html#a4f3b3f417353112cf44f7ddb1091a74ba52f5e0bc3859bc5f5e25130b6c7e8881">Position</a> = 0
 , <a class="el" href="_vertex_buffer_8hpp.html#a4f3b3f417353112cf44f7ddb1091a74bacb5feb1b7314637725a2e73bdc9f7295">Color</a> = 1
 , <a class="el" href="_vertex_buffer_8hpp.html#a4f3b3f417353112cf44f7ddb1091a74ba4ac00b6292b9c8d63d0a11df581bd399">TexCoord0</a> = 2
@@ -125,33 +121,6 @@ Enumerations</h2></td></tr>
 <tr class="separator:a916dac9f873e697ff4e48bb80b264c72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="a6ace168bd5907e3f42ef7750bef4c246"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6ace168bd5907e3f42ef7750bef4c246">&#9670;&nbsp;</a></span>EPrimitiveMode</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="_vertex_buffer_8hpp.html#a6ace168bd5907e3f42ef7750bef4c246">EPrimitiveMode</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a6ace168bd5907e3f42ef7750bef4c246a7ca66fdfaad3eb33fc65d7490178f856"></a>Triangles&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a6ace168bd5907e3f42ef7750bef4c246aa0b0293a2db49f5f93c15a62e095c819"></a>Lines&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a6ace168bd5907e3f42ef7750bef4c246a75dd5f1160a3f02b6fae89c54361a1b3"></a>Points&#160;</td><td class="fielddoc"></td></tr>
-</table>
-
-</div>
-</div>
 <a id="a4f3b3f417353112cf44f7ddb1091a74b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4f3b3f417353112cf44f7ddb1091a74b">&#9670;&nbsp;</a></span>EVertexElement</h2>
 

@@ -3,6 +3,7 @@
 #include "../Core/Log.hpp"
 #include "../UI/ImGUI.hpp"
 #include "../System/System.hpp"
+#include "../Graphics/Renderer3D.hpp"
 
 namespace
 {
@@ -61,10 +62,11 @@ CPerformanceCounter::~CPerformanceCounter()
 
 static constexpr std::size_t FPS_MAX_VALUES = 10u;
 
-CPerformanceCounters::CPerformanceCounters(CImGUI* ImGUI, ISystem* aSystem):
+CPerformanceCounters::CPerformanceCounters(CImGUI* ImGUI, ISystem* aSystem, CRenderer3D* aRenderer):
     IEngineModule( "Performance Counters" ),
     UI(ImGUI),
     System(aSystem),
+    Renderer(aRenderer),
     FPSRecords(FPS_MAX_VALUES, 0.0f)
 {
 }
@@ -90,10 +92,11 @@ void CPerformanceCounters::OnGUI()
     UI->Begin("Performance Counter");
     for (const auto& i : ToDraw)
     {
-        UI->Text(i.Name + ": " + std::to_string(i.Time) + " ms");
+        UI->Text(i.Name + ": " + Utils::ToString(i.Time) + " ms");
     }
     UI->Separator();
-    UI->Text( "FPS: "+std::to_string(Sum) );
+    UI->Text( "FPS: "+Utils::ToString(Sum) );
+    UI->Text( "Draw Calls: " + Utils::ToString(Renderer->GetDrawCalls()) );
     UI->End();
 }
 

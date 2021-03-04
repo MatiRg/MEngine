@@ -15,6 +15,6 @@ var class_c_scene =
     [ "OnLateUpdate", "class_c_scene.html#a25be50a2fb6581c60e69f7e978cd2556", null ],
     [ "OnRender", "class_c_scene.html#a31641fd86da9ec8756be4f1377a77ac1", null ],
     [ "OnUpdate", "class_c_scene.html#a19e606b9dd467d9763f8893129988fc5", null ],
-    [ "RegisterComponentFactory", "class_c_scene.html#a36862e7ece035a336163768eb28ed377", null ],
-    [ "RegisterEntityFactory", "class_c_scene.html#a526c984f528a9bc3c49e33d142e056cb", null ]
+    [ "RegisterComponent", "class_c_scene.html#a2ec5741a00a7f5ce7ddf904902649b2d", null ],
+    [ "RegisterEntity", "class_c_scene.html#a85df0a718acdec66fb4ebd4023dc4a95", null ]
 ];

@@ -1,4 +1,3 @@
-Fix Math Library or Replace with GLM
 Add CMaterial Options -> Texture Filter/Ani, Double Sided, Blend Mode/Enabled, Depth Mode/Enabled, Pass Type -> Solid or Transparent
 CMaterial -> Serialize Rest Variables
 Rework 2D Rendering to 3D rendering -> Scene Module Part CCamera2D(Ortho) to CCamera
@@ -7,16 +6,7 @@ Proper Physics Update
 Support some components multiple, some unique add static method bool CanMultiple() - defined by macro COMPONENT; CreateComponent will return if only one or unique per entity
 Rework or Remove 2D Support -> See Sprite2D shader
 
-Add MSAA Options
-
-Mixed ECS with standard system -> some things ECS other like in built systems(RigidBody, AudioSource/Listener, Collision Shape in standard way)
-OR
-Remove ECS Completly
-RigidBody -> One
-CollisionShape -> One or maybe Many
-Audio Listener -> One 
-Audio Source -> One or Many
-Particle System -> One or Many
+Addy Pure ECS System
 
 Updatables Loaded from optional XML file "Startup.xml" : 
 <Updatable Name="aa" [Container="aaa"] /> -- No Container Global

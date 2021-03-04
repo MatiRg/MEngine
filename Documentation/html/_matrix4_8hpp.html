@@ -85,20 +85,20 @@ $(document).ready(function(){initNavTree('_matrix4_8hpp.html',''); initResizable
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">Matrix4.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="_vector3_8hpp_source.html">Vector3.hpp</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="_functions_8hpp_source.html">Functions.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_vector4_8hpp_source.html">Vector4.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_matrix3_8hpp_source.html">Matrix3.hpp</a>&quot;</code><br />
 </div>
 <p><a href="_matrix4_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_t_matrix4.html">TMatrix4&lt; T &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_matrix4.html">Matrix4</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -106,101 +106,47 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespace_math"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html">Math</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:a73faa516f0c2cdd223333723e4d6edd8"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_matrix4_8hpp.html#a73faa516f0c2cdd223333723e4d6edd8">Matrix4</a> = <a class="el" href="class_t_matrix4.html">TMatrix4</a>&lt; float &gt;</td></tr>
-<tr class="separator:a73faa516f0c2cdd223333723e4d6edd8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe3c13477fe36ba2cbf368ff4570ec06"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_matrix4_8hpp.html#abe3c13477fe36ba2cbf368ff4570ec06">IntMatrix4</a> = <a class="el" href="class_t_matrix4.html">TMatrix4</a>&lt; int &gt;</td></tr>
-<tr class="separator:abe3c13477fe36ba2cbf368ff4570ec06"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:af0995cef3703e44a097ac74aafb21d0b"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:af0995cef3703e44a097ac74aafb21d0b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_t_matrix4.html">TMatrix4</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_math.html#af0995cef3703e44a097ac74aafb21d0b">Math::Lerp</a> (const <a class="el" href="class_t_matrix4.html">TMatrix4</a>&lt; T &gt; &amp;a, const <a class="el" href="class_t_matrix4.html">TMatrix4</a>&lt; T &gt; &amp;b, const T v)</td></tr>
-<tr class="separator:af0995cef3703e44a097ac74aafb21d0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1dc932ba64f142a0541f70de474ba337"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a1dc932ba64f142a0541f70de474ba337"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_t_matrix4.html">TMatrix4</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_math.html#a1dc932ba64f142a0541f70de474ba337">Math::Scale</a> (const T x)</td></tr>
-<tr class="separator:a1dc932ba64f142a0541f70de474ba337"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a99b1ceb9fcda3dada88d5cf1eb58817c"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a99b1ceb9fcda3dada88d5cf1eb58817c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_t_matrix4.html">TMatrix4</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_math.html#a99b1ceb9fcda3dada88d5cf1eb58817c">Math::Scale</a> (const T x, const T y, const T z)</td></tr>
-<tr class="separator:a99b1ceb9fcda3dada88d5cf1eb58817c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1bf8ccfd2e69b65f74b05e1524481a00"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a1bf8ccfd2e69b65f74b05e1524481a00"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_t_matrix4.html">TMatrix4</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_math.html#a1bf8ccfd2e69b65f74b05e1524481a00">Math::Scale</a> (const <a class="el" href="class_t_vector3.html">TVector3</a>&lt; T &gt; &amp;Scale)</td></tr>
-<tr class="separator:a1bf8ccfd2e69b65f74b05e1524481a00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe29945120998671ac47d8252afa57f0"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:abe29945120998671ac47d8252afa57f0"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_t_matrix4.html">TMatrix4</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_math.html#abe29945120998671ac47d8252afa57f0">Math::Translation</a> (const T x, const T y, const T z)</td></tr>
-<tr class="separator:abe29945120998671ac47d8252afa57f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28bc60435e640b765a1dfe035d8d378b"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a28bc60435e640b765a1dfe035d8d378b"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_t_matrix4.html">TMatrix4</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_math.html#a28bc60435e640b765a1dfe035d8d378b">Math::Translation</a> (const <a class="el" href="class_t_vector3.html">TVector3</a>&lt; T &gt; &amp;Translation)</td></tr>
-<tr class="separator:a28bc60435e640b765a1dfe035d8d378b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aafaba54fd56d06ad160afd12a21d0988"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:aafaba54fd56d06ad160afd12a21d0988"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_t_matrix4.html">TMatrix4</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_math.html#aafaba54fd56d06ad160afd12a21d0988">Math::RotationX</a> (const T Angle)</td></tr>
-<tr class="separator:aafaba54fd56d06ad160afd12a21d0988"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26f5dcbdee36490173dfc30a4811b42f"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a26f5dcbdee36490173dfc30a4811b42f"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_t_matrix4.html">TMatrix4</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_math.html#a26f5dcbdee36490173dfc30a4811b42f">Math::RotationY</a> (const T Angle)</td></tr>
-<tr class="separator:a26f5dcbdee36490173dfc30a4811b42f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9b88319a74864ca8058d12e0a9a2704"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:ae9b88319a74864ca8058d12e0a9a2704"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_t_matrix4.html">TMatrix4</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_math.html#ae9b88319a74864ca8058d12e0a9a2704">Math::RotationZ</a> (const T Angle)</td></tr>
-<tr class="separator:ae9b88319a74864ca8058d12e0a9a2704"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a726777de2cb69a822ac823c6b5408873"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a726777de2cb69a822ac823c6b5408873"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_t_matrix4.html">TMatrix4</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_math.html#a726777de2cb69a822ac823c6b5408873">Math::Rotation</a> (const <a class="el" href="class_t_vector3.html">TVector3</a>&lt; T &gt; &amp;v, const T k)</td></tr>
-<tr class="separator:a726777de2cb69a822ac823c6b5408873"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28d44215698ab744752aaf402409cbd2"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a28d44215698ab744752aaf402409cbd2"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_t_matrix4.html">TMatrix4</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_math.html#a28d44215698ab744752aaf402409cbd2">Math::LookAt</a> (const <a class="el" href="class_t_vector3.html">TVector3</a>&lt; T &gt; &amp;Camera, const <a class="el" href="class_t_vector3.html">TVector3</a>&lt; T &gt; &amp;Position, const <a class="el" href="class_t_vector3.html">TVector3</a>&lt; T &gt; &amp;Up)</td></tr>
-<tr class="separator:a28d44215698ab744752aaf402409cbd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3d4dcd0ffacb1c6fa238380fdb01b577"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a3d4dcd0ffacb1c6fa238380fdb01b577"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_t_matrix4.html">TMatrix4</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_math.html#a3d4dcd0ffacb1c6fa238380fdb01b577">Math::Perspective</a> (const T Fov, const T Aspect, const T Near, const T Far)</td></tr>
-<tr class="separator:a3d4dcd0ffacb1c6fa238380fdb01b577"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02ef2ca112387c9d0b5cfd3a9c70d7d6"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a02ef2ca112387c9d0b5cfd3a9c70d7d6"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_t_matrix4.html">TMatrix4</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_math.html#a02ef2ca112387c9d0b5cfd3a9c70d7d6">Math::Ortho</a> (const T Right, const T Left, const T Top, const T Bottom, const T Far, const T Near)</td></tr>
-<tr class="separator:a02ef2ca112387c9d0b5cfd3a9c70d7d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2fec96af5b51db952dd713b9e5fad8e5"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a2fec96af5b51db952dd713b9e5fad8e5"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_t_matrix4.html">TMatrix4</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_math.html#a2fec96af5b51db952dd713b9e5fad8e5">Math::Ortho</a> (const T Right, const T Left, const T Top, const T Bottom)</td></tr>
-<tr class="separator:a2fec96af5b51db952dd713b9e5fad8e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53b825a6d98c2f33d3f311697c7cb204"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a53b825a6d98c2f33d3f311697c7cb204"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_t_matrix4.html">TMatrix4</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_math.html#a53b825a6d98c2f33d3f311697c7cb204">Math::Ortho</a> (const T Right, const T Bottom)</td></tr>
-<tr class="separator:a53b825a6d98c2f33d3f311697c7cb204"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92542a7e8632c5e73b18278126b61b56"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a92542a7e8632c5e73b18278126b61b56"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_matrix4_8hpp.html#a92542a7e8632c5e73b18278126b61b56">operator&lt;&lt;</a> (std::ostream &amp;Stream, const <a class="el" href="class_t_matrix4.html">TMatrix4</a>&lt; T &gt; &amp;Other)</td></tr>
-<tr class="separator:a92542a7e8632c5e73b18278126b61b56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae2962d7325beed278bafd1147524325e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix4.html">Matrix4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#ae2962d7325beed278bafd1147524325e">Math::Transpose</a> (const <a class="el" href="class_matrix4.html">Matrix4</a> &amp;Mat)</td></tr>
+<tr class="separator:ae2962d7325beed278bafd1147524325e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcd4d35dfbfacd354d014b24206e7c3c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix4.html">Matrix4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#afcd4d35dfbfacd354d014b24206e7c3c">Math::Inverse</a> (const <a class="el" href="class_matrix4.html">Matrix4</a> &amp;D)</td></tr>
+<tr class="separator:afcd4d35dfbfacd354d014b24206e7c3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65f9a86a8bbc0dd689238667fc7f9f44"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix4.html">Matrix4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a65f9a86a8bbc0dd689238667fc7f9f44">Math::RotationX</a> (const float Angle)</td></tr>
+<tr class="separator:a65f9a86a8bbc0dd689238667fc7f9f44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a99b468386efab3c50011166803c24696"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix4.html">Matrix4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a99b468386efab3c50011166803c24696">Math::RotationY</a> (const float Angle)</td></tr>
+<tr class="separator:a99b468386efab3c50011166803c24696"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae302f49a71b703a4012489147815654e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix4.html">Matrix4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#ae302f49a71b703a4012489147815654e">Math::RotationZ</a> (const float Angle)</td></tr>
+<tr class="separator:ae302f49a71b703a4012489147815654e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72215268cea6880bd81066340247f2a8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix4.html">Matrix4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a72215268cea6880bd81066340247f2a8">Math::Rotation</a> (const <a class="el" href="class_vector3.html">Vector3</a> &amp;Axis, const float Angle)</td></tr>
+<tr class="separator:a72215268cea6880bd81066340247f2a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a809430a12a4d430085cac91eda4dcd20"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix4.html">Matrix4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a809430a12a4d430085cac91eda4dcd20">Math::Scale</a> (const float x)</td></tr>
+<tr class="separator:a809430a12a4d430085cac91eda4dcd20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a77ea6a77fcb786b4c67a1ba0820ec394"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix4.html">Matrix4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a77ea6a77fcb786b4c67a1ba0820ec394">Math::Scale</a> (const float x, const float y, const float z)</td></tr>
+<tr class="separator:a77ea6a77fcb786b4c67a1ba0820ec394"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a564a5d213a68f19a8ce11ba1ccc62438"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix4.html">Matrix4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a564a5d213a68f19a8ce11ba1ccc62438">Math::Scale</a> (const <a class="el" href="class_vector3.html">Vector3</a> &amp;Scale)</td></tr>
+<tr class="separator:a564a5d213a68f19a8ce11ba1ccc62438"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6428265ea43e4ac57fa1901dcc819a38"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix4.html">Matrix4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a6428265ea43e4ac57fa1901dcc819a38">Math::Translation</a> (const float x, const float y, const float z)</td></tr>
+<tr class="separator:a6428265ea43e4ac57fa1901dcc819a38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4bcc16bb3f533179a86363c2722cedd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix4.html">Matrix4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#ad4bcc16bb3f533179a86363c2722cedd">Math::Translation</a> (const <a class="el" href="class_vector3.html">Vector3</a> &amp;Translation)</td></tr>
+<tr class="separator:ad4bcc16bb3f533179a86363c2722cedd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0d818995ac7044cac7f0722cec175fe2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix4.html">Matrix4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a0d818995ac7044cac7f0722cec175fe2">Math::LookAt</a> (const <a class="el" href="class_vector3.html">Vector3</a> &amp;Camera, const <a class="el" href="class_vector3.html">Vector3</a> &amp;Position, const <a class="el" href="class_vector3.html">Vector3</a> &amp;Up)</td></tr>
+<tr class="separator:a0d818995ac7044cac7f0722cec175fe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61c568ade84b1b10f494651c62eeb3aa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix4.html">Matrix4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a61c568ade84b1b10f494651c62eeb3aa">Math::Perspective</a> (const float Fov, const float Aspect, const float Near, const float Far)</td></tr>
+<tr class="separator:a61c568ade84b1b10f494651c62eeb3aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f9d817960ba7546a2b2ae0be28341b7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix4.html">Matrix4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a4f9d817960ba7546a2b2ae0be28341b7">Math::Ortho</a> (const float Right, const float Left, const float Top, const float Bottom, const float Far, const float Near)</td></tr>
+<tr class="separator:a4f9d817960ba7546a2b2ae0be28341b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a7f5297f3e69ec6cd06c2cb4918edf4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix4.html">Matrix4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a8a7f5297f3e69ec6cd06c2cb4918edf4">Math::Lerp</a> (const <a class="el" href="class_matrix4.html">Matrix4</a> &amp;a, const <a class="el" href="class_matrix4.html">Matrix4</a> &amp;b, const float t)</td></tr>
+<tr class="separator:a8a7f5297f3e69ec6cd06c2cb4918edf4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a771a6a8f9797a9061b8c455329aa1c80"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_matrix4_8hpp.html#a771a6a8f9797a9061b8c455329aa1c80">operator&lt;&lt;</a> (std::ostream &amp;Stream, const <a class="el" href="class_matrix4.html">Matrix4</a> &amp;Other)</td></tr>
+<tr class="separator:a771a6a8f9797a9061b8c455329aa1c80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Typedef Documentation</h2>
-<a id="abe3c13477fe36ba2cbf368ff4570ec06"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe3c13477fe36ba2cbf368ff4570ec06">&#9670;&nbsp;</a></span>IntMatrix4</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="_matrix4_8hpp.html#abe3c13477fe36ba2cbf368ff4570ec06">IntMatrix4</a> =  <a class="el" href="class_t_matrix4.html">TMatrix4</a>&lt;int&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a73faa516f0c2cdd223333723e4d6edd8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a73faa516f0c2cdd223333723e4d6edd8">&#9670;&nbsp;</a></span>Matrix4</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="_matrix4_8hpp.html#a73faa516f0c2cdd223333723e4d6edd8">Matrix4</a> =  <a class="el" href="class_t_matrix4.html">TMatrix4</a>&lt;float&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a92542a7e8632c5e73b18278126b61b56"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a92542a7e8632c5e73b18278126b61b56">&#9670;&nbsp;</a></span>operator&lt;&lt;()</h2>
+<a id="a771a6a8f9797a9061b8c455329aa1c80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a771a6a8f9797a9061b8c455329aa1c80">&#9670;&nbsp;</a></span>operator&lt;&lt;()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
@@ -211,7 +157,7 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="class_t_matrix4.html">TMatrix4</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_matrix4.html">Matrix4</a> &amp;&#160;</td>
           <td class="paramname"><em>Other</em>&#160;</td>
         </tr>
         <tr>

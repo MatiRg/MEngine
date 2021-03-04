@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['vector2_3290',['Vector2',['../_vector2_8hpp.html#ab50a46295e259c17345421d0fc1cb3bb',1,'Vector2.hpp']]],
-  ['vector3_3291',['Vector3',['../_vector3_8hpp.html#abb63d82e5aaa1616fff243d45937ad17',1,'Vector3.hpp']]],
-  ['vector4_3292',['Vector4',['../_vector4_8hpp.html#a1542ba9453e2215413cafeeb0cf849d7',1,'Vector4.hpp']]]
+  ['xmlattributearray_3401',['XMLAttributeArray',['../_x_m_l_8hpp.html#adef6cb58b36f6c54d97245b1d39daadc',1,'XML.hpp']]],
+  ['xmlelementarray_3402',['XMLElementArray',['../_x_m_l_8hpp.html#a545ae6b4f7b409bd2cfb2b1d64ceb0e4',1,'XML.hpp']]]
 ];

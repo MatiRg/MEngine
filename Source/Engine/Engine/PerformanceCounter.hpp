@@ -4,6 +4,7 @@
 
 class CImGUI;
 class ISystem;
+class CRenderer3D;
 class CPerformanceCounters;
 
 enum class EPerformanceCounter
@@ -50,7 +51,7 @@ private:
 class CPerformanceCounters final: public IEngineModule 
 {
 public:
-    CPerformanceCounters(CImGUI*, ISystem*);
+    CPerformanceCounters(CImGUI*, ISystem*, CRenderer3D*);
     ~CPerformanceCounters();
 
     ENGINE_MODULE(CPerformanceCounters)
@@ -80,6 +81,7 @@ private:
 private:
     CImGUI* UI = nullptr;
     ISystem* System = nullptr;
+    CRenderer3D* Renderer = nullptr;
     bool Visible = false;
     std::vector<SCounter> Counters;
     std::vector<SCounter> ToDraw;

@@ -181,6 +181,11 @@ namespace Math
     {
         return {Min(a.x, b.x), Min(a.y, b.y), Min(a.z, b.z)};
     }
+
+    bool IsEqual(const Vector3& a, const Vector3& b, const float Eps)
+    {
+        return IsEqual(a.x, b.x, Eps) && IsEqual(a.y, b.y, Eps) && IsEqual(a.z, b.z, Eps);
+    }
 }
 
 template<class T>

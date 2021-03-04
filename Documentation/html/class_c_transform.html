@@ -94,17 +94,22 @@ $(document).ready(function(){initNavTree('class_c_transform.html',''); initResiz
  <a href="class_c_transform.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="_transform_8hpp_source.html">Transform.hpp</a>&gt;</code></p>
+<div class="dynheader">
+Inheritance diagram for CTransform:</div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_c_transform.png" usemap="#CTransform_map" alt=""/>
+  <map id="CTransform_map" name="CTransform_map">
+<area href="class_non_copyable_movable.html" alt="NonCopyableMovable" shape="rect" coords="0,0,138,24"/>
+  </map>
+</div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6cc4e6c97dbb86326341aa1a468986d4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a6cc4e6c97dbb86326341aa1a468986d4">CTransform</a> ()</td></tr>
 <tr class="separator:a6cc4e6c97dbb86326341aa1a468986d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a456d97bfe44b00a710c03525f4974a50"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a456d97bfe44b00a710c03525f4974a50">CTransform</a> (const <a class="el" href="class_c_transform.html">CTransform</a> &amp;Other)</td></tr>
-<tr class="separator:a456d97bfe44b00a710c03525f4974a50"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33fc62cfa0c6e4b395a5cea72e88c4ab"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a33fc62cfa0c6e4b395a5cea72e88c4ab">~CTransform</a> ()=default</td></tr>
-<tr class="separator:a33fc62cfa0c6e4b395a5cea72e88c4ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35a6a70944651b2594f6f66af1f8e1c8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_transform.html">CTransform</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a35a6a70944651b2594f6f66af1f8e1c8">operator=</a> (const <a class="el" href="class_c_transform.html">CTransform</a> &amp;Other)</td></tr>
-<tr class="separator:a35a6a70944651b2594f6f66af1f8e1c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90d72f6ed0c3b0e5401365ba6fe2bdc5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a90d72f6ed0c3b0e5401365ba6fe2bdc5">~CTransform</a> ()</td></tr>
+<tr class="separator:a90d72f6ed0c3b0e5401365ba6fe2bdc5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a163f6c2cf92b8ea96cf92dc83045c093"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a163f6c2cf92b8ea96cf92dc83045c093">Load</a> (<a class="el" href="class_c_x_m_l_element.html">CXMLElement</a> *Root)</td></tr>
 <tr class="separator:a163f6c2cf92b8ea96cf92dc83045c093"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3156ee26a807ce318b7063b296de5b2d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a3156ee26a807ce318b7063b296de5b2d">Save</a> (<a class="el" href="class_c_x_m_l_element.html">CXMLElement</a> *Root)</td></tr>
@@ -115,94 +120,181 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:ac2802fb16ca62693eff7601228a9f6a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7020ffab6c4b5ca72fe4d204d80a69bd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_transform.html">CTransform</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a7020ffab6c4b5ca72fe4d204d80a69bd">GetParent</a> () const</td></tr>
 <tr class="separator:a7020ffab6c4b5ca72fe4d204d80a69bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a79a3f2cf831ddb77395b572e2569dd91"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a79a3f2cf831ddb77395b572e2569dd91">SetPosition</a> (const <a class="el" href="_vector3_8hpp.html#abb63d82e5aaa1616fff243d45937ad17">Vector3</a> &amp;aPosition, const bool Silent=false)</td></tr>
+<tr class="memitem:a41dbe61e7ff9ae6858d899694359d30e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a41dbe61e7ff9ae6858d899694359d30e">AddChild</a> (<a class="el" href="class_c_transform.html">CTransform</a> *)</td></tr>
+<tr class="separator:a41dbe61e7ff9ae6858d899694359d30e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85e1099af940f1f6647f4a8b0dc5ad3f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a85e1099af940f1f6647f4a8b0dc5ad3f">RemoveChild</a> (<a class="el" href="class_c_transform.html">CTransform</a> *)</td></tr>
+<tr class="separator:a85e1099af940f1f6647f4a8b0dc5ad3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6eb31ba0530fd9f74ecef1480f349c5"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="_transform_8hpp.html#a038bb27b8c49d7fd54ba97cee25a05e0">TransformArray</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#aa6eb31ba0530fd9f74ecef1480f349c5">GetChildren</a> () const</td></tr>
+<tr class="separator:aa6eb31ba0530fd9f74ecef1480f349c5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bfdbeceebec877b0fc2a9432a39a553"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a6bfdbeceebec877b0fc2a9432a39a553">HasChildren</a> () const</td></tr>
+<tr class="separator:a6bfdbeceebec877b0fc2a9432a39a553"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8b504f05e283309b87e66778e94ca657"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a8b504f05e283309b87e66778e94ca657">GetChildrenCount</a> () const</td></tr>
+<tr class="separator:a8b504f05e283309b87e66778e94ca657"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79a3f2cf831ddb77395b572e2569dd91"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a79a3f2cf831ddb77395b572e2569dd91">SetPosition</a> (const <a class="el" href="class_vector3.html">Vector3</a> &amp;aPosition, const bool Silent=false)</td></tr>
+<tr class="memdesc:a79a3f2cf831ddb77395b572e2569dd91"><td class="mdescLeft">&#160;</td><td class="mdescRight">Local Space.  <a href="class_c_transform.html#a79a3f2cf831ddb77395b572e2569dd91">More...</a><br /></td></tr>
 <tr class="separator:a79a3f2cf831ddb77395b572e2569dd91"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc1e4ea9b5d266119bfd0dd306c82aeb"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="_vector3_8hpp.html#abb63d82e5aaa1616fff243d45937ad17">Vector3</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#abc1e4ea9b5d266119bfd0dd306c82aeb">GetPosition</a> () const</td></tr>
+<tr class="memitem:abc1e4ea9b5d266119bfd0dd306c82aeb"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_vector3.html">Vector3</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#abc1e4ea9b5d266119bfd0dd306c82aeb">GetPosition</a> () const</td></tr>
+<tr class="memdesc:abc1e4ea9b5d266119bfd0dd306c82aeb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Local Space.  <a href="class_c_transform.html#abc1e4ea9b5d266119bfd0dd306c82aeb">More...</a><br /></td></tr>
 <tr class="separator:abc1e4ea9b5d266119bfd0dd306c82aeb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1489d1497c2ef559c01f59b891bd1e72"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a1489d1497c2ef559c01f59b891bd1e72">SetWorldPosition</a> (const <a class="el" href="_vector3_8hpp.html#abb63d82e5aaa1616fff243d45937ad17">Vector3</a> &amp;aPosition, const bool Silent=false)</td></tr>
-<tr class="separator:a1489d1497c2ef559c01f59b891bd1e72"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe4515b95327328ba16c18f233403756"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_vector3_8hpp.html#abb63d82e5aaa1616fff243d45937ad17">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#abe4515b95327328ba16c18f233403756">GetWorldPosition</a> () const</td></tr>
-<tr class="separator:abe4515b95327328ba16c18f233403756"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a83c5e56b7846535f8060a34879288711"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a83c5e56b7846535f8060a34879288711">SetScale</a> (const <a class="el" href="_vector3_8hpp.html#abb63d82e5aaa1616fff243d45937ad17">Vector3</a> &amp;aScale, const bool Silent=false)</td></tr>
+<tr class="memitem:a83c5e56b7846535f8060a34879288711"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a83c5e56b7846535f8060a34879288711">SetScale</a> (const <a class="el" href="class_vector3.html">Vector3</a> &amp;aScale, const bool Silent=false)</td></tr>
+<tr class="memdesc:a83c5e56b7846535f8060a34879288711"><td class="mdescLeft">&#160;</td><td class="mdescRight">Local Space.  <a href="class_c_transform.html#a83c5e56b7846535f8060a34879288711">More...</a><br /></td></tr>
 <tr class="separator:a83c5e56b7846535f8060a34879288711"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a03edb9e2505cd67f091729d209df6049"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="_vector3_8hpp.html#abb63d82e5aaa1616fff243d45937ad17">Vector3</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a03edb9e2505cd67f091729d209df6049">GetScale</a> () const</td></tr>
+<tr class="memitem:a03edb9e2505cd67f091729d209df6049"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_vector3.html">Vector3</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a03edb9e2505cd67f091729d209df6049">GetScale</a> () const</td></tr>
+<tr class="memdesc:a03edb9e2505cd67f091729d209df6049"><td class="mdescLeft">&#160;</td><td class="mdescRight">Local Space.  <a href="class_c_transform.html#a03edb9e2505cd67f091729d209df6049">More...</a><br /></td></tr>
 <tr class="separator:a03edb9e2505cd67f091729d209df6049"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6778be22ba9381023d80cc6a49ddf09"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#ab6778be22ba9381023d80cc6a49ddf09">SetWorldScale</a> (const <a class="el" href="_vector3_8hpp.html#abb63d82e5aaa1616fff243d45937ad17">Vector3</a> &amp;aScale, const bool Silent=false)</td></tr>
-<tr class="separator:ab6778be22ba9381023d80cc6a49ddf09"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76976b151075af326b5fc22138122a86"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_vector3_8hpp.html#abb63d82e5aaa1616fff243d45937ad17">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a76976b151075af326b5fc22138122a86">GetWorldScale</a> () const</td></tr>
-<tr class="separator:a76976b151075af326b5fc22138122a86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c9adecb1780075477adb567bb6fba65"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a8c9adecb1780075477adb567bb6fba65">SetRotation</a> (const <a class="el" href="_quaternion_8hpp.html#aa62c832059ac8e255e7b02326e673c05">Quaternion</a> &amp;aRotation, const bool Silent=false)</td></tr>
+<tr class="memitem:a8c9adecb1780075477adb567bb6fba65"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a8c9adecb1780075477adb567bb6fba65">SetRotation</a> (const <a class="el" href="class_quaternion.html">Quaternion</a> &amp;aRotation, const bool Silent=false)</td></tr>
+<tr class="memdesc:a8c9adecb1780075477adb567bb6fba65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Local Space.  <a href="class_c_transform.html#a8c9adecb1780075477adb567bb6fba65">More...</a><br /></td></tr>
 <tr class="separator:a8c9adecb1780075477adb567bb6fba65"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e424d4ae0d9dc4e0f09697f06b337c9"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="_quaternion_8hpp.html#aa62c832059ac8e255e7b02326e673c05">Quaternion</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a8e424d4ae0d9dc4e0f09697f06b337c9">GetRotation</a> () const</td></tr>
+<tr class="memitem:a8e424d4ae0d9dc4e0f09697f06b337c9"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_quaternion.html">Quaternion</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a8e424d4ae0d9dc4e0f09697f06b337c9">GetRotation</a> () const</td></tr>
+<tr class="memdesc:a8e424d4ae0d9dc4e0f09697f06b337c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Local Space.  <a href="class_c_transform.html#a8e424d4ae0d9dc4e0f09697f06b337c9">More...</a><br /></td></tr>
 <tr class="separator:a8e424d4ae0d9dc4e0f09697f06b337c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0fb5fb74f0b0583df3282e16501b0c10"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a0fb5fb74f0b0583df3282e16501b0c10">SetWorldRotation</a> (const <a class="el" href="_quaternion_8hpp.html#aa62c832059ac8e255e7b02326e673c05">Quaternion</a> &amp;aRotation, const bool Silent=false)</td></tr>
+<tr class="memitem:a1489d1497c2ef559c01f59b891bd1e72"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a1489d1497c2ef559c01f59b891bd1e72">SetWorldPosition</a> (const <a class="el" href="class_vector3.html">Vector3</a> &amp;aPosition, const bool Silent=false)</td></tr>
+<tr class="memdesc:a1489d1497c2ef559c01f59b891bd1e72"><td class="mdescLeft">&#160;</td><td class="mdescRight">World Space.  <a href="class_c_transform.html#a1489d1497c2ef559c01f59b891bd1e72">More...</a><br /></td></tr>
+<tr class="separator:a1489d1497c2ef559c01f59b891bd1e72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe4515b95327328ba16c18f233403756"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector3.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#abe4515b95327328ba16c18f233403756">GetWorldPosition</a> () const</td></tr>
+<tr class="memdesc:abe4515b95327328ba16c18f233403756"><td class="mdescLeft">&#160;</td><td class="mdescRight">World Space.  <a href="class_c_transform.html#abe4515b95327328ba16c18f233403756">More...</a><br /></td></tr>
+<tr class="separator:abe4515b95327328ba16c18f233403756"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6778be22ba9381023d80cc6a49ddf09"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#ab6778be22ba9381023d80cc6a49ddf09">SetWorldScale</a> (const <a class="el" href="class_vector3.html">Vector3</a> &amp;aScale, const bool Silent=false)</td></tr>
+<tr class="memdesc:ab6778be22ba9381023d80cc6a49ddf09"><td class="mdescLeft">&#160;</td><td class="mdescRight">World Space.  <a href="class_c_transform.html#ab6778be22ba9381023d80cc6a49ddf09">More...</a><br /></td></tr>
+<tr class="separator:ab6778be22ba9381023d80cc6a49ddf09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76976b151075af326b5fc22138122a86"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector3.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a76976b151075af326b5fc22138122a86">GetWorldScale</a> () const</td></tr>
+<tr class="memdesc:a76976b151075af326b5fc22138122a86"><td class="mdescLeft">&#160;</td><td class="mdescRight">World Space.  <a href="class_c_transform.html#a76976b151075af326b5fc22138122a86">More...</a><br /></td></tr>
+<tr class="separator:a76976b151075af326b5fc22138122a86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fb5fb74f0b0583df3282e16501b0c10"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a0fb5fb74f0b0583df3282e16501b0c10">SetWorldRotation</a> (const <a class="el" href="class_quaternion.html">Quaternion</a> &amp;aRotation, const bool Silent=false)</td></tr>
+<tr class="memdesc:a0fb5fb74f0b0583df3282e16501b0c10"><td class="mdescLeft">&#160;</td><td class="mdescRight">World Space.  <a href="class_c_transform.html#a0fb5fb74f0b0583df3282e16501b0c10">More...</a><br /></td></tr>
 <tr class="separator:a0fb5fb74f0b0583df3282e16501b0c10"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9842f4e32f24638d4fa97379466e4f85"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_quaternion_8hpp.html#aa62c832059ac8e255e7b02326e673c05">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a9842f4e32f24638d4fa97379466e4f85">GetWorldRotation</a> () const</td></tr>
-<tr class="separator:a9842f4e32f24638d4fa97379466e4f85"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad309fceec295ef7cdc1663063a2d3c96"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_quaternion_8hpp.html#aa62c832059ac8e255e7b02326e673c05">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#ad309fceec295ef7cdc1663063a2d3c96">GetInvWorldRotation</a> () const</td></tr>
-<tr class="separator:ad309fceec295ef7cdc1663063a2d3c96"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a308af19fb2d4490e67a10c3b6a7d949f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a308af19fb2d4490e67a10c3b6a7d949f">SetForward</a> (const <a class="el" href="_vector3_8hpp.html#abb63d82e5aaa1616fff243d45937ad17">Vector3</a> &amp;)</td></tr>
+<tr class="memitem:a2a78ec8ade68ac519ee548c358611a52"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_quaternion.html">Quaternion</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a2a78ec8ade68ac519ee548c358611a52">GetWorldRotation</a> () const</td></tr>
+<tr class="memdesc:a2a78ec8ade68ac519ee548c358611a52"><td class="mdescLeft">&#160;</td><td class="mdescRight">World Space.  <a href="class_c_transform.html#a2a78ec8ade68ac519ee548c358611a52">More...</a><br /></td></tr>
+<tr class="separator:a2a78ec8ade68ac519ee548c358611a52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2b287c75f3722a3dbd36856b0263bc2"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_quaternion.html">Quaternion</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#ac2b287c75f3722a3dbd36856b0263bc2">GetInvWorldRotation</a> () const</td></tr>
+<tr class="memdesc:ac2b287c75f3722a3dbd36856b0263bc2"><td class="mdescLeft">&#160;</td><td class="mdescRight">World Space.  <a href="class_c_transform.html#ac2b287c75f3722a3dbd36856b0263bc2">More...</a><br /></td></tr>
+<tr class="separator:ac2b287c75f3722a3dbd36856b0263bc2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73faa5003ad4098426040af4a83b147f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a73faa5003ad4098426040af4a83b147f">SetRight</a> (const <a class="el" href="class_vector3.html">Vector3</a> &amp;)</td></tr>
+<tr class="memdesc:a73faa5003ad4098426040af4a83b147f"><td class="mdescLeft">&#160;</td><td class="mdescRight">World Space.  <a href="class_c_transform.html#a73faa5003ad4098426040af4a83b147f">More...</a><br /></td></tr>
+<tr class="separator:a73faa5003ad4098426040af4a83b147f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56ccfdd1fc87f9cdd0cb5fb9f1afab45"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector3.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a56ccfdd1fc87f9cdd0cb5fb9f1afab45">GetRight</a> () const</td></tr>
+<tr class="memdesc:a56ccfdd1fc87f9cdd0cb5fb9f1afab45"><td class="mdescLeft">&#160;</td><td class="mdescRight">World Space.  <a href="class_c_transform.html#a56ccfdd1fc87f9cdd0cb5fb9f1afab45">More...</a><br /></td></tr>
+<tr class="separator:a56ccfdd1fc87f9cdd0cb5fb9f1afab45"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a375f8c173aba65b16b40a582e4f63662"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a375f8c173aba65b16b40a582e4f63662">SetUp</a> (const <a class="el" href="class_vector3.html">Vector3</a> &amp;)</td></tr>
+<tr class="memdesc:a375f8c173aba65b16b40a582e4f63662"><td class="mdescLeft">&#160;</td><td class="mdescRight">World Space.  <a href="class_c_transform.html#a375f8c173aba65b16b40a582e4f63662">More...</a><br /></td></tr>
+<tr class="separator:a375f8c173aba65b16b40a582e4f63662"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67b360bc42ad68e2aca8658196dd83e8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector3.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a67b360bc42ad68e2aca8658196dd83e8">GetUp</a> () const</td></tr>
+<tr class="memdesc:a67b360bc42ad68e2aca8658196dd83e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">World Space.  <a href="class_c_transform.html#a67b360bc42ad68e2aca8658196dd83e8">More...</a><br /></td></tr>
+<tr class="separator:a67b360bc42ad68e2aca8658196dd83e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a308af19fb2d4490e67a10c3b6a7d949f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a308af19fb2d4490e67a10c3b6a7d949f">SetForward</a> (const <a class="el" href="class_vector3.html">Vector3</a> &amp;)</td></tr>
+<tr class="memdesc:a308af19fb2d4490e67a10c3b6a7d949f"><td class="mdescLeft">&#160;</td><td class="mdescRight">World Space.  <a href="class_c_transform.html#a308af19fb2d4490e67a10c3b6a7d949f">More...</a><br /></td></tr>
 <tr class="separator:a308af19fb2d4490e67a10c3b6a7d949f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0bba45faf115bdde04072323b35d94bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_vector3_8hpp.html#abb63d82e5aaa1616fff243d45937ad17">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a0bba45faf115bdde04072323b35d94bb">GetForward</a> () const</td></tr>
+<tr class="memitem:a0bba45faf115bdde04072323b35d94bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector3.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a0bba45faf115bdde04072323b35d94bb">GetForward</a> () const</td></tr>
+<tr class="memdesc:a0bba45faf115bdde04072323b35d94bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">World Space.  <a href="class_c_transform.html#a0bba45faf115bdde04072323b35d94bb">More...</a><br /></td></tr>
 <tr class="separator:a0bba45faf115bdde04072323b35d94bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bdeecae7368acd82d8bf95a4ba317ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_vector3_8hpp.html#abb63d82e5aaa1616fff243d45937ad17">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a3bdeecae7368acd82d8bf95a4ba317ff">GetWorldForward</a> () const</td></tr>
-<tr class="separator:a3bdeecae7368acd82d8bf95a4ba317ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1938214a3aa8d4d944a202419415446"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#ae1938214a3aa8d4d944a202419415446">SetPosition2D</a> (const <a class="el" href="_vector2_8hpp.html#ab50a46295e259c17345421d0fc1cb3bb">Vector2</a> &amp;aPosition, const bool Silent=false)</td></tr>
-<tr class="separator:ae1938214a3aa8d4d944a202419415446"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a853817c3a0dc831fc81fa6a37a666e1d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_vector2_8hpp.html#ab50a46295e259c17345421d0fc1cb3bb">Vector2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a853817c3a0dc831fc81fa6a37a666e1d">GetPosition2D</a> () const</td></tr>
-<tr class="separator:a853817c3a0dc831fc81fa6a37a666e1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6545eac6cb2aeb7eded46c3bb634f4f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a6545eac6cb2aeb7eded46c3bb634f4f8">SetWorldPosition2D</a> (const <a class="el" href="_vector2_8hpp.html#ab50a46295e259c17345421d0fc1cb3bb">Vector2</a> &amp;aPosition, const bool Silent=false)</td></tr>
-<tr class="separator:a6545eac6cb2aeb7eded46c3bb634f4f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3e4acc447415693b5ced521cc06a1a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_vector2_8hpp.html#ab50a46295e259c17345421d0fc1cb3bb">Vector2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#aa3e4acc447415693b5ced521cc06a1a9">GetWorldPosition2D</a> () const</td></tr>
-<tr class="separator:aa3e4acc447415693b5ced521cc06a1a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aca3ed35a22bbc62d858d0a6a197f4c86"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#aca3ed35a22bbc62d858d0a6a197f4c86">SetScale2D</a> (const <a class="el" href="_vector2_8hpp.html#ab50a46295e259c17345421d0fc1cb3bb">Vector2</a> &amp;aScale, const bool Silent=false)</td></tr>
-<tr class="separator:aca3ed35a22bbc62d858d0a6a197f4c86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba902323bb5f44aa93d8e36d9c720be3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_vector2_8hpp.html#ab50a46295e259c17345421d0fc1cb3bb">Vector2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#aba902323bb5f44aa93d8e36d9c720be3">GetScale2D</a> () const</td></tr>
-<tr class="separator:aba902323bb5f44aa93d8e36d9c720be3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0339bfd09ab23b098a67f55dc98d536"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#ab0339bfd09ab23b098a67f55dc98d536">SetWorldScale2D</a> (const <a class="el" href="_vector2_8hpp.html#ab50a46295e259c17345421d0fc1cb3bb">Vector2</a> &amp;aScale, const bool Silent=false)</td></tr>
-<tr class="separator:ab0339bfd09ab23b098a67f55dc98d536"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a96b44bfbed1de6fc7438d5f5807ad662"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_vector2_8hpp.html#ab50a46295e259c17345421d0fc1cb3bb">Vector2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a96b44bfbed1de6fc7438d5f5807ad662">GetWorldScale2D</a> () const</td></tr>
-<tr class="separator:a96b44bfbed1de6fc7438d5f5807ad662"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa28edd6311745f85a7c9c22a7def3371"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#aa28edd6311745f85a7c9c22a7def3371">SetRotation2D</a> (const float aAngle, const bool Silent=false)</td></tr>
-<tr class="separator:aa28edd6311745f85a7c9c22a7def3371"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a280004c99b0287977ad1a99ffce6aef1"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a280004c99b0287977ad1a99ffce6aef1">GetRotation2D</a> () const</td></tr>
-<tr class="separator:a280004c99b0287977ad1a99ffce6aef1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd944368a7d12a90c0f762015df87867"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#afd944368a7d12a90c0f762015df87867">SetWorldRotation2D</a> (const float aAngle, const bool Silent=false)</td></tr>
-<tr class="separator:afd944368a7d12a90c0f762015df87867"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a822e8f396febe810011ee5e4afa6ce6c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a822e8f396febe810011ee5e4afa6ce6c">GetWorldRotation2D</a> () const</td></tr>
-<tr class="separator:a822e8f396febe810011ee5e4afa6ce6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49c570438fb0185f4f1c9909bebaed6f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a49c570438fb0185f4f1c9909bebaed6f">SetLayer</a> (const float aLayer)</td></tr>
-<tr class="separator:a49c570438fb0185f4f1c9909bebaed6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5e0f75234cd815d88f41f4b6d18dc0be"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a5e0f75234cd815d88f41f4b6d18dc0be">GetLayer</a> () const</td></tr>
-<tr class="separator:a5e0f75234cd815d88f41f4b6d18dc0be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acd43e36d12cf30720f64806f68deffc7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#acd43e36d12cf30720f64806f68deffc7">Translate</a> (const <a class="el" href="_vector3_8hpp.html#abb63d82e5aaa1616fff243d45937ad17">Vector3</a> &amp;)</td></tr>
+<tr class="memitem:ad6d51a7a14d7947355366ea4555da40a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#ad6d51a7a14d7947355366ea4555da40a">SetEulerAngles</a> (const <a class="el" href="class_vector3.html">Vector3</a> &amp;)</td></tr>
+<tr class="memdesc:ad6d51a7a14d7947355366ea4555da40a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Local Space, Degrees.  <a href="class_c_transform.html#ad6d51a7a14d7947355366ea4555da40a">More...</a><br /></td></tr>
+<tr class="separator:ad6d51a7a14d7947355366ea4555da40a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9ee15a2071939933258b01e55ac5f68"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector3.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#ac9ee15a2071939933258b01e55ac5f68">GetEulerAngles</a> () const</td></tr>
+<tr class="memdesc:ac9ee15a2071939933258b01e55ac5f68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Local Space, Degrees.  <a href="class_c_transform.html#ac9ee15a2071939933258b01e55ac5f68">More...</a><br /></td></tr>
+<tr class="separator:ac9ee15a2071939933258b01e55ac5f68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a943b2aee6e0f6f29436c507fe466d4e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a943b2aee6e0f6f29436c507fe466d4e8">SetWorldEulerAngles</a> (const <a class="el" href="class_vector3.html">Vector3</a> &amp;)</td></tr>
+<tr class="memdesc:a943b2aee6e0f6f29436c507fe466d4e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">World Space, Degrees.  <a href="class_c_transform.html#a943b2aee6e0f6f29436c507fe466d4e8">More...</a><br /></td></tr>
+<tr class="separator:a943b2aee6e0f6f29436c507fe466d4e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac718dade33d8c03e8d2dba9907e8f147"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector3.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#ac718dade33d8c03e8d2dba9907e8f147">GetWorldEulerAngles</a> () const</td></tr>
+<tr class="memdesc:ac718dade33d8c03e8d2dba9907e8f147"><td class="mdescLeft">&#160;</td><td class="mdescRight">World Space, Degrees.  <a href="class_c_transform.html#ac718dade33d8c03e8d2dba9907e8f147">More...</a><br /></td></tr>
+<tr class="separator:ac718dade33d8c03e8d2dba9907e8f147"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd43e36d12cf30720f64806f68deffc7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#acd43e36d12cf30720f64806f68deffc7">Translate</a> (const <a class="el" href="class_vector3.html">Vector3</a> &amp;)</td></tr>
+<tr class="memdesc:acd43e36d12cf30720f64806f68deffc7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Local Space.  <a href="class_c_transform.html#acd43e36d12cf30720f64806f68deffc7">More...</a><br /></td></tr>
 <tr class="separator:acd43e36d12cf30720f64806f68deffc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae19636338e796cdf6a862fa45b49cf31"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_matrix4_8hpp.html#a73faa516f0c2cdd223333723e4d6edd8">Matrix4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#ae19636338e796cdf6a862fa45b49cf31">GetMatrix</a> () const</td></tr>
-<tr class="separator:ae19636338e796cdf6a862fa45b49cf31"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3cbbb71989c529d89fb67da9d26fe927"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_matrix4_8hpp.html#a73faa516f0c2cdd223333723e4d6edd8">Matrix4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a3cbbb71989c529d89fb67da9d26fe927">GetInvMatrix</a> () const</td></tr>
-<tr class="separator:a3cbbb71989c529d89fb67da9d26fe927"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af81813b027622ef9b15b2bee18c794ff"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_matrix4_8hpp.html#a73faa516f0c2cdd223333723e4d6edd8">Matrix4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#af81813b027622ef9b15b2bee18c794ff">GetWorldMatrix</a> () const</td></tr>
-<tr class="separator:af81813b027622ef9b15b2bee18c794ff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abafad4d0aafbe2be71c1a584efe3fda3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="_matrix4_8hpp.html#a73faa516f0c2cdd223333723e4d6edd8">Matrix4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#abafad4d0aafbe2be71c1a584efe3fda3">GetInvWorldMatrix</a> () const</td></tr>
-<tr class="separator:abafad4d0aafbe2be71c1a584efe3fda3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa157cc1dae77e2f0c4dd3acafd7b81e8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#aa157cc1dae77e2f0c4dd3acafd7b81e8">Rotate</a> (const <a class="el" href="class_vector3.html">Vector3</a> &amp;Eulers)</td></tr>
+<tr class="memdesc:aa157cc1dae77e2f0c4dd3acafd7b81e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Eulers Degrees, Local Space.  <a href="class_c_transform.html#aa157cc1dae77e2f0c4dd3acafd7b81e8">More...</a><br /></td></tr>
+<tr class="separator:aa157cc1dae77e2f0c4dd3acafd7b81e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2b69a2f65b58733f7890edd87859c012"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a2b69a2f65b58733f7890edd87859c012">Rotate</a> (const float x, const float y, const float z)</td></tr>
+<tr class="memdesc:a2b69a2f65b58733f7890edd87859c012"><td class="mdescLeft">&#160;</td><td class="mdescRight">Eulers Degrees, Local Space.  <a href="class_c_transform.html#a2b69a2f65b58733f7890edd87859c012">More...</a><br /></td></tr>
+<tr class="separator:a2b69a2f65b58733f7890edd87859c012"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2520e9ca6df56facdeb093d9591dc47c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a2520e9ca6df56facdeb093d9591dc47c">Rotate</a> (const <a class="el" href="class_quaternion.html">Quaternion</a> &amp;)</td></tr>
+<tr class="memdesc:a2520e9ca6df56facdeb093d9591dc47c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Local Space.  <a href="class_c_transform.html#a2520e9ca6df56facdeb093d9591dc47c">More...</a><br /></td></tr>
+<tr class="separator:a2520e9ca6df56facdeb093d9591dc47c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29bf88ef6415c99dd6f7b712d95f8297"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a29bf88ef6415c99dd6f7b712d95f8297">LookAt</a> (<a class="el" href="class_c_transform.html">CTransform</a> *Target, const <a class="el" href="class_vector3.html">Vector3</a> &amp;<a class="el" href="_event_types_8hpp.html#acf6120e5498fcaa4a807f587242c3385a258f49887ef8d14ac268c92b02503aaa">Up</a>=<a class="el" href="class_vector3.html#af07b63d820c43afd808f569a73628628">Vector3::UP</a>)</td></tr>
+<tr class="separator:a29bf88ef6415c99dd6f7b712d95f8297"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae28afe2c9b6cefc570f6671e085ead93"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#ae28afe2c9b6cefc570f6671e085ead93">LookAt</a> (const <a class="el" href="class_c_transform.html">CTransform</a> &amp;Target, const <a class="el" href="class_vector3.html">Vector3</a> &amp;<a class="el" href="_event_types_8hpp.html#acf6120e5498fcaa4a807f587242c3385a258f49887ef8d14ac268c92b02503aaa">Up</a>=<a class="el" href="class_vector3.html#af07b63d820c43afd808f569a73628628">Vector3::UP</a>)</td></tr>
+<tr class="separator:ae28afe2c9b6cefc570f6671e085ead93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a955634f0df3fd561b4808dee658f8644"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a955634f0df3fd561b4808dee658f8644">LookAt</a> (const <a class="el" href="class_vector3.html">Vector3</a> &amp;Target, const <a class="el" href="class_vector3.html">Vector3</a> &amp;<a class="el" href="_event_types_8hpp.html#acf6120e5498fcaa4a807f587242c3385a258f49887ef8d14ac268c92b02503aaa">Up</a>=<a class="el" href="class_vector3.html#af07b63d820c43afd808f569a73628628">Vector3::UP</a>)</td></tr>
+<tr class="separator:a955634f0df3fd561b4808dee658f8644"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c496c04a48bd7f4cedcecc1b602cf1f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a2c496c04a48bd7f4cedcecc1b602cf1f">RotateAround</a> (<a class="el" href="class_c_transform.html">CTransform</a> *<a class="el" href="_graphics_types_8hpp.html#a5d452bf4b32c2fc2570e29af84fccccea2a3cd5946cfd317eb99c3d32e35e2d4c">Point</a>, const <a class="el" href="class_vector3.html">Vector3</a> &amp;Axis, const float Angle)</td></tr>
+<tr class="separator:a2c496c04a48bd7f4cedcecc1b602cf1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc8d111f2132bfe4f08d3f38d84824b8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#adc8d111f2132bfe4f08d3f38d84824b8">RotateAround</a> (const <a class="el" href="class_c_transform.html">CTransform</a> &amp;<a class="el" href="_graphics_types_8hpp.html#a5d452bf4b32c2fc2570e29af84fccccea2a3cd5946cfd317eb99c3d32e35e2d4c">Point</a>, const <a class="el" href="class_vector3.html">Vector3</a> &amp;Axis, const float Angle)</td></tr>
+<tr class="separator:adc8d111f2132bfe4f08d3f38d84824b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2f35fa0def6ba923ef1557da7652ec46"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a2f35fa0def6ba923ef1557da7652ec46">RotateAround</a> (const <a class="el" href="class_vector3.html">Vector3</a> &amp;<a class="el" href="_graphics_types_8hpp.html#a5d452bf4b32c2fc2570e29af84fccccea2a3cd5946cfd317eb99c3d32e35e2d4c">Point</a>, const <a class="el" href="class_vector3.html">Vector3</a> &amp;Axis, const float Angle)</td></tr>
+<tr class="separator:a2f35fa0def6ba923ef1557da7652ec46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02ba5440d1fb02180018ed9097a14087"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector3.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a02ba5440d1fb02180018ed9097a14087">LocalToWorld</a> (const <a class="el" href="class_vector3.html">Vector3</a> &amp;<a class="el" href="_graphics_types_8hpp.html#a5d452bf4b32c2fc2570e29af84fccccea2a3cd5946cfd317eb99c3d32e35e2d4c">Point</a>)</td></tr>
+<tr class="separator:a02ba5440d1fb02180018ed9097a14087"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e5a2fd79f5dff9823dbcd1bcabc80ae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector3.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a3e5a2fd79f5dff9823dbcd1bcabc80ae">WorldToLocal</a> (const <a class="el" href="class_vector3.html">Vector3</a> &amp;<a class="el" href="_graphics_types_8hpp.html#a5d452bf4b32c2fc2570e29af84fccccea2a3cd5946cfd317eb99c3d32e35e2d4c">Point</a>)</td></tr>
+<tr class="separator:a3e5a2fd79f5dff9823dbcd1bcabc80ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab50ac6919cf611105f71b822cb2934a7"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_matrix4.html">Matrix4</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#ab50ac6919cf611105f71b822cb2934a7">GetMatrix</a> () const</td></tr>
+<tr class="separator:ab50ac6919cf611105f71b822cb2934a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af072c19d2a597a13ac9a95eacbcf4364"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_matrix4.html">Matrix4</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#af072c19d2a597a13ac9a95eacbcf4364">GetInvMatrix</a> () const</td></tr>
+<tr class="separator:af072c19d2a597a13ac9a95eacbcf4364"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51e8b7d3064773be6d5f04e54166937c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_matrix4.html">Matrix4</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a51e8b7d3064773be6d5f04e54166937c">GetWorldMatrix</a> () const</td></tr>
+<tr class="separator:a51e8b7d3064773be6d5f04e54166937c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20b5347059a66894d6b3bb57caf98b75"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_matrix4.html">Matrix4</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a20b5347059a66894d6b3bb57caf98b75">GetInvWorldMatrix</a> () const</td></tr>
+<tr class="separator:a20b5347059a66894d6b3bb57caf98b75"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a128dd88958d9dd67dc4273911a14ec06"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a128dd88958d9dd67dc4273911a14ec06">AddPositionCallback</a> (void *Key, const <a class="el" href="_transform_8hpp.html#a28fd36716eff66b2fbf6833b20aa73e6">PositionChanged</a> &amp;Callback)</td></tr>
 <tr class="separator:a128dd88958d9dd67dc4273911a14ec06"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac398fe4ab9af020a2d332c9ece07dffa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#ac398fe4ab9af020a2d332c9ece07dffa">AddScaleCallback</a> (void *Key, const <a class="el" href="_transform_8hpp.html#a9517806b42c21709233e5cd0860f3cc9">ScaleChanged</a> &amp;Callback)</td></tr>
 <tr class="separator:ac398fe4ab9af020a2d332c9ece07dffa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a09d0657973c267c8d95129763c67f280"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a09d0657973c267c8d95129763c67f280">AddRotationCallback</a> (void *Key, const <a class="el" href="_transform_8hpp.html#a58cffcbf8b7e5a1187221eeff954887e">RotationChanged</a> &amp;Callback)</td></tr>
 <tr class="separator:a09d0657973c267c8d95129763c67f280"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abe610a838a06672637d70f08f9b1a710"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#abe610a838a06672637d70f08f9b1a710">AddChangedCallback</a> (void *Key, const <a class="el" href="_transform_8hpp.html#a02d4ea6ed93b5b9e9e83898156a4e3c1">TransformChanged</a> &amp;Callback)</td></tr>
+<tr class="separator:abe610a838a06672637d70f08f9b1a710"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f5ff026ed9f2748b5d775e28681de44"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a3f5ff026ed9f2748b5d775e28681de44">RemovePositionCallback</a> (void *Key)</td></tr>
 <tr class="separator:a3f5ff026ed9f2748b5d775e28681de44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3d2352103e989cf9d522b7a558b43128"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a3d2352103e989cf9d522b7a558b43128">RemoveScaleCallback</a> (void *Key)</td></tr>
 <tr class="separator:a3d2352103e989cf9d522b7a558b43128"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58c56adeccb860fd4557976c6f95542f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a58c56adeccb860fd4557976c6f95542f">RemoveRotationCallback</a> (void *Key)</td></tr>
 <tr class="separator:a58c56adeccb860fd4557976c6f95542f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40ede2bdf12dfd19e51fcc16bf34b70b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a40ede2bdf12dfd19e51fcc16bf34b70b">RemoveChangedCallback</a> (void *Key)</td></tr>
+<tr class="separator:a40ede2bdf12dfd19e51fcc16bf34b70b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac0c50add9e8c3faf4503198c1c647d2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#aac0c50add9e8c3faf4503198c1c647d2">IsDirty</a> () const</td></tr>
+<tr class="separator:aac0c50add9e8c3faf4503198c1c647d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1938214a3aa8d4d944a202419415446"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#ae1938214a3aa8d4d944a202419415446">SetPosition2D</a> (const <a class="el" href="class_vector2.html">Vector2</a> &amp;aPosition, const bool Silent=false)</td></tr>
+<tr class="separator:ae1938214a3aa8d4d944a202419415446"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a853817c3a0dc831fc81fa6a37a666e1d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector2.html">Vector2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a853817c3a0dc831fc81fa6a37a666e1d">GetPosition2D</a> () const</td></tr>
+<tr class="separator:a853817c3a0dc831fc81fa6a37a666e1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca3ed35a22bbc62d858d0a6a197f4c86"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#aca3ed35a22bbc62d858d0a6a197f4c86">SetScale2D</a> (const <a class="el" href="class_vector2.html">Vector2</a> &amp;aScale, const bool Silent=false)</td></tr>
+<tr class="separator:aca3ed35a22bbc62d858d0a6a197f4c86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba902323bb5f44aa93d8e36d9c720be3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector2.html">Vector2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#aba902323bb5f44aa93d8e36d9c720be3">GetScale2D</a> () const</td></tr>
+<tr class="separator:aba902323bb5f44aa93d8e36d9c720be3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa28edd6311745f85a7c9c22a7def3371"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#aa28edd6311745f85a7c9c22a7def3371">SetRotation2D</a> (const float aAngle, const bool Silent=false)</td></tr>
+<tr class="separator:aa28edd6311745f85a7c9c22a7def3371"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a280004c99b0287977ad1a99ffce6aef1"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a280004c99b0287977ad1a99ffce6aef1">GetRotation2D</a> () const</td></tr>
+<tr class="separator:a280004c99b0287977ad1a99ffce6aef1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6545eac6cb2aeb7eded46c3bb634f4f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a6545eac6cb2aeb7eded46c3bb634f4f8">SetWorldPosition2D</a> (const <a class="el" href="class_vector2.html">Vector2</a> &amp;aPosition, const bool Silent=false)</td></tr>
+<tr class="separator:a6545eac6cb2aeb7eded46c3bb634f4f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3e4acc447415693b5ced521cc06a1a9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector2.html">Vector2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#aa3e4acc447415693b5ced521cc06a1a9">GetWorldPosition2D</a> () const</td></tr>
+<tr class="separator:aa3e4acc447415693b5ced521cc06a1a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0339bfd09ab23b098a67f55dc98d536"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#ab0339bfd09ab23b098a67f55dc98d536">SetWorldScale2D</a> (const <a class="el" href="class_vector2.html">Vector2</a> &amp;aScale, const bool Silent=false)</td></tr>
+<tr class="separator:ab0339bfd09ab23b098a67f55dc98d536"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a96b44bfbed1de6fc7438d5f5807ad662"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector2.html">Vector2</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a96b44bfbed1de6fc7438d5f5807ad662">GetWorldScale2D</a> () const</td></tr>
+<tr class="separator:a96b44bfbed1de6fc7438d5f5807ad662"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd944368a7d12a90c0f762015df87867"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#afd944368a7d12a90c0f762015df87867">SetWorldRotation2D</a> (const float aAngle, const bool Silent=false)</td></tr>
+<tr class="separator:afd944368a7d12a90c0f762015df87867"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a822e8f396febe810011ee5e4afa6ce6c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a822e8f396febe810011ee5e4afa6ce6c">GetWorldRotation2D</a> () const</td></tr>
+<tr class="separator:a822e8f396febe810011ee5e4afa6ce6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2dc64ee3b2ade31f2b19d602f8f4f083"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a2dc64ee3b2ade31f2b19d602f8f4f083">SetLayer</a> (const float aLayer, const bool Silent=false)</td></tr>
+<tr class="separator:a2dc64ee3b2ade31f2b19d602f8f4f083"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e0f75234cd815d88f41f4b6d18dc0be"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_transform.html#a5e0f75234cd815d88f41f4b6d18dc0be">GetLayer</a> () const</td></tr>
+<tr class="separator:a5e0f75234cd815d88f41f4b6d18dc0be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+Additional Inherited Members</h2></td></tr>
+<tr class="inherit_header pro_methods_class_non_copyable_movable"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_class_non_copyable_movable')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="class_non_copyable_movable.html">NonCopyableMovable</a></td></tr>
+<tr class="memitem:a68c0e4f6712adff735af7bf87f650576 inherit pro_methods_class_non_copyable_movable"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_non_copyable_movable.html#a68c0e4f6712adff735af7bf87f650576">NonCopyableMovable</a> ()=default</td></tr>
+<tr class="separator:a68c0e4f6712adff735af7bf87f650576 inherit pro_methods_class_non_copyable_movable"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accea568757b9528356e613a9d0d6536c inherit pro_methods_class_non_copyable_movable"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_non_copyable_movable.html#accea568757b9528356e613a9d0d6536c">~NonCopyableMovable</a> ()=default</td></tr>
+<tr class="separator:accea568757b9528356e613a9d0d6536c inherit pro_methods_class_non_copyable_movable"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Encapsulate Position, Rotation and Scale.Tree Like structure. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a6cc4e6c97dbb86326341aa1a468986d4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6cc4e6c97dbb86326341aa1a468986d4">&#9670;&nbsp;</a></span>CTransform() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a6cc4e6c97dbb86326341aa1a468986d4">&#9670;&nbsp;</a></span>CTransform()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -218,32 +310,11 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a456d97bfe44b00a710c03525f4974a50"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a456d97bfe44b00a710c03525f4974a50">&#9670;&nbsp;</a></span>CTransform() <span class="overload">[2/2]</span></h2>
+<a id="a90d72f6ed0c3b0e5401365ba6fe2bdc5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a90d72f6ed0c3b0e5401365ba6fe2bdc5">&#9670;&nbsp;</a></span>~CTransform()</h2>
 
 <div class="memitem">
 <div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">CTransform::CTransform </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_c_transform.html">CTransform</a> &amp;&#160;</td>
-          <td class="paramname"><em>Other</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a33fc62cfa0c6e4b395a5cea72e88c4ab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a33fc62cfa0c6e4b395a5cea72e88c4ab">&#9670;&nbsp;</a></span>~CTransform()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">CTransform::~CTransform </td>
@@ -252,16 +323,57 @@ Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">default</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="abe610a838a06672637d70f08f9b1a710"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe610a838a06672637d70f08f9b1a710">&#9670;&nbsp;</a></span>AddChangedCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CTransform::AddChangedCallback </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>Key</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="_transform_8hpp.html#a02d4ea6ed93b5b9e9e83898156a4e3c1">TransformChanged</a> &amp;&#160;</td>
+          <td class="paramname"><em>Callback</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a41dbe61e7ff9ae6858d899694359d30e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41dbe61e7ff9ae6858d899694359d30e">&#9670;&nbsp;</a></span>AddChild()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CTransform::AddChild </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_c_transform.html">CTransform</a> *&#160;</td>
+          <td class="paramname"><em>Other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a128dd88958d9dd67dc4273911a14ec06"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a128dd88958d9dd67dc4273911a14ec06">&#9670;&nbsp;</a></span>AddPositionCallback()</h2>
 
@@ -346,6 +458,75 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="aa6eb31ba0530fd9f74ecef1480f349c5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa6eb31ba0530fd9f74ecef1480f349c5">&#9670;&nbsp;</a></span>GetChildren()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="_transform_8hpp.html#a038bb27b8c49d7fd54ba97cee25a05e0">TransformArray</a>&amp; CTransform::GetChildren </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8b504f05e283309b87e66778e94ca657"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b504f05e283309b87e66778e94ca657">&#9670;&nbsp;</a></span>GetChildrenCount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t CTransform::GetChildrenCount </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ac9ee15a2071939933258b01e55ac5f68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9ee15a2071939933258b01e55ac5f68">&#9670;&nbsp;</a></span>GetEulerAngles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_vector3.html">Vector3</a> CTransform::GetEulerAngles </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Local Space, Degrees. </p>
+
+</div>
+</div>
 <a id="a0bba45faf115bdde04072323b35d94bb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0bba45faf115bdde04072323b35d94bb">&#9670;&nbsp;</a></span>GetForward()</h2>
 
@@ -353,7 +534,7 @@ Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_vector3_8hpp.html#abb63d82e5aaa1616fff243d45937ad17">Vector3</a> CTransform::GetForward </td>
+          <td class="memname"><a class="el" href="class_vector3.html">Vector3</a> CTransform::GetForward </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -361,16 +542,18 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>World Space. </p>
+
 </div>
 </div>
-<a id="a3cbbb71989c529d89fb67da9d26fe927"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3cbbb71989c529d89fb67da9d26fe927">&#9670;&nbsp;</a></span>GetInvMatrix()</h2>
+<a id="af072c19d2a597a13ac9a95eacbcf4364"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af072c19d2a597a13ac9a95eacbcf4364">&#9670;&nbsp;</a></span>GetInvMatrix()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_matrix4_8hpp.html#a73faa516f0c2cdd223333723e4d6edd8">Matrix4</a> CTransform::GetInvMatrix </td>
+          <td class="memname">const <a class="el" href="class_matrix4.html">Matrix4</a> &amp; CTransform::GetInvMatrix </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -380,14 +563,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="abafad4d0aafbe2be71c1a584efe3fda3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abafad4d0aafbe2be71c1a584efe3fda3">&#9670;&nbsp;</a></span>GetInvWorldMatrix()</h2>
+<a id="a20b5347059a66894d6b3bb57caf98b75"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20b5347059a66894d6b3bb57caf98b75">&#9670;&nbsp;</a></span>GetInvWorldMatrix()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_matrix4_8hpp.html#a73faa516f0c2cdd223333723e4d6edd8">Matrix4</a> CTransform::GetInvWorldMatrix </td>
+          <td class="memname">const <a class="el" href="class_matrix4.html">Matrix4</a> &amp; CTransform::GetInvWorldMatrix </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -397,20 +580,22 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ad309fceec295ef7cdc1663063a2d3c96"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad309fceec295ef7cdc1663063a2d3c96">&#9670;&nbsp;</a></span>GetInvWorldRotation()</h2>
+<a id="ac2b287c75f3722a3dbd36856b0263bc2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2b287c75f3722a3dbd36856b0263bc2">&#9670;&nbsp;</a></span>GetInvWorldRotation()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_quaternion_8hpp.html#aa62c832059ac8e255e7b02326e673c05">Quaternion</a> CTransform::GetInvWorldRotation </td>
+          <td class="memname">const <a class="el" href="class_quaternion.html">Quaternion</a> &amp; CTransform::GetInvWorldRotation </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>World Space. </p>
 
 </div>
 </div>
@@ -439,14 +624,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ae19636338e796cdf6a862fa45b49cf31"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae19636338e796cdf6a862fa45b49cf31">&#9670;&nbsp;</a></span>GetMatrix()</h2>
+<a id="ab50ac6919cf611105f71b822cb2934a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab50ac6919cf611105f71b822cb2934a7">&#9670;&nbsp;</a></span>GetMatrix()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_matrix4_8hpp.html#a73faa516f0c2cdd223333723e4d6edd8">Matrix4</a> CTransform::GetMatrix </td>
+          <td class="memname">const <a class="el" href="class_matrix4.html">Matrix4</a> &amp; CTransform::GetMatrix </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -491,7 +676,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="_vector3_8hpp.html#abb63d82e5aaa1616fff243d45937ad17">Vector3</a>&amp; CTransform::GetPosition </td>
+          <td class="memname">const <a class="el" href="class_vector3.html">Vector3</a>&amp; CTransform::GetPosition </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -503,6 +688,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Local Space. </p>
 
 </div>
 </div>
@@ -516,7 +703,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_vector2_8hpp.html#ab50a46295e259c17345421d0fc1cb3bb">Vector2</a> CTransform::GetPosition2D </td>
+          <td class="memname"><a class="el" href="class_vector2.html">Vector2</a> CTransform::GetPosition2D </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -528,6 +715,25 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a56ccfdd1fc87f9cdd0cb5fb9f1afab45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56ccfdd1fc87f9cdd0cb5fb9f1afab45">&#9670;&nbsp;</a></span>GetRight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_vector3.html">Vector3</a> CTransform::GetRight </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>World Space. </p>
 
 </div>
 </div>
@@ -541,7 +747,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="_quaternion_8hpp.html#aa62c832059ac8e255e7b02326e673c05">Quaternion</a>&amp; CTransform::GetRotation </td>
+          <td class="memname">const <a class="el" href="class_quaternion.html">Quaternion</a>&amp; CTransform::GetRotation </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -553,6 +759,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Local Space. </p>
 
 </div>
 </div>
@@ -591,7 +799,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="_vector3_8hpp.html#abb63d82e5aaa1616fff243d45937ad17">Vector3</a>&amp; CTransform::GetScale </td>
+          <td class="memname">const <a class="el" href="class_vector3.html">Vector3</a>&amp; CTransform::GetScale </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -603,6 +811,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Local Space. </p>
 
 </div>
 </div>
@@ -616,7 +826,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_vector2_8hpp.html#ab50a46295e259c17345421d0fc1cb3bb">Vector2</a> CTransform::GetScale2D </td>
+          <td class="memname"><a class="el" href="class_vector2.html">Vector2</a> CTransform::GetScale2D </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -631,14 +841,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a3bdeecae7368acd82d8bf95a4ba317ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3bdeecae7368acd82d8bf95a4ba317ff">&#9670;&nbsp;</a></span>GetWorldForward()</h2>
+<a id="a67b360bc42ad68e2aca8658196dd83e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67b360bc42ad68e2aca8658196dd83e8">&#9670;&nbsp;</a></span>GetUp()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_vector3_8hpp.html#abb63d82e5aaa1616fff243d45937ad17">Vector3</a> CTransform::GetWorldForward </td>
+          <td class="memname"><a class="el" href="class_vector3.html">Vector3</a> CTransform::GetUp </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -646,16 +856,37 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>World Space. </p>
+
 </div>
 </div>
-<a id="af81813b027622ef9b15b2bee18c794ff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af81813b027622ef9b15b2bee18c794ff">&#9670;&nbsp;</a></span>GetWorldMatrix()</h2>
+<a id="ac718dade33d8c03e8d2dba9907e8f147"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac718dade33d8c03e8d2dba9907e8f147">&#9670;&nbsp;</a></span>GetWorldEulerAngles()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_matrix4_8hpp.html#a73faa516f0c2cdd223333723e4d6edd8">Matrix4</a> CTransform::GetWorldMatrix </td>
+          <td class="memname"><a class="el" href="class_vector3.html">Vector3</a> CTransform::GetWorldEulerAngles </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>World Space, Degrees. </p>
+
+</div>
+</div>
+<a id="a51e8b7d3064773be6d5f04e54166937c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51e8b7d3064773be6d5f04e54166937c">&#9670;&nbsp;</a></span>GetWorldMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_matrix4.html">Matrix4</a> &amp; CTransform::GetWorldMatrix </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -672,13 +903,15 @@ Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_vector3_8hpp.html#abb63d82e5aaa1616fff243d45937ad17">Vector3</a> CTransform::GetWorldPosition </td>
+          <td class="memname"><a class="el" href="class_vector3.html">Vector3</a> CTransform::GetWorldPosition </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>World Space. </p>
 
 </div>
 </div>
@@ -692,7 +925,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_vector2_8hpp.html#ab50a46295e259c17345421d0fc1cb3bb">Vector2</a> CTransform::GetWorldPosition2D </td>
+          <td class="memname"><a class="el" href="class_vector2.html">Vector2</a> CTransform::GetWorldPosition2D </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -707,20 +940,22 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a9842f4e32f24638d4fa97379466e4f85"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9842f4e32f24638d4fa97379466e4f85">&#9670;&nbsp;</a></span>GetWorldRotation()</h2>
+<a id="a2a78ec8ade68ac519ee548c358611a52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a78ec8ade68ac519ee548c358611a52">&#9670;&nbsp;</a></span>GetWorldRotation()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_quaternion_8hpp.html#aa62c832059ac8e255e7b02326e673c05">Quaternion</a> CTransform::GetWorldRotation </td>
+          <td class="memname">const <a class="el" href="class_quaternion.html">Quaternion</a> &amp; CTransform::GetWorldRotation </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>World Space. </p>
 
 </div>
 </div>
@@ -756,13 +991,15 @@ Public Member Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_vector3_8hpp.html#abb63d82e5aaa1616fff243d45937ad17">Vector3</a> CTransform::GetWorldScale </td>
+          <td class="memname"><a class="el" href="class_vector3.html">Vector3</a> CTransform::GetWorldScale </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>World Space. </p>
 
 </div>
 </div>
@@ -776,7 +1013,32 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="_vector2_8hpp.html#ab50a46295e259c17345421d0fc1cb3bb">Vector2</a> CTransform::GetWorldScale2D </td>
+          <td class="memname"><a class="el" href="class_vector2.html">Vector2</a> CTransform::GetWorldScale2D </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6bfdbeceebec877b0fc2a9432a39a553"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bfdbeceebec877b0fc2a9432a39a553">&#9670;&nbsp;</a></span>HasChildren()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CTransform::HasChildren </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -816,6 +1078,31 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="aac0c50add9e8c3faf4503198c1c647d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac0c50add9e8c3faf4503198c1c647d2">&#9670;&nbsp;</a></span>IsDirty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool CTransform::IsDirty </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a163f6c2cf92b8ea96cf92dc83045c093"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a163f6c2cf92b8ea96cf92dc83045c093">&#9670;&nbsp;</a></span>Load()</h2>
 
@@ -834,16 +1121,160 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a35a6a70944651b2594f6f66af1f8e1c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a35a6a70944651b2594f6f66af1f8e1c8">&#9670;&nbsp;</a></span>operator=()</h2>
+<a id="a02ba5440d1fb02180018ed9097a14087"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02ba5440d1fb02180018ed9097a14087">&#9670;&nbsp;</a></span>LocalToWorld()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_vector3.html">Vector3</a> CTransform::LocalToWorld </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_vector3.html">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>Point</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae28afe2c9b6cefc570f6671e085ead93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae28afe2c9b6cefc570f6671e085ead93">&#9670;&nbsp;</a></span>LookAt() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CTransform::LookAt </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_c_transform.html">CTransform</a> &amp;&#160;</td>
+          <td class="paramname"><em>Target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_vector3.html">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>Up</em> = <code><a class="el" href="class_vector3.html#af07b63d820c43afd808f569a73628628">Vector3::UP</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a955634f0df3fd561b4808dee658f8644"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a955634f0df3fd561b4808dee658f8644">&#9670;&nbsp;</a></span>LookAt() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="class_c_transform.html">CTransform</a> &amp; CTransform::operator= </td>
+          <td class="memname">void CTransform::LookAt </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="class_c_transform.html">CTransform</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_vector3.html">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>Target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_vector3.html">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>Up</em> = <code><a class="el" href="class_vector3.html#af07b63d820c43afd808f569a73628628">Vector3::UP</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a29bf88ef6415c99dd6f7b712d95f8297"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29bf88ef6415c99dd6f7b712d95f8297">&#9670;&nbsp;</a></span>LookAt() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CTransform::LookAt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_c_transform.html">CTransform</a> *&#160;</td>
+          <td class="paramname"><em>Target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_vector3.html">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>Up</em> = <code><a class="el" href="class_vector3.html#af07b63d820c43afd808f569a73628628">Vector3::UP</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a40ede2bdf12dfd19e51fcc16bf34b70b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40ede2bdf12dfd19e51fcc16bf34b70b">&#9670;&nbsp;</a></span>RemoveChangedCallback()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CTransform::RemoveChangedCallback </td>
+          <td>(</td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>Key</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a85e1099af940f1f6647f4a8b0dc5ad3f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85e1099af940f1f6647f4a8b0dc5ad3f">&#9670;&nbsp;</a></span>RemoveChild()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CTransform::RemoveChild </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_c_transform.html">CTransform</a> *&#160;</td>
           <td class="paramname"><em>Other</em></td><td>)</td>
           <td></td>
         </tr>
@@ -906,6 +1337,216 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a2b69a2f65b58733f7890edd87859c012"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b69a2f65b58733f7890edd87859c012">&#9670;&nbsp;</a></span>Rotate() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CTransform::Rotate </td>
+          <td>(</td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>x</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>y</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>z</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Eulers Degrees, Local Space. </p>
+
+</div>
+</div>
+<a id="a2520e9ca6df56facdeb093d9591dc47c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2520e9ca6df56facdeb093d9591dc47c">&#9670;&nbsp;</a></span>Rotate() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CTransform::Rotate </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_quaternion.html">Quaternion</a> &amp;&#160;</td>
+          <td class="paramname"><em>Delta</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Local Space. </p>
+
+</div>
+</div>
+<a id="aa157cc1dae77e2f0c4dd3acafd7b81e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa157cc1dae77e2f0c4dd3acafd7b81e8">&#9670;&nbsp;</a></span>Rotate() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CTransform::Rotate </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_vector3.html">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>Eulers</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Eulers Degrees, Local Space. </p>
+
+</div>
+</div>
+<a id="adc8d111f2132bfe4f08d3f38d84824b8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc8d111f2132bfe4f08d3f38d84824b8">&#9670;&nbsp;</a></span>RotateAround() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CTransform::RotateAround </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_c_transform.html">CTransform</a> &amp;&#160;</td>
+          <td class="paramname"><em>Point</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_vector3.html">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>Axis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>Angle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2f35fa0def6ba923ef1557da7652ec46"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2f35fa0def6ba923ef1557da7652ec46">&#9670;&nbsp;</a></span>RotateAround() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CTransform::RotateAround </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_vector3.html">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>Point</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_vector3.html">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>Axis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>Angle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2c496c04a48bd7f4cedcecc1b602cf1f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2c496c04a48bd7f4cedcecc1b602cf1f">&#9670;&nbsp;</a></span>RotateAround() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CTransform::RotateAround </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_c_transform.html">CTransform</a> *&#160;</td>
+          <td class="paramname"><em>Point</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_vector3.html">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>Axis</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float&#160;</td>
+          <td class="paramname"><em>Angle</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a3156ee26a807ce318b7063b296de5b2d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3156ee26a807ce318b7063b296de5b2d">&#9670;&nbsp;</a></span>Save()</h2>
 
@@ -924,6 +1565,26 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="ad6d51a7a14d7947355366ea4555da40a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6d51a7a14d7947355366ea4555da40a">&#9670;&nbsp;</a></span>SetEulerAngles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CTransform::SetEulerAngles </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_vector3.html">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>Eulers</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Local Space, Degrees. </p>
+
+</div>
+</div>
 <a id="a308af19fb2d4490e67a10c3b6a7d949f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a308af19fb2d4490e67a10c3b6a7d949f">&#9670;&nbsp;</a></span>SetForward()</h2>
 
@@ -933,17 +1594,19 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void CTransform::SetForward </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="_vector3_8hpp.html#abb63d82e5aaa1616fff243d45937ad17">Vector3</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_vector3.html">Vector3</a> &amp;&#160;</td>
           <td class="paramname"><em>NewForward</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>World Space. </p>
+
 </div>
 </div>
-<a id="a49c570438fb0185f4f1c9909bebaed6f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49c570438fb0185f4f1c9909bebaed6f">&#9670;&nbsp;</a></span>SetLayer()</h2>
+<a id="a2dc64ee3b2ade31f2b19d602f8f4f083"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2dc64ee3b2ade31f2b19d602f8f4f083">&#9670;&nbsp;</a></span>SetLayer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -955,8 +1618,18 @@ Public Member Functions</h2></td></tr>
           <td class="memname">void CTransform::SetLayer </td>
           <td>(</td>
           <td class="paramtype">const float&#160;</td>
-          <td class="paramname"><em>aLayer</em></td><td>)</td>
+          <td class="paramname"><em>aLayer</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname"><em>Silent</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -995,7 +1668,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void CTransform::SetPosition </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="_vector3_8hpp.html#abb63d82e5aaa1616fff243d45937ad17">Vector3</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_vector3.html">Vector3</a> &amp;&#160;</td>
           <td class="paramname"><em>aPosition</em>, </td>
         </tr>
         <tr>
@@ -1012,6 +1685,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Local Space. </p>
+
 </div>
 </div>
 <a id="ae1938214a3aa8d4d944a202419415446"></a>
@@ -1026,7 +1701,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void CTransform::SetPosition2D </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="_vector2_8hpp.html#ab50a46295e259c17345421d0fc1cb3bb">Vector2</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_vector2.html">Vector2</a> &amp;&#160;</td>
           <td class="paramname"><em>aPosition</em>, </td>
         </tr>
         <tr>
@@ -1050,6 +1725,26 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a73faa5003ad4098426040af4a83b147f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73faa5003ad4098426040af4a83b147f">&#9670;&nbsp;</a></span>SetRight()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CTransform::SetRight </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_vector3.html">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>NewRight</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>World Space. </p>
+
+</div>
+</div>
 <a id="a8c9adecb1780075477adb567bb6fba65"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a8c9adecb1780075477adb567bb6fba65">&#9670;&nbsp;</a></span>SetRotation()</h2>
 
@@ -1059,7 +1754,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void CTransform::SetRotation </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="_quaternion_8hpp.html#aa62c832059ac8e255e7b02326e673c05">Quaternion</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_quaternion.html">Quaternion</a> &amp;&#160;</td>
           <td class="paramname"><em>aRotation</em>, </td>
         </tr>
         <tr>
@@ -1075,6 +1770,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Local Space. </p>
 
 </div>
 </div>
@@ -1123,7 +1820,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void CTransform::SetScale </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="_vector3_8hpp.html#abb63d82e5aaa1616fff243d45937ad17">Vector3</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_vector3.html">Vector3</a> &amp;&#160;</td>
           <td class="paramname"><em>aScale</em>, </td>
         </tr>
         <tr>
@@ -1140,6 +1837,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>Local Space. </p>
+
 </div>
 </div>
 <a id="aca3ed35a22bbc62d858d0a6a197f4c86"></a>
@@ -1154,7 +1853,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void CTransform::SetScale2D </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="_vector2_8hpp.html#ab50a46295e259c17345421d0fc1cb3bb">Vector2</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_vector2.html">Vector2</a> &amp;&#160;</td>
           <td class="paramname"><em>aScale</em>, </td>
         </tr>
         <tr>
@@ -1178,6 +1877,46 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a375f8c173aba65b16b40a582e4f63662"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a375f8c173aba65b16b40a582e4f63662">&#9670;&nbsp;</a></span>SetUp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CTransform::SetUp </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_vector3.html">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>NewUp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>World Space. </p>
+
+</div>
+</div>
+<a id="a943b2aee6e0f6f29436c507fe466d4e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a943b2aee6e0f6f29436c507fe466d4e8">&#9670;&nbsp;</a></span>SetWorldEulerAngles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CTransform::SetWorldEulerAngles </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_vector3.html">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>Eulers</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>World Space, Degrees. </p>
+
+</div>
+</div>
 <a id="a1489d1497c2ef559c01f59b891bd1e72"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1489d1497c2ef559c01f59b891bd1e72">&#9670;&nbsp;</a></span>SetWorldPosition()</h2>
 
@@ -1187,7 +1926,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void CTransform::SetWorldPosition </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="_vector3_8hpp.html#abb63d82e5aaa1616fff243d45937ad17">Vector3</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_vector3.html">Vector3</a> &amp;&#160;</td>
           <td class="paramname"><em>aPosition</em>, </td>
         </tr>
         <tr>
@@ -1204,6 +1943,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>World Space. </p>
+
 </div>
 </div>
 <a id="a6545eac6cb2aeb7eded46c3bb634f4f8"></a>
@@ -1218,7 +1959,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void CTransform::SetWorldPosition2D </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="_vector2_8hpp.html#ab50a46295e259c17345421d0fc1cb3bb">Vector2</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_vector2.html">Vector2</a> &amp;&#160;</td>
           <td class="paramname"><em>aPosition</em>, </td>
         </tr>
         <tr>
@@ -1251,7 +1992,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void CTransform::SetWorldRotation </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="_quaternion_8hpp.html#aa62c832059ac8e255e7b02326e673c05">Quaternion</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_quaternion.html">Quaternion</a> &amp;&#160;</td>
           <td class="paramname"><em>aRotation</em>, </td>
         </tr>
         <tr>
@@ -1267,6 +2008,8 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>World Space. </p>
 
 </div>
 </div>
@@ -1315,7 +2058,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void CTransform::SetWorldScale </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="_vector3_8hpp.html#abb63d82e5aaa1616fff243d45937ad17">Vector3</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_vector3.html">Vector3</a> &amp;&#160;</td>
           <td class="paramname"><em>aScale</em>, </td>
         </tr>
         <tr>
@@ -1332,6 +2075,8 @@ Public Member Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
+<p>World Space. </p>
+
 </div>
 </div>
 <a id="ab0339bfd09ab23b098a67f55dc98d536"></a>
@@ -1346,7 +2091,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void CTransform::SetWorldScale2D </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="_vector2_8hpp.html#ab50a46295e259c17345421d0fc1cb3bb">Vector2</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_vector2.html">Vector2</a> &amp;&#160;</td>
           <td class="paramname"><em>aScale</em>, </td>
         </tr>
         <tr>
@@ -1379,18 +2124,46 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void CTransform::Translate </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="_vector3_8hpp.html#abb63d82e5aaa1616fff243d45937ad17">Vector3</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_vector3.html">Vector3</a> &amp;&#160;</td>
           <td class="paramname"><em>Delta</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Local Space. </p>
+
+</div>
+</div>
+<a id="a3e5a2fd79f5dff9823dbcd1bcabc80ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e5a2fd79f5dff9823dbcd1bcabc80ae">&#9670;&nbsp;</a></span>WorldToLocal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_vector3.html">Vector3</a> CTransform::WorldToLocal </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_vector3.html">Vector3</a> &amp;&#160;</td>
+          <td class="paramname"><em>Point</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li>Source/Engine/Scene/<a class="el" href="_transform_8hpp_source.html">Transform.hpp</a></li>
-<li>Source/Engine/Scene/<a class="el" href="_transform_8cpp.html">Transform.cpp</a></li>
+<li>Source/Engine/Math/<a class="el" href="_transform_8hpp_source.html">Transform.hpp</a></li>
+<li>Source/Engine/Math/<a class="el" href="_transform_8cpp.html">Transform.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

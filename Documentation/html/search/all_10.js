@@ -1,7 +1,8 @@
 var searchData=
 [
-  ['q_1055',['Q',['../_event_types_8hpp.html#acf6120e5498fcaa4a807f587242c3385af09564c9ca56850d4cd6b3319e541aee',1,'EventTypes.hpp']]],
-  ['quaternion_1056',['Quaternion',['../_quaternion_8hpp.html#aa62c832059ac8e255e7b02326e673c05',1,'Quaternion.hpp']]],
-  ['quaternion_2ehpp_1057',['Quaternion.hpp',['../_quaternion_8hpp.html',1,'']]],
-  ['quit_1058',['Quit',['../class_c_app.html#af1885ec3b772d22a2b827bb4d3db0cd8',1,'CApp::Quit()'],['../class_c_engine.html#afd2c85d536257606ebd85b51a0c29a58',1,'CEngine::Quit()'],['../_event_types_8hpp.html#abfcf510bafec7c6429906a6ecaac656da0d82790b0612935992bd564a17ce37d6',1,'Quit():&#160;EventTypes.hpp']]]
+  ['q_1083',['Q',['../_event_types_8hpp.html#acf6120e5498fcaa4a807f587242c3385af09564c9ca56850d4cd6b3319e541aee',1,'EventTypes.hpp']]],
+  ['quaternion_1084',['Quaternion',['../class_quaternion.html',1,'Quaternion'],['../class_quaternion.html#abcc01358aada56ea5f0db4da18aaf77d',1,'Quaternion::Quaternion()'],['../class_quaternion.html#a53bde176694a68265d9f032507b89cde',1,'Quaternion::Quaternion(const float ax, const float ay, const float az)'],['../class_quaternion.html#a92c3062942433a3b70f3e7d77015e945',1,'Quaternion::Quaternion(const Vector3 &amp;v)'],['../class_quaternion.html#aca80d6a709b7e66fbf5ee93537326ad3',1,'Quaternion::Quaternion(const Vector3 &amp;v, const float angle)'],['../class_quaternion.html#a35babbc95c45825c5a7e6e447be26230',1,'Quaternion::Quaternion(const Vector3 &amp;a, const Vector3 &amp;b)'],['../class_quaternion.html#a4d28f3318608293026041fc40d6589fe',1,'Quaternion::Quaternion(const Matrix4 &amp;v)'],['../class_quaternion.html#adce8064a843200aaf6861076c2ec5d62',1,'Quaternion::Quaternion(const float ax, const float ay, const float az, const float aw)'],['../class_quaternion.html#a9666cb54b5fcf8378fc45a70f82ca028',1,'Quaternion::Quaternion(const Quaternion &amp;D)']]],
+  ['quaternion_2ecpp_1085',['Quaternion.cpp',['../_quaternion_8cpp.html',1,'']]],
+  ['quaternion_2ehpp_1086',['Quaternion.hpp',['../_quaternion_8hpp.html',1,'']]],
+  ['quit_1087',['Quit',['../class_c_app.html#af1885ec3b772d22a2b827bb4d3db0cd8',1,'CApp::Quit()'],['../class_c_engine.html#afd2c85d536257606ebd85b51a0c29a58',1,'CEngine::Quit()'],['../_event_types_8hpp.html#abfcf510bafec7c6429906a6ecaac656da0d82790b0612935992bd564a17ce37d6',1,'Quit():&#160;EventTypes.hpp']]]
 ];

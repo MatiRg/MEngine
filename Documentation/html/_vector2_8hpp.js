@@ -1,18 +1,18 @@
 var _vector2_8hpp =
 [
-    [ "TVector2", "class_t_vector2.html", "class_t_vector2" ],
-    [ "IntVector2", "_vector2_8hpp.html#af66c7902bd16ef025755eef5b0f1bf9c", null ],
-    [ "Size2", "_vector2_8hpp.html#ae614ee0980249953efbc000849160ce4", null ],
-    [ "Vector2", "_vector2_8hpp.html#ab50a46295e259c17345421d0fc1cb3bb", null ],
-    [ "Angle", "_vector2_8hpp.html#a4fb31e9af22cf3f0e5beb116fc0209cf", null ],
-    [ "Angle", "_vector2_8hpp.html#ae0354229d87203c06c49051845500050", null ],
-    [ "CrossProduct", "_vector2_8hpp.html#abd78959609f26b514446dc783698af61", null ],
-    [ "Distance", "_vector2_8hpp.html#aed1ee2db408697c4461c81825404b532", null ],
-    [ "DistanceSquared", "_vector2_8hpp.html#ac035f8d5973c059b4aa95f53c06b991e", null ],
-    [ "DotProduct", "_vector2_8hpp.html#a41dcae0da748037621a1101238dee186", null ],
-    [ "Length", "_vector2_8hpp.html#a4baa3b79d2bfeab3ca77fed8ec1879c7", null ],
-    [ "LengthSquared", "_vector2_8hpp.html#a9796c6aa0671ebb37f2d9c6f9b3dd5c2", null ],
-    [ "Lerp", "_vector2_8hpp.html#a0913cad835dea26761c2b92deda09501", null ],
-    [ "Normalize", "_vector2_8hpp.html#a90d383de1788bd2ee5f79ed551b1eaff", null ],
-    [ "operator<<", "_vector2_8hpp.html#a46f23d860667b9ab072741e59a21478d", null ]
+    [ "Vector2", "class_vector2.html", "class_vector2" ],
+    [ "Angle", "_vector2_8hpp.html#af1238c5802b33b238db865bef4fd7d0e", null ],
+    [ "CrossProduct", "_vector2_8hpp.html#aedbd9d64d026b2cb5d71195c3b21eafb", null ],
+    [ "Distance", "_vector2_8hpp.html#aabd61c9b19334516d575c11c6ba43e8e", null ],
+    [ "DistanceSquared", "_vector2_8hpp.html#a2023135bf7a8d09efa6100002b952db0", null ],
+    [ "DotProduct", "_vector2_8hpp.html#a9c186615a366e4a93fa7b93e3beaab59", null ],
+    [ "IsEqual", "_vector2_8hpp.html#a6c95ec64aef624d39624ba1a400c1c87", null ],
+    [ "Length", "_vector2_8hpp.html#aa0a03531000908874efda3cfd27be9dd", null ],
+    [ "LengthSquared", "_vector2_8hpp.html#a9f2546cba0018d33e39d97ef5d1ddfc1", null ],
+    [ "Lerp", "_vector2_8hpp.html#a2185cc28ad819dc4a96ca284b4fdf23c", null ],
+    [ "Max", "_vector2_8hpp.html#ac18dbf189eaf78c24af4d3cce5b3bb2e", null ],
+    [ "Min", "_vector2_8hpp.html#af1cd4edd10731454d4815e07af8a5041", null ],
+    [ "MoveTowards", "_vector2_8hpp.html#acf57d4532a4d1eb8b0bf0f35b293bba2", null ],
+    [ "Normalize", "_vector2_8hpp.html#afa71bdd60fed76d0b3f6bbdc70679fa9", null ],
+    [ "operator<<", "_vector2_8hpp.html#a94aa7898b9d6dd92456773fa7eba5027", null ]
 ];

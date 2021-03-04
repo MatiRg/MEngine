@@ -103,6 +103,7 @@ Inheritance diagram for CGameObject:</div>
 <area href="class_i_entity.html" alt="IEntity" shape="rect" coords="148,56,286,80"/>
 <area href="class_non_copyable_movable.html" alt="NonCopyableMovable" shape="rect" coords="0,0,138,24"/>
 <area href="class_non_copyable_movable.html" alt="NonCopyableMovable" shape="rect" coords="148,0,286,24"/>
+<area href="class_c_player_object.html" alt="CPlayerObject" shape="rect" coords="74,224,212,248"/>
   </map>
 </div></div>
 <table class="memberdecls">
@@ -126,15 +127,6 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a54e8e8b10cdf4b33bb2dd5a0d93aeec6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4ae07118a44d09c2b5db2dd68e78b690"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_game_object.html#a4ae07118a44d09c2b5db2dd68e78b690">~CGameObject</a> ()</td></tr>
 <tr class="separator:a4ae07118a44d09c2b5db2dd68e78b690"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee5b56d1b86aa724bb536ad7462ea639"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_game_object.html#aee5b56d1b86aa724bb536ad7462ea639">OnGUI</a> ()</td></tr>
-<tr class="memdesc:aee5b56d1b86aa724bb536ad7462ea639"><td class="mdescLeft">&#160;</td><td class="mdescRight">Should contain only ImGUI commands.  <a href="class_c_game_object.html#aee5b56d1b86aa724bb536ad7462ea639">More...</a><br /></td></tr>
-<tr class="separator:aee5b56d1b86aa724bb536ad7462ea639"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc0adcf987510cdf252b5969e0b2bda8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_game_object.html#abc0adcf987510cdf252b5969e0b2bda8">OnCollisionEnter</a> (const <a class="el" href="struct_s_entity_collision3_d.html">SEntityCollision3D</a> &amp;Collision) override</td></tr>
-<tr class="separator:abc0adcf987510cdf252b5969e0b2bda8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa165ceebfe0b7874c7208c4b0859baad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_game_object.html#aa165ceebfe0b7874c7208c4b0859baad">OnCollisionStay</a> (const <a class="el" href="struct_s_entity_collision3_d.html">SEntityCollision3D</a> &amp;Collision) override</td></tr>
-<tr class="separator:aa165ceebfe0b7874c7208c4b0859baad"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c39835acccdce678b18ad3dcb3409b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_game_object.html#a9c39835acccdce678b18ad3dcb3409b3">OnCollisionLeave</a> (const <a class="el" href="struct_s_entity_collision3_d.html">SEntityCollision3D</a> &amp;Collision) override</td></tr>
-<tr class="separator:a9c39835acccdce678b18ad3dcb3409b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1e22fad493db6a56740626b9c1d1f54f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_game_object.html#a1e22fad493db6a56740626b9c1d1f54f">SetValue</a> (const int x)</td></tr>
 <tr class="separator:a1e22fad493db6a56740626b9c1d1f54f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a589cd45a3216370a02cf71ef6cbe7668"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_game_object.html#a589cd45a3216370a02cf71ef6cbe7668">GetValue</a> () const</td></tr>
@@ -208,9 +200,6 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aaae1c42834ad3850313e096cf9700552 inherit pub_methods_class_c_entity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_entity.html#aaae1c42834ad3850313e096cf9700552">SetRendered</a> (const bool)</td></tr>
 <tr class="memdesc:aaae1c42834ad3850313e096cf9700552 inherit pub_methods_class_c_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets whether Entity should be Rendered.  <a href="class_c_entity.html#aaae1c42834ad3850313e096cf9700552">More...</a><br /></td></tr>
 <tr class="separator:aaae1c42834ad3850313e096cf9700552 inherit pub_methods_class_c_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa9eb55d553fd03eb7ec35e220d731bcb inherit pub_methods_class_c_entity"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_entity.html#aa9eb55d553fd03eb7ec35e220d731bcb">SetTransform</a> (const <a class="el" href="class_c_transform.html">CTransform</a> &amp;aTransform)</td></tr>
-<tr class="memdesc:aa9eb55d553fd03eb7ec35e220d731bcb inherit pub_methods_class_c_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set Transform.  <a href="class_c_entity.html#aa9eb55d553fd03eb7ec35e220d731bcb">More...</a><br /></td></tr>
-<tr class="separator:aa9eb55d553fd03eb7ec35e220d731bcb inherit pub_methods_class_c_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6b91f40ba258d88ed9fbff2480d850fc inherit pub_methods_class_c_entity"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_c_transform.html">CTransform</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_c_entity.html#a6b91f40ba258d88ed9fbff2480d850fc">GetTransform</a> ()</td></tr>
 <tr class="memdesc:a6b91f40ba258d88ed9fbff2480d850fc inherit pub_methods_class_c_entity"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get Transform.  <a href="class_c_entity.html#a6b91f40ba258d88ed9fbff2480d850fc">More...</a><br /></td></tr>
 <tr class="separator:a6b91f40ba258d88ed9fbff2480d850fc inherit pub_methods_class_c_entity"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -544,7 +533,7 @@ Additional Inherited Members</h2></td></tr>
 </div>
 </div>
 <a id="abc0adcf987510cdf252b5969e0b2bda8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc0adcf987510cdf252b5969e0b2bda8">&#9670;&nbsp;</a></span>OnCollisionEnter() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#abc0adcf987510cdf252b5969e0b2bda8">&#9670;&nbsp;</a></span>OnCollisionEnter()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -569,38 +558,12 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="class_c_entity.html#a3d048e55d55e43a99e27cc7c6ef142c2">CEntity</a>.</p>
 
-</div>
-</div>
-<a id="abc0adcf987510cdf252b5969e0b2bda8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc0adcf987510cdf252b5969e0b2bda8">&#9670;&nbsp;</a></span>OnCollisionEnter() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void CGameObject::OnCollisionEnter </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_s_entity_collision3_d.html">SEntityCollision3D</a> &amp;&#160;</td>
-          <td class="paramname"><em>Collision</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reimplemented from <a class="el" href="class_c_entity.html#a3d048e55d55e43a99e27cc7c6ef142c2">CEntity</a>.</p>
+<p>Reimplemented in <a class="el" href="class_c_player_object.html#abd0f38b6fd9941b0bb983dd02352c0aa">CPlayerObject</a>.</p>
 
 </div>
 </div>
 <a id="a9c39835acccdce678b18ad3dcb3409b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c39835acccdce678b18ad3dcb3409b3">&#9670;&nbsp;</a></span>OnCollisionLeave() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c39835acccdce678b18ad3dcb3409b3">&#9670;&nbsp;</a></span>OnCollisionLeave()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -625,38 +588,12 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="class_c_entity.html#aa3186a4dada9800d29172f43cb82ec7f">CEntity</a>.</p>
 
-</div>
-</div>
-<a id="a9c39835acccdce678b18ad3dcb3409b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c39835acccdce678b18ad3dcb3409b3">&#9670;&nbsp;</a></span>OnCollisionLeave() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void CGameObject::OnCollisionLeave </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_s_entity_collision3_d.html">SEntityCollision3D</a> &amp;&#160;</td>
-          <td class="paramname"><em>Collision</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reimplemented from <a class="el" href="class_c_entity.html#aa3186a4dada9800d29172f43cb82ec7f">CEntity</a>.</p>
+<p>Reimplemented in <a class="el" href="class_c_player_object.html#a8b11c81182acb5cb0184ee73f4e34f00">CPlayerObject</a>.</p>
 
 </div>
 </div>
 <a id="aa165ceebfe0b7874c7208c4b0859baad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa165ceebfe0b7874c7208c4b0859baad">&#9670;&nbsp;</a></span>OnCollisionStay() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#aa165ceebfe0b7874c7208c4b0859baad">&#9670;&nbsp;</a></span>OnCollisionStay()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -681,67 +618,12 @@ Additional Inherited Members</h2></td></tr>
 
 <p>Reimplemented from <a class="el" href="class_c_entity.html#a081ce6ca622c1f3fee5214b37031f338">CEntity</a>.</p>
 
-</div>
-</div>
-<a id="aa165ceebfe0b7874c7208c4b0859baad"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa165ceebfe0b7874c7208c4b0859baad">&#9670;&nbsp;</a></span>OnCollisionStay() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void CGameObject::OnCollisionStay </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="struct_s_entity_collision3_d.html">SEntityCollision3D</a> &amp;&#160;</td>
-          <td class="paramname"><em>Collision</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reimplemented from <a class="el" href="class_c_entity.html#a081ce6ca622c1f3fee5214b37031f338">CEntity</a>.</p>
-
-</div>
-</div>
-<a id="aee5b56d1b86aa724bb536ad7462ea639"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee5b56d1b86aa724bb536ad7462ea639">&#9670;&nbsp;</a></span>OnGUI() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void CGameObject::OnGUI </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Should contain only ImGUI commands. </p>
-
-<p>Reimplemented from <a class="el" href="class_c_entity.html#abfce5d3457ac515a36bb15432cccc866">CEntity</a>.</p>
+<p>Reimplemented in <a class="el" href="class_c_player_object.html#a37fd5a99e454e94f9c77f18289c269c6">CPlayerObject</a>.</p>
 
 </div>
 </div>
 <a id="a29574c4d04cdab802efed965d1adddc7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a29574c4d04cdab802efed965d1adddc7">&#9670;&nbsp;</a></span>OnGUI() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a29574c4d04cdab802efed965d1adddc7">&#9670;&nbsp;</a></span>OnGUI()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -766,6 +648,8 @@ Additional Inherited Members</h2></td></tr>
 <p>Use for Reflection Basic - Must be Used. </p>
 
 <p>Reimplemented from <a class="el" href="class_c_entity.html#abfce5d3457ac515a36bb15432cccc866">CEntity</a>.</p>
+
+<p>Reimplemented in <a class="el" href="class_c_player_object.html#a18a887fef6e4d7ac0775d980621291ad">CPlayerObject</a>.</p>
 
 </div>
 </div>

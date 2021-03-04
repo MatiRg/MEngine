@@ -85,20 +85,21 @@ $(document).ready(function(){initNavTree('_quaternion_8hpp.html',''); initResiza
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
-<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">Quaternion.hpp File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="_functions_8hpp_source.html">Functions.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_vector2_8hpp_source.html">Vector2.hpp</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="_vector3_8hpp_source.html">Vector3.hpp</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="_matrix4_8hpp_source.html">Matrix4.hpp</a>&quot;</code><br />
 </div>
 <p><a href="_quaternion_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_t_quaternion.html">TQuaternion&lt; T &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_quaternion.html">Quaternion</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -106,75 +107,57 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespace_math"><td class="memItemLeft" align="right" valign="top"> &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html">Math</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
-Typedefs</h2></td></tr>
-<tr class="memitem:aa62c832059ac8e255e7b02326e673c05"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_quaternion_8hpp.html#aa62c832059ac8e255e7b02326e673c05">Quaternion</a> = <a class="el" href="class_t_quaternion.html">TQuaternion</a>&lt; float &gt;</td></tr>
-<tr class="separator:aa62c832059ac8e255e7b02326e673c05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a49175fcc43513ff88290176c3f112602"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a49175fcc43513ff88290176c3f112602"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_t_matrix4.html">TMatrix4</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_math.html#a49175fcc43513ff88290176c3f112602">Math::Transform</a> (const <a class="el" href="class_t_vector3.html">TVector3</a>&lt; T &gt; &amp;aPosition, const <a class="el" href="class_t_quaternion.html">TQuaternion</a>&lt; T &gt; &amp;aRotation, const <a class="el" href="class_t_vector3.html">TVector3</a>&lt; T &gt; &amp;aScale)</td></tr>
-<tr class="separator:a49175fcc43513ff88290176c3f112602"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97ab57b9ecf597fe8798eb8fb775dbb6"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a97ab57b9ecf597fe8798eb8fb775dbb6"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_t_matrix4.html">TMatrix4</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_math.html#a97ab57b9ecf597fe8798eb8fb775dbb6">Math::Transform2D</a> (const <a class="el" href="class_t_vector2.html">TVector2</a>&lt; T &gt; &amp;aOrigin, const T aAngle, const <a class="el" href="class_t_vector2.html">TVector2</a>&lt; T &gt; &amp;aScale)</td></tr>
-<tr class="separator:a97ab57b9ecf597fe8798eb8fb775dbb6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49164428090e1281c0fe687af3aa1624"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a49164428090e1281c0fe687af3aa1624"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_t_quaternion.html">TQuaternion</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_math.html#a49164428090e1281c0fe687af3aa1624">Math::Normalize</a> (const <a class="el" href="class_t_quaternion.html">TQuaternion</a>&lt; T &gt; &amp;a)</td></tr>
-<tr class="separator:a49164428090e1281c0fe687af3aa1624"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9e2d9333ee264a0ca95aed69de05573e"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a9e2d9333ee264a0ca95aed69de05573e"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_math.html#a9e2d9333ee264a0ca95aed69de05573e">Math::DotProduct</a> (const <a class="el" href="class_t_quaternion.html">TQuaternion</a>&lt; T &gt; &amp;a, const <a class="el" href="class_t_quaternion.html">TQuaternion</a>&lt; T &gt; &amp;b)</td></tr>
-<tr class="separator:a9e2d9333ee264a0ca95aed69de05573e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a704d068b251760669c1248e192f64119"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a704d068b251760669c1248e192f64119"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_t_matrix4.html">TMatrix4</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_math.html#a704d068b251760669c1248e192f64119">Math::Rotation</a> (const T x, const T y, const T z)</td></tr>
-<tr class="separator:a704d068b251760669c1248e192f64119"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afd96db5aa10724fa4afffc520a420015"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:afd96db5aa10724fa4afffc520a420015"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_t_matrix4.html">TMatrix4</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_math.html#afd96db5aa10724fa4afffc520a420015">Math::Rotation</a> (const <a class="el" href="class_t_vector3.html">TVector3</a>&lt; T &gt; &amp;v)</td></tr>
-<tr class="separator:afd96db5aa10724fa4afffc520a420015"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3783e1f12cbeb597ba614aa3d83cf20c"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a3783e1f12cbeb597ba614aa3d83cf20c"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_t_matrix4.html">TMatrix4</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_math.html#a3783e1f12cbeb597ba614aa3d83cf20c">Math::Rotation</a> (const <a class="el" href="class_t_quaternion.html">TQuaternion</a>&lt; T &gt; &amp;a)</td></tr>
-<tr class="separator:a3783e1f12cbeb597ba614aa3d83cf20c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a620bcb091014c649b7f03fac1d30e547"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a620bcb091014c649b7f03fac1d30e547"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_t_quaternion.html">TQuaternion</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_math.html#a620bcb091014c649b7f03fac1d30e547">Math::LookRotation</a> (const <a class="el" href="class_t_vector3.html">TVector3</a>&lt; T &gt; &amp;aDir, const <a class="el" href="class_t_vector3.html">TVector3</a>&lt; T &gt; &amp;Up)</td></tr>
-<tr class="separator:a620bcb091014c649b7f03fac1d30e547"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab727c0dc85ca57c45276415f1cd50369"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:ab727c0dc85ca57c45276415f1cd50369"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_t_quaternion.html">TQuaternion</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_math.html#ab727c0dc85ca57c45276415f1cd50369">Math::RotationBetweenVectors</a> (const <a class="el" href="class_t_vector3.html">TVector3</a>&lt; T &gt; &amp;aStart, const <a class="el" href="class_t_vector3.html">TVector3</a>&lt; T &gt; &amp;aDest)</td></tr>
-<tr class="separator:ab727c0dc85ca57c45276415f1cd50369"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a30bb4f46d60c4575306dccf9aa5215d3"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a30bb4f46d60c4575306dccf9aa5215d3"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_t_quaternion.html">TQuaternion</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_math.html#a30bb4f46d60c4575306dccf9aa5215d3">Math::Lerp</a> (const <a class="el" href="class_t_quaternion.html">TQuaternion</a>&lt; T &gt; &amp;a, const <a class="el" href="class_t_quaternion.html">TQuaternion</a>&lt; T &gt; &amp;b, const T v)</td></tr>
-<tr class="memdesc:a30bb4f46d60c4575306dccf9aa5215d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalized.  <a href="namespace_math.html#a30bb4f46d60c4575306dccf9aa5215d3">More...</a><br /></td></tr>
-<tr class="separator:a30bb4f46d60c4575306dccf9aa5215d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3724d506c7ac3077e86e62f1fc1f2047"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a3724d506c7ac3077e86e62f1fc1f2047"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="class_t_quaternion.html">TQuaternion</a>&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespace_math.html#a3724d506c7ac3077e86e62f1fc1f2047">Math::SLerp</a> (const <a class="el" href="class_t_quaternion.html">TQuaternion</a>&lt; T &gt; &amp;a, const <a class="el" href="class_t_quaternion.html">TQuaternion</a>&lt; T &gt; &amp;b, const T v)</td></tr>
-<tr class="memdesc:a3724d506c7ac3077e86e62f1fc1f2047"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalized.  <a href="namespace_math.html#a3724d506c7ac3077e86e62f1fc1f2047">More...</a><br /></td></tr>
-<tr class="separator:a3724d506c7ac3077e86e62f1fc1f2047"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af98c70d425428b4510c74ee6beae21d3"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:af98c70d425428b4510c74ee6beae21d3"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="_quaternion_8hpp.html#af98c70d425428b4510c74ee6beae21d3">operator&lt;&lt;</a> (std::ostream &amp;Stream, const <a class="el" href="class_t_quaternion.html">TQuaternion</a>&lt; T &gt; &amp;Other)</td></tr>
-<tr class="separator:af98c70d425428b4510c74ee6beae21d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56fa5d9861ecc1d266d9fbd865686fe6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a56fa5d9861ecc1d266d9fbd865686fe6">Math::Conjugate</a> (const <a class="el" href="class_quaternion.html">Quaternion</a> &amp;Qt)</td></tr>
+<tr class="separator:a56fa5d9861ecc1d266d9fbd865686fe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5230ca751e211285a5283636e334f1f0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a5230ca751e211285a5283636e334f1f0">Math::Length</a> (const <a class="el" href="class_quaternion.html">Quaternion</a> &amp;Qt)</td></tr>
+<tr class="separator:a5230ca751e211285a5283636e334f1f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a11bc60461741341ee3109b6f9a030141"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a11bc60461741341ee3109b6f9a030141">Math::LengthSquared</a> (const <a class="el" href="class_quaternion.html">Quaternion</a> &amp;Qt)</td></tr>
+<tr class="separator:a11bc60461741341ee3109b6f9a030141"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac666d883bcb6d78732d2e6cfb7be289a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#ac666d883bcb6d78732d2e6cfb7be289a">Math::Normalize</a> (const <a class="el" href="class_quaternion.html">Quaternion</a> &amp;Qt)</td></tr>
+<tr class="separator:ac666d883bcb6d78732d2e6cfb7be289a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b7f5570ff2fa0232a97cc07d191f396"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a6b7f5570ff2fa0232a97cc07d191f396">Math::DotProduct</a> (const <a class="el" href="class_quaternion.html">Quaternion</a> &amp;v1, const <a class="el" href="class_quaternion.html">Quaternion</a> &amp;v2)</td></tr>
+<tr class="separator:a6b7f5570ff2fa0232a97cc07d191f396"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5950a73debda4d5eabf43a01754f6a53"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a5950a73debda4d5eabf43a01754f6a53">Math::Inverse</a> (const <a class="el" href="class_quaternion.html">Quaternion</a> &amp;Qt)</td></tr>
+<tr class="separator:a5950a73debda4d5eabf43a01754f6a53"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49a45f125306fee8b2a65c000db95930"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vector3.html">Vector3</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a49a45f125306fee8b2a65c000db95930">Math::ToEulerAngles</a> (const <a class="el" href="class_quaternion.html">Quaternion</a> &amp;Qt)</td></tr>
+<tr class="separator:a49a45f125306fee8b2a65c000db95930"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a629a287c2e325a4f71a05f254ac599e9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a629a287c2e325a4f71a05f254ac599e9">Math::FromEulerAngles</a> (const float Pitch, const float Yaw, const float Roll)</td></tr>
+<tr class="separator:a629a287c2e325a4f71a05f254ac599e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bd011d672cf30b00a0e730b5e207146"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a6bd011d672cf30b00a0e730b5e207146">Math::FromEulerAngles</a> (const <a class="el" href="class_vector3.html">Vector3</a> &amp;Angles)</td></tr>
+<tr class="separator:a6bd011d672cf30b00a0e730b5e207146"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaced45a1c77f20df98db12abb5a05e7b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#aaced45a1c77f20df98db12abb5a05e7b">Math::FromAxisAngle</a> (const <a class="el" href="class_vector3.html">Vector3</a> &amp;Axis, const float Angle)</td></tr>
+<tr class="separator:aaced45a1c77f20df98db12abb5a05e7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06caeb2372f7a11fe4888f580a5ff5db"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a06caeb2372f7a11fe4888f580a5ff5db">Math::FromToRotation</a> (const <a class="el" href="class_vector3.html">Vector3</a> &amp;a, const <a class="el" href="class_vector3.html">Vector3</a> &amp;b)</td></tr>
+<tr class="separator:a06caeb2372f7a11fe4888f580a5ff5db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc604a33f5ff024468b346370350c41b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#abc604a33f5ff024468b346370350c41b">Math::LookRotation</a> (const <a class="el" href="class_vector3.html">Vector3</a> &amp;Direction, const <a class="el" href="class_vector3.html">Vector3</a> &amp;Up)</td></tr>
+<tr class="separator:abc604a33f5ff024468b346370350c41b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab809370f1fb2c35c51486bc010476ade"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#ab809370f1fb2c35c51486bc010476ade">Math::Angle</a> (const <a class="el" href="class_quaternion.html">Quaternion</a> &amp;a, const <a class="el" href="class_quaternion.html">Quaternion</a> &amp;b)</td></tr>
+<tr class="separator:ab809370f1fb2c35c51486bc010476ade"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a150d1b062e451f29d327262e092f704b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a150d1b062e451f29d327262e092f704b">Math::RotateTowards</a> (const <a class="el" href="class_quaternion.html">Quaternion</a> &amp;From, const <a class="el" href="class_quaternion.html">Quaternion</a> &amp;To, float Delta)</td></tr>
+<tr class="separator:a150d1b062e451f29d327262e092f704b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a394ebd12371a706fd40c6b21eff255b6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a394ebd12371a706fd40c6b21eff255b6">Math::Lerp</a> (const <a class="el" href="class_quaternion.html">Quaternion</a> &amp;a, const <a class="el" href="class_quaternion.html">Quaternion</a> &amp;b, const float t)</td></tr>
+<tr class="separator:a394ebd12371a706fd40c6b21eff255b6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65c464290b6a90453471c4890a62dc61"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_quaternion.html">Quaternion</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a65c464290b6a90453471c4890a62dc61">Math::SLerp</a> (const <a class="el" href="class_quaternion.html">Quaternion</a> &amp;x, const <a class="el" href="class_quaternion.html">Quaternion</a> &amp;y, const float t)</td></tr>
+<tr class="separator:a65c464290b6a90453471c4890a62dc61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6e3e60977a6f9e222fbc905fe426b9f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix4.html">Matrix4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#ab6e3e60977a6f9e222fbc905fe426b9f">Math::ToMatrix4</a> (const <a class="el" href="class_quaternion.html">Quaternion</a> &amp;Qt)</td></tr>
+<tr class="separator:ab6e3e60977a6f9e222fbc905fe426b9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6aa31e3a68d4800bded2f8043ac1d82"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix4.html">Matrix4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#ad6aa31e3a68d4800bded2f8043ac1d82">Math::Transform</a> (const <a class="el" href="class_vector3.html">Vector3</a> &amp;p, const <a class="el" href="class_quaternion.html">Quaternion</a> &amp;r, const <a class="el" href="class_vector3.html">Vector3</a> &amp;s)</td></tr>
+<tr class="separator:ad6aa31e3a68d4800bded2f8043ac1d82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a818d48ff6ad0e72b6eb9a49843e4b7fa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix4.html">Matrix4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a818d48ff6ad0e72b6eb9a49843e4b7fa">Math::Rotation</a> (const <a class="el" href="class_quaternion.html">Quaternion</a> &amp;Qt)</td></tr>
+<tr class="separator:a818d48ff6ad0e72b6eb9a49843e4b7fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa5ae98c50d1b94265e99e1f2463ff015"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_matrix4.html">Matrix4</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#aa5ae98c50d1b94265e99e1f2463ff015">Math::Transform2D</a> (const <a class="el" href="class_vector2.html">Vector2</a> &amp;o, const float a, const <a class="el" href="class_vector2.html">Vector2</a> &amp;s)</td></tr>
+<tr class="separator:aa5ae98c50d1b94265e99e1f2463ff015"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34c3fb564e2858c170331fe30753e5fd"><td class="memItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="_quaternion_8hpp.html#a34c3fb564e2858c170331fe30753e5fd">operator&lt;&lt;</a> (std::ostream &amp;Stream, const <a class="el" href="class_quaternion.html">Quaternion</a> &amp;Other)</td></tr>
+<tr class="separator:a34c3fb564e2858c170331fe30753e5fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Typedef Documentation</h2>
-<a id="aa62c832059ac8e255e7b02326e673c05"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa62c832059ac8e255e7b02326e673c05">&#9670;&nbsp;</a></span>Quaternion</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">using <a class="el" href="_quaternion_8hpp.html#aa62c832059ac8e255e7b02326e673c05">Quaternion</a> =  <a class="el" href="class_t_quaternion.html">TQuaternion</a>&lt;float&gt;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="af98c70d425428b4510c74ee6beae21d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af98c70d425428b4510c74ee6beae21d3">&#9670;&nbsp;</a></span>operator&lt;&lt;()</h2>
+<a id="a34c3fb564e2858c170331fe30753e5fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34c3fb564e2858c170331fe30753e5fd">&#9670;&nbsp;</a></span>operator&lt;&lt;()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">std::ostream&amp; operator&lt;&lt; </td>
@@ -185,7 +168,7 @@ template&lt;class T &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="class_t_quaternion.html">TQuaternion</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="class_quaternion.html">Quaternion</a> &amp;&#160;</td>
           <td class="paramname"><em>Other</em>&#160;</td>
         </tr>
         <tr>

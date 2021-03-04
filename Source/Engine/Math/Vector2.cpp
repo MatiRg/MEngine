@@ -125,6 +125,11 @@ namespace Math
     {
         return {Min(a.x, b.x), Min(a.y, b.y)};
     }
+
+    bool IsEqual(const Vector2& a, const Vector2& b, const float Eps)
+    {
+        return IsEqual(a.x, b.x, Eps) && IsEqual(a.y, b.y, Eps);
+    }
 }
 
 std::ostream& operator<<(std::ostream& Stream, const Vector2& Other)

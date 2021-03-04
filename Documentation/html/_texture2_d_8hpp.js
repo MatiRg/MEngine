@@ -4,7 +4,9 @@ var _texture2_d_8hpp =
     [ "CTextureManager", "class_c_texture_manager.html", "class_c_texture_manager" ],
     [ "ERenderTargetType", "_texture2_d_8hpp.html#ae8743559ce2fe1fa96e69cfbfc40c2bc", [
       [ "Color", "_texture2_d_8hpp.html#ae8743559ce2fe1fa96e69cfbfc40c2bcacb5feb1b7314637725a2e73bdc9f7295", null ],
-      [ "Depth", "_texture2_d_8hpp.html#ae8743559ce2fe1fa96e69cfbfc40c2bca675056ad1441b6375b2c5abd48c27ef1", null ]
+      [ "Depth", "_texture2_d_8hpp.html#ae8743559ce2fe1fa96e69cfbfc40c2bca675056ad1441b6375b2c5abd48c27ef1", null ],
+      [ "Color_MSAA", "_texture2_d_8hpp.html#ae8743559ce2fe1fa96e69cfbfc40c2bcaca8cca0f0be13ed2f942cde90ccd9981", null ],
+      [ "Depth_MSAA", "_texture2_d_8hpp.html#ae8743559ce2fe1fa96e69cfbfc40c2bcac27b80c16f536082d82c038b7154960c", null ]
     ] ],
     [ "ETextureFilter", "_texture2_d_8hpp.html#a21d72bffd820f4e5eb29d92ff78804c1", [
       [ "Linear", "_texture2_d_8hpp.html#a21d72bffd820f4e5eb29d92ff78804c1a32a843da6ea40ab3b17a3421ccdf671b", null ],

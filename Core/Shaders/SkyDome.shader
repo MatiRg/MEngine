@@ -11,7 +11,7 @@ out vec2 TexCoords;
 void main()
 {
 	// Remove Translations
-	gl_Position = Projection*mat4(mat3(View))*mat4(mat3(Model))*vec4(Position, 1.0);
+	gl_Position = Projection*RemoveTranslation(View)*RemoveTranslation(Model)*vec4(Position, 1.0);
 	#ifdef FLIP_UVS
 	TexCoords = vec2(TexCoords1.x, 1.0 - TexCoords1.y);
 	#else

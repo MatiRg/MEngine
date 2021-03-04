@@ -18,7 +18,10 @@ var dir_252c4c6e54a861924c0c0304074307a3 =
     [ "FrameBuffer.hpp", "_frame_buffer_8hpp.html", [
       [ "IFrameBuffer", "class_i_frame_buffer.html", "class_i_frame_buffer" ]
     ] ],
-    [ "Graphics.hpp", "_graphics_8hpp.html", "_graphics_8hpp" ],
+    [ "Graphics.hpp", "_graphics_8hpp.html", [
+      [ "IGraphics", "class_i_graphics.html", "class_i_graphics" ]
+    ] ],
+    [ "GraphicsTypes.hpp", "_graphics_types_8hpp.html", "_graphics_types_8hpp" ],
     [ "Light.cpp", "_light_8cpp.html", null ],
     [ "Light.hpp", "_light_8hpp.html", "_light_8hpp" ],
     [ "Material.cpp", "_material_8cpp.html", "_material_8cpp" ],

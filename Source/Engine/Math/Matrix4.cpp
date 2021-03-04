@@ -1,5 +1,7 @@
 #include "Matrix4.hpp"
 
+// Based on GLM Code
+
 void Matrix4::SetIdentity()
 {
     for(int i = 0; i < 4; ++i)
@@ -77,64 +79,64 @@ namespace Math
 
     Matrix4 Inverse(const Matrix4& D)
     {
-			float Coef00 = D[10] * D[15] - D[14] * D[11];
-			float Coef02 = D[6] * D[15] - D[14] * D[7];
-			float Coef03 = D[6] * D[11] - D[10] * D[7];
-
-			float Coef04 = D[9] * D[15] - D[13] * D[11];
-			float Coef06 = D[5] * D[15] - D[13] * D[7];
-			float Coef07 = D[5] * D[11] - D[9] * D[7];
-
-			float Coef08 = D[9] * D[14] - D[13] * D[10];
-			float Coef10 = D[5] * D[14] - D[13] * D[6];
-			float Coef11 = D[5] * D[10] - D[9] * D[6];
-
-			float Coef12 = D[8] * D[15] - D[12] * D[11];
-			float Coef14 = D[4] * D[15] - D[12] * D[7];
-			float Coef15 = D[4] * D[11] - D[8] * D[7];
-
-			float Coef16 = D[8] * D[14] - D[12] * D[10];
-			float Coef18 = D[4] * D[14] - D[12] * D[6];
-			float Coef19 = D[4] * D[10] - D[8] * D[6];
-
-			float Coef20 = D[8] * D[13] - D[12] * D[9];
-			float Coef22 = D[4] * D[13] - D[12] * D[5];
-			float Coef23 = D[4] * D[9] - D[8] * D[5];
-
-			Vector4 Fac0(Coef00, Coef00, Coef02, Coef03);
-			Vector4 Fac1(Coef04, Coef04, Coef06, Coef07);
-			Vector4 Fac2(Coef08, Coef08, Coef10, Coef11);
-			Vector4 Fac3(Coef12, Coef12, Coef14, Coef15);
-			Vector4 Fac4(Coef16, Coef16, Coef18, Coef19);
-			Vector4 Fac5(Coef20, Coef20, Coef22, Coef23);
-
-			Vector4 Vec0(D[4], D[0], D[0], D[0]);
-			Vector4 Vec1(D[5], D[1], D[1], D[1]);
-			Vector4 Vec2(D[6], D[2], D[2], D[2]);
-			Vector4 Vec3(D[7], D[3], D[3], D[3]);
-
-			Vector4 Inv0(Vec1 * Fac0 - Vec2 * Fac1 + Vec3 * Fac2);
-			Vector4 Inv1(Vec0 * Fac0 - Vec2 * Fac3 + Vec3 * Fac4);
-			Vector4 Inv2(Vec0 * Fac1 - Vec1 * Fac3 + Vec3 * Fac5);
-			Vector4 Inv3(Vec0 * Fac2 - Vec1 * Fac4 + Vec2 * Fac5);
-
-			Vector4 SignA(+1.0f, -1.0f, +1.0f, -1.0f);
-			Vector4 SignB(-1.0f, +1.0f, -1.0f, +1.0f);
-			Matrix4 Inverse(Inv0 * SignA, Inv1 * SignB, Inv2 * SignA, Inv3 * SignB);
-
-			Vector4 Row0(Inverse[0], Inverse[4], Inverse[8], Inverse[12]);
-
-            Vector4 MVec0(D[0], D[1], D[2], D[3]);
-			Vector4 Dot0(MVec0 * Row0);
-			float Dot1 = (Dot0.x + Dot0.y) + (Dot0.z + Dot0.w);
-
-			float OneOverDeterminant = 1.0f / Dot1;
-
-            for (int i = 0; i < 16; ++i)
-            {
-                Inverse[i] *= OneOverDeterminant;
-            }
-            return Inverse;
+        float Coef00 = D[10] * D[15] - D[14] * D[11];
+        float Coef02 = D[6] * D[15] - D[14] * D[7];
+        float Coef03 = D[6] * D[11] - D[10] * D[7];
+        
+        float Coef04 = D[9] * D[15] - D[13] * D[11];
+        float Coef06 = D[5] * D[15] - D[13] * D[7];
+        float Coef07 = D[5] * D[11] - D[9] * D[7];
+        
+        float Coef08 = D[9] * D[14] - D[13] * D[10];
+        float Coef10 = D[5] * D[14] - D[13] * D[6];
+        float Coef11 = D[5] * D[10] - D[9] * D[6];
+        
+        float Coef12 = D[8] * D[15] - D[12] * D[11];
+        float Coef14 = D[4] * D[15] - D[12] * D[7];
+        float Coef15 = D[4] * D[11] - D[8] * D[7];
+        
+        float Coef16 = D[8] * D[14] - D[12] * D[10];
+        float Coef18 = D[4] * D[14] - D[12] * D[6];
+        float Coef19 = D[4] * D[10] - D[8] * D[6];
+        
+        float Coef20 = D[8] * D[13] - D[12] * D[9];
+        float Coef22 = D[4] * D[13] - D[12] * D[5];
+        float Coef23 = D[4] * D[9] - D[8] * D[5];
+        
+        Vector4 Fac0(Coef00, Coef00, Coef02, Coef03);
+        Vector4 Fac1(Coef04, Coef04, Coef06, Coef07);
+        Vector4 Fac2(Coef08, Coef08, Coef10, Coef11);
+        Vector4 Fac3(Coef12, Coef12, Coef14, Coef15);
+        Vector4 Fac4(Coef16, Coef16, Coef18, Coef19);
+        Vector4 Fac5(Coef20, Coef20, Coef22, Coef23);
+        
+        Vector4 Vec0(D[4], D[0], D[0], D[0]);
+        Vector4 Vec1(D[5], D[1], D[1], D[1]);
+        Vector4 Vec2(D[6], D[2], D[2], D[2]);
+        Vector4 Vec3(D[7], D[3], D[3], D[3]);
+        
+        Vector4 Inv0(Vec1 * Fac0 - Vec2 * Fac1 + Vec3 * Fac2);
+        Vector4 Inv1(Vec0 * Fac0 - Vec2 * Fac3 + Vec3 * Fac4);
+        Vector4 Inv2(Vec0 * Fac1 - Vec1 * Fac3 + Vec3 * Fac5);
+        Vector4 Inv3(Vec0 * Fac2 - Vec1 * Fac4 + Vec2 * Fac5);
+        
+        Vector4 SignA(+1.0f, -1.0f, +1.0f, -1.0f);
+        Vector4 SignB(-1.0f, +1.0f, -1.0f, +1.0f);
+        Matrix4 Inverse(Inv0 * SignA, Inv1 * SignB, Inv2 * SignA, Inv3 * SignB);
+        
+        Vector4 Row0(Inverse[0], Inverse[4], Inverse[8], Inverse[12]);
+        
+        Vector4 MVec0(D[0], D[1], D[2], D[3]);
+        Vector4 Dot0(MVec0 * Row0);
+        float Dot1 = (Dot0.x + Dot0.y) + (Dot0.z + Dot0.w);
+        
+        float OneOverDeterminant = 1.0f / Dot1;
+        
+        for (int i = 0; i < 16; ++i)
+        {
+            Inverse[i] *= OneOverDeterminant;
+        }
+        return Inverse;
     }
 
     Matrix4 RotationX(const float Angle)

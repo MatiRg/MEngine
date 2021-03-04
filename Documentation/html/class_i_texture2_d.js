@@ -2,7 +2,7 @@ var class_i_texture2_d =
 [
     [ "ITexture2D", "class_i_texture2_d.html#a21c69be9eea75f35a935b5fe50d20390", null ],
     [ "~ITexture2D", "class_i_texture2_d.html#aa1e8f4a407274b8c84de7d25c05c1249", null ],
-    [ "CreateAsRenderSurface", "class_i_texture2_d.html#aa64fe06b080c7fa2e2e7d6e3a7d7a133", null ],
+    [ "CreateAsRenderSurface", "class_i_texture2_d.html#aee6a5e01529d47f4df7763f15f56bcb9", null ],
     [ "CreateFromSurface", "class_i_texture2_d.html#abafd75e347992e5d5006966f8b4f8cd1", null ],
     [ "GetAnisotropicFiltering", "class_i_texture2_d.html#ad75b1f7224f7887d0a15532e95624476", null ],
     [ "GetColorMod", "class_i_texture2_d.html#a65bbe5736770c30a30a94fee1a969a8e", null ],
