@@ -8,7 +8,9 @@ var dir_ca98e3ee17ac8bc3fa949dee11c3bffa =
     [ "BulletPhysics3D.hpp", "_bullet_physics3_d_8hpp.html", [
       [ "CBulletPhysics3D", "class_c_bullet_physics3_d.html", "class_c_bullet_physics3_d" ]
     ] ],
-    [ "BulletPhysicsWorld3D.cpp", "_bullet_physics_world3_d_8cpp.html", null ],
+    [ "BulletPhysicsWorld3D.cpp", "_bullet_physics_world3_d_8cpp.html", [
+      [ "CBulletDebugDrawer", "class_c_bullet_debug_drawer.html", "class_c_bullet_debug_drawer" ]
+    ] ],
     [ "BulletPhysicsWorld3D.hpp", "_bullet_physics_world3_d_8hpp.html", [
       [ "CBulletPhysicsWorld3D", "class_c_bullet_physics_world3_d.html", "class_c_bullet_physics_world3_d" ]
     ] ],

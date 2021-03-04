@@ -25,7 +25,6 @@ var class_c_im_g_u_i =
     [ "Header", "class_c_im_g_u_i.html#ae3feb74c3680738de2932c643473674f", null ],
     [ "Init", "class_c_im_g_u_i.html#a0698de16b69415fb1c5a6b6242db8dab", null ],
     [ "InputFloat", "class_c_im_g_u_i.html#a8f73396127aea634814ca85c2d684bda", null ],
-    [ "InputRect2", "class_c_im_g_u_i.html#a92b1ae6dd7951b276bd21a0ce2b3e2c5", null ],
     [ "InputRect2", "class_c_im_g_u_i.html#a62cb2211bf747da7d1dfcc712151af2f", null ],
     [ "InputText", "class_c_im_g_u_i.html#a2c590408e3f2fdeb468dcebaab3c8896", null ],
     [ "InputVector2", "class_c_im_g_u_i.html#a1424d2bc28d2bc47980f468390dde4d1", null ],

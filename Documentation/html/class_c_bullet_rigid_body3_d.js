@@ -10,6 +10,8 @@ var class_c_bullet_rigid_body3_d =
     [ "GetAngularVelocity", "class_c_bullet_rigid_body3_d.html#a249204034097c4e4c71e4ed8a9dd8b40", null ],
     [ "GetBody", "class_c_bullet_rigid_body3_d.html#a59777a2f56199d32e23bab72e4881c24", null ],
     [ "GetBodyType", "class_c_bullet_rigid_body3_d.html#aca03480f70729505aaf148d879db91a8", null ],
+    [ "GetCollisionLayer", "class_c_bullet_rigid_body3_d.html#a66c1624ca327d4940bb00cf34fbc6b3d", null ],
+    [ "GetCollisionMask", "class_c_bullet_rigid_body3_d.html#a6906f74c53e4757dfccf1a9b1003fd03", null ],
     [ "GetCollisionShape", "class_c_bullet_rigid_body3_d.html#a6998d43609e9c0d05d4a5e8a9f897f71", null ],
     [ "GetFriction", "class_c_bullet_rigid_body3_d.html#a70cc143f4872013eccf7e1a33d961e9d", null ],
     [ "GetGravity", "class_c_bullet_rigid_body3_d.html#ad75a71aee822dd9ff3bc32231588f26c", null ],
@@ -21,12 +23,15 @@ var class_c_bullet_rigid_body3_d =
     [ "GetRestitution", "class_c_bullet_rigid_body3_d.html#a80864451ff364ceac036e87a86d0facc", null ],
     [ "GetRollingFriction", "class_c_bullet_rigid_body3_d.html#a3479b6687a6bc31bf0e5632f803696ca", null ],
     [ "GetRotation", "class_c_bullet_rigid_body3_d.html#a81cc4d62e958a17571a3f979ce07d764", null ],
+    [ "GetSleepThreshold", "class_c_bullet_rigid_body3_d.html#a6b9dfdc62cc52982d4ff5508dd40a4f4", null ],
     [ "GetWorld", "class_c_bullet_rigid_body3_d.html#a65b9a135ef910ea3714fce5d8de846dc", null ],
     [ "IsEnabled", "class_c_bullet_rigid_body3_d.html#a96b3c8525cd64b6821be0930fece80aa", null ],
     [ "SetAngularDamping", "class_c_bullet_rigid_body3_d.html#a4249763f1a1da3678de9e2b68739ed62", null ],
     [ "SetAngularFactor", "class_c_bullet_rigid_body3_d.html#af3f2faf52d3d8a576f722ab4eb024cd2", null ],
     [ "SetAngularVelocity", "class_c_bullet_rigid_body3_d.html#a1db56bb3863322f57d07900f75059eb4", null ],
     [ "SetBodyType", "class_c_bullet_rigid_body3_d.html#ac6ba5b1e7d4bd6733672ad04db604f2f", null ],
+    [ "SetCollisionLayer", "class_c_bullet_rigid_body3_d.html#a8bd179e78aa772eef3a010cbc6ce8a9e", null ],
+    [ "SetCollisionMask", "class_c_bullet_rigid_body3_d.html#a2fdd324d7aa334a1c61d32e6b1213ecc", null ],
     [ "SetCollisionShape", "class_c_bullet_rigid_body3_d.html#a43c8bda42807c33cb9dd7f8f05c7c431", null ],
     [ "SetEnabled", "class_c_bullet_rigid_body3_d.html#a18ada0f5012863bef93dc205a1894931", null ],
     [ "SetFriction", "class_c_bullet_rigid_body3_d.html#ab1b03e98141776b6b9b9d931db891f9b", null ],
@@ -38,5 +43,6 @@ var class_c_bullet_rigid_body3_d =
     [ "SetPosition", "class_c_bullet_rigid_body3_d.html#a0f1cb3e54e14684a308d0b7c75529a03", null ],
     [ "SetRestitution", "class_c_bullet_rigid_body3_d.html#a2f9647283661a586784eb5548d561e8f", null ],
     [ "SetRollingFriction", "class_c_bullet_rigid_body3_d.html#a13db9bde4a5fe2a7852310b0511d0b53", null ],
-    [ "SetRotation", "class_c_bullet_rigid_body3_d.html#a74f4c46422e228c8df30b456c3efe8b9", null ]
+    [ "SetRotation", "class_c_bullet_rigid_body3_d.html#a74f4c46422e228c8df30b456c3efe8b9", null ],
+    [ "SetSleepThreshold", "class_c_bullet_rigid_body3_d.html#ac0fcb2862919cf49402f4e066cbd3d5f", null ]
 ];

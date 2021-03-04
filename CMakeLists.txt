@@ -333,6 +333,7 @@ add_executable(PostEffectSample Source/Samples/06_PostEffect/Main.cpp)
 add_executable(SkySample Source/Samples/07_Sky/Main.cpp)
 add_executable(PhysicsSample Source/Samples/08_Physics/Main.cpp)
 #
+add_executable(MathSandbox Source/Samples/97_MathSandbox/Main.cpp)
 add_executable(Test2D ${SOURCES_99_TEST2D})
 add_executable(Labirynth ${SOURCES_98_LABIRYNTH})
 
@@ -349,6 +350,7 @@ if(DEV_BUILD)
 	target_compile_definitions(SkySample PUBLIC ${PPDEFS})
 	target_compile_definitions(PhysicsSample PUBLIC ${PPDEFS})
 	#
+	target_compile_definitions(MathSandbox PUBLIC ${PPDEFS})
 	target_compile_definitions(Test2D PUBLIC ${PPDEFS})
 	target_compile_definitions(Labirynth PUBLIC ${PPDEFS})
 endif()
@@ -403,6 +405,7 @@ target_include_directories(PostEffectSample PUBLIC ${INC_BASE})
 target_include_directories(SkySample PUBLIC ${INC_BASE})
 target_include_directories(PhysicsSample PUBLIC ${INC_BASE})
 #
+target_include_directories(MathSandbox PUBLIC ${INC_BASE})
 target_include_directories(Test2D PUBLIC ${INC_BASE})
 target_include_directories(Labirynth PUBLIC ${INC_BASE})
 
@@ -446,6 +449,7 @@ target_link_libraries(PostEffectSample ${LIBRARIES})
 target_link_libraries(SkySample ${LIBRARIES})
 target_link_libraries(PhysicsSample ${LIBRARIES})
 #
+target_link_libraries(MathSandbox ${LIBRARIES})
 target_link_libraries(Test2D ${LIBRARIES})
 target_link_libraries(Labirynth ${LIBRARIES})
 
@@ -473,5 +477,6 @@ target_compile_options(PostEffectSample PRIVATE ${CMP_OPT})
 target_compile_options(SkySample PRIVATE ${CMP_OPT})
 target_compile_options(PhysicsSample PRIVATE ${CMP_OPT})
 #
+target_compile_options(MathSandbox PRIVATE ${CMP_OPT})
 target_compile_options(Test2D PRIVATE ${CMP_OPT})
 target_compile_options(Labirynth PRIVATE ${CMP_OPT})

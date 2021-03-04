@@ -78,7 +78,6 @@ var class_c_entity =
     [ "SetParent", "class_c_entity.html#a5a3a512cbe2762f4590004169ea3d70d", null ],
     [ "SetRendered", "class_c_entity.html#aaae1c42834ad3850313e096cf9700552", null ],
     [ "SetTag", "class_c_entity.html#a232944313966ddae26c362d284d11f27", null ],
-    [ "SetTransform", "class_c_entity.html#aa9eb55d553fd03eb7ec35e220d731bcb", null ],
     [ "SetUpdated", "class_c_entity.html#a34a8b9fea9d092538a7bdfa3fba3c250", null ],
     [ "SetWorld", "class_c_entity.html#a6d52eee2d26c2cdae9641ebec54dd3f9", null ],
     [ "Subscribe", "class_c_entity.html#a7f05d7f84920454b8a259ac00c37f9b3", null ],

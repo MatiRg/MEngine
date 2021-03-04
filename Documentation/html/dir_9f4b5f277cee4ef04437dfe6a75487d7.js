@@ -20,8 +20,6 @@ var dir_9f4b5f277cee4ef04437dfe6a75487d7 =
     [ "Scene.hpp", "_scene_8hpp.html", [
       [ "CScene", "class_c_scene.html", "class_c_scene" ]
     ] ],
-    [ "Transform.cpp", "_transform_8cpp.html", null ],
-    [ "Transform.hpp", "_transform_8hpp.html", "_transform_8hpp" ],
     [ "World.cpp", "_world_8cpp.html", null ],
     [ "World.hpp", "_world_8hpp.html", [
       [ "CWorld", "class_c_world.html", "class_c_world" ]

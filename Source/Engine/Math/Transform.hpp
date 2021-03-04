@@ -106,10 +106,29 @@ public:
     //! Local Space
     void Rotate(const Quaternion&);
 
+    // World Space
+    void LookAt(CTransform* Target, const Vector3& Up = Vector3::UP) { LookAt(Target->GetWorldPosition(), Up); }
+    // World Space
+    void LookAt(const CTransform& Target, const Vector3& Up = Vector3::UP) { LookAt(Target.GetWorldPosition(), Up); }
+    // World Space
+    void LookAt(const Vector3& Target, const Vector3& Up = Vector3::UP);
+
+    // World Space, Degrees
+    void RotateAround(CTransform* Point, const Vector3& Axis, const float Angle) { RotateAround(Point->GetWorldPosition(), Axis, Angle); }
+    // World Space, Degrees
+    void RotateAround(const CTransform& Point, const Vector3& Axis, const float Angle) { RotateAround(Point.GetWorldPosition(), Axis, Angle); }
+    // World Space, Degrees
+    void RotateAround(const Vector3& Point, const Vector3& Axis, const float Angle);
+
+    Vector3 LocalToWorld(const Vector3& Point) { return GetWorldMatrix() * Point; }
+    Vector3 WorldToLocal(const Vector3& Point) { return GetInvWorldMatrix() * Point; }
+
     const Matrix4& GetMatrix() const;
     const Matrix4& GetInvMatrix() const;
 
+    // Can be Used to Convert Local to World and For Rendering
     const Matrix4& GetWorldMatrix() const;
+    // Can be Used to Convert World to Local
     const Matrix4& GetInvWorldMatrix() const;
 
     // Key, Callback

@@ -2,10 +2,11 @@ var class_c_o_g_l_texture2_d =
 [
     [ "COGLTexture2D", "class_c_o_g_l_texture2_d.html#a6219f9dc6bd96f58370e0e0672f5600c", null ],
     [ "~COGLTexture2D", "class_c_o_g_l_texture2_d.html#a27be984f52c3016a9237d6d15cffc2b6", null ],
-    [ "CreateAsRenderSurface", "class_c_o_g_l_texture2_d.html#adfc33628367e98e17fa79e8ef1d80a84", null ],
+    [ "CreateAsRenderSurface", "class_c_o_g_l_texture2_d.html#a25d8f5d0ce918e18ca92d9deeed5512a", null ],
     [ "CreateFromSurface", "class_c_o_g_l_texture2_d.html#a96883f4da660338e578c458be58a7abe", null ],
     [ "GetAnisotropicFiltering", "class_c_o_g_l_texture2_d.html#a1aa8547528a26f4a83b50a2303608071", null ],
     [ "GetFilter", "class_c_o_g_l_texture2_d.html#a4d0f88468373d36a1354ae94b32507ff", null ],
+    [ "GetGLFormat", "class_c_o_g_l_texture2_d.html#ab9759440c7040ff6bfe97ef05d319022", null ],
     [ "GetHandle", "class_c_o_g_l_texture2_d.html#aa504563312f8707dfd8d9ce8e26f190e", null ],
     [ "GetHeight", "class_c_o_g_l_texture2_d.html#a4b8ac52d9505d3a6f998c88132985574", null ],
     [ "GetRenderTargetType", "class_c_o_g_l_texture2_d.html#aebdefec1ed5438df622ae1037172998a", null ],

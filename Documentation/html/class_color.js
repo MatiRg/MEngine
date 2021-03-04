@@ -18,5 +18,9 @@ var class_color =
     [ "SetA", "class_color.html#aefde5fff58076102672df5ebf7be95aa", null ],
     [ "SetB", "class_color.html#a688971a7f90d79d4eed1391a706b1adc", null ],
     [ "SetG", "class_color.html#a10e71bdcf4cbe111010c0ee63b6698d5", null ],
-    [ "SetR", "class_color.html#a72bef5041ec405eb6ee500c04256f1ce", null ]
+    [ "SetR", "class_color.html#a72bef5041ec405eb6ee500c04256f1ce", null ],
+    [ "a", "class_color.html#a98047aee65fc3d825f88a76da728fd27", null ],
+    [ "b", "class_color.html#a33e482be18d6ea31d2b403bee13683b7", null ],
+    [ "g", "class_color.html#a5defbb21620e480e556181772d665f34", null ],
+    [ "r", "class_color.html#a3958a556b47d2de3dd45c75aac833c20", null ]
 ];

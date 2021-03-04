@@ -40,6 +40,7 @@ var NAVTREE =
         [ "All", "functions.html", "functions_dup" ],
         [ "Functions", "functions_func.html", "functions_func" ],
         [ "Variables", "functions_vars.html", null ],
+        [ "Typedefs", "functions_type.html", null ],
         [ "Related Functions", "functions_rela.html", null ]
       ] ]
     ] ],
@@ -59,20 +60,22 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "98___labirynth_2_entry_point_8cpp.html",
-"_functions_8cpp.html",
-"_physics_2_rigid_body3_d_8hpp.html",
-"_utils_8hpp.html#acb9e93c28d06bf5df3237dd3a25c8729",
-"class_c_box2_d_physics_world2_d.html#a1e692465c7e2a3ff5f6f3c1d1a129583",
-"class_c_engine_updater.html#a7be4e661391ae3fbefe226415cacca69",
-"class_c_level2.html#a9302b98e4fb8c5b947a260ac11fd39df",
-"class_c_null_sound_data.html#a9160322066676650afa278800a0cc8a0",
-"class_c_renderable3_d.html#a4101b21c146cacb14549f6c75b2fb1ea",
-"class_c_s_f_m_l_sound.html#ac54e3c2d53d8d78c69038e6db7a805cd",
-"class_c_x_m_l_object.html#a69c5c0522a68db3f5988b7b7b32a507a",
-"class_i_physics_world2_d.html#ac0fe20b0ae962345968abf78611ef14f",
-"class_i_texture2_d.html#ad75b1f7224f7887d0a15532e95624476",
-"class_t_vector2.html#a672a09d2dd35a54435fe912e8ecc2caf",
-"namespace_math.html#a726777de2cb69a822ac823c6b5408873"
+"_functions_8cpp.html#a20d9a09517636d043097f51b48a6a292",
+"_non_copyable_8hpp.html",
+"_shader_8hpp.html#a296770f305e85376b6374f85cfbf6208a218021da9a8517e946ebfd95e097e1d3",
+"_x_m_l_8cpp.html#ab99927e3ba0bb5e6fb2a5f92d9f6cb6b",
+"class_c_bullet_physics_world3_d.html#a5011e42724253591b1668043998e7d13",
+"class_c_entity.html#a82edd6fa0c98938994d3f2be07718ae9",
+"class_c_main_app.html#a545f530c30a82ecbfb9c4aa155c2ab93",
+"class_c_o_g_l_im_g_u_i_renderer.html#aa844d3b1c40712a4396c370ad503a7d7",
+"class_c_renderer3_d.html#a7d8facc5c7cec32394a2eb8e1123b6f7",
+"class_c_s_f_m_l_sound_source.html#a76c45ead81a96e19d15bc5ad6db80146",
+"class_c_x_m_l_object.html#a60c52c6275d6ee9c551bea444d8275e0",
+"class_i_physics_world2_d.html#a0768a32f235c131814edcc8a8ca75902",
+"class_i_texture2_d.html#a14867df269845d205d379167dafc78b6",
+"class_rect3.html#ab529936e6ce87e557392cdae63a815a4",
+"globals_defs.html",
+"struct_s_event_window_size.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

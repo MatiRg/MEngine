@@ -108,10 +108,13 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a48c3a621f9971a19bc2ef1181b483595"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb43ccac601014ce523dbc74e955475e"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_frame_buffer.html#afb43ccac601014ce523dbc74e955475e">~IFrameBuffer</a> ()</td></tr>
 <tr class="separator:afb43ccac601014ce523dbc74e955475e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a43e174a5ebd9057004e9ee87f8f5fa0c"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_frame_buffer.html#a43e174a5ebd9057004e9ee87f8f5fa0c">Create</a> ()=0</td></tr>
-<tr class="separator:a43e174a5ebd9057004e9ee87f8f5fa0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41b4ee7125ed26d89ab28a0960624f9e"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_frame_buffer.html#a41b4ee7125ed26d89ab28a0960624f9e">Create</a> (const bool, const int)=0</td></tr>
+<tr class="memdesc:a41b4ee7125ed26d89ab28a0960624f9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Multisample, Samples.  <a href="class_i_frame_buffer.html#a41b4ee7125ed26d89ab28a0960624f9e">More...</a><br /></td></tr>
+<tr class="separator:a41b4ee7125ed26d89ab28a0960624f9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad5afd3300124fb9db5298c0fb5436b29"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_frame_buffer.html#ad5afd3300124fb9db5298c0fb5436b29">IsValid</a> () const =0</td></tr>
 <tr class="separator:ad5afd3300124fb9db5298c0fb5436b29"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac27a161178a94f4aea5f0101ed6030ee"><td class="memItemLeft" align="right" valign="top">virtual bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_frame_buffer.html#ac27a161178a94f4aea5f0101ed6030ee">IsMSAA</a> () const =0</td></tr>
+<tr class="separator:ac27a161178a94f4aea5f0101ed6030ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e3a092fa4c1e3ec7f5221a919d830af"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_i_texture2_d.html">ITexture2D</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_frame_buffer.html#a4e3a092fa4c1e3ec7f5221a919d830af">GetColorAttachment</a> () const =0</td></tr>
 <tr class="separator:a4e3a092fa4c1e3ec7f5221a919d830af"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a13ba6f2f36b4d5403c7b50be377343a8"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="class_i_texture2_d.html">ITexture2D</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_frame_buffer.html#a13ba6f2f36b4d5403c7b50be377343a8">GetDepthAttachment</a> () const =0</td></tr>
@@ -120,6 +123,9 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a3e25b2a7db92d6691e4f1a012358c18c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af41fe35d89ec8e09bcae92815cd22003"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_frame_buffer.html#af41fe35d89ec8e09bcae92815cd22003">UnBind</a> ()=0</td></tr>
 <tr class="separator:af41fe35d89ec8e09bcae92815cd22003"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd04215396c5be4a8c114ed433e73d45"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_i_frame_buffer.html#afd04215396c5be4a8c114ed433e73d45">Blit</a> (<a class="el" href="class_i_frame_buffer.html">IFrameBuffer</a> *)=0</td></tr>
+<tr class="memdesc:afd04215396c5be4a8c114ed433e73d45"><td class="mdescLeft">&#160;</td><td class="mdescRight">Target FBO.  <a href="class_i_frame_buffer.html#afd04215396c5be4a8c114ed433e73d45">More...</a><br /></td></tr>
+<tr class="separator:afd04215396c5be4a8c114ed433e73d45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
@@ -208,8 +214,8 @@ Additional Inherited Members</h2></td></tr>
 
 </div>
 </div>
-<a id="a43e174a5ebd9057004e9ee87f8f5fa0c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a43e174a5ebd9057004e9ee87f8f5fa0c">&#9670;&nbsp;</a></span>Create()</h2>
+<a id="afd04215396c5be4a8c114ed433e73d45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd04215396c5be4a8c114ed433e73d45">&#9670;&nbsp;</a></span>Blit()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -218,8 +224,9 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual bool IFrameBuffer::Create </td>
+          <td class="memname">virtual void IFrameBuffer::Blit </td>
           <td>(</td>
+          <td class="paramtype"><a class="el" href="class_i_frame_buffer.html">IFrameBuffer</a> *&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
@@ -231,7 +238,49 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Implemented in <a class="el" href="class_c_o_g_l_frame_buffer.html#acc89975be7d703250577e5537b24de4a">COGLFrameBuffer</a>.</p>
+<p>Target FBO. </p>
+
+<p>Implemented in <a class="el" href="class_c_o_g_l_frame_buffer.html#a182df995208b3db356bffdcf37a6361a">COGLFrameBuffer</a>.</p>
+
+</div>
+</div>
+<a id="a41b4ee7125ed26d89ab28a0960624f9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41b4ee7125ed26d89ab28a0960624f9e">&#9670;&nbsp;</a></span>Create()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IFrameBuffer::Create </td>
+          <td>(</td>
+          <td class="paramtype">const bool&#160;</td>
+          <td class="paramname">, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int&#160;</td>
+          <td class="paramname">&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Multisample, Samples. </p>
+
+<p>Implemented in <a class="el" href="class_c_o_g_l_frame_buffer.html#a684561f12493d29bfc5c0a0f925ca8eb">COGLFrameBuffer</a>.</p>
 
 </div>
 </div>
@@ -286,6 +335,33 @@ Additional Inherited Members</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Implemented in <a class="el" href="class_c_o_g_l_frame_buffer.html#a47b28a235d8a5e0893ffd672dc710dd3">COGLFrameBuffer</a>.</p>
+
+</div>
+</div>
+<a id="ac27a161178a94f4aea5f0101ed6030ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac27a161178a94f4aea5f0101ed6030ee">&#9670;&nbsp;</a></span>IsMSAA()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual bool IFrameBuffer::IsMSAA </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="class_c_o_g_l_frame_buffer.html#ab878638c6508fa5c68fa73e4f654a340">COGLFrameBuffer</a>.</p>
 
 </div>
 </div>

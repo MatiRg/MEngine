@@ -252,6 +252,30 @@ void CTransform::Rotate(const Quaternion& Delta)
     SetRotation( Rotation*Delta );
 }
 
+void CTransform::LookAt(const Vector3& Target, const Vector3& Up)
+{
+    Vector3 LookDirection = Target - GetWorldPosition();
+    //
+    if (Math::IsEqual(LookDirection, Vector3::ZERO, Math::EPSILON))
+    {
+        return;
+    }
+    //
+    SetWorldRotation(Math::LookRotation(LookDirection, Up));
+}
+
+// https://answers.unity.com/questions/489350/rotatearound-without-transform.html
+void CTransform::RotateAround(const Vector3& Point, const Vector3& Axis, const float Angle)
+{
+    Quaternion Delta{ Axis.Normalized(), Angle };
+    Vector3 Dir = GetWorldPosition() - Point;
+    //
+    Dir = Delta * Dir;
+    SetWorldPosition(Point+Dir);
+    //
+    SetWorldRotation(Delta * GetWorldRotation());
+}
+
 const Matrix4& CTransform::GetMatrix() const
 {
     if (IsDirty())
@@ -343,14 +367,14 @@ void CTransform::RemoveChangedCallback(void* Key)
 void CTransform::MarkDirty()
 {
     Dirty = true;
-    for (const auto& i : Children)
-    {
-        i->MarkDirty();
-    }
-    //
     for (const auto& i : TransformChangedCallback)
     {
         i.second(this);
+    }
+    //
+    for (const auto& i : Children)
+    {
+        i->MarkDirty();
     }
 }
 

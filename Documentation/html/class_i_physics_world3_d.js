@@ -4,7 +4,7 @@ var class_i_physics_world3_d =
     [ "~IPhysicsWorld3D", "class_i_physics_world3_d.html#ac51f8502fe4048d9b97375694f157741", null ],
     [ "CreateBody", "class_i_physics_world3_d.html#a3c31ce0c811c10928b742eb6e2e440dc", null ],
     [ "CreateBoxShape", "class_i_physics_world3_d.html#a41da04d49c87dd9c107d8a42186c3f3e", null ],
-    [ "DebugDraw", "class_i_physics_world3_d.html#a18fafac174e45420261a4b87741f885f", null ],
+    [ "DebugDraw", "class_i_physics_world3_d.html#ab8f0b8f838d564d93f37c358d940a955", null ],
     [ "DestroyBody", "class_i_physics_world3_d.html#a97ffcc6e5e6d308bdd8c21061c0fba27", null ],
     [ "DestroyShape", "class_i_physics_world3_d.html#a983f749484b2879014c7582b17e35f59", null ],
     [ "GetContactCallback", "class_i_physics_world3_d.html#ad4a98aef1eec43d3839d69f1814dee41", null ],

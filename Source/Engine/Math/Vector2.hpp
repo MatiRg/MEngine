@@ -193,6 +193,7 @@ namespace Math
     Vector2 Lerp(const Vector2& a, const Vector2& b, const float t);
     Vector2 Max(const Vector2& a, const Vector2& b);
     Vector2 Min(const Vector2& a, const Vector2& b);
+    bool IsEqual(const Vector2& a, const Vector2& b, const float Eps);
 }
 
 std::ostream& operator<<(std::ostream& Stream, const Vector2& Other);

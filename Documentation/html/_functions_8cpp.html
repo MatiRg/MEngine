@@ -90,6 +90,7 @@ $(document).ready(function(){initNavTree('_functions_8cpp.html',''); initResizab
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="_functions_8hpp_source.html">Functions.hpp</a>&quot;</code><br />
+<code>#include &lt;cmath&gt;</code><br />
 <code>#include &lt;random&gt;</code><br />
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="namespaces"></a>
@@ -99,6 +100,82 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a5d18419010f6ee5fad5591c8c71d49e8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a5d18419010f6ee5fad5591c8c71d49e8">Math::IsEqual</a> (const float a, const float b, const float Eps)</td></tr>
+<tr class="memdesc:a5d18419010f6ee5fad5591c8c71d49e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Not Best - <a href="https://randomascii.wordpress.com/2012/02/25/comparing-floating-point-numbers-2012-edition/">https://randomascii.wordpress.com/2012/02/25/comparing-floating-point-numbers-2012-edition/</a>.  <a href="namespace_math.html#a5d18419010f6ee5fad5591c8c71d49e8">More...</a><br /></td></tr>
+<tr class="separator:a5d18419010f6ee5fad5591c8c71d49e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3985a579db0e7a7fa99b52beeef94142"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a3985a579db0e7a7fa99b52beeef94142">Math::Sign</a> (const float value)</td></tr>
+<tr class="separator:a3985a579db0e7a7fa99b52beeef94142"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55b5ffe71322aa48124c73d864dd5880"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a55b5ffe71322aa48124c73d864dd5880">Math::Max</a> (const float a, const float b)</td></tr>
+<tr class="separator:a55b5ffe71322aa48124c73d864dd5880"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbc5d49e03927a83766ee3e04ec5a3d7"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#acbc5d49e03927a83766ee3e04ec5a3d7">Math::Min</a> (const float a, const float b)</td></tr>
+<tr class="separator:acbc5d49e03927a83766ee3e04ec5a3d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe2a6f7fa7bda190282ca626ce561697"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#afe2a6f7fa7bda190282ca626ce561697">Math::Ceil</a> (const float Val)</td></tr>
+<tr class="separator:afe2a6f7fa7bda190282ca626ce561697"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acbdc51b73a6fac46ac784275ba910ec0"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#acbdc51b73a6fac46ac784275ba910ec0">Math::Floor</a> (const float Val)</td></tr>
+<tr class="separator:acbdc51b73a6fac46ac784275ba910ec0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a643da021bb741751da20c31aaf78e49b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a643da021bb741751da20c31aaf78e49b">Math::Round</a> (const float Val)</td></tr>
+<tr class="separator:a643da021bb741751da20c31aaf78e49b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad9394f7abd7cab33e4e7d82bb59df35f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#ad9394f7abd7cab33e4e7d82bb59df35f">Math::Clamp</a> (const float Val, const float Min, const float Max)</td></tr>
+<tr class="separator:ad9394f7abd7cab33e4e7d82bb59df35f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65ec63865b41808c448267c26792df8d"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a65ec63865b41808c448267c26792df8d">Math::Clamp01</a> (const float Val)</td></tr>
+<tr class="separator:a65ec63865b41808c448267c26792df8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae9347572e5c5826544f7c1560b69c007"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#ae9347572e5c5826544f7c1560b69c007">Math::Mod</a> (const float a, const float b)</td></tr>
+<tr class="separator:ae9347572e5c5826544f7c1560b69c007"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86a08036022b88d286035fbc776a0106"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a86a08036022b88d286035fbc776a0106">Math::Repeat</a> (const float Val, const float Max)</td></tr>
+<tr class="separator:a86a08036022b88d286035fbc776a0106"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a560bec1278252f6c38a37af9b991a3fa"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a560bec1278252f6c38a37af9b991a3fa">Math::Wrap</a> (float Val, float Min, float Max)</td></tr>
+<tr class="separator:a560bec1278252f6c38a37af9b991a3fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a651876abd9ccf8ca8da832e29afa82d4"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a651876abd9ccf8ca8da832e29afa82d4">Math::WrapAngle</a> (float Angle)</td></tr>
+<tr class="separator:a651876abd9ccf8ca8da832e29afa82d4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba0bae1a6f81db8b4d26fa5421c9f16e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#aba0bae1a6f81db8b4d26fa5421c9f16e">Math::DeltaAngle</a> (float Now, float Target)</td></tr>
+<tr class="separator:aba0bae1a6f81db8b4d26fa5421c9f16e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a72f4b90ac602f135ffaea022fc994cc9"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a72f4b90ac602f135ffaea022fc994cc9">Math::DegToRad</a> (const float r)</td></tr>
+<tr class="separator:a72f4b90ac602f135ffaea022fc994cc9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a334132906890e92615358576b81dd8ef"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a334132906890e92615358576b81dd8ef">Math::RadToDeg</a> (const float r)</td></tr>
+<tr class="separator:a334132906890e92615358576b81dd8ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb2c94f7f96f6759fec9ca8eb07ffa4e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#afb2c94f7f96f6759fec9ca8eb07ffa4e">Math::Sqrt</a> (const float r)</td></tr>
+<tr class="separator:afb2c94f7f96f6759fec9ca8eb07ffa4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a821d139e18ad949be90e3849721c6931"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a821d139e18ad949be90e3849721c6931">Math::InvSqrt</a> (const float r)</td></tr>
+<tr class="separator:a821d139e18ad949be90e3849721c6931"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8671e8fcaca7409d10a6098969c9a07"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#ad8671e8fcaca7409d10a6098969c9a07">Math::Pow</a> (const float r, const float t)</td></tr>
+<tr class="separator:ad8671e8fcaca7409d10a6098969c9a07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac936070f958b93fbca0ccc9bba743120"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#ac936070f958b93fbca0ccc9bba743120">Math::Abs</a> (const float r)</td></tr>
+<tr class="separator:ac936070f958b93fbca0ccc9bba743120"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af877ede04028f8e174badb04e41822dd"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#af877ede04028f8e174badb04e41822dd">Math::Log</a> (const float r)</td></tr>
+<tr class="separator:af877ede04028f8e174badb04e41822dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a764265492f9bf8e20d8186ed41e94a8d"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a764265492f9bf8e20d8186ed41e94a8d">Math::Log2</a> (const float r)</td></tr>
+<tr class="separator:a764265492f9bf8e20d8186ed41e94a8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad09bd7d396da3e558ad36bb47ede9a6e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#ad09bd7d396da3e558ad36bb47ede9a6e">Math::Exp</a> (const float r)</td></tr>
+<tr class="separator:ad09bd7d396da3e558ad36bb47ede9a6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b7e3b8a1e387338cf429841830e33aa"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a6b7e3b8a1e387338cf429841830e33aa">Math::Sin</a> (const float r)</td></tr>
+<tr class="separator:a6b7e3b8a1e387338cf429841830e33aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ed3dd763c22f079fa1b63bf641ec846"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a1ed3dd763c22f079fa1b63bf641ec846">Math::Cos</a> (const float r)</td></tr>
+<tr class="separator:a1ed3dd763c22f079fa1b63bf641ec846"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa92cb222ec35d82574d6970277821eba"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#aa92cb222ec35d82574d6970277821eba">Math::Tan</a> (const float r)</td></tr>
+<tr class="separator:aa92cb222ec35d82574d6970277821eba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20d9a09517636d043097f51b48a6a292"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a20d9a09517636d043097f51b48a6a292">Math::Asin</a> (const float r)</td></tr>
+<tr class="separator:a20d9a09517636d043097f51b48a6a292"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74409aa2424a87a78d8f7ae8f0a5259b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a74409aa2424a87a78d8f7ae8f0a5259b">Math::Acos</a> (const float r)</td></tr>
+<tr class="separator:a74409aa2424a87a78d8f7ae8f0a5259b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48ad27320c04f4052b4f1573bd57cf6d"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a48ad27320c04f4052b4f1573bd57cf6d">Math::Atan</a> (const float r)</td></tr>
+<tr class="separator:a48ad27320c04f4052b4f1573bd57cf6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab188810819b76ebee667e53e8133c271"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#ab188810819b76ebee667e53e8133c271">Math::Atan2</a> (const float y, const float x)</td></tr>
+<tr class="separator:ab188810819b76ebee667e53e8133c271"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:accecb5c241a89ccd456bed08eb253c08"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#accecb5c241a89ccd456bed08eb253c08">Math::Lerp</a> (const float a, const float b, const float t)</td></tr>
+<tr class="separator:accecb5c241a89ccd456bed08eb253c08"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeeb85c62d568ea1cf350fe86fd4c8e5a"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#aeeb85c62d568ea1cf350fe86fd4c8e5a">Math::CosineIp</a> (const float a, const float b, const float t)</td></tr>
+<tr class="separator:aeeb85c62d568ea1cf350fe86fd4c8e5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6294e317b2c014f576583f881671ac3"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#ad6294e317b2c014f576583f881671ac3">Math::SmothIp</a> (const float a, const float b, const float t)</td></tr>
+<tr class="separator:ad6294e317b2c014f576583f881671ac3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe16e12db29baa1648f60e77e392d5fe"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#afe16e12db29baa1648f60e77e392d5fe">Math::AccelerationIp</a> (const float a, const float b, const float t)</td></tr>
+<tr class="separator:afe16e12db29baa1648f60e77e392d5fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e1b3fa8f0bffe9c3252dd822eabdc28"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a0e1b3fa8f0bffe9c3252dd822eabdc28">Math::DecelerationIp</a> (const float a, const float b, const float t)</td></tr>
+<tr class="separator:a0e1b3fa8f0bffe9c3252dd822eabdc28"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7acbe7a5ee002443a84edea852a13d24"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a7acbe7a5ee002443a84edea852a13d24">Math::ReMap</a> (const float Value, const float Start1, const float Stop1, const float Start2, const float Stop2)</td></tr>
+<tr class="memdesc:a7acbe7a5ee002443a84edea852a13d24"><td class="mdescLeft">&#160;</td><td class="mdescRight">Value, Old Min, Old Max, New Min, New Max.  <a href="namespace_math.html#a7acbe7a5ee002443a84edea852a13d24">More...</a><br /></td></tr>
+<tr class="separator:a7acbe7a5ee002443a84edea852a13d24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a844422f1a222ea85f704b6ec0c02b319"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a844422f1a222ea85f704b6ec0c02b319">Math::MoveTowards</a> (const float Now, const float Target, const float Delta)</td></tr>
+<tr class="separator:a844422f1a222ea85f704b6ec0c02b319"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a76253838f25bab67118b3ed8f142fc92"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#a76253838f25bab67118b3ed8f142fc92">Math::Random</a> (const int a, const int b)</td></tr>
 <tr class="separator:a76253838f25bab67118b3ed8f142fc92"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac407638847d185871fea6c4a9a791f39"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespace_math.html#ac407638847d185871fea6c4a9a791f39">Math::Random</a> (const float a, const float b)</td></tr>

@@ -4,7 +4,7 @@ var class_c_renderer2_d =
     [ "~CRenderer2D", "class_c_renderer2_d.html#a26aa7683b198b5c1adc9fc2a61d4f107", null ],
     [ "DrawLine", "class_c_renderer2_d.html#a640d2698a9c6d2d93156d1f7ff0fee2a", null ],
     [ "DrawPoint", "class_c_renderer2_d.html#a53cd225d5417cab47d100ce309d65420", null ],
-    [ "DrawPolygon", "class_c_renderer2_d.html#ad847df8e2ba3590fee15eb94b52e5edd", null ],
+    [ "DrawPolygon", "class_c_renderer2_d.html#a60724a8d73a042240dcf2b6c8b378aef", null ],
     [ "DrawRect", "class_c_renderer2_d.html#ae14a6f5673d0cc223ad0d8c45be90241", null ],
     [ "DrawText", "class_c_renderer2_d.html#aaed58bb3a55b350167bb279a656d7a9f", null ],
     [ "DrawTexture", "class_c_renderer2_d.html#ab73864ce243dc645eef9d10e1770b851", null ],
