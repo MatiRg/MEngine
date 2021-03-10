@@ -26,6 +26,7 @@ XML Data format
 ### Structure
 ```xml
 <Material>
+	<Pass>Value</Pass>
 	<Shader Name="Value">
 		<Define Value="Value"/>
 		...
@@ -34,6 +35,7 @@ XML Data format
 	...
 </Material>
 ```
+Pass one of: Solid, Transparent
 Shader only one per Material.
 Name shader name with extension --> Diffuse.shader
 Shader can have none or many defines that costumize shader example Lit, Diffuse Texture, Specular Texture 

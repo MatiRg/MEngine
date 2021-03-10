@@ -21,11 +21,11 @@ enum class EMaterialVariableType
     Texture
 };
 
-namespace Utils
+enum class EPassType
 {
-    std::string MaterialVariableTypeToString(EMaterialVariableType x);
-    EMaterialVariableType MaterialVariableTypeFromString(const std::string& x);
-}
+    Solid,
+    Transparent
+};
 
 class CMaterialVariable
 {
@@ -87,8 +87,8 @@ public:
     bool HasShader() const { return Shader; }
     IShader* GetShader() const { return Shader; }
 
-    void SetPrimitiveType(const EPrimitiveType aPrimitiveType) { PrimitiveType = aPrimitiveType; }
-    EPrimitiveType GetPrimitiveType() const { return PrimitiveType; }
+    void SetPassType(const EPassType aPassType) { PassType = aPassType; }
+    EPassType GetPassType() const { return PassType; }
 private:
     int GetNextTextureIndex();
     CMaterialVariable* CreateOrGetVariable(const std::string&);
@@ -97,7 +97,7 @@ private:
     int TextureIndexPool = 0;
     IShader* Shader = nullptr;
     std::vector<CMaterialVariable*> Variables;
-    EPrimitiveType PrimitiveType = EPrimitiveType::Triangles;
+    EPassType PassType = EPassType::Solid;
 };
 
 class CMaterialManager: public TResourceManager<CMaterial>

@@ -11,3 +11,9 @@ CRenderable3D::~CRenderable3D()
 {
 	ERASE_MEMORY_RECORD(this);
 }
+
+void CRenderable3D::SetMatrix(const Matrix4& aMatrix)
+{ 
+	Matrix = aMatrix; 
+	Position = Matrix.GetTranslation();
+}

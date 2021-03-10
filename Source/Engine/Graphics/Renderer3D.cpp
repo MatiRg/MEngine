@@ -97,6 +97,7 @@ CPostEffect* CRenderer3D::CreatePostEffect(const std::string& ShaderName, const 
 
 void CRenderer3D::Render()
 {
+    // Save State
     bool SavedDepth = Graphics->IsDepthActive();
     EDepthMode SavedDepthMode = Graphics->GetDepthFunction();
     bool SavedCull = Graphics->IsCullActive();
@@ -106,12 +107,37 @@ void CRenderer3D::Render()
     Color SavedClearColor = Graphics->GetClearColor();
     bool SavedBlendActive = Graphics->IsBlendActive();
     EBlendMode SavedBlendMode = Graphics->GetBlendMode();
-    //
     /////////////////////////////////////////////////////////////
-    //
-    MSAAFrameBuffer->Bind();
     DrawCalls = 0;
+    MSAAFrameBuffer->Bind();
     //
+    RenderObjects();
+    //
+    MSAAFrameBuffer->UnBind();
+    // Copy FrameBuffer
+    MSAAFrameBuffer->Blit(DefaultFrameBuffer.get());
+    /////////////////////////////////////////////////////////////
+    // Post Process and Final Render
+    RenderPostEffect();
+    /////////////////////////////////////////////////////////////
+    // Clear Rendered Objects
+    TransparentQueue.clear();
+    SolidQueue.clear();
+    Lights.clear();
+    // ReCreate State
+    Graphics->SetCullActive(SavedCull);
+    Graphics->SetCullMode(SavedCullMode);
+    Graphics->SetFrontFace(SavedFrontFace);
+    Graphics->SetPolygonMode(SavedPolygonMode);
+    Graphics->SetClearColor(SavedClearColor);
+    Graphics->SetBlendMode(SavedBlendMode);
+    Graphics->SetBlendActive(SavedBlendActive);
+    Graphics->SetDepthFunction(SavedDepthMode);
+    Graphics->SetDepthActive(SavedDepth);
+}
+
+void CRenderer3D::RenderObjects()
+{
     Graphics->SetDepthActive(true);
     Graphics->SetDepthFunction(EDepthMode::Less);
     Graphics->SetCullActive(true);
@@ -119,43 +145,40 @@ void CRenderer3D::Render()
     Graphics->SetFrontFace(EFrontFace::CCW);
     Graphics->SetPolygonMode(Wireframe ? EPolygonMode::Line : EPolygonMode::Fill);
     Graphics->SetClearColor(Color(0.0f, 1.0f));
-    Graphics->SetBlendActive(true);
-    Graphics->SetBlendMode(EBlendMode::None);
     Graphics->Clear();
     //
-    for (const auto& i : Renderables)
+    // Solid Pass
+    Graphics->SetBlendActive(false);
+    Graphics->SetBlendMode(EBlendMode::None);
+    //
+    RenderRenderablesVector(SolidQueue);
+    //
+    // Transparent Pass
+    Graphics->SetBlendActive(true);
+    Graphics->SetBlendMode(EBlendMode::Alpha);
+    //
+    std::sort(TransparentQueue.begin(), TransparentQueue.end(), [&](CRenderable3D* rhs, CRenderable3D* lhs) {
+        float D1 = rhs->GetPosition().DistanceSquared(CameraPosition);
+        float D2 = lhs->GetPosition().DistanceSquared(CameraPosition);
+        return D1 > D2;
+    });
+    RenderRenderablesVector(TransparentQueue);
+}
+
+void CRenderer3D::RenderPostEffect()
+{
+    Graphics->SetDepthActive(false);
+    Graphics->SetBlendActive(false);
+    if (Wireframe)
     {
-        CMaterial* Material = i->GetMaterial();
-        IVertexBuffer* Buffer = i->GetVertexBuffer();
-        Material->Bind();
-        // Constants
-        SetupMaterialShaderParameters(i);
-        //
-        Buffer->Bind();
-        Buffer->Draw(Material->GetPrimitiveType());
-        Buffer->UnBind();
-        //
-        Material->UnBind();
-        //
-        ++DrawCalls;
+        Graphics->SetPolygonMode(EPolygonMode::Fill);
     }
-    MSAAFrameBuffer->UnBind();
-    // Copy FrameBuffer
-    MSAAFrameBuffer->Blit(DefaultFrameBuffer.get());
-    //
-    /////////////////////////////////////////////////////////////
-    //
     // Post Process
     std::sort(Effects.begin(), Effects.end(), [](const PostEffectPtr& rhs, const PostEffectPtr& lhs) {
         return rhs->GetOrder() < lhs->GetOrder();
     });
     IFrameBuffer* LastFrameBuffer = DefaultFrameBuffer.get();
     ITexture2D* FinalOutputTexture = LastFrameBuffer->GetColorAttachment();
-    if (Wireframe)
-    {
-        Graphics->SetPolygonMode(EPolygonMode::Fill);
-    }
-    Graphics->SetDepthActive(false);
     for (const auto& i : Effects)
     {
         if (i->IsEnabled())
@@ -171,8 +194,6 @@ void CRenderer3D::Render()
         }
     }
     //
-    /////////////////////////////////////////////////////////////
-    //
     // Final Draw
     Graphics->Clear();
     //
@@ -186,21 +207,6 @@ void CRenderer3D::Render()
     QuadVertexBuffer->UnBind();
     //
     ScreenShader->UnBind();
-    //
-    /////////////////////////////////////////////////////////////
-    //
-    Renderables.clear();
-    Lights.clear();
-    //
-    Graphics->SetCullActive(SavedCull);
-    Graphics->SetCullMode(SavedCullMode);
-    Graphics->SetFrontFace(SavedFrontFace);
-    Graphics->SetPolygonMode(SavedPolygonMode);
-    Graphics->SetClearColor(SavedClearColor);
-    Graphics->SetBlendMode(SavedBlendMode);
-    Graphics->SetBlendActive(SavedBlendActive);
-    Graphics->SetDepthFunction(SavedDepthMode);
-    Graphics->SetDepthActive(SavedDepth);
 }
 
 void CRenderer3D::SetupMaterialShaderParameters(CRenderable3D* Renderable)
@@ -258,6 +264,26 @@ void CRenderer3D::SetupMaterialShaderParameters(CRenderable3D* Renderable)
     }
 }
 
+void CRenderer3D::RenderRenderablesVector(const Renderable3DVec& Data)
+{
+    for (const auto& i : Data)
+    {
+        CMaterial* Material = i->GetMaterial();
+        IVertexBuffer* Buffer = i->GetVertexBuffer();
+        Material->Bind();
+        // Constants
+        SetupMaterialShaderParameters(i);
+        //
+        Buffer->Bind();
+        Buffer->Draw(i->GetPrimitiveType());
+        Buffer->UnBind();
+        //
+        Material->UnBind();
+        //
+        ++DrawCalls;
+    }
+}
+
 void CRenderer3D::AddRenderable(CRenderable3D* aRenderable)
 {
     if (!aRenderable)
@@ -274,7 +300,15 @@ void CRenderer3D::AddRenderable(CRenderable3D* aRenderable)
     {
         if (aRenderable->HasMaterial() && aRenderable->HasVertexBuffer() && aRenderable->GetMaterial()->HasShader())
         {
-            Renderables.push_back(aRenderable);
+            EPassType Pass = aRenderable->GetMaterial()->GetPassType();
+            if (Pass == EPassType::Solid)
+            {
+                SolidQueue.push_back(aRenderable);
+            }
+            else
+            {
+                TransparentQueue.push_back(aRenderable);
+            }
         }
         else
         {

@@ -58,13 +58,17 @@ public:
     int GetDrawCalls() const { return DrawCalls; }
 private:
     void SetupMaterialShaderParameters(CRenderable3D*);
+    void RenderRenderablesVector(const Renderable3DVec&);
+    void RenderObjects();
+    void RenderPostEffect();
 private:
     IGraphics* Graphics = nullptr;
     CResources* Resources = nullptr;
     Matrix4 ViewMatrix;
     Matrix4 ProjectionMatrix;
     Vector3 CameraPosition;
-    std::vector<CRenderable3D*> Renderables;
+    Renderable3DVec SolidQueue;
+    Renderable3DVec TransparentQueue;
     std::vector<CLight*> Lights;
     std::unique_ptr<IFrameBuffer> MSAAFrameBuffer;
     std::unique_ptr<IFrameBuffer> DefaultFrameBuffer;

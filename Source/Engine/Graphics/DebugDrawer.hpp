@@ -49,5 +49,5 @@ private:
     std::unique_ptr<IVertexBuffer> Buffer;
     IShader* Shader = nullptr;
     std::unique_ptr<CMaterial> Material;
-    CRenderable3D Renderable;
+    CRenderable3D LineRenderable;
 };

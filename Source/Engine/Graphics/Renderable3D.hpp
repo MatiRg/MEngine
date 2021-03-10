@@ -8,7 +8,7 @@
 
 enum class ERenderableType
 {
-    Solid,
+    Object,
     Light
 };
 
@@ -28,12 +28,21 @@ public:
     IVertexBuffer* GetVertexBuffer() const { return VertexBuffer; };
     void SetVertexBuffer(IVertexBuffer* aVertexBuffer) { VertexBuffer = aVertexBuffer; }
 
-    void SetMatrix(const Matrix4& aMatrix) { Matrix = aMatrix; }
+    void SetPrimitiveType(const EPrimitiveType aPrimitiveType) { PrimitiveType = aPrimitiveType; }
+    EPrimitiveType GetPrimitiveType() const { return PrimitiveType; }
+
+    void SetMatrix(const Matrix4&);
     const Matrix4& GetMatrix() const { return Matrix; }
+
+    const Vector3& GetPosition() const { return Position; }
 protected:
     Matrix4 Matrix;
     CMaterial* Material = nullptr;
     IVertexBuffer* VertexBuffer = nullptr;
+    EPrimitiveType PrimitiveType = EPrimitiveType::Triangles;
 private:
-    ERenderableType Type;
+    ERenderableType Type = ERenderableType::Object;
+    Vector3 Position;
 };
+
+using Renderable3DVec = std::vector<CRenderable3D*>;

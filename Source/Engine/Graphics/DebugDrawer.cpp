@@ -9,7 +9,7 @@ CDebugDrawer::CDebugDrawer(CRenderer3D* aRenderer3D, IGraphics* aGraphics, CReso
     Renderer3D(aRenderer3D),
     Graphics(aGraphics),
     Resources(aResources),
-    Renderable(ERenderableType::Solid)
+    LineRenderable(ERenderableType::Object)
 {
 }
 
@@ -40,11 +40,11 @@ bool CDebugDrawer::Init(const SEngineParams&)
 
     Material = std::make_unique<CMaterial>();
     Material->SetShader(Shader);
-    Material->SetPrimitiveType(EPrimitiveType::Lines);
 
-    Renderable.SetMaterial(Material.get());
-    Renderable.SetVertexBuffer(Buffer.get());
-    Renderable.SetMatrix(Matrix4::IDENTITY);
+    LineRenderable.SetMaterial(Material.get());
+    LineRenderable.SetVertexBuffer(Buffer.get());
+    LineRenderable.SetPrimitiveType(EPrimitiveType::Lines);
+    LineRenderable.SetMatrix(Matrix4::IDENTITY);
 
     LOG( ESeverity::Info ) << "DebugDrawer - Init\n";
     return true;
@@ -80,7 +80,7 @@ void CDebugDrawer::OnRender()
     {
         Buffer->SetData(EVertexElement::Position, Positions);
         Buffer->SetData(EVertexElement::Color, Colors);
-        Renderer3D->AddRenderable(&Renderable);
+        Renderer3D->AddRenderable(&LineRenderable);
     }
 }
 

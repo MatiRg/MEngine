@@ -1,4 +1,5 @@
 <Material>
+	<Pass>Solid</Pass>
 	<Shader Name="Default.shader">
 		<Define Value="IS_LIT"/>
 	</Shader>

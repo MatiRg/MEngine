@@ -7,7 +7,7 @@
 
 CMeshRenderer::CMeshRenderer(CEngine* aEngine): 
     IComponent(aEngine),
-    Renderable(ERenderableType::Solid)
+    Renderable(ERenderableType::Object)
 {
 }
 

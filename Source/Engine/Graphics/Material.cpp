@@ -5,6 +5,90 @@
 #include "../Resources/Resources.hpp"
 #include <unordered_map>
 
+namespace Details
+{
+    std::string MaterialVariableTypeToString(EMaterialVariableType x)
+    {
+        switch (x)
+        {
+        case EMaterialVariableType::Int:
+            return "Int";
+        case EMaterialVariableType::Float:
+            return "Float";
+        case EMaterialVariableType::Vector2:
+            return "Vector2";
+        case EMaterialVariableType::Vector3:
+            return "Vector3";
+        case EMaterialVariableType::Vector4:
+            return "Vector4";
+        case EMaterialVariableType::Color:
+            return "Color";
+        case EMaterialVariableType::Texture:
+            return "Texture";
+        case EMaterialVariableType::None:
+        default:
+            return "";
+        }
+    }
+
+    EMaterialVariableType MaterialVariableTypeFromString(const std::string& x)
+    {
+        static std::unordered_map<std::string, EMaterialVariableType> LookUp = {
+            {"int", EMaterialVariableType::Int},
+            {"float", EMaterialVariableType::Float},
+            {"vector2", EMaterialVariableType::Vector2},
+            {"vector3", EMaterialVariableType::Vector3},
+            {"vector4", EMaterialVariableType::Vector4},
+            {"color", EMaterialVariableType::Color},
+            {"texture", EMaterialVariableType::Texture}
+        };
+        std::string Tmp = Utils::ToLower(x);
+
+        if (LookUp.count(Tmp))
+        {
+            return LookUp.at(Tmp);
+        }
+        else
+        {
+            return EMaterialVariableType::None;
+        }
+    }
+
+    //
+
+    std::string PassTypeToString(EPassType x)
+    {
+        switch (x)
+        {
+        case EPassType::Transparent:
+            return "Transparent";
+        case EPassType::Solid:
+        default:
+            return "Solid";
+        }
+    }
+
+    EPassType PassTypeFromString(const std::string& x)
+    {
+        static std::unordered_map<std::string, EPassType> LookUp = {
+            {"transparent", EPassType::Transparent},
+            {"solid", EPassType::Solid}
+        };
+        std::string Tmp = Utils::ToLower(x);
+
+        if (LookUp.count(Tmp))
+        {
+            return LookUp.at(Tmp);
+        }
+        else
+        {
+            return EPassType::Solid;
+        }
+    }
+}
+
+//
+
 CMaterialVariable::CMaterialVariable(CMaterial* aMaterial, const std::string& aName):
     Material(aMaterial),
     Name(aName)
@@ -94,58 +178,6 @@ void CMaterialVariable::Bind(IShader* Shader)
 }
 
 //
-namespace Utils
-{
-
-    std::string MaterialVariableTypeToString(EMaterialVariableType x)
-    {
-        switch (x)
-        {
-        case EMaterialVariableType::Int:
-            return "Int";
-        case EMaterialVariableType::Float:
-            return "Float";
-        case EMaterialVariableType::Vector2:
-            return "Vector2";
-        case EMaterialVariableType::Vector3:
-            return "Vector3";
-        case EMaterialVariableType::Vector4:
-            return "Vector4";
-        case EMaterialVariableType::Color:
-            return "Color";
-        case EMaterialVariableType::Texture:
-            return "Texture";
-        case EMaterialVariableType::None:
-        default:
-            return "";
-        }
-    }
-
-    EMaterialVariableType MaterialVariableTypeFromString(const std::string& x)
-    {
-        static std::unordered_map<std::string, EMaterialVariableType> LookUp = {
-            {"int", EMaterialVariableType::Int},
-            {"float", EMaterialVariableType::Float},
-            {"vector2", EMaterialVariableType::Vector2},
-            {"vector3", EMaterialVariableType::Vector3},
-            {"vector4", EMaterialVariableType::Vector4},
-            {"color", EMaterialVariableType::Color},
-            {"texture", EMaterialVariableType::Texture}
-        };
-        std::string Tmp = Utils::ToLower(x);
-
-        if (LookUp.count(Tmp))
-        {
-            return LookUp.at(Tmp);
-        }
-        else
-        {
-            return EMaterialVariableType::None;
-        }
-    }
-}
-
-//
 
 CMaterial::CMaterial():
     IResource("")
@@ -181,6 +213,16 @@ bool CMaterial::Load(CResources* Resources, const ResourceCreateMap&)
     {
         LOG(ESeverity::Error) << "No Root Element in Material File - " << GetPath() << "\n";
         return false;
+    }
+
+    CXMLElement* PassTypeXML = Root->GetElement("Pass");
+    if (PassTypeXML)
+    {
+        PassType = Details::PassTypeFromString(PassTypeXML->GetString());
+    }
+    else
+    {
+        PassType = EPassType::Solid;
     }
 
     CXMLElement* ShaderElement = Root->GetElement("Shader");
@@ -232,7 +274,7 @@ bool CMaterial::Load(CResources* Resources, const ResourceCreateMap&)
             continue;
         }
 
-        EMaterialVariableType VarType = Utils::MaterialVariableTypeFromString(TmpType);
+        EMaterialVariableType VarType = Details::MaterialVariableTypeFromString(TmpType);
         if (VarType == EMaterialVariableType::None)
         {
             LOG(ESeverity::Warning) << "Invalid Converted EMaterialVariableType in Material File - " << GetPath() << "\n";
