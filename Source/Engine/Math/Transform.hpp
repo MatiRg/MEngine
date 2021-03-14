@@ -48,9 +48,13 @@ public:
     std::size_t GetChildrenCount() const { return Children.size(); }
 
     //! Local Space
+    void SetPosition(const float x, const float y, const float z, const bool Silent = false) { SetPosition({x,y,z}, Silent); }
+    //! Local Space
     void SetPosition(const Vector3& aPosition, const bool Silent = false);
     //! Local Space
     const Vector3& GetPosition() const { return Position; }
+    //! Local Space
+    void SetScale(const float x, const float y, const float z, const bool Silent = false) { SetScale({ x,y,z }, Silent); }
     //! Local Space
     void SetScale(const Vector3& aScale, const bool Silent = false);
     //! Local Space
@@ -61,9 +65,13 @@ public:
     const Quaternion& GetRotation() const { return Rotation; }
 
     //! World Space
+    void SetWorldPosition(const float x, const float y, const float z, const bool Silent = false) { SetWorldPosition({ x,y,z }, Silent); }
+    //! World Space
     void SetWorldPosition(const Vector3& aPosition, const bool Silent = false);
     //! World Space
     Vector3 GetWorldPosition() const;
+    //! World Space
+    void SetWorldScale(const float x, const float y, const float z, const bool Silent = false) { SetWorldScale({ x,y,z }, Silent); }
     //! World Space
     void SetWorldScale(const Vector3& aScale, const bool Silent = false);
     //! World Space
@@ -89,14 +97,20 @@ public:
     Vector3 GetForward() const;
 
     //! Local Space, Degrees
+    void SetEulerAngles(const float x, const float y, const float z) { SetEulerAngles({x,y,z}); }
+    //! Local Space, Degrees
     void SetEulerAngles(const Vector3&);
     //! Local Space, Degrees
     Vector3 GetEulerAngles() const;
+    //! World Space, Degrees
+    void SetWorldEulerAngles(const float x, const float y, const float z) { SetWorldEulerAngles({ x,y,z }); }
     //! World Space, Degrees
     void SetWorldEulerAngles(const Vector3&);
     //! World Space, Degrees
     Vector3 GetWorldEulerAngles() const;
 
+    //! Local Space
+    void Translate(const float x, const float y, const float z) { Translate({ x,y,z }); }
     //! Local Space
     void Translate(const Vector3&);
     //! Eulers Degrees, Local Space

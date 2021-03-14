@@ -58,6 +58,8 @@ public:
         //
         // Create Camera Object
         CameraObject = World->CreateChild<CEntity>();
+        //
+        CameraObject->GetTransform().SetPosition(0.0f, 2.0f, 0.0f);
         // Create Camera Component Required
         CameraComponent = CameraObject->CreateComponent<CCamera>();
         // Set Aspect Ratio
@@ -69,8 +71,12 @@ public:
         // ... and Far Plane
         CameraComponent->SetFarClipPlane(1000.0f);
 
-        // Set HDR Exposure
-        App->GetRenderer3D()->SetExposure(2.0f);
+        // Water
+        WaterMat = std::make_unique<CMaterial>();
+        WaterMat->SetShader( App->GetResources()->CreateResource<IShader>("Water.shader"));
+        // Water
+        Entity = World->CreateModel<CEntity>("Water.dae", WaterMat.get());
+        Entity->GetTransform().SetEulerAngles(90.0f, 00.0f, 0.0f);
     }
 
     void OnUpdate(const float TimeStep) override
@@ -157,6 +163,8 @@ private:
     CEntity* CameraObject = nullptr;
     // For easier use
     CCamera* CameraComponent = nullptr;
+    //
+    std::unique_ptr<CMaterial> WaterMat;
 };
 
 bool CMainApp::Init()
