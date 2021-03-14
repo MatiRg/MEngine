@@ -11,6 +11,7 @@
 #include <algorithm>
 
 class CEngine;
+class CImGUI;
 class CXMLElement;
 class CWorld;
 class CEntity;
@@ -83,6 +84,7 @@ public:
  */
 class CEntity : public IEntity
 {
+    friend class CWorld;
 public:
     //! All classes should have the same constructor
     CEntity(CEngine*);
@@ -93,8 +95,6 @@ public:
     //! Can be used to access Engine Modules
     CEngine* GetEngine() const { return Engine; }
 
-    //! Used Internally
-    void SetID(const int aID) { ID = aID; }
     //! Get Entity ID - Unique to Entire World
     int GetID() const { return ID; }
 
@@ -102,6 +102,10 @@ public:
     void SetName(const std::string& aName) { Name = aName; }
     //! Get Entity Name - Uniqueness not required
     const std::string& GetName() const { return Name; }
+    //! Get Pure Display Name: Returns Name or <Annoymous> if no Name
+    std::string GetDisplayName() const;
+    //! Unique Namne ID for ImGUI
+    std::string GetUniqueDisplayName() const;
 
     //! Set String Tag - can be used to group Entities
     void SetTag(const std::string& aTag) { Tag = aTag; }
@@ -429,6 +433,9 @@ protected:
     bool Load(CXMLElement*);
     bool Save(CXMLElement*);
 private:
+    // Used Internally
+    void SetID(const int aID) { ID = aID; }
+    //
     static void ProcessMeshNode(CEntity*, CMeshNode*, CMaterial*);
     //
     void BeginFrame(const EBeginFrame&);

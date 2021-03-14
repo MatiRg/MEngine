@@ -4,6 +4,7 @@
 #include "../Engine/Engine.hpp"
 #include "../System/System.hpp"
 #include "../Graphics/Renderer3D.hpp"
+#include "../UI/ImGUI.hpp"
 
 CWorld::CWorld(CEngine* aEngine):
     CEntity(aEngine)

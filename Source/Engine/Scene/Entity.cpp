@@ -1,13 +1,15 @@
 #include "Entity.hpp"
 #include "Scene.hpp"
 #include "World.hpp"
+#include "Components/MeshRenderer.hpp"
 #include "../Core/Log.hpp"
 #include "../Engine/Engine.hpp"
 #include "../Core/XML.hpp"
+#include "../Core/Utils.hpp"
 #include "../System/MemoryManager.hpp"
 #include "../Resources/Resources.hpp"
 #include "../Graphics/Model.hpp"
-#include "Components/MeshRenderer.hpp"
+#include "../UI/ImGUI.hpp"
 
 CEntity::CEntity(CEngine* aEngine) :
     Engine(aEngine),
@@ -33,6 +35,16 @@ CEntity::~CEntity()
     UnSubscribe();
     //
     ERASE_MEMORY_RECORD(this);
+}
+
+std::string CEntity::GetDisplayName() const
+{
+    return Name.empty() ? "<Annoymous>" : Name;
+}
+
+std::string CEntity::GetUniqueDisplayName() const
+{
+    return GetDisplayName() + " - " + Utils::ToString(GetID());
 }
 
 bool CEntity::Load(CXMLElement* Root)

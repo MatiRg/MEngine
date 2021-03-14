@@ -21,13 +21,13 @@ public:
         Path(""),
         Name(aName)
     {
-        LOG( ESeverity::Debug ) << "Resource Created - " << (Name.empty() ? "<Annoymous>" : Name) << "\n";
+        LOG( ESeverity::Debug ) << "Resource Created - " << GetDisplayName() << "\n";
         ADD_MEMORY_RECORD(this);
     }
 
     virtual ~IResource() 
     {
-        LOG( ESeverity::Debug ) << "Resource Destroyed - " << (Name.empty() ? "<Annoymous>" : Name) << "\n";
+        LOG( ESeverity::Debug ) << "Resource Destroyed - " << GetDisplayName() << "\n";
         ERASE_MEMORY_RECORD(this);
     }
 
@@ -45,6 +45,8 @@ public:
 
     const std::string& GetName() const { return Name; }
     const std::string& GetPath() const { return Path; }
+    //! For ImGUI ...
+    std::string GetDisplayName() const { return Name.empty() ? "<Annoymous>" : Name; }
 protected:
     bool Valid = false;
     std::string Path; // Full Path

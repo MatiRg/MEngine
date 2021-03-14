@@ -63,12 +63,14 @@ public:
     //! Name, Value
     void InputVector4(const std::string&, Vector4&);
     //! Name, Value
+    void InputColor(const std::string&, Color&);
+    //! Name, Value
     void InputRect2(const std::string&, Rect2&);
     //! Name
     bool Button(const std::string&);
     //1 Next widget is in same line
     void SameLine();
-    //! Collapsible Header, Name
+    //! Collapsible Header, Name. Return true if Opened
     bool Header(const std::string&);
 
     //! Name/ID

@@ -301,6 +301,11 @@ void CImGUI::InputVector4(const std::string& Caption, Vector4& Value)
     ImGui::InputFloat4( Caption.c_str(), &Value.x );
 }
 
+void CImGUI::InputColor(const std::string& Caption, Color& Value)
+{
+    ImGui::InputFloat4(Caption.c_str(), &Value.r);
+}
+
 void CImGUI::InputRect2(const std::string& Caption, Rect2& Value)
 {
     std::array<float, 4> Tmp = {Value.GetX(), Value.GetY(), Value.GetWidth(), Value.GetHeight()};

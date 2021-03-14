@@ -36,8 +36,12 @@ void CPlayerObject::OnUpdate(const float DT)
 {
 	TotalTime += DT;
 	//
-	MoveCamera(DT);
-	MovePlayer(DT);
+	CLevel2* Level2 = Engine->GetUserUpdater()->GetUpdatable<CLevel2>();
+	if (!Level2->IsUsingUI())
+	{
+		MoveCamera(DT);
+		MovePlayer(DT);
+	}
 }
 
 void CPlayerObject::MoveCamera(const float)
@@ -428,6 +432,12 @@ void CLevel2::OnUpdate(const float TimeStep)
 	{
 		App->GetRenderer3D()->SetWireframe(!App->GetRenderer3D()->GetWireframe());
 	}
+	// UI
+	if (Input->IsKeyDown(EKey::N))
+	{
+		UseUI = !UseUI;
+		App->GetInput()->SetMouseMode(UseUI ? EMouseMode::Normal : EMouseMode::Relative);
+	}
 }
 
 void CLevel2::OnLateUpdate(const float)
@@ -436,6 +446,10 @@ void CLevel2::OnLateUpdate(const float)
 
 void CLevel2::OnGUI()
 {
+	if (UseUI)
+	{
+		//World->DisplayGUI();
+	}
 }
 
 void CLevel2::OnRender()

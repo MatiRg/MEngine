@@ -1,3 +1,8 @@
+IEditor -> CHierarchyEditor, CEntityEditor, CComponentEditor
+IEdit -> SetHeader -> SetCaption, SetSize, SetPosition ..
+Like Unity
+Add Gizmos
+
 Add CMaterial Options -> Texture Filter/Ani, Double Sided, Blend Mode/Enabled, Depth Mode/Enabled, Pass Type -> Solid or Transparent
 Rework 2D Rendering to 3D rendering -> Scene Module Part CCamera2D(Ortho) to CCamera
 add reload method to IResource

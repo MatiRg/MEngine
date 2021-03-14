@@ -81,6 +81,8 @@ public:
     void OnRender() override;
     void OnLeave() override;
     void OnExit() override;
+
+    bool IsUsingUI() const { return UseUI; }
 private:
     using MaterialArray = std::array<std::unique_ptr<CMaterial>, 6>;
 private:
@@ -108,4 +110,6 @@ private:
     CPlayerObject* PlayerObject = nullptr;
     CRigidBody3D* PlayerBody = nullptr;
     float PlayerSpeed = 0.75f;
+    //
+    bool UseUI = false;
 };
