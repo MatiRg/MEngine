@@ -4,6 +4,7 @@
 #include "Light.hpp"
 #include "PostEffect.hpp"
 #include "../Engine/EngineModule.hpp"
+#include "../Math/Vector4.hpp"
 #include <vector>
 
 class IGraphics;
@@ -17,7 +18,7 @@ public:
 
     ENGINE_MODULE(CRenderer3D)
 
-        CPostEffect* CreatePostEffect(const std::string& ShaderName, const int Order);
+    CPostEffect* CreatePostEffect(const std::string& ShaderName, const int Order);
 
     // Non Ownership
     void AddRenderable(CRenderable3D*);
@@ -30,6 +31,10 @@ public:
 
     void SetCameraPosition(const Vector3& aVec) { CameraPosition = aVec; }
     const Vector3& GetCameraPosition() const { return CameraPosition; }
+
+    void SetProjectionParams(const float Near, const float Far);
+    const Vector4& GetProjectionParams() const { return ProjectionParams; }
+    const Vector4& GetZBufferParams() const { return ZBufferParams; }
 
     void SetAmbientColor(const Color& v) { AmbientColor = v; }
     const Color& GetAmbientColor() const { return AmbientColor; }
@@ -59,7 +64,8 @@ public:
 private:
     void SetupMaterialShaderParameters(CRenderable3D*);
     void RenderRenderablesVector(const Renderable3DVec&);
-    void RenderObjects();
+    void RenderSolid();
+    void RenderTransparent();
     void RenderPostEffect();
 private:
     IGraphics* Graphics = nullptr;
@@ -67,11 +73,14 @@ private:
     Matrix4 ViewMatrix;
     Matrix4 ProjectionMatrix;
     Vector3 CameraPosition;
+    Vector4 ProjectionParams = Vector4::ONE;
+    Vector4 ZBufferParams = Vector4::ONE;
     Renderable3DVec SolidQueue;
     Renderable3DVec TransparentQueue;
     std::vector<CLight*> Lights;
     std::unique_ptr<IFrameBuffer> MSAAFrameBuffer;
-    std::unique_ptr<IFrameBuffer> DefaultFrameBuffer;
+    std::unique_ptr<IFrameBuffer> SolidFrameBuffer;
+    std::unique_ptr<IFrameBuffer> TransparentFrameBuffer;
     std::unique_ptr<IVertexBuffer> QuadVertexBuffer;
     IShader* ScreenShader = nullptr;
     std::vector<PostEffectPtr> Effects;

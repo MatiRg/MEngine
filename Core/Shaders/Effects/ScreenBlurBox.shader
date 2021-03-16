@@ -33,7 +33,7 @@ void main()
     {    
 		for (int y = -Samples; y <= Samples; y++)
         {    
-			Sum += texture(BackBufferColor,
+			Sum += texture(BackbufferColor,
                 vec2(TexCoords.x + x * BlurSizeH, TexCoords.y + y * BlurSizeV)
             ) / Pow;
 		}

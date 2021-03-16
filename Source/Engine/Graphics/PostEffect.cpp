@@ -137,13 +137,13 @@ void CPostEffect::Bind(IFrameBuffer* OldFrameBuffer)
     Shader->Bind();
     //
     TextureIndexPool = 0;
-    if (Shader->HasUniform("BackBufferColor"))
+    if (Shader->HasUniform("BackbufferColor"))
     {
-        Shader->SetTexture("BackBufferColor", OldFrameBuffer->GetColorAttachment(), TextureIndexPool++);
+        Shader->SetTexture("BackbufferColor", OldFrameBuffer->GetColorAttachment(), TextureIndexPool++);
     }
-    if (Shader->HasUniform("BackBufferDepth"))
+    if (Shader->HasUniform("BackbufferDepth"))
     {
-        Shader->SetTexture("BackBufferDepth", OldFrameBuffer->GetDepthAttachment(), TextureIndexPool++);
+        Shader->SetTexture("BackbufferDepth", OldFrameBuffer->GetDepthAttachment(), TextureIndexPool++);
     }
     if (Shader->HasUniform("PixelSize"))
     {

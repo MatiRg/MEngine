@@ -21,7 +21,7 @@ void main()
 	FragPos = ObjectToModelPos(Position); 
 	Normal = ObjectToWorldNormal(Normal1);
 	#ifdef FLIP_UVS
-	TexCoords = vec2(TexCoords1.x, 1.0 - TexCoords1.y);
+	TexCoords = TransformUV(TexCoords1);
 	#else
 	TexCoords = TexCoords1;
 	#endif

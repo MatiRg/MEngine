@@ -53,7 +53,7 @@ protected:
 
 class CMaterial: public IResource
 {
-    friend CMaterialVariable;
+    friend class CMaterialVariable;
 public:
     CMaterial();
     CMaterial(const std::string&);
@@ -89,6 +89,9 @@ public:
 
     void SetPassType(const EPassType aPassType) { PassType = aPassType; }
     EPassType GetPassType() const { return PassType; }
+
+    // Internal
+    int GetLastTextureIndex() const { return TextureIndexPool; }
 private:
     int GetNextTextureIndex();
     CMaterialVariable* CreateOrGetVariable(const std::string&);

@@ -2,8 +2,6 @@
 #include "Uniforms.inc"
 
 uniform sampler2D Texture;
-uniform float Near;
-uniform float Far;
 
 #ifdef VS
 
@@ -25,7 +23,7 @@ out vec4 Color;
 
 void main()
 {
-	float r = LinearEyeDepth( texture( Texture, TexCoords ).r, Near, Far );
+	float r = LinearEyeDepth( texture( Texture, TexCoords ).r);
 	vec3 val = vec3(r, r, r);
 	Color = vec4(val, 1.0);
 }

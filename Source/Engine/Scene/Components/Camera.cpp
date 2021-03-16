@@ -55,6 +55,7 @@ void CCamera::OnLateUpdate(const float)
     Engine->GetRenderer3D()->SetViewMatrix( GetView() );
     Engine->GetRenderer3D()->SetProjectionMatrix( GetProjection() );
     Engine->GetRenderer3D()->SetCameraPosition( GetOwner()->GetTransform().GetWorldPosition() );
+    Engine->GetRenderer3D()->SetProjectionParams(Near, Far);
 }
 
 void CCamera::SetFOV(const float Value)

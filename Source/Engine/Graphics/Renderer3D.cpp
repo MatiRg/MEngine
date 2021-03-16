@@ -24,11 +24,18 @@ bool CRenderer3D::Init(const SEngineParams&)
         LOG(ESeverity::Fatal) << "Renderer3D: Invalid MSAA Frame Buffer\n";
         return false;
     }
-
-    DefaultFrameBuffer = Graphics->CreateFrameBuffer();
-    if (!DefaultFrameBuffer)
+ 
+    SolidFrameBuffer = Graphics->CreateFrameBuffer();
+    if (!SolidFrameBuffer)
     {
-        LOG(ESeverity::Fatal) << "Renderer3D: Invalid Default Frame Buffer\n";
+        LOG(ESeverity::Fatal) << "Renderer3D: Invalid Solid Frame Buffer\n";
+        return false;
+    }
+
+    TransparentFrameBuffer = Graphics->CreateFrameBuffer();
+    if (!TransparentFrameBuffer)
+    {
+        LOG(ESeverity::Fatal) << "Renderer3D: Invalid Transparent Frame Buffer\n";
         return false;
     }
 
@@ -72,7 +79,8 @@ void CRenderer3D::Exit()
 {
     Effects.clear();
     QuadVertexBuffer.reset();
-    DefaultFrameBuffer.reset();
+    TransparentFrameBuffer.reset();
+    SolidFrameBuffer.reset();
     MSAAFrameBuffer.reset();
     LOG( ESeverity::Info ) << "Renderer3D - Exit\n";
 }
@@ -80,6 +88,16 @@ void CRenderer3D::Exit()
 void CRenderer3D::OnUpdate(const float DT)
 {
     Time += DT;
+}
+
+void CRenderer3D::SetProjectionParams(const float Near, const float Far)
+{ 
+    ProjectionParams = { -1.0f, Near, Far, 1.0f / Far }; 
+    float x = 1.0f - ProjectionParams.z / ProjectionParams.y;
+    float y = ProjectionParams.z / ProjectionParams.y;
+    float z = x / ProjectionParams.z;
+    float w = y / ProjectionParams.z;
+    ZBufferParams = { x, y, z, w };
 }
 
 CPostEffect* CRenderer3D::CreatePostEffect(const std::string& ShaderName, const int Order)
@@ -109,13 +127,18 @@ void CRenderer3D::Render()
     EBlendMode SavedBlendMode = Graphics->GetBlendMode();
     /////////////////////////////////////////////////////////////
     DrawCalls = 0;
-    MSAAFrameBuffer->Bind();
-    //
-    RenderObjects();
-    //
-    MSAAFrameBuffer->UnBind();
-    // Copy FrameBuffer
-    MSAAFrameBuffer->Blit(DefaultFrameBuffer.get());
+    // Set Starting State
+    Graphics->SetDepthActive(true);
+    Graphics->SetDepthFunction(EDepthMode::Less);
+    Graphics->SetCullActive(true);
+    Graphics->SetCullMode(ECullMode::Back);
+    Graphics->SetFrontFace(EFrontFace::CCW);
+    Graphics->SetPolygonMode(Wireframe ? EPolygonMode::Line : EPolygonMode::Fill);
+    Graphics->SetClearColor(Color(0.0f, 1.0f));
+    // Render Solids
+    RenderSolid();
+    // Render Transparent
+    RenderTransparent();
     /////////////////////////////////////////////////////////////
     // Post Process and Final Render
     RenderPostEffect();
@@ -136,15 +159,10 @@ void CRenderer3D::Render()
     Graphics->SetDepthActive(SavedDepth);
 }
 
-void CRenderer3D::RenderObjects()
+void CRenderer3D::RenderSolid()
 {
-    Graphics->SetDepthActive(true);
-    Graphics->SetDepthFunction(EDepthMode::Less);
-    Graphics->SetCullActive(true);
-    Graphics->SetCullMode(ECullMode::Back);
-    Graphics->SetFrontFace(EFrontFace::CCW);
-    Graphics->SetPolygonMode(Wireframe ? EPolygonMode::Line : EPolygonMode::Fill);
-    Graphics->SetClearColor(Color(0.0f, 1.0f));
+    SolidFrameBuffer->Bind();
+    //
     Graphics->Clear();
     //
     // Solid Pass
@@ -153,7 +171,15 @@ void CRenderer3D::RenderObjects()
     //
     RenderRenderablesVector(SolidQueue);
     //
+    SolidFrameBuffer->UnBind();
+}
+
+void CRenderer3D::RenderTransparent()
+{
+    SolidFrameBuffer->Blit(TransparentFrameBuffer.get());
+    TransparentFrameBuffer->Bind();
     // Transparent Pass
+    Graphics->SetDepthActive(true);
     Graphics->SetBlendActive(true);
     Graphics->SetBlendMode(EBlendMode::Alpha);
     //
@@ -163,21 +189,20 @@ void CRenderer3D::RenderObjects()
         return D1 > D2;
     });
     RenderRenderablesVector(TransparentQueue);
+    //
+    TransparentFrameBuffer->UnBind();
 }
 
 void CRenderer3D::RenderPostEffect()
 {
     Graphics->SetDepthActive(false);
     Graphics->SetBlendActive(false);
-    if (Wireframe)
-    {
-        Graphics->SetPolygonMode(EPolygonMode::Fill);
-    }
+    Graphics->SetPolygonMode(EPolygonMode::Fill);
     // Post Process
     std::sort(Effects.begin(), Effects.end(), [](const PostEffectPtr& rhs, const PostEffectPtr& lhs) {
         return rhs->GetOrder() < lhs->GetOrder();
     });
-    IFrameBuffer* LastFrameBuffer = DefaultFrameBuffer.get();
+    IFrameBuffer* LastFrameBuffer = TransparentFrameBuffer.get();
     ITexture2D* FinalOutputTexture = LastFrameBuffer->GetColorAttachment();
     for (const auto& i : Effects)
     {
@@ -212,6 +237,7 @@ void CRenderer3D::RenderPostEffect()
 void CRenderer3D::SetupMaterialShaderParameters(CRenderable3D* Renderable)
 {
     IShader* Shader = Renderable->GetMaterial()->GetShader();
+    CMaterial* Material = Renderable->GetMaterial();
     // Constants
     if (Shader->HasUniform("Model"))
     {
@@ -233,6 +259,14 @@ void CRenderer3D::SetupMaterialShaderParameters(CRenderable3D* Renderable)
     {
         Shader->SetVector3("CameraPosition", CameraPosition);
     }
+    if (Shader->HasUniform("ProjectionParams"))
+    {
+        Shader->SetVector4("ProjectionParams", ProjectionParams);
+    }
+    if (Shader->HasUniform("ZBufferParams"))
+    {
+        Shader->SetVector4("ZBufferParams", ZBufferParams);
+    }
     if (Shader->HasUniform("Time"))
     {
         Shader->SetFloat("Time", Time);
@@ -249,6 +283,7 @@ void CRenderer3D::SetupMaterialShaderParameters(CRenderable3D* Renderable)
         HasLights = true;
         Shader->SetInteger("LightCount", static_cast<int>(Lights.size()));
     }
+    //
     if (HasLights)
     {
         for (std::size_t i = 0u; i < Lights.size(); ++i)
@@ -260,6 +295,14 @@ void CRenderer3D::SetupMaterialShaderParameters(CRenderable3D* Renderable)
             {
                 Shader->SetVector4("LightParam1" + PostFix, { Lights[i]->GetDirection(), 0.0f });
             }
+        }
+    }
+    // Depth
+    if (Material->GetPassType() == EPassType::Transparent)
+    {
+        if (Shader->HasUniform("DepthTexture"))
+        {
+            Shader->SetTexture("DepthTexture", SolidFrameBuffer->GetDepthAttachment(), Material->GetLastTextureIndex() + 1);
         }
     }
 }

@@ -32,13 +32,13 @@ out vec4 Color;
 
 void main()
 {	
-    vec3 InputColor = texture(BackBufferColor, TexCoords).rgb;
-    vec3 Tmp = texture(BackBufferColor, TexCoords).rgb;
+    vec3 InputColor = texture(BackbufferColor, TexCoords).rgb;
+    vec3 Tmp = texture(BackbufferColor, TexCoords).rgb;
 
 	// Sample the color components
-	Tmp.r = texture(BackBufferColor, TexCoords + (PixelSize * Shift)).r;
+	Tmp.r = texture(BackbufferColor, TexCoords + (PixelSize * Shift)).r;
 	Tmp.g = InputColor.g;
-	Tmp.b = texture(BackBufferColor, TexCoords - (PixelSize * Shift)).b;
+	Tmp.b = texture(BackbufferColor, TexCoords - (PixelSize * Shift)).b;
 	// Adjust the strength of the effect
 	Tmp = mix(InputColor, Tmp, Strength);
 

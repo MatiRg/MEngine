@@ -74,6 +74,7 @@ public:
         // Water
         WaterMat = std::make_unique<CMaterial>();
         WaterMat->SetShader( App->GetResources()->CreateResource<IShader>("Water.shader"));
+        WaterMat->SetPassType(EPassType::Transparent);
         // Water
         Entity = World->CreateModel<CEntity>("Water.dae", WaterMat.get());
         Entity->GetTransform().SetEulerAngles(90.0f, 00.0f, 0.0f);
